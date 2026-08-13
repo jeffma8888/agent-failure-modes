@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      # Full history: tests that read git metadata fail forever on a shallow
+      # clone, and that is a documented incident here (INC-0023).
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install pytest
+
+      - name: Leak scan (public structural rules)
+        run: python3 tools/leakscan.py .
+
+      - name: Generated artifacts are in sync with the corpus
+        run: |
+          python3 tools/build.py
+          git diff --exit-code || {
+            echo "::error::Generated files drifted. Run: python3 tools/build.py"
+            exit 1
+          }
+
+      - name: Invariants
+        run: python3 -m pytest tests/ -q

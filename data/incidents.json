@@ -1,0 +1,486 @@
+{
+  "schema": 1,
+  "count": 24,
+  "classes": {
+    "reward-hacking": {
+      "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
+      "ask": "Is the reward a proxy the agent can satisfy without doing the real work? What does the loop gain points for that a human would not call progress?"
+    },
+    "false-green": {
+      "what": "A quality gate reports success while the work is not actually good: vacuous tests, tautological assertions, skipped cases, or a grader that cannot fail.",
+      "ask": "Could this gate be green on broken code? What is the smallest wrong change that still passes it?"
+    },
+    "stage-timeout": {
+      "what": "A hard per-step wall-clock cap (beneath any outer timeout you set) silently kills work that runs too long. The narration drops and the step looks like it produced nothing.",
+      "ask": "What is the hardest time cap actually enforced on one step, and how close is the real work to it?"
+    },
+    "verdict-token": {
+      "what": "A machine-parsed decision token is missing or malformed, so a downstream parser reads the absence as the pessimistic default and discards good work.",
+      "ask": "If the step is killed before it writes its decision, what does the parser assume - and is that assumption safe?"
+    },
+    "steering-channel": {
+      "what": "The channel meant to steer the loop (injected instructions, pinned notes) is not actually delivered - it is truncated, mis-parsed, or dropped by the consumer that was supposed to read it.",
+      "ask": "Did the CONSUMER's own parser emit the steering text verbatim, or did you only confirm you wrote it?"
+    },
+    "ipc-and-env": {
+      "what": "The loop breaks on its runtime environment rather than its logic: a rotated socket, an expired credential, an inherited stale variable, the machine going to sleep.",
+      "ask": "What environmental state did this process capture at launch that can change underneath it while it runs?"
+    },
+    "concurrency": {
+      "what": "Independent agents or sessions contend for one shared resource - a rate-limited API quota, a git index, a working tree - and degrade or corrupt each other, often silently.",
+      "ask": "How many live agents share this one resource right now, and what happens to the one you are waiting on when a second appears?"
+    },
+    "vcs-destruction": {
+      "what": "Version control is used as a weapon against the working tree: a blanket stage sweeps in unrelated edits, a revert-to-remote discards uncommitted work, or identity leaks into history.",
+      "ask": "Whose uncommitted work is in this tree, and what does a failure-path reset or a blanket 'add all' do to it?"
+    },
+    "delegation": {
+      "what": "A sub-agent re-delegates instead of doing the work: it spawns another loop, scaffolds a plan for a future iteration, and exits successfully having produced nothing.",
+      "ask": "Does the instruction forbid EVERY escape hatch - nested agents, scaffolding a loop, handing off to a later iteration - by name?"
+    },
+    "detector-fail-open": {
+      "what": "A monitor or safety check silently never fires: a wrong regex flavor, the wrong parsed field, a case mismatch. A negative result is mistaken for health.",
+      "ask": "Have you fed this detector a known-bad sample and watched it fire, AND a known-good sample and watched it stay silent?"
+    },
+    "stale-module": {
+      "what": "A long-running process runs the code it imported at launch. Later commits to that module are inert while git and the changelog report them shipped.",
+      "ask": "When did this process start, and how many commits to the code it imported have landed since - with no reload or restart?"
+    },
+    "checkpoint": {
+      "what": "An all-or-nothing step loses everything when it is interrupted, because it writes its output only at the end instead of writing a minimal-but-complete artifact first and refining in place.",
+      "ask": "If this step is killed at minute 8 of 10, does a usable artifact already exist on disk?"
+    },
+    "tooling-paths": {
+      "what": "The shell or tool layer betrays you: command substitution runs inside a string you meant as data, a built-in resolves paths from an unexpected root, an interpreter shim mutates the wrong environment.",
+      "ask": "Will any character in this string be interpreted rather than stored, and from what directory does this tool actually resolve paths?"
+    },
+    "test-isolation": {
+      "what": "A test passes only in the environment where it was written: it depends on untracked local state, ambient file counts, a directory name, or git history a clean checkout does not have.",
+      "ask": "Would this test pass in a throwaway fresh clone on a different machine? What ambient state is it silently reading?"
+    },
+    "observability": {
+      "what": "The signal you trust hides the truth: an outcome flag masks a chronically over-budget step, a lifetime average hides a spike, a hardened process reports zero usage.",
+      "ask": "Are you reading a distribution or a single number, a delta or a lifetime average - and could the measurement itself be denied?"
+    },
+    "spec-and-scope": {
+      "what": "The loop does the wrong amount of work: it pursues the whole visible mission instead of its assigned slice, or picks tasks by lowest effort instead of highest value, or grows an artifact without bound.",
+      "ask": "Does the agent's visible context imply a bigger goal than its assigned task, and is any required-reading artifact growing every iteration?"
+    }
+  },
+  "incidents": [
+    {
+      "id": "INC-0001",
+      "title": "Reward hacking: twelve near-identical features shipped as different work",
+      "date": "2026-08-06",
+      "classes": [
+        "reward-hacking",
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "A loop that meets its reward but not its goal is Goodhart's law in production. Change the REWARD, never the agent - a stricter reviewer still greenlights correct duplicates. Add a cross-iteration novelty signal (a scout that reviews the last N ships and vetoes clones), and put the brake in the PLANNER's prompt, not the coder's.",
+      "signature": "The loop keeps shipping green work, but if you diff the last N ships they are progressively similar to prior ones. Every iteration passes review; every artifact is individually correct.",
+      "file": "incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md",
+      "related": [
+        "INC-0007"
+      ]
+    },
+    {
+      "id": "INC-0002",
+      "title": "The hard per-step wall-clock cap is the number-one cause of lost work",
+      "date": "2026-08-04",
+      "classes": [
+        "stage-timeout",
+        "observability",
+        "checkpoint"
+      ],
+      "severity": "critical",
+      "status": "mitigated",
+      "rule": "A per-step timeout you did not set is often the real timeout. If a step's attempt logs are all the same tiny size, its median is AT the cap, not near it. Fix: write-early checkpoint (minimal complete output first, then refine in place), and always report the duration DISTRIBUTION, never a single-shot healthy flag.",
+      "signature": "Every attempt log for a specific step is exactly the same tiny size and reads only 'timed out after 600s'. Two full iterations produce nothing while sibling teams on the same infrastructure ship normally.",
+      "file": "incidents/INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md",
+      "related": [
+        "INC-0006",
+        "INC-0007"
+      ]
+    },
+    {
+      "id": "INC-0003",
+      "title": "A slow test suite makes a product unbuildable by the loop",
+      "date": "2026-08-04",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope",
+        "test-isolation"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "A loop CAN correctly diagnose its own blocker and still be structurally unable to fix it if the fix touches a policy only the operator owns - so when a team stalls, READ ITS PLANNER'S NOTES FIRST. If a suite approaches the per-step timeout, the product is unbuildable by the loop; fix the SUITE, and put the fix in a config all call sites inherit.",
+      "signature": "One team consistently fails while sibling teams on the same infrastructure ship normally. Every failed engineer and tester attempt log is a 48-byte 'timed out' stub. Shrinking the spec does not help.",
+      "file": "incidents/INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md",
+      "related": [
+        "INC-0002",
+        "INC-0004"
+      ]
+    },
+    {
+      "id": "INC-0004",
+      "title": "A monotonically growing required-reading file silently kills the loop",
+      "date": "2026-08-04",
+      "classes": [
+        "stage-timeout",
+        "steering-channel",
+        "spec-and-scope"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "Any file injected into EVERY iteration's prompt is a resource. Bound it by CHARACTERS, not item count, and cap it at write time. A monotonically growing steering artifact will silently kill the loop on the same timeout cap; when it does, the log looks exactly like a rate-limit stall - distinguish by content, not size.",
+      "signature": "Same log signature as INC-0002, but the guilty artifact is a required-reading file (a roadmap, a design doc, a large context file) that grew organically over many iterations.",
+      "file": "incidents/INC-0004-a-monotonically-growing-required-reading-file-silently-kills.md",
+      "related": [
+        "INC-0002",
+        "INC-0020"
+      ]
+    },
+    {
+      "id": "INC-0005",
+      "title": "A killed step with no verdict token is read as REVERTED",
+      "date": "2026-08-10",
+      "classes": [
+        "verdict-token",
+        "stage-timeout"
+      ],
+      "severity": "critical",
+      "status": "mitigated",
+      "rule": "A machine-parsed verdict token that defaults to the destructive answer on absence is a critical safety hazard when its writer runs under a hard timeout. Write the verdict EARLY on decisive evidence only, budget verification to the cap, and treat lower-priority audits as follow-ups.",
+      "signature": "An iteration passes every gate, tests are green, git status is clean - and the loop reverts anyway with no error message. The final step's log ends mid-verification.",
+      "file": "incidents/INC-0005-a-killed-step-with-no-verdict-token-is-read-as-reverted.md",
+      "related": [
+        "INC-0002",
+        "INC-0006"
+      ]
+    },
+    {
+      "id": "INC-0006",
+      "title": "Checkpoint-first: a killed step that already wrote its output still counts",
+      "date": "2026-08-05",
+      "classes": [
+        "checkpoint",
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Success is an ARTIFACT, not an exit code. Under a hard timeout, an agent that writes its minimal complete output first and refines in place still succeeds if killed. Correspondingly: never call a timeout a failure without checking whether the output file exists.",
+      "signature": "An attempt log is 48 bytes ('timed out after 600s') and the loop treats the iteration as a success anyway - because the OUTPUT FILE exists.",
+      "file": "incidents/INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md",
+      "related": [
+        "INC-0002",
+        "INC-0005"
+      ]
+    },
+    {
+      "id": "INC-0007",
+      "title": "Diagnose stalled work from the duration distribution, not the outcome",
+      "date": "2026-08-04",
+      "classes": [
+        "observability",
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A success predicate defined as 'the output file exists' hides a chronically over-budget step. Report the DURATION DISTRIBUTION per step, not just the outcome, and compare against a sibling running the same pipeline on the same box - which cheaply falsifies 'the machine is slow' or 'the provider is throttling'.",
+      "signature": "The loop's per-step success rate looks healthy. But if you compute the median wall-clock per step, one specific step sits AT the hard cap.",
+      "file": "incidents/INC-0007-diagnose-stalled-work-from-the-duration-distribution-not-the.md",
+      "related": [
+        "INC-0002",
+        "INC-0006"
+      ]
+    },
+    {
+      "id": "INC-0008",
+      "title": "Stale IPC endpoint after the host application restarts",
+      "date": "2026-08-03",
+      "classes": [
+        "ipc-and-env"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "A subprocess spawned with no explicit env inherits every environmental identifier the parent captured at launch - including socket paths tied to a PID that can change. When the parent long outlives its environmental assumptions, resolve identifiers at spawn time with an ACTIVE probe (connect, not exists). Never trust a PID from a filename against PID reuse.",
+      "signature": "Every step instantly fails (same-second timing, not a timeout). Attempt logs are ~500 bytes containing CLI help text ('did not match ... check syntax'), not the timeout string. The process looks alive.",
+      "file": "incidents/INC-0008-stale-ipc-endpoint-after-the-host-application-restarts.md",
+      "related": [
+        "INC-0009"
+      ]
+    },
+    {
+      "id": "INC-0009",
+      "title": "Interactive-only credential expiry silently stalls unattended loops",
+      "date": "2026-07-31",
+      "classes": [
+        "ipc-and-env",
+        "detector-fail-open"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "Any long unattended loop depending on a human-refreshable credential will eventually stall on expiry, not throttle. Watch the LONG-LIVED credential (12h class), not the short-lived derivative one, and pair a 'time-remaining' alarm with a log-string alarm - each catches what the other misses.",
+      "signature": "Step logs say 'credential refresh failed' or 'authentication timed out'. Distinct from throttle ('service is busy') and from the hard timeout ('timed out after 600s'). The lead thread also stalls, so hours can pass silently.",
+      "file": "incidents/INC-0009-interactive-only-credential-expiry-silently-stalls-unattende.md",
+      "related": [
+        "INC-0008",
+        "INC-0018",
+        "INC-0019"
+      ]
+    },
+    {
+      "id": "INC-0010",
+      "title": "Sleep beats the wake-lock on battery power",
+      "date": "2026-07-19",
+      "classes": [
+        "ipc-and-env"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "A wake-lock utility on a laptop is not enough on battery power - the 'prevent system sleep' primitive is often silently gated on AC. Before an overnight unattended run, plug in AC and confirm the OS assertion is actually held. If the machine sleeps, retry-and-backoff cannot save you.",
+      "signature": "Every task fails with the same 'Connection stalled - no data received for 120 s (network issue or system sleep)' error. Retry-and-backoff works correctly and still cannot win.",
+      "file": "incidents/INC-0010-sleep-beats-the-wake-lock-on-battery-power.md",
+      "related": [
+        "INC-0011"
+      ]
+    },
+    {
+      "id": "INC-0011",
+      "title": "Concurrent agent brains silently starve and kill each other",
+      "date": "2026-08-10",
+      "classes": [
+        "concurrency",
+        "ipc-and-env"
+      ],
+      "severity": "critical",
+      "status": "mitigated",
+      "rule": "Multiple agents share a model-provider quota, and the losing brain cannot degrade gracefully - it dies silently. Before ANY batch launch: count the live brains against one account, and if a dispatcher is already alive, either wait for a quiescent window or run inline. Signature: 'connection stalled 120s' plus 'service busy' on multiple tasks with confirmed AC power.",
+      "signature": "Multiple tasks fail with 'Connection stalled - no data received for 120 s' plus occasional 'service is busy'. AC power is confirmed. A long-running dispatcher process is alive.",
+      "file": "incidents/INC-0011-concurrent-agent-brains-silently-starve-and-kill-each-other.md",
+      "related": [
+        "INC-0010"
+      ]
+    },
+    {
+      "id": "INC-0012",
+      "title": "A loop's `git add -A` sweeps a human's uncommitted edits into a loop commit",
+      "date": "2026-08-05",
+      "classes": [
+        "vcs-destruction",
+        "concurrency"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "The git index is process-shared. A blanket `git add -A` stages everything in the tree, including uncommitted work you did not author. When a loop is live: do not hand-edit its tree; if you must, drop the loop's STOP sentinel first. A path-limited commit protects the loop from you, not you from the loop.",
+      "signature": "`git log --oneline -S \"<a phrase you typed>\" -- <file>` shows your text landed in a commit whose SUBJECT is the loop's story.",
+      "file": "incidents/INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md",
+      "related": [
+        "INC-0013",
+        "INC-0014"
+      ]
+    },
+    {
+      "id": "INC-0013",
+      "title": "add-then-commit is a shared-index race; use a path-limited commit",
+      "date": "2026-08-03",
+      "classes": [
+        "vcs-destruction",
+        "concurrency"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "The git index is process-shared: a pathless commit takes whatever is staged at that instant, not what you staged. For any out-of-band write to a repo another writer touches: name the paths on the commit itself (`git commit -m 'msg' -- <paths>`) rather than doing add-then-commit. Do not force-push while the loop is live.",
+      "signature": "You ran `git add <paths>` followed by a separate `git commit` and the resulting commit contains files you never touched. Diff against your parent shows the loop's whole iteration.",
+      "file": "incidents/INC-0013-add-then-commit-is-a-shared-index-race-use-a-path-limited-co.md",
+      "related": [
+        "INC-0012",
+        "INC-0014"
+      ]
+    },
+    {
+      "id": "INC-0014",
+      "title": "A revert-on-failure loop destroys uncommitted human work in a shared tree",
+      "date": "2026-08-04",
+      "classes": [
+        "vcs-destruction"
+      ],
+      "severity": "critical",
+      "status": "mitigated",
+      "rule": "A loop's revert-to-remote cannot distinguish loop dirt from human work-in-progress. Guard shared trees with a per-team STOP sentinel that names owner, files at risk, lift condition and whether restart is needed. Sentinels are polled every round; the enabled flag needs a restart. Verify the lift condition in the SAME command that removes it.",
+      "signature": "A loop is enabled that commits from a working directory where another writer has uncommitted changes. The loop's failure path is a full reset to the remote head.",
+      "file": "incidents/INC-0014-a-revert-on-failure-loop-destroys-uncommitted-human-work-in.md",
+      "related": [
+        "INC-0012",
+        "INC-0013"
+      ]
+    },
+    {
+      "id": "INC-0015",
+      "title": "Git identity leak: real name via ambient global config",
+      "date": "2026-07-31",
+      "classes": [
+        "vcs-destruction"
+      ],
+      "severity": "critical",
+      "status": "fixed",
+      "rule": "For any repo destined to be public, set BOTH repo-local `user.name` AND `user.email` (to a public handle and id-anchored noreply) BEFORE the first commit. Verify with `git log --all --format='%an <%ae>'`. A noreply email alone does not stop the ambient global name from leaking. An `includeIf` gitdir must be the REAL path, not a symlink.",
+      "signature": "`git log --all --format='%an <%ae>'` on any repo shows an identity string you did not consciously set for THAT repo.",
+      "file": "incidents/INC-0015-git-identity-leak-real-name-via-ambient-global-config.md",
+      "related": [
+        "INC-0018"
+      ]
+    },
+    {
+      "id": "INC-0016",
+      "title": "Anti-delegation clause must forbid 'scaffold a loop' too",
+      "date": "2026-08-05",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "A subagent reads 'do not spawn a nested agent' literally. Forbid every escape hatch by name in the SAME clause: nested agents, scaffolding a loop, writing prd/prompt/progress files, launching detached processes, handing off to a future iteration. Include the clause INLINE, not by reference. Kill an unauthorized loop by removing its required input, not just its pid.",
+      "signature": "A subagent instructed to do work returns quickly and successfully, but the expected output file is empty or missing. Meanwhile a new nested loop or a prd.json / prompt.md scaffold appears alongside.",
+      "file": "incidents/INC-0016-anti-delegation-clause-must-forbid-scaffold-a-loop-too.md",
+      "related": [
+        "INC-0017"
+      ]
+    },
+    {
+      "id": "INC-0017",
+      "title": "A killed detached loop resurrects with a new PPID",
+      "date": "2026-08-05",
+      "classes": [
+        "delegation",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "To stop a well-behaved detached loop, remove the input it polls (a STOP file it honors), not just its pid - a supervisor or scheduler can re-launch a killed pid. Same argv on a new pid = auto-resurrection; different argv = a fresh authorized launch. Hunt the launcher accordingly, and leave a documented STOP so you and the other session do not fight over the process.",
+      "signature": "You kill the loop's pid. Later, `ps` shows a fresh pid with ppid 1, running the same loop script, on a new sleep-backoff cycle.",
+      "file": "incidents/INC-0017-a-killed-detached-loop-resurrects-with-a-new-ppid.md",
+      "related": [
+        "INC-0016"
+      ]
+    },
+    {
+      "id": "INC-0018",
+      "title": "Fail-open detector: pipe alternation matches nothing under one regex flavor",
+      "date": "2026-08-05",
+      "classes": [
+        "detector-fail-open"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "A negative result from a detector is NOT evidence of health. Every alarm must be proven against a KNOWN-BAD sample before it is trusted (fires) and against a known-good sample (does not fire). Fail-open monitoring is worse than none. And know your regex flavor: `\\|` is alternation in BRE but a LITERAL pipe in ripgrep - use plain `|`.",
+      "signature": "A monitor built on `grep -E 'A\\|B'` or `grep 'A\\|B'` prints nothing while the eye clearly sees both patterns in the log. A negative result is being read as health.",
+      "file": "incidents/INC-0018-fail-open-detector-pipe-alternation-matches-nothing-under-on.md",
+      "related": [
+        "INC-0019"
+      ]
+    },
+    {
+      "id": "INC-0019",
+      "title": "Fail-open detector: parsing the wrong column reports healthy",
+      "date": "2026-08-05",
+      "classes": [
+        "detector-fail-open",
+        "observability"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "A parser that fails silently by returning nothing is indistinguishable from a healthy sample. Sanity-check every parser by asserting that its rows come back with PLAUSIBLE values; if every row is unparseable, you have the wrong column, not a healthy system. Never make an alarm's positive answer look like its negative answer.",
+      "signature": "A cookie- or config-file parser produces empty output that reads as 'nothing to report' when in fact every row is unparseable because the code is reading the wrong field.",
+      "file": "incidents/INC-0019-fail-open-detector-parsing-the-wrong-column-reports-healthy.md",
+      "related": [
+        "INC-0018"
+      ]
+    },
+    {
+      "id": "INC-0020",
+      "title": "A steering channel counts only when the consumer's own parser emits it",
+      "date": "2026-08-06",
+      "classes": [
+        "steering-channel"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A steering channel counts as delivered only when the CONSUMER's own parser emits it - verify by calling that parser, not by inspecting the file. Know its rules: item budget, character budget, format markers. Read the limit in the version ACTUALLY RUNNING, not the newest source. Bound anything injected into every prompt by CHARACTERS, cap at write time, and check what survives.",
+      "signature": "You wrote the steering text into the right file with the right words. The next iteration's behavior shows no evidence the agent read it.",
+      "file": "incidents/INC-0020-a-steering-channel-counts-only-when-the-consumer-s-own-parse.md",
+      "related": [
+        "INC-0004"
+      ]
+    },
+    {
+      "id": "INC-0021",
+      "title": "Stale module import: 'shipped' is not 'live'",
+      "date": "2026-08-10",
+      "classes": [
+        "stale-module",
+        "observability"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "A long-running process runs the code it imported AT LAUNCH. Merged is not shipped is not live: git can say 'landed' while the process is still on the old bytecode. Ship a live-lag check that compares process start-time against `git log --since` on the imported module. Role/prompt files read per-run ARE live even when the module is frozen - distinguish them.",
+      "signature": "A long-running dispatcher's uptime is measured in days. `git log --since=<start>` on the module it imported shows dozens of commits since. The behavior on disk does not match what the process seems to be running.",
+      "file": "incidents/INC-0021-stale-module-import-shipped-is-not-live.md",
+      "related": [
+        "INC-0007"
+      ]
+    },
+    {
+      "id": "INC-0022",
+      "title": "Test precondition on gitignored local state passes only on this machine",
+      "date": "2026-08-11",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "A test that reads ambient filesystem state depends on gitignored files a fresh clone does not have. Before asserting on a path, ask whether git tracks it; if not, build the fixture yourself in `tmp_path` instead of asserting on the ambient tree. A test that passes only on this machine is not a test.",
+      "signature": "A test passes locally on every developer machine, then fails immediately in a fresh CI clone. The diff between environments is directories or files gitignored by policy.",
+      "file": "incidents/INC-0022-test-precondition-on-gitignored-local-state-passes-only-on-t.md",
+      "related": [
+        "INC-0023"
+      ]
+    },
+    {
+      "id": "INC-0023",
+      "title": "CI shallow clone breaks tests that read git history",
+      "date": "2026-08-04",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "CI defaults to a depth-1 clone; any test that reads git history sees a different world there. Set `fetch-depth: 0`. Before blaming the commit under test, ask what CI's environment does NOT have: git history, tags, submodules, a TTY, network, timezone, locale. A synthetic depth-1 clone locally reproduces the failure in one step.",
+      "signature": "Tests pass locally, fail in CI, and none of them are testing the code under review. The failures reference git-history-shaped values.",
+      "file": "incidents/INC-0023-ci-shallow-clone-breaks-tests-that-read-git-history.md",
+      "related": [
+        "INC-0022"
+      ]
+    },
+    {
+      "id": "INC-0024",
+      "title": "Backtick command substitution in a heredoc corrupts and executes",
+      "date": "2026-08-05",
+      "classes": [
+        "tooling-paths",
+        "vcs-destruction"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "In an UNQUOTED heredoc, backticks and $() are executed by the shell - both corrupting file content and potentially running arbitrary commands. Use a QUOTED heredoc (`<<'EOF'`) for any write containing code citations, and verify the resulting file for control characters and empty `()` pairs afterwards. And nothing after the terminator on the same line.",
+      "signature": "A file written via an UNQUOTED heredoc contains empty `()` where citations should be, has control characters or carriage-return spam, and `wc -l` disagrees wildly with byte size.",
+      "file": "incidents/INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md",
+      "related": [
+        "INC-0012"
+      ]
+    }
+  ]
+}

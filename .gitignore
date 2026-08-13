@@ -1,0 +1,7 @@
+.local/
+__pycache__/
+*.pyc
+.pytest_cache/
+corpus/
+*.bundle
+.leakscan-private

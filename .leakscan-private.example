@@ -1,0 +1,7 @@
+[
+  {"name": "real-name",   "pattern": "surname(\\s|_)*givenname", "why": "author legal name",      "sample": "written by Surname Givenname"},
+  {"name": "unix-alias",  "pattern": "\\bmyalias\\b",            "why": "corporate unix alias",  "sample": "home dir was myalias"},
+  {"name": "employer",    "pattern": "\\bexamplecorp\\b",        "why": "employer name",         "sample": "an internal examplecorp page"},
+  {"name": "internal-sso","pattern": "\\bssotool\\b",            "why": "internal SSO product",  "sample": "the ssotool cookie expired"},
+  {"name": "internal-svc","pattern": "\\bSVCNAME\\b",            "why": "internal service name", "sample": "the SVCNAME lookup failed"}
+]
