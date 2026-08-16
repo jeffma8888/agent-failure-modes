@@ -5,7 +5,7 @@ import json, os, re, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
-from corpus import INCIDENTS, CLASSES  # noqa: E402
+from corpus import INCIDENTS, CLASSES, PRACTICES  # noqa: E402
 from leakscan import scan_text, selftest, rules_for, PUBLIC_RULES  # noqa: E402
 
 
@@ -131,3 +131,40 @@ def test_incidents_json_matches_corpus():
     ids_in_json = {i["id"] for i in data["incidents"]}
     ids_in_corpus = {i["id"] for i in INCIDENTS}
     assert ids_in_json == ids_in_corpus
+
+
+def test_every_practice_has_all_required_fields():
+    """A practice with an empty field is a slogan, not guidance."""
+    for pra in PRACTICES:
+        for field in ("id", "title", "practice", "why", "derived_from"):
+            assert pra.get(field), f"{pra.get('id')}: missing or empty {field}"
+
+
+def test_practice_ids_are_unique_and_sequential():
+    ids = [p["id"] for p in PRACTICES]
+    assert len(ids) == len(set(ids)), "duplicate practice id"
+    for n, pid in enumerate(sorted(ids), start=1):
+        assert pid == f"PRA-{n:04d}", f"ids must be gapless PRA-000N; got {pid} at position {n}"
+
+
+def test_practice_fits_in_a_prompt_line():
+    """Practices ship into agent prompts alongside the rules, so they are bounded too."""
+    for pra in PRACTICES:
+        n = len(pra["practice"])
+        assert n <= 600, f"{pra['id']}: practice is {n} chars; keep it under 600"
+
+
+def test_every_practice_derives_from_real_incidents():
+    """A practice may only cite evidence that exists in this corpus."""
+    known = {i["id"] for i in INCIDENTS}
+    for pra in PRACTICES:
+        for ref in pra["derived_from"]:
+            assert ref in known, f"{pra['id']} cites unknown incident {ref}"
+
+
+def test_rules_file_carries_every_practice():
+    """RULES.md is the prompt payload; a practice missing from it is not shipped."""
+    text = open(os.path.join(ROOT, "RULES.md"), encoding="utf-8").read()
+    assert "## Practices" in text
+    for pra in PRACTICES:
+        assert pra["id"] in text, f"{pra['id']} absent from RULES.md"

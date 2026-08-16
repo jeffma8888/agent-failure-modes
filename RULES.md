@@ -1,7 +1,11 @@
 # Rules
 
-Every transferable rule in this knowledge base, one line each, ordered by severity.
+Every transferable rule in this knowledge base, one line each.
 This file is the intended payload for an agent prompt: it is derived, so never edit it by hand.
+
+## Rules from incidents
+
+One rule per incident, ordered by severity then id.
 
 - **[INC-0002 / critical]** A per-step timeout you did not set is often the real timeout. If a step's attempt logs are all the same tiny size, its median is AT the cap, not near it. Fix: write-early checkpoint (minimal complete output first, then refine in place), and always report the duration DISTRIBUTION, never a single-shot healthy flag.
 - **[INC-0005 / critical]** A machine-parsed verdict token that defaults to the destructive answer on absence is a critical safety hazard when its writer runs under a hard timeout. Write the verdict EARLY on decisive evidence only, budget verification to the cap, and treat lower-priority audits as follow-ups.
@@ -28,3 +32,15 @@ This file is the intended payload for an agent prompt: it is derived, so never e
 - **[INC-0017 / medium]** To stop a well-behaved detached loop, remove the input it polls (a STOP file it honors), not just its pid - a supervisor or scheduler can re-launch a killed pid. Same argv on a new pid = auto-resurrection; different argv = a fresh authorized launch. Hunt the launcher accordingly, and leave a documented STOP so you and the other session do not fight over the process.
 - **[INC-0020 / medium]** A steering channel counts as delivered only when the CONSUMER's own parser emits it - verify by calling that parser, not by inspecting the file. Know its rules: item budget, character budget, format markers. Read the limit in the version ACTUALLY RUNNING, not the newest source. Bound anything injected into every prompt by CHARACTERS, cap at write time, and check what survives.
 - **[INC-0023 / medium]** CI defaults to a depth-1 clone; any test that reads git history sees a different world there. Set `fetch-depth: 0`. Before blaming the commit under test, ask what CI's environment does NOT have: git history, tags, submodules, a TTY, network, timezone, locale. A synthetic depth-1 clone locally reproduces the failure in one step.
+
+## Practices
+
+Cross-incident best practice: what to do by DEFAULT, distilled from the incidents above.
+Each practice names the incidents it generalizes, so it can never claim evidence the corpus lacks.
+
+- **[PRA-0001]** Any requirement can be enforced at five strengths: a skill doc, an always-injected policy line, an agent self-report token, a deterministic harness check, or structural impossibility. Cost AND reliability both rise going down. Enforce at the cheapest rung that makes the failure impossible rather than merely unlikely, and move a requirement one rung DOWN every time it is violated. A rule that has failed twice as prose belongs in code.
+  - _derived from:_ INC-0005, INC-0013, INC-0016, INC-0018
+- **[PRA-0002]** Harness, policy, guardrail and skill are separated by ENFORCEMENT POINT, not by medium. Ask what happens when the model ignores it: if nothing happens it was guidance, if the action is blocked or reverted it was a guardrail. Code the agent can edit mid-run is not harness; a human approval queue containing no code is. The test is whether the agent can change it or route around it inside the run.
+  - _derived from:_ INC-0020, INC-0021
+- **[PRA-0003]** A gate runs always only if ALL six hold: its call site is in the harness and not in the prompt; invocation is unconditional; the default is fail-closed; the evidence is produced by the harness rather than reported by the agent; the gate sits outside the surface the agent can edit; and it has been proved two-sided against a known-bad sample. Drop any one and the gate silently becomes advisory.
+  - _derived from:_ INC-0005, INC-0018, INC-0019

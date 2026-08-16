@@ -9,7 +9,7 @@ from __future__ import annotations
 import json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from corpus import INCIDENTS, CLASSES  # noqa: E402
+from corpus import INCIDENTS, CLASSES, PRACTICES  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REQUIRED = ["id", "title", "date", "classes", "severity", "status", "cost",
@@ -153,12 +153,27 @@ def main() -> int:
     rules = [
         "# Rules",
         "",
-        "Every transferable rule in this knowledge base, one line each, ordered by severity.",
+        "Every transferable rule in this knowledge base, one line each.",
         "This file is the intended payload for an agent prompt: it is derived, so never edit it by hand.",
+        "",
+        "## Rules from incidents",
+        "",
+        "One rule per incident, ordered by severity then id.",
         "",
     ]
     for inc in sorted(INCIDENTS, key=lambda x: (order[x["severity"]], x["id"])):
         rules.append(f"- **[{inc['id']} / {inc['severity']}]** {inc['rule']}")
+    rules += [
+        "",
+        "## Practices",
+        "",
+        "Cross-incident best practice: what to do by DEFAULT, distilled from the incidents above.",
+        "Each practice names the incidents it generalizes, so it can never claim evidence the corpus lacks.",
+        "",
+    ]
+    for pra in sorted(PRACTICES, key=lambda x: x["id"]):
+        rules.append(f"- **[{pra['id']}]** {pra['practice']}")
+        rules.append(f"  - _derived from:_ {', '.join(pra['derived_from'])}")
     rules.append("")
     with open(os.path.join(ROOT, "RULES.md"), "w", encoding="utf-8") as fh:
         fh.write(nl.join(rules))
@@ -177,7 +192,7 @@ def main() -> int:
     with open(os.path.join(ROOT, "TAXONOMY.md"), "w", encoding="utf-8") as fh:
         fh.write(nl.join(tax))
 
-    print(f"built {len(INCIDENTS)} incidents, {len(CLASSES)} classes")
+    print(f"built {len(INCIDENTS)} incidents, {len(CLASSES)} classes, {len(PRACTICES)} practices")
     print("  incidents/*.md, data/incidents.json, RULES.md, TAXONOMY.md")
     return 0
 

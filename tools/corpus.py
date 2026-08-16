@@ -542,3 +542,75 @@ _BATCH2: list[dict] = [
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2
+
+# ---------------------------------------------------------------------------
+# PRACTICES: cross-incident best practice.
+#
+# An incident is one failure that happened. A practice is what to DO by
+# default, distilled from several of them. Kept separate because the evidence
+# is different in kind: an incident cites a date and a root cause, a practice
+# cites the incidents it generalizes. `derived_from` is validated against
+# INCIDENTS, so a practice can never claim evidence that is not in the corpus.
+# ---------------------------------------------------------------------------
+PRACTICES: list[dict] = [
+    {
+        "id": "PRA-0001",
+        "title": "The enforcement ladder: pick the cheapest rung that makes the failure impossible",
+        "practice": (
+            "Any requirement can be enforced at five strengths: a skill doc, an always-injected policy "
+            "line, an agent self-report token, a deterministic harness check, or structural "
+            "impossibility. Cost AND reliability both rise going down. Enforce at the cheapest rung "
+            "that makes the failure impossible rather than merely unlikely, and move a requirement one "
+            "rung DOWN every time it is violated. A rule that has failed twice as prose belongs in code."
+        ),
+        "why": (
+            "Teams argue about the wording of a rule that keeps being broken, when the wording was never "
+            "the problem: the rule was installed at a rung that cannot enforce it. The ladder makes the "
+            "argument concrete, because it replaces 'say it more firmly' with 'move it down one rung'. "
+            "The second half of the rule is the operational half. A violation is not a discipline "
+            "failure, it is evidence that the current rung is too weak for this requirement, and the "
+            "correct response is a migration rather than a reminder."
+        ),
+        "derived_from": ["INC-0005", "INC-0013", "INC-0016", "INC-0018"],
+    },
+    {
+        "id": "PRA-0002",
+        "title": "Classify a control by its enforcement point, never by its medium",
+        "practice": (
+            "Harness, policy, guardrail and skill are separated by ENFORCEMENT POINT, not by medium. Ask "
+            "what happens when the model ignores it: if nothing happens it was guidance, if the action is "
+            "blocked or reverted it was a guardrail. Code the agent can edit mid-run is not harness; a "
+            "human approval queue containing no code is. The test is whether the agent can change it or "
+            "route around it inside the run."
+        ),
+        "why": (
+            "Three of the four layers are commonly shipped as prose loaded into a context window, so "
+            "describing them by medium collapses them and lets a team believe it has reliability "
+            "engineering when it has persuasion. Classifying by enforcement point also predicts the "
+            "failure signature, which is what makes it useful during an outage rather than only in a "
+            "design review: harness failures crash, policy failures are undelivered or unheeded, "
+            "guardrail failures are fail-open or fail-closed on a wrong spec."
+        ),
+        "derived_from": ["INC-0020", "INC-0021"],
+    },
+    {
+        "id": "PRA-0003",
+        "title": "Six conditions for a gate that cannot be skipped",
+        "practice": (
+            "A gate runs always only if ALL six hold: its call site is in the harness and not in the "
+            "prompt; invocation is unconditional; the default is fail-closed; the evidence is produced "
+            "by the harness rather than reported by the agent; the gate sits outside the surface the "
+            "agent can edit; and it has been proved two-sided against a known-bad sample. Drop any one "
+            "and the gate silently becomes advisory."
+        ),
+        "why": (
+            "Every one of the six has its own incident behind it, which is why the list is six items and "
+            "not a slogan. The one most often missed is the last: an unproven detector may be fail-open, "
+            "and a fail-open gate reports health forever, so absence of alarm is not evidence of safety. "
+            "The one most often rationalized away is the fifth, because keeping the gate outside the "
+            "agent's reach is inconvenient exactly when the agent is productive."
+        ),
+        "derived_from": ["INC-0005", "INC-0018", "INC-0019"],
+    },
+]
+
