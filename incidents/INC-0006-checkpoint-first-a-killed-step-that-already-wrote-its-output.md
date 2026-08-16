@@ -39,6 +39,12 @@ The successful timed-out iteration shipped clean. Independent gates (final-step 
 
 > Success is an ARTIFACT, not an exit code. Under a hard timeout, an agent that writes its minimal complete output first and refines in place still succeeds if killed. Correspondingly: never call a timeout a failure without checking whether the output file exists.
 
+## Provenance
+
+Where this was observed, so the claim is checkable rather than anecdotal:
+
+- https://github.com/jeffma8888/agent-foundry - the write-early contract lives in the `roles/*.md` cards, which are read from disk per run, and the success-is-an-artifact rule is enforced by the stage runner rather than by exit code.
+
 ## Related
 
 [INC-0002](./INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0005](./INC-0005-a-killed-step-with-no-verdict-token-is-read-as-reverted.md)

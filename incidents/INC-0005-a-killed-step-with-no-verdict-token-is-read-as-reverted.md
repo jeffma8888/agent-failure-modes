@@ -39,6 +39,12 @@ The next four iterations wrote their token by minute 6-8 of a ~12-minute step an
 
 > A machine-parsed verdict token that defaults to the destructive answer on absence is a critical safety hazard when its writer runs under a hard timeout. Write the verdict EARLY on decisive evidence only, budget verification to the cap, and treat lower-priority audits as follow-ups.
 
+## Provenance
+
+Where this was observed, so the claim is checkable rather than anecdotal:
+
+- https://github.com/jeffma8888/agent-foundry - the verdict parser and the release-gate role card that this incident is about: `parse_ship_action` in `foundry.py` accepts only PUSHED/REVERTED and returns None otherwise, and `roles/final.md` carries the verify-first exception that forbids this one role from checkpointing its verdict.
+
 ## Related
 
 [INC-0002](./INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0006](./INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md) [INC-0025](./INC-0025-retrying-a-killed-verification-step-without-resumable-eviden.md)

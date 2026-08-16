@@ -39,6 +39,13 @@ After the write-early rule shipped, the same team's next iteration produced outp
 
 > A per-step timeout you did not set is often the real timeout. If a step's attempt logs are all the same tiny size, its median is AT the cap, not near it. Fix: write-early checkpoint (minimal complete output first, then refine in place), and always report the duration DISTRIBUTION, never a single-shot healthy flag.
 
+## Provenance
+
+Where this was observed, so the claim is checkable rather than anecdotal:
+
+- https://github.com/jeffma8888/agent-foundry - the orchestrator whose hard per-stage cap this describes; the cap is enforced by the agent CLI beneath the timeout the loop sets itself.
+- https://github.com/jeffma8888/proactive-loop-agent - the product loop whose planning stage burned two consecutive iterations this way: 8 attempts, 8 timeouts, ~9 hours, no output, every attempt log 48 bytes.
+
 ## Related
 
 [INC-0006](./INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md) [INC-0007](./INC-0007-diagnose-stalled-work-from-the-duration-distribution-not-the.md)

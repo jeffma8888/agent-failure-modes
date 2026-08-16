@@ -84,7 +84,8 @@
       "file": "incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md",
       "related": [
         "INC-0007"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0002",
@@ -103,6 +104,10 @@
       "related": [
         "INC-0006",
         "INC-0007"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-foundry - the orchestrator whose hard per-stage cap this describes; the cap is enforced by the agent CLI beneath the timeout the loop sets itself.",
+        "https://github.com/jeffma8888/proactive-loop-agent - the product loop whose planning stage burned two consecutive iterations this way: 8 attempts, 8 timeouts, ~9 hours, no output, every attempt log 48 bytes."
       ]
     },
     {
@@ -122,7 +127,8 @@
       "related": [
         "INC-0002",
         "INC-0004"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0004",
@@ -141,7 +147,8 @@
       "related": [
         "INC-0002",
         "INC-0020"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0005",
@@ -160,6 +167,9 @@
         "INC-0002",
         "INC-0006",
         "INC-0025"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-foundry - the verdict parser and the release-gate role card that this incident is about: `parse_ship_action` in `foundry.py` accepts only PUSHED/REVERTED and returns None otherwise, and `roles/final.md` carries the verify-first exception that forbids this one role from checkpointing its verdict."
       ]
     },
     {
@@ -178,6 +188,9 @@
       "related": [
         "INC-0002",
         "INC-0005"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-foundry - the write-early contract lives in the `roles/*.md` cards, which are read from disk per run, and the success-is-an-artifact rule is enforced by the stage runner rather than by exit code."
       ]
     },
     {
@@ -196,7 +209,8 @@
       "related": [
         "INC-0002",
         "INC-0006"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0008",
@@ -212,7 +226,8 @@
       "file": "incidents/INC-0008-stale-ipc-endpoint-after-the-host-application-restarts.md",
       "related": [
         "INC-0009"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0009",
@@ -231,7 +246,8 @@
         "INC-0008",
         "INC-0018",
         "INC-0019"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0010",
@@ -247,7 +263,8 @@
       "file": "incidents/INC-0010-sleep-beats-the-wake-lock-on-battery-power.md",
       "related": [
         "INC-0011"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0011",
@@ -264,7 +281,8 @@
       "file": "incidents/INC-0011-concurrent-agent-brains-silently-starve-and-kill-each-other.md",
       "related": [
         "INC-0010"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0012",
@@ -282,7 +300,8 @@
       "related": [
         "INC-0013",
         "INC-0014"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0013",
@@ -300,7 +319,8 @@
       "related": [
         "INC-0012",
         "INC-0014"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0014",
@@ -317,7 +337,8 @@
       "related": [
         "INC-0012",
         "INC-0013"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0015",
@@ -333,7 +354,8 @@
       "file": "incidents/INC-0015-git-identity-leak-real-name-via-ambient-global-config.md",
       "related": [
         "INC-0018"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0016",
@@ -349,7 +371,8 @@
       "file": "incidents/INC-0016-anti-delegation-clause-must-forbid-scaffold-a-loop-too.md",
       "related": [
         "INC-0017"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0017",
@@ -366,7 +389,8 @@
       "file": "incidents/INC-0017-a-killed-detached-loop-resurrects-with-a-new-ppid.md",
       "related": [
         "INC-0016"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0018",
@@ -382,7 +406,8 @@
       "file": "incidents/INC-0018-fail-open-detector-pipe-alternation-matches-nothing-under-on.md",
       "related": [
         "INC-0019"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0019",
@@ -399,7 +424,8 @@
       "file": "incidents/INC-0019-fail-open-detector-parsing-the-wrong-column-reports-healthy.md",
       "related": [
         "INC-0018"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0020",
@@ -415,6 +441,9 @@
       "file": "incidents/INC-0020-a-steering-channel-counts-only-when-the-consumer-s-own-parse.md",
       "related": [
         "INC-0004"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-foundry - the consumer parser is `learnings_digest` in `foundry.py`; the delivery bounds are `PROMPT_LEARNINGS_HEAD_BULLET_CHARS` and `PROMPT_LEARNINGS_HEAD_BUDGET_CHARS`, and the digest emits its own elision notice, which is what makes a dropped steering bullet greppable instead of silent."
       ]
     },
     {
@@ -432,6 +461,10 @@
       "file": "incidents/INC-0021-stale-module-import-shipped-is-not-live.md",
       "related": [
         "INC-0007"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-foundry - the dispatcher does a plain `import foundry` once at launch, with no reload primitive and no self-restart.",
+        "Second confirmation, 2026-08-15: a live dispatcher with 1d22h uptime was still running the module revision it imported at launch while the repository head had moved on by many commits. Every prompt-budget constant measured from the working tree was therefore the wrong number for the running loop - so a stale module silently invalidates measurements taken about it, not just fixes shipped to it."
       ]
     },
     {
@@ -448,7 +481,8 @@
       "file": "incidents/INC-0022-test-precondition-on-gitignored-local-state-passes-only-on-t.md",
       "related": [
         "INC-0023"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0023",
@@ -464,7 +498,8 @@
       "file": "incidents/INC-0023-ci-shallow-clone-breaks-tests-that-read-git-history.md",
       "related": [
         "INC-0022"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0024",
@@ -481,7 +516,8 @@
       "file": "incidents/INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md",
       "related": [
         "INC-0012"
-      ]
+      ],
+      "evidence": []
     },
     {
       "id": "INC-0025",
@@ -501,6 +537,9 @@
         "INC-0002",
         "INC-0005",
         "INC-0006"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-foundry - `MAX_ATTEMPTS` and `retry_directive` in `foundry.py` (the retry text states in its own docstring that it deliberately does not read the previous attempt), the verify-first exception in `roles/final.md`, and the pre-ship clone gate whose 'could not complete' exit code is already treated as evidence about the machine rather than the tree - the asymmetry part (3) asks to be generalized."
       ]
     }
   ]

@@ -95,6 +95,11 @@ def incident_page(inc: dict) -> str:
         f"> {inc['rule']}",
         "",
     ]
+    if inc.get("evidence"):
+        out += ["## Provenance", "",
+                "Where this was observed, so the claim is checkable rather than anecdotal:", ""]
+        out += [f"- {e}" for e in inc["evidence"]]
+        out += [""]
     if inc.get("related"):
         out += ["## Related", "", " ".join(f"[{r}](./{filename(byid(r))})" for r in inc["related"]), ""]
     return nl.join(out)
@@ -136,6 +141,7 @@ def main() -> int:
         "severity": i["severity"], "status": i["status"], "rule": i["rule"],
         "signature": i["signature"], "file": f"incidents/{filename(i)}",
         "related": i.get("related", []),
+        "evidence": i.get("evidence", []),
     } for i in sorted(INCIDENTS, key=lambda x: x["id"])]
     with open(os.path.join(ROOT, "data", "incidents.json"), "w", encoding="utf-8") as fh:
         json.dump({"schema": 1, "count": len(index), "classes": CLASSES, "incidents": index},

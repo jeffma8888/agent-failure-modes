@@ -5,10 +5,17 @@ Every human-readable file in the repo is generated from this module by
 tools/build.py, so the incident pages, the JSON index, the taxonomy and the
 rule list can never drift apart. Edit incidents here, then run the build.
 
-Each incident is deliberately GENERIC: it describes a failure mode of
-autonomous agent loops in terms any engineer can reuse, with no reference to
-any specific employer, product, person, or private system. That is the point -
-the lessons transfer precisely because they are not about one codebase.
+The failure description and the transferable RULE are deliberately GENERIC: they
+describe a failure mode of autonomous agent loops in terms any engineer can
+reuse. That is the point - the lessons transfer precisely because they are not
+about one codebase.
+
+PROVENANCE is the deliberate exception. Where an incident was observed in a
+PUBLIC repository, the optional `evidence` list names that repository and links
+it, so a reader can check the claim instead of taking it on trust; public
+third-party projects may be cited the same way. What is never named, in any
+field: an employer, an internal or private system, a private repository, a
+person, or a machine-local path.
 """
 from __future__ import annotations
 
@@ -115,6 +122,10 @@ _BATCH1: list[dict] = [
         "fix": "Three changes in priority order. (a) Put a write-early rule in every role prompt: a step counts as SUCCESS the moment it writes a minimal-but-complete output file, then refines in place. (b) Add per-step duration metrics to the dispatcher so a median at the cap is visible. (c) Give the largest inputs a character budget and enforce it (see INC-0004).",
         "verification": "After the write-early rule shipped, the same team's next iteration produced output on attempt 1 even though the attempt still hit 600s - because the agent had checkpointed its minimal artifact within the first 8 minutes.",
         "rule": "A per-step timeout you did not set is often the real timeout. If a step's attempt logs are all the same tiny size, its median is AT the cap, not near it. Fix: write-early checkpoint (minimal complete output first, then refine in place), and always report the duration DISTRIBUTION, never a single-shot healthy flag.",
+        "evidence": [
+            'https://github.com/jeffma8888/agent-foundry - the orchestrator whose hard per-stage cap this describes; the cap is enforced by the agent CLI beneath the timeout the loop sets itself.',
+            'https://github.com/jeffma8888/proactive-loop-agent - the product loop whose planning stage burned two consecutive iterations this way: 8 attempts, 8 timeouts, ~9 hours, no output, every attempt log 48 bytes.',
+        ],
         "related": ["INC-0006", "INC-0007"],
     },
     {
@@ -166,6 +177,9 @@ _BATCH1: list[dict] = [
         "fix": "Two changes. (a) Never write a placeholder token - only the real verdict, but write it EARLY. Budget verification to the cap: decide on decisive evidence only (full suite result + git status showing intended changes), and write the token by minute 8. Reviewer nits, prose fixes, doc-wording edits are NOT ship blockers; record them as follow-ups. (b) On the parser side, distinguish 'no token due to timeout' (retry-safe) from 'REVERTED' (destructive) whenever the token stream carries any indication of the underlying cause.",
         "verification": "The next four iterations wrote their token by minute 6-8 of a ~12-minute step and all shipped correctly. Status stays MITIGATED rather than fixed, for three reasons that are all still live. The parser still collapses 'killed before deciding' and 'decided not to ship' into one destructive outcome. The ship step is the one role FORBIDDEN from checkpoint-first, because its verdict has to be the artifact's last line, so the mechanism that protects every other role structurally cannot protect the verdict itself. And retries re-run the whole verification from scratch, so four attempts are one correlated failure rather than four independent chances. What actually shipped is a behavioural budget written into a prompt, which is the weakest kind of guarantee: it holds only while the agent obeys it under time pressure. See INC-0025.",
         "rule": "A machine-parsed verdict token that defaults to the destructive answer on absence is a critical safety hazard when its writer runs under a hard timeout. Write the verdict EARLY on decisive evidence only, budget verification to the cap, and treat lower-priority audits as follow-ups.",
+        "evidence": [
+            'https://github.com/jeffma8888/agent-foundry - the verdict parser and the release-gate role card that this incident is about: `parse_ship_action` in `foundry.py` accepts only PUSHED/REVERTED and returns None otherwise, and `roles/final.md` carries the verify-first exception that forbids this one role from checkpointing its verdict.',
+        ],
         "related": ["INC-0002", "INC-0006", "INC-0025"],
     },
     {
@@ -183,6 +197,9 @@ _BATCH1: list[dict] = [
         "fix": "Define success as 'the output file exists and is non-empty', not as 'exit code zero'. Instruct every agent role to write its minimal complete artifact within the first few minutes and refine in place until killed. Never call a timeout a failure without checking whether the output file exists.",
         "verification": "The successful timed-out iteration shipped clean. Independent gates (final-step parser plus post-release fresh-clone re-run) still catch cases where the early checkpoint describes incomplete verification.",
         "rule": "Success is an ARTIFACT, not an exit code. Under a hard timeout, an agent that writes its minimal complete output first and refines in place still succeeds if killed. Correspondingly: never call a timeout a failure without checking whether the output file exists.",
+        "evidence": [
+            'https://github.com/jeffma8888/agent-foundry - the write-early contract lives in the `roles/*.md` cards, which are read from disk per run, and the success-is-an-artifact rule is enforced by the stage runner rather than by exit code.',
+        ],
         "related": ["INC-0002", "INC-0005"],
     },
     {
@@ -425,6 +442,9 @@ _BATCH2: list[dict] = [
         "fix": "For any steering channel: verify by importing and CALLING the consumer's own parser, then asserting your marker is in the output AND that the head still delivers its expected other bullets. Do not eyeball the file. Use `- **OPERATOR ...**` (bold, not brackets) under the `## Patterns` heading, never `- [...]` (which parses as a lesson).",
         "verification": "After the format fix, a parser call confirmed the directive was in the emitted head and the other pinned bullets were still present at full length.",
         "rule": "A steering channel counts as delivered only when the CONSUMER's own parser emits it - verify by calling that parser, not by inspecting the file. Know its rules: item budget, character budget, format markers. Read the limit in the version ACTUALLY RUNNING, not the newest source. Bound anything injected into every prompt by CHARACTERS, cap at write time, and check what survives.",
+        "evidence": [
+            'https://github.com/jeffma8888/agent-foundry - the consumer parser is `learnings_digest` in `foundry.py`; the delivery bounds are `PROMPT_LEARNINGS_HEAD_BULLET_CHARS` and `PROMPT_LEARNINGS_HEAD_BUDGET_CHARS`, and the digest emits its own elision notice, which is what makes a dropped steering bullet greppable instead of silent.',
+        ],
         "related": ["INC-0004"],
     },
     {
@@ -436,12 +456,16 @@ _BATCH2: list[dict] = [
         "status": "mitigated",
         "cost": "Twenty-six commits to a shared module were reported as SHIPPED by git and the changelog while all of them were inert in the running process for four days.",
         "signature": "A long-running dispatcher's uptime is measured in days. `git log --since=<start>` on the module it imported shows dozens of commits since. The behavior on disk does not match what the process seems to be running.",
-        "what": "A dispatcher process did a plain `import foundry` once at launch, with no `importlib.reload` and no self-restart. Over four days, 26 commits to `foundry.py` landed. All 26 were inert - the process was still running the code it imported at launch. Git, the roadmap and the decision log all reported them SHIPPED.",
+        "what": "In the public agent-foundry loop framework, the dispatcher process did a plain `import foundry` once at launch, with no `importlib.reload` and no self-restart. Over four days, 26 commits to `foundry.py` landed. All 26 were inert - the process was still running the code it imported at launch. Git, the roadmap and the decision log all reported them SHIPPED.",
         "root_cause": "Python's import machinery caches modules by name. Without an explicit reload or a process restart, `import foundry` returns the object bound at first import forever. Even a self-modifying loop that ships fixes to its own code does not run those fixes.",
         "why_hard": "Everything upstream reports success. The commits merged; the tests were green; the changelog says SHIPPED. Only a comparison of process start-time against git log for the imported module reveals the gap.",
         "fix": "For any long-running process that imports code it may also modify, ship a live-lag check: compare `psutil.Process(pid).create_time()` against `git log --since` for the imported module. Distinguish disk-level changes from live-behavior changes explicitly - role or prompt CARDS read from disk per run ARE live even when the module is frozen. Design self-updating loops with a scheduled restart or an in-process reload primitive, not on the assumption that the next iteration picks up new code.",
         "verification": "The live-lag check surfaced the four-day gap and warned before further inert commits accumulated. Post-restart, the same 26 commits took effect.",
         "rule": "A long-running process runs the code it imported AT LAUNCH. Merged is not shipped is not live: git can say 'landed' while the process is still on the old bytecode. Ship a live-lag check that compares process start-time against `git log --since` on the imported module. Role/prompt files read per-run ARE live even when the module is frozen - distinguish them.",
+        "evidence": [
+            'https://github.com/jeffma8888/agent-foundry - the dispatcher does a plain `import foundry` once at launch, with no reload primitive and no self-restart.',
+            'Second confirmation, 2026-08-15: a live dispatcher with 1d22h uptime was still running the module revision it imported at launch while the repository head had moved on by many commits. Every prompt-budget constant measured from the working tree was therefore the wrong number for the running loop - so a stale module silently invalidates measurements taken about it, not just fixes shipped to it.',
+        ],
         "related": ["INC-0007"],
     },
     {
@@ -510,6 +534,9 @@ _BATCH2: list[dict] = [
         "fix": "Three parts, in the order that pays. (1) SHRINK THE CRITICAL PATH FIRST - resumption raises the ceiling, deleting work lowers the floor. Keep pre-ship only what is decisive or irreversible: the suite result, a status showing only intended changes, and any secret-leak scan, since a pushed secret cannot be unpushed. Move doc-accuracy checks, spec audits and clean-clone re-runs to the post-release check that already re-runs them, and demote nits to follow-ups. (2) GIVE THE STEP A RESUMABLE EVIDENCE LEDGER, outside the verdict channel: prose lines above the sentinel, each naming the check, its result, and a KEY identifying the exact input state it was computed against - the head commit plus a hash over the pending diff and every untracked file. On a retry, carry forward only the lines whose key still matches the tree and skip those checks; any mismatch voids the entire ledger. Unkeyed, a cached result is a false-green vector: it lets a retry ship on evidence gathered against a different tree. (3) MAKE 'KILLED' AND 'REFUSED' DIFFERENT ANSWERS. The runner already knows the attempt was killed, and that fact is discarded before the verdict is read. Treat a killed attempt holding no verdict as evidence about the MACHINE - retry, resume, do not destroy - and only an explicit refusal as evidence about the TREE.",
         "verification": "Not verified in production. Status is open, and the design is recorded before it ships rather than after. What IS measured, by reading the running system instead of its documentation: about 19,000 lines of framework code and 21 role cards contain no resumable-verification mechanism, no partial-verdict vocabulary and no evidence ledger of any kind; the retry instruction's own docstring states that it deliberately does not read the previous attempt; and the asymmetry part (3) asks for is ALREADY implemented one layer down, for a single sub-check whose 'could not complete' exit is explicitly treated as evidence about the machine rather than about the tree, on the stated grounds that a false revert destroys a whole green iteration. The principle was accepted in the small and never lifted to the layer that does the destroying. Acceptance test when it lands: force a kill mid-verification, assert the retry runs strictly fewer checks than the first attempt, and assert that a ledger whose key does not match the tree is discarded rather than trusted.",
         "rule": "A retry is a second chance only if something carried forward. Under a hard cap, N retries of a deterministic over-budget step is one failure repeated N times. Give the step a place to record partial results, key that record to the exact input state so a stale one is discarded, and keep it OUT of the channel a parser reads as the verdict.",
+        "evidence": [
+            "https://github.com/jeffma8888/agent-foundry - `MAX_ATTEMPTS` and `retry_directive` in `foundry.py` (the retry text states in its own docstring that it deliberately does not read the previous attempt), the verify-first exception in `roles/final.md`, and the pre-ship clone gate whose 'could not complete' exit code is already treated as evidence about the machine rather than the tree - the asymmetry part (3) asks to be generalized.",
+        ],
         "related": ["INC-0002", "INC-0005", "INC-0006"],
     },
 ]

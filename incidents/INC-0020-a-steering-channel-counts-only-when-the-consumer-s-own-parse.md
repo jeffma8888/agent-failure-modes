@@ -39,6 +39,12 @@ After the format fix, a parser call confirmed the directive was in the emitted h
 
 > A steering channel counts as delivered only when the CONSUMER's own parser emits it - verify by calling that parser, not by inspecting the file. Know its rules: item budget, character budget, format markers. Read the limit in the version ACTUALLY RUNNING, not the newest source. Bound anything injected into every prompt by CHARACTERS, cap at write time, and check what survives.
 
+## Provenance
+
+Where this was observed, so the claim is checkable rather than anecdotal:
+
+- https://github.com/jeffma8888/agent-foundry - the consumer parser is `learnings_digest` in `foundry.py`; the delivery bounds are `PROMPT_LEARNINGS_HEAD_BULLET_CHARS` and `PROMPT_LEARNINGS_HEAD_BUDGET_CHARS`, and the digest emits its own elision notice, which is what makes a dropped steering bullet greppable instead of silent.
+
 ## Related
 
 [INC-0004](./INC-0004-a-monotonically-growing-required-reading-file-silently-kills.md)

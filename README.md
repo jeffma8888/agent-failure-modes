@@ -13,6 +13,16 @@ The point of this collection is that these failures are *transferable*. They are
 
 The corpus is the file at [`tools/corpus.py`](tools/corpus.py). Everything else is generated from it by [`tools/build.py`](tools/build.py), so the incident pages, the JSON index and the taxonomy cannot drift apart.
 
+## Where these come from
+
+These are post-mortems from loops I build, run and maintain myself, on my own machine, over months of unattended operation. They are not hypotheticals or a literature review. The public repositories the incidents were observed in:
+
+- **[agent-foundry](https://github.com/jeffma8888/agent-foundry)** - an always-on multi-role build loop: a product agent, an engineer, a reviewer, a QA engineer firewalled from the source it tests, and an independent release gate that is the only role permitted to touch git. Most of the incidents below were observed here.
+- **[proactive-loop-agent](https://github.com/jeffma8888/proactive-loop-agent)** - the proactivity layer above it: it scans working context, synthesizes a ranked slate of candidate goals, gates them through an explicit autonomy contract, and dispatches only the approved ones.
+- **[resilient-agent-loop-primitives](https://github.com/jeffma8888/resilient-agent-loop-primitives)** - the retry, backoff and checkpoint primitives that came out of the failures catalogued here.
+
+**What is generic, and what is attributed.** The failure description and the transferable rule are deliberately generic, because the whole point is that they transfer to any framework or agent runtime. Provenance is the deliberate exception: where an incident's artifact can be pointed at in a public repository, the incident's `Provenance` section names it and links it, so the claim is checkable rather than anecdotal. Public third-party projects are cited the same way where relevant. What is never named, anywhere in this repo, is an employer, an internal or private system, a private repository, a person, or a machine-local path.
+
 ## The failure classes
 
 | Class | What it looks like |
