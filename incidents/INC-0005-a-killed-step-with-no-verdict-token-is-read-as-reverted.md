@@ -25,7 +25,7 @@ A parser that accepted only two literal tokens and defaulted to the pessimistic 
 
 ## Why it was hard to see
 
-The step is doing exactly what it was told to do: being careful. The parser's pessimistic default is a reasonable safety choice in isolation. The failure is that 'thoroughness' and 'cap' together produce 'no token' more often than the parser designer expected.
+The step is doing exactly what it was told to do: being careful. The parser's pessimistic default is a reasonable safety choice in isolation. The failure is that 'thoroughness' and 'cap' together produce 'no token' more often than the parser designer expected. And the obvious fix had already been applied once, in the opposite direction. An earlier version had the step write its verdict token EARLY as a placeholder it intended to overwrite; four iterations of already-green work were lost that way, each killed after its own gates had passed while the artifact still held the placeholder. So placeholders were banned - and that ban is what produced the no-token revert, which then destroyed two of three consecutive iterations. The failure mode inverted under its own fix, which is why the surviving rule has to be narrow: write the REAL verdict early. Not 'write something early', and not 'never write early'.
 
 ## Fix
 
@@ -33,7 +33,7 @@ Two changes. (a) Never write a placeholder token - only the real verdict, but wr
 
 ## Verification
 
-The next four iterations wrote their token by minute 6-8 of a ~12-minute step and all shipped correctly.
+The next four iterations wrote their token by minute 6-8 of a ~12-minute step and all shipped correctly. Status stays MITIGATED rather than fixed, for three reasons that are all still live. The parser still collapses 'killed before deciding' and 'decided not to ship' into one destructive outcome. The ship step is the one role FORBIDDEN from checkpoint-first, because its verdict has to be the artifact's last line, so the mechanism that protects every other role structurally cannot protect the verdict itself. And retries re-run the whole verification from scratch, so four attempts are one correlated failure rather than four independent chances. What actually shipped is a behavioural budget written into a prompt, which is the weakest kind of guarantee: it holds only while the agent obeys it under time pressure. See INC-0025.
 
 ## Transferable rule
 
@@ -41,4 +41,4 @@ The next four iterations wrote their token by minute 6-8 of a ~12-minute step an
 
 ## Related
 
-[INC-0002](./INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0006](./INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md)
+[INC-0002](./INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0006](./INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md) [INC-0025](./INC-0025-retrying-a-killed-verification-step-without-resumable-eviden.md)

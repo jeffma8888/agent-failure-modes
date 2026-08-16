@@ -6,7 +6,7 @@ The point of this collection is that these failures are *transferable*. They are
 
 ## What is in here
 
-- **[incidents/](incidents/)** - 24 human-readable post-mortems, one per file. Each has: signature (how to recognise it), what happened, root cause, why it was hard to see, fix, verification, and a transferable rule.
+- **[incidents/](incidents/)** - 25 human-readable post-mortems, one per file. Each has: signature (how to recognise it), what happened, root cause, why it was hard to see, fix, verification, and a transferable rule.
 - **[TAXONOMY.md](TAXONOMY.md)** - the 16 failure classes, each with the diagnostic question that surfaces it.
 - **[RULES.md](RULES.md)** - every transferable rule in one place, ordered by severity. Intended as a prompt payload: paste it into an agent's system message or into a role card and the rules apply.
 - **[data/incidents.json](data/incidents.json)** - the same content in machine-readable form for anyone who wants to query it or build tooling on top.

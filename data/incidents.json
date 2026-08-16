@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 24,
+  "count": 25,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -158,7 +158,8 @@
       "file": "incidents/INC-0005-a-killed-step-with-no-verdict-token-is-read-as-reverted.md",
       "related": [
         "INC-0002",
-        "INC-0006"
+        "INC-0006",
+        "INC-0025"
       ]
     },
     {
@@ -480,6 +481,26 @@
       "file": "incidents/INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md",
       "related": [
         "INC-0012"
+      ]
+    },
+    {
+      "id": "INC-0025",
+      "title": "Retrying a killed verification step without resumable evidence is one failure, not four chances",
+      "date": "2026-08-15",
+      "classes": [
+        "stage-timeout",
+        "verdict-token",
+        "checkpoint"
+      ],
+      "severity": "high",
+      "status": "open",
+      "rule": "A retry is a second chance only if something carried forward. Under a hard cap, N retries of a deterministic over-budget step is one failure repeated N times. Give the step a place to record partial results, key that record to the exact input state so a stale one is discarded, and keep it OUT of the channel a parser reads as the verdict.",
+      "signature": "Every attempt of the same step fails identically, at the same duration, with the same short timeout log. The retry count in the logs looks like resilience, while the outcome is exactly the outcome of one attempt.",
+      "file": "incidents/INC-0025-retrying-a-killed-verification-step-without-resumable-eviden.md",
+      "related": [
+        "INC-0002",
+        "INC-0005",
+        "INC-0006"
       ]
     }
   ]

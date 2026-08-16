@@ -25,7 +25,7 @@ A hard per-step wall-clock cap (beneath any outer timeout you set) silently kill
 
 **Ask:** What is the hardest time cap actually enforced on one step, and how close is the real work to it?
 
-**Incidents (6):** [INC-0002](incidents/INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0003](incidents/INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md) [INC-0004](incidents/INC-0004-a-monotonically-growing-required-reading-file-silently-kills.md) [INC-0005](incidents/INC-0005-a-killed-step-with-no-verdict-token-is-read-as-reverted.md) [INC-0006](incidents/INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md) [INC-0007](incidents/INC-0007-diagnose-stalled-work-from-the-duration-distribution-not-the.md)
+**Incidents (7):** [INC-0002](incidents/INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0003](incidents/INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md) [INC-0004](incidents/INC-0004-a-monotonically-growing-required-reading-file-silently-kills.md) [INC-0005](incidents/INC-0005-a-killed-step-with-no-verdict-token-is-read-as-reverted.md) [INC-0006](incidents/INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md) [INC-0007](incidents/INC-0007-diagnose-stalled-work-from-the-duration-distribution-not-the.md) [INC-0025](incidents/INC-0025-retrying-a-killed-verification-step-without-resumable-eviden.md)
 
 ## verdict-token
 
@@ -33,7 +33,7 @@ A machine-parsed decision token is missing or malformed, so a downstream parser 
 
 **Ask:** If the step is killed before it writes its decision, what does the parser assume - and is that assumption safe?
 
-**Incidents (1):** [INC-0005](incidents/INC-0005-a-killed-step-with-no-verdict-token-is-read-as-reverted.md)
+**Incidents (2):** [INC-0005](incidents/INC-0005-a-killed-step-with-no-verdict-token-is-read-as-reverted.md) [INC-0025](incidents/INC-0025-retrying-a-killed-verification-step-without-resumable-eviden.md)
 
 ## steering-channel
 
@@ -97,7 +97,7 @@ An all-or-nothing step loses everything when it is interrupted, because it write
 
 **Ask:** If this step is killed at minute 8 of 10, does a usable artifact already exist on disk?
 
-**Incidents (2):** [INC-0002](incidents/INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0006](incidents/INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md)
+**Incidents (3):** [INC-0002](incidents/INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0006](incidents/INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md) [INC-0025](incidents/INC-0025-retrying-a-killed-verification-step-without-resumable-eviden.md)
 
 ## tooling-paths
 
