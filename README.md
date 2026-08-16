@@ -23,6 +23,15 @@ These are post-mortems from loops I build, run and maintain myself, on my own ma
 
 **What is generic, and what is attributed.** The failure description and the transferable rule are deliberately generic, because the whole point is that they transfer to any framework or agent runtime. Provenance is the deliberate exception: where an incident's artifact can be pointed at in a public repository, the incident's `Provenance` section names it and links it, so the claim is checkable rather than anecdotal. Public third-party projects are cited the same way where relevant. What is never named, anywhere in this repo, is an employer, an internal or private system, a private repository, a person, or a machine-local path.
 
+## How this stays current
+
+These are captured while the loops are running, not reconstructed from memory afterwards. Two tools do it, and neither makes a model call:
+
+- **[tools/mine_learnings.py](tools/mine_learnings.py)** - the census. It classifies every lesson a loop has ever written into the classes above and ranks them by a signal heuristic, so the highest-value exemplars surface out of a multi-megabyte log instead of being read linearly.
+- **[tools/watch_loops.py](tools/watch_loops.py)** - the incremental version, run on a schedule. It keeps a watermark of lessons already reviewed, so each run reports only what is NEW, ranked by how thin this knowledge base's coverage of that failure class already is. A lesson the taxonomy cannot classify at all ranks highest, because that is weak evidence of a failure mode nobody has named yet. The fingerprint is deliberately independent of line numbers, so editing a log does not re-report everything in it.
+
+Both take the watched directory as an argument and write only to a gitignored path, because the loops they read are machine-local and some are private. Nothing about them is committed here.
+
 ## The failure classes
 
 | Class | What it looks like |
