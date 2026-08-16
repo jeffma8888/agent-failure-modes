@@ -44,3 +44,5 @@ Each practice names the incidents it generalizes, so it can never claim evidence
   - _derived from:_ INC-0020, INC-0021
 - **[PRA-0003]** A gate runs always only if ALL six hold: its call site is in the harness and not in the prompt; invocation is unconditional; the default is fail-closed; the evidence is produced by the harness rather than reported by the agent; the gate sits outside the surface the agent can edit; and it has been proved two-sided against a known-bad sample. Drop any one and the gate silently becomes advisory.
   - _derived from:_ INC-0005, INC-0018, INC-0019
+- **[PRA-0004]** Before arguing determinism versus capability, pick the CONSTRAINT SURFACE. Clamp the narrowest axis that makes the failure impossible AND is orthogonal to the capability you are paying for: output form, actions, blast radius, resources, the oracle, information, or identity - never the reasoning. Test: if clamping this axis to fully deterministic loses the reason you hired the model, it is the wrong axis. An apparent determinism-versus-capability trade-off is usually evidence of a coupled surface, not a law.
+  - _derived from:_ INC-0014, INC-0018, INC-0024

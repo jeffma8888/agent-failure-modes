@@ -612,5 +612,29 @@ PRACTICES: list[dict] = [
         ),
         "derived_from": ["INC-0005", "INC-0018", "INC-0019"],
     },
+    {
+        "id": "PRA-0004",
+        "title": "Choose the constraint surface before choosing the enforcement strength",
+        "practice": (
+            "Before arguing determinism versus capability, pick the CONSTRAINT SURFACE. Clamp the "
+            "narrowest axis that makes the failure impossible AND is orthogonal to the capability you "
+            "are paying for: output form, actions, blast radius, resources, the oracle, information, or "
+            "identity - never the reasoning. Test: if clamping this axis to fully deterministic loses the "
+            "reason you hired the model, it is the wrong axis. An apparent determinism-versus-capability "
+            "trade-off is usually evidence of a coupled surface, not a law."
+        ),
+        "why": (
+            "The strength question has five answers and the surface question has ten, so surface "
+            "selection carries more of the design, yet it is the step that gets skipped. Eight of the ten "
+            "surfaces are decidable in code and seven of those cost the model's usefulness nothing, so "
+            "the space of free total guarantees is far larger than a code-versus-prompt framing suggests. "
+            "The canonical mis-selection: enforcing 'do not leak personal data' as a regex over the "
+            "output (a content filter, downstream of the leak, blind to whatever it cannot match) when "
+            "the information surface makes it impossible - you cannot leak what you were never given. "
+            "What genuinely survives in the undecidable half is a prevention-versus-recovery trade, not "
+            "a determinism-versus-capability one, and recovery is systematically underpriced."
+        ),
+        "derived_from": ["INC-0014", "INC-0018", "INC-0024"],
+    },
 ]
 
