@@ -86,6 +86,10 @@ CLASSES: dict[str, dict[str, str]] = {
         "what": "The loop does the wrong amount of work: it pursues the whole visible mission instead of its assigned slice, or picks tasks by lowest effort instead of highest value, or grows an artifact without bound.",
         "ask": "Does the agent's visible context imply a bigger goal than its assigned task, and is any required-reading artifact growing every iteration?",
     },
+    "identity-and-keying": {
+        "what": "Two distinct things share one identifier or cache key, so state computed for one is served for the other: a slot number a rejection recycles, a cache keyed on a mutable name, a record cited by its position in a re-sorted list.",
+        "ask": "Is this key unique across everything it will ever be asked about, or only across the subset that succeeded?",
+    },
 }
 
 
@@ -541,7 +545,131 @@ _BATCH2: list[dict] = [
     },
 ]
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2
+# Batch 3: lessons captured from the operator's OWN agent sessions rather than
+# from loop logs - the class of failure that shows up while BUILDING the gates,
+# which watch_loops.py cannot see because it only reads product loop output.
+_BATCH3: list[dict] = [
+    {
+        "id": "INC-0026",
+        "title": "A whole-batch verification veto turns one bad item into a permanent block",
+        "date": "2026-08-28",
+        "classes": ["spec-and-scope", "observability", "false-green"],
+        "severity": "high",
+        "status": "fixed",
+        "cost": "Twelve days with zero promotions. The refusal streak grew from 13 to 113 consecutive holds while the input queue grew from 104 to 991 candidates; a launcher kept adding work every two hours to a pool that could no longer pass.",
+        "signature": "A gate that used to pass now refuses on every cycle, and it names a DIFFERENT offending item each time. The queue grows monotonically. Each individual refusal is correct and well-reported.",
+        "what": "An unattended research pipeline verified the evidence quotes of its ENTIRE inbox before promoting anything, and the calling driver returned before the promoter whenever the verifier exited non-zero. One unverifiable quote anywhere in the pool therefore vetoed all 991 candidates. With a launcher adding candidates on a timer and a non-zero per-item failure rate, the probability that the pool contained at least one bad item approached 1 and stayed there.",
+        "root_cause": "The verdict's SCOPE was the batch while the decision it gated was per record, and the exit code was all-or-nothing. That makes the gate a ratchet rather than a filter: every added item can only ever increase the chance of a total block, so the system's throughput trends to zero while every component behaves exactly as designed.",
+        "why_hard": "Nothing is broken. Every refusal is individually correct, the escalation reports are accurate, and the component tests are green - so the obvious remedy is to fix the named item. That remedy is measurably wrong: a shipped fix for the exact defect diagnosed the previous day changed nothing at the system level, because a different item took its place and the streak grew by twelve on the same day.",
+        "fix": "Three parts. (1) Make the verdict PER RECORD and act on it: keep the verified, quarantine one whose evidence is genuinely absent, and DEFER one whose source could not be fetched - unreachable is not a verdict. (2) Return SUCCESS even when quarantining, because a non-zero exit is exactly what lets a caller rebuild the batch veto. (3) Bound the producer: pause new work while the backlog exceeds a threshold, so a stalled consumer cannot be buried.",
+        "verification": "The first partitioned pass promoted 24 records and grew the register from 16 to 40 with a green suite. It also exposed a second defect the veto had been hiding: the comparison itself was falsely accusing honest quotes, because every HTML tag became a space, so re-checking the 40 unique historical accusations found 19 false and 21 genuinely absent. Both records the first partitioned pass quarantined were re-checked by hand, both were false, and both were restored to the queue.",
+        "rule": "A gate whose verdict covers the whole batch, and whose caller aborts on any failure, turns one bad item into a permanent block as soon as the queue keeps growing - a ratchet, not a filter. Judge each item on its own evidence, act per item, and never let the gate's exit code re-create the batch veto.",
+        "evidence": [
+            "https://github.com/jeffma8888/agent-gap-radar - commit af2db9a makes quote verification per record so one bad quote cannot veto the pool; a747cc8 adds the verified-staging directory so bounding a pass stays honest; tools/verify_quotes.py documents why --partition exists in its own module docstring.",
+        ],
+        "related": ["INC-0004", "INC-0025"],
+    },
+    {
+        "id": "INC-0027",
+        "title": "A cache keyed on a recycled id judged each record on its predecessor's evidence",
+        "date": "2026-08-28",
+        "classes": ["identity-and-keying", "observability", "false-green"],
+        "severity": "critical",
+        "status": "fixed",
+        "cost": "A newly-built gate refused 849 of 859 real candidates. Hand-labelled validation on 24 records had measured ZERO false positives, so the gate was about to be trusted on real data.",
+        "signature": "A mass verdict whose stated reason is IDENTICAL across hundreds of distinct inputs. Runtime is also far higher than it should be, because the cache is not actually caching anything.",
+        "what": "A duplicate-detection gate compares a candidate against already-held records by running each one's detector against the other's fixtures. Those fixtures were cached by record id. Ids are handed out as 'next free', so a REFUSED candidate never claims its number and the next candidate is handed the same one - and the id-keyed cache then served the refused predecessor's fixtures to its successor. Every one of the 849 refusals named the same twin.",
+        "root_cause": "The cache key was an identifier that is unique only among ACCEPTED records, used to key evidence for candidates that had not been accepted yet. A cache key is normally a performance concern; here it silently decided WHICH EVIDENCE each record was judged on, which makes it a correctness surface.",
+        "why_hard": "The hand-labelled sample could only reveal false positives it happened to contain, and the collision requires a REFUSAL to have already occurred - which a curated all-valid sample never produces. Both tells were present and easy to read past: one identical reason across hundreds of distinct inputs, and a runtime that fell from 1m40s to 4.6s once the cache actually cached.",
+        "fix": "Key derived evidence by CONTENT, or by an identity that is unique across everything the system will ever be asked about - never by a slot number a rejection can recycle. Then re-run the gate on the FULL population before trusting it, and before believing any mass verdict, count how many DISTINCT reasons it produced.",
+        "verification": "After re-keying, the same population produced 6 refusals instead of 849 - each a genuine behavioural twin of a record accepted in the same pass - 24 promotions, a register of 40 records, and a green suite. Runtime fell from 1m40s to 4.6s, which is the second, independent tell that the cache had been mis-keyed rather than the data being duplicative.",
+        "rule": "Never key derived evidence on an identifier a rejection can recycle: 'next free' ids are unique only among ACCEPTED records. Before believing a mass verdict, count its DISTINCT reasons - one identical reason across hundreds of inputs indicts the judge, not the data. Always re-run a gate on the full population; a hand-labelled sample finds only the false positives it contains.",
+        "evidence": [
+            "https://github.com/jeffma8888/agent-gap-radar - commit 315bc6e adds the interchangeable-detector refusal this gate implements; tools/promote.py holds the fixture comparison and the ranking helper.",
+        ],
+        "related": ["INC-0019", "INC-0026"],
+    },
+    {
+        "id": "INC-0028",
+        "title": "When two distributions overlap there is no threshold - change the signal, not the number",
+        "date": "2026-08-28",
+        "classes": ["false-green", "observability", "detector-fail-open"],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "A tuning exercise that could never have converged: every lexical signal measured overlapped between the two populations it was supposed to separate, so each retune only chose which error to make.",
+        "signature": "Every candidate cutoff either misses real positives or refuses real work, and moving it just trades one error for the other. Each individual measurement looks reasonable.",
+        "what": "A near-duplicate gate needed a similarity threshold. Hand-labelling 24 real records gave 276 pairs - 28 restatements of one item and 248 genuinely distinct - and every lexical signal overlapped on that ground truth: body Jaccard ran a 0.100 minimum on duplicates against a 0.105 maximum on distinct pairs; containment 0.205 against 0.213; title similarity 0.275 against 0.482. Restricting comparison to records sharing a category did not rescue it either, because only 13 of the 28 duplicate pairs shared both category fields.",
+        "root_cause": "The signal did not carry the distinction. A threshold can only separate populations whose distributions are separable; where the ranges overlap, no cutoff exists and tuning merely selects which class of error to commit.",
+        "why_hard": "Every individual similarity number is plausible and the code is correct. The impossibility is invisible until you deliberately print the MINIMUM of one population against the MAXIMUM of the other - a comparison nobody makes while iterating on a cutoff that is 'nearly right'.",
+        "fix": "Change what is measured to something EXECUTABLE: two records are the same if their detectors reproduce each other's verdicts on each other's own fixtures. Require the agreement to be MUTUAL, because a one-way hit is subsumption rather than identity. And require the SILENT half - fires on the other's bad fixture AND stays quiet on the other's good fixture - because without it any sufficiently broad check counts as a twin.",
+        "verification": "The behavioural test gave ZERO false positives on the same 248 distinct pairs where every lexical signal overlapped. Mutation testing then found three blind spots the green suite had hidden, including a control whose two fixtures shared zero tokens and would therefore have passed at ANY threshold including zero; that test only became real once its fixture was measured into the band just below the cutoff (0.167 against 0.20) and the test asserted that precondition itself.",
+        "rule": "Before choosing a threshold, measure the MINIMUM of one population against the MAXIMUM of the other. If they overlap, no cutoff exists and tuning only picks which error you make - find an EXECUTABLE consequence of the two things being the same instead. Require mutual agreement (one-way is subsumption) and test the silent half, or any broad check counts as a twin.",
+        "evidence": [
+            "https://github.com/jeffma8888/agent-gap-radar - commit 315bc6e ships the behavioural interchangeability check that replaced the lexical threshold; e37ef89 and tools/verify_mutations.py are the mutation harness that found the blind spots.",
+        ],
+        "related": ["INC-0018", "INC-0027"],
+    },
+    {
+        "id": "INC-0029",
+        "title": "When a check reports missing content, the extractor is the first suspect",
+        "date": "2026-08-27",
+        "classes": ["detector-fail-open", "tooling-paths", "observability"],
+        "severity": "high",
+        "status": "fixed",
+        "cost": "Came one step from 'repairing' a CORRECT file by re-inserting 83 words that were never missing - which would have duplicated content and made a provably lossless artifact genuinely lossy.",
+        "signature": "The reported-missing content forms a clean PREFIX plus SUFFIX of the whole, instead of being scattered through the middle. Two different ways of counting the same units disagree.",
+        "what": "A checker verifying that a reformatted document was lossless stripped structured segment labels with a pattern whose character class did not allow parentheses. It therefore skipped the two segments whose labels contained them, and reported the words inside those segments as absent from a file that was in fact complete.",
+        "root_cause": "The MEASUREMENT was wrong, not the artifact: the extractor's pattern was narrower than the real data format. This class is expensive because of its asymmetry - a false negative about content points directly at a DESTRUCTIVE remedy, so believing it costs more than any missed detection would.",
+        "why_hard": "The checker ran cleanly over most of the file and produced a precise, plausible list of missing words. Nothing errored, and a delegated runner had reported the underlying conversion as 2/2 SUCCESS, so every green signal agreed with the wrong conclusion.",
+        "fix": "Count the units TWO ways - strict pattern matches versus a loose structural count - and treat disagreement as an indictment of the extractor, not the artifact. Read the real format off disk BEFORE writing any repair: the pre-write inspection is the control, and the assertion is not. And grade delegated work by its artifact, never by the runner's success ledger.",
+        "verification": "The two counts were 81 against 83; reading the actual label format off disk revealed the parenthesised labels; after widening the pattern the file verified as lossless and needed no repair at all. The shape of the diff was the free tell that had been available from the start - a real conversion loss is scattered, not a tidy prefix plus suffix.",
+        "rule": "When a check reports missing content, suspect the extractor before the artifact: a false negative about content points at a destructive remedy. Count the units two ways (strict pattern versus loose structural) and let disagreement indict the measurement. Read the real format off disk before writing any repair, and never grade delegated work by a runner's success ledger.",
+        "related": ["INC-0018", "INC-0019", "INC-0026"],
+    },
+    {
+        "id": "INC-0030",
+        "title": "Rewriting a region by slicing between two markers deletes whatever else lives there",
+        "date": "2026-08-28",
+        "classes": ["tooling-paths", "concurrency", "vcs-destruction"],
+        "severity": "high",
+        "status": "fixed",
+        "cost": "Silently deleted an unrelated helper function from a working tool. The tool then died on its next run with a NameError for a symbol the edit never mentioned.",
+        "signature": "A tool that worked stops working immediately after an edit you believe was confined to one region, raising NameError or AttributeError for a symbol you never touched. The file still parses.",
+        "what": "To rewrite one function, an agent replaced everything between two located markers - the target definition and the next definition it could find. An unrelated helper that happened to live between those two anchors was deleted along with the region.",
+        "root_cause": "A marker-to-marker slice is defined by POSITION, not by content, so its blast radius is whatever the file's current layout happens to put in the gap. The edit is correct for the region the author was thinking about and wrong for the region the file actually contains.",
+        "why_hard": "The slice looks right, the resulting file is syntactically valid, and the loss only surfaces when the deleted symbol is next called - which may be a different code path, a later stage, or another session's test run.",
+        "fix": "Prefer an anchored replace whose anchor is asserted to occur EXACTLY ONCE, so the edit is defined by content rather than position. After any slice-based edit, diff against the last known-good revision and read the insertion and deletion counts rather than trusting the intent of the edit.",
+        "verification": "The verbatim restoration was proven by a diff against the committed revision reporting 221 insertions and 0 deletions - which simultaneously proved that a concurrent session's committed changes to the same file had not been clobbered. That same diff is the cheap standing proof for merge-never-overwrite when two writers share a file.",
+        "rule": "Never rewrite a file region by slicing between two found markers: the slice is defined by position, so it silently deletes whatever else sits in the gap. Use an anchored replace whose anchor is asserted to occur exactly once, and after any slice edit diff against the last known-good revision - 'N insertions, 0 deletions' is the proof.",
+        "evidence": [
+            "https://github.com/jeffma8888/agent-gap-radar - tools/promote.py, whose _rank helper sat between the two anchors and was deleted and then restored verbatim.",
+        ],
+        "related": ["INC-0012", "INC-0024"],
+    },
+    {
+        "id": "INC-0031",
+        "title": "A concurrency test with no forced interleaving passes loudest when the feature is absent",
+        "date": "2026-08-28",
+        "classes": ["false-green", "test-isolation", "observability"],
+        "severity": "high",
+        "status": "fixed",
+        "cost": "A deliberately-broken build passed its own concurrency test, so the artifact would have taught its reader that a planted bug was absent.",
+        "signature": "A test for an emergent property - locking, coalescing, deduplication, cache hits, backpressure - is green, and stays green when you delete the mechanism it exists to test.",
+        "what": "A test asserted on a counter incremented in place, which the interpreter specializes into a sequence with no interleaving window, while the deliberately forced yield sat on a DIFFERENT field. The race the test existed to detect therefore never occurred, and the test passed against the variant with the locking removed.",
+        "root_cause": "The test never established its own PRECONDITION - that concurrent callers actually overlap on the field under test. An emergent-property test that does not force the interleaving measures nothing, and it is greenest exactly when the mechanism is missing, because the fast path finishes before any peer arrives.",
+        "why_hard": "Nothing about the run looks wrong: it is fast, deterministic and green. The absence of the race is indistinguishable from the presence of the fix, and a second occurrence of this exact failure was found six days after the first one was documented.",
+        "fix": "Force the window deliberately (sleep inside the critical section) and assert on the field that really races. Then MUTATION-VERIFY: plant each defect one at a time and require a NAMED test to go red, restoring the file in a finally block and asserting each anchor occurs exactly once. Measure the loss rate rather than assuming it - a flaky discriminator is worse than none, because it teaches the reader to distrust a real failure.",
+        "verification": "Candidate designs measured 33% loss (flaky) and 0% loss before a loop-inside-thread pattern made the failure deterministic: about 85% of 4,000 updates lost in 10 of 10 unlocked runs, exact in 10 of 10 locked runs. The verifier itself then needed a portability check - it passed from its own directory and reported EVERY class broken when invoked from the parent, because the subprocess could not import the test package, and a checker that reports false BROKEN points at repairing correct code.",
+        "rule": "A test of an emergent property (locking, coalescing, dedup, cache hits, backpressure) must assert its own PRECONDITION - that the interleaving really happened - or it is greenest when the mechanism is absent. Force the window, assert on the field that races, mutation-verify each defect against a NAMED test, and run the checker from two working directories.",
+        "evidence": [
+            "https://github.com/jeffma8888/agent-gap-radar - e37ef89 and tools/verify_mutations.py implement the plant-one-defect-at-a-time harness this fix prescribes, with restoration verified by content in a finally block.",
+        ],
+        "related": ["INC-0022", "INC-0028"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.

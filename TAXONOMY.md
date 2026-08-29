@@ -17,7 +17,7 @@ A quality gate reports success while the work is not actually good: vacuous test
 
 **Ask:** Could this gate be green on broken code? What is the smallest wrong change that still passes it?
 
-**Incidents (1):** [INC-0001](incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md)
+**Incidents (5):** [INC-0001](incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md) [INC-0026](incidents/INC-0026-a-whole-batch-verification-veto-turns-one-bad-item-into-a-pe.md) [INC-0027](incidents/INC-0027-a-cache-keyed-on-a-recycled-id-judged-each-record-on-its-pre.md) [INC-0028](incidents/INC-0028-when-two-distributions-overlap-there-is-no-threshold-change.md) [INC-0031](incidents/INC-0031-a-concurrency-test-with-no-forced-interleaving-passes-loudes.md)
 
 ## stage-timeout
 
@@ -57,7 +57,7 @@ Independent agents or sessions contend for one shared resource - a rate-limited 
 
 **Ask:** How many live agents share this one resource right now, and what happens to the one you are waiting on when a second appears?
 
-**Incidents (3):** [INC-0011](incidents/INC-0011-concurrent-agent-brains-silently-starve-and-kill-each-other.md) [INC-0012](incidents/INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md) [INC-0013](incidents/INC-0013-add-then-commit-is-a-shared-index-race-use-a-path-limited-co.md)
+**Incidents (4):** [INC-0011](incidents/INC-0011-concurrent-agent-brains-silently-starve-and-kill-each-other.md) [INC-0012](incidents/INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md) [INC-0013](incidents/INC-0013-add-then-commit-is-a-shared-index-race-use-a-path-limited-co.md) [INC-0030](incidents/INC-0030-rewriting-a-region-by-slicing-between-two-markers-deletes-wh.md)
 
 ## vcs-destruction
 
@@ -65,7 +65,7 @@ Version control is used as a weapon against the working tree: a blanket stage sw
 
 **Ask:** Whose uncommitted work is in this tree, and what does a failure-path reset or a blanket 'add all' do to it?
 
-**Incidents (5):** [INC-0012](incidents/INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md) [INC-0013](incidents/INC-0013-add-then-commit-is-a-shared-index-race-use-a-path-limited-co.md) [INC-0014](incidents/INC-0014-a-revert-on-failure-loop-destroys-uncommitted-human-work-in.md) [INC-0015](incidents/INC-0015-git-identity-leak-real-name-via-ambient-global-config.md) [INC-0024](incidents/INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md)
+**Incidents (6):** [INC-0012](incidents/INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md) [INC-0013](incidents/INC-0013-add-then-commit-is-a-shared-index-race-use-a-path-limited-co.md) [INC-0014](incidents/INC-0014-a-revert-on-failure-loop-destroys-uncommitted-human-work-in.md) [INC-0015](incidents/INC-0015-git-identity-leak-real-name-via-ambient-global-config.md) [INC-0024](incidents/INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md) [INC-0030](incidents/INC-0030-rewriting-a-region-by-slicing-between-two-markers-deletes-wh.md)
 
 ## delegation
 
@@ -81,7 +81,7 @@ A monitor or safety check silently never fires: a wrong regex flavor, the wrong 
 
 **Ask:** Have you fed this detector a known-bad sample and watched it fire, AND a known-good sample and watched it stay silent?
 
-**Incidents (3):** [INC-0009](incidents/INC-0009-interactive-only-credential-expiry-silently-stalls-unattende.md) [INC-0018](incidents/INC-0018-fail-open-detector-pipe-alternation-matches-nothing-under-on.md) [INC-0019](incidents/INC-0019-fail-open-detector-parsing-the-wrong-column-reports-healthy.md)
+**Incidents (5):** [INC-0009](incidents/INC-0009-interactive-only-credential-expiry-silently-stalls-unattende.md) [INC-0018](incidents/INC-0018-fail-open-detector-pipe-alternation-matches-nothing-under-on.md) [INC-0019](incidents/INC-0019-fail-open-detector-parsing-the-wrong-column-reports-healthy.md) [INC-0028](incidents/INC-0028-when-two-distributions-overlap-there-is-no-threshold-change.md) [INC-0029](incidents/INC-0029-when-a-check-reports-missing-content-the-extractor-is-the-fi.md)
 
 ## stale-module
 
@@ -105,7 +105,7 @@ The shell or tool layer betrays you: command substitution runs inside a string y
 
 **Ask:** Will any character in this string be interpreted rather than stored, and from what directory does this tool actually resolve paths?
 
-**Incidents (1):** [INC-0024](incidents/INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md)
+**Incidents (3):** [INC-0024](incidents/INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md) [INC-0029](incidents/INC-0029-when-a-check-reports-missing-content-the-extractor-is-the-fi.md) [INC-0030](incidents/INC-0030-rewriting-a-region-by-slicing-between-two-markers-deletes-wh.md)
 
 ## test-isolation
 
@@ -113,7 +113,7 @@ A test passes only in the environment where it was written: it depends on untrac
 
 **Ask:** Would this test pass in a throwaway fresh clone on a different machine? What ambient state is it silently reading?
 
-**Incidents (3):** [INC-0003](incidents/INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md) [INC-0022](incidents/INC-0022-test-precondition-on-gitignored-local-state-passes-only-on-t.md) [INC-0023](incidents/INC-0023-ci-shallow-clone-breaks-tests-that-read-git-history.md)
+**Incidents (4):** [INC-0003](incidents/INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md) [INC-0022](incidents/INC-0022-test-precondition-on-gitignored-local-state-passes-only-on-t.md) [INC-0023](incidents/INC-0023-ci-shallow-clone-breaks-tests-that-read-git-history.md) [INC-0031](incidents/INC-0031-a-concurrency-test-with-no-forced-interleaving-passes-loudes.md)
 
 ## observability
 
@@ -121,7 +121,7 @@ The signal you trust hides the truth: an outcome flag masks a chronically over-b
 
 **Ask:** Are you reading a distribution or a single number, a delta or a lifetime average - and could the measurement itself be denied?
 
-**Incidents (4):** [INC-0002](incidents/INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0007](incidents/INC-0007-diagnose-stalled-work-from-the-duration-distribution-not-the.md) [INC-0019](incidents/INC-0019-fail-open-detector-parsing-the-wrong-column-reports-healthy.md) [INC-0021](incidents/INC-0021-stale-module-import-shipped-is-not-live.md)
+**Incidents (9):** [INC-0002](incidents/INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0007](incidents/INC-0007-diagnose-stalled-work-from-the-duration-distribution-not-the.md) [INC-0019](incidents/INC-0019-fail-open-detector-parsing-the-wrong-column-reports-healthy.md) [INC-0021](incidents/INC-0021-stale-module-import-shipped-is-not-live.md) [INC-0026](incidents/INC-0026-a-whole-batch-verification-veto-turns-one-bad-item-into-a-pe.md) [INC-0027](incidents/INC-0027-a-cache-keyed-on-a-recycled-id-judged-each-record-on-its-pre.md) [INC-0028](incidents/INC-0028-when-two-distributions-overlap-there-is-no-threshold-change.md) [INC-0029](incidents/INC-0029-when-a-check-reports-missing-content-the-extractor-is-the-fi.md) [INC-0031](incidents/INC-0031-a-concurrency-test-with-no-forced-interleaving-passes-loudes.md)
 
 ## spec-and-scope
 
@@ -129,4 +129,12 @@ The loop does the wrong amount of work: it pursues the whole visible mission ins
 
 **Ask:** Does the agent's visible context imply a bigger goal than its assigned task, and is any required-reading artifact growing every iteration?
 
-**Incidents (3):** [INC-0001](incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md) [INC-0003](incidents/INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md) [INC-0004](incidents/INC-0004-a-monotonically-growing-required-reading-file-silently-kills.md)
+**Incidents (4):** [INC-0001](incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md) [INC-0003](incidents/INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md) [INC-0004](incidents/INC-0004-a-monotonically-growing-required-reading-file-silently-kills.md) [INC-0026](incidents/INC-0026-a-whole-batch-verification-veto-turns-one-bad-item-into-a-pe.md)
+
+## identity-and-keying
+
+Two distinct things share one identifier or cache key, so state computed for one is served for the other: a slot number a rejection recycles, a cache keyed on a mutable name, a record cited by its position in a re-sorted list.
+
+**Ask:** Is this key unique across everything it will ever be asked about, or only across the subset that succeeded?
+
+**Incidents (1):** [INC-0027](incidents/INC-0027-a-cache-keyed-on-a-recycled-id-judged-each-record-on-its-pre.md)

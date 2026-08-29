@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 25,
+  "count": 31,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -65,6 +65,10 @@
     "spec-and-scope": {
       "what": "The loop does the wrong amount of work: it pursues the whole visible mission instead of its assigned slice, or picks tasks by lowest effort instead of highest value, or grows an artifact without bound.",
       "ask": "Does the agent's visible context imply a bigger goal than its assigned task, and is any required-reading artifact growing every iteration?"
+    },
+    "identity-and-keying": {
+      "what": "Two distinct things share one identifier or cache key, so state computed for one is served for the other: a slot number a rejection recycles, a cache keyed on a mutable name, a record cited by its position in a re-sorted list.",
+      "ask": "Is this key unique across everything it will ever be asked about, or only across the subset that succeeded?"
     }
   },
   "incidents": [
@@ -540,6 +544,137 @@
       ],
       "evidence": [
         "https://github.com/jeffma8888/agent-foundry - `MAX_ATTEMPTS` and `retry_directive` in `foundry.py` (the retry text states in its own docstring that it deliberately does not read the previous attempt), the verify-first exception in `roles/final.md`, and the pre-ship clone gate whose 'could not complete' exit code is already treated as evidence about the machine rather than the tree - the asymmetry part (3) asks to be generalized."
+      ]
+    },
+    {
+      "id": "INC-0026",
+      "title": "A whole-batch verification veto turns one bad item into a permanent block",
+      "date": "2026-08-28",
+      "classes": [
+        "spec-and-scope",
+        "observability",
+        "false-green"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "A gate whose verdict covers the whole batch, and whose caller aborts on any failure, turns one bad item into a permanent block as soon as the queue keeps growing - a ratchet, not a filter. Judge each item on its own evidence, act per item, and never let the gate's exit code re-create the batch veto.",
+      "signature": "A gate that used to pass now refuses on every cycle, and it names a DIFFERENT offending item each time. The queue grows monotonically. Each individual refusal is correct and well-reported.",
+      "file": "incidents/INC-0026-a-whole-batch-verification-veto-turns-one-bad-item-into-a-pe.md",
+      "related": [
+        "INC-0004",
+        "INC-0025"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - commit af2db9a makes quote verification per record so one bad quote cannot veto the pool; a747cc8 adds the verified-staging directory so bounding a pass stays honest; tools/verify_quotes.py documents why --partition exists in its own module docstring."
+      ]
+    },
+    {
+      "id": "INC-0027",
+      "title": "A cache keyed on a recycled id judged each record on its predecessor's evidence",
+      "date": "2026-08-28",
+      "classes": [
+        "identity-and-keying",
+        "observability",
+        "false-green"
+      ],
+      "severity": "critical",
+      "status": "fixed",
+      "rule": "Never key derived evidence on an identifier a rejection can recycle: 'next free' ids are unique only among ACCEPTED records. Before believing a mass verdict, count its DISTINCT reasons - one identical reason across hundreds of inputs indicts the judge, not the data. Always re-run a gate on the full population; a hand-labelled sample finds only the false positives it contains.",
+      "signature": "A mass verdict whose stated reason is IDENTICAL across hundreds of distinct inputs. Runtime is also far higher than it should be, because the cache is not actually caching anything.",
+      "file": "incidents/INC-0027-a-cache-keyed-on-a-recycled-id-judged-each-record-on-its-pre.md",
+      "related": [
+        "INC-0019",
+        "INC-0026"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - commit 315bc6e adds the interchangeable-detector refusal this gate implements; tools/promote.py holds the fixture comparison and the ranking helper."
+      ]
+    },
+    {
+      "id": "INC-0028",
+      "title": "When two distributions overlap there is no threshold - change the signal, not the number",
+      "date": "2026-08-28",
+      "classes": [
+        "false-green",
+        "observability",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Before choosing a threshold, measure the MINIMUM of one population against the MAXIMUM of the other. If they overlap, no cutoff exists and tuning only picks which error you make - find an EXECUTABLE consequence of the two things being the same instead. Require mutual agreement (one-way is subsumption) and test the silent half, or any broad check counts as a twin.",
+      "signature": "Every candidate cutoff either misses real positives or refuses real work, and moving it just trades one error for the other. Each individual measurement looks reasonable.",
+      "file": "incidents/INC-0028-when-two-distributions-overlap-there-is-no-threshold-change.md",
+      "related": [
+        "INC-0018",
+        "INC-0027"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - commit 315bc6e ships the behavioural interchangeability check that replaced the lexical threshold; e37ef89 and tools/verify_mutations.py are the mutation harness that found the blind spots."
+      ]
+    },
+    {
+      "id": "INC-0029",
+      "title": "When a check reports missing content, the extractor is the first suspect",
+      "date": "2026-08-27",
+      "classes": [
+        "detector-fail-open",
+        "tooling-paths",
+        "observability"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "When a check reports missing content, suspect the extractor before the artifact: a false negative about content points at a destructive remedy. Count the units two ways (strict pattern versus loose structural) and let disagreement indict the measurement. Read the real format off disk before writing any repair, and never grade delegated work by a runner's success ledger.",
+      "signature": "The reported-missing content forms a clean PREFIX plus SUFFIX of the whole, instead of being scattered through the middle. Two different ways of counting the same units disagree.",
+      "file": "incidents/INC-0029-when-a-check-reports-missing-content-the-extractor-is-the-fi.md",
+      "related": [
+        "INC-0018",
+        "INC-0019",
+        "INC-0026"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0030",
+      "title": "Rewriting a region by slicing between two markers deletes whatever else lives there",
+      "date": "2026-08-28",
+      "classes": [
+        "tooling-paths",
+        "concurrency",
+        "vcs-destruction"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "Never rewrite a file region by slicing between two found markers: the slice is defined by position, so it silently deletes whatever else sits in the gap. Use an anchored replace whose anchor is asserted to occur exactly once, and after any slice edit diff against the last known-good revision - 'N insertions, 0 deletions' is the proof.",
+      "signature": "A tool that worked stops working immediately after an edit you believe was confined to one region, raising NameError or AttributeError for a symbol you never touched. The file still parses.",
+      "file": "incidents/INC-0030-rewriting-a-region-by-slicing-between-two-markers-deletes-wh.md",
+      "related": [
+        "INC-0012",
+        "INC-0024"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - tools/promote.py, whose _rank helper sat between the two anchors and was deleted and then restored verbatim."
+      ]
+    },
+    {
+      "id": "INC-0031",
+      "title": "A concurrency test with no forced interleaving passes loudest when the feature is absent",
+      "date": "2026-08-28",
+      "classes": [
+        "false-green",
+        "test-isolation",
+        "observability"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "A test of an emergent property (locking, coalescing, dedup, cache hits, backpressure) must assert its own PRECONDITION - that the interleaving really happened - or it is greenest when the mechanism is absent. Force the window, assert on the field that races, mutation-verify each defect against a NAMED test, and run the checker from two working directories.",
+      "signature": "A test for an emergent property - locking, coalescing, deduplication, cache hits, backpressure - is green, and stays green when you delete the mechanism it exists to test.",
+      "file": "incidents/INC-0031-a-concurrency-test-with-no-forced-interleaving-passes-loudes.md",
+      "related": [
+        "INC-0022",
+        "INC-0028"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - e37ef89 and tools/verify_mutations.py implement the plant-one-defect-at-a-time harness this fix prescribes, with restoration verified by content in a finally block."
       ]
     }
   ]
