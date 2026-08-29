@@ -2,7 +2,7 @@
 id: INC-0029
 title: When a check reports missing content, the extractor is the first suspect
 date: 2026-08-27
-classes: [detector-fail-open, tooling-paths, observability]
+classes: [detector-fail-open, detector-fail-closed, tooling-paths, observability]
 severity: high
 status: fixed
 ---

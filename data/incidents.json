@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 31,
+  "count": 38,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -41,6 +41,10 @@
     "detector-fail-open": {
       "what": "A monitor or safety check silently never fires: a wrong regex flavor, the wrong parsed field, a case mismatch. A negative result is mistaken for health.",
       "ask": "Have you fed this detector a known-bad sample and watched it fire, AND a known-good sample and watched it stay silent?"
+    },
+    "detector-fail-closed": {
+      "what": "A monitor or check fires when it should not: it reports a correct artifact as broken, an honest quote as fabricated, a live process as dead. The accusation is specific and plausible, so the natural response is to repair the artifact - which is the destructive direction.",
+      "ask": "Before acting on this check's accusation, have you verified the ACCUSATION against the primary source - and could the check's own normalisation, base path or parser be the thing that disagrees?"
     },
     "stale-module": {
       "what": "A long-running process runs the code it imported at launch. Later commits to that module are inert while git and the changelog report them shipped.",
@@ -618,6 +622,7 @@
       "date": "2026-08-27",
       "classes": [
         "detector-fail-open",
+        "detector-fail-closed",
         "tooling-paths",
         "observability"
       ],
@@ -675,6 +680,159 @@
       ],
       "evidence": [
         "https://github.com/jeffma8888/agent-gap-radar - e37ef89 and tools/verify_mutations.py implement the plant-one-defect-at-a-time harness this fix prescribes, with restoration verified by content in a finally block."
+      ]
+    },
+    {
+      "id": "INC-0032",
+      "title": "Removing a veto exposes the broken classifier it was masking",
+      "date": "2026-08-28",
+      "classes": [
+        "detector-fail-closed",
+        "observability"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "A blocking gate upstream of a classifier hides that classifier's errors, so removing the gate does not create the refusals you then see - it reveals them. Treat the first batch of refusals after unblocking as unverified, hand-check them against the primary source, and re-run the repaired check over the historical verdicts before letting any of them stand.",
+      "signature": "You remove a blocking aggregate gate expecting a flood of passes, and get a small number of confident, specific refusals instead. Each surviving refusal is individually plausible and quotable - which is exactly why you believe it.",
+      "file": "incidents/INC-0032-removing-a-veto-exposes-the-broken-classifier-it-was-masking.md",
+      "related": [
+        "INC-0018",
+        "INC-0019",
+        "INC-0026"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - the normaliser repair in `tools/verify_quotes.py` (71c46ad) landed only after the whole-batch veto was removed (af2db9a), and that order is what made the false accusations visible at all."
+      ]
+    },
+    {
+      "id": "INC-0033",
+      "title": "One normaliser is not enough if it maps the two sides into different conventions",
+      "date": "2026-08-28",
+      "classes": [
+        "detector-fail-closed",
+        "observability"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "One normaliser on both sides is not enough - it must map both sides into the SAME convention. A rule right for one input (tags become spaces) is corruption on an input that never had tags. Prove a comparison with a known-GOOD pair as well as a known-bad one, and when a checker accuses an artifact you can see is correct, suspect the checker: a fail-closed defect points at a destructive repair.",
+      "signature": "A checker reports that a string is absent from a document where you can see it with your own eyes. The near-miss it prints is a clean prefix or suffix of the real text, or differs from it only in whitespace or punctuation.",
+      "file": "incidents/INC-0033-one-normaliser-is-not-enough-if-it-maps-the-two-sides-into-d.md",
+      "related": [
+        "INC-0018",
+        "INC-0019",
+        "INC-0029",
+        "INC-0032"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - the space-before-punctuation collapse added inside the single `_norm` in `tools/verify_quotes.py`, with the two prior recurrences recorded in the same module's history."
+      ]
+    },
+    {
+      "id": "INC-0034",
+      "title": "A malformed item aborts the per-item pass, and the crash reinstates the veto wearing a traceback",
+      "date": "2026-08-28",
+      "classes": [
+        "detector-fail-closed",
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Per-item isolation lives in the error path, not the loop. A for-loop makes the WORK per item; only a per-item catch makes the FAILURES per item, and an uncaught exception is a batch-wide verdict however granular the loop. Validate each item's shape, quarantine a bad one with a reason, and test that good items in the SAME batch still get through.",
+      "signature": "The pass that was supposed to judge items one at a time dies with a type error naming one item, and nothing is promoted. The log reads as an unrelated bug rather than as a policy decision, so the outcome is never recognised as the failure you just eliminated.",
+      "file": "incidents/INC-0034-a-malformed-item-aborts-the-per-item-pass-and-the-crash-rein.md",
+      "related": [
+        "INC-0006",
+        "INC-0026"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - the record-shape gate added alongside the per-record partition mode in `tools/verify_quotes.py`, so a malformed candidate is quarantined instead of crashing the pass."
+      ]
+    },
+    {
+      "id": "INC-0035",
+      "title": "Two individually safe options are unsafe together when their combination leaves a consumer unable to distinguish two states",
+      "date": "2026-08-28",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "Ask of any two individually safe options whether their COMBINATION leaves a consumer unable to distinguish two states. A per-run bound plus an in-place 'done' marker is the canonical pair: the bound makes 'all of these were checked' false, and the in-place marker deletes the evidence of which ones were. Make the checked set a separate LOCATION, and make any bound visible in the artifact.",
+      "signature": "Two changes, each reviewed and each safe. Nothing in either diff is wrong. The defect exists only in the state the pair produces, and it shows up as a consumer reading a collection whose members no longer all mean the same thing.",
+      "file": "incidents/INC-0035-two-individually-safe-options-are-unsafe-together-when-their.md",
+      "related": [
+        "INC-0026",
+        "INC-0034"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - the `--verified` staging destination (a747cc8), added so that bounding a verification pass and promoting from it stay honest at the same time."
+      ]
+    },
+    {
+      "id": "INC-0036",
+      "title": "A relaunch that bypasses the canonical launcher runs healthy but unobservable, and the diagnostic inverts",
+      "date": "2026-08-23",
+      "classes": [
+        "observability",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A launcher script is often part of the observability contract, not a convenience. Reproducing its command without its environment yields a process that works and cannot be seen, and every log-reading check then reports a failure that did not happen. Relaunch through the canonical entry point, and verify a restart by asserting the artifact your diagnostics read, not that the process exists.",
+      "signature": "The process is alive with the right parent and the right arguments, but the log has no launch banner, and every freshness or liveness check that reads that log reports a problem. Restarting again reproduces the same silence.",
+      "file": "incidents/INC-0036-a-relaunch-that-bypasses-the-canonical-launcher-runs-healthy.md",
+      "related": [
+        "INC-0008",
+        "INC-0017",
+        "INC-0021"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-foundry - `launch_dispatcher.sh`, the dispatcher's own stdout redirection, and the `live-lag` verb that reads the launch banner out of the log."
+      ]
+    },
+    {
+      "id": "INC-0037",
+      "title": "A liveness check built on a process-table grep counts itself",
+      "date": "2026-08-28",
+      "classes": [
+        "detector-fail-open",
+        "tooling-paths",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A process-table grep counts itself - the measuring command's arguments contain the search term, so a 'something is running' check is never false. Use a matcher that excludes its own process, and prove any busy/idle check TWO-SIDED: zero when nothing runs, non-zero with one known worker. A check never seen returning false has not been tested.",
+      "signature": "A 'something is running' check is never false. The measured count is exactly one more than the truth, and it reads one at moments when you know for certain that nothing is running.",
+      "file": "incidents/INC-0037-a-liveness-check-built-on-a-process-table-grep-counts-itself.md",
+      "related": [
+        "INC-0011",
+        "INC-0018",
+        "INC-0019"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0038",
+      "title": "A determinism test that scans the live working tree cannot pass while another writer edits it",
+      "date": "2026-08-28",
+      "classes": [
+        "test-isolation",
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "open",
+      "rule": "Determinism is a property of a function over a FIXED input. A test that scans the live working tree twice and compares is really asserting that no other writer touched the tree, so it tests the writers, not the code - and it passes in isolation, which reads as flakiness. Give the test a fixture it owns, or snapshot the input once and assert the snapshot is unchanged.",
+      "signature": "A test asserting that two consecutive runs produce identical output fails in the full suite and passes in isolation. The failure moves between runs and correlates with another session's file timestamps rather than with anything that changed under test.",
+      "file": "incidents/INC-0038-a-determinism-test-that-scans-the-live-working-tree-cannot-p.md",
+      "related": [
+        "INC-0012",
+        "INC-0022",
+        "INC-0023",
+        "INC-0031"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - the scan-determinism tests that take the repository root itself as their scan target, so the fixture is the live mutable checkout."
       ]
     }
   ]
