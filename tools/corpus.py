@@ -816,7 +816,105 @@ _BATCH4: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4
+# Batch 5: session-derived, 2026-08-29..09-02. Same source class as batch 3 -
+# failures found while BUILDING gates and grading agent output, which the loop-log
+# miners cannot see.
+_BATCH5: list[dict] = [
+    {
+        "id": "INC-0039",
+        "title": "A budget is not a sample: a sorted head is a permanent filter, disguised as a performance knob",
+        "date": "2026-08-29",
+        "classes": ["observability", "spec-and-scope", "false-green"],
+        "severity": "high",
+        "status": "fixed",
+        "cost": "Eight of eleven research dimensions were STRUCTURALLY unreachable for as long as the backlog stayed large. Every downstream artifact reported them as under-researched instead of unreached, and the resulting register was about 40% one dimension with nothing explaining why.",
+        "signature": "A bounded pass reports steady healthy throughput, but its OUTPUT is concentrated in one region of the input space - and that region is the one that sorts first.",
+        "what": "A verification pass capped its per-tick network cost by taking the first N of a sorted file listing. Candidate filenames began with the research topic, so alphabetical order correlated exactly with the dimension being sampled. With 861 queued candidates spanning all 11 dimensions and a 120-per-tick budget, the verified pool contained exactly 3 of the 11 - and the other 8 could never be reached while the queue stayed longer than the budget.",
+        "root_cause": "A truncation whose ORDER correlates with the PROPERTY being measured is not a sample, it is a filter - and it is applied on every tick, forever. It survives review because it reads as a resource limit: the code says 'cap the cost', and the bias is a property of the input's naming, which lives somewhere else entirely.",
+        "why_hard": "The pass is genuinely bounded, genuinely fast, and its own logs are honest about how many records it looked at. Nothing reports what it never looked at. The bias only appears if you compare the DISTRIBUTION of the output against the distribution of the input, which no health check did.",
+        "fix": "Round-robin across the dimension you actually care about, best-first WITHIN each bucket, cycling until the budget is spent. A thin bucket contributes everything it has and drops out, so no budget is reserved and then wasted. Give unclassifiable items their OWN bucket rather than dropping them - an item whose category cannot be read is exactly the one a human needs to see, and filtering it before the gate leaves it queued forever.",
+        "verification": "The replacement selection function is committed with the measurement in its own docstring, so the reasoning cannot drift from the code: 861 queued across 11 dimensions, a verified queue of 99 containing exactly three, and the note that the eight missing dimensions were unreachable rather than under-researched.",
+        "rule": "For ANY truncated pass, ask whether the ORDER is independent of the PROPERTY being measured. Filename, insertion, directory and id order almost never are - so a sorted head is a permanent filter wearing a performance knob's clothes. Round-robin across the dimension you care about, best-first inside each bucket, and give unclassifiable items their own bucket.",
+        "evidence": [
+            "https://github.com/jeffma8888/agent-gap-radar - tools/verify_quotes.py, function select_bounded, whose docstring records the measured distribution and why the previous sorted-head selection was a bias rather than a sample.",
+        ],
+        "related": ["INC-0026", "INC-0028"],
+    },
+    {
+        "id": "INC-0040",
+        "title": "A guard that asserts a lifecycle stage fails at exactly the moment it was written to protect",
+        "date": "2026-08-30",
+        "classes": ["false-green", "test-isolation", "detector-fail-open"],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "A publication-safety gate was green on every local run for the entire life of the project and went red on the FIRST run after the artifact was published - the one moment its verdict actually mattered.",
+        "signature": "A safety test has never once failed, and the state it forbids is a state on the project's own roadmap. It fails for the first time immediately after a milestone.",
+        "what": "A pre-publication check required the repository to have NO git remote, as a proxy for 'this has not been published yet'. Having no remote is a STAGE in a repository's life, not a property of it. The check therefore passed forever locally and failed on the first remote CI run, because publishing was the intended destination all along.",
+        "root_cause": "The guard asserted a schedule rather than an invariant. Any guard whose forbidden state is one the project intends to REACH is guaranteed to fail exactly when the guarded event happens - which is the worst possible moment to discover a gate was mis-specified, because the failure arrives mixed in with the milestone's other noise.",
+        "why_hard": "The test is green, cheap and looks like diligence, and its name describes a real risk. Only its PREDICATE is wrong, and a predicate that is never violated locally produces no evidence at all - a check never seen returning false has not been tested.",
+        "fix": "Replace the stage assertion with the property one level down: not 'no remote' but 'no credential in any remote' - every fetch and push URL must be credential-free HTTPS or Git-only SSH to a public host - with two-sided tests for unsafe local paths, private hosts, embedded credentials, unexpected schemes, raw IPs and SSH usernames.",
+        "verification": "The replacement is two-sided by construction: each unsafe form has a test asserting the guard FIRES, and each safe form a test asserting it stays silent. The new predicate is also true both before and after publication, so the milestone no longer changes the verdict.",
+        "rule": "Write down the state your guard FORBIDS, then ask whether the project intends to REACH that state. If it does, the guard is asserting a schedule, not a safety property, and it will fail precisely when the guarded event happens. The invariant worth protecting sits one level down: not 'no remote' but 'no credential in a remote'.",
+        "related": ["INC-0022", "INC-0038"],
+    },
+    {
+        "id": "INC-0041",
+        "title": "A verifier that lived and answered can still deliver an unusable verdict",
+        "date": "2026-09-02",
+        "classes": ["observability", "verdict-token", "delegation"],
+        "severity": "high",
+        "status": "mitigated",
+        "cost": "An audit's single FAIL was never identifiable. The verifier's reply was cut off before it reached the failing item, and the persisted task log truncated at the same point - so the finding was LOST rather than merely hidden, and the whole audit had to be redone by hand.",
+        "signature": "A verifier reports a COUNT of failures in its summary line but the detail for the failing item is missing, and re-reading the stored log truncates at the same place.",
+        "what": "An independent verifier was asked to check thirteen claims. It answered with a summary line - one FAIL found, all other claims PASS - and was cut off at claim 7. The failing claim was somewhere in 8 to 13. Re-reading the persisted task log truncated at the identical point, so no channel held the finding.",
+        "root_cause": "Two independent truncations landing at the same boundary, plus a report format that put the AGGREGATE first and the per-item evidence after it. A summary line asserting a count is not a finding: it is a claim ABOUT findings, and it survives truncation while the thing it describes does not.",
+        "why_hard": "Every failure mode here presents as success. The verifier ran, it answered, its answer was well-formed and even alarming in the right direction. Assuming the transport is lossless is the default, and the stored log is normally the fallback that makes truncation recoverable - here both failed identically, so the second look confirmed the first rather than correcting it.",
+        "fix": "Require the verifier to write its FULL report to a FILE and reply with only the compact verdict table, so the reply is small enough to survive any transport and the evidence lives somewhere re-readable. When a verdict arrives without its supporting detail, do not quote the partial trace as a result: re-measure every claim yourself against the primary sources.",
+        "verification": "Re-measuring all thirteen claims by hand found zero document defects; the reported FAIL remained an unresolved hypothesis, most likely the verifier's own strict-equality comparison of a qualified cell value against a bare one. So the verdict was not merely unreadable, it was probably wrong - which is the second argument for never quoting a partial trace.",
+        "rule": "A verifier that answers is not a verifier that reported: transport AND the stored log can truncate at the same boundary, losing the finding entirely. Have the verifier write its full report to a FILE and reply with only the verdict table. A summary line asserting a count is a claim about findings, not a finding - never quote a partial trace as a result.",
+        "related": ["INC-0005", "INC-0025"],
+    },
+    {
+        "id": "INC-0042",
+        "title": "Self-review does not catch recurrences of your own documented rules",
+        "date": "2026-09-01",
+        "classes": ["false-green", "observability", "delegation"],
+        "severity": "high",
+        "status": "mitigated",
+        "cost": "Three defects survived a deliberate self-review of a decision document and were found by an independent verifier minutes later. All three were recurrences of failure families already written down in the reviewer's OWN standing rules.",
+        "signature": "An artifact passes its author's careful self-review, and an independent pass immediately finds defects that match rules the author can quote from memory.",
+        "what": "A document was self-reviewed against a written checklist and then handed to an independent verifier, which found three defects. Each was a known family: an unqualified superlative computed over the wrong population (a maximum taken over one subset, stated as if over the whole), and an aggregator restatement of a primary source treated as independent corroboration.",
+        "root_cause": "The context that produced the defect is the context grading it. Self-review re-reads the artifact with the same framing, the same assumptions and the same blind spots that generated it, so a rule can be perfectly known and still not APPLIED - knowing and executing are different capabilities, and only the second one is being tested at review time.",
+        "why_hard": "It is invisible from the inside, by construction: the author's confidence is highest exactly where the shared assumption sits. Writing the rule down does not help, because the failure is not ignorance of the rule. And each individual defect is small enough to look like polish rather than a defect class.",
+        "fix": "Add an INDEPENDENT verifier slot with no access to the author's reasoning - only the artifact and the primary sources - and give it a bounded, enumerable brief (check these N claims, one row per claim). Do NOT respond to a recurrence by rewriting the rule: record it as a receipt that the rule keeps recurring, which is evidence about the ENFORCEMENT POINT, not about the wording.",
+        "verification": "The verifier slot found three defects in an artifact that had just passed self-review, and every one mapped to an existing documented family - which is the measurement that argues for the slot rather than for another rule. Conclusions survived in all three cases; the SENTENCES did not, which is why a reader-facing artifact needs a reader-independent check.",
+        "rule": "Self-review is graded by the context that produced the defect, so a rule can be perfectly known and still not applied - knowing and executing are different capabilities. Use an independent verifier with access to the artifact and primary sources but NOT your reasoning, and treat a recurrence as evidence about the enforcement point, never as a reason to reword the rule.",
+        "related": ["INC-0041", "INC-0001"],
+    },
+    {
+        "id": "INC-0043",
+        "title": "An anchored replace that matches a PREFIX of a line is still 'exactly once'",
+        "date": "2026-09-02",
+        "classes": ["tooling-paths", "concurrency", "identity-and-keying"],
+        "severity": "high",
+        "status": "fixed",
+        "cost": "A concurrent writer's entire batch of seven records silently disappeared from the generated output while the edit reported success. Nothing in the writing script noticed; only the build's own invariant tests caught it, after the damage was on disk.",
+        "signature": "An edit asserted to match exactly once succeeds, and afterwards the file contains a duplicated fragment of the line you replaced - or one symbol defined twice, the later definition shadowing the earlier.",
+        "what": "Two independent sessions appended batches to one shared list. The second anchored on the composition line as it had existed BEFORE the first session's change ('X = A + B + C'), but the line now read 'X = A + B + C + D'. The anchor matched as a PREFIX, the uniqueness assertion passed, and the replacement produced 'X = A + B + C + D_new + D' while also defining a second 'D' that shadowed the first - so the first session's seven records vanished from the built artifact.",
+        "root_cause": "Two individually-plausible errors compounding. First, an anchor that is a PREFIX of the real line still occurs exactly once, so a count assertion answers 'is this string ambiguous?' and never 'is this string the WHOLE thing I mean to replace?'. Second, both writers independently reached for the next sequential symbol name for their batch, so the later definition silently shadowed the earlier one instead of colliding loudly.",
+        "why_hard": "The edit reports success, the file still parses, and the module still imports. The uniqueness assertion is the very mechanism that was supposed to prevent this, which converts a caught error into false confidence. And the assertion that WOULD have caught it - unique sequential ids - lives in the test suite rather than in the writing script, so it fires only after the file has been overwritten.",
+        "fix": "Anchor on the WHOLE line, or on a content span that includes its terminator, never a prefix. Assert the POST-write state as well as the pre-write count: that each expected symbol is defined exactly once and that the composition names each exactly once. In a shared appended structure, do not assume the next sequential symbol name is free - read the live file first and derive the name from what is actually there.",
+        "verification": "The repair used the broken state itself as its anchor ('... + D + D', asserted to occur exactly once) and asserted afterwards that BOTH batch symbols are defined exactly once. The rebuild reports 42 unique ids with no gap in the sequence, all 27 invariant tests pass, and the other writer's seven records are present again.",
+        "rule": "An anchor that is a PREFIX of the real line still matches 'exactly once', so a uniqueness assertion certifies ambiguity and never completeness - anchor on the whole line or include its terminator. In a shared appended structure never assume the next sequential symbol name is free: read the live file, and assert AFTER writing that each symbol is defined exactly once.",
+        "evidence": [
+            "https://github.com/jeffma8888/agent-failure-modes - this repository is where the collision happened: tools/corpus.py now carries the repaired composition line, and commit bccb9d1 is the concurrent writer's batch that was briefly shadowed.",
+        ],
+        "related": ["INC-0030", "INC-0027", "INC-0038"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 38,
+  "count": 43,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -833,6 +833,111 @@
       ],
       "evidence": [
         "https://github.com/jeffma8888/agent-gap-radar - the scan-determinism tests that take the repository root itself as their scan target, so the fixture is the live mutable checkout."
+      ]
+    },
+    {
+      "id": "INC-0039",
+      "title": "A budget is not a sample: a sorted head is a permanent filter, disguised as a performance knob",
+      "date": "2026-08-29",
+      "classes": [
+        "observability",
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "For ANY truncated pass, ask whether the ORDER is independent of the PROPERTY being measured. Filename, insertion, directory and id order almost never are - so a sorted head is a permanent filter wearing a performance knob's clothes. Round-robin across the dimension you care about, best-first inside each bucket, and give unclassifiable items their own bucket.",
+      "signature": "A bounded pass reports steady healthy throughput, but its OUTPUT is concentrated in one region of the input space - and that region is the one that sorts first.",
+      "file": "incidents/INC-0039-a-budget-is-not-a-sample-a-sorted-head-is-a-permanent-filter.md",
+      "related": [
+        "INC-0026",
+        "INC-0028"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-gap-radar - tools/verify_quotes.py, function select_bounded, whose docstring records the measured distribution and why the previous sorted-head selection was a bias rather than a sample."
+      ]
+    },
+    {
+      "id": "INC-0040",
+      "title": "A guard that asserts a lifecycle stage fails at exactly the moment it was written to protect",
+      "date": "2026-08-30",
+      "classes": [
+        "false-green",
+        "test-isolation",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Write down the state your guard FORBIDS, then ask whether the project intends to REACH that state. If it does, the guard is asserting a schedule, not a safety property, and it will fail precisely when the guarded event happens. The invariant worth protecting sits one level down: not 'no remote' but 'no credential in a remote'.",
+      "signature": "A safety test has never once failed, and the state it forbids is a state on the project's own roadmap. It fails for the first time immediately after a milestone.",
+      "file": "incidents/INC-0040-a-guard-that-asserts-a-lifecycle-stage-fails-at-exactly-the.md",
+      "related": [
+        "INC-0022",
+        "INC-0038"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0041",
+      "title": "A verifier that lived and answered can still deliver an unusable verdict",
+      "date": "2026-09-02",
+      "classes": [
+        "observability",
+        "verdict-token",
+        "delegation"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "A verifier that answers is not a verifier that reported: transport AND the stored log can truncate at the same boundary, losing the finding entirely. Have the verifier write its full report to a FILE and reply with only the verdict table. A summary line asserting a count is a claim about findings, not a finding - never quote a partial trace as a result.",
+      "signature": "A verifier reports a COUNT of failures in its summary line but the detail for the failing item is missing, and re-reading the stored log truncates at the same place.",
+      "file": "incidents/INC-0041-a-verifier-that-lived-and-answered-can-still-deliver-an-unus.md",
+      "related": [
+        "INC-0005",
+        "INC-0025"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0042",
+      "title": "Self-review does not catch recurrences of your own documented rules",
+      "date": "2026-09-01",
+      "classes": [
+        "false-green",
+        "observability",
+        "delegation"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "Self-review is graded by the context that produced the defect, so a rule can be perfectly known and still not applied - knowing and executing are different capabilities. Use an independent verifier with access to the artifact and primary sources but NOT your reasoning, and treat a recurrence as evidence about the enforcement point, never as a reason to reword the rule.",
+      "signature": "An artifact passes its author's careful self-review, and an independent pass immediately finds defects that match rules the author can quote from memory.",
+      "file": "incidents/INC-0042-self-review-does-not-catch-recurrences-of-your-own-documente.md",
+      "related": [
+        "INC-0041",
+        "INC-0001"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0043",
+      "title": "An anchored replace that matches a PREFIX of a line is still 'exactly once'",
+      "date": "2026-09-02",
+      "classes": [
+        "tooling-paths",
+        "concurrency",
+        "identity-and-keying"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "An anchor that is a PREFIX of the real line still matches 'exactly once', so a uniqueness assertion certifies ambiguity and never completeness - anchor on the whole line or include its terminator. In a shared appended structure never assume the next sequential symbol name is free: read the live file, and assert AFTER writing that each symbol is defined exactly once.",
+      "signature": "An edit asserted to match exactly once succeeds, and afterwards the file contains a duplicated fragment of the line you replaced - or one symbol defined twice, the later definition shadowing the earlier.",
+      "file": "incidents/INC-0043-an-anchored-replace-that-matches-a-prefix-of-a-line-is-still.md",
+      "related": [
+        "INC-0030",
+        "INC-0027",
+        "INC-0038"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-failure-modes - this repository is where the collision happened: tools/corpus.py now carries the repaired composition line, and commit bccb9d1 is the concurrent writer's batch that was briefly shadowed."
       ]
     }
   ]
