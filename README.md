@@ -89,6 +89,15 @@ python3 tools/leakscan.py  # scan for banned tokens across the tree
 python3 -m pytest tests/   # run the invariants
 ```
 
+## Part of a pipeline
+
+This register is the **upstream** of two siblings, and its `## Practices` section in `RULES.md` is a machine-readable contract, not just prose:
+
+- [`agent-gap-radar`](https://github.com/jeffma8888/agent-gap-radar) cites these incident rules as evidence for **unsolved gaps**.
+- [`agent-practice-index`](https://github.com/jeffma8888/agent-practice-index) **parses the `## Practices` section** (`practice from-rules RULES.md`) and drafts a practice record for every `PRA-NNNN` not yet in its index, quoting the bullet verbatim. Keep that section's `- **[PRA-NNNN]** text` / `_derived from:_` shape stable: a downstream tool reads it.
+
+Full data flow and commands: [ECOSYSTEM.md](https://github.com/jeffma8888/agent-practice-index/blob/main/ECOSYSTEM.md).
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
