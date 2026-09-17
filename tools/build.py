@@ -113,6 +113,29 @@ def filename(inc: dict) -> str:
     return f"{inc['id']}-{slug(inc['title'])}.md"
 
 
+def replace_generated_region(text: str, name: str, body: str) -> str:
+    """Replace one marked README region while preserving human-authored prose."""
+    start = f"<!-- BEGIN GENERATED: {name} -->"
+    end = f"<!-- END GENERATED: {name} -->"
+    if text.count(start) != 1 or text.count(end) != 1:
+        raise ValueError(f"README must contain exactly one {start!r} and {end!r}")
+    before, remainder = text.split(start, 1)
+    _, after = remainder.split(end, 1)
+    return f"{before}{start}\n{body.rstrip()}\n{end}{after}"
+
+
+def readme_text(current: str) -> str:
+    """Refresh corpus-derived README facts without owning the whole document."""
+    summary = "\n".join([
+        f"- **[incidents/](incidents/)** - {len(INCIDENTS)} human-readable post-mortems, one per file. Each has: signature (how to recognise it), what happened, root cause, why it was hard to see, fix, verification, and a transferable rule.",
+        f"- **[TAXONOMY.md](TAXONOMY.md)** - the {len(CLASSES)} failure classes, each with the diagnostic question that surfaces it.",
+    ])
+    class_table = ["| Class | What it looks like |", "|---|---|"]
+    class_table.extend(f"| **{cid}** | {meta['what']} |" for cid, meta in CLASSES.items())
+    current = replace_generated_region(current, "corpus-summary", summary)
+    return replace_generated_region(current, "failure-classes", "\n".join(class_table))
+
+
 def main() -> int:
     errs = validate()
     if errs:
@@ -192,8 +215,14 @@ def main() -> int:
     with open(os.path.join(ROOT, "TAXONOMY.md"), "w", encoding="utf-8") as fh:
         fh.write(nl.join(tax))
 
+    readme_path = os.path.join(ROOT, "README.md")
+    with open(readme_path, encoding="utf-8") as fh:
+        readme = readme_text(fh.read())
+    with open(readme_path, "w", encoding="utf-8") as fh:
+        fh.write(readme)
+
     print(f"built {len(INCIDENTS)} incidents, {len(CLASSES)} classes, {len(PRACTICES)} practices")
-    print("  incidents/*.md, data/incidents.json, RULES.md, TAXONOMY.md")
+    print("  incidents/*.md, data/incidents.json, RULES.md, TAXONOMY.md, README.md regions")
     return 0
 
 

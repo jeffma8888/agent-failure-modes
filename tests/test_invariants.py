@@ -119,7 +119,7 @@ def _snapshot():
             for fn in filenames:
                 fp = os.path.join(dirpath, fn)
                 out[os.path.relpath(fp, ROOT)] = open(fp, "rb").read()
-    for fn in ("RULES.md", "TAXONOMY.md"):
+    for fn in ("RULES.md", "TAXONOMY.md", "README.md"):
         out[fn] = open(os.path.join(ROOT, fn), "rb").read()
     return out
 
@@ -131,6 +131,42 @@ def test_incidents_json_matches_corpus():
     ids_in_json = {i["id"] for i in data["incidents"]}
     ids_in_corpus = {i["id"] for i in INCIDENTS}
     assert ids_in_json == ids_in_corpus
+
+
+def test_readme_generated_regions_match_corpus():
+    """The public landing page must not advertise an old corpus size or taxonomy."""
+    text = open(os.path.join(ROOT, "README.md"), encoding="utf-8").read()
+
+    summary_start = "<!-- BEGIN GENERATED: corpus-summary -->"
+    summary_end = "<!-- END GENERATED: corpus-summary -->"
+    classes_start = "<!-- BEGIN GENERATED: failure-classes -->"
+    classes_end = "<!-- END GENERATED: failure-classes -->"
+    for marker in (summary_start, summary_end, classes_start, classes_end):
+        assert text.count(marker) == 1, f"README marker must occur exactly once: {marker}"
+
+    summary = text.split(summary_start, 1)[1].split(summary_end, 1)[0]
+    assert f"{len(INCIDENTS)} human-readable post-mortems" in summary
+    assert f"{len(CLASSES)} failure classes" in summary
+
+    class_table = text.split(classes_start, 1)[1].split(classes_end, 1)[0]
+    rows = [line for line in class_table.splitlines() if line.startswith("| **")]
+    assert len(rows) == len(CLASSES)
+    for cid, meta in CLASSES.items():
+        assert f"| **{cid}** | {meta['what']} |" in rows
+
+
+def test_readme_relative_links_resolve():
+    """The landing page must not send readers to renamed or truncated files."""
+    text = open(os.path.join(ROOT, "README.md"), encoding="utf-8").read()
+    targets = re.findall(r"\[[^]]+\]\(([^)]+)\)", text)
+    missing = []
+    for target in targets:
+        if "://" in target or target.startswith("#"):
+            continue
+        path = target.split("#", 1)[0]
+        if not os.path.exists(os.path.join(ROOT, path)):
+            missing.append(target)
+    assert not missing, f"README has broken relative links: {missing}"
 
 
 def test_every_practice_has_all_required_fields():
