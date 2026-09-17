@@ -147,6 +147,9 @@ def test_readme_generated_regions_match_corpus():
     summary = text.split(summary_start, 1)[1].split(summary_end, 1)[0]
     assert f"{len(INCIDENTS)} human-readable post-mortems" in summary
     assert f"{len(CLASSES)} failure classes" in summary
+    assert re.findall(r"\b\d+ (?:failure )?classes\b", text) == [
+        f"{len(CLASSES)} failure classes"
+    ], "numeric class counts outside the generated summary will go stale"
 
     class_table = text.split(classes_start, 1)[1].split(classes_end, 1)[0]
     rows = [line for line in class_table.splitlines() if line.startswith("| **")]

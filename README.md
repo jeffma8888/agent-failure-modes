@@ -80,12 +80,12 @@ An earlier version of this file did carry the author's real name in a self-test 
 
 ## Contributing
 
-If you have hit a failure that generalises and does not fit any of the 16 classes, open an issue. If it fits an existing class, a PR against [`tools/corpus.py`](tools/corpus.py) is welcome. Constraints:
+If you have hit a failure that generalises and does not fit any existing class, open an issue. If it fits an existing class, a PR against [`tools/corpus.py`](tools/corpus.py) is welcome. Constraints:
 
 - Every incident needs a signature, a fix, and a transferable rule of at most 400 characters.
 - Prefer honest cost estimates ("about 5 hours of silent stall") to marketing-shaped numbers.
 - Generic language throughout. No employer names, personal identity, or machine-local paths - the leak scanner enforces this.
-- Run `python3 tools/build.py` after any change; commit the regenerated `incidents/`, `data/`, `RULES.md`, `TAXONOMY.md` alongside the corpus edit.
+- Run `python3 tools/build.py` after any change; commit the regenerated `incidents/`, `data/`, `RULES.md`, `TAXONOMY.md`, and README regions alongside the corpus edit.
 
 ## Regenerate
 
