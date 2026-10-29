@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 65,
+  "count": 66,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1359,6 +1359,25 @@
       "related": [
         "INC-0014",
         "INC-0045"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0066",
+      "title": "A worker's end-of-run cleanup deleted a shared scratch directory, taking the coordinator's live watcher and its log with it",
+      "date": "2026-10-29",
+      "classes": [
+        "concurrency",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Delete only the files you created, by name, never a parent directory you were pointed at; a successful create-parents call says nothing about ownership. Give each worker its own scratch subdirectory, never run a live control process from shared temp space, and report every delete.",
+      "signature": "Two agents are told to use the same scratch directory, and one of them finishes by deleting the directory recursively.",
+      "file": "incidents/INC-0066-a-worker-s-end-of-run-cleanup-deleted-a-shared-scratch-direc.md",
+      "related": [
+        "INC-0014",
+        "INC-0012"
       ],
       "evidence": []
     }
