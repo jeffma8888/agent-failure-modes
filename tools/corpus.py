@@ -304,12 +304,12 @@ _BATCH1: list[dict] = [
         "status": "mitigated",
         "cost": "Two prose edits landed under a loop's commit message; content survived, history was mislabeled. It recurred every iteration until the pattern was noticed.",
         "signature": "`git log --oneline -S \"<a phrase you typed>\" -- <file>` shows your text landed in a commit whose SUBJECT is the loop's story.",
-        "what": "A human hand-edited a documentation file in a directory the loop committed from. The loop's next iteration ran `git add -A` before its own commit and swept the human's uncommitted work into the loop's commit under the loop's subject line. Recurred every iteration.",
+        "what": "A human hand-edited a documentation file in a directory the loop committed from. The loop's next iteration ran `git add -A` before its own commit and swept the human's uncommitted work into the loop's commit under the loop's subject line. Recurred every iteration. The same sweep recurred with a coordinator, not a loop, as the committer: a status update committed with the all-tracked-files flag also took a teammate's in-progress 275-line file into an unrelated commit, mislabelled; the content was final so only the message was wrong, but a slower writer would have had a half-written file committed. Found because the next add of that file reported nothing to commit.",
         "root_cause": "The git index is process-shared state. A blanket `add -A` stages EVERYTHING that has changed in the working tree, not only what the loop authored. If two writers (or an agent and a human) share the tree, whoever commits second commits both sets of edits.",
         "why_hard": "Content is preserved, tests are still green, no error. The only symptom is a wrongly-labeled commit subject. If you weren't looking, you'd never see it.",
         "fix": "Do not hand-edit a directory a loop commits from. If you must, drop the loop's STOP sentinel first. A path-limited commit (`git commit -m '...' -- <paths>`) protects the LOOP's work from a human's blanket add, but it CANNOT protect a human's work from the loop's blanket add - because the loop is the one running `add -A`. The full protection is exclusivity: quiesce one side before the other writes.",
         "verification": "After the human edit was staged into a proper quiesced window, the next 30 iterations shipped without sweeping any human file into a loop commit.",
-        "rule": "The git index is process-shared. A blanket `git add -A` stages everything in the tree, including uncommitted work you did not author. When a loop is live: do not hand-edit its tree; if you must, drop the loop's STOP sentinel first. A path-limited commit protects the loop from you, not you from the loop.",
+        "rule": "The git index is process-shared. A blanket `git add -A` stages everything in the tree, including uncommitted work you did not author. When a loop is live: do not hand-edit its tree; if you must, drop the loop's STOP sentinel first. A path-limited commit protects the loop from you, not you from the loop. `commit -a` sweeps too: commit named paths only.",
         "related": ["INC-0013", "INC-0014"],
     },
 ]
@@ -1157,7 +1157,45 @@ _BATCH9: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9
+_BATCH10: list[dict] = [
+    {
+        "id": "INC-0057",
+        "title": "A revision that closed every finding introduced new defects in the seams it added",
+        "date": "2026-10-29",
+        "classes": ["false-green", "spec-and-scope"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "A revision accepted all 12 blocking review findings and the blocking count rose to 15 on the next round. One more full revision and review cycle was needed.",
+        "signature": "Each review round's fix adds new concrete claims (types, hooks, signatures), and the next round's findings are mostly about those additions.",
+        "what": "A scope document accepted all 12 blocking findings by adding concrete seams: types, setup hooks, seed calls. Several of the additions were wrong: a data type that does not exist, a test-runner setup object that cannot cross into forked workers, a seed call with the wrong signature, a schema field the design never had. Independent reviewers found 15 blocking issues in round two.",
+        "root_cause": "Accepting a finding was treated as closing it. A fix that names new things makes new claims, and those claims were written from memory instead of checked against their source of truth, which is the same failure the fix was responding to.",
+        "why_hard": "The fix addresses the reviewer's exact words, so it looks responsive. The new claims are specific and plausible, and only a reader who looks each one up in the design or the framework source sees that it is false.",
+        "fix": "The next revision's brief requires the author to search for every newly relied-on name, signature and framework behaviour in the design and the pinned framework source before writing it down.",
+        "verification": "Reviewers checked each newly named type and signature against the design and the framework source, which is how the wrong ones were found.",
+        "rule": "An accepted finding is not a closed finding. Re-verify every new concrete claim a fix introduces against its source of truth before declaring the finding closed.",
+        "related": ["INC-0042", "INC-0056"],
+    },
+    {
+        "id": "INC-0058",
+        "title": "A broad exception handler hid the difference between 'not found' and 'unknown name'",
+        "date": "2026-10-29",
+        "classes": ["false-green", "tooling-paths"],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Caught while writing tests, before release. A command-line tool would have reported an unknown name as 'no eligible candidate', with the wrong exit code, and a test would have passed on the bug.",
+        "signature": "A handler catches a parent exception type first, and a sibling error with a different meaning is a subclass of it.",
+        "what": "In Python, a missing-key error is a subclass of the broader lookup error. A command-line tool that caught the broad type first mapped unknown-name errors to the exit code for 'no eligible candidate'. A test asserting that the broad type is raised also passed when the real defect was a missing key.",
+        "root_cause": "Handler order and assertion width. The broad handler absorbed an error with a different meaning, and the broad assertion could not distinguish the two.",
+        "why_hard": "Both paths produce a plausible error exit, and the broad test is green for either cause.",
+        "fix": "Catch the narrower exception first, and assert the exact exception type in tests where the distinction matters.",
+        "verification": "Found by the engineer writing the tests; the exact-type assertion fails on the wrong error.",
+        "rule": "When one error type subclasses another, order handlers narrow to broad and test the exact type. A broad assertion is green for every cause beneath it.",
+        "related": ["INC-0031", "INC-0034"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.

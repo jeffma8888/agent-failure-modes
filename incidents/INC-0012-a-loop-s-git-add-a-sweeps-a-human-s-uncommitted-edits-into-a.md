@@ -17,7 +17,7 @@ status: mitigated
 
 ## What happened
 
-A human hand-edited a documentation file in a directory the loop committed from. The loop's next iteration ran `git add -A` before its own commit and swept the human's uncommitted work into the loop's commit under the loop's subject line. Recurred every iteration.
+A human hand-edited a documentation file in a directory the loop committed from. The loop's next iteration ran `git add -A` before its own commit and swept the human's uncommitted work into the loop's commit under the loop's subject line. Recurred every iteration. The same sweep recurred with a coordinator, not a loop, as the committer: a status update committed with the all-tracked-files flag also took a teammate's in-progress 275-line file into an unrelated commit, mislabelled; the content was final so only the message was wrong, but a slower writer would have had a half-written file committed. Found because the next add of that file reported nothing to commit.
 
 ## Root cause
 
@@ -37,7 +37,7 @@ After the human edit was staged into a proper quiesced window, the next 30 itera
 
 ## Transferable rule
 
-> The git index is process-shared. A blanket `git add -A` stages everything in the tree, including uncommitted work you did not author. When a loop is live: do not hand-edit its tree; if you must, drop the loop's STOP sentinel first. A path-limited commit protects the loop from you, not you from the loop.
+> The git index is process-shared. A blanket `git add -A` stages everything in the tree, including uncommitted work you did not author. When a loop is live: do not hand-edit its tree; if you must, drop the loop's STOP sentinel first. A path-limited commit protects the loop from you, not you from the loop. `commit -a` sweeps too: commit named paths only.
 
 ## Related
 

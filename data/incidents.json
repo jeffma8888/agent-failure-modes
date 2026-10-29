@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 56,
+  "count": 58,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -302,7 +302,7 @@
       ],
       "severity": "high",
       "status": "mitigated",
-      "rule": "The git index is process-shared. A blanket `git add -A` stages everything in the tree, including uncommitted work you did not author. When a loop is live: do not hand-edit its tree; if you must, drop the loop's STOP sentinel first. A path-limited commit protects the loop from you, not you from the loop.",
+      "rule": "The git index is process-shared. A blanket `git add -A` stages everything in the tree, including uncommitted work you did not author. When a loop is live: do not hand-edit its tree; if you must, drop the loop's STOP sentinel first. A path-limited commit protects the loop from you, not you from the loop. `commit -a` sweeps too: commit named paths only.",
       "signature": "`git log --oneline -S \"<a phrase you typed>\" -- <file>` shows your text landed in a commit whose SUBJECT is the loop's story.",
       "file": "incidents/INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md",
       "related": [
@@ -1187,6 +1187,44 @@
       "related": [
         "INC-0043",
         "INC-0051"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0057",
+      "title": "A revision that closed every finding introduced new defects in the seams it added",
+      "date": "2026-10-29",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "An accepted finding is not a closed finding. Re-verify every new concrete claim a fix introduces against its source of truth before declaring the finding closed.",
+      "signature": "Each review round's fix adds new concrete claims (types, hooks, signatures), and the next round's findings are mostly about those additions.",
+      "file": "incidents/INC-0057-a-revision-that-closed-every-finding-introduced-new-defects.md",
+      "related": [
+        "INC-0042",
+        "INC-0056"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0058",
+      "title": "A broad exception handler hid the difference between 'not found' and 'unknown name'",
+      "date": "2026-10-29",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When one error type subclasses another, order handlers narrow to broad and test the exact type. A broad assertion is green for every cause beneath it.",
+      "signature": "A handler catches a parent exception type first, and a sibling error with a different meaning is a subclass of it.",
+      "file": "incidents/INC-0058-a-broad-exception-handler-hid-the-difference-between-not-fou.md",
+      "related": [
+        "INC-0031",
+        "INC-0034"
       ],
       "evidence": []
     }
