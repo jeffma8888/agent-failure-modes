@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 61,
+  "count": 62,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1282,6 +1282,26 @@
       "related": [
         "INC-0057",
         "INC-0056"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0062",
+      "title": "A reviewer's claim about framework behaviour was wrong, and accepting it would have put a wrong assertion into the tests",
+      "date": "2026-10-29",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A reviewer's statement about framework or library behaviour is a hypothesis with the same standing as the author's. Verify it against the pinned source before it changes a test or a design.",
+      "signature": "A review finding states what a library or framework does, in confident terms, and the proposed change follows directly from that statement.",
+      "file": "incidents/INC-0062-a-reviewer-s-claim-about-framework-behaviour-was-wrong-and-a.md",
+      "related": [
+        "INC-0057",
+        "INC-0041",
+        "INC-0042"
       ],
       "evidence": []
     }
