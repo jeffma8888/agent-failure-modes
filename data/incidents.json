@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 49,
+  "count": 51,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1055,6 +1055,44 @@
       "evidence": [
         "https://github.com/jeffma8888/agent-foundry - the loop engine whose credential exporter and stage failures this describes."
       ]
+    },
+    {
+      "id": "INC-0050",
+      "title": "Bundling safe local steps with an approval-gated step loses the local steps when the gate refuses",
+      "date": "2026-10-28",
+      "classes": [
+        "tooling-paths",
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Never bundle unattended-safe steps with a step that needs a human's approval. Split the chain at the approval boundary so a refusal costs only the gated step.",
+      "signature": "A single shell command performs an edit, a commit and a push, and the push is subject to a per-call human approval rule.",
+      "file": "incidents/INC-0050-bundling-safe-local-steps-with-an-approval-gated-step-loses.md",
+      "related": [
+        "INC-0046",
+        "INC-0044"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0051",
+      "title": "A fallible edit script followed by a semicolon let the commit run on a partial result",
+      "date": "2026-10-28",
+      "classes": [
+        "tooling-paths",
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Validate all preconditions before the first write, and never let a later step run after an earlier one failed: join dependent steps with a short-circuit and, not a semicolon.",
+      "signature": "A script that writes several files is followed by a commit joined with a semicolon, and the script's output contains a traceback.",
+      "file": "incidents/INC-0051-a-fallible-edit-script-followed-by-a-semicolon-let-the-commi.md",
+      "related": [
+        "INC-0043",
+        "INC-0046"
+      ],
+      "evidence": []
     }
   ]
 }

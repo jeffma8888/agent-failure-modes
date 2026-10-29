@@ -1026,7 +1026,45 @@ _BATCH6: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6
+_BATCH7: list[dict] = [
+    {
+        "id": "INC-0050",
+        "title": "Bundling safe local steps with an approval-gated step loses the local steps when the gate refuses",
+        "date": "2026-10-28",
+        "classes": ["tooling-paths", "checkpoint"],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "One turn of work redone. No damage: the refusal was clean and nothing was half-applied.",
+        "signature": "A single shell command performs an edit, a commit and a push, and the push is subject to a per-call human approval rule.",
+        "what": "An agent ran one command that edited a file, committed it and pushed. Pushes required a human's per-call approval under an explicit rule. The approval prompt expired while the human was away, and the whole command was refused as one unit, so the edit and the commit never happened either.",
+        "root_cause": "The approval gate applies to the command, not to the step inside it. Bundling steps that are safe to run unattended with a step that needs a human couples their fate: the gated step's refusal discards the work that needed no approval.",
+        "why_hard": "Chaining is the natural way to write a publish sequence, and it works every time a human is present. The coupling shows only when approval is slow or absent.",
+        "fix": "Run local steps (edit, verify, commit) in their own command. Queue the gated pushes and send them as one batch when approval can be given.",
+        "verification": "The refusal message said the command was refused, and a status check showed nothing had changed; afterwards the local steps landed on their own and the push waited.",
+        "rule": "Never bundle unattended-safe steps with a step that needs a human's approval. Split the chain at the approval boundary so a refusal costs only the gated step.",
+        "related": ["INC-0046", "INC-0044"],
+    },
+    {
+        "id": "INC-0051",
+        "title": "A fallible edit script followed by a semicolon let the commit run on a partial result",
+        "date": "2026-10-28",
+        "classes": ["tooling-paths", "false-green"],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "One commit whose message named three files while its content held two. Fixed forward in the next commit; no data lost.",
+        "signature": "A script that writes several files is followed by a commit joined with a semicolon, and the script's output contains a traceback.",
+        "what": "An edit script made three anchored replacements across three files, followed by a semicolon and then add and commit. The third assertion failed because its anchor appeared twice, but the first two files had already been written, and the semicolon let the commit run anyway. A partial edit was committed under a message describing all three.",
+        "root_cause": "Two compounding gaps. The script wrote each file as soon as its own check passed instead of checking every precondition first, so failure left a partial state. And a semicolon runs the next command regardless of the previous exit status, so the failure did not stop the publish step.",
+        "why_hard": "The commit succeeds and its message is confident. The only signal is a traceback earlier in the same output, easy to skim past when the last lines look like a normal commit.",
+        "fix": "Chain every step after a fallible script with a short-circuit and (or use errexit). Have multi-file edit scripts verify every anchor before writing any file.",
+        "verification": "The traceback was seen in the output and a stat of the commit showed only two of three files; the next commit completed the third.",
+        "rule": "Validate all preconditions before the first write, and never let a later step run after an earlier one failed: join dependent steps with a short-circuit and, not a semicolon.",
+        "related": ["INC-0043", "INC-0046"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.

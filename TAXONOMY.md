@@ -17,7 +17,7 @@ A quality gate reports success while the work is not actually good: vacuous test
 
 **Ask:** Could this gate be green on broken code? What is the smallest wrong change that still passes it?
 
-**Incidents (9):** [INC-0001](incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md) [INC-0026](incidents/INC-0026-a-whole-batch-verification-veto-turns-one-bad-item-into-a-pe.md) [INC-0027](incidents/INC-0027-a-cache-keyed-on-a-recycled-id-judged-each-record-on-its-pre.md) [INC-0028](incidents/INC-0028-when-two-distributions-overlap-there-is-no-threshold-change.md) [INC-0031](incidents/INC-0031-a-concurrency-test-with-no-forced-interleaving-passes-loudes.md) [INC-0035](incidents/INC-0035-two-individually-safe-options-are-unsafe-together-when-their.md) [INC-0039](incidents/INC-0039-a-budget-is-not-a-sample-a-sorted-head-is-a-permanent-filter.md) [INC-0040](incidents/INC-0040-a-guard-that-asserts-a-lifecycle-stage-fails-at-exactly-the.md) [INC-0042](incidents/INC-0042-self-review-does-not-catch-recurrences-of-your-own-documente.md)
+**Incidents (10):** [INC-0001](incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md) [INC-0026](incidents/INC-0026-a-whole-batch-verification-veto-turns-one-bad-item-into-a-pe.md) [INC-0027](incidents/INC-0027-a-cache-keyed-on-a-recycled-id-judged-each-record-on-its-pre.md) [INC-0028](incidents/INC-0028-when-two-distributions-overlap-there-is-no-threshold-change.md) [INC-0031](incidents/INC-0031-a-concurrency-test-with-no-forced-interleaving-passes-loudes.md) [INC-0035](incidents/INC-0035-two-individually-safe-options-are-unsafe-together-when-their.md) [INC-0039](incidents/INC-0039-a-budget-is-not-a-sample-a-sorted-head-is-a-permanent-filter.md) [INC-0040](incidents/INC-0040-a-guard-that-asserts-a-lifecycle-stage-fails-at-exactly-the.md) [INC-0042](incidents/INC-0042-self-review-does-not-catch-recurrences-of-your-own-documente.md) [INC-0051](incidents/INC-0051-a-fallible-edit-script-followed-by-a-semicolon-let-the-commi.md)
 
 ## stage-timeout
 
@@ -105,7 +105,7 @@ An all-or-nothing step loses everything when it is interrupted, because it write
 
 **Ask:** If this step is killed at minute 8 of 10, does a usable artifact already exist on disk?
 
-**Incidents (4):** [INC-0002](incidents/INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0006](incidents/INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md) [INC-0025](incidents/INC-0025-retrying-a-killed-verification-step-without-resumable-eviden.md) [INC-0034](incidents/INC-0034-a-malformed-item-aborts-the-per-item-pass-and-the-crash-rein.md)
+**Incidents (5):** [INC-0002](incidents/INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0006](incidents/INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md) [INC-0025](incidents/INC-0025-retrying-a-killed-verification-step-without-resumable-eviden.md) [INC-0034](incidents/INC-0034-a-malformed-item-aborts-the-per-item-pass-and-the-crash-rein.md) [INC-0050](incidents/INC-0050-bundling-safe-local-steps-with-an-approval-gated-step-loses.md)
 
 ## tooling-paths
 
@@ -113,7 +113,7 @@ The shell or tool layer betrays you: command substitution runs inside a string y
 
 **Ask:** Will any character in this string be interpreted rather than stored, and from what directory does this tool actually resolve paths?
 
-**Incidents (7):** [INC-0024](incidents/INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md) [INC-0029](incidents/INC-0029-when-a-check-reports-missing-content-the-extractor-is-the-fi.md) [INC-0030](incidents/INC-0030-rewriting-a-region-by-slicing-between-two-markers-deletes-wh.md) [INC-0037](incidents/INC-0037-a-liveness-check-built-on-a-process-table-grep-counts-itself.md) [INC-0043](incidents/INC-0043-an-anchored-replace-that-matches-a-prefix-of-a-line-is-still.md) [INC-0046](incidents/INC-0046-a-script-with-external-writes-was-only-dry-run-for-its-first.md) [INC-0047](incidents/INC-0047-in-an-ordered-replacement-list-a-general-rule-placed-before.md)
+**Incidents (9):** [INC-0024](incidents/INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md) [INC-0029](incidents/INC-0029-when-a-check-reports-missing-content-the-extractor-is-the-fi.md) [INC-0030](incidents/INC-0030-rewriting-a-region-by-slicing-between-two-markers-deletes-wh.md) [INC-0037](incidents/INC-0037-a-liveness-check-built-on-a-process-table-grep-counts-itself.md) [INC-0043](incidents/INC-0043-an-anchored-replace-that-matches-a-prefix-of-a-line-is-still.md) [INC-0046](incidents/INC-0046-a-script-with-external-writes-was-only-dry-run-for-its-first.md) [INC-0047](incidents/INC-0047-in-an-ordered-replacement-list-a-general-rule-placed-before.md) [INC-0050](incidents/INC-0050-bundling-safe-local-steps-with-an-approval-gated-step-loses.md) [INC-0051](incidents/INC-0051-a-fallible-edit-script-followed-by-a-semicolon-let-the-commi.md)
 
 ## test-isolation
 
