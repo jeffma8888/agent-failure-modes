@@ -89,7 +89,7 @@ A monitor or check fires when it should not: it reports a correct artifact as br
 
 **Ask:** Before acting on this check's accusation, have you verified the ACCUSATION against the primary source - and could the check's own normalisation, base path or parser be the thing that disagrees?
 
-**Incidents (4):** [INC-0029](incidents/INC-0029-when-a-check-reports-missing-content-the-extractor-is-the-fi.md) [INC-0032](incidents/INC-0032-removing-a-veto-exposes-the-broken-classifier-it-was-masking.md) [INC-0033](incidents/INC-0033-one-normaliser-is-not-enough-if-it-maps-the-two-sides-into-d.md) [INC-0034](incidents/INC-0034-a-malformed-item-aborts-the-per-item-pass-and-the-crash-rein.md)
+**Incidents (5):** [INC-0029](incidents/INC-0029-when-a-check-reports-missing-content-the-extractor-is-the-fi.md) [INC-0032](incidents/INC-0032-removing-a-veto-exposes-the-broken-classifier-it-was-masking.md) [INC-0033](incidents/INC-0033-one-normaliser-is-not-enough-if-it-maps-the-two-sides-into-d.md) [INC-0034](incidents/INC-0034-a-malformed-item-aborts-the-per-item-pass-and-the-crash-rein.md) [INC-0052](incidents/INC-0052-a-hygiene-rule-written-against-surface-syntax-rejects-valid.md)
 
 ## stale-module
 
@@ -137,7 +137,7 @@ The loop does the wrong amount of work: it pursues the whole visible mission ins
 
 **Ask:** Does the agent's visible context imply a bigger goal than its assigned task, and is any required-reading artifact growing every iteration?
 
-**Incidents (8):** [INC-0001](incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md) [INC-0003](incidents/INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md) [INC-0004](incidents/INC-0004-a-monotonically-growing-required-reading-file-silently-kills.md) [INC-0026](incidents/INC-0026-a-whole-batch-verification-veto-turns-one-bad-item-into-a-pe.md) [INC-0035](incidents/INC-0035-two-individually-safe-options-are-unsafe-together-when-their.md) [INC-0039](incidents/INC-0039-a-budget-is-not-a-sample-a-sorted-head-is-a-permanent-filter.md) [INC-0044](incidents/INC-0044-pushing-a-local-repository-to-a-new-remote-publishes-its-who.md) [INC-0045](incidents/INC-0045-disabling-a-loop-s-push-while-its-failure-path-resets-to-the.md)
+**Incidents (9):** [INC-0001](incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md) [INC-0003](incidents/INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md) [INC-0004](incidents/INC-0004-a-monotonically-growing-required-reading-file-silently-kills.md) [INC-0026](incidents/INC-0026-a-whole-batch-verification-veto-turns-one-bad-item-into-a-pe.md) [INC-0035](incidents/INC-0035-two-individually-safe-options-are-unsafe-together-when-their.md) [INC-0039](incidents/INC-0039-a-budget-is-not-a-sample-a-sorted-head-is-a-permanent-filter.md) [INC-0044](incidents/INC-0044-pushing-a-local-repository-to-a-new-remote-publishes-its-who.md) [INC-0045](incidents/INC-0045-disabling-a-loop-s-push-while-its-failure-path-resets-to-the.md) [INC-0052](incidents/INC-0052-a-hygiene-rule-written-against-surface-syntax-rejects-valid.md)
 
 ## identity-and-keying
 

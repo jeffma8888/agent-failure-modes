@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 51,
+  "count": 52,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1091,6 +1091,26 @@
       "related": [
         "INC-0043",
         "INC-0046"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0052",
+      "title": "A hygiene rule written against surface syntax rejects valid cases; enforce the property at the boundary where it happens",
+      "date": "2026-10-28",
+      "classes": [
+        "detector-fail-closed",
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Enforce a property where it happens (the network boundary), not by banning the syntax that usually precedes it. Before adopting a hygiene rule, run it against the features the project must test and ask what valid input it would reject.",
+      "signature": "A rule meant to guarantee a behaviour (no network calls) is phrased as a ban on a syntactic form (no URL literals), and the code under test legitimately handles that form.",
+      "file": "incidents/INC-0052-a-hygiene-rule-written-against-surface-syntax-rejects-valid.md",
+      "related": [
+        "INC-0040",
+        "INC-0029",
+        "INC-0018"
       ],
       "evidence": []
     }

@@ -58,6 +58,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
 - **[INC-0050 / low]** Never bundle unattended-safe steps with a step that needs a human's approval. Split the chain at the approval boundary so a refusal costs only the gated step.
 - **[INC-0051 / low]** Validate all preconditions before the first write, and never let a later step run after an earlier one failed: join dependent steps with a short-circuit and, not a semicolon.
+- **[INC-0052 / low]** Enforce a property where it happens (the network boundary), not by banning the syntax that usually precedes it. Before adopting a hygiene rule, run it against the features the project must test and ask what valid input it would reject.
 
 ## Practices
 
