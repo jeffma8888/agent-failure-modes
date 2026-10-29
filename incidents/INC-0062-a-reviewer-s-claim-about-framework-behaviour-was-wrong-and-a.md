@@ -21,7 +21,7 @@ A reviewer said the fifth wrong password already returns the locked-account erro
 
 ## Root cause
 
-A reviewer's statement about behaviour is a recollection or inference, not a measurement, but it arrives with the authority of a review. An off-by-one in when state changes versus when it is reported is exactly the kind of detail recalled wrongly.
+The reviewer's own account: the claim came from a truncated fetch of the main branch, not the version actually pinned, so the whole function was never read. A reviewer's statement about behaviour is a recollection or inference, not a measurement, but it arrives with the authority of a review. An off-by-one in when state changes versus when it is reported is exactly the kind of detail recalled wrongly.
 
 ## Why it was hard to see
 
@@ -37,7 +37,7 @@ The source of the pinned version showed which attempt stores the lock and which 
 
 ## Transferable rule
 
-> A reviewer's statement about framework or library behaviour is a hypothesis with the same standing as the author's. Verify it against the pinned source before it changes a test or a design.
+> A reviewer's statement about framework or library behaviour is a hypothesis with the same standing as the author's. Verify it at the pinned version, reading the whole function, before it changes a test or a design.
 
 ## Related
 

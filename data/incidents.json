@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 62,
+  "count": 63,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1295,13 +1295,32 @@
       ],
       "severity": "medium",
       "status": "mitigated",
-      "rule": "A reviewer's statement about framework or library behaviour is a hypothesis with the same standing as the author's. Verify it against the pinned source before it changes a test or a design.",
+      "rule": "A reviewer's statement about framework or library behaviour is a hypothesis with the same standing as the author's. Verify it at the pinned version, reading the whole function, before it changes a test or a design.",
       "signature": "A review finding states what a library or framework does, in confident terms, and the proposed change follows directly from that statement.",
       "file": "incidents/INC-0062-a-reviewer-s-claim-about-framework-behaviour-was-wrong-and-a.md",
       "related": [
         "INC-0057",
         "INC-0041",
         "INC-0042"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0063",
+      "title": "A spec that tightened validation before the data migration made every real-data test fail",
+      "date": "2026-10-29",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When a spec tightens validation, order the data migration before the code, or give the implementer an explicit scratch-copy check, so code defects and missing data are tested separately.",
+      "signature": "A new spec makes a field required, while the step that adds that field to the existing data is scheduled after the code.",
+      "file": "incidents/INC-0063-a-spec-that-tightened-validation-before-the-data-migration-m.md",
+      "related": [
+        "INC-0022",
+        "INC-0035"
       ],
       "evidence": []
     }
