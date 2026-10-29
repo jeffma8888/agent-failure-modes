@@ -1292,7 +1292,45 @@ _BATCH13: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13
+_BATCH14: list[dict] = [
+    {
+        "id": "INC-0064",
+        "title": "A launcher pointed a live unattended loop at the development checkout instead of a pinned release",
+        "date": "2026-10-29",
+        "classes": ["ipc-and-env", "stale-module"],
+        "severity": "high",
+        "status": "fixed",
+        "cost": "Near miss, caught before the cutover ran. Had it gone live, the next round of development in that checkout would have reached live stages half edited.",
+        "signature": "The path a production loop uses to call its stage engine is the same working tree where developers are still making changes.",
+        "what": "A drafted launcher set a stage engine to the development repository's own wrapper script, which imports the working tree on every call. Every stage the live loop ran would have executed whatever state that tree was in at that moment, including partial edits.",
+        "root_cause": "The deployment and the development copy were the same thing. A wrapper that resolves code from a mutable tree at call time turns every commit, and every unsaved edit, into an immediate production change with no release step.",
+        "why_hard": "It works perfectly at launch, because the tree is in a good state at that moment. The failure arrives later and looks like a random stage error rather than a deployment fault.",
+        "fix": "Tag the release, run the live loop from a detached worktree at that tag, and make upgrades an explicit three-step action: tag, create a worktree, repoint the launcher.",
+        "verification": "Found by reading the drafted launcher's path before the cutover; the launcher's engine path now resolves to a detached worktree at the release tag, and development continues in the original checkout.",
+        "rule": "A running unattended loop executes a pinned, tagged copy of every tool it calls, never a tree someone is editing. Make upgrades an explicit step, not a side effect of a commit.",
+        "related": ["INC-0021", "INC-0036"],
+    },
+    {
+        "id": "INC-0065",
+        "title": "A 'graceful' stop flag checked before every stage would have discarded the in-flight iteration's finished work",
+        "date": "2026-10-29",
+        "classes": ["vcs-destruction", "spec-and-scope"],
+        "severity": "high",
+        "status": "fixed",
+        "cost": "Near miss, found by reading the dispatcher before writing the flag. Written mid-iteration, it would have abandoned the remaining stages and reverted the tree, possibly throwing away an already finished stage.",
+        "signature": "A stop sentinel is meant to drain a loop between iterations, but nobody has checked where in the loop it is read.",
+        "what": "The global stop sentinel in a stage dispatcher is checked before every stage attempt, not only between iterations. Writing it during an iteration would stop the remaining stages and trigger the failure path, which reverts the working tree and can discard a completed engineering stage.",
+        "root_cause": "The name 'stop' suggested a drain at the iteration boundary, but the implementation treats it as an abort at every check. The stop flag and the revert-on-failure path were wired together, so an interrupted iteration is a failed one.",
+        "why_hard": "The flag works as expected when written between iterations, so a test of it passes. The destructive case only exists in the middle of an iteration.",
+        "fix": "A watcher writes the stop flag only once the iteration's last stage has started, waits for the old process to exit, then relaunches.",
+        "verification": "The behaviour was established by reading every place the flag is checked, not by trying it on a live iteration.",
+        "rule": "Before using a stop flag to drain a loop, read every place it is checked, and set it only after the last check that would discard work.",
+        "related": ["INC-0014", "INC-0045"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.

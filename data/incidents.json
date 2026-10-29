@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 63,
+  "count": 65,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1321,6 +1321,44 @@
       "related": [
         "INC-0022",
         "INC-0035"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0064",
+      "title": "A launcher pointed a live unattended loop at the development checkout instead of a pinned release",
+      "date": "2026-10-29",
+      "classes": [
+        "ipc-and-env",
+        "stale-module"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "A running unattended loop executes a pinned, tagged copy of every tool it calls, never a tree someone is editing. Make upgrades an explicit step, not a side effect of a commit.",
+      "signature": "The path a production loop uses to call its stage engine is the same working tree where developers are still making changes.",
+      "file": "incidents/INC-0064-a-launcher-pointed-a-live-unattended-loop-at-the-development.md",
+      "related": [
+        "INC-0021",
+        "INC-0036"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0065",
+      "title": "A 'graceful' stop flag checked before every stage would have discarded the in-flight iteration's finished work",
+      "date": "2026-10-29",
+      "classes": [
+        "vcs-destruction",
+        "spec-and-scope"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "Before using a stop flag to drain a loop, read every place it is checked, and set it only after the last check that would discard work.",
+      "signature": "A stop sentinel is meant to drain a loop between iterations, but nobody has checked where in the loop it is read.",
+      "file": "incidents/INC-0065-a-graceful-stop-flag-checked-before-every-stage-would-have-d.md",
+      "related": [
+        "INC-0014",
+        "INC-0045"
       ],
       "evidence": []
     }
