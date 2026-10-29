@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 43,
+  "count": 49,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -938,6 +938,122 @@
       ],
       "evidence": [
         "https://github.com/jeffma8888/agent-failure-modes - this repository is where the collision happened: tools/corpus.py now carries the repaired composition line, and commit bccb9d1 is the concurrent writer's batch that was briefly shadowed."
+      ]
+    },
+    {
+      "id": "INC-0044",
+      "title": "Pushing a local repository to a new remote publishes its whole history, not its current tree",
+      "date": "2026-10-28",
+      "classes": [
+        "vcs-destruction",
+        "spec-and-scope"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "Pushing an existing repository publishes its HISTORY. Before the first push audit every path ever tracked, every blob version and every commit message, never only the tree, and install a pre-push guard that scans the pushed range. Excluding a file from the tree does not remove it from history.",
+      "signature": "A repository is about to be pushed for the first time, the plan is stated in terms of which files to exclude, and nobody has listed the paths that were EVER tracked.",
+      "file": "incidents/INC-0044-pushing-a-local-repository-to-a-new-remote-publishes-its-who.md",
+      "related": [
+        "INC-0015",
+        "INC-0040"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0045",
+      "title": "Disabling a loop's push while its failure path resets to the remote erases shipped work",
+      "date": "2026-10-28",
+      "classes": [
+        "vcs-destruction",
+        "spec-and-scope"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "Before turning off a pipeline's publish or push step, find what its rollback resets TO. If rollback targets the published state, publishing is part of the durability contract, not an optional gate.",
+      "signature": "A proposal simplifies a pipeline by turning off its publish step, while the rollback path of the same pipeline hard-resets to the published state and never fetches.",
+      "file": "incidents/INC-0045-disabling-a-loop-s-push-while-its-failure-path-resets-to-the.md",
+      "related": [
+        "INC-0014",
+        "INC-0044"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-foundry - the loop engine whose failure path reverts with a hard reset to the remote branch, the behaviour this near miss depended on. The failure was a design draft that was caught; it did not occur in that repository."
+      ]
+    },
+    {
+      "id": "INC-0046",
+      "title": "A script with external writes was only dry-run for its first step, and only write-last ordering made its failure harmless",
+      "date": "2026-10-28",
+      "classes": [
+        "tooling-paths",
+        "vcs-destruction"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.",
+      "signature": "A multi-step script that pushes or resets exits non-zero partway through its first real run, having only been rehearsed on its hardest step.",
+      "file": "incidents/INC-0046-a-script-with-external-writes-was-only-dry-run-for-its-first.md",
+      "related": [
+        "INC-0044",
+        "INC-0014"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0047",
+      "title": "In an ordered replacement list, a general rule placed before a specific one consumes its match",
+      "date": "2026-10-28",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.",
+      "signature": "A replacement list gains a broad pattern at the top, above a narrower pattern for a case the broad one also matches.",
+      "file": "incidents/INC-0047-in-an-ordered-replacement-list-a-general-rule-placed-before.md",
+      "related": [
+        "INC-0030",
+        "INC-0043"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0048",
+      "title": "Citing an identifier in the same parallel tool block that creates it makes the citation a guess",
+      "date": "2026-10-28",
+      "classes": [
+        "concurrency",
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.",
+      "signature": "One batch of parallel tool calls contains both a step that creates an identifier (commit hash, ticket number, file path) and a step that quotes it.",
+      "file": "incidents/INC-0048-citing-an-identifier-in-the-same-parallel-tool-block-that-cr.md",
+      "related": [
+        "INC-0041"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0049",
+      "title": "A cached credential made a dependency look optional, and the outage was filed under the wrong root cause",
+      "date": "2026-10-28",
+      "classes": [
+        "ipc-and-env",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A dependency that 'works without' its credential may be riding a cache. Prove independence by checking the whole credential chain's expiry, not by one success, and do not file a root cause until the cache lifetime is accounted for.",
+      "signature": "After an outage a component works although its documented credential is known to be expired, and the conclusion drawn is that the credential is not needed.",
+      "file": "incidents/INC-0049-a-cached-credential-made-a-dependency-look-optional-and-the.md",
+      "related": [
+        "INC-0009",
+        "INC-0036"
+      ],
+      "evidence": [
+        "https://github.com/jeffma8888/agent-foundry - the loop engine whose credential exporter and stage failures this describes."
       ]
     }
   ]
