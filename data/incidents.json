@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 58,
+  "count": 61,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1225,6 +1225,63 @@
       "related": [
         "INC-0031",
         "INC-0034"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0059",
+      "title": "A 'client too old' error was assumed to be client-side; the gate was on the server and keyed on the request body",
+      "date": "2026-10-29",
+      "classes": [
+        "ipc-and-env",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Before working around a version or access error, find where the check lives. A server-side gate on client identity is a decision for the human who owns the access, never something to strip or fake.",
+      "signature": "A vendor coding CLI says a newer version is required for a feature, and the working theory is a local version check.",
+      "file": "incidents/INC-0059-a-client-too-old-error-was-assumed-to-be-client-side-the-gat.md",
+      "related": [
+        "INC-0053",
+        "INC-0036"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0060",
+      "title": "A probe hung on a background child that held the pipe, and the timeout wrapper it relied on did not exist",
+      "date": "2026-10-29",
+      "classes": [
+        "tooling-paths",
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Never background a long-lived process inside a captured pipeline, and confirm every wrapper command exists on the target OS before relying on it. Read the error stream before theorising about the hang.",
+      "signature": "A shell one-liner starts a long-lived server with a trailing background marker inside a captured pipeline, and wraps the client in a timeout command.",
+      "file": "incidents/INC-0060-a-probe-hung-on-a-background-child-that-held-the-pipe-and-th.md",
+      "related": [
+        "INC-0037",
+        "INC-0024"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0061",
+      "title": "Exhaustive test wording created expectations the design never defined",
+      "date": "2026-10-29",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A per-ID test oracle may only require values its source of truth defines. 'Every' in a test requirement needs a check that the source covers every member.",
+      "signature": "A test requirement says 'every' member of a set, and the source of truth defines behaviour for only some of them.",
+      "file": "incidents/INC-0061-exhaustive-test-wording-created-expectations-the-design-neve.md",
+      "related": [
+        "INC-0057",
+        "INC-0056"
       ],
       "evidence": []
     }

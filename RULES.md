@@ -57,6 +57,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0055 / medium]** Before mapping against a baseline document, read its current version and commit from disk and write that commit into the header of the derived document.
 - **[INC-0056 / medium]** Search for every identifier you put into a test oracle; never declare a seam from memory. Make each bulk replacement assert its expected match count.
 - **[INC-0057 / medium]** An accepted finding is not a closed finding. Re-verify every new concrete claim a fix introduces against its source of truth before declaring the finding closed.
+- **[INC-0059 / medium]** Before working around a version or access error, find where the check lives. A server-side gate on client identity is a decision for the human who owns the access, never something to strip or fake.
+- **[INC-0061 / medium]** A per-ID test oracle may only require values its source of truth defines. 'Every' in a test requirement needs a check that the source covers every member.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -65,6 +67,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0052 / low]** Enforce a property where it happens (the network boundary), not by banning the syntax that usually precedes it. Before adopting a hygiene rule, run it against the features the project must test and ask what valid input it would reject.
 - **[INC-0054 / low]** Record the exact model ID wherever a model is credited, and derive the display name from it. A display name is not evidence of which model did the work.
 - **[INC-0058 / low]** When one error type subclasses another, order handlers narrow to broad and test the exact type. A broad assertion is green for every cause beneath it.
+- **[INC-0060 / low]** Never background a long-lived process inside a captured pipeline, and confirm every wrapper command exists on the target OS before relying on it. Read the error stream before theorising about the hang.
 
 ## Practices
 

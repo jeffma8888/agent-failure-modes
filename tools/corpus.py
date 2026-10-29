@@ -1195,7 +1195,62 @@ _BATCH10: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10
+_BATCH11: list[dict] = [
+    {
+        "id": "INC-0059",
+        "title": "A 'client too old' error was assumed to be client-side; the gate was on the server and keyed on the request body",
+        "date": "2026-10-29",
+        "classes": ["ipc-and-env", "observability"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "Time spent on a wrong local theory while trying to move a build engine to a newer model. No damage; the finding changed the plan from patching the existing client to building an honest one.",
+        "signature": "A vendor coding CLI says a newer version is required for a feature, and the working theory is a local version check.",
+        "what": "A vendor coding CLI reported that a newer version was required for a newer model. The assumption was a local check. A logging stub standing in for the model API showed the CLI did send the request. Replaying the request, changing one variable at a time, showed two layers: a request-shape incompatibility (a deprecated reasoning parameter), then a server-side version check that reads markers inside the request body, so changing the user-agent header changed nothing.",
+        "root_cause": "The error text described a symptom ('too old') and the location was inferred from it. Without locating the check, every workaround targeted the wrong layer.",
+        "why_hard": "The message reads like a local complaint. A server gate keyed on body content is invisible from the client's side, and a header change that does nothing looks like a failed experiment, not a finding.",
+        "fix": "Locate the gate first: stand up a stub endpoint to see what is actually sent, then replay with one variable changed at a time. Then build an honest client of your own rather than patching or impersonating the old one.",
+        "verification": "The stub showed the request leaving the client; the replays separated the shape error from the server-side check.",
+        "rule": "Before working around a version or access error, find where the check lives. A server-side gate on client identity is a decision for the human who owns the access, never something to strip or fake.",
+        "related": ["INC-0053", "INC-0036"],
+    },
+    {
+        "id": "INC-0060",
+        "title": "A probe hung on a background child that held the pipe, and the timeout wrapper it relied on did not exist",
+        "date": "2026-10-29",
+        "classes": ["tooling-paths", "observability"],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "A hung diagnostic session. The 'command not found' error that explained it had been written to a log nobody read until the hang.",
+        "signature": "A shell one-liner starts a long-lived server with a trailing background marker inside a captured pipeline, and wraps the client in a timeout command.",
+        "what": "A one-liner started a stub server in the background inside a pipeline, so the pipeline waited forever on the server's inherited standard output. Separately, the client under test never ran, because the timeout command is not installed by default on this operating system, and the shell printed 'command not found' into a log.",
+        "root_cause": "Two shell-level assumptions: that backgrounding detaches a child from the pipeline's pipe, and that a common wrapper exists on the target OS. Neither was checked, and the one error that was emitted went somewhere unread.",
+        "why_hard": "The first failure looks like the client hanging, so attention goes to the client, which never actually ran.",
+        "fix": "Drive multi-process probes from one script in a language with explicit process control: the server started with its streams sent to the null device, the client run with a timeout argument, and the server killed in a finally block.",
+        "verification": "The scripted probe terminated on its own and reported the client's real outcome.",
+        "rule": "Never background a long-lived process inside a captured pipeline, and confirm every wrapper command exists on the target OS before relying on it. Read the error stream before theorising about the hang.",
+        "related": ["INC-0037", "INC-0024"],
+    },
+    {
+        "id": "INC-0061",
+        "title": "Exhaustive test wording created expectations the design never defined",
+        "date": "2026-10-29",
+        "classes": ["false-green", "spec-and-scope"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "A test requirement demanded invented values. Two independent reviewers caught it in a late review round; the fix was queued for a further revision.",
+        "signature": "A test requirement says 'every' member of a set, and the source of truth defines behaviour for only some of them.",
+        "what": "A revision widened an error-mapping test to cover every error code. The design maps only six codes to transport statuses, so for the rest the oracle would have required statuses nobody had decided.",
+        "root_cause": "Universal quantification added in a fix for coverage, without checking that the source of truth covers every member. The test turned an absence in the design into an assertion.",
+        "why_hard": "'Every' reads as the thorough choice, and a reviewer sees a stricter test. The mismatch is only visible by comparing the set against the design's table.",
+        "fix": "Narrow the matrix to the explicitly mapped codes, or add the missing mappings to the design first, then test them.",
+        "verification": "Two reviewers independently compared the test's set with the design's mapping table.",
+        "rule": "A per-ID test oracle may only require values its source of truth defines. 'Every' in a test requirement needs a check that the source covers every member.",
+        "related": ["INC-0057", "INC-0056"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.
