@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 52,
+  "count": 56,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1111,6 +1111,82 @@
         "INC-0040",
         "INC-0029",
         "INC-0018"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0053",
+      "title": "A command-line agent silently ran an older model than assumed and ignored an explicit model override",
+      "date": "2026-10-29",
+      "classes": [
+        "observability",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A model setting is verified only by the model ID in the response metadata. A flag that is accepted is not a flag that took effect, and a tool that falls back instead of failing makes every override unverifiable until you read the metadata.",
+      "signature": "A model setting is accepted without error, the tool answers normally, and nobody has read the model identifier from the response metadata.",
+      "file": "incidents/INC-0053-a-command-line-agent-silently-ran-an-older-model-than-assume.md",
+      "related": [
+        "INC-0036",
+        "INC-0021"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0054",
+      "title": "A display name drifted from the model identifier it was supposed to describe",
+      "date": "2026-10-29",
+      "classes": [
+        "identity-and-keying",
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Record the exact model ID wherever a model is credited, and derive the display name from it. A display name is not evidence of which model did the work.",
+      "signature": "Credits, rosters or reports carry a hand-typed model name next to an identifier that was typed separately.",
+      "file": "incidents/INC-0054-a-display-name-drifted-from-the-model-identifier-it-was-supp.md",
+      "related": [
+        "INC-0053",
+        "INC-0027"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0055",
+      "title": "A scope cut was mapped against the previous version of its baseline document",
+      "date": "2026-10-28",
+      "classes": [
+        "spec-and-scope",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Before mapping against a baseline document, read its current version and commit from disk and write that commit into the header of the derived document.",
+      "signature": "A derived document cites a baseline by version label only, and the baseline has changed since the author last read it.",
+      "file": "incidents/INC-0055-a-scope-cut-was-mapped-against-the-previous-version-of-its-b.md",
+      "related": [
+        "INC-0042",
+        "INC-0021"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0056",
+      "title": "Test seams declared from memory carried wrong field names, and a bulk replacement silently missed a row",
+      "date": "2026-10-28",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Search for every identifier you put into a test oracle; never declare a seam from memory. Make each bulk replacement assert its expected match count.",
+      "signature": "A test oracle or interface section lists identifiers that nobody has searched for in the design, and the document has had bulk edits applied by script.",
+      "file": "incidents/INC-0056-test-seams-declared-from-memory-carried-wrong-field-names-an.md",
+      "related": [
+        "INC-0043",
+        "INC-0051"
       ],
       "evidence": []
     }

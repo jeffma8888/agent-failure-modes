@@ -53,12 +53,16 @@ One rule per incident, ordered by severity then id.
 - **[INC-0038 / medium]** Determinism is a property of a function over a FIXED input. A test that scans the live working tree twice and compares is really asserting that no other writer touched the tree, so it tests the writers, not the code - and it passes in isolation, which reads as flakiness. Give the test a fixture it owns, or snapshot the input once and assert the snapshot is unchanged.
 - **[INC-0040 / medium]** Write down the state your guard FORBIDS, then ask whether the project intends to REACH that state. If it does, the guard is asserting a schedule, not a safety property, and it will fail precisely when the guarded event happens. The invariant worth protecting sits one level down: not 'no remote' but 'no credential in a remote'.
 - **[INC-0049 / medium]** A dependency that 'works without' its credential may be riding a cache. Prove independence by checking the whole credential chain's expiry, not by one success, and do not file a root cause until the cache lifetime is accounted for.
+- **[INC-0053 / medium]** A model setting is verified only by the model ID in the response metadata. A flag that is accepted is not a flag that took effect, and a tool that falls back instead of failing makes every override unverifiable until you read the metadata.
+- **[INC-0055 / medium]** Before mapping against a baseline document, read its current version and commit from disk and write that commit into the header of the derived document.
+- **[INC-0056 / medium]** Search for every identifier you put into a test oracle; never declare a seam from memory. Make each bulk replacement assert its expected match count.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
 - **[INC-0050 / low]** Never bundle unattended-safe steps with a step that needs a human's approval. Split the chain at the approval boundary so a refusal costs only the gated step.
 - **[INC-0051 / low]** Validate all preconditions before the first write, and never let a later step run after an earlier one failed: join dependent steps with a short-circuit and, not a semicolon.
 - **[INC-0052 / low]** Enforce a property where it happens (the network boundary), not by banning the syntax that usually precedes it. Before adopting a hygiene rule, run it against the features the project must test and ask what valid input it would reject.
+- **[INC-0054 / low]** Record the exact model ID wherever a model is credited, and derive the display name from it. A display name is not evidence of which model did the work.
 
 ## Practices
 

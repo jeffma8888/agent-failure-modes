@@ -1085,7 +1085,79 @@ _BATCH8: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8
+_BATCH9: list[dict] = [
+    {
+        "id": "INC-0053",
+        "title": "A command-line agent silently ran an older model than assumed and ignored an explicit model override",
+        "date": "2026-10-29",
+        "classes": ["observability", "ipc-and-env"],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "Every build in a pipeline ran on an older model generation than the team believed. No wrong output was found, but capability assumptions in the plans were off for the whole period.",
+        "signature": "A model setting is accepted without error, the tool answers normally, and nobody has read the model identifier from the response metadata.",
+        "what": "A pipeline's agent CLI resolved its default model alias through a managed allowlist that stopped at an older model family. A probe with JSON output showed every stage ran on that older model. Passing an explicit flag for a newer model did not fail: the CLI fell back to the default and still answered, so the override looked as if it had worked.",
+        "root_cause": "Silent fallback. A configuration value outside the allowlist was treated as unset instead of as an error, so acceptance of the flag was indistinguishable from effect of the flag. Asking the model which model it is is not evidence either.",
+        "why_hard": "Nothing fails and the answers are good. The only place the truth appears is a metadata block that people do not read when the output looks right.",
+        "fix": "Verify the served model from the response metadata after any model change. Once the allowlist was widened the CLI refused outright (its version was too old for the newer model), which is the honest failure that should have been visible from the start.",
+        "verification": "The real model identifier was read from the CLI's JSON usage block rather than from the flag or the model's own claim.",
+        "rule": "A model setting is verified only by the model ID in the response metadata. A flag that is accepted is not a flag that took effect, and a tool that falls back instead of failing makes every override unverifiable until you read the metadata.",
+        "related": ["INC-0036", "INC-0021"],
+    },
+    {
+        "id": "INC-0054",
+        "title": "A display name drifted from the model identifier it was supposed to describe",
+        "date": "2026-10-29",
+        "classes": ["identity-and-keying", "observability"],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "A roster and review credits named a newer model than the one that actually did the work. Caught before a routing policy was written on top of it.",
+        "signature": "Credits, rosters or reports carry a hand-typed model name next to an identifier that was typed separately.",
+        "what": "A reviewer agent was recorded under the name of a newer model version but had been spawned with the older model's identifier; the newer identifier existed and worked. Roster and review credits named the newer model.",
+        "root_cause": "Two fields that must agree were maintained independently: the human-readable name and the machine identifier. The name is what readers see, the identifier is what runs, and nothing tied them together.",
+        "why_hard": "The name looks authoritative and the work product is fine, so there is no symptom. The mismatch exists only in the record.",
+        "fix": "Roster rows carry the exact model identifier, and display names are derived from the identifier, never typed separately. The registry identifiers were probed one by one before the routing policy was written.",
+        "verification": "Each identifier was probed against the registry and compared with the roster row.",
+        "rule": "Record the exact model ID wherever a model is credited, and derive the display name from it. A display name is not evidence of which model did the work.",
+        "related": ["INC-0053", "INC-0027"],
+    },
+    {
+        "id": "INC-0055",
+        "title": "A scope cut was mapped against the previous version of its baseline document",
+        "date": "2026-10-28",
+        "classes": ["spec-and-scope", "identity-and-keying"],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "A draft classified every row of a plan's previous version while a newer version with 18 additional rows was already committed, so every surviving-row count and effort total was wrong. All three independent reviewers found it; a revision was needed.",
+        "signature": "A derived document cites a baseline by version label only, and the baseline has changed since the author last read it.",
+        "what": "An author classified the rows of version 1.4 of a plan while version 1.5, with 18 new rows, was already committed. The derived scope cut therefore omitted the new rows and its counts and sums were off.",
+        "root_cause": "The author worked from a remembered copy of the baseline and named it by label, not by commit. A label does not say whether it is still current.",
+        "why_hard": "The previous version is internally consistent, so the draft looks coherent. Only a reader who opens the current version sees the gap.",
+        "fix": "Rebase on the plan commit named in the header and classify the missing rows. Every derived document now states the exact baseline commit it was computed from.",
+        "verification": "Three reviewers independently flagged the discrepancy; the revision's counts were recomputed from the named commit.",
+        "rule": "Before mapping against a baseline document, read its current version and commit from disk and write that commit into the header of the derived document.",
+        "related": ["INC-0042", "INC-0021"],
+    },
+    {
+        "id": "INC-0056",
+        "title": "Test seams declared from memory carried wrong field names, and a bulk replacement silently missed a row",
+        "date": "2026-10-28",
+        "classes": ["false-green", "tooling-paths"],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "A test oracle named two design fields without their required prefix. A test author working from it would have written tests against fields that do not exist, which fail or pass vacuously depending on the framework.",
+        "signature": "A test oracle or interface section lists identifiers that nobody has searched for in the design, and the document has had bulk edits applied by script.",
+        "what": "A draft oracle declared its seams (field names and signatures) from the author's memory of the design, dropping a prefix on two fields. A later string-replacement edit also missed one row because of letter case.",
+        "root_cause": "Identifiers were recalled rather than copied. A near-miss name reads as correct to the author who recalls it. The bulk edit assumed that the replacement hit every intended row without counting.",
+        "why_hard": "A wrong name looks right to its author, and a silently missed replacement leaves a document that is still well formed.",
+        "fix": "Every field name and signature in the oracle was searched for in the design before it was kept. Edit scripts assert the expected match count for each replacement and report all mismatches in one pass.",
+        "verification": "The author's search of the design caught the names while revising, and a per-replacement match-count check caught the case-sensitivity miss.",
+        "rule": "Search for every identifier you put into a test oracle; never declare a seam from memory. Make each bulk replacement assert its expected match count.",
+        "related": ["INC-0043", "INC-0051"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.
