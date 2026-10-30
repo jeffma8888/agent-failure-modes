@@ -80,6 +80,16 @@ One rule per incident, ordered by severity then id.
 - **[INC-0087 / medium]** Pair static audits with a stop rule so an engineer halts when a call needs later-row behavior.
 - **[INC-0088 / medium]** Every file that mutates shared state restores it or reseeds, and helpers match the documented field shapes.
 - **[INC-0091 / medium]** Verify the last speaker per teammate instead of assuming no news means work is running.
+- **[INC-0092 / medium]** Bind a group shutdown wait to the group, not to a wrapper that can exit first.
+- **[INC-0093 / medium]** Give runs with different deadline purposes their own policy.
+- **[INC-0094 / medium]** List every binary a fixture executes, setuid ones included, when writing a sandbox profile.
+- **[INC-0095 / medium]** One negative per rejection reason, and a positive control in the same flow.
+- **[INC-0096 / medium]** Isolate each kind of state separately: browser state by context, data by reset and seed.
+- **[INC-0097 / medium]** Ownership comes from what the test created; restoration belongs in teardown that runs on failure.
+- **[INC-0098 / medium]** An acyclic graph is necessary but not sufficient; derive edges from what each file requires.
+- **[INC-0099 / medium]** Put a reassignment in one registry that every enforcing tool reads.
+- **[INC-0100 / medium]** Place tests by activation order and quote the spec before asserting.
+- **[INC-0101 / medium]** Active files are append-only; later parts get new destinations.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

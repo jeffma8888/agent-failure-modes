@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 91,
+  "count": 101,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1822,6 +1822,173 @@
       "rule": "Verify the last speaker per teammate instead of assuming no news means work is running.",
       "signature": "A teammate finished and replied, but the lead assumed work was still in flight.",
       "file": "incidents/INC-0091-teammate-replies-arrived-while-the-lead-was-busy-and-were-mi.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0092",
+      "title": "A whole-group termination grace period was shorter than the wrapper process, so the wrapper exit ended the wait early",
+      "date": "2026-10-30",
+      "classes": [
+        "stage-timeout",
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Bind a group shutdown wait to the group, not to a wrapper that can exit first.",
+      "signature": "A shutdown waits for a process group, but the wait ends when the wrapper process exits.",
+      "file": "incidents/INC-0092-a-whole-group-termination-grace-period-was-shorter-than-the.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0093",
+      "title": "A smoke-run deadline shared the normal step budget policy",
+      "date": "2026-10-30",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Give runs with different deadline purposes their own policy.",
+      "signature": "One timeout policy covers both quick steps and a long smoke run.",
+      "file": "incidents/INC-0093-a-smoke-run-deadline-shared-the-normal-step-budget-policy.md",
+      "related": [
+        "INC-0092"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0094",
+      "title": "macOS sandbox-exec refused to exec a setuid binary, so a sandboxed acceptance profile failed on the process-introspection tool",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "List every binary a fixture executes, setuid ones included, when writing a sandbox profile.",
+      "signature": "A sandboxed run fails when a fixture runs ps or another setuid tool.",
+      "file": "incidents/INC-0094-macos-sandbox-exec-refused-to-exec-a-setuid-binary-so-a-sand.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0095",
+      "title": "Port validation tests lacked separate absent, zero and shared-port negatives and a positive callback control",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "One negative per rejection reason, and a positive control in the same flow.",
+      "signature": "One combined negative case passes for any of several unrelated reasons.",
+      "file": "incidents/INC-0095-port-validation-tests-lacked-separate-absent-zero-and-shared.md",
+      "related": [
+        "INC-0083"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0096",
+      "title": "Browser-context isolation was mistaken for seed-state isolation",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Isolate each kind of state separately: browser state by context, data by reset and seed.",
+      "signature": "A spec reads seed data while relying on a fresh browser context.",
+      "file": "incidents/INC-0096-browser-context-isolation-was-mistaken-for-seed-state-isolat.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0097",
+      "title": "URL guards did not prove a test owned the disposable cluster, and shared state was not restored on failure",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Ownership comes from what the test created; restoration belongs in teardown that runs on failure.",
+      "signature": "A test destroys or mutates state after checking only that the URL looks safe.",
+      "file": "incidents/INC-0097-url-guards-did-not-prove-a-test-owned-the-disposable-cluster.md",
+      "related": [
+        "INC-0083"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0098",
+      "title": "An acyclic declared dependency graph hid producer rows that an acceptance file needed",
+      "date": "2026-10-30",
+      "classes": [
+        "delegation",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "An acyclic graph is necessary but not sufficient; derive edges from what each file requires.",
+      "signature": "The dependency graph validates, yet an acceptance file needs a row that is not listed.",
+      "file": "incidents/INC-0098-an-acyclic-declared-dependency-graph-hid-producer-rows-that.md",
+      "related": [
+        "INC-0085"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0099",
+      "title": "A test reassignment written only in prose was not enforced by any tool",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Put a reassignment in one registry that every enforcing tool reads.",
+      "signature": "A rule about which row owns a test exists in text, and tools disagree or ignore it.",
+      "file": "incidents/INC-0099-a-test-reassignment-written-only-in-prose-was-not-enforced-b.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0100",
+      "title": "A new test file was placed in a row whose activation order did not include a collection the file creates, and an oracle was asserted without its spec sentence",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Place tests by activation order and quote the spec before asserting.",
+      "signature": "A test creates a collection or relies on a rule that the row order or spec does not support.",
+      "file": "incidents/INC-0100-a-new-test-file-was-placed-in-a-row-whose-activation-order-d.md",
+      "related": [
+        "INC-0089"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0101",
+      "title": "A later row overwrote a file that was already active",
+      "date": "2026-10-30",
+      "classes": [
+        "vcs-destruction",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Active files are append-only; later parts get new destinations.",
+      "signature": "Part of a file must activate later, and activating it replaces the active file.",
+      "file": "incidents/INC-0101-a-later-row-overwrote-a-file-that-was-already-active.md",
       "related": [],
       "evidence": []
     }
