@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 77,
+  "count": 81,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1588,6 +1588,79 @@
         "INC-0033",
         "INC-0032",
         "INC-0068"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0078",
+      "title": "A subprocess wrapper decoded output strictly, so malformed bytes skipped the retry and redaction path",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Put transport decoding inside the same failure boundary as the call, and test the boundary with a real process emitting malformed bytes, not only fakes returning clean text.",
+      "signature": "A wrapper runs an external command with strict text decoding, and every test feeds it clean strings.",
+      "file": "incidents/INC-0078-a-subprocess-wrapper-decoded-output-strictly-so-malformed-by.md",
+      "related": [
+        "INC-0068",
+        "INC-0033"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0079",
+      "title": "A second writer reused a shared registry's batch name and its entries silently vanished",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "concurrency"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Before adding to a shared registry, read the current last value of every identifier kind you will create (record IDs, batch names, keys), not only the record ID.",
+      "signature": "Two writers extend one registry and pick the next batch name from their own expectation of what is next.",
+      "file": "incidents/INC-0079-a-second-writer-reused-a-shared-registry-s-batch-name-and-it.md",
+      "related": [
+        "INC-0077"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0080",
+      "title": "Two writers used the same short question ID for different gaps, so a real gap looked ruled",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Give every shared ID a namespace one writer owns, such as the row or author; a bare short name is a collision waiting to happen.",
+      "signature": "A shared question table uses short bare names, and several writers add questions without a namespace.",
+      "file": "incidents/INC-0080-two-writers-used-the-same-short-question-id-for-different-ga.md",
+      "related": [
+        "INC-0079"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0081",
+      "title": "Reviewers and QA wrote absolute home paths and notes paths into repository docs, and only the push guard caught them",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths",
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Tell authors how to cite private material in the brief, and keep the leak scan as a pre-push gate rather than the only control.",
+      "signature": "Documents authored by several agents cite local files by absolute path or by the location of private lead notes.",
+      "file": "incidents/INC-0081-reviewers-and-qa-wrote-absolute-home-paths-and-notes-paths-i.md",
+      "related": [
+        "INC-0074"
       ],
       "evidence": []
     }

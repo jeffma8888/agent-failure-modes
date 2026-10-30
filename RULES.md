@@ -71,6 +71,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0072 / medium]** Never report 'the site blocks automated access' from a fetch-tool error. Name the failure class first: client error, redirect loop (cookies), form token, or a challenge page. Only a challenge page or an explicit policy is a real block, and the answer to it is an official API or another source, not a disguise.
 - **[INC-0073 / medium]** When a bundled retry works, isolate the variable before naming the fix: a 200 confirms the bundle, not your story. Read robots.txt before retrying a site that refused, stop on a disallow, and treat a challenge page as a refusal: use an official API or hand the user the link.
 - **[INC-0075 / medium]** An independent spec review is a gate, not a parallel track. Keep idle teammates busy with work that does not depend on the spec's open rulings.
+- **[INC-0078 / medium]** Put transport decoding inside the same failure boundary as the call, and test the boundary with a real process emitting malformed bytes, not only fakes returning clean text.
+- **[INC-0080 / medium]** Give every shared ID a namespace one writer owns, such as the row or author; a bare short name is a collision waiting to happen.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -84,6 +86,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0070 / low]** Parse table syntax properly before reporting a count, and cross-check any count or sum against a second method before it reaches a verdict.
 - **[INC-0074 / low]** Write path rules in a brief from a listing taken when the brief is written, never from memory of a conventional layout.
 - **[INC-0076 / low]** Derive a teammate's write boundary from the governing charter's layout, and check the two agree before sending the brief.
+- **[INC-0079 / low]** Before adding to a shared registry, read the current last value of every identifier kind you will create (record IDs, batch names, keys), not only the record ID.
+- **[INC-0081 / low]** Tell authors how to cite private material in the brief, and keep the leak scan as a pre-push gate rather than the only control.
 
 ## Practices
 

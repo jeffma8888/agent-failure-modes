@@ -1554,7 +1554,78 @@ _BATCH19: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19
+_BATCH20: list[dict] = [
+    {
+        "id": "INC-0078",
+        "title": "A subprocess wrapper decoded output strictly, so malformed bytes skipped the retry and redaction path",
+        "date": "2026-10-30",
+        "classes": ["detector-fail-open", "false-green"],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "Moderate: a run made one try instead of three, wrote no failure event and printed raw exception text, the one path the design was meant to close. Caught in review before release.",
+        "signature": "A wrapper runs an external command with strict text decoding, and every test feeds it clean strings.",
+        "what": "A credential provider ran its command with strict text decoding. Invalid bytes on the output raised a decode error before the wrapper's typed failure handling. The run exited as an internal error with the exception text, with no retry and no failure record. All tests used fake runners that returned clean text.",
+        "root_cause": "Decoding sat outside the failure boundary around the call, so one class of input bypassed every handler built for the call's failures. Fakes cannot produce malformed bytes.",
+        "why_hard": "The code path looks fully handled because the typed handlers exist, and the only inputs that miss them are ones test doubles never emit.",
+        "fix": "Decode with replacement inside the same boundary, map any residual decode error to a fixed failure kind, and add tests that run a real process emitting invalid bytes.",
+        "verification": "Checked: the revised wrapper against real subprocess fixtures that emit invalid bytes. Not checked: other wrappers in the codebase for the same pattern.",
+        "rule": "Put transport decoding inside the same failure boundary as the call, and test the boundary with a real process emitting malformed bytes, not only fakes returning clean text.",
+        "related": ["INC-0068", "INC-0033"],
+    },
+    {
+        "id": "INC-0079",
+        "title": "A second writer reused a shared registry's batch name and its entries silently vanished",
+        "date": "2026-10-30",
+        "classes": ["identity-and-keying", "concurrency"],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Minor: the writer's incidents dropped out of the composed list until the build's validation flagged the corpus as invalid.",
+        "signature": "Two writers extend one registry and pick the next batch name from their own expectation of what is next.",
+        "what": "A writer named its new batch with the number it expected next. Another writer had already used that name, so the later definition replaced the earlier one and the first writer's entries disappeared from the composition. The build's own validation reported the corpus invalid.",
+        "root_cause": "The writer read the last record ID but not the last batch name, and the language allowed a silent rebind of a module-level name.",
+        "why_hard": "Only one of several identifiers was checked, and the overwrite raised no error at definition time.",
+        "fix": "Rename the batch to the next unused name and rebuild; the build then listed every incident.",
+        "verification": "Checked: the rebuilt composition contains all entries and the validation passes. Not checked: a guard that rejects a duplicate batch name directly.",
+        "rule": "Before adding to a shared registry, read the current last value of every identifier kind you will create (record IDs, batch names, keys), not only the record ID.",
+        "related": ["INC-0077"],
+    },
+    {
+        "id": "INC-0080",
+        "title": "Two writers used the same short question ID for different gaps, so a real gap looked ruled",
+        "date": "2026-10-30",
+        "classes": ["identity-and-keying", "spec-and-scope"],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "Moderate: new gaps looked already tracked or answered, so nobody owned them until a cross review noticed the collision.",
+        "signature": "A shared question table uses short bare names, and several writers add questions without a namespace.",
+        "what": "One engineer raised a question under a short ID for an undefined environment set and cited another short ID for missing cases. The lead's table already used both IDs for different matters, one of them already ruled, so the new gaps appeared tracked or answered.",
+        "root_cause": "Bare short names are shared across writers with no owner, so the same name can mean two things and a ruling on one silently covers the other.",
+        "why_hard": "Each use looks locally correct, and the collision shows only when two tables are compared.",
+        "fix": "Question IDs are namespaced by row or author, and colliding entries were renamed in the records.",
+        "verification": "Checked: the renamed entries against the lead's table. Not checked: older records for further collisions.",
+        "rule": "Give every shared ID a namespace one writer owns, such as the row or author; a bare short name is a collision waiting to happen.",
+        "related": ["INC-0079"],
+    },
+    {
+        "id": "INC-0081",
+        "title": "Reviewers and QA wrote absolute home paths and notes paths into repository docs, and only the push guard caught them",
+        "date": "2026-10-30",
+        "classes": ["tooling-paths", "observability"],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Minor: four push attempts in one hour were blocked and reworded; nothing leaked because the guard ran before each push.",
+        "signature": "Documents authored by several agents cite local files by absolute path or by the location of private lead notes.",
+        "what": "Reviews and coverage records included absolute home paths and paths of private notes. A leak guard rejected the pushes four times in one hour across two reviews and three coverage files.",
+        "root_cause": "Task templates did not say how to cite private notes, and agents copy the paths they were shown.",
+        "why_hard": "The text is correct and useful locally, so authors see no problem until a pattern scan runs at the last step.",
+        "fix": "Task templates now say to cite lead notes by file name only and use repository-relative paths; the guard runs before each push.",
+        "verification": "Checked: the guard blocked each occurrence before push. Not checked: whether the new template wording stops recurrence.",
+        "rule": "Tell authors how to cite private material in the brief, and keep the leak scan as a pre-push gate rather than the only control.",
+        "related": ["INC-0074"],
+    },
+]
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.
