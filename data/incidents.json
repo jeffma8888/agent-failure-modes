@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 109,
+  "count": 115,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2125,6 +2125,114 @@
       "rule": "Every component a test needs has an owning row.",
       "signature": "A test drives a component that no row builds, so the last row meets a missing UI.",
       "file": "incidents/INC-0109-a-ui-test-was-accepted-although-no-plan-row-owned-a-custom-u.md",
+      "related": [
+        "INC-0098"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0110",
+      "title": "A cross-row test needed setup absent from its own lifecycle, and green was claimed without a fresh-clone setup or a canonical temp directory",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run from a clean state and compare resolved paths before reporting a pass.",
+      "signature": "A test passes in a warm checkout and needs a database or path that the fresh lifecycle never creates.",
+      "file": "incidents/INC-0110-a-cross-row-test-needed-setup-absent-from-its-own-lifecycle.md",
+      "related": [
+        "INC-0087"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0111",
+      "title": "HTTP-only timeouts were copied from a process-hang pattern without the reason",
+      "date": "2026-10-30",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "An override without a stated reason is not reviewable.",
+      "signature": "A timeout override appears in a test where its original cause does not apply.",
+      "file": "incidents/INC-0111-http-only-timeouts-were-copied-from-a-process-hang-pattern-w.md",
+      "related": [
+        "INC-0093",
+        "INC-0107"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0112",
+      "title": "A control relied on state the test had changed earlier and silently became vacuous",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Place a control in the state it needs, and show it can change.",
+      "signature": "A control that depends on a signed-in or seeded state runs after the test changed that state.",
+      "file": "incidents/INC-0112-a-control-relied-on-state-the-test-had-changed-earlier-and-s.md",
+      "related": [
+        "INC-0083"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0113",
+      "title": "A rule set widened by tag survived dropping one tag because only some tags had a planted violation",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Every tag in a rule needs its own planted violation.",
+      "signature": "A check covers several tags, and removing one tag leaves the suite green.",
+      "file": "incidents/INC-0113-a-rule-set-widened-by-tag-survived-dropping-one-tag-because.md",
+      "related": [
+        "INC-0082",
+        "INC-0083"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0114",
+      "title": "A second clone named after the remote held a stale tip and was mistaken for the working checkout",
+      "date": "2026-10-30",
+      "classes": [
+        "vcs-destruction",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Never identify a checkout by its folder name.",
+      "signature": "Two checkouts exist, and the folder name suggests the wrong one is current.",
+      "file": "incidents/INC-0114-a-second-clone-named-after-the-remote-held-a-stale-tip-and-w.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0115",
+      "title": "Rows that point at a relationship target were ordered before the target was registered, tempting stubs or optional fields",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Fix the order, not the contract.",
+      "signature": "A row needs a related record that a later row creates.",
+      "file": "incidents/INC-0115-rows-that-point-at-a-relationship-target-were-ordered-before.md",
       "related": [
         "INC-0098"
       ],

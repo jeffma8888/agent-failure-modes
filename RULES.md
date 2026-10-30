@@ -98,6 +98,12 @@ One rule per incident, ordered by severity then id.
 - **[INC-0107 / medium]** Verify from the code line, not from the note that describes it.
 - **[INC-0108 / medium]** One rule, every copy, every URL part.
 - **[INC-0109 / medium]** Every component a test needs has an owning row.
+- **[INC-0110 / medium]** Run from a clean state and compare resolved paths before reporting a pass.
+- **[INC-0111 / medium]** An override without a stated reason is not reviewable.
+- **[INC-0112 / medium]** Place a control in the state it needs, and show it can change.
+- **[INC-0113 / medium]** Every tag in a rule needs its own planted violation.
+- **[INC-0114 / medium]** Never identify a checkout by its folder name.
+- **[INC-0115 / medium]** Fix the order, not the contract.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
