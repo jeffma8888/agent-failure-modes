@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 71,
+  "count": 73,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1474,6 +1474,43 @@
       "related": [
         "INC-0002",
         "INC-0003"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0072",
+      "title": "Four different fetch failures were all reported as 'the site blocks automated access'",
+      "date": "2026-10-29",
+      "classes": [
+        "tooling-paths",
+        "detector-fail-closed"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Never report 'the site blocks automated access' from a fetch-tool error. Name the failure class first: client error, redirect loop (cookies), form token, or a challenge page. Only a challenge page or an explicit policy is a real block, and the answer to it is an official API or another source, not a disguise.",
+      "signature": "A fetch returns a connection error, a redirect error or a 403, and the agent's next sentence says the site 'blocks automated access' without naming which of those it was.",
+      "file": "incidents/INC-0072-four-different-fetch-failures-were-all-reported-as-the-site.md",
+      "related": [
+        "INC-0029"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0073",
+      "title": "A bundled retry worked and the fix was credited to 'looking like a normal browser', which was wrong in every case tested",
+      "date": "2026-10-29",
+      "classes": [
+        "observability",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When a bundled retry works, isolate the variable before naming the fix: a 200 confirms the bundle, not your story. Read robots.txt before retrying a site that refused, stop on a disallow, and treat a challenge page as a refusal: use an official API or hand the user the link.",
+      "signature": "Several changes go into one retry (new client, new User-Agent, cookie jar, form handling), the retry succeeds, and the summary names the change the agent expected to matter.",
+      "file": "incidents/INC-0073-a-bundled-retry-worked-and-the-fix-was-credited-to-looking-l.md",
+      "related": [
+        "INC-0049",
+        "INC-0072"
       ],
       "evidence": []
     }

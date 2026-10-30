@@ -1444,7 +1444,45 @@ _BATCH17: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17
+_BATCH18: list[dict] = [
+    {
+        "id": "INC-0072",
+        "title": "Four different fetch failures were all reported as 'the site blocks automated access'",
+        "date": "2026-10-29",
+        "classes": ["tooling-paths", "detector-fail-closed"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "A research report told the user to run four public-record lookups by hand in a browser. All four were readable from the agent's own shell within minutes once each failure was classified; one needed a different, official source.",
+        "signature": "A fetch returns a connection error, a redirect error or a 403, and the agent's next sentence says the site 'blocks automated access' without naming which of those it was.",
+        "what": "An agent's built-in fetch tool failed on four public-records pages (license registries and court records), and the agent reported all four as sites that block automated access. Classified afterwards, they were four different things. (1) A court site's main host: 'error sending request', a client-level failure; plain curl with its default User-Agent got HTTP 200 from the same host. (2) A license directory: 'error following redirect'. The server answers a browser-like User-Agent with a 302 back to the same URL until a session cookie comes back, so a client with no cookie jar loops (curl stopped after 10 redirects, exit 47); with a cookie jar it loads, and curl's own User-Agent got a 200 with no redirect at all. (3) A lookup that is a form: the POST needs the page's anti-forgery token, the cookie issued with it, and a valid value for every select. A POST missing the select value returned a bare 302; the complete one redirected to a plain GET detail URL that works on its own. (4) A court-records search and a docket aggregator: HTTP 403 with a 'Just a moment...' managed bot-challenge page, the same with any User-Agent.",
+        "root_cause": "One failure message collapsed four causes, and the fetch tool's defaults (its HTTP client, its User-Agent, no cookie persistence, no form handling) were read as the site's policy. 'Blocked' was a conclusion about the site drawn from evidence about the tool.",
+        "why_hard": "Each message is plausible as a bot block, and believing it fails quietly: the work is handed back to the human instead of visibly breaking, so nothing forces a second look.",
+        "fix": "Classify before concluding. Retry once with a plain HTTP client (curl), with a cookie jar, following redirects, and read the status line and the first bytes of the body. A 403 whose body is a challenge page is a real refusal: stop, and get the same data from an official source (the registry's open-data API served the identical record) or another public mirror. A form gets a GET for its token, then the POST; save the redirect target as a deep link the user can open.",
+        "verification": "All four lookups returned the official records afterwards, three directly and one through the registry's open-data API. Each failure class was then isolated with single-variable retries (User-Agent alone, cookie jar alone, a different client).",
+        "rule": "Never report 'the site blocks automated access' from a fetch-tool error. Name the failure class first: client error, redirect loop (cookies), form token, or a challenge page. Only a challenge page or an explicit policy is a real block, and the answer to it is an official API or another source, not a disguise.",
+        "related": ["INC-0029"],
+    },
+    {
+        "id": "INC-0073",
+        "title": "A bundled retry worked and the fix was credited to 'looking like a normal browser', which was wrong in every case tested",
+        "date": "2026-10-29",
+        "classes": ["observability", "tooling-paths"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "The user was told the trick was making requests look like a browser, and asked for that technique to be recorded as the lesson. One target's robots.txt disallowed all automated agents and had not been read before the requests.",
+        "signature": "Several changes go into one retry (new client, new User-Agent, cookie jar, form handling), the retry succeeds, and the summary names the change the agent expected to matter.",
+        "what": "After four failed public-record lookups succeeded on a retry, the agent summarized the fix as 'making the requests look like a normal browser'. Isolating each change afterwards, the User-Agent did not matter in any case that was tested. On a court site's main host, curl's default User-Agent got the same 200 as a browser string; the fix was the HTTP client. On a license directory, a browser User-Agent with no cookies CAUSED the redirect loop and curl's own User-Agent avoided it; the fix was the cookie jar. The challenge-protected sites refused every User-Agent; the fix was an official open-data API. The agent had also not read robots.txt first: the form lookup's host serves 'User-agent: *' with 'Disallow: /'.",
+        "root_cause": "The retry bundled four changes, and the success was credited to the one that matched the agent's prior story. Site policy (robots.txt, terms) was treated as an obstacle discovered by failing, not a check made before the first retry.",
+        "why_hard": "A 200 confirms the bundle, not any member of it. 'Pretend to be a browser' is the folk explanation for scraping blocks, so it reads as obviously right and nobody asks for the control case.",
+        "fix": "Re-ran each case changing one variable at a time, and corrected the summary to the user, including the robots.txt miss. Before retrying a site that refused, read its robots.txt and stop on a disallow covering the path: hand the user the deep link to open in their own browser. Prefer, in order, an official API or open-data copy, the site's own GET detail URL, then a plain client with cookies. Never try to get past a challenge page.",
+        "verification": "Single-variable retries reproduced each case: the same 200 with the default and the browser User-Agent on the court host; a 302 loop only with a browser User-Agent and no cookie jar on the directory; a 403 challenge with every User-Agent on the protected sites. robots.txt was fetched for every host involved.",
+        "rule": "When a bundled retry works, isolate the variable before naming the fix: a 200 confirms the bundle, not your story. Read robots.txt before retrying a site that refused, stop on a disallow, and treat a challenge page as a refusal: use an official API or hand the user the link.",
+        "related": ["INC-0049", "INC-0072"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.
