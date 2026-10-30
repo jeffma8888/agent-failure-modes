@@ -104,6 +104,14 @@ One rule per incident, ordered by severity then id.
 - **[INC-0113 / medium]** Every tag in a rule needs its own planted violation.
 - **[INC-0114 / medium]** Never identify a checkout by its folder name.
 - **[INC-0115 / medium]** Fix the order, not the contract.
+- **[INC-0116 / medium]** Test every layer of a redundant check independently.
+- **[INC-0117 / medium]** Repeat race-dependent cleanup tests; classify errors by what they mean for the target.
+- **[INC-0118 / medium]** Anchor a reason match to the error line and keep injected text out of its reach.
+- **[INC-0119 / medium]** When replacing HOME, forward every cache the tools need and block fetching.
+- **[INC-0120 / medium]** Check output as well as exit status in a clean-pass control.
+- **[INC-0121 / medium]** Scope a rule by the file, not the commit that carries it.
+- **[INC-0122 / medium]** Verify pairs, not membership.
+- **[INC-0123 / medium]** A verifier must follow moves through history, not require the old path to exist.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

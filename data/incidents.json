@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 115,
+  "count": 123,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2235,6 +2235,148 @@
       "file": "incidents/INC-0115-rows-that-point-at-a-relationship-target-were-ordered-before.md",
       "related": [
         "INC-0098"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0116",
+      "title": "Two validators enforcing the same rule masked single-file mutations",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Test every layer of a redundant check independently.",
+      "signature": "Removing one of two redundant checks leaves the suite green.",
+      "file": "incidents/INC-0116-two-validators-enforcing-the-same-rule-masked-single-file-mu.md",
+      "related": [
+        "INC-0083"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0117",
+      "title": "Signalling a process group of only zombie members returned a permission error on macOS",
+      "date": "2026-10-30",
+      "classes": [
+        "concurrency",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Repeat race-dependent cleanup tests; classify errors by what they mean for the target.",
+      "signature": "Cleanup fails intermittently when the group has exited but not been reaped.",
+      "file": "incidents/INC-0117-signalling-a-process-group-of-only-zombie-members-returned-a.md",
+      "related": [
+        "INC-0092"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0118",
+      "title": "A reason regex matched text the test itself injected and missed the reason on the error line",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Anchor a reason match to the error line and keep injected text out of its reach.",
+      "signature": "A refusal assertion passes because its pattern matches the test input.",
+      "file": "incidents/INC-0118-a-reason-regex-matched-text-the-test-itself-injected-and-mis.md",
+      "related": [
+        "INC-0083"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0119",
+      "title": "A sandboxed HOME hid tool caches such as package-manager shims",
+      "date": "2026-10-30",
+      "classes": [
+        "ipc-and-env",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When replacing HOME, forward every cache the tools need and block fetching.",
+      "signature": "A tool works normally and fails once HOME points at a temp directory.",
+      "file": "incidents/INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md",
+      "related": [
+        "INC-0106"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0120",
+      "title": "A guard control asserted only exit 0, so a warn-and-pass guard looked like a clean pass",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Check output as well as exit status in a clean-pass control.",
+      "signature": "A guard that prints an error but exits 0 passes a control that checks the exit code.",
+      "file": "incidents/INC-0120-a-guard-control-asserted-only-exit-0-so-a-warn-and-pass-guar.md",
+      "related": [
+        "INC-0082"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0121",
+      "title": "A rule scoped to work after a ruling was applied per commit while one commit held old and new patterns",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Scope a rule by the file, not the commit that carries it.",
+      "signature": "One commit contains files that predate the ruling and files that follow it.",
+      "file": "incidents/INC-0121-a-rule-scoped-to-work-after-a-ruling-was-applied-per-commit.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0122",
+      "title": "A digest present anywhere in a manifest was taken as proof it belonged to its file",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Verify pairs, not membership.",
+      "signature": "A check finds the digest somewhere in the manifest and passes.",
+      "file": "incidents/INC-0122-a-digest-present-anywhere-in-a-manifest-was-taken-as-proof-i.md",
+      "related": [
+        "INC-0080"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0123",
+      "title": "After activation a registry line named a pending path that no longer existed, and a verifier flagged it",
+      "date": "2026-10-30",
+      "classes": [
+        "stale-module",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A verifier must follow moves through history, not require the old path to exist.",
+      "signature": "A verifier reports a missing path that was legitimately moved at activation.",
+      "file": "incidents/INC-0123-after-activation-a-registry-line-named-a-pending-path-that-n.md",
+      "related": [
+        "INC-0101"
       ],
       "evidence": []
     }
