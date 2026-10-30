@@ -464,12 +464,12 @@ _BATCH2: list[dict] = [
         "status": "mitigated",
         "cost": "Twenty-six commits to a shared module were reported as SHIPPED by git and the changelog while all of them were inert in the running process for four days.",
         "signature": "A long-running dispatcher's uptime is measured in days. `git log --since=<start>` on the module it imported shows dozens of commits since. The behavior on disk does not match what the process seems to be running.",
-        "what": "In the public agent-foundry loop framework, the dispatcher process did a plain `import foundry` once at launch, with no `importlib.reload` and no self-restart. Over four days, 26 commits to `foundry.py` landed. All 26 were inert - the process was still running the code it imported at launch. Git, the roadmap and the decision log all reported them SHIPPED.",
+        "what": "In the public agent-foundry loop framework, the dispatcher process did a plain `import foundry` once at launch, with no `importlib.reload` and no self-restart. Over four days, 26 commits to `foundry.py` landed. All 26 were inert - the process was still running the code it imported at launch. Git, the roadmap and the decision log all reported them SHIPPED. A later occurrence involved configuration: a config-overlay feature shipped, the operator added sidecar files and noted them as live because configs are re-read every shift, but the running dispatcher had imported its loader module before that commit and ignored the new files. One product was caught on exactly the failure the feature was meant to survive, 40 minutes after another had shown it working. A clean-point restart fixed it, and verification now asks which process version loads the config, not only whether the file is re-read.",
         "root_cause": "Python's import machinery caches modules by name. Without an explicit reload or a process restart, `import foundry` returns the object bound at first import forever. Even a self-modifying loop that ships fixes to its own code does not run those fixes.",
         "why_hard": "Everything upstream reports success. The commits merged; the tests were green; the changelog says SHIPPED. Only a comparison of process start-time against git log for the imported module reveals the gap.",
         "fix": "For any long-running process that imports code it may also modify, ship a live-lag check: compare `psutil.Process(pid).create_time()` against `git log --since` for the imported module. Distinguish disk-level changes from live-behavior changes explicitly - role or prompt CARDS read from disk per run ARE live even when the module is frozen. Design self-updating loops with a scheduled restart or an in-process reload primitive, not on the assumption that the next iteration picks up new code.",
         "verification": "The live-lag check surfaced the four-day gap and warned before further inert commits accumulated. Post-restart, the same 26 commits took effect.",
-        "rule": "A long-running process runs the code it imported AT LAUNCH. Merged is not shipped is not live: git can say 'landed' while the process is still on the old bytecode. Ship a live-lag check that compares process start-time against `git log --since` on the imported module. Role/prompt files read per-run ARE live even when the module is frozen - distinguish them.",
+        "rule": "A long-running process runs the code it imported AT LAUNCH. Merged is not shipped is not live: git can say 'landed' while the process is still on the old bytecode. Ship a live-lag check that compares process start-time against `git log --since` on the imported module. Role/prompt files read per-run ARE live even when the module is frozen - distinguish them. New config semantics need a restart too.",
         "evidence": [
             'https://github.com/jeffma8888/agent-foundry - the dispatcher does a plain `import foundry` once at launch, with no reload primitive and no self-restart.',
             'Second confirmation, 2026-08-15: a live dispatcher with 1d22h uptime was still running the module revision it imported at launch while the repository head had moved on by many commits. Every prompt-budget constant measured from the working tree was therefore the wrong number for the running loop - so a stale module silently invalidates measurements taken about it, not just fixes shipped to it.',
@@ -1351,7 +1351,45 @@ _BATCH15: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15
+_BATCH16: list[dict] = [
+    {
+        "id": "INC-0067",
+        "title": "An operator directive was visible to the planner but no rule ranked it, so it was deferred while the loop shipped its own picks",
+        "date": "2026-10-27",
+        "classes": ["steering-channel", "spec-and-scope"],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "Two precise operator directives were acknowledged and deferred for an iteration while the loop shipped lower-priority picks of its own. Found by grading the planner's own triage, which labelled both 'not in the current slate'.",
+        "signature": "A directive is placed in the file every role reads first, and the planning role's output acknowledges it and then does something else.",
+        "what": "An operator of a self-improving loop wrote two defect pins at the head of the learnings file that every role reads first. The planner role's prompt limited its candidate pool to the scouts' slates and contained no rule for ranking an operator pin. The pins were read, and deferred.",
+        "root_cause": "Visibility was mistaken for a route. Delivery into the prompt (which INC-0020 covers) was working; what was missing was a rule in the decision step that says which input wins. A picker with a closed candidate pool cannot select an item that was never put into the pool.",
+        "why_hard": "The directive was read and quoted back, which looks like compliance. The failure shows only as a deferral that sounds reasonable.",
+        "fix": "One routing rule added at the same head: an un-retired operator pin is candidate 1 of every slate and the planner's pick, and lens scope does not apply. The rule was later written into the planner's prompt with a test.",
+        "verification": "After the rule was added the loop executed six pins in seven consecutive iterations. Not checked here: behaviour of the prompt-level version beyond the test that was added with it.",
+        "rule": "A directive to an agent system needs a route into the decision, not only visibility. Before queuing one, read the picker's prompt and confirm which rule will select it; if none does, write that rule first.",
+        "related": ["INC-0020", "INC-0004"],
+    },
+    {
+        "id": "INC-0068",
+        "title": "A retry ladder wrapped the model call but not the credential helper on the same path, so one helper blip became a long hold",
+        "date": "2026-10-29",
+        "classes": ["ipc-and-env", "observability"],
+        "severity": "high",
+        "status": "mitigated",
+        "cost": "In one afternoon: five stage deaths, five 30-minute holds (about 2.5 hours idle), and a launcher preflight that refused a relaunch on the same transient failure.",
+        "signature": "A credential helper that passes every manual probe exits non-zero about once an hour inside the loop, and the loop reports an expired session.",
+        "what": "A stage engine retried authentication errors from the model API with a backoff ladder, but treated one non-zero exit of its credential helper as fatal. Each blip killed a stage, the dispatcher classified it as an expired session and held for 30 minutes, and the launcher's single-attempt preflight refused to relaunch on the same blip. The helper itself worked in eight consecutive clean manual runs.",
+        "root_cause": "The retry ladder covered one external call and not the others on the path to a model turn. A transient failure of a helper was also labelled with a permanent-failure name, so the scheduler waited for a human who was not needed. The helper's real cause was a hard 2-second connect timeout to its credential backend that trips about once an hour.",
+        "why_hard": "Manual probes of the helper were clean, so the helper was 'known good'. The log carried a classification ('auth failed'), not the failing attempt's stderr.",
+        "fix": "A retry wrapper (3 attempts, delays of 0, 2 and 5 seconds, output emitted only on success, failed attempts' stderr logged with secrets redacted) was substituted as the configured credential command and activated by a clean-point restart. The proper fix, retry inside the engine's own credential provider, was filed for the engine's owner.",
+        "verification": "The wrapper's log captured the cause on its first trigger, two minutes after it went live: a connect timeout in the helper, and the retry 4 seconds later succeeded, so that iteration shipped instead of taking a hold. The engine-side fix is not verified here.",
+        "rule": "A retry ladder must cover every external call on the path to a model turn, including helpers that fetch credentials. When a dependency that passes manual probes fails in the loop, log the failing attempt's stderr instead of a classification, and never let a one-shot preflight decide whether an unattended system restarts.",
+        "related": ["INC-0009", "INC-0049", "INC-0005"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.

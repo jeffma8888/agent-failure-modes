@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 66,
+  "count": 68,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -464,7 +464,7 @@
       ],
       "severity": "high",
       "status": "mitigated",
-      "rule": "A long-running process runs the code it imported AT LAUNCH. Merged is not shipped is not live: git can say 'landed' while the process is still on the old bytecode. Ship a live-lag check that compares process start-time against `git log --since` on the imported module. Role/prompt files read per-run ARE live even when the module is frozen - distinguish them.",
+      "rule": "A long-running process runs the code it imported AT LAUNCH. Merged is not shipped is not live: git can say 'landed' while the process is still on the old bytecode. Ship a live-lag check that compares process start-time against `git log --since` on the imported module. Role/prompt files read per-run ARE live even when the module is frozen - distinguish them. New config semantics need a restart too.",
       "signature": "A long-running dispatcher's uptime is measured in days. `git log --since=<start>` on the module it imported shows dozens of commits since. The behavior on disk does not match what the process seems to be running.",
       "file": "incidents/INC-0021-stale-module-import-shipped-is-not-live.md",
       "related": [
@@ -1378,6 +1378,45 @@
       "related": [
         "INC-0014",
         "INC-0012"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0067",
+      "title": "An operator directive was visible to the planner but no rule ranked it, so it was deferred while the loop shipped its own picks",
+      "date": "2026-10-27",
+      "classes": [
+        "steering-channel",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A directive to an agent system needs a route into the decision, not only visibility. Before queuing one, read the picker's prompt and confirm which rule will select it; if none does, write that rule first.",
+      "signature": "A directive is placed in the file every role reads first, and the planning role's output acknowledges it and then does something else.",
+      "file": "incidents/INC-0067-an-operator-directive-was-visible-to-the-planner-but-no-rule.md",
+      "related": [
+        "INC-0020",
+        "INC-0004"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0068",
+      "title": "A retry ladder wrapped the model call but not the credential helper on the same path, so one helper blip became a long hold",
+      "date": "2026-10-29",
+      "classes": [
+        "ipc-and-env",
+        "observability"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "A retry ladder must cover every external call on the path to a model turn, including helpers that fetch credentials. When a dependency that passes manual probes fails in the loop, log the failing attempt's stderr instead of a classification, and never let a one-shot preflight decide whether an unattended system restarts.",
+      "signature": "A credential helper that passes every manual probe exits non-zero about once an hour inside the loop, and the loop reports an expired session.",
+      "file": "incidents/INC-0068-a-retry-ladder-wrapped-the-model-call-but-not-the-credential.md",
+      "related": [
+        "INC-0009",
+        "INC-0049",
+        "INC-0005"
       ],
       "evidence": []
     }

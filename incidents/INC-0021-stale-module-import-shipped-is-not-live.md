@@ -17,7 +17,7 @@ A long-running dispatcher's uptime is measured in days. `git log --since=<start>
 
 ## What happened
 
-In the public agent-foundry loop framework, the dispatcher process did a plain `import foundry` once at launch, with no `importlib.reload` and no self-restart. Over four days, 26 commits to `foundry.py` landed. All 26 were inert - the process was still running the code it imported at launch. Git, the roadmap and the decision log all reported them SHIPPED.
+In the public agent-foundry loop framework, the dispatcher process did a plain `import foundry` once at launch, with no `importlib.reload` and no self-restart. Over four days, 26 commits to `foundry.py` landed. All 26 were inert - the process was still running the code it imported at launch. Git, the roadmap and the decision log all reported them SHIPPED. A later occurrence involved configuration: a config-overlay feature shipped, the operator added sidecar files and noted them as live because configs are re-read every shift, but the running dispatcher had imported its loader module before that commit and ignored the new files. One product was caught on exactly the failure the feature was meant to survive, 40 minutes after another had shown it working. A clean-point restart fixed it, and verification now asks which process version loads the config, not only whether the file is re-read.
 
 ## Root cause
 
@@ -37,7 +37,7 @@ The live-lag check surfaced the four-day gap and warned before further inert com
 
 ## Transferable rule
 
-> A long-running process runs the code it imported AT LAUNCH. Merged is not shipped is not live: git can say 'landed' while the process is still on the old bytecode. Ship a live-lag check that compares process start-time against `git log --since` on the imported module. Role/prompt files read per-run ARE live even when the module is frozen - distinguish them.
+> A long-running process runs the code it imported AT LAUNCH. Merged is not shipped is not live: git can say 'landed' while the process is still on the old bytecode. Ship a live-lag check that compares process start-time against `git log --since` on the imported module. Role/prompt files read per-run ARE live even when the module is frozen - distinguish them. New config semantics need a restart too.
 
 ## Provenance
 
