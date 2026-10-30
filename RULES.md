@@ -116,6 +116,15 @@ One rule per incident, ordered by severity then id.
 - **[INC-0125 / medium]** Check uniqueness across all markers, and re-read inputs immediately before reporting.
 - **[INC-0126 / medium]** Compare relative names and kill every mutant on its own.
 - **[INC-0127 / medium]** Plan against a hard cap before the edit, not after.
+- **[INC-0128 / medium]** Sweep the disk and read a real clock before trusting replies.
+- **[INC-0129 / medium]** A hygiene rule should test intent, not only syntax.
+- **[INC-0130 / medium]** Enforce destination uniqueness where files become active.
+- **[INC-0131 / medium]** Measure, then set deadlines.
+- **[INC-0132 / medium]** Serialize across projects explicitly when they share state.
+- **[INC-0133 / medium]** Measure mutations and protect files first.
+- **[INC-0134 / medium]** Assert what the user sees, not the transport mechanism.
+- **[INC-0135 / medium]** One template per role.
+- **[INC-0136 / medium]** Give each agent its own cluster.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

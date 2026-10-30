@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 127,
+  "count": 136,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2450,6 +2450,166 @@
       "signature": "An edit is made first and the size cap is discovered afterward.",
       "file": "incidents/INC-0127-a-document-already-at-its-hard-size-cap-had-no-room-for-the.md",
       "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0128",
+      "title": "Finished work sat for hours because replies never arrived, the clock was misread and worktrees were not swept",
+      "date": "2026-10-30",
+      "classes": [
+        "delegation",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Sweep the disk and read a real clock before trusting replies.",
+      "signature": "Several teammates finish, no reply arrives, and the lead waits.",
+      "file": "incidents/INC-0128-finished-work-sat-for-hours-because-replies-never-arrived-th.md",
+      "related": [
+        "INC-0091"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0129",
+      "title": "A syntax hygiene rule flagging every literal timer over one second also flagged a cancellation watchdog",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A hygiene rule should test intent, not only syntax.",
+      "signature": "A rule against long timers rejects a bound that fails and is cleared.",
+      "file": "incidents/INC-0129-a-syntax-hygiene-rule-flagging-every-literal-timer-over-one.md",
+      "related": [
+        "INC-0097"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0130",
+      "title": "An identity checker rejecting every shared destination across pending roots flagged inert drafts",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Enforce destination uniqueness where files become active.",
+      "signature": "Two pending drafts name one destination and the checker fails.",
+      "file": "incidents/INC-0130-an-identity-checker-rejecting-every-shared-destination-acros.md",
+      "related": [
+        "INC-0125"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0131",
+      "title": "A stage hang deadline copied from a planning estimate killed a correct run once heavier tests joined",
+      "date": "2026-10-30",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Measure, then set deadlines.",
+      "signature": "A stage that passed earlier is killed after more tests are added.",
+      "file": "incidents/INC-0131-a-stage-hang-deadline-copied-from-a-planning-estimate-killed.md",
+      "related": [
+        "INC-0093",
+        "INC-0107"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0132",
+      "title": "Vitest 4 ran projects in parallel and file serialization inside a project did not order whole-cluster checks",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation",
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Serialize across projects explicitly when they share state.",
+      "signature": "Inventory checks across a shared cluster race between projects.",
+      "file": "incidents/INC-0132-vitest-4-ran-projects-in-parallel-and-file-serialization-ins.md",
+      "related": [
+        "INC-0096"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0133",
+      "title": "A local guard behind a shared environment pin was masked, and a mutation claim was reasoned instead of measured",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Measure mutations and protect files first.",
+      "signature": "Removing a guard changes nothing because an outer pin already covers it.",
+      "file": "incidents/INC-0133-a-local-guard-behind-a-shared-environment-pin-was-masked-and.md",
+      "related": [
+        "INC-0116"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0134",
+      "title": "A QA case followed only 3xx redirects while Payload 3 admin redirects under Next 16 are soft redirects with HTTP 200",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Assert what the user sees, not the transport mechanism.",
+      "signature": "A test expecting a 3xx fails on a correct redirect.",
+      "file": "incidents/INC-0134-a-qa-case-followed-only-3xx-redirects-while-payload-3-admin.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0135",
+      "title": "A QA-template line pasted into an engineer task contradicted the engineer commit duty",
+      "date": "2026-10-30",
+      "classes": [
+        "delegation",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "One template per role.",
+      "signature": "A task carries an instruction from another role template.",
+      "file": "incidents/INC-0135-a-qa-template-line-pasted-into-an-engineer-task-contradicted.md",
+      "related": [
+        "INC-0087"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0136",
+      "title": "A cross-agent inventory flake came from sharing one harness cluster between runtime agents",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation",
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Give each agent its own cluster.",
+      "signature": "Inventory checks fail when two agents use one cluster.",
+      "file": "incidents/INC-0136-a-cross-agent-inventory-flake-came-from-sharing-one-harness.md",
+      "related": [
+        "INC-0097"
+      ],
       "evidence": []
     }
   ]
