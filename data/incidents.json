@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 81,
+  "count": 83,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1661,6 +1661,40 @@
       "file": "incidents/INC-0081-reviewers-and-qa-wrote-absolute-home-paths-and-notes-paths-i.md",
       "related": [
         "INC-0074"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0082",
+      "title": "An absence check passed vacuously because the forbidden text never matched the real title and the document may never have been read",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Every absence assertion needs a positive control from the same read, and matching must be substring-tolerant of the real data shape.",
+      "signature": "A test asserts a string occurs zero times in a page, and the count is zero for reasons unrelated to the page content.",
+      "file": "incidents/INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0083",
+      "title": "Controls that fail in only one direction, a drop guard keyed on a name pattern, and refusal tests satisfied by unrelated connection errors",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A control counts only if it fails in both directions; scope destructive guards to recorded identities, and assert the specific refusal, not any error.",
+      "signature": "Refusal tests pass against a stub that accepts everything, or against a guard that does nothing because the target is unreachable anyway.",
+      "file": "incidents/INC-0083-controls-that-fail-in-only-one-direction-a-drop-guard-keyed.md",
+      "related": [
+        "INC-0078"
       ],
       "evidence": []
     }
