@@ -75,6 +75,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0080 / medium]** Give every shared ID a namespace one writer owns, such as the row or author; a bare short name is a collision waiting to happen.
 - **[INC-0082 / medium]** Every absence assertion needs a positive control from the same read, and matching must be substring-tolerant of the real data shape.
 - **[INC-0083 / medium]** A control counts only if it fails in both directions; scope destructive guards to recorded identities, and assert the specific refusal, not any error.
+- **[INC-0085 / medium]** Record the owner of every shared helper, and treat an import from another root as a declared dependency.
+- **[INC-0086 / medium]** Verify the call site and arguments, not only the function name, after a dependency change.
+- **[INC-0087 / medium]** Pair static audits with a stop rule so an engineer halts when a call needs later-row behavior.
+- **[INC-0088 / medium]** Every file that mutates shared state restores it or reseeds, and helpers match the documented field shapes.
+- **[INC-0091 / medium]** Verify the last speaker per teammate instead of assuming no news means work is running.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -90,6 +95,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0076 / low]** Derive a teammate's write boundary from the governing charter's layout, and check the two agree before sending the brief.
 - **[INC-0079 / low]** Before adding to a shared registry, read the current last value of every identifier kind you will create (record IDs, batch names, keys), not only the record ID.
 - **[INC-0081 / low]** Tell authors how to cite private material in the brief, and keep the leak scan as a pre-push gate rather than the only control.
+- **[INC-0084 / low]** Normalize terminal output before matching it, and define what counts as an owned resource before counting leaks.
+- **[INC-0089 / low]** Search the oracle before recording a question, and design seeds for the gates that tests pass through.
+- **[INC-0090 / low]** Write test code in erasable TypeScript only, and assert through contracts that exist.
 
 ## Practices
 

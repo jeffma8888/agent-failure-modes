@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 83,
+  "count": 91,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1696,6 +1696,133 @@
       "related": [
         "INC-0078"
       ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0084",
+      "title": "Test-summary assertions broke on ANSI color codes, and compile caches were mistaken for resource leaks",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation",
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Normalize terminal output before matching it, and define what counts as an owned resource before counting leaks.",
+      "signature": "A test asserts on tool summary text that contains color escape codes, or a leak check counts cache files.",
+      "file": "incidents/INC-0084-test-summary-assertions-broke-on-ansi-color-codes-and-compil.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0085",
+      "title": "A helper owned by one test root was imported by later roots, creating an undeclared dependency",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Record the owner of every shared helper, and treat an import from another root as a declared dependency.",
+      "signature": "A shared helper lives under one row or root and other rows import it without declaring the dependency.",
+      "file": "incidents/INC-0085-a-helper-owned-by-one-test-root-was-imported-by-later-roots.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0086",
+      "title": "After a dependency fix, two rows still called the same seed function with different payloads",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Verify the call site and arguments, not only the function name, after a dependency change.",
+      "signature": "A fix is verified by name, but the same seed function is called with different arguments elsewhere.",
+      "file": "incidents/INC-0086-after-a-dependency-fix-two-rows-still-called-the-same-seed-f.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0087",
+      "title": "An import-level audit missed helper calls that needed a later row, and only the engineer stop rule caught it",
+      "date": "2026-10-30",
+      "classes": [
+        "delegation",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Pair static audits with a stop rule so an engineer halts when a call needs later-row behavior.",
+      "signature": "A helper call such as a registered-resource lookup needs a feature delivered by a later row.",
+      "file": "incidents/INC-0087-an-import-level-audit-missed-helper-calls-that-needed-a-late.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0088",
+      "title": "QA helpers assumed REST field shapes that differ from the design, and integration files mutated shared state without restoring it",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Every file that mutates shared state restores it or reseeds, and helpers match the documented field shapes.",
+      "signature": "Helpers read fields in a shape the design does not use; a spec passes alone and fails after a file that left state changed.",
+      "file": "incidents/INC-0088-qa-helpers-assumed-rest-field-shapes-that-differ-from-the-de.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0089",
+      "title": "A QA question claimed a credential or fact was undefined when the cut already defined it, and a restore through a gated write needed a satisfying seed",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Search the oracle before recording a question, and design seeds for the gates that tests pass through.",
+      "signature": "A recorded question says a value is undefined, but a search of the cut finds it.",
+      "file": "incidents/INC-0089-a-qa-question-claimed-a-credential-or-fact-was-undefined-whe.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0090",
+      "title": "Type-stripping rejected TypeScript parameter properties, and admin selectors were undefined",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths",
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Write test code in erasable TypeScript only, and assert through contracts that exist.",
+      "signature": "A page object fails to load under a type-stripping runtime, or a test needs UI selectors that do not exist.",
+      "file": "incidents/INC-0090-type-stripping-rejected-typescript-parameter-properties-and.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0091",
+      "title": "Teammate replies arrived while the lead was busy and were missed, leaving finished work idle for about 30 minutes",
+      "date": "2026-10-30",
+      "classes": [
+        "delegation",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Verify the last speaker per teammate instead of assuming no news means work is running.",
+      "signature": "A teammate finished and replied, but the lead assumed work was still in flight.",
+      "file": "incidents/INC-0091-teammate-replies-arrived-while-the-lead-was-busy-and-were-mi.md",
+      "related": [],
       "evidence": []
     }
   ]
