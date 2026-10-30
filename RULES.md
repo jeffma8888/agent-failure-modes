@@ -44,6 +44,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0064 / high]** A running unattended loop executes a pinned, tagged copy of every tool it calls, never a tree someone is editing. Make upgrades an explicit step, not a side effect of a commit.
 - **[INC-0065 / high]** Before using a stop flag to drain a loop, read every place it is checked, and set it only after the last check that would discard work.
 - **[INC-0068 / high]** A retry ladder must cover every external call on the path to a model turn, including helpers that fetch credentials. When a dependency that passes manual probes fails in the loop, log the failing attempt's stderr instead of a classification, and never let a one-shot preflight decide whether an unattended system restarts.
+- **[INC-0077 / high]** When output feeds a downstream classifier, test the classifier's verdict on it, not its prefix. Emit fixed categories instead of free text when the text could carry secrets or markers.
 - **[INC-0006 / medium]** Success is an ARTIFACT, not an exit code. Under a hard timeout, an agent that writes its minimal complete output first and refines in place still succeeds if killed. Correspondingly: never call a timeout a failure without checking whether the output file exists.
 - **[INC-0007 / medium]** A success predicate defined as 'the output file exists' hides a chronically over-budget step. Report the DURATION DISTRIBUTION per step, not just the outcome, and compare against a sibling running the same pipeline on the same box - which cheaply falsifies 'the machine is slow' or 'the provider is throttling'.
 - **[INC-0017 / medium]** To stop a well-behaved detached loop, remove the input it polls (a STOP file it honors), not just its pid - a supervisor or scheduler can re-launch a killed pid. Same argv on a new pid = auto-resurrection; different argv = a fresh authorized launch. Hunt the launcher accordingly, and leave a documented STOP so you and the other session do not fight over the process.
@@ -69,6 +70,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0071 / medium]** Convert every budget and estimate to one unit before writing that one fits inside the other.
 - **[INC-0072 / medium]** Never report 'the site blocks automated access' from a fetch-tool error. Name the failure class first: client error, redirect loop (cookies), form token, or a challenge page. Only a challenge page or an explicit policy is a real block, and the answer to it is an official API or another source, not a disguise.
 - **[INC-0073 / medium]** When a bundled retry works, isolate the variable before naming the fix: a 200 confirms the bundle, not your story. Read robots.txt before retrying a site that refused, stop on a disallow, and treat a challenge page as a refusal: use an official API or hand the user the link.
+- **[INC-0075 / medium]** An independent spec review is a gate, not a parallel track. Keep idle teammates busy with work that does not depend on the spec's open rulings.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -80,6 +82,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0060 / low]** Never background a long-lived process inside a captured pipeline, and confirm every wrapper command exists on the target OS before relying on it. Read the error stream before theorising about the hang.
 - **[INC-0063 / low]** When a spec tightens validation, order the data migration before the code, or give the implementer an explicit scratch-copy check, so code defects and missing data are tested separately.
 - **[INC-0070 / low]** Parse table syntax properly before reporting a count, and cross-check any count or sum against a second method before it reaches a verdict.
+- **[INC-0074 / low]** Write path rules in a brief from a listing taken when the brief is written, never from memory of a conventional layout.
+- **[INC-0076 / low]** Derive a teammate's write boundary from the governing charter's layout, and check the two agree before sending the brief.
 
 ## Practices
 

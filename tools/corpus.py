@@ -1482,7 +1482,79 @@ _BATCH18: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18
+_BATCH19: list[dict] = [
+    {
+        "id": "INC-0074",
+        "title": "A brief named a source directory the repository does not have, written from a conventional layout instead of a listing",
+        "date": "2026-10-30",
+        "classes": ["spec-and-scope", "delegation"],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Minor: one reviewer lost its first path lookup. Both recipients were lucky: one guessed the intent correctly, and a stricter reader could have refused the task or created the nonexistent directory.",
+        "signature": "A brief scopes work to a directory by name, and the name is the conventional one for the language or framework rather than one anyone listed.",
+        "what": "Two briefs told engineers to change or read files under a conventional source directory. The package actually lived at the repository root. The engineer inferred the real location, and the reviewer's first lookup failed.",
+        "root_cause": "The path rule was written from memory of a typical layout. A recipient has no way to tell a deliberate scope restriction from a stale one, so it either guesses, refuses, or builds the missing structure.",
+        "why_hard": "The conventional layout feels so obviously right that it is not checked, and a capable recipient silently repairs the error, which hides it.",
+        "fix": "Later briefs name the real package path, copied from a listing of the repository taken when the brief is written.",
+        "verification": "Checked: the two failing briefs against the actual repository layout. Not checked: whether later briefs are free of other stale paths.",
+        "rule": "Write path rules in a brief from a listing taken when the brief is written, never from memory of a conventional layout.",
+        "related": ["INC-0056", "INC-0055"],
+    },
+    {
+        "id": "INC-0075",
+        "title": "Tests and code were written against a spec before its independent review returned, and the rulings then changed",
+        "date": "2026-10-30",
+        "classes": ["spec-and-scope", "false-green"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "48 tests and a full implementation were built on rulings that the review then changed. The work was parked as a checkpoint and the tests were revised before the code was ported, so a rework cycle was spent.",
+        "signature": "Downstream roles start in parallel with the independent review of the document they depend on, to keep everyone busy.",
+        "what": "To avoid idle teammates, the coordinator started the test author and then the engineer while the spec review was still running. The review returned four blocking findings: free-text redaction can leak, nested retries can overrun a stage cap, an appended reason can flip a first-match classifier, and a callback contract was undefined.",
+        "root_cause": "The review was scheduled as a parallel track instead of a gate. Keeping every role busy was optimised ahead of the cost of building on rulings that were still open.",
+        "why_hard": "Parallelism looks like efficiency, and the early work is real and mostly reusable, so the loss shows only when the review disagrees.",
+        "fix": "Park the engineer's work on a branch as a checkpoint, append a revision to the spec, have the test author revise before the code is ported. Give idle teammates work that does not depend on the spec's open rulings.",
+        "verification": "Checked: the review's four findings were incorporated as a spec revision and the tests were revised first. The ported implementation then passed the revised suite of 135 new cases plus the 151 existing ones.",
+        "rule": "An independent spec review is a gate, not a parallel track. Keep idle teammates busy with work that does not depend on the spec's open rulings.",
+        "related": ["INC-0042", "INC-0057"],
+    },
+    {
+        "id": "INC-0076",
+        "title": "A teammate's write boundary contradicted the charter's file layout, so a required record landed where activation would reject it",
+        "date": "2026-10-30",
+        "classes": ["spec-and-scope", "delegation"],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Caught before commit. A required coverage record was left inside the boundary's directory, where the activation step would have rejected it as an unlisted payload.",
+        "signature": "A brief limits writes to one directory, and the governing charter requires an output in a different one.",
+        "what": "A brief allowed a test-writing agent to write only under a pending-tests directory. The charter places each task's coverage record in a separate coverage directory. The agent obeyed the boundary and left the record under a handoff file inside the pending root.",
+        "root_cause": "The boundary and the charter were written independently and never compared. A compliant agent resolves a conflict in favour of the explicit restriction, so the charter's requirement is the one that loses.",
+        "why_hard": "The agent did exactly what the brief said and reported it. The failure appears later, at a consumer that checks the layout.",
+        "fix": "The coordinator moved the records to the charter's location before committing and widened the next batch's boundary to match the charter.",
+        "verification": "Checked: the three misplaced records were found and moved before the commit. The widened boundary has not yet been exercised.",
+        "rule": "Derive a teammate's write boundary from the governing charter's layout, and check the two agree before sending the brief.",
+        "related": ["INC-0074", "INC-0016"],
+    },
+    {
+        "id": "INC-0077",
+        "title": "Keeping an error prefix did not keep the downstream classification, and a free-text reason could carry markers or secrets",
+        "date": "2026-10-30",
+        "classes": ["detector-fail-open", "observability"],
+        "severity": "high",
+        "status": "mitigated",
+        "cost": "Near miss, caught by an independent pre-implementation review. A spec would have let a cleaned-up reason string reclassify a fatal authentication failure as another failure kind, and its length-based redaction could not prove that no secret survived.",
+        "signature": "New text is appended to a log line that a downstream classifier scans, on the argument that the line keeps its prefix.",
+        "what": "A spec appended a cleaned-up stderr reason to a fatal authentication line and argued the dispatcher would still classify it as authentication because the prefix was unchanged. The dispatcher scans the whole log for the first matching marker in a fixed kind order, so a reason that contained a service or stall marker would have been filed as that kind.",
+        "root_cause": "The argument reasoned about the first characters of the line, but the classifier reads all of it in a fixed priority order. Free text also cannot be proven free of secrets by a length-based pattern.",
+        "why_hard": "The prefix argument sounds right and the classifier's scan order is not visible in the spec. The two risks, misclassification and leakage, come from the same free-text field.",
+        "fix": "Revision 1 emits one of six fixed categories instead of free text, and the tests apply the dispatcher's real scan order to every fatal line.",
+        "verification": "Checked: the classifier's scan order was read and the revised spec removes free text. Not yet verified: the implementation against the new tests.",
+        "rule": "When output feeds a downstream classifier, test the classifier's verdict on it, not its prefix. Emit fixed categories instead of free text when the text could carry secrets or markers.",
+        "related": ["INC-0033", "INC-0032", "INC-0068"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.
