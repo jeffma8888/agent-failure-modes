@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 123,
+  "count": 127,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2378,6 +2378,78 @@
       "related": [
         "INC-0101"
       ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0124",
+      "title": "A poll timeout placed in assertion options was still a propagation override, and shared helpers were left out of the dependent root verdict",
+      "date": "2026-10-30",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Only an oracle-valued deadline is exempt from the override rule; include shared helpers in each dependent verdict.",
+      "signature": "A timeout override hides in assertion options or a shared helper that a root depends on.",
+      "file": "incidents/INC-0124-a-poll-timeout-placed-in-assertion-options-was-still-a-propa.md",
+      "related": [
+        "INC-0107",
+        "INC-0111"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0125",
+      "title": "A marker generator listing every earlier unmarked root made a root approved later repeat an old path that a later marker already held",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Check uniqueness across all markers, and re-read inputs immediately before reporting.",
+      "signature": "Two markers name the same old path because a generator listed all earlier unmarked roots.",
+      "file": "incidents/INC-0125-a-marker-generator-listing-every-earlier-unmarked-root-made.md",
+      "related": [
+        "INC-0079"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0126",
+      "title": "Test discovery was compared with an absolute scratch prefix that matched by accident, and guard omission mutants were not each killed",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Compare relative names and kill every mutant on its own.",
+      "signature": "A discovery comparison passes because an absolute prefix coincidentally lines up.",
+      "file": "incidents/INC-0126-test-discovery-was-compared-with-an-absolute-scratch-prefix.md",
+      "related": [
+        "INC-0116",
+        "INC-0113"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0127",
+      "title": "A document already at its hard size cap had no room for the next transcription, so the cap was met only after editing",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Plan against a hard cap before the edit, not after.",
+      "signature": "An edit is made first and the size cap is discovered afterward.",
+      "file": "incidents/INC-0127-a-document-already-at-its-hard-size-cap-had-no-room-for-the.md",
+      "related": [],
       "evidence": []
     }
   ]

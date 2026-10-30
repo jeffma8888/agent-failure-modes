@@ -112,6 +112,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0121 / medium]** Scope a rule by the file, not the commit that carries it.
 - **[INC-0122 / medium]** Verify pairs, not membership.
 - **[INC-0123 / medium]** A verifier must follow moves through history, not require the old path to exist.
+- **[INC-0124 / medium]** Only an oracle-valued deadline is exempt from the override rule; include shared helpers in each dependent verdict.
+- **[INC-0125 / medium]** Check uniqueness across all markers, and re-read inputs immediately before reporting.
+- **[INC-0126 / medium]** Compare relative names and kill every mutant on its own.
+- **[INC-0127 / medium]** Plan against a hard cap before the edit, not after.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
