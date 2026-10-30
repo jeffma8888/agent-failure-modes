@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 101,
+  "count": 109,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1990,6 +1990,144 @@
       "signature": "Part of a file must activate later, and activating it replaces the active file.",
       "file": "incidents/INC-0101-a-later-row-overwrote-a-file-that-was-already-active.md",
       "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0102",
+      "title": "A success control that forbade every connection pinned an implementation from before a later startup step that must connect",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Write prohibitions against the full startup contract, not the current implementation.",
+      "signature": "A control test forbids all connections while a later row adds a startup step that connects.",
+      "file": "incidents/INC-0102-a-success-control-that-forbade-every-connection-pinned-an-im.md",
+      "related": [
+        "INC-0087"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0103",
+      "title": "A teammate could not run a destructive git command even when the lead instructed it",
+      "date": "2026-10-30",
+      "classes": [
+        "vcs-destruction",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Plan destructive operations for the context that holds the permission.",
+      "signature": "A lead instructs a teammate to run a reset or similar, and the permission ceiling refuses it.",
+      "file": "incidents/INC-0103-a-teammate-could-not-run-a-destructive-git-command-even-when.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0104",
+      "title": "A process-group kill test used single-process stubs, so signalling the leader and the group looked the same",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A group-kill test needs a descendant, or it cannot tell group from leader.",
+      "signature": "A group-kill test passes with stubs that have no descendants.",
+      "file": "incidents/INC-0104-a-process-group-kill-test-used-single-process-stubs-so-signa.md",
+      "related": [
+        "INC-0083"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0105",
+      "title": "A function signature named in the plan but never called by any test shipped ignoring its second argument",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Every planned parameter needs a test that makes it matter.",
+      "signature": "The plan names a parameter that no test exercises.",
+      "file": "incidents/INC-0105-a-function-signature-named-in-the-plan-but-never-called-by-a.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0106",
+      "title": "Deleting PostgreSQL environment variables left client tools free to fall back to default host and port",
+      "date": "2026-10-30",
+      "classes": [
+        "ipc-and-env",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Pin the target explicitly; do not rely on removing the alternatives.",
+      "signature": "A test clears PG variables to avoid the shared cluster, and a client tool uses its defaults.",
+      "file": "incidents/INC-0106-deleting-postgresql-environment-variables-left-client-tools.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0107",
+      "title": "A timeout override was not re-checked against the newest ruling, and fixes were verified from the coverage note",
+      "date": "2026-10-30",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Verify from the code line, not from the note that describes it.",
+      "signature": "A revision lands after a ruling and keeps an override that the ruling changed.",
+      "file": "incidents/INC-0107-a-timeout-override-was-not-re-checked-against-the-newest-rul.md",
+      "related": [
+        "INC-0093"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0108",
+      "title": "A fail-closed URL rule copied into several helpers was not applied to every copy or every URL part",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "One rule, every copy, every URL part.",
+      "signature": "One helper checks the host and another omits the database or port.",
+      "file": "incidents/INC-0108-a-fail-closed-url-rule-copied-into-several-helpers-was-not-a.md",
+      "related": [
+        "INC-0097"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0109",
+      "title": "A UI test was accepted although no plan row owned a custom UI component it needed",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Every component a test needs has an owning row.",
+      "signature": "A test drives a component that no row builds, so the last row meets a missing UI.",
+      "file": "incidents/INC-0109-a-ui-test-was-accepted-although-no-plan-row-owned-a-custom-u.md",
+      "related": [
+        "INC-0098"
+      ],
       "evidence": []
     }
   ]

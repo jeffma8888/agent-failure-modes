@@ -90,6 +90,14 @@ One rule per incident, ordered by severity then id.
 - **[INC-0099 / medium]** Put a reassignment in one registry that every enforcing tool reads.
 - **[INC-0100 / medium]** Place tests by activation order and quote the spec before asserting.
 - **[INC-0101 / medium]** Active files are append-only; later parts get new destinations.
+- **[INC-0102 / medium]** Write prohibitions against the full startup contract, not the current implementation.
+- **[INC-0103 / medium]** Plan destructive operations for the context that holds the permission.
+- **[INC-0104 / medium]** A group-kill test needs a descendant, or it cannot tell group from leader.
+- **[INC-0105 / medium]** Every planned parameter needs a test that makes it matter.
+- **[INC-0106 / medium]** Pin the target explicitly; do not rely on removing the alternatives.
+- **[INC-0107 / medium]** Verify from the code line, not from the note that describes it.
+- **[INC-0108 / medium]** One rule, every copy, every URL part.
+- **[INC-0109 / medium]** Every component a test needs has an owning row.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
