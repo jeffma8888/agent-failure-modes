@@ -17,7 +17,7 @@ An edit asserted to match exactly once succeeds, and afterwards the file contain
 
 ## What happened
 
-Two independent sessions appended batches to one shared list. The second anchored on the composition line as it had existed BEFORE the first session's change ('X = A + B + C'), but the line now read 'X = A + B + C + D'. The anchor matched as a PREFIX, the uniqueness assertion passed, and the replacement produced 'X = A + B + C + D_new + D' while also defining a second 'D' that shadowed the first - so the first session's seven records vanished from the built artifact.
+Two independent sessions appended batches to one shared list. The second anchored on the composition line as it had existed BEFORE the first session's change ('X = A + B + C'), but the line now read 'X = A + B + C + D'. The anchor matched as a PREFIX, the uniqueness assertion passed, and the replacement produced 'X = A + B + C + D_new + D' while also defining a second 'D' that shadowed the first - so the first session's seven records vanished from the built artifact. The same family recurred in a shared numbered log: one writer read only the tail of the file from an earlier session and appended three entries under the next ids it remembered, while another writer had already committed entries with those ids. The file held duplicate ids, and a curator told to map those ids mapped the other writer's entries. Fixed by renumbering and by checking the log's history for the current last id before appending.
 
 ## Root cause
 
@@ -37,7 +37,7 @@ The repair used the broken state itself as its anchor ('... + D + D', asserted t
 
 ## Transferable rule
 
-> An anchor that is a PREFIX of the real line still matches 'exactly once', so a uniqueness assertion certifies ambiguity and never completeness - anchor on the whole line or include its terminator. In a shared appended structure never assume the next sequential symbol name is free: read the live file, and assert AFTER writing that each symbol is defined exactly once.
+> An anchor that is a PREFIX of the real line still matches 'exactly once', so a uniqueness assertion certifies ambiguity and never completeness - anchor on the whole line or include its terminator. In a shared appended structure never assume the next sequential symbol name is free: read the live file and history, and assert AFTER writing that each symbol is defined exactly once.
 
 ## Provenance
 

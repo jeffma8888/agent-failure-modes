@@ -900,12 +900,12 @@ _BATCH5: list[dict] = [
         "status": "fixed",
         "cost": "A concurrent writer's entire batch of seven records silently disappeared from the generated output while the edit reported success. Nothing in the writing script noticed; only the build's own invariant tests caught it, after the damage was on disk.",
         "signature": "An edit asserted to match exactly once succeeds, and afterwards the file contains a duplicated fragment of the line you replaced - or one symbol defined twice, the later definition shadowing the earlier.",
-        "what": "Two independent sessions appended batches to one shared list. The second anchored on the composition line as it had existed BEFORE the first session's change ('X = A + B + C'), but the line now read 'X = A + B + C + D'. The anchor matched as a PREFIX, the uniqueness assertion passed, and the replacement produced 'X = A + B + C + D_new + D' while also defining a second 'D' that shadowed the first - so the first session's seven records vanished from the built artifact.",
+        "what": "Two independent sessions appended batches to one shared list. The second anchored on the composition line as it had existed BEFORE the first session's change ('X = A + B + C'), but the line now read 'X = A + B + C + D'. The anchor matched as a PREFIX, the uniqueness assertion passed, and the replacement produced 'X = A + B + C + D_new + D' while also defining a second 'D' that shadowed the first - so the first session's seven records vanished from the built artifact. The same family recurred in a shared numbered log: one writer read only the tail of the file from an earlier session and appended three entries under the next ids it remembered, while another writer had already committed entries with those ids. The file held duplicate ids, and a curator told to map those ids mapped the other writer's entries. Fixed by renumbering and by checking the log's history for the current last id before appending.",
         "root_cause": "Two individually-plausible errors compounding. First, an anchor that is a PREFIX of the real line still occurs exactly once, so a count assertion answers 'is this string ambiguous?' and never 'is this string the WHOLE thing I mean to replace?'. Second, both writers independently reached for the next sequential symbol name for their batch, so the later definition silently shadowed the earlier one instead of colliding loudly.",
         "why_hard": "The edit reports success, the file still parses, and the module still imports. The uniqueness assertion is the very mechanism that was supposed to prevent this, which converts a caught error into false confidence. And the assertion that WOULD have caught it - unique sequential ids - lives in the test suite rather than in the writing script, so it fires only after the file has been overwritten.",
         "fix": "Anchor on the WHOLE line, or on a content span that includes its terminator, never a prefix. Assert the POST-write state as well as the pre-write count: that each expected symbol is defined exactly once and that the composition names each exactly once. In a shared appended structure, do not assume the next sequential symbol name is free - read the live file first and derive the name from what is actually there.",
         "verification": "The repair used the broken state itself as its anchor ('... + D + D', asserted to occur exactly once) and asserted afterwards that BOTH batch symbols are defined exactly once. The rebuild reports 42 unique ids with no gap in the sequence, all 27 invariant tests pass, and the other writer's seven records are present again.",
-        "rule": "An anchor that is a PREFIX of the real line still matches 'exactly once', so a uniqueness assertion certifies ambiguity and never completeness - anchor on the whole line or include its terminator. In a shared appended structure never assume the next sequential symbol name is free: read the live file, and assert AFTER writing that each symbol is defined exactly once.",
+        "rule": "An anchor that is a PREFIX of the real line still matches 'exactly once', so a uniqueness assertion certifies ambiguity and never completeness - anchor on the whole line or include its terminator. In a shared appended structure never assume the next sequential symbol name is free: read the live file and history, and assert AFTER writing that each symbol is defined exactly once.",
         "evidence": [
             "https://github.com/jeffma8888/agent-failure-modes - this repository is where the collision happened: tools/corpus.py now carries the repaired composition line, and commit bccb9d1 is the concurrent writer's batch that was briefly shadowed.",
         ],
@@ -1389,7 +1389,62 @@ _BATCH16: list[dict] = [
 ]
 
 
-INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16
+_BATCH17: list[dict] = [
+    {
+        "id": "INC-0069",
+        "title": "A gate compared the candidate commit with itself because a local clone redefines the remote-tracking ref",
+        "date": "2026-10-29",
+        "classes": ["detector-fail-open", "false-green"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "A planned hold check could never have fired. Caught in plan review before it shipped, by three independent reviewers, two of whom reproduced it in a scratch repository.",
+        "signature": "A check diffs against the main branch of the remote, and it runs in a fresh clone of a local checkout rather than of the real remote.",
+        "what": "A plan's hold check compared row-state changes against the remote's main branch. The pipeline's pre-ship verifier runs the suite in a fresh clone of the LOCAL checkout, and in that clone the remote is the checkout itself, so the remote-tracking ref is the candidate commit and the comparison always shows no change.",
+        "root_cause": "Remote-tracking refs are properties of the repository the check runs in, not of the project. Cloning a local path redefines what the remote is, so a baseline named by ref silently becomes the candidate.",
+        "why_hard": "The check is correct in the author's own checkout and in any clone of the real remote. It is a fail-open detector whose silence looks like 'nothing changed'.",
+        "fix": "Queued for the next plan revision: record the baseline commit explicitly, or run the check where the remote is the real one. The clone command was confirmed at its source before the ruling.",
+        "verification": "Two reviewers reproduced the behaviour in a scratch repository and the clone command was read at its source. The revised check itself is not yet verified.",
+        "rule": "A check that runs inside a clone must not rely on remote-tracking refs. State the baseline commit explicitly, and reproduce the ref topology in a scratch repo before trusting the check.",
+        "related": ["INC-0018", "INC-0023"],
+    },
+    {
+        "id": "INC-0070",
+        "title": "Two reviewers' table parsers undercounted rows on escaped pipes and a sum included a header",
+        "date": "2026-10-29",
+        "classes": ["false-green", "tooling-paths"],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Two reviewers' first counts of a plan's rows were wrong. Each caught its own error before reporting, so no false verdict was issued.",
+        "signature": "A count or sum of table rows comes from splitting lines on the column delimiter, and some cells contain the delimiter escaped.",
+        "what": "Both reviewers first counted a plan's rows by splitting markdown table lines on the pipe character, which also splits on escaped pipes inside cells, so one row was undercounted. One reviewer's effort sum also included a header line.",
+        "root_cause": "Table syntax was treated as plain text. A naive split cannot see escaping, and an unfiltered aggregate cannot see that a line is not a data row.",
+        "why_hard": "The result is plausible and off by one. Nothing errors, and an undercount of a single row looks like a disagreement with the plan, not with the parser.",
+        "fix": "Use escape-aware splitting (a negative lookbehind for the backslash) and filter the aggregate to numeric rows.",
+        "verification": "After the fix both reviewers' counts matched the plan's 102 rows and its totals.",
+        "rule": "Parse table syntax properly before reporting a count, and cross-check any count or sum against a second method before it reaches a verdict.",
+        "related": ["INC-0029", "INC-0042"],
+    },
+    {
+        "id": "INC-0071",
+        "title": "A plan claimed minutes-denominated stage times fit inside a cap stated in seconds",
+        "date": "2026-10-29",
+        "classes": ["spec-and-scope", "stage-timeout"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "Caught in plan review before the plan was accepted. Left in, it would have scheduled work that the hard per-step cap kills.",
+        "signature": "A budget in one unit is compared with an estimate in another, and the document states that one fits inside the other.",
+        "what": "A plan called 20 to 45 minutes of engineer stage time inside an 1800 second stage cap and a 1700 second engine budget. Forty-five minutes is 2700 seconds, so the fit claim was arithmetically false.",
+        "root_cause": "Two quantities in different units were compared by eye. The shape of the sentence (a range inside a cap) read as correct without a conversion.",
+        "why_hard": "The numbers are each reasonable and the claim sounds like the conclusion of an analysis. Only converting both to one unit exposes it.",
+        "fix": "Queued for the next revision: give per-stage numbers in the cap's unit, relabel totals as iteration time, and split rows whose stage can exceed about 25 minutes.",
+        "verification": "Two reviewers independently caught it by converting the units. The revised plan is not yet verified.",
+        "rule": "Convert every budget and estimate to one unit before writing that one fits inside the other.",
+        "related": ["INC-0002", "INC-0003"],
+    },
+]
+
+
+INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17
 
 # ---------------------------------------------------------------------------
 # PRACTICES: cross-incident best practice.

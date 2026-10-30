@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 68,
+  "count": 71,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -928,7 +928,7 @@
       ],
       "severity": "high",
       "status": "fixed",
-      "rule": "An anchor that is a PREFIX of the real line still matches 'exactly once', so a uniqueness assertion certifies ambiguity and never completeness - anchor on the whole line or include its terminator. In a shared appended structure never assume the next sequential symbol name is free: read the live file, and assert AFTER writing that each symbol is defined exactly once.",
+      "rule": "An anchor that is a PREFIX of the real line still matches 'exactly once', so a uniqueness assertion certifies ambiguity and never completeness - anchor on the whole line or include its terminator. In a shared appended structure never assume the next sequential symbol name is free: read the live file and history, and assert AFTER writing that each symbol is defined exactly once.",
       "signature": "An edit asserted to match exactly once succeeds, and afterwards the file contains a duplicated fragment of the line you replaced - or one symbol defined twice, the later definition shadowing the earlier.",
       "file": "incidents/INC-0043-an-anchored-replace-that-matches-a-prefix-of-a-line-is-still.md",
       "related": [
@@ -1417,6 +1417,63 @@
         "INC-0009",
         "INC-0049",
         "INC-0005"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0069",
+      "title": "A gate compared the candidate commit with itself because a local clone redefines the remote-tracking ref",
+      "date": "2026-10-29",
+      "classes": [
+        "detector-fail-open",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A check that runs inside a clone must not rely on remote-tracking refs. State the baseline commit explicitly, and reproduce the ref topology in a scratch repo before trusting the check.",
+      "signature": "A check diffs against the main branch of the remote, and it runs in a fresh clone of a local checkout rather than of the real remote.",
+      "file": "incidents/INC-0069-a-gate-compared-the-candidate-commit-with-itself-because-a-l.md",
+      "related": [
+        "INC-0018",
+        "INC-0023"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0070",
+      "title": "Two reviewers' table parsers undercounted rows on escaped pipes and a sum included a header",
+      "date": "2026-10-29",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Parse table syntax properly before reporting a count, and cross-check any count or sum against a second method before it reaches a verdict.",
+      "signature": "A count or sum of table rows comes from splitting lines on the column delimiter, and some cells contain the delimiter escaped.",
+      "file": "incidents/INC-0070-two-reviewers-table-parsers-undercounted-rows-on-escaped-pip.md",
+      "related": [
+        "INC-0029",
+        "INC-0042"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0071",
+      "title": "A plan claimed minutes-denominated stage times fit inside a cap stated in seconds",
+      "date": "2026-10-29",
+      "classes": [
+        "spec-and-scope",
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Convert every budget and estimate to one unit before writing that one fits inside the other.",
+      "signature": "A budget in one unit is compared with an estimate in another, and the document states that one fits inside the other.",
+      "file": "incidents/INC-0071-a-plan-claimed-minutes-denominated-stage-times-fit-inside-a.md",
+      "related": [
+        "INC-0002",
+        "INC-0003"
       ],
       "evidence": []
     }
