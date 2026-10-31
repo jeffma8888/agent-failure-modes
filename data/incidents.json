@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 201,
+  "count": 207,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3774,6 +3774,114 @@
       "file": "incidents/INC-0201-two-review-titles-named-the-wrong-reviewer.md",
       "related": [
         "INC-0185"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0202",
+      "title": "One adapter rejection looked like ten separate defects",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Before triaging many reds, read the child output to find the one shared cause",
+      "signature": "Ten failures shared one cause.",
+      "file": "incidents/INC-0202-one-adapter-rejection-looked-like-ten-separate-defects.md",
+      "related": [
+        "INC-0153"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0203",
+      "title": "A setup failure was at risk of counting as a test run",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Do not count a setup-only failure as a run",
+      "signature": "The run failed before any test started.",
+      "file": "incidents/INC-0203-a-setup-failure-was-at-risk-of-counting-as-a-test-run.md",
+      "related": [
+        "INC-0188"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0204",
+      "title": "A precommit check reported a merge-brought approval as unreachable",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Judge reachability on the committed merge, not on the precommit state",
+      "signature": "The check read the wrong commit.",
+      "file": "incidents/INC-0204-a-precommit-check-reported-a-merge-brought-approval-as-unrea.md",
+      "related": [
+        "INC-0149"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0205",
+      "title": "A runtime value was at risk of being invented to quiet the compiler",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Copy the typed input and delete from the copy; never fabricate a runtime value to quiet the compiler",
+      "signature": "The compiler asked for a value the code should not have.",
+      "file": "incidents/INC-0205-a-runtime-value-was-at-risk-of-being-invented-to-quiet-the-c.md",
+      "related": [
+        "INC-0171"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0206",
+      "title": "A guessed commit id was sent to two teammates",
+      "date": "2026-10-30",
+      "classes": [
+        "delegation",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Never cite a commit id in a message before git has printed it",
+      "signature": "Two teammates received a wrong id.",
+      "file": "incidents/INC-0206-a-guessed-commit-id-was-sent-to-two-teammates.md",
+      "related": [
+        "INC-0185"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0207",
+      "title": "Three sends failed because a packed string went out as one argument",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Check the exit status of every send, and pass real arguments, not a packed string",
+      "signature": "The sends failed with exit 1.",
+      "file": "incidents/INC-0207-three-sends-failed-because-a-packed-string-went-out-as-one-a.md",
+      "related": [
+        "INC-0165"
       ],
       "evidence": []
     }

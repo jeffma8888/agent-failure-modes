@@ -190,6 +190,12 @@ One rule per incident, ordered by severity then id.
 - **[INC-0199 / medium]** Scope noInlineConfig by files; an ignored directive still prints a warning
 - **[INC-0200 / medium]** Treat a permission-denied run as missing evidence and rerun it where it is permitted
 - **[INC-0201 / medium]** Check the attribution line of every report before landing it
+- **[INC-0202 / medium]** Before triaging many reds, read the child output to find the one shared cause
+- **[INC-0203 / medium]** Do not count a setup-only failure as a run
+- **[INC-0204 / medium]** Judge reachability on the committed merge, not on the precommit state
+- **[INC-0205 / medium]** Copy the typed input and delete from the copy; never fabricate a runtime value to quiet the compiler
+- **[INC-0206 / medium]** Never cite a commit id in a message before git has printed it
+- **[INC-0207 / medium]** Check the exit status of every send, and pass real arguments, not a packed string
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
