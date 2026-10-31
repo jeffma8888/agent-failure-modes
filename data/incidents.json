@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 216,
+  "count": 226,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -4042,6 +4042,186 @@
       "file": "incidents/INC-0216-a-scratch-swap-of-revision-bytes-failed-the-identity-gate-as.md",
       "related": [
         "INC-0204"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0217",
+      "title": "A fixed test count in an exit criterion went stale",
+      "date": "2026-10-31",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "State an exit as the full active inventory with zero failed or skipped, name the qualifying-run rule, and disclose excluded runs",
+      "signature": "The count no longer matched the suite.",
+      "file": "incidents/INC-0217-a-fixed-test-count-in-an-exit-criterion-went-stale.md",
+      "related": [
+        "INC-0209"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0218",
+      "title": "Two loaded-host reds shared one cause and were at risk of a timeout bump",
+      "date": "2026-10-31",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When reds share a cause class that a pending row removes, carry the acceptance to that row, not a timeout or a retry",
+      "signature": "The cheap fix hid the shared cause.",
+      "file": "incidents/INC-0218-two-loaded-host-reds-shared-one-cause-and-were-at-risk-of-a.md",
+      "related": [
+        "INC-0210"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0219",
+      "title": "A shared host reached load 491 and unrelated deadlines failed",
+      "date": "2026-10-31",
+      "classes": [
+        "concurrency",
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Cap concurrent heavy runs across the team and record load at start and end",
+      "signature": "Unrelated deadlines failed under a shared load.",
+      "file": "incidents/INC-0219-a-shared-host-reached-load-491-and-unrelated-deadlines-faile.md",
+      "related": [
+        "INC-0209"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0220",
+      "title": "A reviewer proposed text was at risk of being applied by its own author",
+      "date": "2026-10-31",
+      "classes": [
+        "delegation",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Apply a reviewer exact text through a third party, with digested backups, a proposer re-review and a separate re-check",
+      "signature": "The author could soften the reviewer text.",
+      "file": "incidents/INC-0220-a-reviewer-proposed-text-was-at-risk-of-being-applied-by-its.md",
+      "related": [
+        "INC-0206"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0221",
+      "title": "A performance refactor was checked only on the real tree",
+      "date": "2026-10-31",
+      "classes": [
+        "false-green",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Prove a performance refactor with old and new on the same failure fixtures",
+      "signature": "Equal output on the real tree hid changed failure behavior.",
+      "file": "incidents/INC-0221-a-performance-refactor-was-checked-only-on-the-real-tree.md",
+      "related": [
+        "INC-0214"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0222",
+      "title": "A clean-tree positive did not exercise the working-file context",
+      "date": "2026-10-31",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Plant a harmless byte difference before proving a refusal when the baseline is chosen by byte equality",
+      "signature": "The clean tree matched the baseline, so the refusal path never ran.",
+      "file": "incidents/INC-0222-a-clean-tree-positive-did-not-exercise-the-working-file-cont.md",
+      "related": [
+        "INC-0183"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0223",
+      "title": "An empty environment caller was at risk of being repaired with inherited values",
+      "date": "2026-10-31",
+      "classes": [
+        "ipc-and-env",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Prove the input is empty and that the refusal fails without its guard",
+      "signature": "The inherited values hid the empty case.",
+      "file": "incidents/INC-0223-an-empty-environment-caller-was-at-risk-of-being-repaired-wi.md",
+      "related": [
+        "INC-0180"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0224",
+      "title": "A classifier kept a legacy pattern list beside a new exact signature",
+      "date": "2026-10-31",
+      "classes": [
+        "detector-fail-open",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Probe a classifier extension with lookalike negatives",
+      "signature": "The legacy list still matched lookalikes.",
+      "file": "incidents/INC-0224-a-classifier-kept-a-legacy-pattern-list-beside-a-new-exact-s.md",
+      "related": [
+        "INC-0213"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0225",
+      "title": "A fix was named for one card while four siblings carried the same command",
+      "date": "2026-10-31",
+      "classes": [
+        "spec-and-scope",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When applying a fix, search for siblings of the named instance and report them",
+      "signature": "The siblings were left unfixed or silently changed.",
+      "file": "incidents/INC-0225-a-fix-was-named-for-one-card-while-four-siblings-carried-the.md",
+      "related": [
+        "INC-0177"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0226",
+      "title": "A hand-made merge could differ from the mechanical merge unnoticed",
+      "date": "2026-10-31",
+      "classes": [
+        "vcs-destruction",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Verify a hand-made merge against a mechanical merge of the same parents",
+      "signature": "The extra changes sat inside a large merge.",
+      "file": "incidents/INC-0226-a-hand-made-merge-could-differ-from-the-mechanical-merge-unn.md",
+      "related": [
+        "INC-0175"
       ],
       "evidence": []
     }

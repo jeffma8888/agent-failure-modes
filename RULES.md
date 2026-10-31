@@ -205,6 +205,16 @@ One rule per incident, ordered by severity then id.
 - **[INC-0214 / medium]** Check every caller of a fixed helper with a strict destination compile
 - **[INC-0215 / medium]** Never override the hook path; if it happens, amend with hooks on right away
 - **[INC-0216 / medium]** Use the real approved chain in a causal proof, not just the bytes
+- **[INC-0217 / medium]** State an exit as the full active inventory with zero failed or skipped, name the qualifying-run rule, and disclose excluded runs
+- **[INC-0218 / medium]** When reds share a cause class that a pending row removes, carry the acceptance to that row, not a timeout or a retry
+- **[INC-0219 / medium]** Cap concurrent heavy runs across the team and record load at start and end
+- **[INC-0220 / medium]** Apply a reviewer exact text through a third party, with digested backups, a proposer re-review and a separate re-check
+- **[INC-0221 / medium]** Prove a performance refactor with old and new on the same failure fixtures
+- **[INC-0222 / medium]** Plant a harmless byte difference before proving a refusal when the baseline is chosen by byte equality
+- **[INC-0223 / medium]** Prove the input is empty and that the refusal fails without its guard
+- **[INC-0224 / medium]** Probe a classifier extension with lookalike negatives
+- **[INC-0225 / medium]** When applying a fix, search for siblings of the named instance and report them
+- **[INC-0226 / medium]** Verify a hand-made merge against a mechanical merge of the same parents
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
