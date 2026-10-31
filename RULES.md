@@ -184,6 +184,12 @@ One rule per incident, ordered by severity then id.
 - **[INC-0193 / medium]** Check each named duty and its follow-through lines; a negative grep alone proves nothing
 - **[INC-0194 / medium]** Compare cited ranges by diff when a version bump moves pinned-source citations
 - **[INC-0195 / medium]** Decide timing rules on repeated runs with the load recorded, never on one stage time
+- **[INC-0196 / medium]** Prove a new project ran by its own marker, not only by the shared stage record
+- **[INC-0197 / medium]** Fix a shared helper in its own row, never inside the consumer root
+- **[INC-0198 / medium]** Regenerate a ledger derived from a range at each revision and state the derived count
+- **[INC-0199 / medium]** Scope noInlineConfig by files; an ignored directive still prints a warning
+- **[INC-0200 / medium]** Treat a permission-denied run as missing evidence and rerun it where it is permitted
+- **[INC-0201 / medium]** Check the attribution line of every report before landing it
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

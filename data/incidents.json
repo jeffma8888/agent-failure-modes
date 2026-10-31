@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 195,
+  "count": 201,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3666,6 +3666,114 @@
       "file": "incidents/INC-0195-a-single-stage-time-on-a-loaded-host-was-read-as-a-measureme.md",
       "related": [
         "INC-0146"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0196",
+      "title": "An allowlist fix turned gate tests green while the runner skipped the new project",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Prove a new project ran by its own marker, not only by the shared stage record",
+      "signature": "The gate tests passed and the new project never ran.",
+      "file": "incidents/INC-0196-an-allowlist-fix-turned-gate-tests-green-while-the-runner-sk.md",
+      "related": [
+        "INC-0190"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0197",
+      "title": "A typecheck failed in a shared helper the revision did not own",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Fix a shared helper in its own row, never inside the consumer root",
+      "signature": "The red was in code the revision could not touch.",
+      "file": "incidents/INC-0197-a-typecheck-failed-in-a-shared-helper-the-revision-did-not-o.md",
+      "related": [
+        "INC-0157"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0198",
+      "title": "A ledger derived from a token range went stale when a row joined the range",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Regenerate a ledger derived from a range at each revision and state the derived count",
+      "signature": "The ledger no longer matched the plan.",
+      "file": "incidents/INC-0198-a-ledger-derived-from-a-token-range-went-stale-when-a-row-jo.md",
+      "related": [
+        "INC-0183"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0199",
+      "title": "An inline directive could bypass a lint rule on a protected path",
+      "date": "2026-10-30",
+      "classes": [
+        "reward-hacking",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Scope noInlineConfig by files; an ignored directive still prints a warning",
+      "signature": "A bypass could be written inline.",
+      "file": "incidents/INC-0199-an-inline-directive-could-bypass-a-lint-rule-on-a-protected.md",
+      "related": [
+        "INC-0176"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0200",
+      "title": "A sandbox permission failure was at risk of reading as a code defect",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Treat a permission-denied run as missing evidence and rerun it where it is permitted",
+      "signature": "The red had nothing to do with the code.",
+      "file": "incidents/INC-0200-a-sandbox-permission-failure-was-at-risk-of-reading-as-a-cod.md",
+      "related": [
+        "INC-0179"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0201",
+      "title": "Two review titles named the wrong reviewer",
+      "date": "2026-10-30",
+      "classes": [
+        "delegation",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Check the attribution line of every report before landing it",
+      "signature": "The report carried another reviewer name.",
+      "file": "incidents/INC-0201-two-review-titles-named-the-wrong-reviewer.md",
+      "related": [
+        "INC-0185"
       ],
       "evidence": []
     }
