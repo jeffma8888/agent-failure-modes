@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 144,
+  "count": 153,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2752,6 +2752,167 @@
       "signature": "A sweep report cannot tell an intended refusal from a real finding.",
       "file": "incidents/INC-0144-expected-lifecycle-refusals-were-mixed-with-static-findings.md",
       "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0145",
+      "title": "A readiness check measured the lead checkout while preship measures the Foundry clone",
+      "date": "2026-10-30",
+      "classes": [
+        "stale-module",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Check the tree the gate actually reads.",
+      "signature": "A readiness verdict is taken from one checkout and the gate reads another.",
+      "file": "incidents/INC-0145-a-readiness-check-measured-the-lead-checkout-while-preship-m.md",
+      "related": [
+        "INC-0114"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0146",
+      "title": "A truncated FAST run stopped at the first red stage and understated the stage sum by about half",
+      "date": "2026-10-30",
+      "classes": [
+        "observability",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Measure the complete run before claiming a budget.",
+      "signature": "A timing taken from a run that stopped early is used as a full measurement.",
+      "file": "incidents/INC-0146-a-truncated-fast-run-stopped-at-the-first-red-stage-and-unde.md",
+      "related": [
+        "INC-0131"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0147",
+      "title": "A moved history row was silently modernized instead of staying byte identical",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Separate source-preserving relocation from attributed status changes.",
+      "signature": "A move that is described as byte identical changes a this version label.",
+      "file": "incidents/INC-0147-a-moved-history-row-was-silently-modernized-instead-of-stayi.md",
+      "related": [
+        "INC-0127"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0148",
+      "title": "ASCII-only fixtures could not tell UTF-16 code unit order from UTF-8 byte order",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Choose data that separates the alternatives under test.",
+      "signature": "A sort or compare test passes under either ordering because all data is ASCII.",
+      "file": "incidents/INC-0148-ascii-only-fixtures-could-not-tell-utf-16-code-unit-order-fr.md",
+      "related": [
+        "INC-0082"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0149",
+      "title": "Marker SHA, reviewer approval scope, successor closure and activation ownership were treated as one fact",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "One fact per field.",
+      "signature": "A marker is read as proof of approval, closure and ownership at once.",
+      "file": "incidents/INC-0149-marker-sha-reviewer-approval-scope-successor-closure-and-act.md",
+      "related": [
+        "INC-0125"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0150",
+      "title": "A missing independently callable guard lacked protocol cases, and macOS path aliases looked like regressions",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Resolve paths before comparing, and compare to the active bytes first.",
+      "signature": "A guard without its own tests and cwd assertions failing on path aliases.",
+      "file": "incidents/INC-0150-a-missing-independently-callable-guard-lacked-protocol-cases.md",
+      "related": [
+        "INC-0110",
+        "INC-0116"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0151",
+      "title": "A hygiene rule against conditional test omission needed a precise flagged and allowed set",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "State both the flagged and the allowed set of a hygiene rule.",
+      "signature": "A conditional skip or registration hides a test from the suite.",
+      "file": "incidents/INC-0151-a-hygiene-rule-against-conditional-test-omission-needed-a-pr.md",
+      "related": [
+        "INC-0141"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0152",
+      "title": "An exit code 2 advisory wording in the gate runner defaulted to proceed",
+      "date": "2026-10-30",
+      "classes": [
+        "verdict-token",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Override permissive defaults on the release path.",
+      "signature": "A gate returns an advisory status that a caller treats as pass.",
+      "file": "incidents/INC-0152-an-exit-code-2-advisory-wording-in-the-gate-runner-defaulted.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0153",
+      "title": "A test checked only the dispatch argv of a child stage, not its semantics",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Test what a stage does, not how it was started.",
+      "signature": "A stage is proven by what it was called with, not by what it did.",
+      "file": "incidents/INC-0153-a-test-checked-only-the-dispatch-argv-of-a-child-stage-not-i.md",
+      "related": [
+        "INC-0138"
+      ],
       "evidence": []
     }
   ]

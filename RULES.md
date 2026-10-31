@@ -133,6 +133,15 @@ One rule per incident, ordered by severity then id.
 - **[INC-0142 / medium]** Validate all candidates, not the first acceptable one.
 - **[INC-0143 / medium]** Re-measure after a merge that changes the tests in a stage.
 - **[INC-0144 / medium]** Report expected refusals apart from real findings.
+- **[INC-0145 / medium]** Check the tree the gate actually reads.
+- **[INC-0146 / medium]** Measure the complete run before claiming a budget.
+- **[INC-0147 / medium]** Separate source-preserving relocation from attributed status changes.
+- **[INC-0148 / medium]** Choose data that separates the alternatives under test.
+- **[INC-0149 / medium]** One fact per field.
+- **[INC-0150 / medium]** Resolve paths before comparing, and compare to the active bytes first.
+- **[INC-0151 / medium]** State both the flagged and the allowed set of a hygiene rule.
+- **[INC-0152 / medium]** Override permissive defaults on the release path.
+- **[INC-0153 / medium]** Test what a stage does, not how it was started.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
