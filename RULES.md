@@ -160,6 +160,16 @@ One rule per incident, ordered by severity then id.
 - **[INC-0169 / medium]** A test that reaps shared resources must run before the outer run owns any.
 - **[INC-0170 / medium]** Do not track a file a tool rewrites per mode; generate it before the check that needs it.
 - **[INC-0171 / medium]** Place generated type augmentation where the augmented module lives.
+- **[INC-0172 / medium]** A clean-tree gate applies to a fixture synthetic repo too.
+- **[INC-0173 / medium]** When a ruling widens a shared valid state, change every payload that builds it.
+- **[INC-0174 / medium]** Explain a count change by file identity, not by totals.
+- **[INC-0175 / medium]** A merge of main carries every activation its new markers make due.
+- **[INC-0176 / medium]** A sweep that decides by shape needs decoys.
+- **[INC-0177 / medium]** Grep every card for the executable path; do not keep a duty beside the section that overrides it.
+- **[INC-0178 / medium]** Check porcelain after every build; verify an example role exists locally.
+- **[INC-0179 / medium]** When an approval prompt expires, queue and report; never rephrase around the rule.
+- **[INC-0180 / medium]** Run readiness checks with the live dispatcher environment.
+- **[INC-0181 / medium]** Install offline before running a package launcher in a source clone.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
