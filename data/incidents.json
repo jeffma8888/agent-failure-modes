@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 187,
+  "count": 195,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3522,6 +3522,150 @@
       "file": "incidents/INC-0187-a-slow-stage-was-trimmed-by-cases-instead-of-cut-by-grouping.md",
       "related": [
         "INC-0168"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0188",
+      "title": "An override changed the lockfile and an offline clone could not install it",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Warm override metadata with a frozen install in a scratch clone before any offline install",
+      "signature": "An offline install failed for lack of supply-chain metadata.",
+      "file": "incidents/INC-0188-an-override-changed-the-lockfile-and-an-offline-clone-could.md",
+      "related": [
+        "INC-0178"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0189",
+      "title": "An override was written without reading the dependent declared range",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Read the dependent declared range in the registry before writing an override; an out of range override needs a direct probe of the code path",
+      "signature": "An override landed outside the range the dependent declares.",
+      "file": "incidents/INC-0189-an-override-was-written-without-reading-the-dependent-declar.md",
+      "related": [
+        "INC-0178"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0190",
+      "title": "FAST stayed green while a command-adapter fixture missed a new execution project",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Update every command-adapter fixture when an execution project is added, and do not trust FAST alone",
+      "signature": "Only the FULL path caught the missing project.",
+      "file": "incidents/INC-0190-fast-stayed-green-while-a-command-adapter-fixture-missed-a-n.md",
+      "related": [
+        "INC-0168"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0191",
+      "title": "A one-parser requirement was pinned by only one kind of test",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Pin a one-parser requirement both structurally and behaviorally",
+      "signature": "A second parser could appear without failing a test.",
+      "file": "incidents/INC-0191-a-one-parser-requirement-was-pinned-by-only-one-kind-of-test.md",
+      "related": [
+        "INC-0159"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0192",
+      "title": "A rehearsal mixed automatic guards with procedural stops",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Separate automatic guards from procedural stops in a rehearsal, and plant the state change relative to the actual baseline",
+      "signature": "The rehearsal could not say which guard fired.",
+      "file": "incidents/INC-0192-a-rehearsal-mixed-automatic-guards-with-procedural-stops.md",
+      "related": [
+        "INC-0172"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0193",
+      "title": "A negative grep was taken as proof that a removal ruling was complete",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Check each named duty and its follow-through lines; a negative grep alone proves nothing",
+      "signature": "The forbidden token was gone and the duty remained.",
+      "file": "incidents/INC-0193-a-negative-grep-was-taken-as-proof-that-a-removal-ruling-was.md",
+      "related": [
+        "INC-0177"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0194",
+      "title": "A citation check by search alone could miss a changed fact",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Compare cited ranges by diff when a version bump moves pinned-source citations",
+      "signature": "A moved range was matched by text while its behavior changed.",
+      "file": "incidents/INC-0194-a-citation-check-by-search-alone-could-miss-a-changed-fact.md",
+      "related": [
+        "INC-0185"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0195",
+      "title": "A single stage time on a loaded host was read as a measurement",
+      "date": "2026-10-30",
+      "classes": [
+        "stage-timeout",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Decide timing rules on repeated runs with the load recorded, never on one stage time",
+      "signature": "The same tree read 30.5 s and then 14.9 s.",
+      "file": "incidents/INC-0195-a-single-stage-time-on-a-loaded-host-was-read-as-a-measureme.md",
+      "related": [
+        "INC-0146"
       ],
       "evidence": []
     }

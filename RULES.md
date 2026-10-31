@@ -176,6 +176,14 @@ One rule per incident, ordered by severity then id.
 - **[INC-0185 / medium]** Do not accept either side of a reported rename; confirm the blob against main.
 - **[INC-0186 / medium]** Derive the marker set from the manifests, not from a per-root summary.
 - **[INC-0187 / medium]** Group files that parallelize cleanly; do not trim cases whose timeouts are fixed.
+- **[INC-0188 / medium]** Warm override metadata with a frozen install in a scratch clone before any offline install
+- **[INC-0189 / medium]** Read the dependent declared range in the registry before writing an override; an out of range override needs a direct probe of the code path
+- **[INC-0190 / medium]** Update every command-adapter fixture when an execution project is added, and do not trust FAST alone
+- **[INC-0191 / medium]** Pin a one-parser requirement both structurally and behaviorally
+- **[INC-0192 / medium]** Separate automatic guards from procedural stops in a rehearsal, and plant the state change relative to the actual baseline
+- **[INC-0193 / medium]** Check each named duty and its follow-through lines; a negative grep alone proves nothing
+- **[INC-0194 / medium]** Compare cited ranges by diff when a version bump moves pinned-source citations
+- **[INC-0195 / medium]** Decide timing rules on repeated runs with the load recorded, never on one stage time
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
