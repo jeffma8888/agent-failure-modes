@@ -142,6 +142,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0151 / medium]** State both the flagged and the allowed set of a hygiene rule.
 - **[INC-0152 / medium]** Override permissive defaults on the release path.
 - **[INC-0153 / medium]** Test what a stage does, not how it was started.
+- **[INC-0154 / medium]** Run the identity checker on the exact tree before committing any marker.
+- **[INC-0155 / medium]** In a kill rehearsal, inspect the leftovers, and state the temporary directory setting the sweep depends on.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

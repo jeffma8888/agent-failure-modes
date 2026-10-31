@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 153,
+  "count": 155,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2912,6 +2912,42 @@
       "file": "incidents/INC-0153-a-test-checked-only-the-dispatch-argv-of-a-child-stage-not-i.md",
       "related": [
         "INC-0138"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0154",
+      "title": "A marker for an already activated revision used the pending path form",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run the identity checker on the exact tree before committing any marker.",
+      "signature": "A marker was committed without running the identity checker on the exact tree.",
+      "file": "incidents/INC-0154-a-marker-for-an-already-activated-revision-used-the-pending.md",
+      "related": [
+        "INC-0149"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0155",
+      "title": "A kill rehearsal met its timeout but nobody checked what the killed process left behind",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "In a kill rehearsal, inspect the leftovers, and state the temporary directory setting the sweep depends on.",
+      "signature": "A rehearsal passed on elapsed time while the leftovers of the killed run were unexamined.",
+      "file": "incidents/INC-0155-a-kill-rehearsal-met-its-timeout-but-nobody-checked-what-the.md",
+      "related": [
+        "INC-0153"
       ],
       "evidence": []
     }
