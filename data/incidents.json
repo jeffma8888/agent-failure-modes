@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 160,
+  "count": 162,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3037,6 +3037,42 @@
       "file": "incidents/INC-0160-an-activation-was-tied-to-an-unreviewed-successor-and-had-to.md",
       "related": [
         "INC-0149"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0161",
+      "title": "Landing a revision beside a supersession edge broke identity on main",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run the identity checker after every landing, not only after markers; resolve supersession sources only among earlier revisions.",
+      "signature": "The landing script passed while the identity checker was red on main.",
+      "file": "incidents/INC-0161-landing-a-revision-beside-a-supersession-edge-broke-identity.md",
+      "related": [
+        "INC-0154"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0162",
+      "title": "A chained amend reworded the previous commit after a failed revert",
+      "date": "2026-10-30",
+      "classes": [
+        "vcs-destruction",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Chain an amend only with && after a step whose success is checked, and confirm the HEAD subject before amending.",
+      "signature": "A revert failed on an invalid flag and the next chained step changed the wrong commit.",
+      "file": "incidents/INC-0162-a-chained-amend-reworded-the-previous-commit-after-a-failed.md",
+      "related": [
+        "INC-0147"
       ],
       "evidence": []
     }
