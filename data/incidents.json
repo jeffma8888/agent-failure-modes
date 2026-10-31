@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 166,
+  "count": 171,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3144,6 +3144,96 @@
       "file": "incidents/INC-0166-a-conditional-omission-could-hide-behind-a-helper-an-alias-o.md",
       "related": [
         "INC-0151"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0167",
+      "title": "A revision marker added a second edge to bytes the previous marker already claimed",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run the identity checker on a scratch clone before committing a marker, and take the edge from the newest pending earlier copy.",
+      "signature": "The identity check went red with an old digest mismatch on a marker that looked complete.",
+      "file": "incidents/INC-0167-a-revision-marker-added-a-second-edge-to-bytes-the-previous.md",
+      "related": [
+        "INC-0154"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0168",
+      "title": "Disjoint project discovery did not stop a suite from running twice",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A test that launches a runner must run it on a probe file, not the whole suite.",
+      "signature": "One stage doubled its cases and its time.",
+      "file": "incidents/INC-0168-disjoint-project-discovery-did-not-stop-a-suite-from-running.md",
+      "related": [
+        "INC-0153"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0169",
+      "title": "A garbage collection test with a moved clock reaped the outer tier own live database",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation",
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A test that reaps shared resources must run before the outer run owns any.",
+      "signature": "A test removed a database that belonged to the run that was executing it.",
+      "file": "incidents/INC-0169-a-garbage-collection-test-with-a-moved-clock-reaped-the-oute.md",
+      "related": [
+        "INC-0143"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0170",
+      "title": "A tracked file rewritten per tool mode could not stay clean in both tiers",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Do not track a file a tool rewrites per mode; generate it before the check that needs it.",
+      "signature": "Two modes of one tool wrote different bytes to a tracked file.",
+      "file": "incidents/INC-0170-a-tracked-file-rewritten-per-tool-mode-could-not-stay-clean.md",
+      "related": [
+        "INC-0147"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0171",
+      "title": "A generator default module augmentation made its committed output fail the type check",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Place generated type augmentation where the augmented module lives.",
+      "signature": "Generated output failed to type check in the package where it landed.",
+      "file": "incidents/INC-0171-a-generator-default-module-augmentation-made-its-committed-o.md",
+      "related": [
+        "INC-0166"
       ],
       "evidence": []
     }

@@ -155,6 +155,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0164 / medium]** When a reverted revision is re-landed after an older copy became active, approve its marker at the re-land commit.
 - **[INC-0165 / medium]** In zsh, write the braces form of a variable before a colon.
 - **[INC-0166 / medium]** Forbid conditional omission anywhere, with the same alias resolution as describe.
+- **[INC-0167 / medium]** Run the identity checker on a scratch clone before committing a marker, and take the edge from the newest pending earlier copy.
+- **[INC-0168 / medium]** A test that launches a runner must run it on a probe file, not the whole suite.
+- **[INC-0169 / medium]** A test that reaps shared resources must run before the outer run owns any.
+- **[INC-0170 / medium]** Do not track a file a tool rewrites per mode; generate it before the check that needs it.
+- **[INC-0171 / medium]** Place generated type augmentation where the augmented module lives.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
