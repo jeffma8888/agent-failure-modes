@@ -144,6 +144,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0153 / medium]** Test what a stage does, not how it was started.
 - **[INC-0154 / medium]** Run the identity checker on the exact tree before committing any marker.
 - **[INC-0155 / medium]** In a kill rehearsal, inspect the leftovers, and state the temporary directory setting the sweep depends on.
+- **[INC-0156 / medium]** Run the framework list command on each new helper before its activation review.
+- **[INC-0157 / medium]** A root split by the registry needs registry-aware identity before its source row can activate.
+- **[INC-0158 / medium]** Check the module form of the host package before using import.meta in a spec.
+- **[INC-0159 / medium]** One parser per shared file format, reviewed with a mutant and a malformed-input case.
+- **[INC-0160 / medium]** Do not tie the activation of a reviewed revision to an unreviewed successor.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

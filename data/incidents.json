@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 155,
+  "count": 160,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2948,6 +2948,95 @@
       "file": "incidents/INC-0155-a-kill-rehearsal-met-its-timeout-but-nobody-checked-what-the.md",
       "related": [
         "INC-0153"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0156",
+      "title": "A test fixture name collided with a framework built-in and only collection revealed it",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run the framework list command on each new helper before its activation review.",
+      "signature": "A helper looked fine in review and failed to load in every spec that imported it.",
+      "file": "incidents/INC-0156-a-test-fixture-name-collided-with-a-framework-built-in-and-o.md",
+      "related": [
+        "INC-0153"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0157",
+      "title": "A split-ownership root could not activate because identity had no registry support",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A root split by the registry needs registry-aware identity before its source row can activate.",
+      "signature": "The identity checker rejected a root whose file had been reassigned to another row.",
+      "file": "incidents/INC-0157-a-split-ownership-root-could-not-activate-because-identity-h.md",
+      "related": [
+        "INC-0154"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0158",
+      "title": "A spec used import.meta under a package that loads specs as CommonJS",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Check the module form of the host package before using import.meta in a spec.",
+      "signature": "A module-form feature worked in the author mind and would fail when the spec first loaded.",
+      "file": "incidents/INC-0158-a-spec-used-import-meta-under-a-package-that-loads-specs-as.md",
+      "related": [
+        "INC-0156"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0159",
+      "title": "A second reader of the same registry file was at risk of replacing the first",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "One parser per shared file format, reviewed with a mutant and a malformed-input case.",
+      "signature": "Two rows each needed to parse the same assignments file.",
+      "file": "incidents/INC-0159-a-second-reader-of-the-same-registry-file-was-at-risk-of-rep.md",
+      "related": [
+        "INC-0157"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0160",
+      "title": "An activation was tied to an unreviewed successor and had to be re-ruled",
+      "date": "2026-10-30",
+      "classes": [
+        "checkpoint",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Do not tie the activation of a reviewed revision to an unreviewed successor.",
+      "signature": "A shipped revision waited on a later revision that had not been reviewed.",
+      "file": "incidents/INC-0160-an-activation-was-tied-to-an-unreviewed-successor-and-had-to.md",
+      "related": [
+        "INC-0149"
       ],
       "evidence": []
     }
