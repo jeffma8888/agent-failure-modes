@@ -151,6 +151,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0160 / medium]** Do not tie the activation of a reviewed revision to an unreviewed successor.
 - **[INC-0161 / medium]** Run the identity checker after every landing, not only after markers; resolve supersession sources only among earlier revisions.
 - **[INC-0162 / medium]** Chain an amend only with && after a step whose success is checked, and confirm the HEAD subject before amending.
+- **[INC-0163 / medium]** Acceptance must run the same commands preship runs, otherwise a green merge looks red or a red one looks green.
+- **[INC-0164 / medium]** When a reverted revision is re-landed after an older copy became active, approve its marker at the re-land commit.
+- **[INC-0165 / medium]** In zsh, write the braces form of a variable before a colon.
+- **[INC-0166 / medium]** Forbid conditional omission anywhere, with the same alias resolution as describe.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

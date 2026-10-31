@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 162,
+  "count": 166,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3073,6 +3073,77 @@
       "file": "incidents/INC-0162-a-chained-amend-reworded-the-previous-commit-after-a-failed.md",
       "related": [
         "INC-0147"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0163",
+      "title": "Acceptance ran bare vitest while the real gate ran setup then the FAST runner",
+      "date": "2026-10-30",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Acceptance must run the same commands preship runs, otherwise a green merge looks red or a red one looks green.",
+      "signature": "A row merge looked red under the acceptance script and green under preship, or the reverse.",
+      "file": "incidents/INC-0163-acceptance-ran-bare-vitest-while-the-real-gate-ran-setup-the.md",
+      "related": [
+        "INC-0145"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0164",
+      "title": "A reverted and re-landed QA revision got its marker approved at the wrong commit",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a reverted revision is re-landed after an older copy became active, approve its marker at the re-land commit.",
+      "signature": "The identity checker compared old active bytes at the approved commit.",
+      "file": "incidents/INC-0164-a-reverted-and-re-landed-qa-revision-got-its-marker-approved.md",
+      "related": [
+        "INC-0149"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0165",
+      "title": "A shell variable followed by a colon and a letter became a history modifier",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "In zsh, write the braces form of a variable before a colon.",
+      "signature": "A shell string produced a truncated value without an error.",
+      "file": "incidents/INC-0165-a-shell-variable-followed-by-a-colon-and-a-letter-became-a-h.md",
+      "related": [
+        "INC-0153"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0166",
+      "title": "A conditional omission could hide behind a helper, an alias or an early return",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Forbid conditional omission anywhere, with the same alias resolution as describe.",
+      "signature": "A hygiene rule allowed omissions that took registrations out of a suite.",
+      "file": "incidents/INC-0166-a-conditional-omission-could-hide-behind-a-helper-an-alias-o.md",
+      "related": [
+        "INC-0151"
       ],
       "evidence": []
     }
