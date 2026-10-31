@@ -170,6 +170,12 @@ One rule per incident, ordered by severity then id.
 - **[INC-0179 / medium]** When an approval prompt expires, queue and report; never rephrase around the rule.
 - **[INC-0180 / medium]** Run readiness checks with the live dispatcher environment.
 - **[INC-0181 / medium]** Install offline before running a package launcher in a source clone.
+- **[INC-0182 / medium]** A marker covers only what the ruling approved.
+- **[INC-0183 / medium]** Sibling fixture factories carry the same required metadata.
+- **[INC-0184 / medium]** Accept a docs-only row by one name-status diff against the stated parent.
+- **[INC-0185 / medium]** Do not accept either side of a reported rename; confirm the blob against main.
+- **[INC-0186 / medium]** Derive the marker set from the manifests, not from a per-root summary.
+- **[INC-0187 / medium]** Group files that parallelize cleanly; do not trim cases whose timeouts are fixed.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

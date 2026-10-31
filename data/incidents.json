@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 181,
+  "count": 187,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3414,6 +3414,114 @@
       "file": "incidents/INC-0181-a-package-launcher-in-an-uninstalled-source-clone-reached-fo.md",
       "related": [
         "INC-0155"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0182",
+      "title": "A marker generator covered every payload of a root when only part was approved",
+      "date": "2026-10-30",
+      "classes": [
+        "identity-and-keying",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A marker covers only what the ruling approved.",
+      "signature": "A marker claimed more than the ruling approved.",
+      "file": "incidents/INC-0182-a-marker-generator-covered-every-payload-of-a-root-when-only.md",
+      "related": [
+        "INC-0167"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0183",
+      "title": "Sibling fixture factories lacked the metadata that makes a checker required",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Sibling fixture factories carry the same required metadata.",
+      "signature": "A positive control passed without reaching its negative.",
+      "file": "incidents/INC-0183-sibling-fixture-factories-lacked-the-metadata-that-makes-a-c.md",
+      "related": [
+        "INC-0173"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0184",
+      "title": "A docs-only row was accepted by judgment instead of one mechanical diff",
+      "date": "2026-10-30",
+      "classes": [
+        "spec-and-scope",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Accept a docs-only row by one name-status diff against the stated parent.",
+      "signature": "Acceptance depended on reading.",
+      "file": "incidents/INC-0184-a-docs-only-row-was-accepted-by-judgment-instead-of-one-mech.md",
+      "related": [
+        "INC-0163"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0185",
+      "title": "Rename detection reported a false rename in a merge",
+      "date": "2026-10-30",
+      "classes": [
+        "vcs-destruction",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Do not accept either side of a reported rename; confirm the blob against main.",
+      "signature": "A merge showed a rename and delete that did not happen.",
+      "file": "incidents/INC-0185-rename-detection-reported-a-false-rename-in-a-merge.md",
+      "related": [
+        "INC-0175"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0186",
+      "title": "A per-root checker summary undercounted edges",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Derive the marker set from the manifests, not from a per-root summary.",
+      "signature": "The summary showed fewer edges than the manifests hold.",
+      "file": "incidents/INC-0186-a-per-root-checker-summary-undercounted-edges.md",
+      "related": [
+        "INC-0182"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0187",
+      "title": "A slow stage was trimmed by cases instead of cut by grouping files",
+      "date": "2026-10-30",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Group files that parallelize cleanly; do not trim cases whose timeouts are fixed.",
+      "signature": "A stage kept growing while case trimming saved little.",
+      "file": "incidents/INC-0187-a-slow-stage-was-trimmed-by-cases-instead-of-cut-by-grouping.md",
+      "related": [
+        "INC-0168"
       ],
       "evidence": []
     }
