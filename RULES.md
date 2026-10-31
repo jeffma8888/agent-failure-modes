@@ -125,6 +125,14 @@ One rule per incident, ordered by severity then id.
 - **[INC-0134 / medium]** Assert what the user sees, not the transport mechanism.
 - **[INC-0135 / medium]** One template per role.
 - **[INC-0136 / medium]** Give each agent its own cluster.
+- **[INC-0137 / medium]** Make a missing database fail by name instead of creating it.
+- **[INC-0138 / medium]** Tie resource lifetime to its creating stage.
+- **[INC-0139 / medium]** Test the deadline on every path that can reach it.
+- **[INC-0140 / medium]** Confirm a rule scope before reporting its finding.
+- **[INC-0141 / medium]** Widen a rule by shape and prove it with near-miss negatives.
+- **[INC-0142 / medium]** Validate all candidates, not the first acceptable one.
+- **[INC-0143 / medium]** Re-measure after a merge that changes the tests in a stage.
+- **[INC-0144 / medium]** Report expected refusals apart from real findings.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

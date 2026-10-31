@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 136,
+  "count": 144,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2610,6 +2610,148 @@
       "related": [
         "INC-0097"
       ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0137",
+      "title": "A database adapter created an absent database even with schema push disabled",
+      "date": "2026-10-30",
+      "classes": [
+        "tooling-paths",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Make a missing database fail by name instead of creating it.",
+      "signature": "A misspelled or missing database name silently becomes a new empty database.",
+      "file": "incidents/INC-0137-a-database-adapter-created-an-absent-database-even-with-sche.md",
+      "related": [
+        "INC-0097"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0138",
+      "title": "A stage that kept a database alive collided with later inventory and frozen-clock gc cases",
+      "date": "2026-10-30",
+      "classes": [
+        "test-isolation",
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Tie resource lifetime to its creating stage.",
+      "signature": "A leftover database from one stage changes the result of a later stage.",
+      "file": "incidents/INC-0138-a-stage-that-kept-a-database-alive-collided-with-later-inven.md",
+      "related": [
+        "INC-0136"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0139",
+      "title": "A readiness deadline tested only inside a step was untested outside it",
+      "date": "2026-10-30",
+      "classes": [
+        "stage-timeout",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Test the deadline on every path that can reach it.",
+      "signature": "A deadline is proven on one code path and ships on another.",
+      "file": "incidents/INC-0139-a-readiness-deadline-tested-only-inside-a-step-was-untested.md",
+      "related": [
+        "INC-0095"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0140",
+      "title": "A known red was listed before checking the scan roots of the hygiene rule that raised it",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Confirm a rule scope before reporting its finding.",
+      "signature": "A finding is recorded as a known failure without confirming the rule scans that file.",
+      "file": "incidents/INC-0140-a-known-red-was-listed-before-checking-the-scan-roots-of-the.md",
+      "related": [
+        "INC-0129"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0141",
+      "title": "A static watchdog rule accepting only an inline await of a new promise flagged stored promises and other valid shapes",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Widen a rule by shape and prove it with near-miss negatives.",
+      "signature": "A rule written against one syntax shape rejects equivalent valid code.",
+      "file": "incidents/INC-0141-a-static-watchdog-rule-accepting-only-an-inline-await-of-a-n.md",
+      "related": [
+        "INC-0129"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0142",
+      "title": "A redirect test searching for one allowed substring accepted a bad target beside a benign decoy",
+      "date": "2026-10-30",
+      "classes": [
+        "detector-fail-open",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Validate all candidates, not the first acceptable one.",
+      "signature": "A redirect check passes because one acceptable string appears among several candidates.",
+      "file": "incidents/INC-0142-a-redirect-test-searching-for-one-allowed-substring-accepted.md",
+      "related": [
+        "INC-0118"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0143",
+      "title": "Two branches implementing the same stage split were merged without re-measuring, although merged tests can change a project time several times over",
+      "date": "2026-10-30",
+      "classes": [
+        "stage-timeout",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Re-measure after a merge that changes the tests in a stage.",
+      "signature": "A merged stage split keeps timings measured before the merge.",
+      "file": "incidents/INC-0143-two-branches-implementing-the-same-stage-split-were-merged-w.md",
+      "related": [
+        "INC-0131"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0144",
+      "title": "Expected lifecycle refusals were mixed with static findings in a sweep",
+      "date": "2026-10-30",
+      "classes": [
+        "observability",
+        "detector-fail-closed"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Report expected refusals apart from real findings.",
+      "signature": "A sweep report cannot tell an intended refusal from a real finding.",
+      "file": "incidents/INC-0144-expected-lifecycle-refusals-were-mixed-with-static-findings.md",
+      "related": [],
       "evidence": []
     }
   ]
