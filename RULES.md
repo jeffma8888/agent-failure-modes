@@ -196,6 +196,15 @@ One rule per incident, ordered by severity then id.
 - **[INC-0205 / medium]** Copy the typed input and delete from the copy; never fabricate a runtime value to quiet the compiler
 - **[INC-0206 / medium]** Never cite a commit id in a message before git has printed it
 - **[INC-0207 / medium]** Check the exit status of every send, and pass real arguments, not a packed string
+- **[INC-0208 / medium]** Rehearse the merged stack, not the branches
+- **[INC-0209 / medium]** Recheck FULL step budgets against measured FAST stage times whenever the suite grows
+- **[INC-0210 / medium]** Profile before cutting tests
+- **[INC-0211 / medium]** Put probe code in a file inside the scratch tree; prefer plain string tests over regex literals on a command line
+- **[INC-0212 / medium]** Use absolute paths when working across worktrees
+- **[INC-0213 / medium]** Classify a network-denied audit by its exact signature, and keep other errors with the same code failing
+- **[INC-0214 / medium]** Check every caller of a fixed helper with a strict destination compile
+- **[INC-0215 / medium]** Never override the hook path; if it happens, amend with hooks on right away
+- **[INC-0216 / medium]** Use the real approved chain in a causal proof, not just the bytes
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

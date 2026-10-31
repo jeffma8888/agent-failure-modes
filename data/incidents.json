@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 207,
+  "count": 216,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3882,6 +3882,166 @@
       "file": "incidents/INC-0207-three-sends-failed-because-a-packed-string-went-out-as-one-a.md",
       "related": [
         "INC-0165"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0208",
+      "title": "Two rows were green alone and red together",
+      "date": "2026-10-31",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Rehearse the merged stack, not the branches",
+      "signature": "The combination failed and neither branch did.",
+      "file": "incidents/INC-0208-two-rows-were-green-alone-and-red-together.md",
+      "related": [
+        "INC-0175"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0209",
+      "title": "A FULL step deadline was shorter than the measured stage time",
+      "date": "2026-10-31",
+      "classes": [
+        "stage-timeout",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Recheck FULL step budgets against measured FAST stage times whenever the suite grows",
+      "signature": "The deadline sat below the measured time.",
+      "file": "incidents/INC-0209-a-full-step-deadline-was-shorter-than-the-measured-stage-tim.md",
+      "related": [
+        "INC-0146"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0210",
+      "title": "A slow suite was a candidate for cutting before it was profiled",
+      "date": "2026-10-31",
+      "classes": [
+        "stage-timeout",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Profile before cutting tests",
+      "signature": "The slow part was not where cuts would land.",
+      "file": "incidents/INC-0210-a-slow-suite-was-a-candidate-for-cutting-before-it-was-profi.md",
+      "related": [
+        "INC-0187"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0211",
+      "title": "A regex literal was read as a file path by the permission checker",
+      "date": "2026-10-31",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Put probe code in a file inside the scratch tree; prefer plain string tests over regex literals on a command line",
+      "signature": "A harmless probe was blocked as a path access.",
+      "file": "incidents/INC-0211-a-regex-literal-was-read-as-a-file-path-by-the-permission-ch.md",
+      "related": [
+        "INC-0165"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0212",
+      "title": "A relative path was resolved against the wrong root",
+      "date": "2026-10-31",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Use absolute paths when working across worktrees",
+      "signature": "The command was refused for a path it did not name.",
+      "file": "incidents/INC-0212-a-relative-path-was-resolved-against-the-wrong-root.md",
+      "related": [
+        "INC-0165"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0213",
+      "title": "A network-denied dependency audit was neither a finding nor a pass",
+      "date": "2026-10-31",
+      "classes": [
+        "false-green",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Classify a network-denied audit by its exact signature, and keep other errors with the same code failing",
+      "signature": "The audit could not run and exited like a result.",
+      "file": "incidents/INC-0213-a-network-denied-dependency-audit-was-neither-a-finding-nor.md",
+      "related": [
+        "INC-0200"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0214",
+      "title": "A helper was fixed and a caller still passed a literal empty object",
+      "date": "2026-10-31",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Check every caller of a fixed helper with a strict destination compile",
+      "signature": "The helper fix left a caller broken.",
+      "file": "incidents/INC-0214-a-helper-was-fixed-and-a-caller-still-passed-a-literal-empty.md",
+      "related": [
+        "INC-0197"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0215",
+      "title": "A commit skipped the machine-wide pre-commit scanner",
+      "date": "2026-10-31",
+      "classes": [
+        "detector-fail-open",
+        "vcs-destruction"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Never override the hook path; if it happens, amend with hooks on right away",
+      "signature": "The scanner never ran.",
+      "file": "incidents/INC-0215-a-commit-skipped-the-machine-wide-pre-commit-scanner.md",
+      "related": [
+        "INC-0162"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0216",
+      "title": "A scratch swap of revision bytes failed the identity gate as designed",
+      "date": "2026-10-31",
+      "classes": [
+        "identity-and-keying",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Use the real approved chain in a causal proof, not just the bytes",
+      "signature": "The gate failed for the right reason, which the proof had not intended.",
+      "file": "incidents/INC-0216-a-scratch-swap-of-revision-bytes-failed-the-identity-gate-as.md",
+      "related": [
+        "INC-0204"
       ],
       "evidence": []
     }
