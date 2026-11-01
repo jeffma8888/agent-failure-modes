@@ -272,6 +272,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0281 / medium]** Confirm the landing commit contains every file before cleaning the source
 - **[INC-0282 / medium]** Prove the claimed role with a positive identity marker before any check relies on it
 - **[INC-0283 / medium]** Prove a hold gate only with eligible work present; an empty queue proves nothing
+- **[INC-0284 / medium]** A gate run counts only at a revision the gate's clone can fetch and that already contains the fix the gate depends on
+- **[INC-0285 / medium]** Trace coverage per case, never per tier
+- **[INC-0286 / medium]** Resolve a shared dependency once at the root and keep test roots on plain imports
+- **[INC-0287 / medium]** Prove a claim on the exact element or attribute, and show the oracle rejects a decoy
+- **[INC-0288 / medium]** Confirm a worktree can run the required checks before work is assigned there
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

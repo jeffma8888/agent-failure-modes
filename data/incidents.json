@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 283,
+  "count": 288,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5249,6 +5249,96 @@
       "file": "incidents/INC-0283-a-hold-gate-is-proven-only-while-eligible-work-exists.md",
       "related": [
         "INC-0266"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0284",
+      "title": "A gate result counts only at a revision the gate can fetch and that holds its fix",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A gate run counts only at a revision the gate's clone can fetch and that already contains the fix the gate depends on",
+      "signature": "A gate passed at a revision that did not yet hold the fix it depended on.",
+      "file": "incidents/INC-0284-a-gate-result-counts-only-at-a-revision-the-gate-can-fetch-a.md",
+      "related": [
+        "INC-0145"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0285",
+      "title": "A tier-level coverage table hides untraced cases",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Trace coverage per case, never per tier",
+      "signature": "A coverage table summarized a tier while individual cases had no trace.",
+      "file": "incidents/INC-0285-a-tier-level-coverage-table-hides-untraced-cases.md",
+      "related": [
+        "INC-0253"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0286",
+      "title": "Fix module resolution once at the root, not per test",
+      "date": "2026-11-01",
+      "classes": [
+        "test-isolation",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Resolve a shared dependency once at the root and keep test roots on plain imports",
+      "signature": "Each test root worked around the same missing dependency in its own way.",
+      "file": "incidents/INC-0286-fix-module-resolution-once-at-the-root-not-per-test.md",
+      "related": [
+        "INC-0158"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0287",
+      "title": "An oracle that matches a substring or a loose boundary can be satisfied by a decoy",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Prove a claim on the exact element or attribute, and show the oracle rejects a decoy",
+      "signature": "An assertion passed on a decoy that merely contained the expected text.",
+      "file": "incidents/INC-0287-an-oracle-that-matches-a-substring-or-a-loose-boundary-can-b.md",
+      "related": [
+        "INC-0176"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0288",
+      "title": "Verify a worktree can run the required checks before assigning work there",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Confirm a worktree can run the required checks before work is assigned there",
+      "signature": "Every required check failed before running because the assigned worktree lacked a script.",
+      "file": "incidents/INC-0288-verify-a-worktree-can-run-the-required-checks-before-assigni.md",
+      "related": [
+        "INC-0264"
       ],
       "evidence": []
     }
