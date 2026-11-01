@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 302,
+  "count": 306,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5603,6 +5603,78 @@
       "file": "incidents/INC-0302-a-plan-revision-left-stale-operative-text-that-only-an-indep.md",
       "related": [
         "INC-0217"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0303",
+      "title": "A guard added to a test tool broke the check under test",
+      "date": "2026-11-01",
+      "classes": [
+        "test-isolation",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Test a guard added to a test tool against a known good page, and bisect the tool's options when a page that works by hand fails",
+      "signature": "A page that works by hand rendered empty under the test tool.",
+      "file": "incidents/INC-0303-a-guard-added-to-a-test-tool-broke-the-check-under-test.md",
+      "related": [
+        "INC-0275"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0304",
+      "title": "A test was about to move to satisfy a dependency without reading what it asserts",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A dependency edge does not justify moving a test; check what it asserts and what acceptance the move would remove",
+      "signature": "A proposed move would have removed the only browser acceptance for two rows.",
+      "file": "incidents/INC-0304-a-test-was-about-to-move-to-satisfy-a-dependency-without-rea.md",
+      "related": [
+        "INC-0098"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0305",
+      "title": "A process the sandbox could not see was judged dead and its live run was removed",
+      "date": "2026-11-01",
+      "classes": [
+        "concurrency",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A process your sandbox cannot see is not a dead process; ownership comes from your own run record, not from visibility or timing",
+      "signature": "A run directory vanished mid run after another agent removed a registration it judged dead.",
+      "file": "incidents/INC-0305-a-process-the-sandbox-could-not-see-was-judged-dead-and-its.md",
+      "related": [
+        "INC-0066"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0306",
+      "title": "A conditional diagnosis was closed from the actor's account and the code path",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Do not open a fix row for a hazard that is only conditional; close on the confirmed cause and track the hazard as a follow-up",
+      "signature": "A diagnosis named only conditional hazards, yet the incident needed a cause.",
+      "file": "incidents/INC-0306-a-conditional-diagnosis-was-closed-from-the-actor-s-account.md",
+      "related": [
+        "INC-0305"
       ],
       "evidence": []
     }

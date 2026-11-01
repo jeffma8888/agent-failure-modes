@@ -291,6 +291,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0300 / medium]** A ruling prescribes the remedy and the check, never the result the check must show
 - **[INC-0301 / medium]** Keep a dependency change to the ruled lines and prove it with a frozen install
 - **[INC-0302 / medium]** After a revision, check every operative sentence and count against the replacement, using a reviewer who did not write it
+- **[INC-0303 / medium]** Test a guard added to a test tool against a known good page, and bisect the tool's options when a page that works by hand fails
+- **[INC-0304 / medium]** A dependency edge does not justify moving a test; check what it asserts and what acceptance the move would remove
+- **[INC-0305 / medium]** A process your sandbox cannot see is not a dead process; ownership comes from your own run record, not from visibility or timing
+- **[INC-0306 / medium]** Do not open a fix row for a hazard that is only conditional; close on the confirmed cause and track the hazard as a follow-up
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
