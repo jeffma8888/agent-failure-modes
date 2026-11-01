@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 293,
+  "count": 298,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5429,6 +5429,96 @@
       "file": "incidents/INC-0293-the-before-state-was-not-preserved-before-an-operator-edit.md",
       "related": [
         "INC-0253"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0294",
+      "title": "Activating a replacement over the only file in a directory removed the directory",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Before a remove-and-move, check whether the file is alone in its directory, and run pending checks first",
+      "signature": "A move failed halfway because removing the sole file removed its parent.",
+      "file": "incidents/INC-0294-activating-a-replacement-over-the-only-file-in-a-directory-r.md",
+      "related": [
+        "INC-0279"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0295",
+      "title": "A pure move onto an existing path was read from the diff's rename display",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "vcs-destruction"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Prove a move by byte equality and digests, not by the rename display",
+      "signature": "A move showed as modify plus delete, so the diff could not confirm it.",
+      "file": "incidents/INC-0295-a-pure-move-onto-an-existing-path-was-read-from-the-diff-s-r.md",
+      "related": [
+        "INC-0185"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0296",
+      "title": "Plan line anchors drifted with each plan version",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "stale-module"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Cite plan rows by identity; line drift alone is not a finding",
+      "signature": "Correct line citations became off by one after a later plan revision.",
+      "file": "incidents/INC-0296-plan-line-anchors-drifted-with-each-plan-version.md",
+      "related": [
+        "INC-0054"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0297",
+      "title": "A test needed a second account that the minimal seed did not create",
+      "date": "2026-11-01",
+      "classes": [
+        "test-isolation",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Check each test's seed needs against the seed its declared dependencies provide",
+      "signature": "Cases looked up a second admin account that the seed lacked.",
+      "file": "incidents/INC-0297-a-test-needed-a-second-account-that-the-minimal-seed-did-not.md",
+      "related": [
+        "INC-0086"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0298",
+      "title": "Harness and ownership defects were left for the build agent to find",
+      "date": "2026-11-01",
+      "classes": [
+        "delegation",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run a red check before the build agent starts and classify each first failure",
+      "signature": "Defects unrelated to the product were found only after the build started.",
+      "file": "incidents/INC-0298-harness-and-ownership-defects-were-left-for-the-build-agent.md",
+      "related": [
+        "INC-0100"
       ],
       "evidence": []
     }

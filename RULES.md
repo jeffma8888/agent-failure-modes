@@ -282,6 +282,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0291 / medium]** When the only failure is a known unrelated load timeout with a fix in flight, one passing run on the combined merge accepts both rows
 - **[INC-0292 / medium]** Completion is not collection; require per-observation status and distinguish empty from failed
 - **[INC-0293 / medium]** Preserve before-state bytes before an operator edit; a later snapshot cannot recreate them
+- **[INC-0294 / medium]** Before a remove-and-move, check whether the file is alone in its directory, and run pending checks first
+- **[INC-0295 / medium]** Prove a move by byte equality and digests, not by the rename display
+- **[INC-0296 / medium]** Cite plan rows by identity; line drift alone is not a finding
+- **[INC-0297 / medium]** Check each test's seed needs against the seed its declared dependencies provide
+- **[INC-0298 / medium]** Run a red check before the build agent starts and classify each first failure
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
