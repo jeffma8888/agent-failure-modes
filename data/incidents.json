@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 258,
+  "count": 263,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -4798,6 +4798,96 @@
       "file": "incidents/INC-0258-a-failed-closing-run-could-leave-a-signed-record-public.md",
       "related": [
         "INC-0149"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0259",
+      "title": "Sum every runner the earlier record summed",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Compute a total with the same formula as the earlier record, covering every runner",
+      "signature": "A reported total omitted one runner.",
+      "file": "incidents/INC-0259-sum-every-runner-the-earlier-record-summed.md",
+      "related": [
+        "INC-0252"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0260",
+      "title": "Prove an alias fix by the exact-SHA run with the default spelling",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Prove a path-alias fix by running the exact SHA with the default spelling and no workaround",
+      "signature": "A path-alias fix could be proven only with a workaround in place.",
+      "file": "incidents/INC-0260-prove-an-alias-fix-by-the-exact-sha-run-with-the-default-spe.md",
+      "related": [
+        "INC-0150"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0261",
+      "title": "A landed root revision cannot carry its supersession file in the same commit",
+      "date": "2026-11-01",
+      "classes": [
+        "identity-and-keying",
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Land a root revision first and add its supersession file after the non-author re-check",
+      "signature": "A supersession file was planned in the same commit as the root it approves.",
+      "file": "incidents/INC-0261-a-landed-root-revision-cannot-carry-its-supersession-file-in.md",
+      "related": [
+        "INC-0182"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0262",
+      "title": "Keep local evidence paths out of review text",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Keep local evidence paths out of committed review text",
+      "signature": "A review cited a private local folder in committed text.",
+      "file": "incidents/INC-0262-keep-local-evidence-paths-out-of-review-text.md",
+      "related": [
+        "INC-0238"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0263",
+      "title": "Refresh the team roster at each phase change",
+      "date": "2026-11-01",
+      "classes": [
+        "delegation",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Refresh the team roster at each phase change so thread IDs and models stay findable",
+      "signature": "A team roster went stale for ten rounds.",
+      "file": "incidents/INC-0263-refresh-the-team-roster-at-each-phase-change.md",
+      "related": [
+        "INC-0237"
       ],
       "evidence": []
     }

@@ -247,6 +247,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0256 / medium]** Run evidence commands with the pinned binary by absolute path and print its version in the log
 - **[INC-0257 / medium]** Name every home-resolved cache explicitly when moving HOME for isolation
 - **[INC-0258 / medium]** Run the exact-closing checks on a local closing record before merging and uploading it
+- **[INC-0259 / medium]** Compute a total with the same formula as the earlier record, covering every runner
+- **[INC-0260 / medium]** Prove a path-alias fix by running the exact SHA with the default spelling and no workaround
+- **[INC-0261 / medium]** Land a root revision first and add its supersession file after the non-author re-check
+- **[INC-0262 / medium]** Keep local evidence paths out of committed review text
+- **[INC-0263 / medium]** Refresh the team roster at each phase change so thread IDs and models stay findable
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
