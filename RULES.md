@@ -225,6 +225,19 @@ One rule per incident, ordered by severity then id.
 - **[INC-0234 / medium]** Derive a ledger from the plan yourself before reading the author list, then compare
 - **[INC-0235 / medium]** Diff the downstream table first when a revision only adds upstream rows
 - **[INC-0236 / medium]** A negative proof counts only with a passing control, the plant own execution marker and the named failed step
+- **[INC-0237 / medium]** Release then close the longest idle teammate to free a slot; prefer larger batches over more teammates
+- **[INC-0238 / medium]** Scan the whole tree after every merge, and fix a scanner false match with an encoded safe prefix proved by planted cases
+- **[INC-0239 / medium]** Prove a hold by the remote main SHA unchanged before and after and an empty porcelain on the build clone
+- **[INC-0240 / medium]** Prove an auto-merge by an ordered two-parent history check and an exact-run project inventory
+- **[INC-0241 / medium]** Walk the real site after each milestone and feature close, and write each defect as a failing test first
+- **[INC-0242 / medium]** Audit a proposed test by the seam it declares, and checkpoint per root rather than per batch
+- **[INC-0243 / medium]** Declare the import seam; ownership or authorization of a subject does not declare a callable boundary
+- **[INC-0244 / medium]** Assert the response status and the rendered body together
+- **[INC-0245 / medium]** Assert that a page makes no request to a third-party origin unless declared
+- **[INC-0246 / medium]** Run destructive checks on a one-time form last, and use a repeatable form for validation checks
+- **[INC-0247 / medium]** Do not use ancestry as evidence of a clean tree, a checker run or bracketing observations
+- **[INC-0248 / medium]** Run checkers through bash -c when the env script is not zsh-compatible
+- **[INC-0249 / medium]** Use literal paths for cd in a sandbox
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

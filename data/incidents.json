@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 236,
+  "count": 249,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -4402,6 +4402,239 @@
       "file": "incidents/INC-0236-a-blocked-result-came-from-a-deadline-before-the-plant-ran.md",
       "related": [
         "INC-0218"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0237",
+      "title": "A team runtime cap blocked new teammates behind retained idle ones",
+      "date": "2026-10-31",
+      "classes": [
+        "delegation",
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Release then close the longest idle teammate to free a slot; prefer larger batches over more teammates",
+      "signature": "The cap was reached with idle teammates that could not be closed.",
+      "file": "incidents/INC-0237-a-team-runtime-cap-blocked-new-teammates-behind-retained-idl.md",
+      "related": [
+        "INC-0229"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0238",
+      "title": "A leak scanner matched part of a generated name and blocked uploads",
+      "date": "2026-10-31",
+      "classes": [
+        "detector-fail-closed",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Scan the whole tree after every merge, and fix a scanner false match with an encoded safe prefix proved by planted cases",
+      "signature": "The scan failed closed on a merge long after the files were added.",
+      "file": "incidents/INC-0238-a-leak-scanner-matched-part-of-a-generated-name-and-blocked.md",
+      "related": [
+        "INC-0215"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0239",
+      "title": "A hold outcome had no proof that nothing changed",
+      "date": "2026-10-31",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Prove a hold by the remote main SHA unchanged before and after and an empty porcelain on the build clone",
+      "signature": "No change looks the same as no run.",
+      "file": "incidents/INC-0239-a-hold-outcome-had-no-proof-that-nothing-changed.md",
+      "related": [
+        "INC-0228"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0240",
+      "title": "An auto-merge of a helper could lose an activation or coverage unnoticed",
+      "date": "2026-10-31",
+      "classes": [
+        "identity-and-keying",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Prove an auto-merge by an ordered two-parent history check and an exact-run project inventory",
+      "signature": "The bytes were right and a project could still drop out.",
+      "file": "incidents/INC-0240-an-auto-merge-of-a-helper-could-lose-an-activation-or-covera.md",
+      "related": [
+        "INC-0175"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0241",
+      "title": "Automated tests passed while nobody had walked the real site",
+      "date": "2026-10-31",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Walk the real site after each milestone and feature close, and write each defect as a failing test first",
+      "signature": "The suite covered what was written, not what a person would click.",
+      "file": "incidents/INC-0241-automated-tests-passed-while-nobody-had-walked-the-real-site.md",
+      "related": [
+        "INC-0183"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0242",
+      "title": "Four of five test authors stopped at the same undeclared seam",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Audit a proposed test by the seam it declares, and checkpoint per root rather than per batch",
+      "signature": "Authors stopped at the same boundary.",
+      "file": "incidents/INC-0242-four-of-five-test-authors-stopped-at-the-same-undeclared-sea.md",
+      "related": [
+        "INC-0210"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0243",
+      "title": "A proposed subject was treated as if its seam were declared",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Declare the import seam; ownership or authorization of a subject does not declare a callable boundary",
+      "signature": "The missing binding was not declared anywhere.",
+      "file": "incidents/INC-0243-a-proposed-subject-was-treated-as-if-its-seam-were-declared.md",
+      "related": [
+        "INC-0242"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0244",
+      "title": "A correct not-found page was served with a 200 status",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Assert the response status and the rendered body together",
+      "signature": "The page looked right and the status was wrong.",
+      "file": "incidents/INC-0244-a-correct-not-found-page-was-served-with-a-200-status.md",
+      "related": [
+        "INC-0183"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0245",
+      "title": "A third-party avatar request was made without anyone noticing",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Assert that a page makes no request to a third-party origin unless declared",
+      "signature": "The page looked right and still contacted a third party.",
+      "file": "incidents/INC-0245-a-third-party-avatar-request-was-made-without-anyone-noticin.md",
+      "related": [
+        "INC-0211"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0246",
+      "title": "A short password check created the one-time account instead of showing an error",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run destructive checks on a one-time form last, and use a repeatable form for validation checks",
+      "signature": "The probe succeeded and consumed the one-time form.",
+      "file": "incidents/INC-0246-a-short-password-check-created-the-one-time-account-instead.md",
+      "related": [
+        "INC-0183"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0247",
+      "title": "Ancestry was at risk of standing in for a clean tree or a checker run",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Do not use ancestry as evidence of a clean tree, a checker run or bracketing observations",
+      "signature": "The commit was there and the facts were not proved.",
+      "file": "incidents/INC-0247-ancestry-was-at-risk-of-standing-in-for-a-clean-tree-or-a-ch.md",
+      "related": [
+        "INC-0239"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0248",
+      "title": "The env script could not be sourced in zsh",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run checkers through bash -c when the env script is not zsh-compatible",
+      "signature": "The checker ran without its environment.",
+      "file": "incidents/INC-0248-the-env-script-could-not-be-sourced-in-zsh.md",
+      "related": [
+        "INC-0165"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0249",
+      "title": "A cd to a path in a variable was refused by the sandbox",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Use literal paths for cd in a sandbox",
+      "signature": "The command was refused although the path was allowed.",
+      "file": "incidents/INC-0249-a-cd-to-a-path-in-a-variable-was-refused-by-the-sandbox.md",
+      "related": [
+        "INC-0212"
       ],
       "evidence": []
     }
