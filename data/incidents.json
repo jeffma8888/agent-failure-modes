@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 299,
+  "count": 302,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5549,6 +5549,60 @@
       "related": [
         "INC-0297",
         "INC-0100"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0300",
+      "title": "A ruling presumed the result its check would show",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A ruling prescribes the remedy and the check, never the result the check must show",
+      "signature": "A ruling stated that the next check must show a particular failure.",
+      "file": "incidents/INC-0300-a-ruling-presumed-the-result-its-check-would-show.md",
+      "related": [
+        "INC-0243"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0301",
+      "title": "An offline lockfile regeneration carried an unrelated stale resolution",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "stale-module"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Keep a dependency change to the ruled lines and prove it with a frozen install",
+      "signature": "A regenerated lockfile changed entries the ruling did not cover.",
+      "file": "incidents/INC-0301-an-offline-lockfile-regeneration-carried-an-unrelated-stale.md",
+      "related": [
+        "INC-0188"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0302",
+      "title": "A plan revision left stale operative text that only an independent review caught",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "After a revision, check every operative sentence and count against the replacement, using a reviewer who did not write it",
+      "signature": "A revised plan still directed work to a superseded file and carried wrong counts.",
+      "file": "incidents/INC-0302-a-plan-revision-left-stale-operative-text-that-only-an-indep.md",
+      "related": [
+        "INC-0217"
       ],
       "evidence": []
     }
