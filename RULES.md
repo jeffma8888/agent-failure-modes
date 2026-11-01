@@ -215,6 +215,16 @@ One rule per incident, ordered by severity then id.
 - **[INC-0224 / medium]** Probe a classifier extension with lookalike negatives
 - **[INC-0225 / medium]** When applying a fix, search for siblings of the named instance and report them
 - **[INC-0226 / medium]** Verify a hand-made merge against a mechanical merge of the same parents
+- **[INC-0227 / medium]** A wrapper must preserve the failure channel of what it wraps, passing the last cause through on final failure.
+- **[INC-0228 / medium]** Check that a manifest has one digest per line before citing it
+- **[INC-0229 / medium]** In a shared checkout, stage only your own paths and check the log for foreign commits before writing
+- **[INC-0230 / medium]** Profile a dominant file and check shared inventory assertions and the critical path before splitting it
+- **[INC-0231 / medium]** Measure on the exact tree that carries the file and label every figure with its SHA
+- **[INC-0232 / medium]** Verify external card bytes separately from a successful prompt render
+- **[INC-0233 / medium]** Run the planted-dispute rehearsal and the incomplete-verdict dry run at the exit commit; prose approval is not runtime evidence
+- **[INC-0234 / medium]** Derive a ledger from the plan yourself before reading the author list, then compare
+- **[INC-0235 / medium]** Diff the downstream table first when a revision only adds upstream rows
+- **[INC-0236 / medium]** A negative proof counts only with a passing control, the plant own execution marker and the named failed step
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
