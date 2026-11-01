@@ -277,6 +277,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0286 / medium]** Resolve a shared dependency once at the root and keep test roots on plain imports
 - **[INC-0287 / medium]** Prove a claim on the exact element or attribute, and show the oracle rejects a decoy
 - **[INC-0288 / medium]** Confirm a worktree can run the required checks before work is assigned there
+- **[INC-0289 / medium]** Identity validity is not plan agreement; compare the resolved owner with the signed plan
+- **[INC-0290 / medium]** Measure the hook itself, count only runs that executed, and mark owed measurements as owed
+- **[INC-0291 / medium]** When the only failure is a known unrelated load timeout with a fix in flight, one passing run on the combined merge accepts both rows
+- **[INC-0292 / medium]** Completion is not collection; require per-observation status and distinguish empty from failed
+- **[INC-0293 / medium]** Preserve before-state bytes before an operator edit; a later snapshot cannot recreate them
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

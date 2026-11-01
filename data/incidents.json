@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 288,
+  "count": 293,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5339,6 +5339,96 @@
       "file": "incidents/INC-0288-verify-a-worktree-can-run-the-required-checks-before-assigni.md",
       "related": [
         "INC-0264"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0289",
+      "title": "A passing identity check was taken as agreement with the signed plan",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Identity validity is not plan agreement; compare the resolved owner with the signed plan",
+      "signature": "A file resolved to the wrong owner while its identity check passed.",
+      "file": "incidents/INC-0289-a-passing-identity-check-was-taken-as-agreement-with-the-sig.md",
+      "related": [
+        "INC-0157"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0290",
+      "title": "A setup hook was sized from file time, or from a refused attempt",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Measure the hook itself, count only runs that executed, and mark owed measurements as owed",
+      "signature": "A hook timeout was chosen without measuring the hook itself.",
+      "file": "incidents/INC-0290-a-setup-hook-was-sized-from-file-time-or-from-a-refused-atte.md",
+      "related": [
+        "INC-0195"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0291",
+      "title": "A known unrelated load timeout blocked a row until one combined run accepted both",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When the only failure is a known unrelated load timeout with a fix in flight, one passing run on the combined merge accepts both rows",
+      "signature": "A branch gate failed only on a known unrelated timeout under heavy load.",
+      "file": "incidents/INC-0291-a-known-unrelated-load-timeout-blocked-a-row-until-one-combi.md",
+      "related": [
+        "INC-0218"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0292",
+      "title": "A snapshot recorder that finished was taken as proof it had collected",
+      "date": "2026-11-01",
+      "classes": [
+        "detector-fail-open",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Completion is not collection; require per-observation status and distinguish empty from failed",
+      "signature": "A recorder reached its completion message while observations were missing.",
+      "file": "incidents/INC-0292-a-snapshot-recorder-that-finished-was-taken-as-proof-it-had.md",
+      "related": [
+        "INC-0082"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0293",
+      "title": "The before-state was not preserved before an operator edit",
+      "date": "2026-11-01",
+      "classes": [
+        "checkpoint",
+        "vcs-destruction"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Preserve before-state bytes before an operator edit; a later snapshot cannot recreate them",
+      "signature": "A later snapshot could not recreate the state from before an operator edit.",
+      "file": "incidents/INC-0293-the-before-state-was-not-preserved-before-an-operator-edit.md",
+      "related": [
+        "INC-0253"
       ],
       "evidence": []
     }
