@@ -17,11 +17,11 @@ A planned round would have been skipped silently by a stop gate.
 
 ## What happened
 
-a stopped team is skipped silently with no log line, so a round planned while STOP is in place runs nothing (gap G4, ruling R-DZ)
+a stopped team is skipped silently with no log line, so a round planned while STOP is in place runs nothing
 
 ## Root cause
 
-a stopped team is skipped silently with no log line, so a round planned while STOP is in place runs nothing (gap G4, ruling R-DZ)
+a stopped team is skipped silently with no log line, so a round planned while STOP is in place runs nothing
 
 ## Why it was hard to see
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0149](./INC-0149-marker-sha-reviewer-approval-scope-successor-closure-and-act.md)
+[INC-0239](./INC-0239-a-hold-outcome-had-no-proof-that-nothing-changed.md)

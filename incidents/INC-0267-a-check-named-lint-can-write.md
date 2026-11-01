@@ -17,11 +17,11 @@ A check named as read only could create directories.
 
 ## What happened
 
-lint-config is not read only by construction: its loader calls mkdir, so a check named lint can write (R-EC)
+a lint configuration check is not read only by construction: its loader calls mkdir, so a check named lint can write
 
 ## Root cause
 
-lint-config is not read only by construction: its loader calls mkdir, so a check named lint can write (R-EC)
+a lint configuration check is not read only by construction: its loader calls mkdir, so a check named lint can write
 
 ## Why it was hard to see
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0238](./INC-0238-a-leak-scanner-matched-part-of-a-generated-name-and-blocked.md)
+[INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md)

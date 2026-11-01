@@ -17,11 +17,11 @@ A probe that sent only a session cookie silently tested guest behavior.
 
 ## What happened
 
-a raw request carrying only the session cookie was not authenticated by the admin (the current-user endpoint returned 200 with no user); with the matching Origin header the same request was staff
+a raw request carrying only the session cookie was not authenticated by the server (the current-user endpoint returned 200 with no user); with the matching Origin header the same request was staff
 
 ## Root cause
 
-a raw request carrying only the session cookie was not authenticated by the admin (the current-user endpoint returned 200 with no user); with the matching Origin header the same request was staff
+a raw request carrying only the session cookie was not authenticated by the server (the current-user endpoint returned 200 with no user); with the matching Origin header the same request was staff
 
 ## Why it was hard to see
 

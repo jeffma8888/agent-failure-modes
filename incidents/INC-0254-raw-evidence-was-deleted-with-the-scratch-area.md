@@ -2,7 +2,7 @@
 id: INC-0254
 title: Raw evidence was deleted with the scratch area
 date: 2026-11-01
-classes: [observability, vcs-destruction]
+classes: [observability, checkpoint]
 severity: medium
 status: fixed
 ---
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0239](./INC-0239-a-hold-outcome-had-no-proof-that-nothing-changed.md)
+[INC-0258](./INC-0258-a-failed-closing-run-could-leave-a-signed-record-public.md)

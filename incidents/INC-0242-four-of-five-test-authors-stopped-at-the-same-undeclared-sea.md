@@ -29,7 +29,7 @@ The behavior looked testable.
 
 ## Fix
 
-Ruling R-DL adds a seam addendum; interface and edge roots proceed now, and the checkpoint is per root, not per batch
+A ruling adds a seam addendum; interface and edge roots proceed now, and the checkpoint is per root, not per batch
 
 ## Verification
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0210](./INC-0210-a-slow-suite-was-a-candidate-for-cutting-before-it-was-profi.md)
+[INC-0243](./INC-0243-a-proposed-subject-was-treated-as-if-its-seam-were-declared.md)

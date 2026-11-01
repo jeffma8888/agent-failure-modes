@@ -17,11 +17,11 @@ A rehearsal step could only pass if its input was faked.
 
 ## What happened
 
-a rehearsal step needed an input channel the engine does not have, so it was dropped by ruling rather than faked (G5, R-EA)
+a rehearsal step needed an input channel the engine does not have, so it was dropped by ruling rather than faked
 
 ## Root cause
 
-a rehearsal step needed an input channel the engine does not have, so it was dropped by ruling rather than faked (G5, R-EA)
+a rehearsal step needed an input channel the engine does not have, so it was dropped by ruling rather than faked
 
 ## Why it was hard to see
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md)
+[INC-0268](./INC-0268-keep-a-canary-and-a-mid-stage-stop-rehearsal-in-separate-win.md)

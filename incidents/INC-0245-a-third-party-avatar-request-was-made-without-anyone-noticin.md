@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0211](./INC-0211-a-regex-literal-was-read-as-a-file-path-by-the-permission-ch.md)
+[INC-0241](./INC-0241-automated-tests-passed-while-nobody-had-walked-the-real-site.md)

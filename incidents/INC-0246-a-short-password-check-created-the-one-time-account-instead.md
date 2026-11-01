@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0183](./INC-0183-sibling-fixture-factories-lacked-the-metadata-that-makes-a-c.md)
+[INC-0241](./INC-0241-automated-tests-passed-while-nobody-had-walked-the-real-site.md)

@@ -17,11 +17,11 @@ Every call site for a not-found error still returned 200.
 
 ## What happened
 
-notFound under the Payload root layout answered 200 even when synchronous, from a layout, or for a crawler user agent, because the error lands in a streamed boundary below the root provider; the status was fixed in a proxy
+notFound under a framework root layout answered 200 even when synchronous, from a layout, or for a crawler user agent, because the error lands in a streamed boundary below the root provider; the status was fixed in a proxy
 
 ## Root cause
 
-notFound under the Payload root layout answered 200 even when synchronous, from a layout, or for a crawler user agent, because the error lands in a streamed boundary below the root provider; the status was fixed in a proxy
+notFound under a framework root layout answered 200 even when synchronous, from a layout, or for a crawler user agent, because the error lands in a streamed boundary below the root provider; the status was fixed in a proxy
 
 ## Why it was hard to see
 

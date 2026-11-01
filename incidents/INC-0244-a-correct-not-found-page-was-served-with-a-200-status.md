@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0183](./INC-0183-sibling-fixture-factories-lacked-the-metadata-that-makes-a-c.md)
+[INC-0265](./INC-0265-a-rendered-not-found-view-is-not-proof-of-a-404-status.md)

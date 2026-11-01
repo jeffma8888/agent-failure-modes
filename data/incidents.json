@@ -4491,7 +4491,7 @@
       "signature": "The suite covered what was written, not what a person would click.",
       "file": "incidents/INC-0241-automated-tests-passed-while-nobody-had-walked-the-real-site.md",
       "related": [
-        "INC-0183"
+        "INC-0244"
       ],
       "evidence": []
     },
@@ -4509,7 +4509,7 @@
       "signature": "Authors stopped at the same boundary.",
       "file": "incidents/INC-0242-four-of-five-test-authors-stopped-at-the-same-undeclared-sea.md",
       "related": [
-        "INC-0210"
+        "INC-0243"
       ],
       "evidence": []
     },
@@ -4545,7 +4545,7 @@
       "signature": "The page looked right and the status was wrong.",
       "file": "incidents/INC-0244-a-correct-not-found-page-was-served-with-a-200-status.md",
       "related": [
-        "INC-0183"
+        "INC-0265"
       ],
       "evidence": []
     },
@@ -4563,7 +4563,7 @@
       "signature": "The page looked right and still contacted a third party.",
       "file": "incidents/INC-0245-a-third-party-avatar-request-was-made-without-anyone-noticin.md",
       "related": [
-        "INC-0211"
+        "INC-0241"
       ],
       "evidence": []
     },
@@ -4581,7 +4581,7 @@
       "signature": "The probe succeeded and consumed the one-time form.",
       "file": "incidents/INC-0246-a-short-password-check-created-the-one-time-account-instead.md",
       "related": [
-        "INC-0183"
+        "INC-0241"
       ],
       "evidence": []
     },
@@ -4717,7 +4717,7 @@
       "date": "2026-11-01",
       "classes": [
         "observability",
-        "vcs-destruction"
+        "checkpoint"
       ],
       "severity": "medium",
       "status": "fixed",
@@ -4725,7 +4725,7 @@
       "signature": "Only extracted tables survived.",
       "file": "incidents/INC-0254-raw-evidence-was-deleted-with-the-scratch-area.md",
       "related": [
-        "INC-0239"
+        "INC-0258"
       ],
       "evidence": []
     },
@@ -4905,7 +4905,7 @@
       "signature": "A checker failed because the tree it ran in lacked its modules.",
       "file": "incidents/INC-0264-run-repo-checkers-from-a-tree-that-contains-them.md",
       "related": [
-        "INC-0150"
+        "INC-0256"
       ],
       "evidence": []
     },
@@ -4923,6 +4923,7 @@
       "signature": "A not-found page was rendered with a 200 status.",
       "file": "incidents/INC-0265-a-rendered-not-found-view-is-not-proof-of-a-404-status.md",
       "related": [
+        "INC-0244",
         "INC-0252"
       ],
       "evidence": []
@@ -4941,7 +4942,7 @@
       "signature": "A planned round would have been skipped silently by a stop gate.",
       "file": "incidents/INC-0266-a-planned-round-with-stop-in-place-proves-nothing.md",
       "related": [
-        "INC-0149"
+        "INC-0239"
       ],
       "evidence": []
     },
@@ -4959,7 +4960,7 @@
       "signature": "A check named as read only could create directories.",
       "file": "incidents/INC-0267-a-check-named-lint-can-write.md",
       "related": [
-        "INC-0238"
+        "INC-0252"
       ],
       "evidence": []
     },
@@ -4977,7 +4978,7 @@
       "signature": "A rehearsal planned inside a canary could have destroyed the canary evidence.",
       "file": "incidents/INC-0268-keep-a-canary-and-a-mid-stage-stop-rehearsal-in-separate-win.md",
       "related": [
-        "INC-0258"
+        "INC-0266"
       ],
       "evidence": []
     },
@@ -4995,7 +4996,7 @@
       "signature": "A rehearsal step could only pass if its input was faked.",
       "file": "incidents/INC-0269-drop-a-rehearsal-step-that-needs-a-missing-input-channel.md",
       "related": [
-        "INC-0252"
+        "INC-0268"
       ],
       "evidence": []
     },
@@ -5031,7 +5032,7 @@
       "signature": "A run stopped early under load and its remaining time looked like spare budget.",
       "file": "incidents/INC-0271-a-load-induced-harness-red-is-not-headroom.md",
       "related": [
-        "INC-0252"
+        "INC-0236"
       ],
       "evidence": []
     },
@@ -5085,7 +5086,7 @@
       "signature": "An evidence line recorded a time that was not read from a clock.",
       "file": "incidents/INC-0274-write-times-from-a-command-output-not-from-memory.md",
       "related": [
-        "INC-0252"
+        "INC-0259"
       ],
       "evidence": []
     },
@@ -5139,7 +5140,7 @@
       "signature": "Several authors were idle while one open part of a design addendum was pending.",
       "file": "incidents/INC-0277-sign-the-stable-re-checked-part-of-a-design-addendum-instead.md",
       "related": [
-        "INC-0237"
+        "INC-0242"
       ],
       "evidence": []
     },
@@ -5148,8 +5149,7 @@
       "title": "Brace a shell variable that is followed by a colon",
       "date": "2026-11-01",
       "classes": [
-        "tooling-paths",
-        "ipc-and-env"
+        "tooling-paths"
       ],
       "severity": "medium",
       "status": "fixed",
@@ -5157,6 +5157,7 @@
       "signature": "A shell variable followed by a colon was read as a modifier.",
       "file": "incidents/INC-0278-brace-a-shell-variable-that-is-followed-by-a-colon.md",
       "related": [
+        "INC-0165",
         "INC-0207"
       ],
       "evidence": []

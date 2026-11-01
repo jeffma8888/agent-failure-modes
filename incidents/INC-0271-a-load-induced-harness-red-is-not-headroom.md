@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md)
+[INC-0236](./INC-0236-a-blocked-result-came-from-a-deadline-before-the-plant-ran.md)

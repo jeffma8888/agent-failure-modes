@@ -17,11 +17,11 @@ A not-found page was rendered with a 200 status.
 
 ## What happened
 
-a page-level notFound call after the admin shell had streamed could not change the HTTP status, and the attempted early call still answered 200 for an unknown admin path
+a page-level notFound call after the application shell had streamed could not change the HTTP status, and the attempted early call still answered 200 for an unknown path
 
 ## Root cause
 
-a page-level notFound call after the admin shell had streamed could not change the HTTP status, and the attempted early call still answered 200 for an unknown admin path
+a page-level notFound call after the application shell had streamed could not change the HTTP status, and the attempted early call still answered 200 for an unknown path
 
 ## Why it was hard to see
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md)
+[INC-0244](./INC-0244-a-correct-not-found-page-was-served-with-a-200-status.md) [INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md)

@@ -17,11 +17,11 @@ A rehearsal planned inside a canary could have destroyed the canary evidence.
 
 ## What happened
 
-a canary that also hosts a mid-stage STOP rehearsal can destroy the evidence it was meant to produce (G7, R-EB)
+a canary that also hosts a mid-stage STOP rehearsal can destroy the evidence it was meant to produce
 
 ## Root cause
 
-a canary that also hosts a mid-stage STOP rehearsal can destroy the evidence it was meant to produce (G7, R-EB)
+a canary that also hosts a mid-stage STOP rehearsal can destroy the evidence it was meant to produce
 
 ## Why it was hard to see
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0258](./INC-0258-a-failed-closing-run-could-leave-a-signed-record-public.md)
+[INC-0266](./INC-0266-a-planned-round-with-stop-in-place-proves-nothing.md)

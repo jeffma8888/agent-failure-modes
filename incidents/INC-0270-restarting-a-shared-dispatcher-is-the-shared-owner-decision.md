@@ -17,11 +17,11 @@ A team lead could have restarted a shared dispatcher that affects all teams.
 
 ## What happened
 
-restarting a shared dispatcher loads new engine code for every team, so it is the shared owner decision, not a team lead (G2, R-DY)
+restarting a shared dispatcher loads new engine code for every team, so it is the shared owner decision, not a team lead
 
 ## Root cause
 
-restarting a shared dispatcher loads new engine code for every team, so it is the shared owner decision, not a team lead (G2, R-DY)
+restarting a shared dispatcher loads new engine code for every team, so it is the shared owner decision, not a team lead
 
 ## Why it was hard to see
 

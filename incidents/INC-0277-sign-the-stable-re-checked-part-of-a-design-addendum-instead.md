@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0237](./INC-0237-a-team-runtime-cap-blocked-new-teammates-behind-retained-idl.md)
+[INC-0242](./INC-0242-four-of-five-test-authors-stopped-at-the-same-undeclared-sea.md)

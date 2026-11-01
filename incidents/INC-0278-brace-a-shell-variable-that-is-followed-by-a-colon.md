@@ -2,7 +2,7 @@
 id: INC-0278
 title: Brace a shell variable that is followed by a colon
 date: 2026-11-01
-classes: [tooling-paths, ipc-and-env]
+classes: [tooling-paths]
 severity: medium
 status: fixed
 ---
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0207](./INC-0207-three-sends-failed-because-a-packed-string-went-out-as-one-a.md)
+[INC-0165](./INC-0165-a-shell-variable-followed-by-a-colon-and-a-letter-became-a-h.md) [INC-0207](./INC-0207-three-sends-failed-because-a-packed-string-went-out-as-one-a.md)
