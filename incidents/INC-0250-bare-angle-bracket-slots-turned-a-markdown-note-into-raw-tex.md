@@ -29,11 +29,11 @@ The file is valid Markdown by every structural measure and the reading view hide
 
 ## Fix
 
-Escape or backtick every slot, fence pasted code, and use backticks rather than a backslash after a bare URL. A stdlib checker models the editor's block rules, its HTML-start rule, its HTML-mode exit (only when every opened element closes, or at the next pipe inside a recognized table) and its bare-URL rule. An independent audit found the first version wrong in four ways: it flagged slots inside indented code and math, missed a nested element left open, and rejected a close tag written in code that the editor still reads. It was rebuilt as a line-by-line state machine and gated into the doc verifiers with seeded tests. The same bug was fixed in 20 more notes, including the two templates.
+Escape or backtick every slot, fence pasted code, and use backticks rather than a backslash after a bare URL. A stdlib checker models the editor's block rules, its HTML-start rule, its HTML-mode exit (only when a close tag pops its last open element, whatever the tag name, or at the next pipe inside a recognized table) and its bare-URL rule. An independent audit found the first version wrong in four ways: it flagged slots inside indented code and math, missed a nested element left open, and rejected a close tag written in code that the editor still reads. It was rebuilt as a line-by-line state machine and gated into the doc verifiers with seeded tests. The same bug was fixed in 20 more notes, including the two templates.
 
 ## Verification
 
-Checked: the tokenizer was re-run on the fixed notes; the rebuilt checker matched the real tokenizer's HTML-mode verdict on every line of 1,270 test documents (170 hand-written, 1,100 generated), and seeded tests fail on planted slots. The first version had agreed with the tokenizer on 1,428 real notes and still missed all four defects, because real notes rarely hold the edge cases. Not checked: whether the rule prevents recurrence.
+Checked: the tokenizer was re-run on the fixed notes; the rebuilt checker matches the real tokenizer's HTML-mode verdict on every line of 3,540 test documents (240 hand-written, 3,300 generated), and seeded tests fail on planted slots. A second audit round had found three more misses and one disagreeing document that the agent had reported as passing, because it read a filtered tool output as the full result; the last held-out set of 800 generated documents, scored before any fix, disagreed on 2. The first version had agreed with the tokenizer on 1,428 real notes and still missed all four defects, because real notes rarely hold the edge cases. Not checked: whether the rule prevents recurrence.
 
 ## Transferable rule
 
