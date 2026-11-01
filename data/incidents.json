@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 249,
+  "count": 250,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -4635,6 +4635,25 @@
       "file": "incidents/INC-0249-a-cd-to-a-path-in-a-variable-was-refused-by-the-sandbox.md",
       "related": [
         "INC-0212"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0250",
+      "title": "Bare angle-bracket slots turned a Markdown note into raw text after structural checks passed",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "detector-fail-open"
+      ],
+      "severity": "high",
+      "status": "fixed",
+      "rule": "Verify Markdown by the target renderer's own parse, not by structural lint; never leave a bare <slot> outside code.",
+      "signature": "The note passed every structural check and still showed raw text after the first slot.",
+      "file": "incidents/INC-0250-bare-angle-bracket-slots-turned-a-markdown-note-into-raw-tex.md",
+      "related": [
+        "INC-0070",
+        "INC-0241"
       ],
       "evidence": []
     }
