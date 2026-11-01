@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 278,
+  "count": 283,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5159,6 +5159,96 @@
       "related": [
         "INC-0165",
         "INC-0207"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0279",
+      "title": "Replacing an active test file moves the replacement, its supersession record and the registry line in one commit",
+      "date": "2026-11-01",
+      "classes": [
+        "identity-and-keying",
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Move a replacement, its supersession record and its registry line together in one commit when the old file is already active",
+      "signature": "A supersession record was refused in both path forms because the replacement had not moved yet.",
+      "file": "incidents/INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md",
+      "related": [
+        "INC-0161"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0280",
+      "title": "Never chain a write after a diagnostic",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Never chain a write after a diagnostic with &&; assert the written file exists before trusting later checks",
+      "signature": "A write skipped by a failed diagnostic left every later check green.",
+      "file": "incidents/INC-0280-never-chain-a-write-after-a-diagnostic.md",
+      "related": [
+        "INC-0162"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0281",
+      "title": "Confirm the landing commit contains every file before cleaning the source",
+      "date": "2026-11-01",
+      "classes": [
+        "vcs-destruction",
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Confirm the landing commit contains every file before cleaning the source",
+      "signature": "A source was cleaned against a failed commit and its change was reverted.",
+      "file": "incidents/INC-0281-confirm-the-landing-commit-contains-every-file-before-cleani.md",
+      "related": [
+        "INC-0254"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0282",
+      "title": "A test that claims a role must prove the role before relying on it",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Prove the claimed role with a positive identity marker before any check relies on it",
+      "signature": "A committed test claimed a staff role while running as a guest.",
+      "file": "incidents/INC-0282-a-test-that-claims-a-role-must-prove-the-role-before-relying.md",
+      "related": [
+        "INC-0275"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0283",
+      "title": "A hold gate is proven only while eligible work exists",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Prove a hold gate only with eligible work present; an empty queue proves nothing",
+      "signature": "A hold looked proven when the queue had nothing to select.",
+      "file": "incidents/INC-0283-a-hold-gate-is-proven-only-while-eligible-work-exists.md",
+      "related": [
+        "INC-0266"
       ],
       "evidence": []
     }

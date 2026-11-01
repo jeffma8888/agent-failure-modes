@@ -267,6 +267,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0276 / medium]** Reuse the framework path matcher instead of a hand matcher, or test every syntax form it supports
 - **[INC-0277 / medium]** Unblock parallel work by signing the stable re-checked part of a document and naming what stays held
 - **[INC-0278 / medium]** Always brace a shell variable that is followed by a colon
+- **[INC-0279 / medium]** Move a replacement, its supersession record and its registry line together in one commit when the old file is already active
+- **[INC-0280 / medium]** Never chain a write after a diagnostic with &&; assert the written file exists before trusting later checks
+- **[INC-0281 / medium]** Confirm the landing commit contains every file before cleaning the source
+- **[INC-0282 / medium]** Prove the claimed role with a positive identity marker before any check relies on it
+- **[INC-0283 / medium]** Prove a hold gate only with eligible work present; an empty queue proves nothing
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
