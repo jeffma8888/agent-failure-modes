@@ -252,6 +252,13 @@ One rule per incident, ordered by severity then id.
 - **[INC-0261 / medium]** Land a root revision first and add its supersession file after the non-author re-check
 - **[INC-0262 / medium]** Keep local evidence paths out of committed review text
 - **[INC-0263 / medium]** Refresh the team roster at each phase change so thread IDs and models stay findable
+- **[INC-0264 / medium]** Run a repo checker from a tree that contains it, or fast-forward the tree first
+- **[INC-0265 / medium]** Treat a rendered not-found view as no proof of 404; check the HTTP status once streaming has committed the shell
+- **[INC-0266 / medium]** Never count a round as proof while a silent skip gate is in place; verify it actually ran
+- **[INC-0267 / medium]** Do not assume a read-named check is read only; read its loader
+- **[INC-0268 / medium]** Do not host a destructive rehearsal inside the run that produces the evidence
+- **[INC-0269 / medium]** Drop a step that needs a missing channel rather than faking it
+- **[INC-0270 / medium]** Leave a shared service restart to its shared owner
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 263,
+  "count": 270,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -4886,6 +4886,132 @@
       "rule": "Refresh the team roster at each phase change so thread IDs and models stay findable",
       "signature": "A team roster went stale for ten rounds.",
       "file": "incidents/INC-0263-refresh-the-team-roster-at-each-phase-change.md",
+      "related": [
+        "INC-0237"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0264",
+      "title": "Run repo checkers from a tree that contains them",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "stale-module"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run a repo checker from a tree that contains it, or fast-forward the tree first",
+      "signature": "A checker failed because the tree it ran in lacked its modules.",
+      "file": "incidents/INC-0264-run-repo-checkers-from-a-tree-that-contains-them.md",
+      "related": [
+        "INC-0150"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0265",
+      "title": "A rendered not-found view is not proof of a 404 status",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Treat a rendered not-found view as no proof of 404; check the HTTP status once streaming has committed the shell",
+      "signature": "A not-found page was rendered with a 200 status.",
+      "file": "incidents/INC-0265-a-rendered-not-found-view-is-not-proof-of-a-404-status.md",
+      "related": [
+        "INC-0252"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0266",
+      "title": "A planned round with STOP in place proves nothing",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Never count a round as proof while a silent skip gate is in place; verify it actually ran",
+      "signature": "A planned round would have been skipped silently by a stop gate.",
+      "file": "incidents/INC-0266-a-planned-round-with-stop-in-place-proves-nothing.md",
+      "related": [
+        "INC-0149"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0267",
+      "title": "A check named lint can write",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Do not assume a read-named check is read only; read its loader",
+      "signature": "A check named as read only could create directories.",
+      "file": "incidents/INC-0267-a-check-named-lint-can-write.md",
+      "related": [
+        "INC-0238"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0268",
+      "title": "Keep a canary and a mid-stage STOP rehearsal in separate windows",
+      "date": "2026-11-01",
+      "classes": [
+        "checkpoint",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Do not host a destructive rehearsal inside the run that produces the evidence",
+      "signature": "A rehearsal planned inside a canary could have destroyed the canary evidence.",
+      "file": "incidents/INC-0268-keep-a-canary-and-a-mid-stage-stop-rehearsal-in-separate-win.md",
+      "related": [
+        "INC-0258"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0269",
+      "title": "Drop a rehearsal step that needs a missing input channel",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Drop a step that needs a missing channel rather than faking it",
+      "signature": "A rehearsal step could only pass if its input was faked.",
+      "file": "incidents/INC-0269-drop-a-rehearsal-step-that-needs-a-missing-input-channel.md",
+      "related": [
+        "INC-0252"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0270",
+      "title": "Restarting a shared dispatcher is the shared owner decision",
+      "date": "2026-11-01",
+      "classes": [
+        "delegation",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Leave a shared service restart to its shared owner",
+      "signature": "A team lead could have restarted a shared dispatcher that affects all teams.",
+      "file": "incidents/INC-0270-restarting-a-shared-dispatcher-is-the-shared-owner-decision.md",
       "related": [
         "INC-0237"
       ],
