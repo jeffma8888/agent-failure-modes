@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 274,
+  "count": 278,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5086,6 +5086,78 @@
       "file": "incidents/INC-0274-write-times-from-a-command-output-not-from-memory.md",
       "related": [
         "INC-0252"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0275",
+      "title": "A probe that sends a session cookie alone may test guest behavior",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Send every header an authenticated request needs, and run a control that proves the identity the probe claims",
+      "signature": "A probe that sent only a session cookie silently tested guest behavior.",
+      "file": "incidents/INC-0275-a-probe-that-sends-a-session-cookie-alone-may-test-guest-beh.md",
+      "related": [
+        "INC-0273"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0276",
+      "title": "Do not hand-match paths a framework matches with a richer syntax",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Reuse the framework path matcher instead of a hand matcher, or test every syntax form it supports",
+      "signature": "A hand matcher understood fewer path forms than the framework it mirrored.",
+      "file": "incidents/INC-0276-do-not-hand-match-paths-a-framework-matches-with-a-richer-sy.md",
+      "related": [
+        "INC-0272"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0277",
+      "title": "Sign the stable re-checked part of a design addendum instead of waiting",
+      "date": "2026-11-01",
+      "classes": [
+        "delegation",
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Unblock parallel work by signing the stable re-checked part of a document and naming what stays held",
+      "signature": "Several authors were idle while one open part of a design addendum was pending.",
+      "file": "incidents/INC-0277-sign-the-stable-re-checked-part-of-a-design-addendum-instead.md",
+      "related": [
+        "INC-0237"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0278",
+      "title": "Brace a shell variable that is followed by a colon",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Always brace a shell variable that is followed by a colon",
+      "signature": "A shell variable followed by a colon was read as a modifier.",
+      "file": "incidents/INC-0278-brace-a-shell-variable-that-is-followed-by-a-colon.md",
+      "related": [
+        "INC-0207"
       ],
       "evidence": []
     }
