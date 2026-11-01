@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 270,
+  "count": 274,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5014,6 +5014,78 @@
       "file": "incidents/INC-0270-restarting-a-shared-dispatcher-is-the-shared-owner-decision.md",
       "related": [
         "INC-0237"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0271",
+      "title": "A load-induced harness red is not headroom",
+      "date": "2026-11-01",
+      "classes": [
+        "stage-timeout",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Do not count the arithmetic distance to a budget as headroom when later stages never ran",
+      "signature": "A run stopped early under load and its remaining time looked like spare budget.",
+      "file": "incidents/INC-0271-a-load-induced-harness-red-is-not-headroom.md",
+      "related": [
+        "INC-0252"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0272",
+      "title": "Not-found under a streaming root layout answers 200 whatever the call site",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a root layout streams its shell, set the status before it, not from the rendered view",
+      "signature": "Every call site for a not-found error still returned 200.",
+      "file": "incidents/INC-0272-not-found-under-a-streaming-root-layout-answers-200-whatever.md",
+      "related": [
+        "INC-0265"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0273",
+      "title": "A status check must take every client reading",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Take every client reading of a status before calling it fixed",
+      "signature": "One client reading of a status disagreed with the others.",
+      "file": "incidents/INC-0273-a-status-check-must-take-every-client-reading.md",
+      "related": [
+        "INC-0265"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0274",
+      "title": "Write times from a command output, not from memory",
+      "date": "2026-11-01",
+      "classes": [
+        "observability",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Write a recorded time from a command output, never from memory",
+      "signature": "An evidence line recorded a time that was not read from a clock.",
+      "file": "incidents/INC-0274-write-times-from-a-command-output-not-from-memory.md",
+      "related": [
+        "INC-0252"
       ],
       "evidence": []
     }
