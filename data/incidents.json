@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 250,
+  "count": 258,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -4654,6 +4654,150 @@
       "related": [
         "INC-0070",
         "INC-0241"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0251",
+      "title": "A QA file was placed where neither the identity checker nor the project would take it",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Every QA brief states the allowed destination prefixes and file suffix",
+      "signature": "The file was never collected.",
+      "file": "incidents/INC-0251-a-qa-file-was-placed-where-neither-the-identity-checker-nor.md",
+      "related": [
+        "INC-0243"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0252",
+      "title": "A word grep reported a failure in a passing log",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Count failures from runner summary lines, never from a word match",
+      "signature": "A test title contained the word.",
+      "file": "incidents/INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md",
+      "related": [
+        "INC-0182"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0253",
+      "title": "Two of four selected projects executed no case",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Record executed cases per project; a selected project is not coverage",
+      "signature": "The selection looked like coverage.",
+      "file": "incidents/INC-0253-two-of-four-selected-projects-executed-no-case.md",
+      "related": [
+        "INC-0222"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0254",
+      "title": "Raw evidence was deleted with the scratch area",
+      "date": "2026-11-01",
+      "classes": [
+        "observability",
+        "vcs-destruction"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Copy raw evidence and logs out of a scratch area before the cleanup runs",
+      "signature": "Only extracted tables survived.",
+      "file": "incidents/INC-0254-raw-evidence-was-deleted-with-the-scratch-area.md",
+      "related": [
+        "INC-0239"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0255",
+      "title": "One batch finding hid 45 files with the same dependency",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a finding names a mechanism, sweep the suite for it before fixing one batch, and resolve a design conflict at its source",
+      "signature": "The defect was a conflict between two documents, not a batch fault.",
+      "file": "incidents/INC-0255-one-batch-finding-hid-45-files-with-the-same-dependency.md",
+      "related": [
+        "INC-0225"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0256",
+      "title": "Evidence commands ran on a shimmed runtime instead of the pinned one",
+      "date": "2026-11-01",
+      "classes": [
+        "ipc-and-env",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run evidence commands with the pinned binary by absolute path and print its version in the log",
+      "signature": "The version reported was not the pinned one.",
+      "file": "incidents/INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md",
+      "related": [
+        "INC-0180"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0257",
+      "title": "Moving the home directory broke a launch that found its cache through it",
+      "date": "2026-11-01",
+      "classes": [
+        "ipc-and-env",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Name every home-resolved cache explicitly when moving HOME for isolation",
+      "signature": "The cache location was implicit.",
+      "file": "incidents/INC-0257-moving-the-home-directory-broke-a-launch-that-found-its-cach.md",
+      "related": [
+        "INC-0188"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0258",
+      "title": "A failed closing run could leave a signed record public",
+      "date": "2026-11-01",
+      "classes": [
+        "checkpoint",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Run the exact-closing checks on a local closing record before merging and uploading it",
+      "signature": "Publishing came before the closing check.",
+      "file": "incidents/INC-0258-a-failed-closing-run-could-leave-a-signed-record-public.md",
+      "related": [
+        "INC-0149"
       ],
       "evidence": []
     }

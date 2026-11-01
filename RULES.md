@@ -239,6 +239,14 @@ One rule per incident, ordered by severity then id.
 - **[INC-0247 / medium]** Do not use ancestry as evidence of a clean tree, a checker run or bracketing observations
 - **[INC-0248 / medium]** Run checkers through bash -c when the env script is not zsh-compatible
 - **[INC-0249 / medium]** Use literal paths for cd in a sandbox
+- **[INC-0251 / medium]** Every QA brief states the allowed destination prefixes and file suffix
+- **[INC-0252 / medium]** Count failures from runner summary lines, never from a word match
+- **[INC-0253 / medium]** Record executed cases per project; a selected project is not coverage
+- **[INC-0254 / medium]** Copy raw evidence and logs out of a scratch area before the cleanup runs
+- **[INC-0255 / medium]** When a finding names a mechanism, sweep the suite for it before fixing one batch, and resolve a design conflict at its source
+- **[INC-0256 / medium]** Run evidence commands with the pinned binary by absolute path and print its version in the log
+- **[INC-0257 / medium]** Name every home-resolved cache explicitly when moving HOME for isolation
+- **[INC-0258 / medium]** Run the exact-closing checks on a local closing record before merging and uploading it
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
