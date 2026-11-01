@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0253](./INC-0253-two-of-four-selected-projects-executed-no-case.md)
+[INC-0254](./INC-0254-raw-evidence-was-deleted-with-the-scratch-area.md) [INC-0292](./INC-0292-a-snapshot-recorder-that-finished-was-taken-as-proof-it-had.md)

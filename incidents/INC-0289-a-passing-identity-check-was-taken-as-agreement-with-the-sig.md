@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0157](./INC-0157-a-split-ownership-root-could-not-activate-because-identity-h.md)
+[INC-0157](./INC-0157-a-split-ownership-root-could-not-activate-because-identity-h.md) [INC-0279](./INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md)

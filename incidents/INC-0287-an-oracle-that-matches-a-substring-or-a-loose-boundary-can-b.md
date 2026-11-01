@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0176](./INC-0176-a-shape-regex-was-used-as-ownership-evidence-for-a-sweep.md)
+[INC-0176](./INC-0176-a-shape-regex-was-used-as-ownership-evidence-for-a-sweep.md) [INC-0236](./INC-0236-a-blocked-result-came-from-a-deadline-before-the-plant-ran.md)

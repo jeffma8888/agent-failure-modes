@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 298,
+  "count": 299,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5050,7 +5050,8 @@
       "signature": "Every call site for a not-found error still returned 200.",
       "file": "incidents/INC-0272-not-found-under-a-streaming-root-layout-answers-200-whatever.md",
       "related": [
-        "INC-0265"
+        "INC-0265",
+        "INC-0273"
       ],
       "evidence": []
     },
@@ -5068,7 +5069,8 @@
       "signature": "One client reading of a status disagreed with the others.",
       "file": "incidents/INC-0273-a-status-check-must-take-every-client-reading.md",
       "related": [
-        "INC-0265"
+        "INC-0265",
+        "INC-0272"
       ],
       "evidence": []
     },
@@ -5248,7 +5250,8 @@
       "signature": "A hold looked proven when the queue had nothing to select.",
       "file": "incidents/INC-0283-a-hold-gate-is-proven-only-while-eligible-work-exists.md",
       "related": [
-        "INC-0266"
+        "INC-0266",
+        "INC-0239"
       ],
       "evidence": []
     },
@@ -5266,7 +5269,8 @@
       "signature": "A gate passed at a revision that did not yet hold the fix it depended on.",
       "file": "incidents/INC-0284-a-gate-result-counts-only-at-a-revision-the-gate-can-fetch-a.md",
       "related": [
-        "INC-0145"
+        "INC-0145",
+        "INC-0271"
       ],
       "evidence": []
     },
@@ -5320,7 +5324,8 @@
       "signature": "An assertion passed on a decoy that merely contained the expected text.",
       "file": "incidents/INC-0287-an-oracle-that-matches-a-substring-or-a-loose-boundary-can-b.md",
       "related": [
-        "INC-0176"
+        "INC-0176",
+        "INC-0236"
       ],
       "evidence": []
     },
@@ -5356,7 +5361,8 @@
       "signature": "A file resolved to the wrong owner while its identity check passed.",
       "file": "incidents/INC-0289-a-passing-identity-check-was-taken-as-agreement-with-the-sig.md",
       "related": [
-        "INC-0157"
+        "INC-0157",
+        "INC-0279"
       ],
       "evidence": []
     },
@@ -5374,7 +5380,8 @@
       "signature": "A hook timeout was chosen without measuring the hook itself.",
       "file": "incidents/INC-0290-a-setup-hook-was-sized-from-file-time-or-from-a-refused-atte.md",
       "related": [
-        "INC-0195"
+        "INC-0195",
+        "INC-0231"
       ],
       "evidence": []
     },
@@ -5392,7 +5399,8 @@
       "signature": "A branch gate failed only on a known unrelated timeout under heavy load.",
       "file": "incidents/INC-0291-a-known-unrelated-load-timeout-blocked-a-row-until-one-combi.md",
       "related": [
-        "INC-0218"
+        "INC-0218",
+        "INC-0271"
       ],
       "evidence": []
     },
@@ -5428,7 +5436,8 @@
       "signature": "A later snapshot could not recreate the state from before an operator edit.",
       "file": "incidents/INC-0293-the-before-state-was-not-preserved-before-an-operator-edit.md",
       "related": [
-        "INC-0253"
+        "INC-0254",
+        "INC-0292"
       ],
       "evidence": []
     },
@@ -5518,6 +5527,27 @@
       "signature": "Defects unrelated to the product were found only after the build started.",
       "file": "incidents/INC-0298-harness-and-ownership-defects-were-left-for-the-build-agent.md",
       "related": [
+        "INC-0289",
+        "INC-0297",
+        "INC-0286"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0299",
+      "title": "A row-only overlay left out the helpers of a dependency row, so consumers looked blocked",
+      "date": "2026-11-01",
+      "classes": [
+        "test-isolation",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Confirm the helpers owned by dependency rows are active in the base before judging a consumer blocked or red",
+      "signature": "Consumer files failed to import helpers that a declared dependency owns.",
+      "file": "incidents/INC-0299-a-row-only-overlay-left-out-the-helpers-of-a-dependency-row.md",
+      "related": [
+        "INC-0297",
         "INC-0100"
       ],
       "evidence": []

@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0218](./INC-0218-two-loaded-host-reds-shared-one-cause-and-were-at-risk-of-a.md)
+[INC-0218](./INC-0218-two-loaded-host-reds-shared-one-cause-and-were-at-risk-of-a.md) [INC-0271](./INC-0271-a-load-induced-harness-red-is-not-headroom.md)

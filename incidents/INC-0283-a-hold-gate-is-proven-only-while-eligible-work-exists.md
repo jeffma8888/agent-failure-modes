@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0266](./INC-0266-a-planned-round-with-stop-in-place-proves-nothing.md)
+[INC-0266](./INC-0266-a-planned-round-with-stop-in-place-proves-nothing.md) [INC-0239](./INC-0239-a-hold-outcome-had-no-proof-that-nothing-changed.md)

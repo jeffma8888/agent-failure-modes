@@ -4869,7 +4869,7 @@ _BATCH20: list[dict] = [
         "fix": 'Decide the status in a proxy before the shell streams',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'When a root layout streams its shell, set the status before it, not from the rendered view',
-        "related": ['INC-0265'],
+        "related": ['INC-0265', 'INC-0273'],
     },
     {
         "id": "INC-0273",
@@ -4886,7 +4886,7 @@ _BATCH20: list[dict] = [
         "fix": 'Check the status with every client reading and do not accept a fix on one',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Take every client reading of a status before calling it fixed',
-        "related": ['INC-0265'],
+        "related": ['INC-0265', 'INC-0272'],
     },
     {
         "id": "INC-0274",
@@ -5056,7 +5056,7 @@ _BATCH20: list[dict] = [
         "fix": 'Keep eligible rows in place and confirm that none was selected',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Prove a hold gate only with eligible work present; an empty queue proves nothing',
-        "related": ['INC-0266'],
+        "related": ['INC-0266', 'INC-0239'],
     },
     {
         "id": "INC-0284",
@@ -5073,7 +5073,7 @@ _BATCH20: list[dict] = [
         "fix": 'Run the gate at a published revision that contains the dependent fix, and record the revision and the time margin',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": "A gate run counts only at a revision the gate's clone can fetch and that already contains the fix the gate depends on",
-        "related": ['INC-0145'],
+        "related": ['INC-0145', 'INC-0271'],
     },
     {
         "id": "INC-0285",
@@ -5124,7 +5124,7 @@ _BATCH20: list[dict] = [
         "fix": 'Anchor on the exact boundary, observe the exact element or attribute that carries the claim, and add negative controls that must make the assertion fail',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Prove a claim on the exact element or attribute, and show the oracle rejects a decoy',
-        "related": ['INC-0176'],
+        "related": ['INC-0176', 'INC-0236'],
     },
     {
         "id": "INC-0288",
@@ -5158,7 +5158,7 @@ _BATCH20: list[dict] = [
         "fix": 'Add the registry line and compare the resolved owner with the plan for every replacement',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Identity validity is not plan agreement; compare the resolved owner with the signed plan',
-        "related": ['INC-0157'],
+        "related": ['INC-0157', 'INC-0279'],
     },
     {
         "id": "INC-0290",
@@ -5175,7 +5175,7 @@ _BATCH20: list[dict] = [
         "fix": 'Time the hook with an observation-only instrument outside the candidate, cross-check against runner totals, disclose the instrument, and size from recorded evidence when the author cannot run the file',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Measure the hook itself, count only runs that executed, and mark owed measurements as owed',
-        "related": ['INC-0195'],
+        "related": ['INC-0195', 'INC-0231'],
     },
     {
         "id": "INC-0291",
@@ -5192,7 +5192,7 @@ _BATCH20: list[dict] = [
         "fix": 'Merge both rows locally, run one gate on the combined result, name the unrelated failure, and give it its own robustness row',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'When the only failure is a known unrelated load timeout with a fix in flight, one passing run on the combined merge accepts both rows',
-        "related": ['INC-0218'],
+        "related": ['INC-0218', 'INC-0271'],
     },
     {
         "id": "INC-0292",
@@ -5226,7 +5226,7 @@ _BATCH20: list[dict] = [
         "fix": 'Copy the before-state bytes outside the repository before the edit and compare complete old entries afterwards',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Preserve before-state bytes before an operator edit; a later snapshot cannot recreate them',
-        "related": ['INC-0253'],
+        "related": ['INC-0254', 'INC-0292'],
     },
     {
         "id": "INC-0294",
@@ -5311,7 +5311,24 @@ _BATCH20: list[dict] = [
         "fix": 'Run each pending file once against the unmodified snapshot and classify the first failure as product or harness',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Run a red check before the build agent starts and classify each first failure',
-        "related": ['INC-0100'],
+        "related": ['INC-0289', 'INC-0297', 'INC-0286'],
+    },
+    {
+        "id": "INC-0299",
+        "title": 'A row-only overlay left out the helpers of a dependency row, so consumers looked blocked',
+        "date": "2026-11-01",
+        "classes": ['test-isolation', 'spec-and-scope'],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "Minor: caught before it shipped.",
+        "signature": 'Consumer files failed to import helpers that a declared dependency owns.',
+        "what": 'a red check overlaid only the assigned rows, so two consumer files could not import helpers owned by a declared dependency row that was not yet active in the base; the files looked blocked though the dependency was declared',
+        "root_cause": 'a red check overlaid only the assigned rows, so two consumer files could not import helpers owned by a declared dependency row that was not yet active in the base; the files looked blocked though the dependency was declared',
+        "why_hard": 'The import error reads like a defect in the consumer or an undeclared dependency.',
+        "fix": 'Activate the dependency row helpers first, preserving digests and lineage, then rerun the consumers; do not copy older helpers, edit imports or add stubs',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'Confirm the helpers owned by dependency rows are active in the base before judging a consumer blocked or red',
+        "related": ['INC-0297', 'INC-0100'],
     },
 ]
 

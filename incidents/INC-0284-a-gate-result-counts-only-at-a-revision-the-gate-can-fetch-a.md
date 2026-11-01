@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0145](./INC-0145-a-readiness-check-measured-the-lead-checkout-while-preship-m.md)
+[INC-0145](./INC-0145-a-readiness-check-measured-the-lead-checkout-while-preship-m.md) [INC-0271](./INC-0271-a-load-induced-harness-red-is-not-headroom.md)
