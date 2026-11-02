@@ -390,6 +390,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0381 / low]** Record a marker-time file list as well as the whole-tree digest, so a change can be attributed to a file
 - **[INC-0382 / low]** Compare a walk with a known gap against a named baseline result; an exit code that is always failing cannot gate
 - **[INC-0383 / low]** Read the clock first, then write the time, in that order within the step
+- **[INC-0384 / low]** A failure that repeats after a written rule needs a mechanism: generate the time from the clock, never type it
+- **[INC-0385 / low]** When a STOP cause is unknown, ask for two independent static answers before routing the fix
+- **[INC-0386 / low]** A path-identity guard compares real paths, never strings
+- **[INC-0387 / low]** Pin an error name, never message text, as the oracle
 
 ## Practices
 

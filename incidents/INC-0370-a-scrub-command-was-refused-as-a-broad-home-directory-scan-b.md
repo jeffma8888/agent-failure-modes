@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0200](./INC-0200-a-sandbox-permission-failure-was-at-risk-of-reading-as-a-cod.md) [INC-0249](./INC-0249-a-cd-to-a-path-in-a-variable-was-refused-by-the-sandbox.md) [INC-0119](./INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md)
+[INC-0200](./INC-0200-a-sandbox-permission-failure-was-at-risk-of-reading-as-a-cod.md) [INC-0249](./INC-0249-a-cd-to-a-path-in-a-variable-was-refused-by-the-sandbox.md) [INC-0119](./INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md) [INC-0386](./INC-0386-a-path-identity-guard-compared-strings-while-a-temp-director.md)
