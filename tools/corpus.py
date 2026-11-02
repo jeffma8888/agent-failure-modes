@@ -2556,7 +2556,7 @@ _BATCH20: list[dict] = [
         "fix": 'Use one harness cluster per runtime agent.',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Give each agent its own cluster.',
-        "related": ['INC-0097', 'INC-0367'],
+        "related": ['INC-0097', 'INC-0367', 'INC-0471'],
     },
     {
         "id": "INC-0137",
@@ -5430,7 +5430,7 @@ _BATCH20: list[dict] = [
         "fix": 'Remove a temp directory, registration or process only when its exact name or identifier is recorded in your own run output; leave anything stale and unrecorded in place and report it',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'A process your sandbox cannot see is not a dead process; ownership comes from your own run record, not from visibility or timing',
-        "related": ['INC-0066', 'INC-0306', 'INC-0307', 'INC-0313', 'INC-0324'],
+        "related": ['INC-0066', 'INC-0306', 'INC-0307', 'INC-0313', 'INC-0324', 'INC-0471'],
     },
     {
         "id": "INC-0306",
@@ -6926,7 +6926,7 @@ _BATCH20: list[dict] = [
         "fix": "Gate at the point of launch, immediately before it; do not accept another party's earlier reading",
         "verification": "Checked by the lead. Not checked: whether the new rule prevents recurrence.",
         "rule": "Gate on load where you launch, immediately before; an earlier or second-hand reading is stale",
-        "related": ['INC-0219', 'INC-0271', 'INC-0406', 'INC-0417', 'INC-0435', 'INC-0450', 'INC-0465'],
+        "related": ['INC-0219', 'INC-0271', 'INC-0406', 'INC-0417', 'INC-0435', 'INC-0450', 'INC-0465', 'INC-0471'],
     },
     {
         "id": "INC-0394",
@@ -8236,6 +8236,23 @@ _BATCH20: list[dict] = [
         "verification": "Checked by the lead. Not checked: whether the new rule prevents recurrence.",
         "rule": "State a count delta with its base commit, and attribute it to a row only after a per file check",
         "related": ['INC-0174', 'INC-0231', 'INC-0234'],
+    },
+    {
+        "id": "INC-0471",
+        "title": "Drafts proposed test database ports by reading tracked text, and two clashed with each other and two with live listeners",
+        "date": "2026-11-02",
+        "classes": ['concurrency'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "None: found before any cluster was created.",
+        "signature": "Proposed numbers collided with each other and with live listeners.",
+        "what": "several drafts proposed test database ports by reading tracked text only; two drafts chose the same number and two chose ports that a live server was already listening on; the lead read only listener listing found it, voided every proposal and allocated the numbers centrally, each a placeholder until a read only probe at that row start shows no listener",
+        "root_cause": "free numbers were chosen by searching text, which says nothing about what is listening now",
+        "why_hard": "Each draft looked correct on its own, and only a view of the live system shows the clash.",
+        "fix": "allocate shared numbered resources centrally, and probe the live system read only at the time of use; if occupied, stop and report, and the lead picks the next free number",
+        "verification": "Checked by the lead. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Allocate shared numbered resources centrally and probe the live system at use time; a text search for free numbers is not a probe",
+        "related": ['INC-0136', 'INC-0305', 'INC-0393'],
     },
 ]
 

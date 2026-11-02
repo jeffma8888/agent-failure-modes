@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0066](./INC-0066-a-worker-s-end-of-run-cleanup-deleted-a-shared-scratch-direc.md) [INC-0306](./INC-0306-a-conditional-diagnosis-was-closed-from-the-actor-s-account.md) [INC-0307](./INC-0307-a-measurement-wrapper-inherited-the-environment-the-tests-re.md) [INC-0313](./INC-0313-tests-in-a-parallel-group-raced-a-test-that-drops-the-shared.md) [INC-0324](./INC-0324-a-periodic-status-sweep-took-the-index-lock-of-a-teammate-s.md)
+[INC-0066](./INC-0066-a-worker-s-end-of-run-cleanup-deleted-a-shared-scratch-direc.md) [INC-0306](./INC-0306-a-conditional-diagnosis-was-closed-from-the-actor-s-account.md) [INC-0307](./INC-0307-a-measurement-wrapper-inherited-the-environment-the-tests-re.md) [INC-0313](./INC-0313-tests-in-a-parallel-group-raced-a-test-that-drops-the-shared.md) [INC-0324](./INC-0324-a-periodic-status-sweep-took-the-index-lock-of-a-teammate-s.md) [INC-0471](./INC-0471-drafts-proposed-test-database-ports-by-reading-tracked-text.md)

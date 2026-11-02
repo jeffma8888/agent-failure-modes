@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 470,
+  "count": 471,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2661,7 +2661,8 @@
       "file": "incidents/INC-0136-a-cross-agent-inventory-flake-came-from-sharing-one-harness.md",
       "related": [
         "INC-0097",
-        "INC-0367"
+        "INC-0367",
+        "INC-0471"
       ],
       "evidence": []
     },
@@ -5787,7 +5788,8 @@
         "INC-0306",
         "INC-0307",
         "INC-0313",
-        "INC-0324"
+        "INC-0324",
+        "INC-0471"
       ],
       "evidence": []
     },
@@ -7614,7 +7616,8 @@
         "INC-0417",
         "INC-0435",
         "INC-0450",
-        "INC-0465"
+        "INC-0465",
+        "INC-0471"
       ],
       "evidence": []
     },
@@ -9077,6 +9080,25 @@
         "INC-0174",
         "INC-0231",
         "INC-0234"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0471",
+      "title": "Drafts proposed test database ports by reading tracked text, and two clashed with each other and two with live listeners",
+      "date": "2026-11-02",
+      "classes": [
+        "concurrency"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Allocate shared numbered resources centrally and probe the live system at use time; a text search for free numbers is not a probe",
+      "signature": "Proposed numbers collided with each other and with live listeners.",
+      "file": "incidents/INC-0471-drafts-proposed-test-database-ports-by-reading-tracked-text.md",
+      "related": [
+        "INC-0136",
+        "INC-0305",
+        "INC-0393"
       ],
       "evidence": []
     }
