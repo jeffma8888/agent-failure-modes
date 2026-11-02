@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0082](./INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md) [INC-0314](./INC-0314-a-probe-based-test-never-ran-its-probe-so-its-red-proved-not.md)
+[INC-0082](./INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md) [INC-0314](./INC-0314-a-probe-based-test-never-ran-its-probe-so-its-red-proved-not.md) [INC-0329](./INC-0329-a-pool-saturation-probe-waited-on-a-connection-its-own-adapt.md)

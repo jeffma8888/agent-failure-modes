@@ -5611,7 +5611,10 @@
       "file": "incidents/INC-0302-a-plan-revision-left-stale-operative-text-that-only-an-indep.md",
       "related": [
         "INC-0217",
-        "INC-0296"
+        "INC-0296",
+        "INC-0330",
+        "INC-0338",
+        "INC-0346"
       ],
       "evidence": []
     },
@@ -5666,7 +5669,11 @@
       "signature": "A run directory vanished mid run after another agent removed a registration it judged dead.",
       "file": "incidents/INC-0305-a-process-the-sandbox-could-not-see-was-judged-dead-and-its.md",
       "related": [
-        "INC-0066"
+        "INC-0066",
+        "INC-0306",
+        "INC-0307",
+        "INC-0313",
+        "INC-0324"
       ],
       "evidence": []
     },
@@ -5704,7 +5711,8 @@
       "related": [
         "INC-0256",
         "INC-0257",
-        "INC-0305"
+        "INC-0305",
+        "INC-0320"
       ],
       "evidence": []
     },
@@ -5725,7 +5733,9 @@
         "INC-0209",
         "INC-0290",
         "INC-0291",
-        "INC-0312"
+        "INC-0312",
+        "INC-0333",
+        "INC-0348"
       ],
       "evidence": []
     },
@@ -5767,7 +5777,8 @@
         "INC-0285",
         "INC-0234",
         "INC-0284",
-        "INC-0283"
+        "INC-0283",
+        "INC-0322"
       ],
       "evidence": []
     },
@@ -5786,7 +5797,8 @@
       "file": "incidents/INC-0311-moving-tests-into-a-new-group-silently-dropped-them-from-cal.md",
       "related": [
         "INC-0132",
-        "INC-0173"
+        "INC-0173",
+        "INC-0328"
       ],
       "evidence": []
     },
@@ -5807,7 +5819,8 @@
         "INC-0308",
         "INC-0209",
         "INC-0230",
-        "INC-0345"
+        "INC-0345",
+        "INC-0333"
       ],
       "evidence": []
     },
@@ -5826,7 +5839,9 @@
       "file": "incidents/INC-0313-tests-in-a-parallel-group-raced-a-test-that-drops-the-shared.md",
       "related": [
         "INC-0132",
-        "INC-0305"
+        "INC-0305",
+        "INC-0321",
+        "INC-0329"
       ],
       "evidence": []
     },
@@ -5845,7 +5860,13 @@
       "file": "incidents/INC-0314-a-probe-based-test-never-ran-its-probe-so-its-red-proved-not.md",
       "related": [
         "INC-0082",
-        "INC-0095"
+        "INC-0095",
+        "INC-0318",
+        "INC-0320",
+        "INC-0323",
+        "INC-0336",
+        "INC-0339",
+        "INC-0343"
       ],
       "evidence": []
     },
@@ -5884,7 +5905,8 @@
       "related": [
         "INC-0293",
         "INC-0295",
-        "INC-0351"
+        "INC-0351",
+        "INC-0340"
       ],
       "evidence": []
     },
@@ -5923,7 +5945,8 @@
       "file": "incidents/INC-0318-a-path-guard-probed-only-with-nonexistent-paths-could-never.md",
       "related": [
         "INC-0082",
-        "INC-0314"
+        "INC-0314",
+        "INC-0329"
       ],
       "evidence": []
     },
@@ -6077,7 +6100,8 @@
       "related": [
         "INC-0122",
         "INC-0228",
-        "INC-0277"
+        "INC-0277",
+        "INC-0335"
       ],
       "evidence": []
     },
@@ -6116,7 +6140,9 @@
       "file": "incidents/INC-0328-a-selector-mirroring-a-config-s-exclusions-matched-basenames.md",
       "related": [
         "INC-0287",
-        "INC-0311"
+        "INC-0311",
+        "INC-0327",
+        "INC-0332"
       ],
       "evidence": []
     },
@@ -6388,7 +6414,8 @@
       "file": "incidents/INC-0342-a-shortcut-launcher-lacked-the-protection-the-canonical-entr.md",
       "related": [
         "INC-0340",
-        "INC-0256"
+        "INC-0256",
+        "INC-0344"
       ],
       "evidence": []
     },

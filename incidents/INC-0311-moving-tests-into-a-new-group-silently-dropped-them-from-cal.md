@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0132](./INC-0132-vitest-4-ran-projects-in-parallel-and-file-serialization-ins.md) [INC-0173](./INC-0173-a-ruling-widened-a-shared-valid-state-and-only-some-payloads.md)
+[INC-0132](./INC-0132-vitest-4-ran-projects-in-parallel-and-file-serialization-ins.md) [INC-0173](./INC-0173-a-ruling-widened-a-shared-valid-state-and-only-some-payloads.md) [INC-0328](./INC-0328-a-selector-mirroring-a-config-s-exclusions-matched-basenames.md)

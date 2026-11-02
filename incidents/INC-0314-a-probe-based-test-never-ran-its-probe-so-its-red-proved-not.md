@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0082](./INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md) [INC-0095](./INC-0095-port-validation-tests-lacked-separate-absent-zero-and-shared.md)
+[INC-0082](./INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md) [INC-0095](./INC-0095-port-validation-tests-lacked-separate-absent-zero-and-shared.md) [INC-0318](./INC-0318-a-path-guard-probed-only-with-nonexistent-paths-could-never.md) [INC-0320](./INC-0320-a-positive-control-s-first-red-was-the-control-s-own-defect.md) [INC-0323](./INC-0323-a-red-run-that-also-renamed-its-checks-counted-name-drift-as.md) [INC-0336](./INC-0336-a-tier-exclusion-was-added-only-after-a-witness-failed-witho.md) [INC-0339](./INC-0339-a-mutant-of-a-shared-helper-proved-sensitivity-but-not-the-r.md) [INC-0343](./INC-0343-a-weakened-final-check-survived-a-contract-suite-that-lacked.md)

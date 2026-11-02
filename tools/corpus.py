@@ -5379,7 +5379,7 @@ _BATCH20: list[dict] = [
         "fix": 'Have a different reviewer check every operative sentence and count against the replacement',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'After a revision, check every operative sentence and count against the replacement, using a reviewer who did not write it',
-        "related": ['INC-0217', 'INC-0296'],
+        "related": ['INC-0217', 'INC-0296', 'INC-0330', 'INC-0338', 'INC-0346'],
     },
     {
         "id": "INC-0303",
@@ -5430,7 +5430,7 @@ _BATCH20: list[dict] = [
         "fix": 'Remove a temp directory, registration or process only when its exact name or identifier is recorded in your own run output; leave anything stale and unrecorded in place and report it',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'A process your sandbox cannot see is not a dead process; ownership comes from your own run record, not from visibility or timing',
-        "related": ['INC-0066'],
+        "related": ['INC-0066', 'INC-0306', 'INC-0307', 'INC-0313', 'INC-0324'],
     },
     {
         "id": "INC-0306",
@@ -5464,7 +5464,7 @@ _BATCH20: list[dict] = [
         "fix": 'Give the wrapper fixed absolute tool paths, have it read no variable the tests set or replace, and label a run that fails this way INVALID INVOCATION, keep it, and count it neither as a red nor as a measurement',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'A wrapper that only adds reporting uses fixed absolute tool paths and reads no variable the tests set or replace; an invalid invocation is kept but is neither a red nor a measurement',
-        "related": ['INC-0256', 'INC-0257', 'INC-0305'],
+        "related": ['INC-0256', 'INC-0257', 'INC-0305', 'INC-0320'],
     },
     {
         "id": "INC-0308",
@@ -5481,7 +5481,7 @@ _BATCH20: list[dict] = [
         "fix": 'Project the stage time per rung from the acceptance checklist and decide who re-measures before the load, not after the first timeout',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'When an acceptance checklist adds cases to a bounded stage, project the stage time per rung and decide who re-measures before the load, not after the first timeout',
-        "related": ['INC-0209', 'INC-0290', 'INC-0291', 'INC-0312'],
+        "related": ['INC-0209', 'INC-0290', 'INC-0291', 'INC-0312', 'INC-0333', 'INC-0348'],
     },
     {
         "id": "INC-0309",
@@ -5515,7 +5515,7 @@ _BATCH20: list[dict] = [
         "fix": 'Key coverage ledgers on the exact bytes executed, from any report, instead of on report names',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Key coverage ledgers on the exact bytes executed, from any report, not on report names',
-        "related": ['INC-0285', 'INC-0234', 'INC-0284', 'INC-0283'],
+        "related": ['INC-0285', 'INC-0234', 'INC-0284', 'INC-0283', 'INC-0322'],
     },
     {
         "id": "INC-0311",
@@ -5532,7 +5532,7 @@ _BATCH20: list[dict] = [
         "fix": 'Before re-routing tests between groups, list every caller that selects the group by name, prove each still selects the same files, and prefer an explicit opt-in over changing the default route',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Before re-routing tests between groups, list every caller that selects the group by name and prove each still selects the same files',
-        "related": ['INC-0132', 'INC-0173'],
+        "related": ['INC-0132', 'INC-0173', 'INC-0328'],
     },
     {
         "id": "INC-0312",
@@ -5549,7 +5549,7 @@ _BATCH20: list[dict] = [
         "fix": 'Model the new time as serial work plus parallel makespan plus new cold starts, and state the serial floor',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Model a parallelised stage as serial work plus parallel makespan plus new cold starts, never as total time over N',
-        "related": ['INC-0308', 'INC-0209', 'INC-0230', 'INC-0345'],
+        "related": ['INC-0308', 'INC-0209', 'INC-0230', 'INC-0345', 'INC-0333'],
     },
     {
         "id": "INC-0313",
@@ -5566,7 +5566,7 @@ _BATCH20: list[dict] = [
         "fix": 'Put the test that creates shared resources in a serial group with no concurrent inventory reader, and do not treat a focused run as evidence of isolation',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'A test that creates shared resources goes in a serial group with no concurrent inventory reader; a focused single-file run is not evidence of isolation',
-        "related": ['INC-0132', 'INC-0305'],
+        "related": ['INC-0132', 'INC-0305', 'INC-0321', 'INC-0329'],
     },
     {
         "id": "INC-0314",
@@ -5583,7 +5583,7 @@ _BATCH20: list[dict] = [
         "fix": 'Add a positive control that goes green on current code, then trust a red from the new probe machinery',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Add a positive control that goes green on current code before trusting a red from new probe machinery',
-        "related": ['INC-0082', 'INC-0095'],
+        "related": ['INC-0082', 'INC-0095', 'INC-0318', 'INC-0320', 'INC-0323', 'INC-0336', 'INC-0339', 'INC-0343'],
     },
     {
         "id": "INC-0315",
@@ -5617,7 +5617,7 @@ _BATCH20: list[dict] = [
         "fix": 'Verify copied trees with a manifest that does not follow symlinks, and make fixtures point symlinks at targets the fixture owns',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Verify copied trees with a manifest that does not follow symlinks; fixtures point symlinks at fixture-owned targets',
-        "related": ['INC-0293', 'INC-0295', 'INC-0351'],
+        "related": ['INC-0293', 'INC-0295', 'INC-0351', 'INC-0340'],
     },
     {
         "id": "INC-0317",
@@ -5651,7 +5651,7 @@ _BATCH20: list[dict] = [
         "fix": 'Make negative targets exist, pair every guard with a positive control that must return the other value, and run one selftest on the real unpatched checker',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'Negative targets must exist; pair every guard with a positive control that must return the other value, and run one selftest on the real unpatched checker',
-        "related": ['INC-0082', 'INC-0314'],
+        "related": ['INC-0082', 'INC-0314', 'INC-0329'],
     },
     {
         "id": "INC-0319",
@@ -5787,7 +5787,7 @@ _BATCH20: list[dict] = [
         "fix": 'Recompute the digest from the stated recipe before signing, and append the signature after the hashed range so the digest stays valid',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'A signature binds to bytes the signer has hashed himself, and appending the signature must not change the hashed range',
-        "related": ['INC-0122', 'INC-0228', 'INC-0277'],
+        "related": ['INC-0122', 'INC-0228', 'INC-0277', 'INC-0335'],
     },
     {
         "id": "INC-0327",
@@ -5821,7 +5821,7 @@ _BATCH20: list[dict] = [
         "fix": 'Compare anchored paths, not basenames, and keep an executable union check with planted nested witnesses',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": "When code mirrors a config's file selection, compare anchored paths, not basenames, and keep an executable union check with planted nested witnesses",
-        "related": ['INC-0287', 'INC-0311'],
+        "related": ['INC-0287', 'INC-0311', 'INC-0327', 'INC-0332'],
     },
     {
         "id": "INC-0329",
@@ -6059,7 +6059,7 @@ _BATCH20: list[dict] = [
         "fix": 'Set the protective setting explicitly in the shared environment script and in every launcher, and close the gate only with the canonical entry in a disposable clone',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'Close a gate only through the canonical entry; a shortcut launcher may lack protections the canonical path supplies implicitly',
-        "related": ['INC-0340', 'INC-0256'],
+        "related": ['INC-0340', 'INC-0256', 'INC-0344'],
     },
     {
         "id": "INC-0343",

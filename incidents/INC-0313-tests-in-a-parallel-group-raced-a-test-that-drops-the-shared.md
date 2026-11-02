@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0132](./INC-0132-vitest-4-ran-projects-in-parallel-and-file-serialization-ins.md) [INC-0305](./INC-0305-a-process-the-sandbox-could-not-see-was-judged-dead-and-its.md)
+[INC-0132](./INC-0132-vitest-4-ran-projects-in-parallel-and-file-serialization-ins.md) [INC-0305](./INC-0305-a-process-the-sandbox-could-not-see-was-judged-dead-and-its.md) [INC-0321](./INC-0321-a-green-parallel-run-was-cited-although-the-parallel-group-h.md) [INC-0329](./INC-0329-a-pool-saturation-probe-waited-on-a-connection-its-own-adapt.md)

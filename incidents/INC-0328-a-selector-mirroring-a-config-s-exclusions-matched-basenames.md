@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0287](./INC-0287-an-oracle-that-matches-a-substring-or-a-loose-boundary-can-b.md) [INC-0311](./INC-0311-moving-tests-into-a-new-group-silently-dropped-them-from-cal.md)
+[INC-0287](./INC-0287-an-oracle-that-matches-a-substring-or-a-loose-boundary-can-b.md) [INC-0311](./INC-0311-moving-tests-into-a-new-group-silently-dropped-them-from-cal.md) [INC-0327](./INC-0327-a-marker-checker-matched-a-bare-word-and-pushed-authors-to-a.md) [INC-0332](./INC-0332-a-tier-exclusion-matched-only-one-file-extension.md)

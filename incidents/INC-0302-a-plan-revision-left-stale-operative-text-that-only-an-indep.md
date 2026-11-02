@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0217](./INC-0217-a-fixed-test-count-in-an-exit-criterion-went-stale.md) [INC-0296](./INC-0296-plan-line-anchors-drifted-with-each-plan-version.md)
+[INC-0217](./INC-0217-a-fixed-test-count-in-an-exit-criterion-went-stale.md) [INC-0296](./INC-0296-plan-line-anchors-drifted-with-each-plan-version.md) [INC-0330](./INC-0330-a-runbook-described-steps-its-own-script-s-gate-refused.md) [INC-0338](./INC-0338-a-review-pinned-before-the-fix-reported-findings-that-were-a.md) [INC-0346](./INC-0346-a-ruling-sent-in-a-message-was-never-written-to-the-ruling-l.md)

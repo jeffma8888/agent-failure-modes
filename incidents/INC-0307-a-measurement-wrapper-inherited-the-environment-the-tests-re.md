@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0256](./INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md) [INC-0257](./INC-0257-moving-the-home-directory-broke-a-launch-that-found-its-cach.md) [INC-0305](./INC-0305-a-process-the-sandbox-could-not-see-was-judged-dead-and-its.md)
+[INC-0256](./INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md) [INC-0257](./INC-0257-moving-the-home-directory-broke-a-launch-that-found-its-cach.md) [INC-0305](./INC-0305-a-process-the-sandbox-could-not-see-was-judged-dead-and-its.md) [INC-0320](./INC-0320-a-positive-control-s-first-red-was-the-control-s-own-defect.md)
