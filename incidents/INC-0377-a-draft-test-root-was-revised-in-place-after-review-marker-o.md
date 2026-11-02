@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0351](./INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md)
+[INC-0351](./INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md) [INC-0397](./INC-0397-a-pending-root-whose-supersession-line-said-review-pending-f.md)

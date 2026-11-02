@@ -403,6 +403,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0390 / low]** Reconcile a dispatch packet with the newest ruling when it lands
 - **[INC-0392 / low]** Request declarations as sourced values and decisions, each with its gap
 - **[INC-0393 / low]** Gate on load where you launch, immediately before; an earlier or second-hand reading is stale
+- **[INC-0397 / low]** Land a pending successor without its marker; write the marker only after the review
+- **[INC-0398 / low]** Exempt exactly one named path from a content inventory, with its digests recorded; never a directory or pattern
 
 ## Practices
 

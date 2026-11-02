@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 396,
+  "count": 398,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3086,7 +3086,8 @@
       "signature": "The landing script passed while the identity checker was red on main.",
       "file": "incidents/INC-0161-landing-a-revision-beside-a-supersession-edge-broke-identity.md",
       "related": [
-        "INC-0154"
+        "INC-0154",
+        "INC-0397"
       ],
       "evidence": []
     },
@@ -6439,7 +6440,8 @@
         "INC-0342",
         "INC-0351",
         "INC-0368",
-        "INC-0381"
+        "INC-0381",
+        "INC-0398"
       ],
       "evidence": []
     },
@@ -7193,7 +7195,8 @@
       "signature": "A root that others had reviewed or marked could be edited in place.",
       "file": "incidents/INC-0377-a-draft-test-root-was-revised-in-place-after-review-marker-o.md",
       "related": [
-        "INC-0351"
+        "INC-0351",
+        "INC-0397"
       ],
       "evidence": []
     },
@@ -7269,7 +7272,8 @@
       "file": "incidents/INC-0381-a-whole-tree-content-digest-detected-a-dependency-change-but.md",
       "related": [
         "INC-0340",
-        "INC-0351"
+        "INC-0351",
+        "INC-0398"
       ],
       "evidence": []
     },
@@ -7542,6 +7546,42 @@
       "related": [
         "INC-0364",
         "INC-0389"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0397",
+      "title": "A pending root whose supersession line said review pending failed the identity checker at landing",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Land a pending successor without its marker; write the marker only after the review",
+      "signature": "The identity checker rejected a landing whose marker line said approval was pending.",
+      "file": "incidents/INC-0397-a-pending-root-whose-supersession-line-said-review-pending-f.md",
+      "related": [
+        "INC-0161",
+        "INC-0377"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0398",
+      "title": "A content inventory that hashed every file under the dependency tree stopped a clean run because the test runner rewrote its result cache there",
+      "date": "2026-11-02",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Exempt exactly one named path from a content inventory, with its digests recorded; never a directory or pattern",
+      "signature": "An inventory guard failed a clean run because one cache file changed.",
+      "file": "incidents/INC-0398-a-content-inventory-that-hashed-every-file-under-the-depende.md",
+      "related": [
+        "INC-0381",
+        "INC-0340"
       ],
       "evidence": []
     }

@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0154](./INC-0154-a-marker-for-an-already-activated-revision-used-the-pending.md)
+[INC-0154](./INC-0154-a-marker-for-an-already-activated-revision-used-the-pending.md) [INC-0397](./INC-0397-a-pending-root-whose-supersession-line-said-review-pending-f.md)
