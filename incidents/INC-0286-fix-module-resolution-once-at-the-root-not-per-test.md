@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0158](./INC-0158-a-spec-used-import-meta-under-a-package-that-loads-specs-as.md)
+[INC-0158](./INC-0158-a-spec-used-import-meta-under-a-package-that-loads-specs-as.md) [INC-0472](./INC-0472-the-first-browser-test-to-load-the-app-config-failed-to-link.md)

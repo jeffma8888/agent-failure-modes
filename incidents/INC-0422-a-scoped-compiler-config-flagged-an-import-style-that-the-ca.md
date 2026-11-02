@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0342](./INC-0342-a-shortcut-launcher-lacked-the-protection-the-canonical-entr.md) [INC-0344](./INC-0344-focused-runs-after-a-refactor-hid-static-check-residue-until.md) [INC-0110](./INC-0110-a-cross-row-test-needed-setup-absent-from-its-own-lifecycle.md)
+[INC-0342](./INC-0342-a-shortcut-launcher-lacked-the-protection-the-canonical-entr.md) [INC-0344](./INC-0344-focused-runs-after-a-refactor-hid-static-check-residue-until.md) [INC-0110](./INC-0110-a-cross-row-test-needed-setup-absent-from-its-own-lifecycle.md) [INC-0472](./INC-0472-the-first-browser-test-to-load-the-app-config-failed-to-link.md)

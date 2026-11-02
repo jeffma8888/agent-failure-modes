@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 471,
+  "count": 472,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3057,7 +3057,8 @@
       "signature": "A module-form feature worked in the author mind and would fail when the spec first loaded.",
       "file": "incidents/INC-0158-a-spec-used-import-meta-under-a-package-that-loads-specs-as.md",
       "related": [
-        "INC-0156"
+        "INC-0156",
+        "INC-0472"
       ],
       "evidence": []
     },
@@ -5415,7 +5416,8 @@
       "signature": "Each test root worked around the same missing dependency in its own way.",
       "file": "incidents/INC-0286-fix-module-resolution-once-at-the-root-not-per-test.md",
       "related": [
-        "INC-0158"
+        "INC-0158",
+        "INC-0472"
       ],
       "evidence": []
     },
@@ -8170,7 +8172,8 @@
       "related": [
         "INC-0342",
         "INC-0344",
-        "INC-0110"
+        "INC-0110",
+        "INC-0472"
       ],
       "evidence": []
     },
@@ -9099,6 +9102,25 @@
         "INC-0136",
         "INC-0305",
         "INC-0393"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0472",
+      "title": "The first browser test to load the app config failed to link because one module was reached by two loaders, and minimal variants proved it before any product edit",
+      "date": "2026-11-02",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Reproduce a loader failure with minimal variants before editing product code, and keep modules shared with the app config graph out of static import chains that a test runner compiles differently",
+      "signature": "A module that exports a name was reported as lacking it.",
+      "file": "incidents/INC-0472-the-first-browser-test-to-load-the-app-config-failed-to-link.md",
+      "related": [
+        "INC-0158",
+        "INC-0286",
+        "INC-0422"
       ],
       "evidence": []
     }
