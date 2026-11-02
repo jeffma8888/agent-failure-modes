@@ -2284,7 +2284,7 @@ _BATCH20: list[dict] = [
         "fix": 'Assert the absence of the error text as well.',
         "verification": "Checked by the reviewer or lead who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Check output as well as exit status in a clean-pass control.',
-        "related": ['INC-0082'],
+        "related": ['INC-0082', 'INC-0347'],
     },
     {
         "id": "INC-0121",
@@ -5226,7 +5226,7 @@ _BATCH20: list[dict] = [
         "fix": 'Copy the before-state bytes outside the repository before the edit and compare complete old entries afterwards',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Preserve before-state bytes before an operator edit; a later snapshot cannot recreate them',
-        "related": ['INC-0254', 'INC-0292'],
+        "related": ['INC-0254', 'INC-0292', 'INC-0349'],
     },
     {
         "id": "INC-0294",
@@ -5974,7 +5974,7 @@ _BATCH20: list[dict] = [
         "fix": "Name the reviewer when the artifact lands, from whoever is free and is not its author, and record the reassignment in the ruling",
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": "Name the reviewer when the artifact lands, from whoever is free and is not its author; record the reassignment in the ruling",
-        "related": ['INC-0201', 'INC-0220'],
+        "related": ['INC-0201', 'INC-0220', 'INC-0346'],
     },
     {
         "id": "INC-0338",
@@ -6110,7 +6110,7 @@ _BATCH20: list[dict] = [
         "fix": 'Replace the anchor with the measured maximum, label every other term inferred, and recompute every rung',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'Replace a derived timing anchor with a measured one as soon as the thing exists, and recompute every threshold it feeds',
-        "related": ['INC-0195', 'INC-0312'],
+        "related": ['INC-0195', 'INC-0312', 'INC-0348'],
     },
     {
         "id": "INC-0346",
@@ -6162,6 +6162,23 @@ _BATCH20: list[dict] = [
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'When a rule demands margin k, the budget is the deadline divided by k; track the slowest sample against that, not the deadline',
         "related": ['INC-0345', 'INC-0209', 'INC-0308'],
+    },
+    {
+        "id": "INC-0349",
+        "title": "A revision was overwritten in place and its recorded digest named bytes that no longer existed",
+        "date": "2026-11-01",
+        "classes": ['checkpoint', 'false-green'],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "Minor: caught before it shipped.",
+        "signature": "A rechecker could not run the new tests against the prior revision because only its size and digest survived.",
+        "what": 'a checker fix was revised in place from revision 2 to revision 3; the rechecker was asked to show the new tests fail on the revision 2 bytes, but those bytes (size and digest recorded in a review) existed nowhere: not in any worktree, temporary folder or the repository object store, so the red witness had to fall back to the pre-fix original plus a historical review',
+        "root_cause": 'a checker fix was revised in place from revision 2 to revision 3; the rechecker was asked to show the new tests fail on the revision 2 bytes, but those bytes (size and digest recorded in a review) existed nowhere: not in any worktree, temporary folder or the repository object store, so the red witness had to fall back to the pre-fix original plus a historical review',
+        "why_hard": "A recorded digest feels like a preserved revision, but it proves only which bytes were meant.",
+        "fix": "Before revising in place, copy the prior revision to a named file or commit it on a work branch, and record its path with its digest",
+        "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
+        "rule": "A digest proves which bytes you meant, not that you can still run them; keep every reviewed revision's bytes until the fix lands",
+        "related": ['INC-0293', 'INC-0216'],
     },
 ]
 

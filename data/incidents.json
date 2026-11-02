@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 348,
+  "count": 349,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2324,7 +2324,8 @@
       "signature": "A guard that prints an error but exits 0 passes a control that checks the exit code.",
       "file": "incidents/INC-0120-a-guard-control-asserted-only-exit-0-so-a-warn-and-pass-guar.md",
       "related": [
-        "INC-0082"
+        "INC-0082",
+        "INC-0347"
       ],
       "evidence": []
     },
@@ -5438,7 +5439,8 @@
       "file": "incidents/INC-0293-the-before-state-was-not-preserved-before-an-operator-edit.md",
       "related": [
         "INC-0254",
-        "INC-0292"
+        "INC-0292",
+        "INC-0349"
       ],
       "evidence": []
     },
@@ -6284,7 +6286,8 @@
       "file": "incidents/INC-0337-reviewers-named-at-ruling-time-were-busy-when-the-artifact-l.md",
       "related": [
         "INC-0201",
-        "INC-0220"
+        "INC-0220",
+        "INC-0346"
       ],
       "evidence": []
     },
@@ -6438,7 +6441,8 @@
       "file": "incidents/INC-0345-a-timing-anchor-derived-by-subtraction-was-used-as-if-it-wer.md",
       "related": [
         "INC-0195",
-        "INC-0312"
+        "INC-0312",
+        "INC-0348"
       ],
       "evidence": []
     },
@@ -6497,6 +6501,25 @@
         "INC-0345",
         "INC-0209",
         "INC-0308"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0349",
+      "title": "A revision was overwritten in place and its recorded digest named bytes that no longer existed",
+      "date": "2026-11-01",
+      "classes": [
+        "checkpoint",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A digest proves which bytes you meant, not that you can still run them; keep every reviewed revision's bytes until the fix lands",
+      "signature": "A rechecker could not run the new tests against the prior revision because only its size and digest survived.",
+      "file": "incidents/INC-0349-a-revision-was-overwritten-in-place-and-its-recorded-digest.md",
+      "related": [
+        "INC-0293",
+        "INC-0216"
       ],
       "evidence": []
     }

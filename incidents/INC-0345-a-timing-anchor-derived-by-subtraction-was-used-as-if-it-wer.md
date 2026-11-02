@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0195](./INC-0195-a-single-stage-time-on-a-loaded-host-was-read-as-a-measureme.md) [INC-0312](./INC-0312-a-whole-stage-was-divided-by-a-parallel-speedup-although-par.md)
+[INC-0195](./INC-0195-a-single-stage-time-on-a-loaded-host-was-read-as-a-measureme.md) [INC-0312](./INC-0312-a-whole-stage-was-divided-by-a-parallel-speedup-although-par.md) [INC-0348](./INC-0348-a-deadline-set-at-twice-the-slowest-sample-was-budgeted-agai.md)

@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0254](./INC-0254-raw-evidence-was-deleted-with-the-scratch-area.md) [INC-0292](./INC-0292-a-snapshot-recorder-that-finished-was-taken-as-proof-it-had.md)
+[INC-0254](./INC-0254-raw-evidence-was-deleted-with-the-scratch-area.md) [INC-0292](./INC-0292-a-snapshot-recorder-that-finished-was-taken-as-proof-it-had.md) [INC-0349](./INC-0349-a-revision-was-overwritten-in-place-and-its-recorded-digest.md)
