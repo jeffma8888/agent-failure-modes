@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0426](./INC-0426-a-generated-migration-needed-a-lint-only-edit-so-the-evidenc.md) [INC-0267](./INC-0267-a-check-named-lint-can-write.md) [INC-0448](./INC-0448-two-fields-mapping-to-one-database-enum-made-the-generated-m.md)
+[INC-0426](./INC-0426-a-generated-migration-needed-a-lint-only-edit-so-the-evidenc.md) [INC-0267](./INC-0267-a-check-named-lint-can-write.md) [INC-0448](./INC-0448-two-fields-mapping-to-one-database-enum-made-the-generated-m.md) [INC-0455](./INC-0455-a-provenance-check-that-the-generator-can-never-satisfy-the.md)

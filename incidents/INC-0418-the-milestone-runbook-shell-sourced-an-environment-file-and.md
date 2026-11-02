@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0248](./INC-0248-the-env-script-could-not-be-sourced-in-zsh.md)
+[INC-0248](./INC-0248-the-env-script-could-not-be-sourced-in-zsh.md) [INC-0454](./INC-0454-a-file-creation-mask-from-an-earlier-tool-call-did-not-carry.md)

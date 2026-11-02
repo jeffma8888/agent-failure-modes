@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0378](./INC-0378-a-default-that-silently-let-a-guard-pass-made-a-reviewer-rea.md) [INC-0394](./INC-0394-a-security-predicate-checked-for-truthiness-failed-open-on-a.md) [INC-0380](./INC-0380-a-landing-helper-s-clean-step-deleted-a-pending-root-directo.md)
+[INC-0378](./INC-0378-a-default-that-silently-let-a-guard-pass-made-a-reviewer-rea.md) [INC-0394](./INC-0394-a-security-predicate-checked-for-truthiness-failed-open-on-a.md) [INC-0380](./INC-0380-a-landing-helper-s-clean-step-deleted-a-pending-root-directo.md) [INC-0453](./INC-0453-teammates-cannot-remove-or-drop-so-teardown-belongs-to-the-l.md)

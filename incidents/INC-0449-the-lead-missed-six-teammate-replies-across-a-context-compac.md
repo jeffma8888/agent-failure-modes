@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0317](./INC-0317-finished-teammates-sat-unnoticed-because-their-completion-re.md) [INC-0416](./INC-0416-ten-teammate-threads-showed-state-paused-with-complete-outpu.md)
+[INC-0317](./INC-0317-finished-teammates-sat-unnoticed-because-their-completion-re.md) [INC-0416](./INC-0416-ten-teammate-threads-showed-state-paused-with-complete-outpu.md) [INC-0451](./INC-0451-the-lead-missed-eight-teammate-replies-with-no-compaction-an.md)

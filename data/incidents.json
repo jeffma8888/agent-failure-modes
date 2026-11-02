@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 450,
+  "count": 457,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -4686,7 +4686,8 @@
       "related": [
         "INC-0165",
         "INC-0362",
-        "INC-0418"
+        "INC-0418",
+        "INC-0454"
       ],
       "evidence": []
     },
@@ -6023,7 +6024,8 @@
         "INC-0128",
         "INC-0416",
         "INC-0432",
-        "INC-0449"
+        "INC-0449",
+        "INC-0451"
       ],
       "evidence": []
     },
@@ -7381,7 +7383,8 @@
         "INC-0350",
         "INC-0384",
         "INC-0415",
-        "INC-0442"
+        "INC-0442",
+        "INC-0456"
       ],
       "evidence": []
     },
@@ -7518,7 +7521,8 @@
         "INC-0401",
         "INC-0405",
         "INC-0413",
-        "INC-0433"
+        "INC-0433",
+        "INC-0457"
       ],
       "evidence": []
     },
@@ -7728,7 +7732,8 @@
         "INC-0390",
         "INC-0376",
         "INC-0414",
-        "INC-0433"
+        "INC-0433",
+        "INC-0457"
       ],
       "evidence": []
     },
@@ -7783,7 +7788,8 @@
       "related": [
         "INC-0378",
         "INC-0394",
-        "INC-0380"
+        "INC-0380",
+        "INC-0453"
       ],
       "evidence": []
     },
@@ -7989,7 +7995,8 @@
         "INC-0373",
         "INC-0383",
         "INC-0384",
-        "INC-0442"
+        "INC-0442",
+        "INC-0456"
       ],
       "evidence": []
     },
@@ -8008,7 +8015,8 @@
       "related": [
         "INC-0091",
         "INC-0317",
-        "INC-0449"
+        "INC-0449",
+        "INC-0451"
       ],
       "evidence": []
     },
@@ -8028,7 +8036,8 @@
         "INC-0393",
         "INC-0406",
         "INC-0219",
-        "INC-0450"
+        "INC-0450",
+        "INC-0452"
       ],
       "evidence": []
     },
@@ -8045,7 +8054,8 @@
       "signature": "The runbook failed at its first step on a value the shell parsed as syntax.",
       "file": "incidents/INC-0418-the-milestone-runbook-shell-sourced-an-environment-file-and.md",
       "related": [
-        "INC-0248"
+        "INC-0248",
+        "INC-0454"
       ],
       "evidence": []
     },
@@ -8199,7 +8209,8 @@
         "INC-0267",
         "INC-0182",
         "INC-0439",
-        "INC-0448"
+        "INC-0448",
+        "INC-0455"
       ],
       "evidence": []
     },
@@ -8219,7 +8230,8 @@
         "INC-0271",
         "INC-0219",
         "INC-0195",
-        "INC-0450"
+        "INC-0450",
+        "INC-0452"
       ],
       "evidence": []
     },
@@ -8329,7 +8341,8 @@
       "file": "incidents/INC-0433-a-job-text-swapped-two-commit-identities-and-reading-the-log.md",
       "related": [
         "INC-0401",
-        "INC-0390"
+        "INC-0390",
+        "INC-0457"
       ],
       "evidence": []
     },
@@ -8438,7 +8451,8 @@
       "related": [
         "INC-0426",
         "INC-0267",
-        "INC-0448"
+        "INC-0448",
+        "INC-0455"
       ],
       "evidence": []
     },
@@ -8493,7 +8507,8 @@
       "related": [
         "INC-0415",
         "INC-0383",
-        "INC-0373"
+        "INC-0373",
+        "INC-0456"
       ],
       "evidence": []
     },
@@ -8603,7 +8618,8 @@
       "related": [
         "INC-0173",
         "INC-0426",
-        "INC-0439"
+        "INC-0439",
+        "INC-0455"
       ],
       "evidence": []
     },
@@ -8621,7 +8637,8 @@
       "file": "incidents/INC-0449-the-lead-missed-six-teammate-replies-across-a-context-compac.md",
       "related": [
         "INC-0317",
-        "INC-0416"
+        "INC-0416",
+        "INC-0451"
       ],
       "evidence": []
     },
@@ -8640,7 +8657,138 @@
       "related": [
         "INC-0427",
         "INC-0417",
-        "INC-0393"
+        "INC-0393",
+        "INC-0452"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0451",
+      "title": "The lead missed eight teammate replies with no compaction and saw them only through thread activity",
+      "date": "2026-11-02",
+      "classes": [
+        "steering-channel"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Check thread states after every landing batch, not only after a context compaction",
+      "signature": "Replies were missing from the lead view while the work sat finished.",
+      "file": "incidents/INC-0451-the-lead-missed-eight-teammate-replies-with-no-compaction-an.md",
+      "related": [
+        "INC-0449",
+        "INC-0416",
+        "INC-0317"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0452",
+      "title": "A ruling cannot override a teammate tool rules, so the lead sleep loop load waiter was refused and withdrawn",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Wait for load with an event driven observer owned by the lead, never a sleep loop in a teammate; a ruling does not override a teammate tool rules",
+      "signature": "A ruled helper was refused by the teammate it was meant for.",
+      "file": "incidents/INC-0452-a-ruling-cannot-override-a-teammate-tool-rules-so-the-lead-s.md",
+      "related": [
+        "INC-0417",
+        "INC-0427",
+        "INC-0450"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0453",
+      "title": "Teammates cannot remove or drop, so teardown belongs to the lead and runs from the runner names file",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Plan teardown as a lead owned step driven from the runner names file, and keep walk pass and cleanup pass separate",
+      "signature": "Cleanup could not be run by the teammate that created the things.",
+      "file": "incidents/INC-0453-teammates-cannot-remove-or-drop-so-teardown-belongs-to-the-l.md",
+      "related": [
+        "INC-0404"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0454",
+      "title": "A file creation mask from an earlier tool call did not carry over, and the database dump came out world readable",
+      "date": "2026-11-02",
+      "classes": [
+        "ipc-and-env"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Set the mask, run, and assert the result in one command, because shell state does not carry across tool calls",
+      "signature": "A dump file was readable by others for a short time.",
+      "file": "incidents/INC-0454-a-file-creation-mask-from-an-earlier-tool-call-did-not-carry.md",
+      "related": [
+        "INC-0418",
+        "INC-0248"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0455",
+      "title": "A provenance check that the generator can never satisfy: the zero parent id on every snapshot",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Prove a diff base from what the generated SQL does and does not emit, and never demand a check the generator can not satisfy",
+      "signature": "A required check was impossible to pass whatever the code did.",
+      "file": "incidents/INC-0455-a-provenance-check-that-the-generator-can-never-satisfy-the.md",
+      "related": [
+        "INC-0448",
+        "INC-0426",
+        "INC-0439"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0456",
+      "title": "The lead wrote ruling timestamps from memory three times and had to correct them",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Compute a timestamp from the clock in the same command that writes it, never from memory",
+      "signature": "Timestamps in rulings were wrong until corrected.",
+      "file": "incidents/INC-0456-the-lead-wrote-ruling-timestamps-from-memory-three-times-and.md",
+      "related": [
+        "INC-0415",
+        "INC-0442",
+        "INC-0383"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0457",
+      "title": "A ruling wrote a media directory binding from memory that contradicted the pinned scripts, and the runner stopped instead of substituting",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Check a binding against the pinned scripts before writing it, and stop on a contradiction rather than substitute",
+      "signature": "A written binding contradicted the scripts it was meant to drive.",
+      "file": "incidents/INC-0457-a-ruling-wrote-a-media-directory-binding-from-memory-that-co.md",
+      "related": [
+        "INC-0390",
+        "INC-0401",
+        "INC-0433"
       ],
       "evidence": []
     }

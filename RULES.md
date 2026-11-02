@@ -457,6 +457,13 @@ One rule per incident, ordered by severity then id.
 - **[INC-0448 / low]** Give each field that persists a state set its own enum name per table, and check the generated SQL for every state before generating types
 - **[INC-0449 / low]** Check thread activity right after every context compaction, before any other step
 - **[INC-0450 / low]** Put the load check before anything is created, so a gate stop costs nothing and leaves nothing to tear down
+- **[INC-0451 / low]** Check thread states after every landing batch, not only after a context compaction
+- **[INC-0452 / low]** Wait for load with an event driven observer owned by the lead, never a sleep loop in a teammate; a ruling does not override a teammate tool rules
+- **[INC-0453 / low]** Plan teardown as a lead owned step driven from the runner names file, and keep walk pass and cleanup pass separate
+- **[INC-0454 / low]** Set the mask, run, and assert the result in one command, because shell state does not carry across tool calls
+- **[INC-0455 / low]** Prove a diff base from what the generated SQL does and does not emit, and never demand a check the generator can not satisfy
+- **[INC-0456 / low]** Compute a timestamp from the clock in the same command that writes it, never from memory
+- **[INC-0457 / low]** Check a binding against the pinned scripts before writing it, and stop on a contradiction rather than substitute
 
 ## Practices
 
