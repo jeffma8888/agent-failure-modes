@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 493,
+  "count": 495,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9496,6 +9496,41 @@
       "file": "incidents/INC-0493-an-order-named-a-scratch-target-without-reading-the-guard-of.md",
       "related": [
         "INC-0489"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0494",
+      "title": "The first real click-around found product defects that many static review rounds and every gate had missed",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Run the real product early and often; a cheap exploratory run beats another review round of the tool that would run it.",
+      "signature": "A cheap exploratory run on a real build produced mismatches on every checklist row, within an hour of parking the strict tool.",
+      "file": "incidents/INC-0494-the-first-real-click-around-found-product-defects-that-many.md",
+      "related": [
+        "INC-0491",
+        "INC-0488"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0495",
+      "title": "The acceptance run lacked an environment variable that the branch run and the full suite set",
+      "date": "2026-11-02",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Record the environment of every run you compare, and give the acceptance run the same environment the full suite gives.",
+      "signature": "The only new failure in the acceptance run was a test that throws when one environment variable is absent.",
+      "file": "incidents/INC-0495-the-acceptance-run-lacked-an-environment-variable-that-the-b.md",
+      "related": [
+        "INC-0412"
       ],
       "evidence": []
     }
