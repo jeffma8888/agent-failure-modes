@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 472,
+  "count": 473,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9121,6 +9121,25 @@
         "INC-0158",
         "INC-0286",
         "INC-0422"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0473",
+      "title": "A coordinator ordered an engineer to edit a test file that a QA identity manifest pins, and the identity gate refused the run before any database",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Before ordering a test edit, check whether the file is pinned by a QA identity manifest; if it is, route the change through a successor root authored by a QA identity, not an engineer edit.",
+      "signature": "An ordered test edit made the identity gate refuse the run before it started.",
+      "file": "incidents/INC-0473-a-coordinator-ordered-an-engineer-to-edit-a-test-file-that-a.md",
+      "related": [
+        "INC-0377",
+        "INC-0403",
+        "INC-0161"
       ],
       "evidence": []
     }

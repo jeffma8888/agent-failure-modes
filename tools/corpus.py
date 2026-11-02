@@ -8271,6 +8271,23 @@ _BATCH20: list[dict] = [
         "rule": "Reproduce a loader failure with minimal variants before editing product code, and keep modules shared with the app config graph out of static import chains that a test runner compiles differently",
         "related": ['INC-0158', 'INC-0286', 'INC-0422'],
     },
+    {
+        "id": "INC-0473",
+        "title": 'A coordinator ordered an engineer to edit a test file that a QA identity manifest pins, and the identity gate refused the run before any database',
+        "date": "2026-11-02",
+        "classes": ['delegation'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Minor: the gate stopped the run in 1.5 seconds, before any database, and the change had to be rerouted.",
+        "signature": 'An ordered test edit made the identity gate refuse the run before it started.',
+        "what": 'A coordinator ordered an engineer to edit a browser spec so every request-context call sends an Origin header. The spec is pinned by the terminal digest of a QA owned test root, so the test only change made the admitted run exit 1 at identity selection, before any database, because the active spec no longer equalled the pinned digest. The engineer followed the order exactly and stopped correctly.',
+        "root_cause": 'The order did not check whether the file was identity pinned, and an engineer edit cannot change pinned bytes.',
+        "why_hard": 'The edit is small and correct as a test fix, so nothing about it looks like an identity change until the gate runs.',
+        "fix": 'Route the change through a successor root authored by a QA identity, who reviews it as a test correctness fix that must not weaken the oracle and adopts its bytes exactly; a non author checks it, the coordinator lands the supersession record, and the engineer merges and reruns on a new admission.',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'Before ordering a test edit, check whether the file is pinned by a QA identity manifest; if it is, route the change through a successor root authored by a QA identity, not an engineer edit.',
+        "related": ['INC-0377', 'INC-0403', 'INC-0161'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

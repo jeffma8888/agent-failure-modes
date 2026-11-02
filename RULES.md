@@ -479,6 +479,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0470 / low]** State a count delta with its base commit, and attribute it to a row only after a per file check
 - **[INC-0471 / low]** Allocate shared numbered resources centrally and probe the live system at use time; a text search for free numbers is not a probe
 - **[INC-0472 / low]** Reproduce a loader failure with minimal variants before editing product code, and keep modules shared with the app config graph out of static import chains that a test runner compiles differently
+- **[INC-0473 / low]** Before ordering a test edit, check whether the file is pinned by a QA identity manifest; if it is, route the change through a successor root authored by a QA identity, not an engineer edit.
 
 ## Practices
 
