@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0062](./INC-0062-a-reviewer-s-claim-about-framework-behaviour-was-wrong-and-a.md) [INC-0298](./INC-0298-harness-and-ownership-defects-were-left-for-the-build-agent.md) [INC-0434](./INC-0434-a-reviewer-s-framework-claim-was-corrected-from-the-installe.md)
+[INC-0062](./INC-0062-a-reviewer-s-claim-about-framework-behaviour-was-wrong-and-a.md) [INC-0298](./INC-0298-harness-and-ownership-defects-were-left-for-the-build-agent.md) [INC-0434](./INC-0434-a-reviewer-s-framework-claim-was-corrected-from-the-installe.md) [INC-0440](./INC-0440-an-image-library-throw-on-undecodable-bytes-surfaced-as-a-se.md)

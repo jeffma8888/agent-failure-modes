@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0335](./INC-0335-a-pinned-base-digest-froze-a-file-that-a-later-row-split-nee.md) [INC-0359](./INC-0359-a-stored-admission-record-left-out-the-tool-versions-it-was.md)
+[INC-0335](./INC-0335-a-pinned-base-digest-froze-a-file-that-a-later-row-split-nee.md) [INC-0359](./INC-0359-a-stored-admission-record-left-out-the-tool-versions-it-was.md) [INC-0443](./INC-0443-a-self-imposed-freeze-outlived-its-reason-and-was-blocking-t.md)

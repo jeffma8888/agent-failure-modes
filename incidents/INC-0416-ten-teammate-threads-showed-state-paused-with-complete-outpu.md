@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0091](./INC-0091-teammate-replies-arrived-while-the-lead-was-busy-and-were-mi.md) [INC-0317](./INC-0317-finished-teammates-sat-unnoticed-because-their-completion-re.md)
+[INC-0091](./INC-0091-teammate-replies-arrived-while-the-lead-was-busy-and-were-mi.md) [INC-0317](./INC-0317-finished-teammates-sat-unnoticed-because-their-completion-re.md) [INC-0449](./INC-0449-the-lead-missed-six-teammate-replies-across-a-context-compac.md)

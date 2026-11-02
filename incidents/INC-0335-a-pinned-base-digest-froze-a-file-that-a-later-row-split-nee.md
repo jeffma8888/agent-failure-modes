@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0326](./INC-0326-a-signer-recomputed-the-declared-digest-before-signing-and-k.md) [INC-0122](./INC-0122-a-digest-present-anywhere-in-a-manifest-was-taken-as-proof-i.md) [INC-0421](./INC-0421-a-closure-packet-freeze-test-turned-positive-on-a-control-on.md)
+[INC-0326](./INC-0326-a-signer-recomputed-the-declared-digest-before-signing-and-k.md) [INC-0122](./INC-0122-a-digest-present-anywhere-in-a-manifest-was-taken-as-proof-i.md) [INC-0421](./INC-0421-a-closure-packet-freeze-test-turned-positive-on-a-control-on.md) [INC-0436](./INC-0436-a-squash-recipe-equated-the-landing-tree-with-a-stale-branch.md)

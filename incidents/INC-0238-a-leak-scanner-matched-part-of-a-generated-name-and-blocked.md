@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0215](./INC-0215-a-commit-skipped-the-machine-wide-pre-commit-scanner.md) [INC-0407](./INC-0407-a-lead-signature-line-containing-the-assistant-s-product-nam.md)
+[INC-0215](./INC-0215-a-commit-skipped-the-machine-wide-pre-commit-scanner.md) [INC-0407](./INC-0407-a-lead-signature-line-containing-the-assistant-s-product-nam.md) [INC-0437](./INC-0437-evidence-receipts-leaked-absolute-paths-into-branch-history.md)

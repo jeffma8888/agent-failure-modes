@@ -41,4 +41,4 @@ Checked: the guard blocked each occurrence before push. Not checked: whether the
 
 ## Related
 
-[INC-0074](./INC-0074-a-brief-named-a-source-directory-the-repository-does-not-hav.md)
+[INC-0074](./INC-0074-a-brief-named-a-source-directory-the-repository-does-not-hav.md) [INC-0437](./INC-0437-evidence-receipts-leaked-absolute-paths-into-branch-history.md)

@@ -442,6 +442,21 @@ One rule per incident, ordered by severity then id.
 - **[INC-0433 / low]** Read the log for every commit a job text names before acting on it, and record the correction
 - **[INC-0434 / low]** Verify a reviewer's framework claim in the installed source before adopting it, and cite the source
 - **[INC-0435 / low]** When a low-load window opens, dispatch the gated runs at once, reading the load in its own command before each launch
+- **[INC-0436 / low]** A squash landing tree must equal the merge result of the pinned main and the branch head, never the branch tree; rebuild when main moves
+- **[INC-0437 / low]** Write evidence commands with placeholders for paths and tools; handle leaked history by a squash landing that keeps the original branch as the local audit trail
+- **[INC-0438 / low]** Treat a lint error as a defect: restructure, pin each intended behavior with a unit case, and add no disable comment or rule change
+- **[INC-0439 / low]** Fix a generated down migration by a minimal named edit with raw and delivered hashes, and report it as static until a round trip proves it
+- **[INC-0440 / low]** Catch a library throw on untrusted input and refuse with a client error status and a stable reason code; pin it with a valid-signature, bad-body case
+- **[INC-0441 / low]** Recompute spec geometry independently against the oracle tolerance, round at the last step, and never loosen the oracle
+- **[INC-0442 / low]** Read the clock immediately before writing each timestamp; write the time after the read, not before
+- **[INC-0443 / low]** Re-derive a freeze's mechanism before honoring it; withdraw it when the guarded run cannot read what it protects
+- **[INC-0444 / low]** When a static closure packet does not converge in three rounds, replace it by running the thing on current code and diagnosing the receipts
+- **[INC-0445 / low]** Scope a lock to the shared paths and commands it protects, not the whole branch, and state how a second branch rejoins after the holder merges
+- **[INC-0446 / low]** Provision a fresh worktree by a copy-on-write clone of the dependency tree, never by linking, when an install may hit dead store links
+- **[INC-0447 / low]** Accept a production merge only after the heavy test tier passes on the merged tree; authored but unexecuted cases are missing evidence, not a pass
+- **[INC-0448 / low]** Give each field that persists a state set its own enum name per table, and check the generated SQL for every state before generating types
+- **[INC-0449 / low]** Check thread activity right after every context compaction, before any other step
+- **[INC-0450 / low]** Put the load check before anything is created, so a gate stop costs nothing and leaves nothing to tear down
 
 ## Practices
 

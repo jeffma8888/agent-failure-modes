@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 435,
+  "count": 450,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1309,7 +1309,8 @@
         "INC-0041",
         "INC-0042",
         "INC-0425",
-        "INC-0434"
+        "INC-0434",
+        "INC-0440"
       ],
       "evidence": []
     },
@@ -1672,7 +1673,8 @@
       "signature": "Documents authored by several agents cite local files by absolute path or by the location of private lead notes.",
       "file": "incidents/INC-0081-reviewers-and-qa-wrote-absolute-home-paths-and-notes-paths-i.md",
       "related": [
-        "INC-0074"
+        "INC-0074",
+        "INC-0437"
       ],
       "evidence": []
     },
@@ -2171,7 +2173,8 @@
       "file": "incidents/INC-0110-a-cross-row-test-needed-setup-absent-from-its-own-lifecycle.md",
       "related": [
         "INC-0087",
-        "INC-0422"
+        "INC-0422",
+        "INC-0446"
       ],
       "evidence": []
     },
@@ -3316,7 +3319,8 @@
       "related": [
         "INC-0151",
         "INC-0424",
-        "INC-0430"
+        "INC-0430",
+        "INC-0448"
       ],
       "evidence": []
     },
@@ -3786,7 +3790,8 @@
       "signature": "A bypass could be written inline.",
       "file": "incidents/INC-0199-an-inline-directive-could-bypass-a-lint-rule-on-a-protected.md",
       "related": [
-        "INC-0176"
+        "INC-0176",
+        "INC-0438"
       ],
       "evidence": []
     },
@@ -3860,7 +3865,8 @@
       "signature": "The run failed before any test started.",
       "file": "incidents/INC-0203-a-setup-failure-was-at-risk-of-counting-as-a-test-run.md",
       "related": [
-        "INC-0188"
+        "INC-0188",
+        "INC-0447"
       ],
       "evidence": []
     },
@@ -4150,7 +4156,8 @@
         "INC-0393",
         "INC-0417",
         "INC-0427",
-        "INC-0435"
+        "INC-0435",
+        "INC-0445"
       ],
       "evidence": []
     },
@@ -4493,7 +4500,8 @@
       "file": "incidents/INC-0238-a-leak-scanner-matched-part-of-a-generated-name-and-blocked.md",
       "related": [
         "INC-0215",
-        "INC-0407"
+        "INC-0407",
+        "INC-0437"
       ],
       "evidence": []
     },
@@ -5029,7 +5037,8 @@
       "file": "incidents/INC-0267-a-check-named-lint-can-write.md",
       "related": [
         "INC-0252",
-        "INC-0426"
+        "INC-0426",
+        "INC-0439"
       ],
       "evidence": []
     },
@@ -5494,7 +5503,8 @@
       "signature": "A recorder reached its completion message while observations were missing.",
       "file": "incidents/INC-0292-a-snapshot-recorder-that-finished-was-taken-as-proof-it-had.md",
       "related": [
-        "INC-0082"
+        "INC-0082",
+        "INC-0447"
       ],
       "evidence": []
     },
@@ -5612,7 +5622,9 @@
         "INC-0288",
         "INC-0420",
         "INC-0424",
-        "INC-0425"
+        "INC-0425",
+        "INC-0444",
+        "INC-0447"
       ],
       "evidence": []
     },
@@ -6010,7 +6022,8 @@
         "INC-0298",
         "INC-0128",
         "INC-0416",
-        "INC-0432"
+        "INC-0432",
+        "INC-0449"
       ],
       "evidence": []
     },
@@ -6368,7 +6381,8 @@
       "related": [
         "INC-0326",
         "INC-0122",
-        "INC-0421"
+        "INC-0421",
+        "INC-0436"
       ],
       "evidence": []
     },
@@ -6448,7 +6462,8 @@
       "related": [
         "INC-0314",
         "INC-0083",
-        "INC-0343"
+        "INC-0343",
+        "INC-0441"
       ],
       "evidence": []
     },
@@ -6701,7 +6716,8 @@
         "INC-0375",
         "INC-0377",
         "INC-0380",
-        "INC-0381"
+        "INC-0381",
+        "INC-0446"
       ],
       "evidence": []
     },
@@ -7160,7 +7176,8 @@
         "INC-0128",
         "INC-0383",
         "INC-0384",
-        "INC-0415"
+        "INC-0415",
+        "INC-0442"
       ],
       "evidence": []
     },
@@ -7262,7 +7279,8 @@
         "INC-0391",
         "INC-0394",
         "INC-0404",
-        "INC-0431"
+        "INC-0431",
+        "INC-0438"
       ],
       "evidence": []
     },
@@ -7362,7 +7380,8 @@
         "INC-0373",
         "INC-0350",
         "INC-0384",
-        "INC-0415"
+        "INC-0415",
+        "INC-0442"
       ],
       "evidence": []
     },
@@ -7402,7 +7421,8 @@
         "INC-0379",
         "INC-0392",
         "INC-0399",
-        "INC-0410"
+        "INC-0410",
+        "INC-0444"
       ],
       "evidence": []
     },
@@ -7557,7 +7577,8 @@
         "INC-0271",
         "INC-0406",
         "INC-0417",
-        "INC-0435"
+        "INC-0435",
+        "INC-0450"
       ],
       "evidence": []
     },
@@ -7874,7 +7895,8 @@
       "related": [
         "INC-0399",
         "INC-0385",
-        "INC-0432"
+        "INC-0432",
+        "INC-0436"
       ],
       "evidence": []
     },
@@ -7966,7 +7988,8 @@
       "related": [
         "INC-0373",
         "INC-0383",
-        "INC-0384"
+        "INC-0384",
+        "INC-0442"
       ],
       "evidence": []
     },
@@ -7984,7 +8007,8 @@
       "file": "incidents/INC-0416-ten-teammate-threads-showed-state-paused-with-complete-outpu.md",
       "related": [
         "INC-0091",
-        "INC-0317"
+        "INC-0317",
+        "INC-0449"
       ],
       "evidence": []
     },
@@ -8003,7 +8027,8 @@
       "related": [
         "INC-0393",
         "INC-0406",
-        "INC-0219"
+        "INC-0219",
+        "INC-0450"
       ],
       "evidence": []
     },
@@ -8040,7 +8065,8 @@
         "INC-0279",
         "INC-0123",
         "INC-0157",
-        "INC-0428"
+        "INC-0428",
+        "INC-0445"
       ],
       "evidence": []
     },
@@ -8076,7 +8102,8 @@
       "file": "incidents/INC-0421-a-closure-packet-freeze-test-turned-positive-on-a-control-on.md",
       "related": [
         "INC-0335",
-        "INC-0359"
+        "INC-0359",
+        "INC-0443"
       ],
       "evidence": []
     },
@@ -8151,7 +8178,8 @@
       "related": [
         "INC-0062",
         "INC-0298",
-        "INC-0434"
+        "INC-0434",
+        "INC-0440"
       ],
       "evidence": []
     },
@@ -8169,7 +8197,9 @@
       "file": "incidents/INC-0426-a-generated-migration-needed-a-lint-only-edit-so-the-evidenc.md",
       "related": [
         "INC-0267",
-        "INC-0182"
+        "INC-0182",
+        "INC-0439",
+        "INC-0448"
       ],
       "evidence": []
     },
@@ -8188,7 +8218,8 @@
       "related": [
         "INC-0271",
         "INC-0219",
-        "INC-0195"
+        "INC-0195",
+        "INC-0450"
       ],
       "evidence": []
     },
@@ -8206,7 +8237,8 @@
       "file": "incidents/INC-0428-a-supersession-marker-was-deferred-to-each-row-s-activation.md",
       "related": [
         "INC-0279",
-        "INC-0419"
+        "INC-0419",
+        "INC-0443"
       ],
       "evidence": []
     },
@@ -8242,7 +8274,8 @@
       "file": "incidents/INC-0430-a-route-validator-rejected-a-width-that-the-generator-was-re.md",
       "related": [
         "INC-0173",
-        "INC-0414"
+        "INC-0414",
+        "INC-0441"
       ],
       "evidence": []
     },
@@ -8333,6 +8366,281 @@
       "related": [
         "INC-0393",
         "INC-0219"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0436",
+      "title": "A squash recipe equated the landing tree with a stale branch tree and would have dropped later main work",
+      "date": "2026-11-02",
+      "classes": [
+        "vcs-destruction"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A squash landing tree must equal the merge result of the pinned main and the branch head, never the branch tree; rebuild when main moves",
+      "signature": "A landing recipe that would have silently removed work already on main.",
+      "file": "incidents/INC-0436-a-squash-recipe-equated-the-landing-tree-with-a-stale-branch.md",
+      "related": [
+        "INC-0410",
+        "INC-0335"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0437",
+      "title": "Evidence receipts leaked absolute paths into branch history, and the lead landed by squash instead of rewriting history",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Write evidence commands with placeholders for paths and tools; handle leaked history by a squash landing that keeps the original branch as the local audit trail",
+      "signature": "The leak guard reported absolute paths and a tool name inside evidence files.",
+      "file": "incidents/INC-0437-evidence-receipts-leaked-absolute-paths-into-branch-history.md",
+      "related": [
+        "INC-0081",
+        "INC-0238"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0438",
+      "title": "A lint rule against a throw inside a finally block caught a real defect in production code",
+      "date": "2026-11-02",
+      "classes": [
+        "detector-fail-closed"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Treat a lint error as a defect: restructure, pin each intended behavior with a unit case, and add no disable comment or rule change",
+      "signature": "A final lint gate failed on code that looked finished.",
+      "file": "incidents/INC-0438-a-lint-rule-against-a-throw-inside-a-finally-block-caught-a.md",
+      "related": [
+        "INC-0199",
+        "INC-0378"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0439",
+      "title": "A generated down migration dropped a table with cascade and then dropped the removed constraint again",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Fix a generated down migration by a minimal named edit with raw and delivered hashes, and report it as static until a round trip proves it",
+      "signature": "A down migration contained a statement that fails after an earlier statement had already removed its target.",
+      "file": "incidents/INC-0439-a-generated-down-migration-dropped-a-table-with-cascade-and.md",
+      "related": [
+        "INC-0426",
+        "INC-0267",
+        "INC-0448"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0440",
+      "title": "An image library throw on undecodable bytes surfaced as a server error instead of a refusal",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Catch a library throw on untrusted input and refuse with a client error status and a stable reason code; pin it with a valid-signature, bad-body case",
+      "signature": "Malformed upload bytes produced a server error.",
+      "file": "incidents/INC-0440-an-image-library-throw-on-undecodable-bytes-surfaced-as-a-se.md",
+      "related": [
+        "INC-0425",
+        "INC-0062"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0441",
+      "title": "A geometry spec's rounded intermediate broke a test tolerance, caught by independent arithmetic",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Recompute spec geometry independently against the oracle tolerance, round at the last step, and never loosen the oracle",
+      "signature": "A spec's numbers did not meet the test tolerance they were written for.",
+      "file": "incidents/INC-0441-a-geometry-spec-s-rounded-intermediate-broke-a-test-toleranc.md",
+      "related": [
+        "INC-0430",
+        "INC-0339"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0442",
+      "title": "The lead wrote a ruling timestamp before reading the clock",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Read the clock immediately before writing each timestamp; write the time after the read, not before",
+      "signature": "A ruling carried a time written before the clock was read.",
+      "file": "incidents/INC-0442-the-lead-wrote-a-ruling-timestamp-before-reading-the-clock.md",
+      "related": [
+        "INC-0415",
+        "INC-0383",
+        "INC-0373"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0443",
+      "title": "A self-imposed freeze outlived its reason and was blocking three rows' activations",
+      "date": "2026-11-02",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Re-derive a freeze's mechanism before honoring it; withdraw it when the guarded run cannot read what it protects",
+      "signature": "A STOP kept blocking work after the run it protected could no longer be affected.",
+      "file": "incidents/INC-0443-a-self-imposed-freeze-outlived-its-reason-and-was-blocking-t.md",
+      "related": [
+        "INC-0421",
+        "INC-0428"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0444",
+      "title": "A static closure packet that did not converge in three rounds was replaced by running the thing and diagnosing the receipts",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When a static closure packet does not converge in three rounds, replace it by running the thing on current code and diagnosing the receipts",
+      "signature": "Static review rounds kept finding the same open items.",
+      "file": "incidents/INC-0444-a-static-closure-packet-that-did-not-converge-in-three-round.md",
+      "related": [
+        "INC-0298",
+        "INC-0385"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0445",
+      "title": "A migration lock covered the whole branch when it needed to cover only the generators and schema paths",
+      "date": "2026-11-02",
+      "classes": [
+        "concurrency"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Scope a lock to the shared paths and commands it protects, not the whole branch, and state how a second branch rejoins after the holder merges",
+      "signature": "A second branch idled although most of its work did not touch the locked resource.",
+      "file": "incidents/INC-0445-a-migration-lock-covered-the-whole-branch-when-it-needed-to.md",
+      "related": [
+        "INC-0219",
+        "INC-0419"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0446",
+      "title": "A fresh worktree can be provisioned by a copy-on-write clone of the dependency tree instead of an install that may hit dead store links",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Provision a fresh worktree by a copy-on-write clone of the dependency tree, never by linking, when an install may hit dead store links",
+      "signature": "An offline install failed on dead links in the package store.",
+      "file": "incidents/INC-0446-a-fresh-worktree-can-be-provisioned-by-a-copy-on-write-clone.md",
+      "related": [
+        "INC-0351",
+        "INC-0110"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0447",
+      "title": "Tests authored but never executed passed acceptance, and the first run of the heavy tier found a failing case",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Accept a production merge only after the heavy test tier passes on the merged tree; authored but unexecuted cases are missing evidence, not a pass",
+      "signature": "A row was signed off with part of its tests never run.",
+      "file": "incidents/INC-0447-tests-authored-but-never-executed-passed-acceptance-and-the.md",
+      "related": [
+        "INC-0203",
+        "INC-0292",
+        "INC-0298"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0448",
+      "title": "Two fields mapping to one database enum made the generated migration narrow a five-state status to two states",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Give each field that persists a state set its own enum name per table, and check the generated SQL for every state before generating types",
+      "signature": "A generated migration silently narrowed a status to fewer states than the field allows.",
+      "file": "incidents/INC-0448-two-fields-mapping-to-one-database-enum-made-the-generated-m.md",
+      "related": [
+        "INC-0173",
+        "INC-0426",
+        "INC-0439"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0449",
+      "title": "The lead missed six teammate replies across a context compaction and left the critical-path engineer idle for 35 minutes",
+      "date": "2026-11-02",
+      "classes": [
+        "steering-channel"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Check thread activity right after every context compaction, before any other step",
+      "signature": "Replies sat unread after a compaction.",
+      "file": "incidents/INC-0449-the-lead-missed-six-teammate-replies-across-a-context-compac.md",
+      "related": [
+        "INC-0317",
+        "INC-0416"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0450",
+      "title": "A load gate stop was the right call and cost nothing because the runner created nothing before the check",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Put the load check before anything is created, so a gate stop costs nothing and leaves nothing to tear down",
+      "signature": "A run stopped at the gate while the host was overloaded.",
+      "file": "incidents/INC-0450-a-load-gate-stop-was-the-right-call-and-cost-nothing-because.md",
+      "related": [
+        "INC-0427",
+        "INC-0417",
+        "INC-0393"
       ],
       "evidence": []
     }

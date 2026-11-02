@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0279](./INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md) [INC-0419](./INC-0419-a-registry-edit-failed-its-own-sorted-order-assertion-and-th.md)
+[INC-0279](./INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md) [INC-0419](./INC-0419-a-registry-edit-failed-its-own-sorted-order-assertion-and-th.md) [INC-0443](./INC-0443-a-self-imposed-freeze-outlived-its-reason-and-was-blocking-t.md)

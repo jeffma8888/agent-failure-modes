@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0188](./INC-0188-an-override-changed-the-lockfile-and-an-offline-clone-could.md)
+[INC-0188](./INC-0188-an-override-changed-the-lockfile-and-an-offline-clone-could.md) [INC-0447](./INC-0447-tests-authored-but-never-executed-passed-acceptance-and-the.md)

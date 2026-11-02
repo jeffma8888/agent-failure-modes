@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0393](./INC-0393-a-load-reading-taken-minutes-before-a-launch-was-stale-and-t.md) [INC-0406](./INC-0406-two-load-readings-around-a-sub-second-run-were-equal-because.md) [INC-0219](./INC-0219-a-shared-host-reached-load-491-and-unrelated-deadlines-faile.md)
+[INC-0393](./INC-0393-a-load-reading-taken-minutes-before-a-launch-was-stale-and-t.md) [INC-0406](./INC-0406-two-load-readings-around-a-sub-second-run-were-equal-because.md) [INC-0219](./INC-0219-a-shared-host-reached-load-491-and-unrelated-deadlines-faile.md) [INC-0450](./INC-0450-a-load-gate-stop-was-the-right-call-and-cost-nothing-because.md)

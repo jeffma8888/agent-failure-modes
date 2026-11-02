@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0271](./INC-0271-a-load-induced-harness-red-is-not-headroom.md) [INC-0219](./INC-0219-a-shared-host-reached-load-491-and-unrelated-deadlines-faile.md) [INC-0195](./INC-0195-a-single-stage-time-on-a-loaded-host-was-read-as-a-measureme.md)
+[INC-0271](./INC-0271-a-load-induced-harness-red-is-not-headroom.md) [INC-0219](./INC-0219-a-shared-host-reached-load-491-and-unrelated-deadlines-faile.md) [INC-0195](./INC-0195-a-single-stage-time-on-a-loaded-host-was-read-as-a-measureme.md) [INC-0450](./INC-0450-a-load-gate-stop-was-the-right-call-and-cost-nothing-because.md)

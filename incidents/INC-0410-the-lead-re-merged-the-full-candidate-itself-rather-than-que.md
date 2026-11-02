@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0399](./INC-0399-a-final-review-was-reassigned-from-a-busy-reviewer-to-an-idl.md) [INC-0385](./INC-0385-two-engineers-answered-the-same-stop-diagnosis-independently.md) [INC-0432](./INC-0432-hand-delivery-under-a-hold-with-one-reconciliation-after-the.md)
+[INC-0399](./INC-0399-a-final-review-was-reassigned-from-a-busy-reviewer-to-an-idl.md) [INC-0385](./INC-0385-two-engineers-answered-the-same-stop-diagnosis-independently.md) [INC-0432](./INC-0432-hand-delivery-under-a-hold-with-one-reconciliation-after-the.md) [INC-0436](./INC-0436-a-squash-recipe-equated-the-landing-tree-with-a-stale-branch.md)
