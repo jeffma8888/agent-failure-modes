@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 398,
+  "count": 400,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -7196,7 +7196,8 @@
       "file": "incidents/INC-0377-a-draft-test-root-was-revised-in-place-after-review-marker-o.md",
       "related": [
         "INC-0351",
-        "INC-0397"
+        "INC-0397",
+        "INC-0400"
       ],
       "evidence": []
     },
@@ -7254,7 +7255,8 @@
       "related": [
         "INC-0351",
         "INC-0371",
-        "INC-0389"
+        "INC-0389",
+        "INC-0400"
       ],
       "evidence": []
     },
@@ -7347,7 +7349,8 @@
       "file": "incidents/INC-0385-two-engineers-answered-the-same-stop-diagnosis-independently.md",
       "related": [
         "INC-0379",
-        "INC-0392"
+        "INC-0392",
+        "INC-0399"
       ],
       "evidence": []
     },
@@ -7474,7 +7477,8 @@
       "file": "incidents/INC-0392-a-declaration-request-that-split-sourced-values-from-decisio.md",
       "related": [
         "INC-0385",
-        "INC-0379"
+        "INC-0379",
+        "INC-0399"
       ],
       "evidence": []
     },
@@ -7582,6 +7586,42 @@
       "related": [
         "INC-0381",
         "INC-0340"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0399",
+      "title": "A final review was reassigned from a busy reviewer to an idle one of a different model instead of queueing",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Reassign a review to an idle qualified reviewer of a different model rather than queueing it, keeping the non-author rule",
+      "signature": "A review waiting for a busy reviewer would have stalled the acceptance step.",
+      "file": "incidents/INC-0399-a-final-review-was-reassigned-from-a-busy-reviewer-to-an-idl.md",
+      "related": [
+        "INC-0392",
+        "INC-0385"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0400",
+      "title": "An activation instruction to delete superseded pending copies had nothing to delete because an earlier pure rename had already moved them",
+      "date": "2026-11-02",
+      "classes": [
+        "vcs-destruction"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Before a delete step in an activation, check the file exists; a prior pure rename leaves nothing to delete, so record that",
+      "signature": "An instruction assumed pending copies still existed after they had been renamed away.",
+      "file": "incidents/INC-0400-an-activation-instruction-to-delete-superseded-pending-copie.md",
+      "related": [
+        "INC-0380",
+        "INC-0377"
       ],
       "evidence": []
     }

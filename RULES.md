@@ -405,6 +405,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0393 / low]** Gate on load where you launch, immediately before; an earlier or second-hand reading is stale
 - **[INC-0397 / low]** Land a pending successor without its marker; write the marker only after the review
 - **[INC-0398 / low]** Exempt exactly one named path from a content inventory, with its digests recorded; never a directory or pattern
+- **[INC-0399 / low]** Reassign a review to an idle qualified reviewer of a different model rather than queueing it, keeping the non-author rule
+- **[INC-0400 / low]** Before a delete step in an activation, check the file exists; a prior pure rename leaves nothing to delete, so record that
 
 ## Practices
 

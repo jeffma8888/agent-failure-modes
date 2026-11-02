@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0379](./INC-0379-splitting-a-review-s-amendments-kept-the-engineer-busy-while.md) [INC-0392](./INC-0392-a-declaration-request-that-split-sourced-values-from-decisio.md)
+[INC-0379](./INC-0379-splitting-a-review-s-amendments-kept-the-engineer-busy-while.md) [INC-0392](./INC-0392-a-declaration-request-that-split-sourced-values-from-decisio.md) [INC-0399](./INC-0399-a-final-review-was-reassigned-from-a-busy-reviewer-to-an-idl.md)
