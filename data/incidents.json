@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 496,
+  "count": 498,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9549,6 +9549,42 @@
       "related": [
         "INC-0494",
         "INC-0490"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0497",
+      "title": "A flag that hides the token from responses left first-user registration with an empty session cookie",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When a change hides or removes a credential from responses, test every flow that needs that credential to finish, not only that it is hidden.",
+      "signature": "Registration returned success and stored the admin, and the browser landed on the login page.",
+      "file": "incidents/INC-0497-a-flag-that-hides-the-token-from-responses-left-first-user-r.md",
+      "related": [
+        "INC-0487",
+        "INC-0496"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0498",
+      "title": "The first browser run of new end-to-end cases found two product defects that config reads and other tiers missed",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A config that lists a column or a field is not evidence that the page shows it or works offline; only a browser run on the real page is.",
+      "signature": "A config listed a column and a field, and the real page showed neither as intended.",
+      "file": "incidents/INC-0498-the-first-browser-run-of-new-end-to-end-cases-found-two-prod.md",
+      "related": [
+        "INC-0494",
+        "INC-0496"
       ],
       "evidence": []
     }
