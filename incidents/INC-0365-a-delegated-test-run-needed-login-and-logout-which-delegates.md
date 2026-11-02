@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0103](./INC-0103-a-teammate-could-not-run-a-destructive-git-command-even-when.md) [INC-0200](./INC-0200-a-sandbox-permission-failure-was-at-risk-of-reading-as-a-cod.md) [INC-0050](./INC-0050-bundling-safe-local-steps-with-an-approval-gated-step-loses.md)
+[INC-0103](./INC-0103-a-teammate-could-not-run-a-destructive-git-command-even-when.md) [INC-0200](./INC-0200-a-sandbox-permission-failure-was-at-risk-of-reading-as-a-cod.md) [INC-0050](./INC-0050-bundling-safe-local-steps-with-an-approval-gated-step-loses.md) [INC-0367](./INC-0367-a-brief-for-a-database-backed-run-omitted-the-test-database.md)

@@ -373,6 +373,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0363 / low]** Before counting a red as missing-API, prove the guard both ways (module present: silent; module absent: fires), and never route a presence check through a mock the same test installs
 - **[INC-0365 / low]** When a test needs an action above a delegate's permission ceiling, the delegate writes and statically validates the script and pins its hash and exact command; the lead runs it unchanged and returns the artifacts; never weaken the test to fit the ceiling, and never let the delegate claim a result it did not observe
 - **[INC-0366 / low]** Derive each checklist expectation verbatim from the delivered spec row and cite the row; triage every failure against the spec, the code and the active tests before calling it a defect
+- **[INC-0367 / low]** A brief that asks for a runtime run must carry its runtime environment (the exact endpoint and environment variables, which slot is free, the load gate, and what must never be touched); a delegate that finds a required environment value missing stops and asks, never infers one
 
 ## Practices
 

@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0097](./INC-0097-url-guards-did-not-prove-a-test-owned-the-disposable-cluster.md)
+[INC-0097](./INC-0097-url-guards-did-not-prove-a-test-owned-the-disposable-cluster.md) [INC-0367](./INC-0367-a-brief-for-a-database-backed-run-omitted-the-test-database.md)

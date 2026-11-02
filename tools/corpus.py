@@ -1498,7 +1498,7 @@ _BATCH19: list[dict] = [
         "fix": "Later briefs name the real package path, copied from a listing of the repository taken when the brief is written.",
         "verification": "Checked: the two failing briefs against the actual repository layout. Not checked: whether later briefs are free of other stale paths.",
         "rule": "Write path rules in a brief from a listing taken when the brief is written, never from memory of a conventional layout.",
-        "related": ["INC-0056", "INC-0055"],
+        "related": ["INC-0056", "INC-0055", 'INC-0367'],
     },
     {
         "id": "INC-0075",
@@ -2556,7 +2556,7 @@ _BATCH20: list[dict] = [
         "fix": 'Use one harness cluster per runtime agent.',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Give each agent its own cluster.',
-        "related": ['INC-0097'],
+        "related": ['INC-0097', 'INC-0367'],
     },
     {
         "id": "INC-0137",
@@ -6450,7 +6450,7 @@ _BATCH20: list[dict] = [
         "fix": "The delegate writes and statically validates the script and pins its hash and exact command; the lead runs it unchanged and returns the artifacts; the report separates what was validated statically from what the lead observed",
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": "When a test needs an action above a delegate's permission ceiling, the delegate writes and statically validates the script and pins its hash and exact command; the lead runs it unchanged and returns the artifacts; never weaken the test to fit the ceiling, and never let the delegate claim a result it did not observe",
-        "related": ['INC-0103', 'INC-0200', 'INC-0050'],
+        "related": ['INC-0103', 'INC-0200', 'INC-0050', 'INC-0367'],
     },
     {
         "id": "INC-0366",
@@ -6468,6 +6468,23 @@ _BATCH20: list[dict] = [
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": "Derive each checklist expectation verbatim from the delivered spec row and cite the row; triage every failure against the spec, the code and the active tests before calling it a defect",
         "related": ['INC-0265', 'INC-0244'],
+    },
+    {
+        "id": "INC-0367",
+        "title": "A brief for a database-backed run omitted the test database endpoint, so the delegate rightly stopped",
+        "date": "2026-11-01",
+        "classes": ['ipc-and-env'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Minor: one round trip before the run could start; nothing was touched that should not have been.",
+        "signature": "A delegate stopped before a database-backed run and reported a missing environment variable.",
+        "what": "the lead asked a QA delegate to run database-backed full-tier test cases, but the brief did not give the dedicated test database endpoint. The delegate refused to guess one or to use a shared cluster, stopped, and reported the missing environment variable. The lead then supplied the endpoint and the run went ahead, costing one round trip",
+        "root_cause": "the brief named the runs but not the runtime environment they need, so the endpoint existed only in the lead's head",
+        "why_hard": "The brief read as complete because every other instruction was present, and the safe behaviour of the delegate (stop and ask) is what exposed the gap rather than any failure.",
+        "fix": "The lead supplied the endpoint; a brief that asks for a runtime run now carries its runtime environment: the exact endpoint and environment variables, which slot is free, the load gate, and what must never be touched",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "A brief that asks for a runtime run must carry its runtime environment (the exact endpoint and environment variables, which slot is free, the load gate, and what must never be touched); a delegate that finds a required environment value missing stops and asks, never infers one",
+        "related": ['INC-0074', 'INC-0136', 'INC-0365'],
     },
 ]
 

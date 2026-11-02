@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 366,
+  "count": 367,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1533,7 +1533,8 @@
       "file": "incidents/INC-0074-a-brief-named-a-source-directory-the-repository-does-not-hav.md",
       "related": [
         "INC-0056",
-        "INC-0055"
+        "INC-0055",
+        "INC-0367"
       ],
       "evidence": []
     },
@@ -2625,7 +2626,8 @@
       "signature": "Inventory checks fail when two agents use one cluster.",
       "file": "incidents/INC-0136-a-cross-agent-inventory-flake-came-from-sharing-one-harness.md",
       "related": [
-        "INC-0097"
+        "INC-0097",
+        "INC-0367"
       ],
       "evidence": []
     },
@@ -6919,7 +6921,8 @@
       "related": [
         "INC-0103",
         "INC-0200",
-        "INC-0050"
+        "INC-0050",
+        "INC-0367"
       ],
       "evidence": []
     },
@@ -6939,6 +6942,25 @@
       "related": [
         "INC-0265",
         "INC-0244"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0367",
+      "title": "A brief for a database-backed run omitted the test database endpoint, so the delegate rightly stopped",
+      "date": "2026-11-01",
+      "classes": [
+        "ipc-and-env"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A brief that asks for a runtime run must carry its runtime environment (the exact endpoint and environment variables, which slot is free, the load gate, and what must never be touched); a delegate that finds a required environment value missing stops and asks, never infers one",
+      "signature": "A delegate stopped before a database-backed run and reported a missing environment variable.",
+      "file": "incidents/INC-0367-a-brief-for-a-database-backed-run-omitted-the-test-database.md",
+      "related": [
+        "INC-0074",
+        "INC-0136",
+        "INC-0365"
       ],
       "evidence": []
     }

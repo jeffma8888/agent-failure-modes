@@ -41,4 +41,4 @@ Checked: the two failing briefs against the actual repository layout. Not checke
 
 ## Related
 
-[INC-0056](./INC-0056-test-seams-declared-from-memory-carried-wrong-field-names-an.md) [INC-0055](./INC-0055-a-scope-cut-was-mapped-against-the-previous-version-of-its-b.md)
+[INC-0056](./INC-0056-test-seams-declared-from-memory-carried-wrong-field-names-an.md) [INC-0055](./INC-0055-a-scope-cut-was-mapped-against-the-previous-version-of-its-b.md) [INC-0367](./INC-0367-a-brief-for-a-database-backed-run-omitted-the-test-database.md)
