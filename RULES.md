@@ -334,6 +334,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0343 / medium]** When a mutant survives, add the cell where the coarse signal is right and the checked detail is wrong, and rerun the mutant to prove the cell kills it
 - **[INC-0344 / medium]** After a refactor, run the canonical gate once, static steps included, before more focused work; focused runs skip lint, typecheck and hygiene checks
 - **[INC-0345 / medium]** Replace a derived timing anchor with a measured one as soon as the thing exists, and recompute every threshold it feeds
+- **[INC-0346 / medium]** Write a ruling into the log in the same step as sending it; a ruling that exists only in a message is invisible to every other reader
+- **[INC-0347 / medium]** In a wrapper, save the exit status on the very next line and end with an explicit exit of it; prove a nonzero child makes the wrapper nonzero
+- **[INC-0348 / medium]** When a rule demands margin k, the budget is the deadline divided by k; track the slowest sample against that, not the deadline
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

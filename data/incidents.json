@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 345,
+  "count": 348,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6439,6 +6439,64 @@
       "related": [
         "INC-0195",
         "INC-0312"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0346",
+      "title": "A ruling sent in a message was never written to the ruling log",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Write a ruling into the log in the same step as sending it; a ruling that exists only in a message is invisible to every other reader",
+      "signature": "A reviewer found a ruling missing from the log, and it had to be reconstructed from message text with a caveat.",
+      "file": "incidents/INC-0346-a-ruling-sent-in-a-message-was-never-written-to-the-ruling-l.md",
+      "related": [
+        "INC-0337",
+        "INC-0302"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0347",
+      "title": "A final print in a wrapper replaced the command's failure with success",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "In a wrapper, save the exit status on the very next line and end with an explicit exit of it; prove a nonzero child makes the wrapper nonzero",
+      "signature": "A generated run script ended with a print statement and no explicit exit, so a red gate returned zero.",
+      "file": "incidents/INC-0347-a-final-print-in-a-wrapper-replaced-the-command-s-failure-wi.md",
+      "related": [
+        "INC-0051",
+        "INC-0120"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0348",
+      "title": "A deadline set at twice the slowest sample was budgeted against the whole deadline",
+      "date": "2026-11-01",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a rule demands margin k, the budget is the deadline divided by k; track the slowest sample against that, not the deadline",
+      "signature": "A stage was projected safe until it reached its deadline, while one sample already broke the real binding line.",
+      "file": "incidents/INC-0348-a-deadline-set-at-twice-the-slowest-sample-was-budgeted-agai.md",
+      "related": [
+        "INC-0345",
+        "INC-0209",
+        "INC-0308"
       ],
       "evidence": []
     }
