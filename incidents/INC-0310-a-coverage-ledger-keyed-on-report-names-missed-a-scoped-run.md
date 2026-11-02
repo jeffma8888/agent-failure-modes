@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0285](./INC-0285-a-tier-level-coverage-table-hides-untraced-cases.md) [INC-0234](./INC-0234-a-ledger-review-that-started-from-the-author-list-could-inhe.md)
+[INC-0285](./INC-0285-a-tier-level-coverage-table-hides-untraced-cases.md) [INC-0234](./INC-0234-a-ledger-review-that-started-from-the-author-list-could-inhe.md) [INC-0284](./INC-0284-a-gate-result-counts-only-at-a-revision-the-gate-can-fetch-a.md) [INC-0283](./INC-0283-a-hold-gate-is-proven-only-while-eligible-work-exists.md)

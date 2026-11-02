@@ -5343,7 +5343,8 @@
       "signature": "Every required check failed before running because the assigned worktree lacked a script.",
       "file": "incidents/INC-0288-verify-a-worktree-can-run-the-required-checks-before-assigni.md",
       "related": [
-        "INC-0264"
+        "INC-0264",
+        "INC-0286"
       ],
       "evidence": []
     },
@@ -5455,7 +5456,8 @@
       "signature": "A move failed halfway because removing the sole file removed its parent.",
       "file": "incidents/INC-0294-activating-a-replacement-over-the-only-file-in-a-directory-r.md",
       "related": [
-        "INC-0279"
+        "INC-0279",
+        "INC-0293"
       ],
       "evidence": []
     },
@@ -5529,7 +5531,8 @@
       "related": [
         "INC-0289",
         "INC-0297",
-        "INC-0286"
+        "INC-0286",
+        "INC-0288"
       ],
       "evidence": []
     },
@@ -5548,7 +5551,8 @@
       "file": "incidents/INC-0299-a-row-only-overlay-left-out-the-helpers-of-a-dependency-row.md",
       "related": [
         "INC-0297",
-        "INC-0100"
+        "INC-0100",
+        "INC-0298"
       ],
       "evidence": []
     },
@@ -5602,7 +5606,8 @@
       "signature": "A revised plan still directed work to a superseded file and carried wrong counts.",
       "file": "incidents/INC-0302-a-plan-revision-left-stale-operative-text-that-only-an-indep.md",
       "related": [
-        "INC-0217"
+        "INC-0217",
+        "INC-0296"
       ],
       "evidence": []
     },
@@ -5620,7 +5625,8 @@
       "signature": "A page that works by hand rendered empty under the test tool.",
       "file": "incidents/INC-0303-a-guard-added-to-a-test-tool-broke-the-check-under-test.md",
       "related": [
-        "INC-0275"
+        "INC-0275",
+        "INC-0282"
       ],
       "evidence": []
     },
@@ -5693,7 +5699,8 @@
       "file": "incidents/INC-0307-a-measurement-wrapper-inherited-the-environment-the-tests-re.md",
       "related": [
         "INC-0256",
-        "INC-0257"
+        "INC-0257",
+        "INC-0305"
       ],
       "evidence": []
     },
@@ -5711,7 +5718,9 @@
       "signature": "A stage deadline measured at 24 cases was about to carry 105.",
       "file": "incidents/INC-0308-a-fixed-stage-deadline-met-planned-case-growth-that-nobody-h.md",
       "related": [
-        "INC-0209"
+        "INC-0209",
+        "INC-0290",
+        "INC-0291"
       ],
       "evidence": []
     },
@@ -5730,7 +5739,9 @@
       "file": "incidents/INC-0309-a-helper-tool-s-argument-meaning-was-misread-by-its-own-auth.md",
       "related": [
         "INC-0103",
-        "INC-0014"
+        "INC-0014",
+        "INC-0281",
+        "INC-0295"
       ],
       "evidence": []
     },
@@ -5749,7 +5760,9 @@
       "file": "incidents/INC-0310-a-coverage-ledger-keyed-on-report-names-missed-a-scoped-run.md",
       "related": [
         "INC-0285",
-        "INC-0234"
+        "INC-0234",
+        "INC-0284",
+        "INC-0283"
       ],
       "evidence": []
     }

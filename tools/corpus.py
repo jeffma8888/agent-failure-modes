@@ -5141,7 +5141,7 @@ _BATCH20: list[dict] = [
         "fix": 'Run the required checks once in the worktree before assigning work, use a full disposable checkout if needed, and record the failure instead of claiming a pass',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Confirm a worktree can run the required checks before work is assigned there',
-        "related": ['INC-0264'],
+        "related": ['INC-0264', 'INC-0286'],
     },
     {
         "id": "INC-0289",
@@ -5243,7 +5243,7 @@ _BATCH20: list[dict] = [
         "fix": 'Stop, recreate the parent, finish the unchanged move, run pending checks before activation, and record the post-activation refusal as expected',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Before a remove-and-move, check whether the file is alone in its directory, and run pending checks first',
-        "related": ['INC-0279'],
+        "related": ['INC-0279', 'INC-0293'],
     },
     {
         "id": "INC-0295",
@@ -5311,7 +5311,7 @@ _BATCH20: list[dict] = [
         "fix": 'Run each pending file once against the unmodified snapshot and classify the first failure as product or harness',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Run a red check before the build agent starts and classify each first failure',
-        "related": ['INC-0289', 'INC-0297', 'INC-0286'],
+        "related": ['INC-0289', 'INC-0297', 'INC-0286', 'INC-0288'],
     },
     {
         "id": "INC-0299",
@@ -5328,7 +5328,7 @@ _BATCH20: list[dict] = [
         "fix": 'Activate the dependency row helpers first, preserving digests and lineage, then rerun the consumers; do not copy older helpers, edit imports or add stubs',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Confirm the helpers owned by dependency rows are active in the base before judging a consumer blocked or red',
-        "related": ['INC-0297', 'INC-0100'],
+        "related": ['INC-0297', 'INC-0100', 'INC-0298'],
     },
     {
         "id": "INC-0300",
@@ -5379,7 +5379,7 @@ _BATCH20: list[dict] = [
         "fix": 'Have a different reviewer check every operative sentence and count against the replacement',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'After a revision, check every operative sentence and count against the replacement, using a reviewer who did not write it',
-        "related": ['INC-0217'],
+        "related": ['INC-0217', 'INC-0296'],
     },
     {
         "id": "INC-0303",
@@ -5396,7 +5396,7 @@ _BATCH20: list[dict] = [
         "fix": 'Remove the context wide header, keep the other guard parts, and locate the cause by bisecting the context options',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": "Test a guard added to a test tool against a known good page, and bisect the tool's options when a page that works by hand fails",
-        "related": ['INC-0275'],
+        "related": ['INC-0275', 'INC-0282'],
     },
     {
         "id": "INC-0304",
@@ -5464,7 +5464,7 @@ _BATCH20: list[dict] = [
         "fix": 'Give the wrapper fixed absolute tool paths, have it read no variable the tests set or replace, and label a run that fails this way INVALID INVOCATION, keep it, and count it neither as a red nor as a measurement',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'A wrapper that only adds reporting uses fixed absolute tool paths and reads no variable the tests set or replace; an invalid invocation is kept but is neither a red nor a measurement',
-        "related": ['INC-0256', 'INC-0257'],
+        "related": ['INC-0256', 'INC-0257', 'INC-0305'],
     },
     {
         "id": "INC-0308",
@@ -5481,7 +5481,7 @@ _BATCH20: list[dict] = [
         "fix": 'Project the stage time per rung from the acceptance checklist and decide who re-measures before the load, not after the first timeout',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'When an acceptance checklist adds cases to a bounded stage, project the stage time per rung and decide who re-measures before the load, not after the first timeout',
-        "related": ['INC-0209'],
+        "related": ['INC-0209', 'INC-0290', 'INC-0291'],
     },
     {
         "id": "INC-0309",
@@ -5498,7 +5498,7 @@ _BATCH20: list[dict] = [
         "fix": 'Read the usage line before a destructive mode, even for your own tool, and keep destructive steps in tools that verify their arguments',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": "Read a tool's usage line before a destructive mode, even your own tool; keep destructive steps in tools that verify the kind of each argument",
-        "related": ['INC-0103', 'INC-0014'],
+        "related": ['INC-0103', 'INC-0014', 'INC-0281', 'INC-0295'],
     },
     {
         "id": "INC-0310",
@@ -5515,7 +5515,7 @@ _BATCH20: list[dict] = [
         "fix": 'Key coverage ledgers on the exact bytes executed, from any report, instead of on report names',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Key coverage ledgers on the exact bytes executed, from any report, not on report names',
-        "related": ['INC-0285', 'INC-0234'],
+        "related": ['INC-0285', 'INC-0234', 'INC-0284', 'INC-0283'],
     },
 ]
 

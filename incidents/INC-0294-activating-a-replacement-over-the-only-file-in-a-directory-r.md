@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0279](./INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md)
+[INC-0279](./INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md) [INC-0293](./INC-0293-the-before-state-was-not-preserved-before-an-operator-edit.md)

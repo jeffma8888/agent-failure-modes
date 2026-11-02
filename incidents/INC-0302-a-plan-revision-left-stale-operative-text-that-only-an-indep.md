@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0217](./INC-0217-a-fixed-test-count-in-an-exit-criterion-went-stale.md)
+[INC-0217](./INC-0217-a-fixed-test-count-in-an-exit-criterion-went-stale.md) [INC-0296](./INC-0296-plan-line-anchors-drifted-with-each-plan-version.md)

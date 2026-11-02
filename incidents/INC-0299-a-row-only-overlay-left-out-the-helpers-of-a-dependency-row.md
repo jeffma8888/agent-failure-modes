@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0297](./INC-0297-a-test-needed-a-second-account-that-the-minimal-seed-did-not.md) [INC-0100](./INC-0100-a-new-test-file-was-placed-in-a-row-whose-activation-order-d.md)
+[INC-0297](./INC-0297-a-test-needed-a-second-account-that-the-minimal-seed-did-not.md) [INC-0100](./INC-0100-a-new-test-file-was-placed-in-a-row-whose-activation-order-d.md) [INC-0298](./INC-0298-harness-and-ownership-defects-were-left-for-the-build-agent.md)

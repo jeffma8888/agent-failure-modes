@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0264](./INC-0264-run-repo-checkers-from-a-tree-that-contains-them.md)
+[INC-0264](./INC-0264-run-repo-checkers-from-a-tree-that-contains-them.md) [INC-0286](./INC-0286-fix-module-resolution-once-at-the-root-not-per-test.md)

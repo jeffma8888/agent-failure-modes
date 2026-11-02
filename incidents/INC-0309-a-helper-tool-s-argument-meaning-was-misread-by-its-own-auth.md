@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0103](./INC-0103-a-teammate-could-not-run-a-destructive-git-command-even-when.md) [INC-0014](./INC-0014-a-revert-on-failure-loop-destroys-uncommitted-human-work-in.md)
+[INC-0103](./INC-0103-a-teammate-could-not-run-a-destructive-git-command-even-when.md) [INC-0014](./INC-0014-a-revert-on-failure-loop-destroys-uncommitted-human-work-in.md) [INC-0281](./INC-0281-confirm-the-landing-commit-contains-every-file-before-cleani.md) [INC-0295](./INC-0295-a-pure-move-onto-an-existing-path-was-read-from-the-diff-s-r.md)
