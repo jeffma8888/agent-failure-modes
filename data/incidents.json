@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 306,
+  "count": 310,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5675,6 +5675,81 @@
       "file": "incidents/INC-0306-a-conditional-diagnosis-was-closed-from-the-actor-s-account.md",
       "related": [
         "INC-0305"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0307",
+      "title": "A measurement wrapper inherited the environment the tests replace",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "ipc-and-env"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A wrapper that only adds reporting uses fixed absolute tool paths and reads no variable the tests set or replace; an invalid invocation is kept but is neither a red nor a measurement",
+      "signature": "A timing wrapper found its tool through variables the tests replace on purpose, so runs failed before measuring anything.",
+      "file": "incidents/INC-0307-a-measurement-wrapper-inherited-the-environment-the-tests-re.md",
+      "related": [
+        "INC-0256",
+        "INC-0257"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0308",
+      "title": "A fixed stage deadline met planned case growth that nobody had projected",
+      "date": "2026-11-01",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When an acceptance checklist adds cases to a bounded stage, project the stage time per rung and decide who re-measures before the load, not after the first timeout",
+      "signature": "A stage deadline measured at 24 cases was about to carry 105.",
+      "file": "incidents/INC-0308-a-fixed-stage-deadline-met-planned-case-growth-that-nobody-h.md",
+      "related": [
+        "INC-0209"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0309",
+      "title": "A helper tool's argument meaning was misread by its own author",
+      "date": "2026-11-01",
+      "classes": [
+        "vcs-destruction",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Read a tool's usage line before a destructive mode, even your own tool; keep destructive steps in tools that verify the kind of each argument",
+      "signature": "A digest was passed where the clean step expected a commit, and a tracked file was deleted.",
+      "file": "incidents/INC-0309-a-helper-tool-s-argument-meaning-was-misread-by-its-own-auth.md",
+      "related": [
+        "INC-0103",
+        "INC-0014"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0310",
+      "title": "A coverage ledger keyed on report names missed a scoped run of the exact bytes",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Key coverage ledgers on the exact bytes executed, from any report, not on report names",
+      "signature": "The ledger called a red check stale while a reviewer had already executed the exact terminal file.",
+      "file": "incidents/INC-0310-a-coverage-ledger-keyed-on-report-names-missed-a-scoped-run.md",
+      "related": [
+        "INC-0285",
+        "INC-0234"
       ],
       "evidence": []
     }

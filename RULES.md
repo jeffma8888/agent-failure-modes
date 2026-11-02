@@ -295,6 +295,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0304 / medium]** A dependency edge does not justify moving a test; check what it asserts and what acceptance the move would remove
 - **[INC-0305 / medium]** A process your sandbox cannot see is not a dead process; ownership comes from your own run record, not from visibility or timing
 - **[INC-0306 / medium]** Do not open a fix row for a hazard that is only conditional; close on the confirmed cause and track the hazard as a follow-up
+- **[INC-0307 / medium]** A wrapper that only adds reporting uses fixed absolute tool paths and reads no variable the tests set or replace; an invalid invocation is kept but is neither a red nor a measurement
+- **[INC-0308 / medium]** When an acceptance checklist adds cases to a bounded stage, project the stage time per rung and decide who re-measures before the load, not after the first timeout
+- **[INC-0309 / medium]** Read a tool's usage line before a destructive mode, even your own tool; keep destructive steps in tools that verify the kind of each argument
+- **[INC-0310 / medium]** Key coverage ledgers on the exact bytes executed, from any report, not on report names
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
