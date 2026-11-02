@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0146](./INC-0146-a-truncated-fast-run-stopped-at-the-first-red-stage-and-unde.md) [INC-0470](./INC-0470-a-count-delta-in-an-acceptance-document-was-first-attributed.md)
+[INC-0146](./INC-0146-a-truncated-fast-run-stopped-at-the-first-red-stage-and-unde.md) [INC-0470](./INC-0470-a-count-change-in-an-acceptance-document-was-attributed-to-s.md)

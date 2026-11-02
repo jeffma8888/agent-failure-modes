@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0399](./INC-0399-a-final-review-was-reassigned-from-a-busy-reviewer-to-an-idl.md) [INC-0337](./INC-0337-reviewers-named-at-ruling-time-were-busy-when-the-artifact-l.md) [INC-0467](./INC-0467-a-run-plan-barred-the-test-author-from-running-the-walk-and.md)
+[INC-0399](./INC-0399-a-final-review-was-reassigned-from-a-busy-reviewer-to-an-idl.md) [INC-0337](./INC-0337-reviewers-named-at-ruling-time-were-busy-when-the-artifact-l.md) [INC-0467](./INC-0467-a-run-plan-barred-the-test-author-from-running-the-script-an.md)

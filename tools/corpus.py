@@ -8154,7 +8154,7 @@ _BATCH20: list[dict] = [
     },
     {
         "id": "INC-0466",
-        "title": "A walker script carried internal load vetoes that contradicted a later ruling, and the runner rightly refused to edit the immutable bytes",
+        "title": "A script carried internal load vetoes that contradicted a later decision, and the script bytes were immutable",
         "date": "2026-11-02",
         "classes": ['spec-and-scope'],
         "severity": "low",
@@ -8171,7 +8171,7 @@ _BATCH20: list[dict] = [
     },
     {
         "id": "INC-0467",
-        "title": "A run plan barred the test author from running the walk, and a later message assigned that author anyway; the walker author caught it",
+        "title": "A run plan barred the test author from running the script, and a later message assigned that author anyway",
         "date": "2026-11-02",
         "classes": ['delegation'],
         "severity": "low",
@@ -8222,7 +8222,7 @@ _BATCH20: list[dict] = [
     },
     {
         "id": "INC-0470",
-        "title": "A count delta in an acceptance document was first attributed to specific rows without a per file check",
+        "title": "A count change in an acceptance document was attributed to specific items without a per file check",
         "date": "2026-11-02",
         "classes": ['observability'],
         "severity": "low",
@@ -8256,7 +8256,7 @@ _BATCH20: list[dict] = [
     },
     {
         "id": "INC-0472",
-        "title": "The first browser test to load the app config failed to link because one module was reached by two loaders, and minimal variants proved it before any product edit",
+        "title": "The first browser test to load the app config failed to link because one module was reached by two loaders",
         "date": "2026-11-02",
         "classes": ['test-isolation'],
         "severity": "low",

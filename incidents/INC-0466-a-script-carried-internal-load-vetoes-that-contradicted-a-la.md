@@ -1,13 +1,13 @@
 ---
 id: INC-0466
-title: A walker script carried internal load vetoes that contradicted a later ruling, and the runner rightly refused to edit the immutable bytes
+title: A script carried internal load vetoes that contradicted a later decision, and the script bytes were immutable
 date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: fixed
 ---
 
-# INC-0466 - A walker script carried internal load vetoes that contradicted a later ruling, and the runner rightly refused to edit the immutable bytes
+# INC-0466 - A script carried internal load vetoes that contradicted a later decision, and the script bytes were immutable
 
 **Cost:** A successor script and a rerun of one step.
 

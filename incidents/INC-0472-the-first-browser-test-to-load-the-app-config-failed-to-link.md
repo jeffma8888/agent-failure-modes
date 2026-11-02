@@ -1,13 +1,13 @@
 ---
 id: INC-0472
-title: The first browser test to load the app config failed to link because one module was reached by two loaders, and minimal variants proved it before any product edit
+title: The first browser test to load the app config failed to link because one module was reached by two loaders
 date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: fixed
 ---
 
-# INC-0472 - The first browser test to load the app config failed to link because one module was reached by two loaders, and minimal variants proved it before any product edit
+# INC-0472 - The first browser test to load the app config failed to link because one module was reached by two loaders
 
 **Cost:** One failed test step, no product harm.
 

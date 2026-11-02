@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0198](./INC-0198-a-ledger-derived-from-a-token-range-went-stale-when-a-row-jo.md) [INC-0470](./INC-0470-a-count-delta-in-an-acceptance-document-was-first-attributed.md)
+[INC-0198](./INC-0198-a-ledger-derived-from-a-token-range-went-stale-when-a-row-jo.md) [INC-0470](./INC-0470-a-count-change-in-an-acceptance-document-was-attributed-to-s.md)

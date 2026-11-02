@@ -1,13 +1,13 @@
 ---
 id: INC-0470
-title: A count delta in an acceptance document was first attributed to specific rows without a per file check
+title: A count change in an acceptance document was attributed to specific items without a per file check
 date: 2026-11-02
 classes: [observability]
 severity: low
 status: fixed
 ---
 
-# INC-0470 - A count delta in an acceptance document was first attributed to specific rows without a per file check
+# INC-0470 - A count change in an acceptance document was attributed to specific items without a per file check
 
 **Cost:** None: amended before anyone used it.
 

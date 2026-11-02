@@ -8993,7 +8993,7 @@
     },
     {
       "id": "INC-0466",
-      "title": "A walker script carried internal load vetoes that contradicted a later ruling, and the runner rightly refused to edit the immutable bytes",
+      "title": "A script carried internal load vetoes that contradicted a later decision, and the script bytes were immutable",
       "date": "2026-11-02",
       "classes": [
         "spec-and-scope"
@@ -9002,7 +9002,7 @@
       "status": "fixed",
       "rule": "When a ruling changes a gate, list every script that encodes the old gate before the ruling is relied on",
       "signature": "A script stopped a run on a gate that a ruling had removed.",
-      "file": "incidents/INC-0466-a-walker-script-carried-internal-load-vetoes-that-contradict.md",
+      "file": "incidents/INC-0466-a-script-carried-internal-load-vetoes-that-contradicted-a-la.md",
       "related": [
         "INC-0390",
         "INC-0401",
@@ -9012,7 +9012,7 @@
     },
     {
       "id": "INC-0467",
-      "title": "A run plan barred the test author from running the walk, and a later message assigned that author anyway; the walker author caught it",
+      "title": "A run plan barred the test author from running the script, and a later message assigned that author anyway",
       "date": "2026-11-02",
       "classes": [
         "delegation"
@@ -9021,7 +9021,7 @@
       "status": "fixed",
       "rule": "Check an assignment against the independence rules of the plan before sending it",
       "signature": "A message contradicted the plan it was meant to follow.",
-      "file": "incidents/INC-0467-a-run-plan-barred-the-test-author-from-running-the-walk-and.md",
+      "file": "incidents/INC-0467-a-run-plan-barred-the-test-author-from-running-the-script-an.md",
       "related": [
         "INC-0337",
         "INC-0399",
@@ -9069,7 +9069,7 @@
     },
     {
       "id": "INC-0470",
-      "title": "A count delta in an acceptance document was first attributed to specific rows without a per file check",
+      "title": "A count change in an acceptance document was attributed to specific items without a per file check",
       "date": "2026-11-02",
       "classes": [
         "observability"
@@ -9078,7 +9078,7 @@
       "status": "fixed",
       "rule": "State a count delta with its base commit, and attribute it to a row only after a per file check",
       "signature": "A count change was credited to rows with no per file evidence.",
-      "file": "incidents/INC-0470-a-count-delta-in-an-acceptance-document-was-first-attributed.md",
+      "file": "incidents/INC-0470-a-count-change-in-an-acceptance-document-was-attributed-to-s.md",
       "related": [
         "INC-0174",
         "INC-0231",
@@ -9107,7 +9107,7 @@
     },
     {
       "id": "INC-0472",
-      "title": "The first browser test to load the app config failed to link because one module was reached by two loaders, and minimal variants proved it before any product edit",
+      "title": "The first browser test to load the app config failed to link because one module was reached by two loaders",
       "date": "2026-11-02",
       "classes": [
         "test-isolation"

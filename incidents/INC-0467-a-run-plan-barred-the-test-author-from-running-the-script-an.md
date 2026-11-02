@@ -1,13 +1,13 @@
 ---
 id: INC-0467
-title: A run plan barred the test author from running the walk, and a later message assigned that author anyway; the walker author caught it
+title: A run plan barred the test author from running the script, and a later message assigned that author anyway
 date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
 ---
 
-# INC-0467 - A run plan barred the test author from running the walk, and a later message assigned that author anyway; the walker author caught it
+# INC-0467 - A run plan barred the test author from running the script, and a later message assigned that author anyway
 
 **Cost:** None: caught before the run.
 
