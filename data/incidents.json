@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 506,
+  "count": 509,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9727,6 +9727,59 @@
       "file": "incidents/INC-0506-two-fields-claimed-the-same-publication-state-and-the-seed-w.md",
       "related": [
         "INC-0448"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0507",
+      "title": "An independence rule did not say what counts as an agent or as a part, and four of nine parallel slices stopped at once",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Define independence per agent instance, and name which artifacts block (wrote the test or judged its cases) and which only need disclosure (inventories, citation audits).",
+      "signature": "A rule says to stop if you authored or reviewed any part, and different agents read part and agent differently.",
+      "file": "incidents/INC-0507-an-independence-rule-did-not-say-what-counts-as-an-agent-or.md",
+      "related": [
+        "INC-0502",
+        "INC-0467"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0508",
+      "title": "A build step was given the load threshold meant for timing-sensitive runs and was refused twice while the host was busy",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Pick each step load threshold by whether its result depends on timing; a build that only gets slower uses the looser class.",
+      "signature": "A strict admission threshold designed for timing-sensitive runs is applied to a step whose result does not depend on timing.",
+      "file": "incidents/INC-0508-a-build-step-was-given-the-load-threshold-meant-for-timing-s.md",
+      "related": [
+        "INC-0500",
+        "INC-0427"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0509",
+      "title": "An agent reported a background run as running from its launch, but the task had only echoed a prompt and no test process existed",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Report a run as running only from its own output (a launch line, a PID that exists); a started task is not a started run.",
+      "signature": "A background task exists and a launch was acknowledged, but no process of the run exists.",
+      "file": "incidents/INC-0509-an-agent-reported-a-background-run-as-running-from-its-launc.md",
+      "related": [
+        "INC-0490"
       ],
       "evidence": []
     }

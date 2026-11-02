@@ -369,6 +369,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0500 / medium]** Size an admission gate to the class of run it protects, and find what is actually producing the load before tightening or waiting on it.
 - **[INC-0505 / medium]** A test that exercises an option goes through the real entry point and asserts an observable effect that differs with and without the option; exit 0 and side markers are not evidence the option took effect.
 - **[INC-0506 / medium]** When two fields can claim one state, derive one from the other or assert both in the same test, and write through the framework supported transition.
+- **[INC-0507 / medium]** Define independence per agent instance, and name which artifacts block (wrote the test or judged its cases) and which only need disclosure (inventories, citation audits).
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -513,6 +514,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0502 / low]** An author-conflict check covers every file of the root, including coverage statements and approval markers, by log and a name search, before the assignment is sent; the implementer own check stays as the second line.
 - **[INC-0503 / low]** State a baseline environment from the script or log that produced it, never from memory; an implementer who sees a premise contradict the artifact follows the artifact and reports it.
 - **[INC-0504 / low]** Scan every commit of a range, not only the final tree, before merging anything that will be pushed; a scrub in a later commit does not clean history.
+- **[INC-0508 / low]** Pick each step load threshold by whether its result depends on timing; a build that only gets slower uses the looser class.
+- **[INC-0509 / low]** Report a run as running only from its own output (a launch line, a PID that exists); a started task is not a started run.
 
 ## Practices
 
