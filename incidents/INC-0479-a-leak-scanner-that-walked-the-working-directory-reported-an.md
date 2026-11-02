@@ -2,7 +2,7 @@
 id: INC-0479
 title: A leak scanner that walked the working directory reported an ignored local file, and the push gate blocked on a file that never ships
 date: 2026-11-02
-classes: [tooling-paths]
+classes: [detector-fail-closed]
 severity: low
 status: fixed
 ---
@@ -17,7 +17,7 @@ A scan of the working directory flagged a file outside the pushed tree.
 
 ## What happened
 
-A leak scanner that walks the working directory reported a version-control-ignored local file as a leak. That file never ships, so the push gate blocked on something outside the pushed tree.
+A leak scanner that scans the working directory reported an ignored local file as a leak. That file never ships, so the push gate blocked on something outside the pushed tree.
 
 ## Root cause
 

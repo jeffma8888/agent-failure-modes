@@ -1,13 +1,13 @@
 ---
 id: INC-0477
-title: A browser test failed at its first API read, and the next run failed at a step that had never executed
+title: A browser test failed at its first request, and after that was fixed the next run failed at a step that had never run
 date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
 ---
 
-# INC-0477 - A browser test failed at its first API read, and the next run failed at a step that had never executed
+# INC-0477 - A browser test failed at its first request, and after that was fixed the next run failed at a step that had never run
 
 **Cost:** Minor: one extra run to reach the step; found before merge.
 
