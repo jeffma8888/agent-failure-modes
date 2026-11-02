@@ -5804,7 +5804,7 @@ _BATCH20: list[dict] = [
         "fix": "Anchor the marker check on call syntax, not a bare word, and when a false positive forces a workaround, record it and fix the checker instead of spreading workarounds",
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": "Anchor a marker check on call syntax, not a bare word; when a checker false positive forces a workaround, record it and fix the checker rather than spreading workarounds",
-        "related": ['INC-0287', 'INC-0252'],
+        "related": ['INC-0287', 'INC-0252', 'INC-0328'],
     },
     {
         "id": "INC-0328",
@@ -5838,7 +5838,7 @@ _BATCH20: list[dict] = [
         "fix": 'Measure saturation against the maximum minus what the code under test already retains, and never read a timeout as capacity evidence without the acquired and retained counts',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'Measure saturation against max minus what the code under test already retains, and never read a timeout as capacity evidence without the acquired and retained counts',
-        "related": ['INC-0313', 'INC-0195'],
+        "related": ['INC-0313', 'INC-0195', 'INC-0318'],
     },
     {
         "id": "INC-0330",
@@ -5889,7 +5889,7 @@ _BATCH20: list[dict] = [
         "fix": 'Check the exclusion glob against every extension in use and keep a discovery witness per tier',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'When tiering by filename suffix, check the exclusion glob against every extension in use and keep a discovery witness per tier (absent here, exactly once there)',
-        "related": ['INC-0328', 'INC-0170'],
+        "related": ['INC-0328', 'INC-0170', 'INC-0336'],
     },
     {
         "id": "INC-0333",
@@ -5906,7 +5906,7 @@ _BATCH20: list[dict] = [
         "fix": 'Sample the stage early, compare with the design assumption before reviews pile up, and move heavy proofs to the slower tier rather than raising the cap',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'When a row adds tests to a shared per-commit gate, sample the stage early and compare with the design assumption; move heavy proofs to the slower tier rather than raising the cap',
-        "related": ['INC-0308', 'INC-0230'],
+        "related": ['INC-0308', 'INC-0230', 'INC-0312'],
     },
     {
         "id": "INC-0334",

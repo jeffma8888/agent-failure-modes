@@ -6090,7 +6090,8 @@
       "file": "incidents/INC-0327-a-marker-checker-matched-a-bare-word-and-pushed-authors-to-a.md",
       "related": [
         "INC-0287",
-        "INC-0252"
+        "INC-0252",
+        "INC-0328"
       ],
       "evidence": []
     },
@@ -6128,7 +6129,8 @@
       "file": "incidents/INC-0329-a-pool-saturation-probe-waited-on-a-connection-its-own-adapt.md",
       "related": [
         "INC-0313",
-        "INC-0195"
+        "INC-0195",
+        "INC-0318"
       ],
       "evidence": []
     },
@@ -6185,7 +6187,8 @@
       "file": "incidents/INC-0332-a-tier-exclusion-matched-only-one-file-extension.md",
       "related": [
         "INC-0328",
-        "INC-0170"
+        "INC-0170",
+        "INC-0336"
       ],
       "evidence": []
     },
@@ -6204,7 +6207,8 @@
       "file": "incidents/INC-0333-a-per-commit-stage-cost-more-than-doubled-before-anyone-samp.md",
       "related": [
         "INC-0308",
-        "INC-0230"
+        "INC-0230",
+        "INC-0312"
       ],
       "evidence": []
     },

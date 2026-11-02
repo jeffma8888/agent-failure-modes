@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0287](./INC-0287-an-oracle-that-matches-a-substring-or-a-loose-boundary-can-b.md) [INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md)
+[INC-0287](./INC-0287-an-oracle-that-matches-a-substring-or-a-loose-boundary-can-b.md) [INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md) [INC-0328](./INC-0328-a-selector-mirroring-a-config-s-exclusions-matched-basenames.md)

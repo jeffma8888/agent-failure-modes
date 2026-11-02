@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0308](./INC-0308-a-fixed-stage-deadline-met-planned-case-growth-that-nobody-h.md) [INC-0230](./INC-0230-a-split-of-the-dominant-test-file-saved-about-zero.md)
+[INC-0308](./INC-0308-a-fixed-stage-deadline-met-planned-case-growth-that-nobody-h.md) [INC-0230](./INC-0230-a-split-of-the-dominant-test-file-saved-about-zero.md) [INC-0312](./INC-0312-a-whole-stage-was-divided-by-a-parallel-speedup-although-par.md)
