@@ -360,6 +360,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0404 / medium]** When a state is uncertain, treat the item as surviving; fail closed, never read a refusal as gone
 - **[INC-0409 / medium]** A clean step must never move a branch ref that is still under work
 - **[INC-0482 / medium]** Before a merge, the branch acceptance run must run every test file the branch adds or changes, in its own test group; a full run after the merge is a backstop, not the first execution.
+- **[INC-0490 / medium]** Gate on the step records, never on the wrapper exit status; a wrapper can exit zero while a step record says failed.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -495,6 +496,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0486 / low]** An approval that landed on main after a branch forked is not an ancestor of that branch; merge main into the branch before any activation commit that a checker ties to that approval.
 - **[INC-0487 / low]** When a security setting strips tokens from responses, it strips them from local test helpers too; capture the token before the response is sanitized and assert it is present, or every downstream auth check fails at its precondition and looks like a product defect.
 - **[INC-0488 / low]** When static review rounds on a harness converge slowly, run one labelled diagnostic early, on scratch state, with its result marked as neither a baseline nor an acceptance run, to learn what is really wrong.
+- **[INC-0489 / low]** A rule written in teammate briefs binds the lead's own shell too; read your own command against the standing rules before running it, and undo any slip by its exact recorded name before any run.
 
 ## Practices
 

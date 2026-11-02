@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 488,
+  "count": 490,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9408,6 +9408,41 @@
       "file": "incidents/INC-0488-static-review-rounds-on-a-test-harness-left-the-same-finding.md",
       "related": [
         "INC-0444"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0489",
+      "title": "A rule written in teammate briefs was broken by the lead in its own shell",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A rule written in teammate briefs binds the lead's own shell too; read your own command against the standing rules before running it, and undo any slip by its exact recorded name before any run.",
+      "signature": "The author of a standing rule broke it by reflex while setting up a new work tree.",
+      "file": "incidents/INC-0489-a-rule-written-in-teammate-briefs-was-broken-by-the-lead-in.md",
+      "related": [
+        "INC-0384",
+        "INC-0452"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0490",
+      "title": "A wrapper exited zero while a step record said the step failed",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Gate on the step records, never on the wrapper exit status; a wrapper can exit zero while a step record says failed.",
+      "signature": "The wrapper exit status was zero and one step record said failed by timeout.",
+      "file": "incidents/INC-0490-a-wrapper-exited-zero-while-a-step-record-said-the-step-fail.md",
+      "related": [
+        "INC-0347"
       ],
       "evidence": []
     }
