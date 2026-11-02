@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 482,
+  "count": 484,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9302,6 +9302,44 @@
       "related": [
         "INC-0447",
         "INC-0477"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0483",
+      "title": "A test counted every file in a shared directory, and the per-test reset reseeded into it, so the count was one too high",
+      "date": "2026-11-02",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A test that counts a shared directory or table must count only what the case creates, by baseline delta or by name, because the per-test reset and seed change the total.",
+      "signature": "A total taken over a shared directory included files the case did not create.",
+      "file": "incidents/INC-0483-a-test-counted-every-file-in-a-shared-directory-and-the-per.md",
+      "related": [
+        "INC-0313",
+        "INC-0361",
+        "INC-0482"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0484",
+      "title": "A test fixture was refused by an earlier check than the one the case was written to prove",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Build a fixture that passes every guard except the one under test, and assert which guard refused; an earlier guard's refusal masks the guard the case is meant to prove.",
+      "signature": "The case failed on the wrong guard, so the intended guard never ran.",
+      "file": "incidents/INC-0484-a-test-fixture-was-refused-by-an-earlier-check-than-the-one.md",
+      "related": [
+        "INC-0477",
+        "INC-0222",
+        "INC-0082"
       ],
       "evidence": []
     }

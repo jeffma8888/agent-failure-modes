@@ -489,6 +489,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0479 / low]** Gate a push on a scan of an export of the tracked tree; a scan of the working directory blocks on files that never ship.
 - **[INC-0480 / low]** Never pipe a gating command; capture its exit status first, by pipefail or by writing to a file and checking the status before reading the file.
 - **[INC-0481 / low]** Before minting an id, check every place ids have ever lived (branch names, commit subjects, plan text), not only the current list; a checker that reads only the current list cannot catch reuse.
+- **[INC-0483 / low]** A test that counts a shared directory or table must count only what the case creates, by baseline delta or by name, because the per-test reset and seed change the total.
+- **[INC-0484 / low]** Build a fixture that passes every guard except the one under test, and assert which guard refused; an earlier guard's refusal masks the guard the case is meant to prove.
 
 ## Practices
 
