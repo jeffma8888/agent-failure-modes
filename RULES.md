@@ -350,6 +350,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0364 / medium]** Print the exit status of every commit and check step explicitly (never only on success), run the range leak scan before landing anything on top of a new commit, and use the guarded landing helper, not an ad-hoc chain
 - **[INC-0368 / medium]** Never share a dependency tree between worktrees by symlink; give each worktree a private clone; never run the package manager unless the exact command is authorized; keep the verify-before-run settings off for every child; compare the full link inventory against a clean sibling after any suspected mutation
 - **[INC-0372 / medium]** List the collected files before a filtered run and stop if any excluded file is still collected
+- **[INC-0378 / medium]** A guard must fail closed with an explicit configuration error; never let a default make it pass
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -380,6 +381,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0370 / low]** Scope searches to tracked files in your own tree; never scan the home directory
 - **[INC-0371 / low]** Verify append-only files with an explicit byte-prefix compare, not a limited-length compare at the exact length
 - **[INC-0373 / low]** Read the clock immediately before writing any timestamp, never estimate it
+- **[INC-0374 / low]** Run a word diff before treating a flagged rule as lost
+- **[INC-0375 / low]** Keep a ledger append-only with a dated section per run; never overwrite it with a later run
+- **[INC-0376 / low]** When reviews disagree on a file location, read the signed design text first; it outranks a plan parenthetical
+- **[INC-0377 / low]** Revise a draft test root in place only while it has no review, marker or activation; after that only a successor
+- **[INC-0379 / low]** Split a review's amendments into apply-now and author-decides, and write no tests for undecided items early
 
 ## Practices
 

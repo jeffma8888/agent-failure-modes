@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 373,
+  "count": 379,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -935,7 +935,8 @@
         "INC-0030",
         "INC-0027",
         "INC-0038",
-        "INC-0371"
+        "INC-0371",
+        "INC-0374"
       ],
       "evidence": [
         "https://github.com/jeffma8888/agent-failure-modes - this repository is where the collision happened: tools/corpus.py now carries the repaired composition line, and commit bccb9d1 is the concurrent writer's batch that was briefly shadowed."
@@ -2454,7 +2455,8 @@
       "related": [
         "INC-0116",
         "INC-0113",
-        "INC-0371"
+        "INC-0371",
+        "INC-0374"
       ],
       "evidence": []
     },
@@ -2490,7 +2492,8 @@
       "related": [
         "INC-0091",
         "INC-0350",
-        "INC-0373"
+        "INC-0373",
+        "INC-0379"
       ],
       "evidence": []
     },
@@ -6269,7 +6272,8 @@
         "INC-0328",
         "INC-0170",
         "INC-0336",
-        "INC-0372"
+        "INC-0372",
+        "INC-0378"
       ],
       "evidence": []
     },
@@ -6649,7 +6653,9 @@
         "INC-0340",
         "INC-0119",
         "INC-0356",
-        "INC-0368"
+        "INC-0368",
+        "INC-0375",
+        "INC-0377"
       ],
       "evidence": []
     },
@@ -7015,7 +7021,8 @@
       "file": "incidents/INC-0369-a-bare-syntax-check-resolved-to-a-different-runtime-that-ign.md",
       "related": [
         "INC-0249",
-        "INC-0094"
+        "INC-0094",
+        "INC-0376"
       ],
       "evidence": []
     },
@@ -7052,7 +7059,8 @@
       "file": "incidents/INC-0371-a-byte-count-compare-at-the-exact-old-length-reported-end-of.md",
       "related": [
         "INC-0043",
-        "INC-0126"
+        "INC-0126",
+        "INC-0375"
       ],
       "evidence": []
     },
@@ -7073,7 +7081,8 @@
         "INC-0328",
         "INC-0332",
         "INC-0336",
-        "INC-0368"
+        "INC-0368",
+        "INC-0378"
       ],
       "evidence": []
     },
@@ -7091,6 +7100,111 @@
       "file": "incidents/INC-0373-two-replies-were-stamped-with-times-ahead-of-the-clock.md",
       "related": [
         "INC-0350",
+        "INC-0128"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0374",
+      "title": "A clause-survival script flagged 21 digest rules that a word diff showed were only wording compressions",
+      "date": "2026-11-01",
+      "classes": [
+        "detector-fail-open"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Run a word diff before treating a flagged rule as lost",
+      "signature": "A clause-survival check flagged many rules as lost although their meaning was intact.",
+      "file": "incidents/INC-0374-a-clause-survival-script-flagged-21-digest-rules-that-a-word.md",
+      "related": [
+        "INC-0043",
+        "INC-0126"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0375",
+      "title": "An engineer overwrote its own unit ledger with a later run",
+      "date": "2026-11-01",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Keep a ledger append-only with a dated section per run; never overwrite it with a later run",
+      "signature": "A ledger file held only the latest run after an engineer wrote a new run over it.",
+      "file": "incidents/INC-0375-an-engineer-overwrote-its-own-unit-ledger-with-a-later-run.md",
+      "related": [
+        "INC-0371",
+        "INC-0351"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0376",
+      "title": "A signed design heading outranked a plan census parenthetical when two reviews disagreed on a file location",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When reviews disagree on a file location, read the signed design text first; it outranks a plan parenthetical",
+      "signature": "Two reviews gave different locations for the same file.",
+      "file": "incidents/INC-0376-a-signed-design-heading-outranked-a-plan-census-parenthetica.md",
+      "related": [
+        "INC-0369"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0377",
+      "title": "A draft test root was revised in place after review, marker or activation",
+      "date": "2026-11-01",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Revise a draft test root in place only while it has no review, marker or activation; after that only a successor",
+      "signature": "A root that others had reviewed or marked could be edited in place.",
+      "file": "incidents/INC-0377-a-draft-test-root-was-revised-in-place-after-review-marker-o.md",
+      "related": [
+        "INC-0351"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0378",
+      "title": "A default that silently let a guard pass made a reviewer read a requirement as met",
+      "date": "2026-11-01",
+      "classes": [
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A guard must fail closed with an explicit configuration error; never let a default make it pass",
+      "signature": "A guard passed on an input it had never been told about.",
+      "file": "incidents/INC-0378-a-default-that-silently-let-a-guard-pass-made-a-reviewer-rea.md",
+      "related": [
+        "INC-0372",
+        "INC-0332"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0379",
+      "title": "Splitting a review's amendments kept the engineer busy while decisions were pending",
+      "date": "2026-11-01",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Split a review's amendments into apply-now and author-decides, and write no tests for undecided items early",
+      "signature": "An engineer would have waited for all amendments of one review to be decided.",
+      "file": "incidents/INC-0379-splitting-a-review-s-amendments-kept-the-engineer-busy-while.md",
+      "related": [
         "INC-0128"
       ],
       "evidence": []

@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0328](./INC-0328-a-selector-mirroring-a-config-s-exclusions-matched-basenames.md) [INC-0170](./INC-0170-a-tracked-file-rewritten-per-tool-mode-could-not-stay-clean.md) [INC-0336](./INC-0336-a-tier-exclusion-was-added-only-after-a-witness-failed-witho.md) [INC-0372](./INC-0372-a-test-run-s-command-line-exclusion-flag-did-not-take-effect.md)
+[INC-0328](./INC-0328-a-selector-mirroring-a-config-s-exclusions-matched-basenames.md) [INC-0170](./INC-0170-a-tracked-file-rewritten-per-tool-mode-could-not-stay-clean.md) [INC-0336](./INC-0336-a-tier-exclusion-was-added-only-after-a-witness-failed-witho.md) [INC-0372](./INC-0372-a-test-run-s-command-line-exclusion-flag-did-not-take-effect.md) [INC-0378](./INC-0378-a-default-that-silently-let-a-guard-pass-made-a-reviewer-rea.md)
