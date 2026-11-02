@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 343,
+  "count": 345,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6398,6 +6398,44 @@
       "related": [
         "INC-0314",
         "INC-0339"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0344",
+      "title": "Focused runs after a refactor hid static-check residue until the first canonical run",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "After a refactor, run the canonical gate once, static steps included, before more focused work; focused runs skip lint, typecheck and hygiene checks",
+      "signature": "Many commits were verified with focused runs, and the first canonical runs failed at lint and a hygiene check before any suite ran.",
+      "file": "incidents/INC-0344-focused-runs-after-a-refactor-hid-static-check-residue-until.md",
+      "related": [
+        "INC-0342",
+        "INC-0221"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0345",
+      "title": "A timing anchor derived by subtraction was used as if it were a measurement",
+      "date": "2026-11-01",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Replace a derived timing anchor with a measured one as soon as the thing exists, and recompute every threshold it feeds",
+      "signature": "A budget model anchored on a stage time obtained by subtraction, while quiet measured samples were higher.",
+      "file": "incidents/INC-0345-a-timing-anchor-derived-by-subtraction-was-used-as-if-it-wer.md",
+      "related": [
+        "INC-0195",
+        "INC-0312"
       ],
       "evidence": []
     }

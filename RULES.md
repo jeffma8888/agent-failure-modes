@@ -332,6 +332,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0341 / medium]** Under a push freeze, pin the subject by role and corroborate the freeze with a remote query (one tip query does not prove the history); a stale remote-tracking ref is not freeze evidence
 - **[INC-0342 / medium]** Close a gate only through the canonical entry; a shortcut launcher may lack protections the canonical path supplies implicitly
 - **[INC-0343 / medium]** When a mutant survives, add the cell where the coarse signal is right and the checked detail is wrong, and rerun the mutant to prove the cell kills it
+- **[INC-0344 / medium]** After a refactor, run the canonical gate once, static steps included, before more focused work; focused runs skip lint, typecheck and hygiene checks
+- **[INC-0345 / medium]** Replace a derived timing anchor with a measured one as soon as the thing exists, and recompute every threshold it feeds
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
