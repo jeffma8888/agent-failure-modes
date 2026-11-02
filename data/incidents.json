@@ -9307,7 +9307,7 @@
     },
     {
       "id": "INC-0483",
-      "title": "A test counted every file in a shared directory, and the per-test reset reseeded into it, so the count was one too high",
+      "title": "A test counted a whole shared directory, and the reset reseeded into it",
       "date": "2026-11-02",
       "classes": [
         "test-isolation"
@@ -9316,17 +9316,16 @@
       "status": "mitigated",
       "rule": "A test that counts a shared directory or table must count only what the case creates, by baseline delta or by name, because the per-test reset and seed change the total.",
       "signature": "A total taken over a shared directory included files the case did not create.",
-      "file": "incidents/INC-0483-a-test-counted-every-file-in-a-shared-directory-and-the-per.md",
+      "file": "incidents/INC-0483-a-test-counted-a-whole-shared-directory-and-the-reset-reseed.md",
       "related": [
         "INC-0313",
-        "INC-0361",
-        "INC-0482"
+        "INC-0361"
       ],
       "evidence": []
     },
     {
       "id": "INC-0484",
-      "title": "A test fixture was refused by an earlier check than the one the case was written to prove",
+      "title": "A test fixture failed an earlier check than the one under test",
       "date": "2026-11-02",
       "classes": [
         "false-green"
@@ -9335,35 +9334,34 @@
       "status": "mitigated",
       "rule": "Build a fixture that passes every guard except the one under test, and assert which guard refused; an earlier guard's refusal masks the guard the case is meant to prove.",
       "signature": "The case failed on the wrong guard, so the intended guard never ran.",
-      "file": "incidents/INC-0484-a-test-fixture-was-refused-by-an-earlier-check-than-the-one.md",
+      "file": "incidents/INC-0484-a-test-fixture-failed-an-earlier-check-than-the-one-under-te.md",
       "related": [
-        "INC-0477",
-        "INC-0222",
-        "INC-0082"
+        "INC-0116",
+        "INC-0133"
       ],
       "evidence": []
     },
     {
       "id": "INC-0485",
-      "title": "The merge acceptance checklist was drafted before the row finished, and reading it found a test change that the merge would have turned red",
+      "title": "A merge checklist drafted early found a test change the merge would have broken",
       "date": "2026-11-02",
       "classes": [
-        "spec-and-scope"
+        "false-green"
       ],
       "severity": "low",
       "status": "mitigated",
       "rule": "Draft the merge acceptance checklist while the row is still open, and for each source change read the tests that assert on it, so owed test changes are found before the merge turns the full run red.",
       "signature": "A source change altered a seed record, while a unit test still asserted the old shape.",
-      "file": "incidents/INC-0485-the-merge-acceptance-checklist-was-drafted-before-the-row-fi.md",
+      "file": "incidents/INC-0485-a-merge-checklist-drafted-early-found-a-test-change-the-merg.md",
       "related": [
         "INC-0482",
-        "INC-0477"
+        "INC-0366"
       ],
       "evidence": []
     },
     {
       "id": "INC-0486",
-      "title": "An approval that landed on main after the branch forked was not an ancestor of the branch, so the activation commit would have been refused",
+      "title": "An approval on main was not an ancestor of the branch that needed it",
       "date": "2026-11-02",
       "classes": [
         "identity-and-keying"
@@ -9372,7 +9370,7 @@
       "status": "mitigated",
       "rule": "An approval that landed on main after a branch forked is not an ancestor of that branch; merge main into the branch before any activation commit that a checker ties to that approval.",
       "signature": "A checker required the approval commit to be an ancestor of the branch head, and the branch had forked before the approval landed.",
-      "file": "incidents/INC-0486-an-approval-that-landed-on-main-after-the-branch-forked-was.md",
+      "file": "incidents/INC-0486-an-approval-on-main-was-not-an-ancestor-of-the-branch-that-n.md",
       "related": [
         "INC-0164",
         "INC-0204"

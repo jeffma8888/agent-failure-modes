@@ -1,13 +1,13 @@
 ---
 id: INC-0484
-title: A test fixture was refused by an earlier check than the one the case was written to prove
+title: A test fixture failed an earlier check than the one under test
 date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
 ---
 
-# INC-0484 - A test fixture was refused by an earlier check than the one the case was written to prove
+# INC-0484 - A test fixture failed an earlier check than the one under test
 
 **Cost:** Minor: a red full run; the check under test stayed unverified until the case was repaired.
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0477](./INC-0477-a-browser-test-failed-at-its-first-request-and-after-that-wa.md) [INC-0222](./INC-0222-a-clean-tree-positive-did-not-exercise-the-working-file-cont.md) [INC-0082](./INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md)
+[INC-0116](./INC-0116-two-validators-enforcing-the-same-rule-masked-single-file-mu.md) [INC-0133](./INC-0133-a-local-guard-behind-a-shared-environment-pin-was-masked-and.md)

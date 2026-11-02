@@ -1,13 +1,13 @@
 ---
 id: INC-0483
-title: A test counted every file in a shared directory, and the per-test reset reseeded into it, so the count was one too high
+title: A test counted a whole shared directory, and the reset reseeded into it
 date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: mitigated
 ---
 
-# INC-0483 - A test counted every file in a shared directory, and the per-test reset reseeded into it, so the count was one too high
+# INC-0483 - A test counted a whole shared directory, and the reset reseeded into it
 
 **Cost:** Minor: a red full run on the merged branch; the case failed even when run alone.
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0313](./INC-0313-tests-in-a-parallel-group-raced-a-test-that-drops-the-shared.md) [INC-0361](./INC-0361-a-test-s-teardown-emptied-a-shared-server-database-and-a-gat.md) [INC-0482](./INC-0482-tests-added-by-a-branch-were-never-run-before-the-merge-and.md)
+[INC-0313](./INC-0313-tests-in-a-parallel-group-raced-a-test-that-drops-the-shared.md) [INC-0361](./INC-0361-a-test-s-teardown-emptied-a-shared-server-database-and-a-gat.md)

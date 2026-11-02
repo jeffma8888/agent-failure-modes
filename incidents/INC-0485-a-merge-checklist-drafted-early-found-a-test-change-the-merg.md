@@ -1,13 +1,13 @@
 ---
 id: INC-0485
-title: The merge acceptance checklist was drafted before the row finished, and reading it found a test change that the merge would have turned red
+title: A merge checklist drafted early found a test change the merge would have broken
 date: 2026-11-02
-classes: [spec-and-scope]
+classes: [false-green]
 severity: low
 status: mitigated
 ---
 
-# INC-0485 - The merge acceptance checklist was drafted before the row finished, and reading it found a test change that the merge would have turned red
+# INC-0485 - A merge checklist drafted early found a test change the merge would have broken
 
 **Cost:** None incurred: the owed change was found by reading before the merge, at the price of one extra assigned job.
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0482](./INC-0482-tests-added-by-a-branch-were-never-run-before-the-merge-and.md) [INC-0477](./INC-0477-a-browser-test-failed-at-its-first-request-and-after-that-wa.md)
+[INC-0482](./INC-0482-tests-added-by-a-branch-were-never-run-before-the-merge-and.md) [INC-0366](./INC-0366-a-walk-checklist-attached-another-request-variant-s-clause-t.md)

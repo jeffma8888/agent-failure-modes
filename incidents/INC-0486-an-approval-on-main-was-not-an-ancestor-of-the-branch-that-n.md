@@ -1,13 +1,13 @@
 ---
 id: INC-0486
-title: An approval that landed on main after the branch forked was not an ancestor of the branch, so the activation commit would have been refused
+title: An approval on main was not an ancestor of the branch that needed it
 date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: mitigated
 ---
 
-# INC-0486 - An approval that landed on main after the branch forked was not an ancestor of the branch, so the activation commit would have been refused
+# INC-0486 - An approval on main was not an ancestor of the branch that needed it
 
 **Cost:** None incurred: caught by review before the activation commit, at the price of an extra branch-side merge step.
 
