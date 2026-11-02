@@ -1,13 +1,13 @@
 ---
 id: INC-0475
-title: A process guard stopped a run twice: the process list padded the command with trailing spaces, and the guard's own shell line contained the searched name
+title: A process guard stopped a run twice: the listing was padded with trailing spaces, and the guard's own command line matched its search
 date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: fixed
 ---
 
-# INC-0475 - A process guard stopped a run twice: the process list padded the command with trailing spaces, and the guard's own shell line contained the searched name
+# INC-0475 - A process guard stopped a run twice: the listing was padded with trailing spaces, and the guard's own command line matched its search
 
 **Cost:** Minor: two stops, each correct, before the run could start.
 

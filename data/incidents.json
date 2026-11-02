@@ -9126,16 +9126,16 @@
     },
     {
       "id": "INC-0473",
-      "title": "A coordinator ordered an engineer to edit a test file that a QA identity manifest pins, and the identity gate refused the run before any database",
+      "title": "A test file was edited on order although its digest was pinned by the test authors, and the integrity gate refused the run before it started",
       "date": "2026-11-02",
       "classes": [
         "delegation"
       ],
       "severity": "low",
       "status": "fixed",
-      "rule": "Before ordering a test edit, check whether the file is pinned by a QA identity manifest; if it is, route the change through a successor root authored by a QA identity, not an engineer edit.",
-      "signature": "An ordered test edit made the identity gate refuse the run before it started.",
-      "file": "incidents/INC-0473-a-coordinator-ordered-an-engineer-to-edit-a-test-file-that-a.md",
+      "rule": "Before ordering an edit to a test file, check whether a digest manifest pins it; if it does, route the change through a successor version authored by a test author, not a direct edit.",
+      "signature": "An ordered test edit made the integrity gate refuse the run before it started.",
+      "file": "incidents/INC-0473-a-test-file-was-edited-on-order-although-its-digest-was-pinn.md",
       "related": [
         "INC-0377",
         "INC-0403",
@@ -9145,7 +9145,7 @@
     },
     {
       "id": "INC-0474",
-      "title": "A range whitespace check exited 2 on generated migration SQL, while the worktree only form had exited 0 earlier",
+      "title": "A whitespace check over the branch range failed on generated SQL, while the same check on the working tree alone had passed",
       "date": "2026-11-02",
       "classes": [
         "false-green"
@@ -9154,7 +9154,7 @@
       "status": "fixed",
       "rule": "A worktree only whitespace check is not range proof; run the check over the branch range, exclude generator output by path, never reformat it, and keep every other path clean.",
       "signature": "A worktree only check passed where the branch range check failed.",
-      "file": "incidents/INC-0474-a-range-whitespace-check-exited-2-on-generated-migration-sql.md",
+      "file": "incidents/INC-0474-a-whitespace-check-over-the-branch-range-failed-on-generated.md",
       "related": [
         "INC-0426"
       ],
@@ -9162,7 +9162,7 @@
     },
     {
       "id": "INC-0475",
-      "title": "A process guard stopped a run twice: the process list padded the command with trailing spaces, and the guard's own shell line contained the searched name",
+      "title": "A process guard stopped a run twice: the listing was padded with trailing spaces, and the guard's own command line matched its search",
       "date": "2026-11-02",
       "classes": [
         "tooling-paths"
@@ -9171,7 +9171,7 @@
       "status": "fixed",
       "rule": "A process guard normalises only trailing whitespace in process list output and searches with a self excluding pattern in a call that contains nothing else; it keeps failing closed.",
       "signature": "A guard that searches the process list failed on padding and on matching itself.",
-      "file": "incidents/INC-0475-a-process-guard-stopped-a-run-twice-the-process-list-padded.md",
+      "file": "incidents/INC-0475-a-process-guard-stopped-a-run-twice-the-listing-was-padded-w.md",
       "related": [
         "INC-0386",
         "INC-0305"

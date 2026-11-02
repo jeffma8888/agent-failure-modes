@@ -1,13 +1,13 @@
 ---
 id: INC-0474
-title: A range whitespace check exited 2 on generated migration SQL, while the worktree only form had exited 0 earlier
+title: A whitespace check over the branch range failed on generated SQL, while the same check on the working tree alone had passed
 date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
 ---
 
-# INC-0474 - A range whitespace check exited 2 on generated migration SQL, while the worktree only form had exited 0 earlier
+# INC-0474 - A whitespace check over the branch range failed on generated SQL, while the same check on the working tree alone had passed
 
 **Cost:** Minor: caught before the merge; the earlier exit 0 had been read as range proof.
 
