@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0173](./INC-0173-a-ruling-widened-a-shared-valid-state-and-only-some-payloads.md) [INC-0298](./INC-0298-harness-and-ownership-defects-were-left-for-the-build-agent.md)
+[INC-0173](./INC-0173-a-ruling-widened-a-shared-valid-state-and-only-some-payloads.md) [INC-0298](./INC-0298-harness-and-ownership-defects-were-left-for-the-build-agent.md) [INC-0429](./INC-0429-a-dependency-question-was-answered-by-the-backlog-itself-a-r.md)

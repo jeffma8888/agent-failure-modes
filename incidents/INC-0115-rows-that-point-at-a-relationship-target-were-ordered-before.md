@@ -41,4 +41,4 @@ Checked by the engineer, reviewer or lead who reported it. Not checked: whether 
 
 ## Related
 
-[INC-0098](./INC-0098-an-acyclic-declared-dependency-graph-hid-producer-rows-that.md)
+[INC-0098](./INC-0098-an-acyclic-declared-dependency-graph-hid-producer-rows-that.md) [INC-0429](./INC-0429-a-dependency-question-was-answered-by-the-backlog-itself-a-r.md)

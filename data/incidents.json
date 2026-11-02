@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 424,
+  "count": 429,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1307,7 +1307,8 @@
       "related": [
         "INC-0057",
         "INC-0041",
-        "INC-0042"
+        "INC-0042",
+        "INC-0425"
       ],
       "evidence": []
     },
@@ -2259,7 +2260,8 @@
       "signature": "A row needs a related record that a later row creates.",
       "file": "incidents/INC-0115-rows-that-point-at-a-relationship-target-were-ordered-before.md",
       "related": [
-        "INC-0098"
+        "INC-0098",
+        "INC-0429"
       ],
       "evidence": []
     },
@@ -3474,7 +3476,8 @@
       "signature": "A marker claimed more than the ruling approved.",
       "file": "incidents/INC-0182-a-marker-generator-covered-every-payload-of-a-root-when-only.md",
       "related": [
-        "INC-0167"
+        "INC-0167",
+        "INC-0426"
       ],
       "evidence": []
     },
@@ -3708,7 +3711,8 @@
       "signature": "The same tree read 30.5 s and then 14.9 s.",
       "file": "incidents/INC-0195-a-single-stage-time-on-a-loaded-host-was-read-as-a-measureme.md",
       "related": [
-        "INC-0146"
+        "INC-0146",
+        "INC-0427"
       ],
       "evidence": []
     },
@@ -4142,7 +4146,8 @@
       "related": [
         "INC-0209",
         "INC-0393",
-        "INC-0417"
+        "INC-0417",
+        "INC-0427"
       ],
       "evidence": []
     },
@@ -5020,7 +5025,8 @@
       "signature": "A check named as read only could create directories.",
       "file": "incidents/INC-0267-a-check-named-lint-can-write.md",
       "related": [
-        "INC-0252"
+        "INC-0252",
+        "INC-0426"
       ],
       "evidence": []
     },
@@ -5094,7 +5100,8 @@
       "related": [
         "INC-0236",
         "INC-0393",
-        "INC-0406"
+        "INC-0406",
+        "INC-0427"
       ],
       "evidence": []
     },
@@ -5241,7 +5248,8 @@
       "file": "incidents/INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md",
       "related": [
         "INC-0161",
-        "INC-0419"
+        "INC-0419",
+        "INC-0428"
       ],
       "evidence": []
     },
@@ -5600,7 +5608,8 @@
         "INC-0286",
         "INC-0288",
         "INC-0420",
-        "INC-0424"
+        "INC-0424",
+        "INC-0425"
       ],
       "evidence": []
     },
@@ -8019,7 +8028,8 @@
       "related": [
         "INC-0279",
         "INC-0123",
-        "INC-0157"
+        "INC-0157",
+        "INC-0428"
       ],
       "evidence": []
     },
@@ -8110,7 +8120,99 @@
       "file": "incidents/INC-0424-a-captions-upload-relation-in-a-spec-would-have-added-a-medi.md",
       "related": [
         "INC-0173",
+        "INC-0298",
+        "INC-0429"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0425",
+      "title": "A framework operation order showed that file data is generated before the field validators, so a security check moved to the operation hook",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Place a security check on original input in a hook that runs before the framework transforms the input, verified in the installed source, and record any move as a named deviation",
+      "signature": "A content check ran after the framework had already rewritten the input it was meant to inspect.",
+      "file": "incidents/INC-0425-a-framework-operation-order-showed-that-file-data-is-generat.md",
+      "related": [
+        "INC-0062",
         "INC-0298"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0426",
+      "title": "A generated migration needed a lint-only edit, so the evidence carries the raw and delivered hashes and the one-line diff",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When a generated file needs a lint-only edit, change only the named defect and record the raw hash, the delivered hash and the diff",
+      "signature": "A generated file failed lint while its content was correct.",
+      "file": "incidents/INC-0426-a-generated-migration-needed-a-lint-only-edit-so-the-evidenc.md",
+      "related": [
+        "INC-0267",
+        "INC-0182"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0427",
+      "title": "A host load spike came from operating system daemons, not the team, and the load wait held",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A load gate holds regardless of who causes the load; continue static work and do not touch system daemons",
+      "signature": "Host load was far above the gate while no team run was active.",
+      "file": "incidents/INC-0427-a-host-load-spike-came-from-operating-system-daemons-not-the.md",
+      "related": [
+        "INC-0271",
+        "INC-0219",
+        "INC-0195"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0428",
+      "title": "A supersession marker was deferred to each row's activation because writing it now would trip the freeze test",
+      "date": "2026-11-02",
+      "classes": [
+        "verdict-token"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Defer a marker or registry change that would trip an active freeze test to the activation step, and name the approval it will cite",
+      "signature": "A control write was due while a freeze condition forbade control changes.",
+      "file": "incidents/INC-0428-a-supersession-marker-was-deferred-to-each-row-s-activation.md",
+      "related": [
+        "INC-0279",
+        "INC-0419"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0429",
+      "title": "A dependency question was answered by the backlog itself, a relation owned by a later row, so no wait was needed",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Before waiting on a dependency, read the backlog for the row that owns it; if a later row owns it, ship without it and add no stub",
+      "signature": "A spec raised a wait on something a later row was already scheduled to add.",
+      "file": "incidents/INC-0429-a-dependency-question-was-answered-by-the-backlog-itself-a-r.md",
+      "related": [
+        "INC-0115",
+        "INC-0424"
       ],
       "evidence": []
     }

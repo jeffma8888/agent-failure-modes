@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0279](./INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md) [INC-0123](./INC-0123-after-activation-a-registry-line-named-a-pending-path-that-n.md) [INC-0157](./INC-0157-a-split-ownership-root-could-not-activate-because-identity-h.md)
+[INC-0279](./INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md) [INC-0123](./INC-0123-after-activation-a-registry-line-named-a-pending-path-that-n.md) [INC-0157](./INC-0157-a-split-ownership-root-could-not-activate-because-identity-h.md) [INC-0428](./INC-0428-a-supersession-marker-was-deferred-to-each-row-s-activation.md)

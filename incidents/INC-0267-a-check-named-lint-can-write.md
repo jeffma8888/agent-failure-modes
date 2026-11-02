@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md)
+[INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md) [INC-0426](./INC-0426-a-generated-migration-needed-a-lint-only-edit-so-the-evidenc.md)

@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0161](./INC-0161-landing-a-revision-beside-a-supersession-edge-broke-identity.md) [INC-0419](./INC-0419-a-registry-edit-failed-its-own-sorted-order-assertion-and-th.md)
+[INC-0161](./INC-0161-landing-a-revision-beside-a-supersession-edge-broke-identity.md) [INC-0419](./INC-0419-a-registry-edit-failed-its-own-sorted-order-assertion-and-th.md) [INC-0428](./INC-0428-a-supersession-marker-was-deferred-to-each-row-s-activation.md)

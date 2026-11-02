@@ -431,6 +431,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0422 / low]** Check a scoped compiler diagnostic against the canonical build before calling it a defect; fix a scoped-config artifact in the retained config, not the repository
 - **[INC-0423 / low]** Keep the reviewer on the critical path on that path and reassign off-path reviews to another non-author
 - **[INC-0424 / low]** Before adding a relation to a shared collection, check what the collection holds and which referrer lists it joins; defer and record a gap if it does not fit
+- **[INC-0425 / low]** Place a security check on original input in a hook that runs before the framework transforms the input, verified in the installed source, and record any move as a named deviation
+- **[INC-0426 / low]** When a generated file needs a lint-only edit, change only the named defect and record the raw hash, the delivered hash and the diff
+- **[INC-0427 / low]** A load gate holds regardless of who causes the load; continue static work and do not touch system daemons
+- **[INC-0428 / low]** Defer a marker or registry change that would trip an active freeze test to the activation step, and name the approval it will cite
+- **[INC-0429 / low]** Before waiting on a dependency, read the backlog for the row that owns it; if a later row owns it, ship without it and add no stub
 
 ## Practices
 

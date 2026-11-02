@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0167](./INC-0167-a-revision-marker-added-a-second-edge-to-bytes-the-previous.md)
+[INC-0167](./INC-0167-a-revision-marker-added-a-second-edge-to-bytes-the-previous.md) [INC-0426](./INC-0426-a-generated-migration-needed-a-lint-only-edit-so-the-evidenc.md)

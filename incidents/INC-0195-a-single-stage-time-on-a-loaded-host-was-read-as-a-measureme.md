@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0146](./INC-0146-a-truncated-fast-run-stopped-at-the-first-red-stage-and-unde.md)
+[INC-0146](./INC-0146-a-truncated-fast-run-stopped-at-the-first-red-stage-and-unde.md) [INC-0427](./INC-0427-a-host-load-spike-came-from-operating-system-daemons-not-the.md)
