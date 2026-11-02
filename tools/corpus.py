@@ -967,7 +967,7 @@ _BATCH6: list[dict] = [
         "fix": "Corrected the invocation and reran. The script already checked a deterministic base commit before acting and ordered all fallible local steps before any external write, which is why the abort was harmless.",
         "verification": "The rerun completed with the expected base-commit check passing and the external writes happening only after every local step had succeeded.",
         "rule": "In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.",
-        "related": ["INC-0044", "INC-0014"],
+        "related": ["INC-0044", "INC-0014", 'INC-0356'],
     },
     {
         "id": "INC-0047",
@@ -2012,7 +2012,7 @@ _BATCH20: list[dict] = [
         "fix": 'Put a descendant in the group and assert it is gone.',
         "verification": "Checked by the engineer, reviewer or lead who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'A group-kill test needs a descendant, or it cannot tell group from leader.',
-        "related": ['INC-0083'],
+        "related": ['INC-0083', 'INC-0356'],
     },
     {
         "id": "INC-0105",
@@ -4597,7 +4597,7 @@ _BATCH20: list[dict] = [
         "fix": 'Run evidence commands with the pinned binary by absolute path and print its version in the log',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Run evidence commands with the pinned binary by absolute path and print its version in the log',
-        "related": ['INC-0180'],
+        "related": ['INC-0180', 'INC-0356'],
     },
     {
         "id": "INC-0257",
@@ -6212,7 +6212,7 @@ _BATCH20: list[dict] = [
         "fix": 'Exclude the registry from the private copy, create it empty, keep every other outside link a stop, and record the excluded count',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'Before copying a shared tool cache into an isolated run, list its links; a registry of outside links is metadata to exclude, while any other outside link is a containment failure',
-        "related": ['INC-0316', 'INC-0340', 'INC-0119'],
+        "related": ['INC-0316', 'INC-0340', 'INC-0119', 'INC-0356'],
     },
     {
         "id": "INC-0352",
@@ -6281,6 +6281,23 @@ _BATCH20: list[dict] = [
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": "When a spec sets a global bound, check the existing per-item loop arithmetic; sequential waits add up",
         "related": ['INC-0348', 'INC-0312', 'INC-0308'],
+    },
+    {
+        "id": "INC-0356",
+        "title": "A reviewed recipe never ran its real tool queries because every control stubbed them",
+        "date": "2026-11-01",
+        "classes": ['false-green', 'tooling-paths'],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "One scheduled authorized run was lost before setup.",
+        "signature": "A recipe passed its dry run, control run and copy cases, then its first real run stopped in preparation on an unsupported option.",
+        "what": "an acceptance recipe passed its dry run, its control run, six exit controls and 26 copy cases, all with stubbed package manager calls; the first real authorized run stopped in preparation because one query passed an option the pinned manager version does not support (\"Unknown option\"), so a second scheduled run was lost before setup",
+        "root_cause": "every control replaced the real tool calls with stubs, so the commands themselves were never executed against the pinned tool version before the authorized run",
+        "why_hard": "Many green controls and two reviews made the recipe look proven, but they all tested its logic and none tested its commands.",
+        "fix": "A real-binary preflight mode that executes every read-only query the preparation step uses, in the real environment, and a real run that refuses to start without a passing preflight at the same recipe digest",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "A stubbed control proves the recipe's logic, not its commands; before an authorized run, execute every real read-only command once against the pinned tool versions",
+        "related": ['INC-0104', 'INC-0046', 'INC-0256', 'INC-0351'],
     },
 ]
 

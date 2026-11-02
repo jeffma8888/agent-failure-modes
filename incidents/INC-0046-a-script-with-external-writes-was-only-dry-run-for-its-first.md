@@ -41,4 +41,4 @@ The rerun completed with the expected base-commit check passing and the external
 
 ## Related
 
-[INC-0044](./INC-0044-pushing-a-local-repository-to-a-new-remote-publishes-its-who.md) [INC-0014](./INC-0014-a-revert-on-failure-loop-destroys-uncommitted-human-work-in.md)
+[INC-0044](./INC-0044-pushing-a-local-repository-to-a-new-remote-publishes-its-who.md) [INC-0014](./INC-0014-a-revert-on-failure-loop-destroys-uncommitted-human-work-in.md) [INC-0356](./INC-0356-a-reviewed-recipe-never-ran-its-real-tool-queries-because-ev.md)

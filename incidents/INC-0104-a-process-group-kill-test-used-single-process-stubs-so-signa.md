@@ -41,4 +41,4 @@ Checked by the engineer, reviewer or lead who reported it. Not checked: whether 
 
 ## Related
 
-[INC-0083](./INC-0083-controls-that-fail-in-only-one-direction-a-drop-guard-keyed.md)
+[INC-0083](./INC-0083-controls-that-fail-in-only-one-direction-a-drop-guard-keyed.md) [INC-0356](./INC-0356-a-reviewed-recipe-never-ran-its-real-tool-queries-because-ev.md)

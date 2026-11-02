@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 355,
+  "count": 356,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -995,7 +995,8 @@
       "file": "incidents/INC-0046-a-script-with-external-writes-was-only-dry-run-for-its-first.md",
       "related": [
         "INC-0044",
-        "INC-0014"
+        "INC-0014",
+        "INC-0356"
       ],
       "evidence": []
     },
@@ -2041,7 +2042,8 @@
       "signature": "A group-kill test passes with stubs that have no descendants.",
       "file": "incidents/INC-0104-a-process-group-kill-test-used-single-process-stubs-so-signa.md",
       "related": [
-        "INC-0083"
+        "INC-0083",
+        "INC-0356"
       ],
       "evidence": []
     },
@@ -4769,7 +4771,8 @@
       "signature": "The version reported was not the pinned one.",
       "file": "incidents/INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md",
       "related": [
-        "INC-0180"
+        "INC-0180",
+        "INC-0356"
       ],
       "evidence": []
     },
@@ -6600,7 +6603,8 @@
       "related": [
         "INC-0316",
         "INC-0340",
-        "INC-0119"
+        "INC-0119",
+        "INC-0356"
       ],
       "evidence": []
     },
@@ -6682,6 +6686,27 @@
         "INC-0348",
         "INC-0312",
         "INC-0308"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0356",
+      "title": "A reviewed recipe never ran its real tool queries because every control stubbed them",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A stubbed control proves the recipe's logic, not its commands; before an authorized run, execute every real read-only command once against the pinned tool versions",
+      "signature": "A recipe passed its dry run, control run and copy cases, then its first real run stopped in preparation on an unsupported option.",
+      "file": "incidents/INC-0356-a-reviewed-recipe-never-ran-its-real-tool-queries-because-ev.md",
+      "related": [
+        "INC-0104",
+        "INC-0046",
+        "INC-0256",
+        "INC-0351"
       ],
       "evidence": []
     }
