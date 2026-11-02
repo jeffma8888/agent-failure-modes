@@ -520,6 +520,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0509 / low]** Report a run as running only from its own output (a launch line, a PID that exists); a started task is not a started run.
 - **[INC-0510 / low]** A mutation run keeps a receipt per mutant, the diff and the hash after restore, as a file before the scratch copy is deleted; tool output is not evidence a second reviewer can check.
 - **[INC-0511 / low]** A test must not assert on state it did not create; compare only the names the test itself made.
+- **[INC-0514 / low]** When a new contract collides with a pinned test mock, keep the mocked function return shape and add a new function or wrapper for the new contract; change the test only through a successor root authored by someone else.
+- **[INC-0515 / low]** Do not require a read whose size exceeds what the reader tool returns; name the exact sections to read, and treat an unnamed old section as outside the compliance check.
+- **[INC-0516 / low]** Update a backlog row status with the merge commit at the time its fix merges, so the backlog stays the record of what is done.
 
 ## Practices
 

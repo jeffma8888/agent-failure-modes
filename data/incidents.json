@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 513,
+  "count": 516,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9852,6 +9852,57 @@
       "related": [
         "INC-0473",
         "INC-0284"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0514",
+      "title": "An implementer proposed editing a pinned root's mock to fit a new helper contract, and the fix was a wrapper that kept the mocked shape",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a new contract collides with a pinned test mock, keep the mocked function return shape and add a new function or wrapper for the new contract; change the test only through a successor root authored by someone else.",
+      "signature": "A new return contract is incompatible with a pinned test's mock, and the proposed fix edits the pinned file.",
+      "file": "incidents/INC-0514-an-implementer-proposed-editing-a-pinned-root-s-mock-to-fit.md",
+      "related": [
+        "INC-0473"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0515",
+      "title": "A rulings file grew past what a reader's tool returns, and a read of a named range was clipped, so compliance could not be certified",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Do not require a read whose size exceeds what the reader tool returns; name the exact sections to read, and treat an unnamed old section as outside the compliance check.",
+      "signature": "An instruction requires reading a range of a file whose size exceeds what the reader tool returns.",
+      "file": "incidents/INC-0515-a-rulings-file-grew-past-what-a-reader-s-tool-returns-and-a.md",
+      "related": [
+        "INC-0507"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0516",
+      "title": "Backlog rows stayed open after their fixes merged, so the backlog no longer showed what was done",
+      "date": "2026-11-02",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Update a backlog row status with the merge commit at the time its fix merges, so the backlog stays the record of what is done.",
+      "signature": "The backlog lists as open rows whose fixes are already on the main line.",
+      "file": "incidents/INC-0516-backlog-rows-stayed-open-after-their-fixes-merged-so-the-bac.md",
+      "related": [
+        "INC-0449"
       ],
       "evidence": []
     }
