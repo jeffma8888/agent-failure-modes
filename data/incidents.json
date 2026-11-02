@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 331,
+  "count": 334,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6167,6 +6167,62 @@
       "related": [
         "INC-0076",
         "INC-0251"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0332",
+      "title": "A tier exclusion matched only one file extension",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When tiering by filename suffix, check the exclusion glob against every extension in use and keep a discovery witness per tier (absent here, exactly once there)",
+      "signature": "Slow proofs moved to a differently suffixed file would have stayed in the per-commit tier.",
+      "file": "incidents/INC-0332-a-tier-exclusion-matched-only-one-file-extension.md",
+      "related": [
+        "INC-0328",
+        "INC-0170"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0333",
+      "title": "A per-commit stage cost more than doubled before anyone sampled it",
+      "date": "2026-11-01",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a row adds tests to a shared per-commit gate, sample the stage early and compare with the design assumption; move heavy proofs to the slower tier rather than raising the cap",
+      "signature": "The first stage sample came after several review rounds and showed far more than the design assumed.",
+      "file": "incidents/INC-0333-a-per-commit-stage-cost-more-than-doubled-before-anyone-samp.md",
+      "related": [
+        "INC-0308",
+        "INC-0230"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0334",
+      "title": "A bare number beside a time threshold invited a unit misread",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Put units in every numeric cell that sits near a time threshold",
+      "signature": "A count was readable as seconds because the cell had no unit.",
+      "file": "incidents/INC-0334-a-bare-number-beside-a-time-threshold-invited-a-unit-misread.md",
+      "related": [
+        "INC-0071"
       ],
       "evidence": []
     }

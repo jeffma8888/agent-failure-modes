@@ -320,6 +320,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0329 / medium]** Measure saturation against max minus what the code under test already retains, and never read a timeout as capacity evidence without the acquired and retained counts
 - **[INC-0330 / medium]** Walk every runbook step through the script's gates offline before calling the runbook ready
 - **[INC-0331 / medium]** Name the only files a job may touch, and check the diff file list on landing
+- **[INC-0332 / medium]** When tiering by filename suffix, check the exclusion glob against every extension in use and keep a discovery witness per tier (absent here, exactly once there)
+- **[INC-0333 / medium]** When a row adds tests to a shared per-commit gate, sample the stage early and compare with the design assumption; move heavy proofs to the slower tier rather than raising the cap
+- **[INC-0334 / medium]** Put units in every numeric cell that sits near a time threshold
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
