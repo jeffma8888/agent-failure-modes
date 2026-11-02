@@ -493,6 +493,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0484 / low]** Build a fixture that passes every guard except the one under test, and assert which guard refused; an earlier guard's refusal masks the guard the case is meant to prove.
 - **[INC-0485 / low]** Draft the merge acceptance checklist while the row is still open, and for each source change read the tests that assert on it, so owed test changes are found before the merge turns the full run red.
 - **[INC-0486 / low]** An approval that landed on main after a branch forked is not an ancestor of that branch; merge main into the branch before any activation commit that a checker ties to that approval.
+- **[INC-0487 / low]** When a security setting strips tokens from responses, it strips them from local test helpers too; capture the token before the response is sanitized and assert it is present, or every downstream auth check fails at its precondition and looks like a product defect.
+- **[INC-0488 / low]** When static review rounds on a harness converge slowly, run one labelled diagnostic early, on scratch state, with its result marked as neither a baseline nor an acceptance run, to learn what is really wrong.
 
 ## Practices
 

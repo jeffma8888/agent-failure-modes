@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 486,
+  "count": 488,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9374,6 +9374,40 @@
       "related": [
         "INC-0164",
         "INC-0204"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0487",
+      "title": "A setting that strips tokens from responses also stripped them from the test helper",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a security setting strips tokens from responses, it strips them from local test helpers too; capture the token before the response is sanitized and assert it is present, or every downstream auth check fails at its precondition and looks like a product defect.",
+      "signature": "Every auth check downstream of a local login failed, and the token was empty at the first step.",
+      "file": "incidents/INC-0487-a-setting-that-strips-tokens-from-responses-also-stripped-th.md",
+      "related": [
+        "INC-0275"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0488",
+      "title": "Static review rounds on a test harness left the same findings open",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When static review rounds on a harness converge slowly, run one labelled diagnostic early, on scratch state, with its result marked as neither a baseline nor an acceptance run, to learn what is really wrong.",
+      "signature": "Two static passes ended with the same four findings still open.",
+      "file": "incidents/INC-0488-static-review-rounds-on-a-test-harness-left-the-same-finding.md",
+      "related": [
+        "INC-0444"
       ],
       "evidence": []
     }
