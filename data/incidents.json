@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 337,
+  "count": 341,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6284,6 +6284,82 @@
       "related": [
         "INC-0201",
         "INC-0220"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0338",
+      "title": "A review pinned before the fix reported findings that were already closed",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a review's pin is older than the latest fix, land it with a note naming the commit and review that supersede each stale finding",
+      "signature": "A review of an older checkpoint listed findings as open that had since been fixed and closed.",
+      "file": "incidents/INC-0338-a-review-pinned-before-the-fix-reported-findings-that-were-a.md",
+      "related": [
+        "INC-0284",
+        "INC-0302"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0339",
+      "title": "A mutant of a shared helper proved sensitivity but not the real resource's end state",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A helper mutant proves the test can see the bug; a real-resource witness proves the resource ends in the right state; when both are claimed, require both",
+      "signature": "Cheap fake-client controls went red, yet nothing showed the real pool ended in the right state after a failure.",
+      "file": "incidents/INC-0339-a-mutant-of-a-shared-helper-proved-sensitivity-but-not-the-r.md",
+      "related": [
+        "INC-0314",
+        "INC-0083"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0340",
+      "title": "A fixture that linked the host dependency tree let the package manager rewrite it",
+      "date": "2026-11-01",
+      "classes": [
+        "test-isolation",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Never link a writable host dependency tree into a fixture that runs the package manager; if unavoidable, turn auto-install off explicitly in the fixture environment and add a guard that fails when the host tree's listing changes",
+      "signature": "A fixture's package manager run pruned the linked host dependency tree and turned 11 failures into 51.",
+      "file": "incidents/INC-0340-a-fixture-that-linked-the-host-dependency-tree-let-the-packa.md",
+      "related": [
+        "INC-0316",
+        "INC-0257"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0341",
+      "title": "A registration subject pinned to the current local head read as stale under a push freeze",
+      "date": "2026-11-01",
+      "classes": [
+        "identity-and-keying",
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Under a push freeze, pin the subject by role and prove the freeze with a remote query; a stale remote-tracking ref is not freeze evidence",
+      "signature": "An owner packet asserted checkout, clone and remote at one hash, and the assertion went stale only because local commits accumulated.",
+      "file": "incidents/INC-0341-a-registration-subject-pinned-to-the-current-local-head-read.md",
+      "related": [
+        "INC-0069",
+        "INC-0239"
       ],
       "evidence": []
     }

@@ -326,6 +326,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0335 / medium]** When prepared patches pin a file's digest, treat that file as frozen and route every change through a later patch with the same regenerate caveat
 - **[INC-0336 / medium]** A config change that moves tests between tiers needs a red witness first, the same as a code change
 - **[INC-0337 / medium]** Name the reviewer when the artifact lands, from whoever is free and is not its author; record the reassignment in the ruling
+- **[INC-0338 / medium]** When a review's pin is older than the latest fix, land it with a note naming the commit and review that supersede each stale finding
+- **[INC-0339 / medium]** A helper mutant proves the test can see the bug; a real-resource witness proves the resource ends in the right state; when both are claimed, require both
+- **[INC-0340 / medium]** Never link a writable host dependency tree into a fixture that runs the package manager; if unavoidable, turn auto-install off explicitly in the fixture environment and add a guard that fails when the host tree's listing changes
+- **[INC-0341 / medium]** Under a push freeze, pin the subject by role and prove the freeze with a remote query; a stale remote-tracking ref is not freeze evidence
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
