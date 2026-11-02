@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 474,
+  "count": 476,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9157,6 +9157,42 @@
       "file": "incidents/INC-0474-a-range-whitespace-check-exited-2-on-generated-migration-sql.md",
       "related": [
         "INC-0426"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0475",
+      "title": "A process guard stopped a run twice: the process list padded the command with trailing spaces, and the guard's own shell line contained the searched name",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A process guard normalises only trailing whitespace in process list output and searches with a self excluding pattern in a call that contains nothing else; it keeps failing closed.",
+      "signature": "A guard that searches the process list failed on padding and on matching itself.",
+      "file": "incidents/INC-0475-a-process-guard-stopped-a-run-twice-the-process-list-padded.md",
+      "related": [
+        "INC-0386",
+        "INC-0305"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0476",
+      "title": "Unit mutation testing on a merged change found two survivors while every named test passed",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A passing suite is not a discriminating suite; run cheap mutations before merge, count only runs that executed the tests, and open a follow-up change for survivors instead of reopening the merge.",
+      "signature": "Mutated code passed the whole suite.",
+      "file": "incidents/INC-0476-unit-mutation-testing-on-a-merged-change-found-two-survivors.md",
+      "related": [
+        "INC-0133",
+        "INC-0444"
       ],
       "evidence": []
     }
