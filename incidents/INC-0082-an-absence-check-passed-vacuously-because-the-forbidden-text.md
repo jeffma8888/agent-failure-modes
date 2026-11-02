@@ -38,3 +38,7 @@ Checked in review by reading the seeded title and the assertion. Not checked: ru
 ## Transferable rule
 
 > Every absence assertion needs a positive control from the same read, and matching must be substring-tolerant of the real data shape.
+
+## Related
+
+[INC-0461](./INC-0461-a-hook-ran-a-query-on-create-with-an-undefined-id-once-a-reg.md)

@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0197](./INC-0197-a-typecheck-failed-in-a-shared-helper-the-revision-did-not-o.md)
+[INC-0197](./INC-0197-a-typecheck-failed-in-a-shared-helper-the-revision-did-not-o.md) [INC-0459](./INC-0459-a-new-required-argument-broke-an-older-direct-caller-that-th.md)

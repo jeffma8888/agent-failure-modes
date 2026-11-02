@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0225](./INC-0225-a-fix-was-named-for-one-card-while-four-siblings-carried-the.md)
+[INC-0225](./INC-0225-a-fix-was-named-for-one-card-while-four-siblings-carried-the.md) [INC-0459](./INC-0459-a-new-required-argument-broke-an-older-direct-caller-that-th.md)

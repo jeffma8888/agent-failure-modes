@@ -41,4 +41,4 @@ Checked by the reviewer or lead who reported it. Not checked: whether the new ru
 
 ## Related
 
-[INC-0082](./INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md) [INC-0347](./INC-0347-a-final-print-in-a-wrapper-replaced-the-command-s-failure-wi.md)
+[INC-0082](./INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md) [INC-0347](./INC-0347-a-final-print-in-a-wrapper-replaced-the-command-s-failure-wi.md) [INC-0462](./INC-0462-an-identity-guard-compared-to-a-plain-address-while-the-data.md)

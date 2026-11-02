@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0243](./INC-0243-a-proposed-subject-was-treated-as-if-its-seam-were-declared.md)
+[INC-0243](./INC-0243-a-proposed-subject-was-treated-as-if-its-seam-were-declared.md) [INC-0460](./INC-0460-an-order-sensitive-comparison-of-two-tool-listings-failed-on.md)

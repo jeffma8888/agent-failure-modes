@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0249](./INC-0249-a-cd-to-a-path-in-a-variable-was-refused-by-the-sandbox.md) [INC-0094](./INC-0094-macos-sandbox-exec-refused-to-exec-a-setuid-binary-so-a-sand.md) [INC-0376](./INC-0376-a-signed-design-heading-outranked-a-plan-census-parenthetica.md)
+[INC-0249](./INC-0249-a-cd-to-a-path-in-a-variable-was-refused-by-the-sandbox.md) [INC-0094](./INC-0094-macos-sandbox-exec-refused-to-exec-a-setuid-binary-so-a-sand.md) [INC-0376](./INC-0376-a-signed-design-heading-outranked-a-plan-census-parenthetica.md) [INC-0463](./INC-0463-a-subprocess-call-failed-with-not-found-when-the-pinned-runt.md)

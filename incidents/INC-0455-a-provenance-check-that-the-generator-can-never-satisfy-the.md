@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0448](./INC-0448-two-fields-mapping-to-one-database-enum-made-the-generated-m.md) [INC-0426](./INC-0426-a-generated-migration-needed-a-lint-only-edit-so-the-evidenc.md) [INC-0439](./INC-0439-a-generated-down-migration-dropped-a-table-with-cascade-and.md)
+[INC-0448](./INC-0448-two-fields-mapping-to-one-database-enum-made-the-generated-m.md) [INC-0426](./INC-0426-a-generated-migration-needed-a-lint-only-edit-so-the-evidenc.md) [INC-0439](./INC-0439-a-generated-down-migration-dropped-a-table-with-cascade-and.md) [INC-0462](./INC-0462-an-identity-guard-compared-to-a-plain-address-while-the-data.md)

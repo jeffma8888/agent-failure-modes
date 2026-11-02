@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0182](./INC-0182-a-marker-generator-covered-every-payload-of-a-root-when-only.md)
+[INC-0182](./INC-0182-a-marker-generator-covered-every-payload-of-a-root-when-only.md) [INC-0464](./INC-0464-color-escape-codes-in-a-report-broke-an-extraction-assertion.md)

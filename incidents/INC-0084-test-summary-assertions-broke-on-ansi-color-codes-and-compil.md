@@ -38,3 +38,7 @@ Checked by the reviewer or engineer who reported it. Not checked: whether the ne
 ## Transferable rule
 
 > Normalize terminal output before matching it, and define what counts as an owned resource before counting leaks.
+
+## Related
+
+[INC-0464](./INC-0464-color-escape-codes-in-a-report-broke-an-extraction-assertion.md)

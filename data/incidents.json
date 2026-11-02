@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 458,
+  "count": 464,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1691,7 +1691,9 @@
       "rule": "Every absence assertion needs a positive control from the same read, and matching must be substring-tolerant of the real data shape.",
       "signature": "A test asserts a string occurs zero times in a page, and the count is zero for reasons unrelated to the page content.",
       "file": "incidents/INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md",
-      "related": [],
+      "related": [
+        "INC-0461"
+      ],
       "evidence": []
     },
     {
@@ -1726,7 +1728,9 @@
       "rule": "Normalize terminal output before matching it, and define what counts as an owned resource before counting leaks.",
       "signature": "A test asserts on tool summary text that contains color escape codes, or a leak check counts cache files.",
       "file": "incidents/INC-0084-test-summary-assertions-broke-on-ansi-color-codes-and-compil.md",
-      "related": [],
+      "related": [
+        "INC-0464"
+      ],
       "evidence": []
     },
     {
@@ -2100,7 +2104,8 @@
       "signature": "A test clears PG variables to avoid the shared cluster, and a client tool uses its defaults.",
       "file": "incidents/INC-0106-deleting-postgresql-environment-variables-left-client-tools.md",
       "related": [
-        "INC-0354"
+        "INC-0354",
+        "INC-0463"
       ],
       "evidence": []
     },
@@ -2211,7 +2216,8 @@
       "signature": "A control that depends on a signed-in or seeded state runs after the test changed that state.",
       "file": "incidents/INC-0112-a-control-relied-on-state-the-test-had-changed-earlier-and-s.md",
       "related": [
-        "INC-0083"
+        "INC-0083",
+        "INC-0461"
       ],
       "evidence": []
     },
@@ -2358,7 +2364,8 @@
       "file": "incidents/INC-0120-a-guard-control-asserted-only-exit-0-so-a-warn-and-pass-guar.md",
       "related": [
         "INC-0082",
-        "INC-0347"
+        "INC-0347",
+        "INC-0462"
       ],
       "evidence": []
     },
@@ -2470,7 +2477,8 @@
         "INC-0113",
         "INC-0371",
         "INC-0374",
-        "INC-0386"
+        "INC-0386",
+        "INC-0460"
       ],
       "evidence": []
     },
@@ -3227,7 +3235,8 @@
       "signature": "One stage doubled its cases and its time.",
       "file": "incidents/INC-0168-disjoint-project-discovery-did-not-stop-a-suite-from-running.md",
       "related": [
-        "INC-0153"
+        "INC-0153",
+        "INC-0460"
       ],
       "evidence": []
     },
@@ -4062,7 +4071,8 @@
       "signature": "The helper fix left a caller broken.",
       "file": "incidents/INC-0214-a-helper-was-fixed-and-a-caller-still-passed-a-literal-empty.md",
       "related": [
-        "INC-0197"
+        "INC-0197",
+        "INC-0459"
       ],
       "evidence": []
     },
@@ -4265,7 +4275,8 @@
       "signature": "The siblings were left unfixed or silently changed.",
       "file": "incidents/INC-0225-a-fix-was-named-for-one-card-while-four-siblings-carried-the.md",
       "related": [
-        "INC-0177"
+        "INC-0177",
+        "INC-0459"
       ],
       "evidence": []
     },
@@ -4573,7 +4584,8 @@
       "signature": "Authors stopped at the same boundary.",
       "file": "incidents/INC-0242-four-of-five-test-authors-stopped-at-the-same-undeclared-sea.md",
       "related": [
-        "INC-0243"
+        "INC-0243",
+        "INC-0460"
       ],
       "evidence": []
     },
@@ -4761,7 +4773,8 @@
       "signature": "A test title contained the word.",
       "file": "incidents/INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md",
       "related": [
-        "INC-0182"
+        "INC-0182",
+        "INC-0464"
       ],
       "evidence": []
     },
@@ -4817,7 +4830,8 @@
       "signature": "The defect was a conflict between two documents, not a batch fault.",
       "file": "incidents/INC-0255-one-batch-finding-hid-45-files-with-the-same-dependency.md",
       "related": [
-        "INC-0225"
+        "INC-0225",
+        "INC-0459"
       ],
       "evidence": []
     },
@@ -4837,7 +4851,8 @@
       "related": [
         "INC-0180",
         "INC-0356",
-        "INC-0359"
+        "INC-0359",
+        "INC-0463"
       ],
       "evidence": []
     },
@@ -6046,7 +6061,8 @@
         "INC-0082",
         "INC-0314",
         "INC-0329",
-        "INC-0363"
+        "INC-0363",
+        "INC-0462"
       ],
       "evidence": []
     },
@@ -6104,7 +6120,9 @@
       "file": "incidents/INC-0321-a-green-parallel-run-was-cited-although-the-parallel-group-h.md",
       "related": [
         "INC-0313",
-        "INC-0082"
+        "INC-0082",
+        "INC-0461",
+        "INC-0464"
       ],
       "evidence": []
     },
@@ -7090,7 +7108,8 @@
       "related": [
         "INC-0249",
         "INC-0094",
-        "INC-0376"
+        "INC-0376",
+        "INC-0463"
       ],
       "evidence": []
     },
@@ -8753,7 +8772,8 @@
       "related": [
         "INC-0448",
         "INC-0426",
-        "INC-0439"
+        "INC-0439",
+        "INC-0462"
       ],
       "evidence": []
     },
@@ -8811,6 +8831,120 @@
         "INC-0439",
         "INC-0426",
         "INC-0448"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0459",
+      "title": "A new required argument broke an older direct caller that the change did not list",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When an argument becomes required, list every direct caller, tests included, and keep the old call path or update every caller in the same change",
+      "signature": "A whole unit run showed one more failure after a signature change.",
+      "file": "incidents/INC-0459-a-new-required-argument-broke-an-older-direct-caller-that-th.md",
+      "related": [
+        "INC-0255",
+        "INC-0225",
+        "INC-0214"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0460",
+      "title": "An order sensitive comparison of two tool listings failed only when new files were added, though the contract was set membership",
+      "date": "2026-11-02",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Compare sorted copies when the contract is set membership, and keep order sensitive equality for contracts that define order",
+      "signature": "A test failed after unrelated files were added.",
+      "file": "incidents/INC-0460-an-order-sensitive-comparison-of-two-tool-listings-failed-on.md",
+      "related": [
+        "INC-0168",
+        "INC-0126",
+        "INC-0242"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0461",
+      "title": "A hook ran a query on create with an undefined id once a registry became non empty: a latent defect exposed by data, not code",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Guard a hook query on the operation and a valid id; a check over an empty population proves nothing about the non empty case",
+      "signature": "A seed failed with a database type error after a data change.",
+      "file": "incidents/INC-0461-a-hook-ran-a-query-on-create-with-an-undefined-id-once-a-reg.md",
+      "related": [
+        "INC-0321",
+        "INC-0112",
+        "INC-0082"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0462",
+      "title": "An identity guard compared to a plain address while the database cast rendered the address with a mask, so it could never pass, and a silent catch hid which check failed",
+      "date": "2026-11-02",
+      "classes": [
+        "detector-fail-closed"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Probe a guard against the real value it will see; a guard that can never pass is a defect, and a catch must print which step failed without secrets",
+      "signature": "A walk stopped at its helper with one generic error.",
+      "file": "incidents/INC-0462-an-identity-guard-compared-to-a-plain-address-while-the-data.md",
+      "related": [
+        "INC-0318",
+        "INC-0120",
+        "INC-0455"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0463",
+      "title": "A subprocess call failed with not found when the pinned runtime directory was missing from the search path, and the first run showed five extra failures",
+      "date": "2026-11-02",
+      "classes": [
+        "ipc-and-env"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Put the pinned runtime directory on the search path in the same command that runs the tests; a not found error from a spawned tool is an environment fault, not a product failure",
+      "signature": "Extra failures appeared in the first run.",
+      "file": "incidents/INC-0463-a-subprocess-call-failed-with-not-found-when-the-pinned-runt.md",
+      "related": [
+        "INC-0106",
+        "INC-0256",
+        "INC-0369"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0464",
+      "title": "Color escape codes in a report broke an extraction assertion, and only the zero match assertion caught it",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Strip terminal escape codes before parsing a report, and keep a zero match assertion so a failed extraction writes nothing",
+      "signature": "An extraction found no matches in a report that held the text.",
+      "file": "incidents/INC-0464-color-escape-codes-in-a-report-broke-an-extraction-assertion.md",
+      "related": [
+        "INC-0084",
+        "INC-0252",
+        "INC-0321"
       ],
       "evidence": []
     }

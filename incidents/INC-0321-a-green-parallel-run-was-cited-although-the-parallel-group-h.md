@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0313](./INC-0313-tests-in-a-parallel-group-raced-a-test-that-drops-the-shared.md) [INC-0082](./INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md)
+[INC-0313](./INC-0313-tests-in-a-parallel-group-raced-a-test-that-drops-the-shared.md) [INC-0082](./INC-0082-an-absence-check-passed-vacuously-because-the-forbidden-text.md) [INC-0461](./INC-0461-a-hook-ran-a-query-on-create-with-an-undefined-id-once-a-reg.md) [INC-0464](./INC-0464-color-escape-codes-in-a-report-broke-an-extraction-assertion.md)

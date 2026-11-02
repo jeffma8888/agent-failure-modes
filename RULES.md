@@ -465,6 +465,12 @@ One rule per incident, ordered by severity then id.
 - **[INC-0456 / low]** Compute a timestamp from the clock in the same command that writes it, never from memory
 - **[INC-0457 / low]** Check a binding against the pinned scripts before writing it, and stop on a contradiction rather than substitute
 - **[INC-0458 / low]** Turn a fixed generator defect into a check on the list that every later generated migration runs
+- **[INC-0459 / low]** When an argument becomes required, list every direct caller, tests included, and keep the old call path or update every caller in the same change
+- **[INC-0460 / low]** Compare sorted copies when the contract is set membership, and keep order sensitive equality for contracts that define order
+- **[INC-0461 / low]** Guard a hook query on the operation and a valid id; a check over an empty population proves nothing about the non empty case
+- **[INC-0462 / low]** Probe a guard against the real value it will see; a guard that can never pass is a defect, and a catch must print which step failed without secrets
+- **[INC-0463 / low]** Put the pinned runtime directory on the search path in the same command that runs the tests; a not found error from a spawned tool is an environment fault, not a product failure
+- **[INC-0464 / low]** Strip terminal escape codes before parsing a report, and keep a zero match assertion so a failed extraction writes nothing
 
 ## Practices
 

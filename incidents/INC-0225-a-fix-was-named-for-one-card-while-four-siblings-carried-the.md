@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0177](./INC-0177-card-text-pointed-at-its-own-directory-as-the-checkout.md)
+[INC-0177](./INC-0177-card-text-pointed-at-its-own-directory-as-the-checkout.md) [INC-0459](./INC-0459-a-new-required-argument-broke-an-older-direct-caller-that-th.md)
