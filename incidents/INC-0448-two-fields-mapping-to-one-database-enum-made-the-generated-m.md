@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0173](./INC-0173-a-ruling-widened-a-shared-valid-state-and-only-some-payloads.md) [INC-0426](./INC-0426-a-generated-migration-needed-a-lint-only-edit-so-the-evidenc.md) [INC-0439](./INC-0439-a-generated-down-migration-dropped-a-table-with-cascade-and.md) [INC-0455](./INC-0455-a-provenance-check-that-the-generator-can-never-satisfy-the.md)
+[INC-0173](./INC-0173-a-ruling-widened-a-shared-valid-state-and-only-some-payloads.md) [INC-0426](./INC-0426-a-generated-migration-needed-a-lint-only-edit-so-the-evidenc.md) [INC-0439](./INC-0439-a-generated-down-migration-dropped-a-table-with-cascade-and.md) [INC-0455](./INC-0455-a-provenance-check-that-the-generator-can-never-satisfy-the.md) [INC-0458](./INC-0458-a-generated-down-migration-defect-fixed-once-came-back-in-th.md)

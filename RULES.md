@@ -464,6 +464,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0455 / low]** Prove a diff base from what the generated SQL does and does not emit, and never demand a check the generator can not satisfy
 - **[INC-0456 / low]** Compute a timestamp from the clock in the same command that writes it, never from memory
 - **[INC-0457 / low]** Check a binding against the pinned scripts before writing it, and stop on a contradiction rather than substitute
+- **[INC-0458 / low]** Turn a fixed generator defect into a check on the list that every later generated migration runs
 
 ## Practices
 

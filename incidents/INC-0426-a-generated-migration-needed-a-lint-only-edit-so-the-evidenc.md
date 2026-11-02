@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0267](./INC-0267-a-check-named-lint-can-write.md) [INC-0182](./INC-0182-a-marker-generator-covered-every-payload-of-a-root-when-only.md) [INC-0439](./INC-0439-a-generated-down-migration-dropped-a-table-with-cascade-and.md) [INC-0448](./INC-0448-two-fields-mapping-to-one-database-enum-made-the-generated-m.md) [INC-0455](./INC-0455-a-provenance-check-that-the-generator-can-never-satisfy-the.md)
+[INC-0267](./INC-0267-a-check-named-lint-can-write.md) [INC-0182](./INC-0182-a-marker-generator-covered-every-payload-of-a-root-when-only.md) [INC-0439](./INC-0439-a-generated-down-migration-dropped-a-table-with-cascade-and.md) [INC-0448](./INC-0448-two-fields-mapping-to-one-database-enum-made-the-generated-m.md) [INC-0455](./INC-0455-a-provenance-check-that-the-generator-can-never-satisfy-the.md) [INC-0458](./INC-0458-a-generated-down-migration-defect-fixed-once-came-back-in-th.md)

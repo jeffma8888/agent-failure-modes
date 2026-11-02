@@ -7487,7 +7487,7 @@ _BATCH20: list[dict] = [
         "fix": "edit a generated file only for the named lint defect, keep every other byte, and record the raw hash, the delivered hash and the diff in the evidence",
         "verification": "Checked by the lead. Not checked: whether the new rule prevents recurrence.",
         "rule": "When a generated file needs a lint-only edit, change only the named defect and record the raw hash, the delivered hash and the diff",
-        "related": ['INC-0267', 'INC-0182', 'INC-0439', 'INC-0448', 'INC-0455'],
+        "related": ['INC-0267', 'INC-0182', 'INC-0439', 'INC-0448', 'INC-0455', 'INC-0458'],
     },
     {
         "id": "INC-0427",
@@ -7708,7 +7708,7 @@ _BATCH20: list[dict] = [
         "fix": "change only the named statement, record raw and delivered hashes, and report the fix as static until a real round trip proves it",
         "verification": "Checked by the lead. Not checked: whether the new rule prevents recurrence.",
         "rule": "Fix a generated down migration by a minimal named edit with raw and delivered hashes, and report it as static until a round trip proves it",
-        "related": ['INC-0426', 'INC-0267', 'INC-0448', 'INC-0455'],
+        "related": ['INC-0426', 'INC-0267', 'INC-0448', 'INC-0455', 'INC-0458'],
     },
     {
         "id": "INC-0440",
@@ -7861,7 +7861,7 @@ _BATCH20: list[dict] = [
         "fix": "give the persistent field its own enum name per table, regenerate, and check the generated SQL for all states before generating types",
         "verification": "Checked by the lead. Not checked: whether the new rule prevents recurrence.",
         "rule": "Give each field that persists a state set its own enum name per table, and check the generated SQL for every state before generating types",
-        "related": ['INC-0173', 'INC-0426', 'INC-0439', 'INC-0455'],
+        "related": ['INC-0173', 'INC-0426', 'INC-0439', 'INC-0455', 'INC-0458'],
     },
     {
         "id": "INC-0449",
@@ -8015,6 +8015,23 @@ _BATCH20: list[dict] = [
         "verification": "Checked by the lead. Not checked: whether the new rule prevents recurrence.",
         "rule": "Check a binding against the pinned scripts before writing it, and stop on a contradiction rather than substitute",
         "related": ['INC-0390', 'INC-0401', 'INC-0433'],
+    },
+    {
+        "id": "INC-0458",
+        "title": "A generated down migration defect fixed once came back in the next row because the fix was never turned into a check",
+        "date": "2026-11-02",
+        "classes": ['detector-fail-open'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "A repeat of a known defect, caught by a static review before any run.",
+        "signature": "A defect already fixed once appeared again with no check to catch it.",
+        "what": "the generated down migration dropped a table with cascade and then dropped the removed constraint without if exists, which fails; it was found and fixed by a sanctioned edit in one row, and the same defect appeared again in the next row and was found only by a static review, because the fix had not been turned into a check that every generated migration runs",
+        "root_cause": "a one time fix was recorded as a ruling but not added to a list of checks",
+        "why_hard": "A ruling about one row reads as finished work, so nobody turns it into a standing check.",
+        "fix": "turn each fixed generator defect into a named check with a symptom, a place to look, a command and a sanctioned edit, and run the whole list on every generated migration before the next generation step",
+        "verification": "Checked by the lead. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Turn a fixed generator defect into a check on the list that every later generated migration runs",
+        "related": ['INC-0439', 'INC-0426', 'INC-0448'],
     },
 ]
 
