@@ -374,6 +374,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0513 / medium]** Before activating a root, confirm on current main that it is still the terminal of its supersession chain; run the identity check after merging main into the branch, not only before.
 - **[INC-0522 / medium]** Never rewrite a script in place while any process may run it; write a new file and switch names, and quote the helper hash in the evidence that used it.
 - **[INC-0523 / medium]** Do not guess a locator for a generated field; cite the installed source line that renders it, and when one guess is found, audit every root for the same guess.
+- **[INC-0527 / medium]** A regression root must be green on unchanged code before any mutation; an absence selector for a hidden field must account for the hidden input the library still renders.
+- **[INC-0528 / medium]** Replacing a framework default cell, field or component replaces everything it did, not only what the change targeted; list what the default provided before replacing it, and test it.
+- **[INC-0529 / medium]** A per-test bound left at the runner default is a decision nobody made; set it at the project level for the load class the step runs in, and treat a default-bound timeout under load as a wasted run, not a red.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -532,6 +535,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0521 / low]** A short child-process bound fails under parallel load while the test is correct; classify such a timeout by an isolated rerun, and give child-process tests a bound that tolerates the load class they run in.
 - **[INC-0524 / low]** A mutation named as a case witness must be one the assertions can see; trace what the next line returns before naming it, and state the expected red line.
 - **[INC-0525 / low]** A feedback assertion must fail without the action under test: assert the element is absent before the action and present after it, on a fresh page and scoped to the field, never on any alert on the page.
+- **[INC-0526 / low]** An author-conflict check covers review files as well as commits: search both for the root identifier and read the author of every hit before the reviewer is named.
 
 ## Practices
 

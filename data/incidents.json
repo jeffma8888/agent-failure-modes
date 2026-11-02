@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 525,
+  "count": 529,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10062,6 +10062,78 @@
       "related": [
         "INC-0505",
         "INC-0497"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0526",
+      "title": "A reviewer was named after checking commit authorship only, and the reviewer had judged the root's cases in an earlier review file",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "An author-conflict check covers review files as well as commits: search both for the root identifier and read the author of every hit before the reviewer is named.",
+      "signature": "An author-conflict check covers commits, and the conflict is in a review file.",
+      "file": "incidents/INC-0526-a-reviewer-was-named-after-checking-commit-authorship-only-a.md",
+      "related": [
+        "INC-0517",
+        "INC-0507"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0527",
+      "title": "An absence check for a hidden field matched the hidden input the library renders, so a regression root was red on unchanged code",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A regression root must be green on unchanged code before any mutation; an absence selector for a hidden field must account for the hidden input the library still renders.",
+      "signature": "A test asserts that a selector for a hidden field matches nothing, and the library renders a hidden input with the field id.",
+      "file": "incidents/INC-0527-an-absence-check-for-a-hidden-field-matched-the-hidden-input.md",
+      "related": [
+        "INC-0523",
+        "INC-0524"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0528",
+      "title": "A fix gave a list column a custom cell and dropped the default cell's link to the record, so the list lost its only way to open a record",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Replacing a framework default cell, field or component replaces everything it did, not only what the change targeted; list what the default provided before replacing it, and test it.",
+      "signature": "A custom cell component replaces the default cell, and the default cell carried the record link.",
+      "file": "incidents/INC-0528-a-fix-gave-a-list-column-a-custom-cell-and-dropped-the-defau.md",
+      "related": [
+        "INC-0505",
+        "INC-0506"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0529",
+      "title": "A full run stopped at the unit step because one test hit the runner's default five-second bound while host load rose sevenfold",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A per-test bound left at the runner default is a decision nobody made; set it at the project level for the load class the step runs in, and treat a default-bound timeout under load as a wasted run, not a red.",
+      "signature": "A unit test fails with a timeout at the runner's default bound, and the host load at the end of the step is many times that at its start.",
+      "file": "incidents/INC-0529-a-full-run-stopped-at-the-unit-step-because-one-test-hit-the.md",
+      "related": [
+        "INC-0521",
+        "INC-0500"
       ],
       "evidence": []
     }
