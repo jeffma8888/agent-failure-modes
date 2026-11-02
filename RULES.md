@@ -484,6 +484,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0475 / low]** A process guard normalises only trailing whitespace in process list output and searches with a self excluding pattern in a call that contains nothing else; it keeps failing closed.
 - **[INC-0476 / low]** A passing suite is not a discriminating suite; run cheap mutations before merge, count only runs that executed the tests, and open a follow-up change for survivors instead of reopening the merge.
 - **[INC-0477 / low]** When a fix moves a failure later in a test, treat every newly reached step as never verified; a green earlier step proves only that step.
+- **[INC-0478 / low]** A blocking guard logs the API name, the full arguments and a stack trace on the first run, so one run is enough to classify the target.
+- **[INC-0479 / low]** Gate a push on a scan of an export of the tracked tree; a scan of the working directory blocks on files that never ship.
 
 ## Practices
 

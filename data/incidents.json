@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 477,
+  "count": 479,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9211,6 +9211,42 @@
       "related": [
         "INC-0447",
         "INC-0472"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0478",
+      "title": "A guard that blocked every network attempt logged only the API name, so a second run was needed to learn the target",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A blocking guard logs the API name, the full arguments and a stack trace on the first run, so one run is enough to classify the target.",
+      "signature": "A blocking guard recorded what was called but not where.",
+      "file": "incidents/INC-0478-a-guard-that-blocked-every-network-attempt-logged-only-the-a.md",
+      "related": [
+        "INC-0213",
+        "INC-0192"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0479",
+      "title": "A leak scanner that walked the working directory reported an ignored local file, and the push gate blocked on a file that never ships",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Gate a push on a scan of an export of the tracked tree; a scan of the working directory blocks on files that never ship.",
+      "signature": "A scan of the working directory flagged a file outside the pushed tree.",
+      "file": "incidents/INC-0479-a-leak-scanner-that-walked-the-working-directory-reported-an.md",
+      "related": [
+        "INC-0238",
+        "INC-0364"
       ],
       "evidence": []
     }
