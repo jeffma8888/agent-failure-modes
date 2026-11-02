@@ -41,4 +41,4 @@ Checked by the reviewer or lead who reported it. Not checked: whether the new ru
 
 ## Related
 
-[INC-0101](./INC-0101-a-later-row-overwrote-a-file-that-was-already-active.md)
+[INC-0101](./INC-0101-a-later-row-overwrote-a-file-that-was-already-active.md) [INC-0419](./INC-0419-a-registry-edit-failed-its-own-sorted-order-assertion-and-th.md)

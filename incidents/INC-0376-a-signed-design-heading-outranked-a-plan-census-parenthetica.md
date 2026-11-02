@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0369](./INC-0369-a-bare-syntax-check-resolved-to-a-different-runtime-that-ign.md) [INC-0390](./INC-0390-a-dispatch-packet-written-for-a-future-branch-went-stale-whe.md) [INC-0391](./INC-0391-an-implementer-s-evidence-admitted-one-case-that-contradicte.md) [INC-0401](./INC-0401-a-dispatch-packet-called-a-root-absent-an-hour-after-it-had.md)
+[INC-0369](./INC-0369-a-bare-syntax-check-resolved-to-a-different-runtime-that-ign.md) [INC-0390](./INC-0390-a-dispatch-packet-written-for-a-future-branch-went-stale-whe.md) [INC-0391](./INC-0391-an-implementer-s-evidence-admitted-one-case-that-contradicte.md) [INC-0401](./INC-0401-a-dispatch-packet-called-a-root-absent-an-hour-after-it-had.md) [INC-0413](./INC-0413-an-acceptance-document-cited-a-ruling-that-did-not-yet-exist.md)

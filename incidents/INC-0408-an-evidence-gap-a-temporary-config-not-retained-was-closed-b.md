@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0389](./INC-0389-two-plan-checks-ran-at-a-wrong-script-path-and-the-last-line.md) [INC-0396](./INC-0396-a-multi-step-command-reported-success-for-its-later-steps-wh.md)
+[INC-0389](./INC-0389-two-plan-checks-ran-at-a-wrong-script-path-and-the-last-line.md) [INC-0396](./INC-0396-a-multi-step-command-reported-success-for-its-later-steps-wh.md) [INC-0412](./INC-0412-a-whole-unit-re-run-showed-five-failures-in-unrelated-files.md)

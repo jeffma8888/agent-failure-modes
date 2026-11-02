@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0382](./INC-0382-a-click-around-walk-that-always-exits-1-from-a-known-gap-can.md) [INC-0390](./INC-0390-a-dispatch-packet-written-for-a-future-branch-went-stale-whe.md)
+[INC-0382](./INC-0382-a-click-around-walk-that-always-exits-1-from-a-known-gap-can.md) [INC-0390](./INC-0390-a-dispatch-packet-written-for-a-future-branch-went-stale-whe.md) [INC-0414](./INC-0414-a-static-package-constant-check-before-dispatch-found-a-desi.md)

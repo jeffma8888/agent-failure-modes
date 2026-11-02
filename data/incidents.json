@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 411,
+  "count": 420,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1835,7 +1835,9 @@
       "rule": "Verify the last speaker per teammate instead of assuming no news means work is running.",
       "signature": "A teammate finished and replied, but the lead assumed work was still in flight.",
       "file": "incidents/INC-0091-teammate-replies-arrived-while-the-lead-was-busy-and-were-mi.md",
-      "related": [],
+      "related": [
+        "INC-0416"
+      ],
       "evidence": []
     },
     {
@@ -2401,7 +2403,8 @@
       "signature": "A verifier reports a missing path that was legitimately moved at activation.",
       "file": "incidents/INC-0123-after-activation-a-registry-line-named-a-pending-path-that-n.md",
       "related": [
-        "INC-0101"
+        "INC-0101",
+        "INC-0419"
       ],
       "evidence": []
     },
@@ -2872,7 +2875,8 @@
       "signature": "A marker is read as proof of approval, closure and ownership at once.",
       "file": "incidents/INC-0149-marker-sha-reviewer-approval-scope-successor-closure-and-act.md",
       "related": [
-        "INC-0125"
+        "INC-0125",
+        "INC-0420"
       ],
       "evidence": []
     },
@@ -3015,7 +3019,8 @@
       "signature": "The identity checker rejected a root whose file had been reassigned to another row.",
       "file": "incidents/INC-0157-a-split-ownership-root-could-not-activate-because-identity-h.md",
       "related": [
-        "INC-0154"
+        "INC-0154",
+        "INC-0419"
       ],
       "evidence": []
     },
@@ -4134,7 +4139,8 @@
       "file": "incidents/INC-0219-a-shared-host-reached-load-491-and-unrelated-deadlines-faile.md",
       "related": [
         "INC-0209",
-        "INC-0393"
+        "INC-0393",
+        "INC-0417"
       ],
       "evidence": []
     },
@@ -4661,7 +4667,8 @@
       "file": "incidents/INC-0248-the-env-script-could-not-be-sourced-in-zsh.md",
       "related": [
         "INC-0165",
-        "INC-0362"
+        "INC-0362",
+        "INC-0418"
       ],
       "evidence": []
     },
@@ -5231,7 +5238,8 @@
       "signature": "A supersession record was refused in both path forms because the replacement had not moved yet.",
       "file": "incidents/INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md",
       "related": [
-        "INC-0161"
+        "INC-0161",
+        "INC-0419"
       ],
       "evidence": []
     },
@@ -5588,7 +5596,8 @@
         "INC-0289",
         "INC-0297",
         "INC-0286",
-        "INC-0288"
+        "INC-0288",
+        "INC-0420"
       ],
       "evidence": []
     },
@@ -5984,7 +5993,8 @@
       "related": [
         "INC-0041",
         "INC-0298",
-        "INC-0128"
+        "INC-0128",
+        "INC-0416"
       ],
       "evidence": []
     },
@@ -7107,7 +7117,8 @@
         "INC-0368",
         "INC-0378",
         "INC-0382",
-        "INC-0388"
+        "INC-0388",
+        "INC-0412"
       ],
       "evidence": []
     },
@@ -7127,7 +7138,8 @@
         "INC-0350",
         "INC-0128",
         "INC-0383",
-        "INC-0384"
+        "INC-0384",
+        "INC-0415"
       ],
       "evidence": []
     },
@@ -7185,7 +7197,8 @@
         "INC-0369",
         "INC-0390",
         "INC-0391",
-        "INC-0401"
+        "INC-0401",
+        "INC-0413"
       ],
       "evidence": []
     },
@@ -7326,7 +7339,8 @@
       "related": [
         "INC-0373",
         "INC-0350",
-        "INC-0384"
+        "INC-0384",
+        "INC-0415"
       ],
       "evidence": []
     },
@@ -7345,7 +7359,8 @@
       "related": [
         "INC-0383",
         "INC-0373",
-        "INC-0350"
+        "INC-0350",
+        "INC-0415"
       ],
       "evidence": []
     },
@@ -7459,7 +7474,8 @@
         "INC-0376",
         "INC-0368",
         "INC-0401",
-        "INC-0405"
+        "INC-0405",
+        "INC-0413"
       ],
       "evidence": []
     },
@@ -7515,7 +7531,8 @@
       "related": [
         "INC-0219",
         "INC-0271",
-        "INC-0406"
+        "INC-0406",
+        "INC-0417"
       ],
       "evidence": []
     },
@@ -7662,7 +7679,8 @@
       "file": "incidents/INC-0401-a-dispatch-packet-called-a-root-absent-an-hour-after-it-had.md",
       "related": [
         "INC-0390",
-        "INC-0376"
+        "INC-0376",
+        "INC-0414"
       ],
       "evidence": []
     },
@@ -7735,7 +7753,8 @@
       "file": "incidents/INC-0405-the-demo-server-served-a-build-made-before-the-merge-so-a-wa.md",
       "related": [
         "INC-0382",
-        "INC-0390"
+        "INC-0390",
+        "INC-0414"
       ],
       "evidence": []
     },
@@ -7753,7 +7772,8 @@
       "file": "incidents/INC-0406-two-load-readings-around-a-sub-second-run-were-equal-because.md",
       "related": [
         "INC-0393",
-        "INC-0271"
+        "INC-0271",
+        "INC-0417"
       ],
       "evidence": []
     },
@@ -7789,7 +7809,8 @@
       "file": "incidents/INC-0408-an-evidence-gap-a-temporary-config-not-retained-was-closed-b.md",
       "related": [
         "INC-0389",
-        "INC-0396"
+        "INC-0396",
+        "INC-0412"
       ],
       "evidence": []
     },
@@ -7844,6 +7865,170 @@
       "related": [
         "INC-0379",
         "INC-0377"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0412",
+      "title": "A whole-unit re-run showed five failures in unrelated files because a required environment variable was unset in the shell",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Record failures caused by an unset environment variable as an environment gap, never a pass and never a regression",
+      "signature": "A whole-unit run failed in files unrelated to the change under acceptance.",
+      "file": "incidents/INC-0412-a-whole-unit-re-run-showed-five-failures-in-unrelated-files.md",
+      "related": [
+        "INC-0372",
+        "INC-0408"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0413",
+      "title": "An acceptance document cited a ruling that did not yet exist when it was signed",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A signed record cites only rulings that exist, or says the item is to be ruled",
+      "signature": "A signed record referred to a ruling that was not yet written.",
+      "file": "incidents/INC-0413-an-acceptance-document-cited-a-ruling-that-did-not-yet-exist.md",
+      "related": [
+        "INC-0390",
+        "INC-0376"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0414",
+      "title": "A static package-constant check before dispatch found a design constant absent on main",
+      "date": "2026-11-02",
+      "classes": [
+        "stale-module"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Before dispatch, check statically that every constant and export the design names exists on main",
+      "signature": "A design named a constant that the code on main did not export.",
+      "file": "incidents/INC-0414-a-static-package-constant-check-before-dispatch-found-a-desi.md",
+      "related": [
+        "INC-0405",
+        "INC-0401"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0415",
+      "title": "A ruling timestamp was written from an estimate and corrected minutes later, twice in one round",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Read the clock immediately before writing each timestamp; never write one from an estimate",
+      "signature": "A ruling carried a time that did not match the clock.",
+      "file": "incidents/INC-0415-a-ruling-timestamp-was-written-from-an-estimate-and-correcte.md",
+      "related": [
+        "INC-0373",
+        "INC-0383",
+        "INC-0384"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0416",
+      "title": "Ten teammate threads showed state paused with complete outputs on disk and no reply message",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Grade a teammate output from the file on disk; a missing reply or a paused state is not a verdict",
+      "signature": "A thread showed paused and sent no reply while its output file was complete.",
+      "file": "incidents/INC-0416-ten-teammate-threads-showed-state-paused-with-complete-outpu.md",
+      "related": [
+        "INC-0091",
+        "INC-0317"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0417",
+      "title": "A load gate read and a launch chained in one command let a unit probe start at a load above the gate",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Run the load read and the launch as two separate commands; a reading at or above the gate stops the launch",
+      "signature": "A probe started on a host whose load was far above the gate.",
+      "file": "incidents/INC-0417-a-load-gate-read-and-a-launch-chained-in-one-command-let-a-u.md",
+      "related": [
+        "INC-0393",
+        "INC-0406",
+        "INC-0219"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0418",
+      "title": "The milestone runbook shell-sourced an environment file and failed before the build on a value with angle brackets",
+      "date": "2026-11-02",
+      "classes": [
+        "ipc-and-env"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Read an environment file line by line, never shell-source it; a value with angle brackets breaks sourcing",
+      "signature": "The runbook failed at its first step on a value the shell parsed as syntax.",
+      "file": "incidents/INC-0418-the-milestone-runbook-shell-sourced-an-environment-file-and.md",
+      "related": [
+        "INC-0248"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0419",
+      "title": "A registry edit failed its own sorted-order assertion, and the identity checker refuses a supersession whose old path the registry still names",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Change the registry line and the supersession record whose old path it names in one control commit, and assert the sorted order first",
+      "signature": "A registry edit and a supersession record conflicted when landed separately.",
+      "file": "incidents/INC-0419-a-registry-edit-failed-its-own-sorted-order-assertion-and-th.md",
+      "related": [
+        "INC-0279",
+        "INC-0123",
+        "INC-0157"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0420",
+      "title": "A reviewer finding moved a hook registration owner twice in one hour",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Assign a hook registration owner only after reading which row owns the hook's neighbours",
+      "signature": "The owner of one registration changed twice in about an hour.",
+      "file": "incidents/INC-0420-a-reviewer-finding-moved-a-hook-registration-owner-twice-in.md",
+      "related": [
+        "INC-0149",
+        "INC-0298"
       ],
       "evidence": []
     }

@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0154](./INC-0154-a-marker-for-an-already-activated-revision-used-the-pending.md)
+[INC-0154](./INC-0154-a-marker-for-an-already-activated-revision-used-the-pending.md) [INC-0419](./INC-0419-a-registry-edit-failed-its-own-sorted-order-assertion-and-th.md)

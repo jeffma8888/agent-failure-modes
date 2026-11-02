@@ -418,6 +418,15 @@ One rule per incident, ordered by severity then id.
 - **[INC-0408 / low]** Close an evidence gap by a re-run that keeps and records the artifact, not by a reconstruction
 - **[INC-0410 / low]** When the owner is busy, redo a mechanical merge directly and prove the new delta equals the old path by path
 - **[INC-0411 / low]** Start the red phase while a spec recheck runs; only the production commit waits
+- **[INC-0412 / low]** Record failures caused by an unset environment variable as an environment gap, never a pass and never a regression
+- **[INC-0413 / low]** A signed record cites only rulings that exist, or says the item is to be ruled
+- **[INC-0414 / low]** Before dispatch, check statically that every constant and export the design names exists on main
+- **[INC-0415 / low]** Read the clock immediately before writing each timestamp; never write one from an estimate
+- **[INC-0416 / low]** Grade a teammate output from the file on disk; a missing reply or a paused state is not a verdict
+- **[INC-0417 / low]** Run the load read and the launch as two separate commands; a reading at or above the gate stops the launch
+- **[INC-0418 / low]** Read an environment file line by line, never shell-source it; a value with angle brackets breaks sourcing
+- **[INC-0419 / low]** Change the registry line and the supersession record whose old path it names in one control commit, and assert the sorted order first
+- **[INC-0420 / low]** Assign a hook registration owner only after reading which row owns the hook's neighbours
 
 ## Practices
 

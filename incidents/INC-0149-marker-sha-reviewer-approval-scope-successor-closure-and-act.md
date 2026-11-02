@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0125](./INC-0125-a-marker-generator-listing-every-earlier-unmarked-root-made.md)
+[INC-0125](./INC-0125-a-marker-generator-listing-every-earlier-unmarked-root-made.md) [INC-0420](./INC-0420-a-reviewer-finding-moved-a-hook-registration-owner-twice-in.md)
