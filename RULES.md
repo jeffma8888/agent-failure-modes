@@ -311,6 +311,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0320 / medium]** When a new positive control fails, suspect the control first, fix it as a tests-only commit and keep the red
 - **[INC-0321 / medium]** Count the population a mode actually runs before citing its green; while it is empty, proof comes from forced-overlap probes
 - **[INC-0322 / medium]** In loops, use a tool whose no-match status you control (append a guard) and check that every iteration printed
+- **[INC-0323 / medium]** A red-first run that also renames checks shows real behavioural reds per fix, paired with aggregate and exit evidence, never a bare failure count
+- **[INC-0324 / medium]** A monitor of someone else's worktree must be lock free (no index refresh) or not touch that worktree at all; never delete a lock you did not create
+- **[INC-0325 / medium]** Check what a background watcher can authenticate to before relying on it; keep authenticated checks in live turns and never write a session secret to disk
+- **[INC-0326 / medium]** A signature binds to bytes the signer has hashed himself, and appending the signature must not change the hashed range
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
