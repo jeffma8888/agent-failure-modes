@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 357,
+  "count": 360,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1378,7 +1378,8 @@
       "file": "incidents/INC-0066-a-worker-s-end-of-run-cleanup-deleted-a-shared-scratch-direc.md",
       "related": [
         "INC-0014",
-        "INC-0012"
+        "INC-0012",
+        "INC-0360"
       ],
       "evidence": []
     },
@@ -1923,7 +1924,8 @@
       "signature": "A test destroys or mutates state after checking only that the URL looks safe.",
       "file": "incidents/INC-0097-url-guards-did-not-prove-a-test-owned-the-disposable-cluster.md",
       "related": [
-        "INC-0083"
+        "INC-0083",
+        "INC-0360"
       ],
       "evidence": []
     },
@@ -4737,7 +4739,8 @@
       "file": "incidents/INC-0254-raw-evidence-was-deleted-with-the-scratch-area.md",
       "related": [
         "INC-0258",
-        "INC-0357"
+        "INC-0357",
+        "INC-0360"
       ],
       "evidence": []
     },
@@ -4774,7 +4777,8 @@
       "file": "incidents/INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md",
       "related": [
         "INC-0180",
-        "INC-0356"
+        "INC-0356",
+        "INC-0359"
       ],
       "evidence": []
     },
@@ -5625,7 +5629,8 @@
         "INC-0296",
         "INC-0330",
         "INC-0338",
-        "INC-0346"
+        "INC-0346",
+        "INC-0358"
       ],
       "evidence": []
     },
@@ -6272,7 +6277,8 @@
       "signature": "A count was readable as seconds because the cell had no unit.",
       "file": "incidents/INC-0334-a-bare-number-beside-a-time-threshold-invited-a-unit-misread.md",
       "related": [
-        "INC-0071"
+        "INC-0071",
+        "INC-0358"
       ],
       "evidence": []
     },
@@ -6508,7 +6514,8 @@
       "related": [
         "INC-0337",
         "INC-0302",
-        "INC-0350"
+        "INC-0350",
+        "INC-0358"
       ],
       "evidence": []
     },
@@ -6669,7 +6676,8 @@
         "INC-0106",
         "INC-0307",
         "INC-0342",
-        "INC-0353"
+        "INC-0353",
+        "INC-0359"
       ],
       "evidence": []
     },
@@ -6710,7 +6718,8 @@
         "INC-0104",
         "INC-0046",
         "INC-0256",
-        "INC-0351"
+        "INC-0351",
+        "INC-0359"
       ],
       "evidence": []
     },
@@ -6731,6 +6740,66 @@
         "INC-0347",
         "INC-0280",
         "INC-0162",
+        "INC-0254"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0358",
+      "title": "A restated rule gained a qualifier the original ruling never had",
+      "date": "2026-11-01",
+      "classes": [
+        "observability",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a ruling is restated in a spec, copy its population word for word; a qualifier borrowed from another purpose narrows an alarm, so diff every restated condition against the ruling's own words and fix each sibling copy",
+      "signature": "A ruling said to report every sample over a limit at once, but the spec that restated it said to report only eligible samples.",
+      "file": "incidents/INC-0358-a-restated-rule-gained-a-qualifier-the-original-ruling-never.md",
+      "related": [
+        "INC-0302",
+        "INC-0346",
+        "INC-0334"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0359",
+      "title": "A stored admission record left out the tool versions it was produced under",
+      "date": "2026-11-01",
+      "classes": [
+        "identity-and-keying",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A stored proof that unlocks a faster or riskier route must carry the tool versions it was produced under and compare them at use; a mismatch or a missing field takes the safe route with a named reason, never the fast one",
+      "signature": "A per-file audit that admits concurrent test runs recorded no tool versions, so a proof from one toolchain would unlock the fast route under another.",
+      "file": "incidents/INC-0359-a-stored-admission-record-left-out-the-tool-versions-it-was.md",
+      "related": [
+        "INC-0354",
+        "INC-0256",
+        "INC-0356"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0360",
+      "title": "Ownership registered before a create made a definite duplicate error drop a foreign database",
+      "date": "2026-11-01",
+      "classes": [
+        "test-isolation",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Ownership recorded before a create covers an uncertain outcome only; on a definite already-exists error release the claim before rethrowing, and test with a pre-existing object under the exact name",
+      "signature": "A harness queued a drop of its test database before creating it, so a create that failed because the name existed would drop a database it never made.",
+      "file": "incidents/INC-0360-ownership-registered-before-a-create-made-a-definite-duplica.md",
+      "related": [
+        "INC-0066",
+        "INC-0097",
         "INC-0254"
       ],
       "evidence": []

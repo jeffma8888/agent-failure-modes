@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0106](./INC-0106-deleting-postgresql-environment-variables-left-client-tools.md) [INC-0307](./INC-0307-a-measurement-wrapper-inherited-the-environment-the-tests-re.md) [INC-0342](./INC-0342-a-shortcut-launcher-lacked-the-protection-the-canonical-entr.md) [INC-0353](./INC-0353-an-authorization-point-was-placed-after-the-first-event-that.md)
+[INC-0106](./INC-0106-deleting-postgresql-environment-variables-left-client-tools.md) [INC-0307](./INC-0307-a-measurement-wrapper-inherited-the-environment-the-tests-re.md) [INC-0342](./INC-0342-a-shortcut-launcher-lacked-the-protection-the-canonical-entr.md) [INC-0353](./INC-0353-an-authorization-point-was-placed-after-the-first-event-that.md) [INC-0359](./INC-0359-a-stored-admission-record-left-out-the-tool-versions-it-was.md)

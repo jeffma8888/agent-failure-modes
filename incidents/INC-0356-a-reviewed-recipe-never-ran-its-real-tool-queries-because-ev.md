@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0104](./INC-0104-a-process-group-kill-test-used-single-process-stubs-so-signa.md) [INC-0046](./INC-0046-a-script-with-external-writes-was-only-dry-run-for-its-first.md) [INC-0256](./INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md) [INC-0351](./INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md)
+[INC-0104](./INC-0104-a-process-group-kill-test-used-single-process-stubs-so-signa.md) [INC-0046](./INC-0046-a-script-with-external-writes-was-only-dry-run-for-its-first.md) [INC-0256](./INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md) [INC-0351](./INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md) [INC-0359](./INC-0359-a-stored-admission-record-left-out-the-tool-versions-it-was.md)

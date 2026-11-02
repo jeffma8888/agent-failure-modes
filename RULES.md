@@ -343,6 +343,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0354 / medium]** Never treat an inherited environment variable as authority; bind it to the process that was authorized
 - **[INC-0355 / medium]** When a spec sets a global bound, check the existing per-item loop arithmetic; sequential waits add up
 - **[INC-0356 / medium]** A stubbed control proves the recipe's logic, not its commands; before an authorized run, execute every real read-only command once against the pinned tool versions
+- **[INC-0358 / medium]** When a ruling is restated in a spec, copy its population word for word; a qualifier borrowed from another purpose narrows an alarm, so diff every restated condition against the ruling's own words and fix each sibling copy
+- **[INC-0359 / medium]** A stored proof that unlocks a faster or riskier route must carry the tool versions it was produced under and compare them at use; a mismatch or a missing field takes the safe route with a named reason, never the fast one
+- **[INC-0360 / medium]** Ownership recorded before a create covers an uncertain outcome only; on a definite already-exists error release the claim before rethrowing, and test with a pre-existing object under the exact name
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

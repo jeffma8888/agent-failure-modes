@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0071](./INC-0071-a-plan-claimed-minutes-denominated-stage-times-fit-inside-a.md)
+[INC-0071](./INC-0071-a-plan-claimed-minutes-denominated-stage-times-fit-inside-a.md) [INC-0358](./INC-0358-a-restated-rule-gained-a-qualifier-the-original-ruling-never.md)

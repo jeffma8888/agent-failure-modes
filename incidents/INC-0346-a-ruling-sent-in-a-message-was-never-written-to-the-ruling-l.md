@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0337](./INC-0337-reviewers-named-at-ruling-time-were-busy-when-the-artifact-l.md) [INC-0302](./INC-0302-a-plan-revision-left-stale-operative-text-that-only-an-indep.md) [INC-0350](./INC-0350-time-stamps-written-from-an-estimate-ran-ahead-of-the-clock.md)
+[INC-0337](./INC-0337-reviewers-named-at-ruling-time-were-busy-when-the-artifact-l.md) [INC-0302](./INC-0302-a-plan-revision-left-stale-operative-text-that-only-an-indep.md) [INC-0350](./INC-0350-time-stamps-written-from-an-estimate-ran-ahead-of-the-clock.md) [INC-0358](./INC-0358-a-restated-rule-gained-a-qualifier-the-original-ruling-never.md)
