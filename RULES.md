@@ -356,6 +356,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0084 / low]** Normalize terminal output before matching it, and define what counts as an owned resource before counting leaks.
 - **[INC-0089 / low]** Search the oracle before recording a question, and design seeds for the gates that tests pass through.
 - **[INC-0090 / low]** Write test code in erasable TypeScript only, and assert through contracts that exist.
+- **[INC-0350 / low]** Read the clock immediately before writing any time stamp; when you did not, write a bounded range from the last real reads, never an estimate
+- **[INC-0351 / low]** Before copying a shared tool cache into an isolated run, list its links; a registry of outside links is metadata to exclude, while any other outside link is a containment failure
 
 ## Practices
 

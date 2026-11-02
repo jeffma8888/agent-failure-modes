@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 349,
+  "count": 351,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2306,7 +2306,8 @@
       "signature": "A tool works normally and fails once HOME points at a temp directory.",
       "file": "incidents/INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md",
       "related": [
-        "INC-0106"
+        "INC-0106",
+        "INC-0351"
       ],
       "evidence": []
     },
@@ -2467,7 +2468,8 @@
       "signature": "Several teammates finish, no reply arrives, and the lead waits.",
       "file": "incidents/INC-0128-finished-work-sat-for-hours-because-replies-never-arrived-th.md",
       "related": [
-        "INC-0091"
+        "INC-0091",
+        "INC-0350"
       ],
       "evidence": []
     },
@@ -5881,7 +5883,8 @@
       "file": "incidents/INC-0316-a-recursive-diff-of-a-copied-tree-followed-fixture-symlinks.md",
       "related": [
         "INC-0293",
-        "INC-0295"
+        "INC-0295",
+        "INC-0351"
       ],
       "evidence": []
     },
@@ -6346,7 +6349,8 @@
       "related": [
         "INC-0316",
         "INC-0257",
-        "INC-0342"
+        "INC-0342",
+        "INC-0351"
       ],
       "evidence": []
     },
@@ -6461,7 +6465,8 @@
       "file": "incidents/INC-0346-a-ruling-sent-in-a-message-was-never-written-to-the-ruling-l.md",
       "related": [
         "INC-0337",
-        "INC-0302"
+        "INC-0302",
+        "INC-0350"
       ],
       "evidence": []
     },
@@ -6520,6 +6525,45 @@
       "related": [
         "INC-0293",
         "INC-0216"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0350",
+      "title": "Time stamps written from an estimate ran ahead of the clock",
+      "date": "2026-11-01",
+      "classes": [
+        "observability",
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Read the clock immediately before writing any time stamp; when you did not, write a bounded range from the last real reads, never an estimate",
+      "signature": "Four rulings were labelled 19:35 to 19:50 while the clock read 19:26 at the next check.",
+      "file": "incidents/INC-0350-time-stamps-written-from-an-estimate-ran-ahead-of-the-clock.md",
+      "related": [
+        "INC-0128",
+        "INC-0346"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0351",
+      "title": "A physical copy of a shared package store carried its registry of outside links",
+      "date": "2026-11-01",
+      "classes": [
+        "test-isolation",
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Before copying a shared tool cache into an isolated run, list its links; a registry of outside links is metadata to exclude, while any other outside link is a containment failure",
+      "signature": "A preparation check that no copied link resolves outside the copy stopped the first authorized run before setup.",
+      "file": "incidents/INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md",
+      "related": [
+        "INC-0316",
+        "INC-0340",
+        "INC-0119"
       ],
       "evidence": []
     }
