@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 334,
+  "count": 336,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6223,6 +6223,44 @@
       "file": "incidents/INC-0334-a-bare-number-beside-a-time-threshold-invited-a-unit-misread.md",
       "related": [
         "INC-0071"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0335",
+      "title": "A pinned base digest froze a file that a later row split needed to change",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When prepared patches pin a file's digest, treat that file as frozen and route every change through a later patch with the same regenerate caveat",
+      "signature": "A needed edit to a file would have invalidated the digest that prepared patches pin.",
+      "file": "incidents/INC-0335-a-pinned-base-digest-froze-a-file-that-a-later-row-split-nee.md",
+      "related": [
+        "INC-0326",
+        "INC-0122"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0336",
+      "title": "A tier exclusion was added only after a witness failed without it",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A config change that moves tests between tiers needs a red witness first, the same as a code change",
+      "signature": "A configuration change had a witness that was red before and green after.",
+      "file": "incidents/INC-0336-a-tier-exclusion-was-added-only-after-a-witness-failed-witho.md",
+      "related": [
+        "INC-0332",
+        "INC-0314"
       ],
       "evidence": []
     }
