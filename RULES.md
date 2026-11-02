@@ -497,6 +497,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0487 / low]** When a security setting strips tokens from responses, it strips them from local test helpers too; capture the token before the response is sanitized and assert it is present, or every downstream auth check fails at its precondition and looks like a product defect.
 - **[INC-0488 / low]** When static review rounds on a harness converge slowly, run one labelled diagnostic early, on scratch state, with its result marked as neither a baseline nor an acceptance run, to learn what is really wrong.
 - **[INC-0489 / low]** A rule written in teammate briefs binds the lead's own shell too; read your own command against the standing rules before running it, and undo any slip by its exact recorded name before any run.
+- **[INC-0491 / low]** When a test tool's guards are reviewed in more rounds than the tool is run, run it or simplify it; a guard that no allowed target can pass is a defect.
+- **[INC-0492 / low]** Name a successor after the family it supersedes, and read the checker's acceptance rule before writing the mapping; never loosen the gate to fit the artifact.
 
 ## Practices
 

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 490,
+  "count": 492,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9443,6 +9443,42 @@
       "file": "incidents/INC-0490-a-wrapper-exited-zero-while-a-step-record-said-the-step-fail.md",
       "related": [
         "INC-0347"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0491",
+      "title": "A browser walker gathered guards over many static rounds until no allowed target could pass them",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a test tool's guards are reviewed in more rounds than the tool is run, run it or simplify it; a guard that no allowed target can pass is a defect.",
+      "signature": "A diagnostic run packet showed the tool could not run against any allowed target.",
+      "file": "incidents/INC-0491-a-browser-walker-gathered-guards-over-many-static-rounds-unt.md",
+      "related": [
+        "INC-0488",
+        "INC-0382"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0492",
+      "title": "A successor test root was named so the identity checker could never accept it as a successor",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Name a successor after the family it supersedes, and read the checker's acceptance rule before writing the mapping; never loosen the gate to fit the artifact.",
+      "signature": "The successor carried a name from a different family than the root it replaced.",
+      "file": "incidents/INC-0492-a-successor-test-root-was-named-so-the-identity-checker-coul.md",
+      "related": [
+        "INC-0403",
+        "INC-0397"
       ],
       "evidence": []
     }
