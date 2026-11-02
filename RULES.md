@@ -305,6 +305,12 @@ One rule per incident, ordered by severity then id.
 - **[INC-0314 / medium]** Add a positive control that goes green on current code before trusting a red from new probe machinery
 - **[INC-0315 / medium]** A static tool's PASS is labeled as static and anchored to recorded hashes; it never stands in for runtime or acceptance
 - **[INC-0316 / medium]** Verify copied trees with a manifest that does not follow symlinks; fixtures point symlinks at fixture-owned targets
+- **[INC-0317 / medium]** Never wait on a reply alone: when an output file stops changing and no reply came, check the run status and land from disk
+- **[INC-0318 / medium]** Negative targets must exist; pair every guard with a positive control that must return the other value, and run one selftest on the real unpatched checker
+- **[INC-0319 / medium]** When a brief points at a repo file, confirm it exists in each reviewer's checkout, including sparse lists
+- **[INC-0320 / medium]** When a new positive control fails, suspect the control first, fix it as a tests-only commit and keep the red
+- **[INC-0321 / medium]** Count the population a mode actually runs before citing its green; while it is empty, proof comes from forced-overlap probes
+- **[INC-0322 / medium]** In loops, use a tool whose no-match status you control (append a guard) and check that every iteration printed
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

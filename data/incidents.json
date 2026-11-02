@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 316,
+  "count": 322,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5878,6 +5878,120 @@
       "related": [
         "INC-0293",
         "INC-0295"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0317",
+      "title": "Finished teammates sat unnoticed because their completion replies never arrived",
+      "date": "2026-11-01",
+      "classes": [
+        "delegation",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Never wait on a reply alone: when an output file stops changing and no reply came, check the run status and land from disk",
+      "signature": "Work was complete on disk while the coordinator was still waiting for a message.",
+      "file": "incidents/INC-0317-finished-teammates-sat-unnoticed-because-their-completion-re.md",
+      "related": [
+        "INC-0041",
+        "INC-0298"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0318",
+      "title": "A path guard probed only with nonexistent paths could never fail",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Negative targets must exist; pair every guard with a positive control that must return the other value, and run one selftest on the real unpatched checker",
+      "signature": "Every negative target returned allowed because the probed paths did not exist.",
+      "file": "incidents/INC-0318-a-path-guard-probed-only-with-nonexistent-paths-could-never.md",
+      "related": [
+        "INC-0082",
+        "INC-0314"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0319",
+      "title": "A sparse checkout hid a tracked file that every brief pointed at",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a brief points at a repo file, confirm it exists in each reviewer's checkout, including sparse lists",
+      "signature": "A reviewer reported a tracked file absent from the tree.",
+      "file": "incidents/INC-0319-a-sparse-checkout-hid-a-tracked-file-that-every-brief-pointe.md",
+      "related": [
+        "INC-0288",
+        "INC-0264"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0320",
+      "title": "A positive control's first red was the control's own defect",
+      "date": "2026-11-01",
+      "classes": [
+        "test-isolation",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a new positive control fails, suspect the control first, fix it as a tests-only commit and keep the red",
+      "signature": "The control failed because its captured environment overwrote a value the nested runner set.",
+      "file": "incidents/INC-0320-a-positive-control-s-first-red-was-the-control-s-own-defect.md",
+      "related": [
+        "INC-0314",
+        "INC-0307"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0321",
+      "title": "A green parallel run was cited although the parallel group held no files",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Count the population a mode actually runs before citing its green; while it is empty, proof comes from forced-overlap probes",
+      "signature": "The parallel pass was green over zero files.",
+      "file": "incidents/INC-0321-a-green-parallel-run-was-cited-although-the-parallel-group-h.md",
+      "related": [
+        "INC-0313",
+        "INC-0082"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0322",
+      "title": "A search helper ended a gather loop at the first file without a match",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "In loops, use a tool whose no-match status you control (append a guard) and check that every iteration printed",
+      "signature": "A loop printed results for some inputs and silently skipped the rest.",
+      "file": "incidents/INC-0322-a-search-helper-ended-a-gather-loop-at-the-first-file-withou.md",
+      "related": [
+        "INC-0051",
+        "INC-0310"
       ],
       "evidence": []
     }
