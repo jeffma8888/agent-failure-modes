@@ -6614,7 +6614,7 @@
     },
     {
       "id": "INC-0352",
-      "title": "A transport size limit and a full-identity requirement were specified for the same record with no framing",
+      "title": "A size limit on each transported record and a full-identity requirement were specified together with no framing",
       "date": "2026-11-01",
       "classes": [
         "spec-and-scope",
@@ -6624,7 +6624,7 @@
       "status": "fixed",
       "rule": "When a transport limit and a completeness requirement meet, specify the framing and reconstruction, and test with long and non-ASCII identities",
       "signature": "A timing spec required every record to fit 512 bytes and to carry full file and case identity, and a long path could not satisfy both.",
-      "file": "incidents/INC-0352-a-transport-size-limit-and-a-full-identity-requirement-were.md",
+      "file": "incidents/INC-0352-a-size-limit-on-each-transported-record-and-a-full-identity.md",
       "related": [
         "INC-0071",
         "INC-0243",
@@ -6643,7 +6643,7 @@
       "severity": "medium",
       "status": "fixed",
       "rule": "Put the authorization point before the first event that must carry the identity, and test the forged-object negative",
-      "signature": "A spec required records that happen before the authorization point to carry an identity that did not exist until after it.",
+      "signature": "A spec required records emitted early in a run to carry an identifier that was not created until later in the run.",
       "file": "incidents/INC-0353-an-authorization-point-was-placed-after-the-first-event-that.md",
       "related": [
         "INC-0243",
@@ -6663,7 +6663,7 @@
       "severity": "medium",
       "status": "fixed",
       "rule": "Never treat an inherited environment variable as authority; bind it to the process that was authorized",
-      "signature": "A spec claimed a feature was inert in nested children, but a nested helper copied the whole environment and started a fresh runner directly.",
+      "signature": "A spec claimed an opt-in feature was inert in nested child runs, but a nested helper copied the whole environment and started a fresh runner directly.",
       "file": "incidents/INC-0354-gating-by-an-environment-variable-leaked-into-nested-runners.md",
       "related": [
         "INC-0106",
@@ -6684,7 +6684,7 @@
       "severity": "medium",
       "status": "fixed",
       "rule": "When a spec sets a global bound, check the existing per-item loop arithmetic; sequential waits add up",
-      "signature": "A spec required all process groups reaped within 10 s while the harness stopped them one after another, about 10 s each.",
+      "signature": "A spec required every process group to be reaped within 10 s, while the shutdown code waited on the groups one after another at about 10 s each.",
       "file": "incidents/INC-0355-per-item-sequential-timeouts-could-not-meet-a-global-deadlin.md",
       "related": [
         "INC-0348",

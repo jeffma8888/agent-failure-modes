@@ -9,7 +9,7 @@ status: fixed
 
 # INC-0357 - A landing helper piped a guarded commit into a formatter, so the guard's failure did not stop the cleanup
 
-**Cost:** Minor: nothing was lost because the lead noticed.
+**Cost:** Minor: nothing was lost because the operator noticed.
 
 ## Signature - how you recognise it
 
@@ -17,7 +17,7 @@ A scrub guard failed, yet the helper went on to delete the source file because t
 
 ## What happened
 
-a shell helper ran a copy, then a scrub-and-commit script piped into "tail -1", then a cleanup that deletes the source file from the author's worktree; the scrub failed on two absolute paths, but the pipeline's status was the formatter's (zero), so the cleanup ran and the only copy left was an uncommitted file in the main checkout
+a shell helper ran a copy, then a scrub-and-commit script piped into "tail -1", then a cleanup that deletes the source file from the author's worktree; the scrub failed on two absolute paths, but the pipeline's status was the formatter's (zero), so the cleanup ran and the only copy left was an uncommitted file in the main checkout; nothing was lost because the operator noticed
 
 ## Root cause
 
@@ -25,7 +25,7 @@ the guarded step was piped into a formatter, so the chain saw the formatter's ex
 
 ## Why it was hard to see
 
-The output looked normal and the chain exited zero; the guard's failure was visible only in the text the formatter cut away.
+The output looked normal and the chain exited zero; the guard's failure showed only in text the formatter cut away.
 
 ## Fix
 

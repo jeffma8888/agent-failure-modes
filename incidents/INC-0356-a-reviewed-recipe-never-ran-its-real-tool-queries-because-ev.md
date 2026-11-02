@@ -17,7 +17,7 @@ A recipe passed its dry run, control run and copy cases, then its first real run
 
 ## What happened
 
-an acceptance recipe passed its dry run, its control run, six exit controls and 26 copy cases, all with stubbed package manager calls; the first real authorized run stopped in preparation because one query passed an option the pinned manager version does not support ("Unknown option"), so a second scheduled run was lost before setup
+an acceptance recipe passed its dry run, its control run, six exit controls and 26 copy cases, all with stubbed package manager calls; the first real authorized run stopped in preparation because one query passed an option the pinned manager version does not support ("Unknown option"), so a scheduled run was lost before setup
 
 ## Root cause
 

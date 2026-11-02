@@ -1,13 +1,13 @@
 ---
 id: INC-0352
-title: A transport size limit and a full-identity requirement were specified for the same record with no framing
+title: A size limit on each transported record and a full-identity requirement were specified together with no framing
 date: 2026-11-01
 classes: [spec-and-scope, observability]
 severity: medium
 status: fixed
 ---
 
-# INC-0352 - A transport size limit and a full-identity requirement were specified for the same record with no framing
+# INC-0352 - A size limit on each transported record and a full-identity requirement were specified together with no framing
 
 **Cost:** Minor: caught before it shipped.
 
@@ -17,7 +17,7 @@ A timing spec required every record to fit 512 bytes and to carry full file and 
 
 ## What happened
 
-a timing spec required every record to fit 512 bytes (the portable atomic pipe write) and also to carry full file and case identity; a long path or case title cannot satisfy both, and the spec gave no representation for an oversized record, so the engineer could only truncate, hash or drop
+a timing spec required every record to fit 512 bytes (the portable atomic pipe write) and also to carry the full file path and test name; a long path or title cannot satisfy both, and the spec gave no representation for an oversized record, so the implementer could only truncate, hash or drop
 
 ## Root cause
 

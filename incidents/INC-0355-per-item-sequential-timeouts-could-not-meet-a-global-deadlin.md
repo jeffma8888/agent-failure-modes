@@ -13,11 +13,11 @@ status: fixed
 
 ## Signature - how you recognise it
 
-A spec required all process groups reaped within 10 s while the harness stopped them one after another, about 10 s each.
+A spec required every process group to be reaped within 10 s, while the shutdown code waited on the groups one after another at about 10 s each.
 
 ## What happened
 
-the spec required both process groups and their descendants reaped within 10 s of the first failure, while the harness stops groups one after another with about 5 s to terminate and 5 s to reap each
+a spec required all process groups and their descendants to be reaped within 10 s of the first failure, while the harness stops the groups one after another, allowing about 5 s to terminate and 5 s to reap each
 
 ## Root cause
 
@@ -29,7 +29,7 @@ Each per-item wait looks short; the sum only shows when the loop is multiplied b
 
 ## Fix
 
-Abort immediately, terminate all groups concurrently under one global deadline, and block database drops until every owned descendant is confirmed reaped
+Abort immediately, terminate all groups concurrently under one global deadline, and block releasing shared resources until every owned descendant is confirmed reaped
 
 ## Verification
 

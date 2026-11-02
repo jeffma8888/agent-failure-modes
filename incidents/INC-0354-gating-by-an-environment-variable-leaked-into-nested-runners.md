@@ -13,11 +13,11 @@ status: fixed
 
 ## Signature - how you recognise it
 
-A spec claimed a feature was inert in nested children, but a nested helper copied the whole environment and started a fresh runner directly.
+A spec claimed an opt-in feature was inert in nested child runs, but a nested helper copied the whole environment and started a fresh runner directly.
 
 ## What happened
 
-the spec claimed detail timing was inert on nested children, but a nested test helper copies the whole environment and launches a fresh runner directly, bypassing the entry that would have stripped the switches
+a spec claimed detailed timing was inert in nested child runs, but a nested test helper copies the whole environment and launches a fresh runner directly, bypassing the entry point that would have stripped the enabling switches
 
 ## Root cause
 
@@ -29,7 +29,7 @@ The claim holds for the normal entry, so it was checked only through the path th
 
 ## Fix
 
-Scope authorization to the actual runner process by its process lineage, so a copied environment grants nothing
+Scope the authorization to the specific runner process (checked through its parent-process chain), so a copied environment grants nothing
 
 ## Verification
 

@@ -13,11 +13,11 @@ status: fixed
 
 ## Signature - how you recognise it
 
-A spec required records that happen before the authorization point to carry an identity that did not exist until after it.
+A spec required records emitted early in a run to carry an identifier that was not created until later in the run.
 
 ## What happened
 
-the spec authorized timing at database allocation, but required selection and discovery records, which happen earlier, to carry the inner run id, which was private to the harness until then
+a spec switched on timing collection at the point where the test database was allocated, but also required the earlier test selection and discovery records to carry the inner run identifier, which stayed private to the harness until that point
 
 ## Root cause
 
@@ -29,7 +29,7 @@ Each requirement reads correctly alone; only the order of events in the run show
 
 ## Fix
 
-An explicit accessor called before selection, keyed to the authentic callback object, with refusal of forged objects before side effects
+Provide an explicit accessor that is called before selection and keyed to the genuine callback object, and refuse forged objects before any side effect
 
 ## Verification
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0243](./INC-0243-a-proposed-subject-was-treated-as-if-its-seam-were-declared.md) [INC-0352](./INC-0352-a-transport-size-limit-and-a-full-identity-requirement-were.md) [INC-0354](./INC-0354-gating-by-an-environment-variable-leaked-into-nested-runners.md)
+[INC-0243](./INC-0243-a-proposed-subject-was-treated-as-if-its-seam-were-declared.md) [INC-0352](./INC-0352-a-size-limit-on-each-transported-record-and-a-full-identity.md) [INC-0354](./INC-0354-gating-by-an-environment-variable-leaked-into-nested-runners.md)
