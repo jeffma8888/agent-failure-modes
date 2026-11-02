@@ -325,6 +325,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0334 / medium]** Put units in every numeric cell that sits near a time threshold
 - **[INC-0335 / medium]** When prepared patches pin a file's digest, treat that file as frozen and route every change through a later patch with the same regenerate caveat
 - **[INC-0336 / medium]** A config change that moves tests between tiers needs a red witness first, the same as a code change
+- **[INC-0337 / medium]** Name the reviewer when the artifact lands, from whoever is free and is not its author; record the reassignment in the ruling
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

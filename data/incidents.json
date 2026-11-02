@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 336,
+  "count": 337,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6261,6 +6261,25 @@
       "related": [
         "INC-0332",
         "INC-0314"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0337",
+      "title": "Reviewers named at ruling time were busy when the artifact landed",
+      "date": "2026-11-01",
+      "classes": [
+        "delegation",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Name the reviewer when the artifact lands, from whoever is free and is not its author; record the reassignment in the ruling",
+      "signature": "A review was reassigned because the reviewer named earlier was occupied.",
+      "file": "incidents/INC-0337-reviewers-named-at-ruling-time-were-busy-when-the-artifact-l.md",
+      "related": [
+        "INC-0201",
+        "INC-0220"
       ],
       "evidence": []
     }

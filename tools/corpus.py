@@ -5959,6 +5959,23 @@ _BATCH20: list[dict] = [
         "rule": 'A config change that moves tests between tiers needs a red witness first, the same as a code change',
         "related": ['INC-0332', 'INC-0314'],
     },
+    {
+        "id": "INC-0337",
+        "title": "Reviewers named at ruling time were busy when the artifact landed",
+        "date": "2026-11-01",
+        "classes": ['delegation', 'spec-and-scope'],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "Minor: caught before it shipped.",
+        "signature": "A review was reassigned because the reviewer named earlier was occupied.",
+        "what": 'reviewers were named when a job was ruled and were busy when the artifact landed, so the review had to be reassigned twice',
+        "root_cause": 'reviewers were named when a job was ruled and were busy when the artifact landed, so the review had to be reassigned twice',
+        "why_hard": "Naming a reviewer early looks like planning, and availability changes before the artifact exists.",
+        "fix": "Name the reviewer when the artifact lands, from whoever is free and is not its author, and record the reassignment in the ruling",
+        "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
+        "rule": "Name the reviewer when the artifact lands, from whoever is free and is not its author; record the reassignment in the ruling",
+        "related": ['INC-0201', 'INC-0220'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
