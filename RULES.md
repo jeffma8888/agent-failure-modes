@@ -316,6 +316,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0325 / medium]** Check what a background watcher can authenticate to before relying on it; keep authenticated checks in live turns and never write a session secret to disk
 - **[INC-0326 / medium]** A signature binds to bytes the signer has hashed himself, and appending the signature must not change the hashed range
 - **[INC-0327 / medium]** Anchor a marker check on call syntax, not a bare word; when a checker false positive forces a workaround, record it and fix the checker rather than spreading workarounds
+- **[INC-0328 / medium]** When code mirrors a config's file selection, compare anchored paths, not basenames, and keep an executable union check with planted nested witnesses
+- **[INC-0329 / medium]** Measure saturation against max minus what the code under test already retains, and never read a timeout as capacity evidence without the acquired and retained counts
+- **[INC-0330 / medium]** Walk every runbook step through the script's gates offline before calling the runbook ready
+- **[INC-0331 / medium]** Name the only files a job may touch, and check the diff file list on landing
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

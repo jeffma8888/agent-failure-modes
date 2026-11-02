@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 327,
+  "count": 331,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6091,6 +6091,82 @@
       "related": [
         "INC-0287",
         "INC-0252"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0328",
+      "title": "A selector mirroring a config's exclusions matched basenames at any depth",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When code mirrors a config's file selection, compare anchored paths, not basenames, and keep an executable union check with planted nested witnesses",
+      "signature": "Files in nested directories with an excluded name vanished from a selection the config would keep.",
+      "file": "incidents/INC-0328-a-selector-mirroring-a-config-s-exclusions-matched-basenames.md",
+      "related": [
+        "INC-0287",
+        "INC-0311"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0329",
+      "title": "A pool saturation probe waited on a connection its own adapter retained",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Measure saturation against max minus what the code under test already retains, and never read a timeout as capacity evidence without the acquired and retained counts",
+      "signature": "A probe timed out at full pool size and the timeout was read as exhaustion.",
+      "file": "incidents/INC-0329-a-pool-saturation-probe-waited-on-a-connection-its-own-adapt.md",
+      "related": [
+        "INC-0313",
+        "INC-0195"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0330",
+      "title": "A runbook described steps its own script's gate refused",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Walk every runbook step through the script's gates offline before calling the runbook ready",
+      "signature": "The documented run record failed the script's gate because the gate wanted a second record with other keys.",
+      "file": "incidents/INC-0330-a-runbook-described-steps-its-own-script-s-gate-refused.md",
+      "related": [
+        "INC-0302",
+        "INC-0076"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0331",
+      "title": "A job edited a file outside its brief",
+      "date": "2026-11-01",
+      "classes": [
+        "delegation",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Name the only files a job may touch, and check the diff file list on landing",
+      "signature": "A commit changed a file the brief never named.",
+      "file": "incidents/INC-0331-a-job-edited-a-file-outside-its-brief.md",
+      "related": [
+        "INC-0076",
+        "INC-0251"
       ],
       "evidence": []
     }
