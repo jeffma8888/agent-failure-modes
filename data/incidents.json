@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 400,
+  "count": 404,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3087,7 +3087,8 @@
       "file": "incidents/INC-0161-landing-a-revision-beside-a-supersession-edge-broke-identity.md",
       "related": [
         "INC-0154",
-        "INC-0397"
+        "INC-0397",
+        "INC-0403"
       ],
       "evidence": []
     },
@@ -7159,7 +7160,8 @@
       "file": "incidents/INC-0375-an-engineer-overwrote-its-own-unit-ledger-with-a-later-run.md",
       "related": [
         "INC-0371",
-        "INC-0351"
+        "INC-0351",
+        "INC-0402"
       ],
       "evidence": []
     },
@@ -7178,7 +7180,8 @@
       "related": [
         "INC-0369",
         "INC-0390",
-        "INC-0391"
+        "INC-0391",
+        "INC-0401"
       ],
       "evidence": []
     },
@@ -7197,7 +7200,8 @@
       "related": [
         "INC-0351",
         "INC-0397",
-        "INC-0400"
+        "INC-0400",
+        "INC-0402"
       ],
       "evidence": []
     },
@@ -7217,7 +7221,8 @@
         "INC-0372",
         "INC-0332",
         "INC-0391",
-        "INC-0394"
+        "INC-0394",
+        "INC-0404"
       ],
       "evidence": []
     },
@@ -7256,7 +7261,8 @@
         "INC-0351",
         "INC-0371",
         "INC-0389",
-        "INC-0400"
+        "INC-0400",
+        "INC-0404"
       ],
       "evidence": []
     },
@@ -7441,7 +7447,8 @@
       "file": "incidents/INC-0390-a-dispatch-packet-written-for-a-future-branch-went-stale-whe.md",
       "related": [
         "INC-0376",
-        "INC-0368"
+        "INC-0368",
+        "INC-0401"
       ],
       "evidence": []
     },
@@ -7514,7 +7521,8 @@
       "file": "incidents/INC-0394-a-security-predicate-checked-for-truthiness-failed-open-on-a.md",
       "related": [
         "INC-0018",
-        "INC-0378"
+        "INC-0378",
+        "INC-0404"
       ],
       "evidence": []
     },
@@ -7567,7 +7575,8 @@
       "file": "incidents/INC-0397-a-pending-root-whose-supersession-line-said-review-pending-f.md",
       "related": [
         "INC-0161",
-        "INC-0377"
+        "INC-0377",
+        "INC-0403"
       ],
       "evidence": []
     },
@@ -7622,6 +7631,79 @@
       "related": [
         "INC-0380",
         "INC-0377"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0401",
+      "title": "A dispatch packet called a root absent an hour after it had landed",
+      "date": "2026-11-02",
+      "classes": [
+        "stale-module"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A conditional packet must re-read the newest main for every root it names before review",
+      "signature": "A packet stated a root was absent when it was already present on main.",
+      "file": "incidents/INC-0401-a-dispatch-packet-called-a-root-absent-an-hour-after-it-had.md",
+      "related": [
+        "INC-0390",
+        "INC-0376"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0402",
+      "title": "An author who received a ruling mid-run superseded its own earlier status with a dated addendum without rewriting the historical bytes",
+      "date": "2026-11-02",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When a ruling changes a status, append a dated addendum that supersedes it; never rewrite the historical bytes",
+      "signature": "A status written before a ruling needed to change after it.",
+      "file": "incidents/INC-0402-an-author-who-received-a-ruling-mid-run-superseded-its-own-e.md",
+      "related": [
+        "INC-0375",
+        "INC-0377"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0403",
+      "title": "The identity checker allowed a successor root's new path with no predecessor line, and a marker maps only replaced paths",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A marker maps only replaced paths; a successor's new path needs no predecessor line",
+      "signature": "A successor root added a path that had no earlier copy, and it was unclear whether a marker line was owed.",
+      "file": "incidents/INC-0403-the-identity-checker-allowed-a-successor-root-s-new-path-wit.md",
+      "related": [
+        "INC-0397",
+        "INC-0161"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0404",
+      "title": "A safe default could silently drop data when an uncertain state was read as gone",
+      "date": "2026-11-02",
+      "classes": [
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a state is uncertain, treat the item as surviving; fail closed, never read a refusal as gone",
+      "signature": "A safe default treated a refused read as an absent item.",
+      "file": "incidents/INC-0404-a-safe-default-could-silently-drop-data-when-an-uncertain-st.md",
+      "related": [
+        "INC-0378",
+        "INC-0394",
+        "INC-0380"
       ],
       "evidence": []
     }

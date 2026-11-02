@@ -357,6 +357,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0394 / medium]** A security predicate allows only on the exact expected value, never on truthiness
 - **[INC-0395 / medium]** Own the refusal contract before handing a stream to a framework that catches stream failures
 - **[INC-0396 / medium]** Verify each landing by the commit log, never by the last line of the command
+- **[INC-0404 / medium]** When a state is uncertain, treat the item as surviving; fail closed, never read a refusal as gone
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -407,6 +408,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0398 / low]** Exempt exactly one named path from a content inventory, with its digests recorded; never a directory or pattern
 - **[INC-0399 / low]** Reassign a review to an idle qualified reviewer of a different model rather than queueing it, keeping the non-author rule
 - **[INC-0400 / low]** Before a delete step in an activation, check the file exists; a prior pure rename leaves nothing to delete, so record that
+- **[INC-0401 / low]** A conditional packet must re-read the newest main for every root it names before review
+- **[INC-0402 / low]** When a ruling changes a status, append a dated addendum that supersedes it; never rewrite the historical bytes
+- **[INC-0403 / low]** A marker maps only replaced paths; a successor's new path needs no predecessor line
 
 ## Practices
 

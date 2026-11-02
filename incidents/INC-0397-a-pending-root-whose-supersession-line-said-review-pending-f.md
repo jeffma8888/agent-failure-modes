@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0161](./INC-0161-landing-a-revision-beside-a-supersession-edge-broke-identity.md) [INC-0377](./INC-0377-a-draft-test-root-was-revised-in-place-after-review-marker-o.md)
+[INC-0161](./INC-0161-landing-a-revision-beside-a-supersession-edge-broke-identity.md) [INC-0377](./INC-0377-a-draft-test-root-was-revised-in-place-after-review-marker-o.md) [INC-0403](./INC-0403-the-identity-checker-allowed-a-successor-root-s-new-path-wit.md)
