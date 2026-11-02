@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0302](./INC-0302-a-plan-revision-left-stale-operative-text-that-only-an-indep.md) [INC-0346](./INC-0346-a-ruling-sent-in-a-message-was-never-written-to-the-ruling-l.md) [INC-0334](./INC-0334-a-bare-number-beside-a-time-threshold-invited-a-unit-misread.md)
+[INC-0302](./INC-0302-a-plan-revision-left-stale-operative-text-that-only-an-indep.md) [INC-0346](./INC-0346-a-ruling-sent-in-a-message-was-never-written-to-the-ruling-l.md) [INC-0334](./INC-0334-a-bare-number-beside-a-time-threshold-invited-a-unit-misread.md) [INC-0466](./INC-0466-a-walker-script-carried-internal-load-vetoes-that-contradict.md)

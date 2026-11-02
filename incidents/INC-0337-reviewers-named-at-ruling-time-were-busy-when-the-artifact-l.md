@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0201](./INC-0201-two-review-titles-named-the-wrong-reviewer.md) [INC-0220](./INC-0220-a-reviewer-proposed-text-was-at-risk-of-being-applied-by-its.md) [INC-0346](./INC-0346-a-ruling-sent-in-a-message-was-never-written-to-the-ruling-l.md) [INC-0423](./INC-0423-a-review-was-reassigned-off-the-critical-path-so-the-reviewe.md)
+[INC-0201](./INC-0201-two-review-titles-named-the-wrong-reviewer.md) [INC-0220](./INC-0220-a-reviewer-proposed-text-was-at-risk-of-being-applied-by-its.md) [INC-0346](./INC-0346-a-ruling-sent-in-a-message-was-never-written-to-the-ruling-l.md) [INC-0423](./INC-0423-a-review-was-reassigned-off-the-critical-path-so-the-reviewe.md) [INC-0467](./INC-0467-a-run-plan-barred-the-test-author-from-running-the-walk-and.md)

@@ -471,6 +471,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0462 / low]** Probe a guard against the real value it will see; a guard that can never pass is a defect, and a catch must print which step failed without secrets
 - **[INC-0463 / low]** Put the pinned runtime directory on the search path in the same command that runs the tests; a not found error from a spawned tool is an environment fault, not a product failure
 - **[INC-0464 / low]** Strip terminal escape codes before parsing a report, and keep a zero match assertion so a failed extraction writes nothing
+- **[INC-0465 / low]** An admission admits the step: a reading within 60 seconds of the admission is a record, and a reading after that is a fresh gate
+- **[INC-0466 / low]** When a ruling changes a gate, list every script that encodes the old gate before the ruling is relied on
+- **[INC-0467 / low]** Check an assignment against the independence rules of the plan before sending it
 
 ## Practices
 

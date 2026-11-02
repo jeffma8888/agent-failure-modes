@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 464,
+  "count": 467,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6443,7 +6443,8 @@
         "INC-0201",
         "INC-0220",
         "INC-0346",
-        "INC-0423"
+        "INC-0423",
+        "INC-0467"
       ],
       "evidence": []
     },
@@ -6884,7 +6885,8 @@
       "related": [
         "INC-0302",
         "INC-0346",
-        "INC-0334"
+        "INC-0334",
+        "INC-0466"
       ],
       "evidence": []
     },
@@ -7541,7 +7543,8 @@
         "INC-0405",
         "INC-0413",
         "INC-0433",
-        "INC-0457"
+        "INC-0457",
+        "INC-0466"
       ],
       "evidence": []
     },
@@ -7601,7 +7604,8 @@
         "INC-0406",
         "INC-0417",
         "INC-0435",
-        "INC-0450"
+        "INC-0450",
+        "INC-0465"
       ],
       "evidence": []
     },
@@ -7713,7 +7717,8 @@
         "INC-0392",
         "INC-0385",
         "INC-0410",
-        "INC-0423"
+        "INC-0423",
+        "INC-0467"
       ],
       "evidence": []
     },
@@ -7752,7 +7757,8 @@
         "INC-0376",
         "INC-0414",
         "INC-0433",
-        "INC-0457"
+        "INC-0457",
+        "INC-0466"
       ],
       "evidence": []
     },
@@ -8056,7 +8062,8 @@
         "INC-0406",
         "INC-0219",
         "INC-0450",
-        "INC-0452"
+        "INC-0452",
+        "INC-0465"
       ],
       "evidence": []
     },
@@ -8169,7 +8176,8 @@
       "file": "incidents/INC-0423-a-review-was-reassigned-off-the-critical-path-so-the-reviewe.md",
       "related": [
         "INC-0399",
-        "INC-0337"
+        "INC-0337",
+        "INC-0467"
       ],
       "evidence": []
     },
@@ -8718,7 +8726,8 @@
       "related": [
         "INC-0417",
         "INC-0427",
-        "INC-0450"
+        "INC-0450",
+        "INC-0465"
       ],
       "evidence": []
     },
@@ -8945,6 +8954,63 @@
         "INC-0084",
         "INC-0252",
         "INC-0321"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0465",
+      "title": "An admission sent at a low load reading reached the runner after the load rose again, and the runner fresh reading then refused it",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "An admission admits the step: a reading within 60 seconds of the admission is a record, and a reading after that is a fresh gate",
+      "signature": "A runner refused a step that had just been admitted.",
+      "file": "incidents/INC-0465-an-admission-sent-at-a-low-load-reading-reached-the-runner-a.md",
+      "related": [
+        "INC-0393",
+        "INC-0417",
+        "INC-0452"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0466",
+      "title": "A walker script carried internal load vetoes that contradicted a later ruling, and the runner rightly refused to edit the immutable bytes",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When a ruling changes a gate, list every script that encodes the old gate before the ruling is relied on",
+      "signature": "A script stopped a run on a gate that a ruling had removed.",
+      "file": "incidents/INC-0466-a-walker-script-carried-internal-load-vetoes-that-contradict.md",
+      "related": [
+        "INC-0390",
+        "INC-0401",
+        "INC-0358"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0467",
+      "title": "A run plan barred the test author from running the walk, and a later message assigned that author anyway; the walker author caught it",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Check an assignment against the independence rules of the plan before sending it",
+      "signature": "A message contradicted the plan it was meant to follow.",
+      "file": "incidents/INC-0467-a-run-plan-barred-the-test-author-from-running-the-walk-and.md",
+      "related": [
+        "INC-0337",
+        "INC-0399",
+        "INC-0423"
       ],
       "evidence": []
     }
