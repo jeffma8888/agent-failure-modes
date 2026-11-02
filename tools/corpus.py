@@ -8713,6 +8713,23 @@ _BATCH20: list[dict] = [
         "rule": 'A config that lists a column or a field is not evidence that the page shows it or works offline; only a browser run on the real page is.',
         "related": ['INC-0494', 'INC-0496'],
     },
+    {
+        "id": "INC-0499",
+        "title": 'The first defect of a kind prompted an audit of the whole kind, which found a second',
+        "date": "2026-11-02",
+        "classes": ['spec-and-scope'],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": 'None incurred beyond one extra fix row: the second defect was found by a static audit before any release.',
+        "signature": 'One hard-coded external host was found in a page that must work offline, and a second, silent one existed on the server.',
+        "what": 'A browser run found an admin editor fetching a public content delivery host, which the admin must not depend on. Instead of fixing only that field, the team ordered a static audit of every hard-coded non-local URL that an admin page or the server can reach at runtime. The audit found a second external origin: server-side telemetry that is on by default and posts to a public host at server start and on admin access, because the configuration omitted the switch that turns it off. A third origin, an avatar service, was already disabled by the configuration. The audit was a source reading, not a network observation, and said so. A unit test on the built configuration now pins the switch.',
+        "root_cause": 'The first fix would have covered one instance of a class, and the class was defined by what the product may reach, not by the field that happened to be seen first.',
+        "why_hard": 'The second instance made no visible request in the browser, was on by default, and the configuration was correct on its face except for a missing line.',
+        "fix": 'Audit the whole class from installed source, fix every instance found, pin each with a test on the built configuration or a browser run, and state that the audit is source reachability and not an observed guarantee.',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'When one instance of a defect class appears, audit for the whole class before fixing only the instance.',
+        "related": ['INC-0498', 'INC-0494'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

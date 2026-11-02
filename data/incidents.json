@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 498,
+  "count": 499,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9585,6 +9585,24 @@
       "related": [
         "INC-0494",
         "INC-0496"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0499",
+      "title": "The first defect of a kind prompted an audit of the whole kind, which found a second",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When one instance of a defect class appears, audit for the whole class before fixing only the instance.",
+      "signature": "One hard-coded external host was found in a page that must work offline, and a second, silent one existed on the server.",
+      "file": "incidents/INC-0499-the-first-defect-of-a-kind-prompted-an-audit-of-the-whole-ki.md",
+      "related": [
+        "INC-0498",
+        "INC-0494"
       ],
       "evidence": []
     }
