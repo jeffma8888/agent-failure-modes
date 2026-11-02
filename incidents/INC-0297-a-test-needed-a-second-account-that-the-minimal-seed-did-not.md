@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0086](./INC-0086-after-a-dependency-fix-two-rows-still-called-the-same-seed-f.md)
+[INC-0086](./INC-0086-after-a-dependency-fix-two-rows-still-called-the-same-seed-f.md) [INC-0361](./INC-0361-a-test-s-teardown-emptied-a-shared-server-database-and-a-gat.md)

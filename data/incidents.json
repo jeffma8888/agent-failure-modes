@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 360,
+  "count": 362,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1778,7 +1778,9 @@
       "rule": "Every file that mutates shared state restores it or reseeds, and helpers match the documented field shapes.",
       "signature": "Helpers read fields in a shape the design does not use; a spec passes alone and fails after a file that left state changed.",
       "file": "incidents/INC-0088-qa-helpers-assumed-rest-field-shapes-that-differ-from-the-de.md",
-      "related": [],
+      "related": [
+        "INC-0361"
+      ],
       "evidence": []
     },
     {
@@ -1925,7 +1927,8 @@
       "file": "incidents/INC-0097-url-guards-did-not-prove-a-test-owned-the-disposable-cluster.md",
       "related": [
         "INC-0083",
-        "INC-0360"
+        "INC-0360",
+        "INC-0361"
       ],
       "evidence": []
     },
@@ -3136,7 +3139,8 @@
       "signature": "A shell string produced a truncated value without an error.",
       "file": "incidents/INC-0165-a-shell-variable-followed-by-a-colon-and-a-letter-became-a-h.md",
       "related": [
-        "INC-0153"
+        "INC-0153",
+        "INC-0362"
       ],
       "evidence": []
     },
@@ -4630,7 +4634,8 @@
       "signature": "The checker ran without its environment.",
       "file": "incidents/INC-0248-the-env-script-could-not-be-sourced-in-zsh.md",
       "related": [
-        "INC-0165"
+        "INC-0165",
+        "INC-0362"
       ],
       "evidence": []
     },
@@ -5530,7 +5535,8 @@
       "signature": "Cases looked up a second admin account that the seed lacked.",
       "file": "incidents/INC-0297-a-test-needed-a-second-account-that-the-minimal-seed-did-not.md",
       "related": [
-        "INC-0086"
+        "INC-0086",
+        "INC-0361"
       ],
       "evidence": []
     },
@@ -6740,7 +6746,8 @@
         "INC-0347",
         "INC-0280",
         "INC-0162",
-        "INC-0254"
+        "INC-0254",
+        "INC-0362"
       ],
       "evidence": []
     },
@@ -6801,6 +6808,46 @@
         "INC-0066",
         "INC-0097",
         "INC-0254"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0361",
+      "title": "A test's teardown emptied a shared server database, and a gate that never completed hid the red",
+      "date": "2026-11-01",
+      "classes": [
+        "test-isolation",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A test that mutates shared state must restore the baseline its successors expect (reset then reseed, never reset only), and the harness should re-establish and check that baseline when each shared step starts; a slow gate with no recorded completion since two tests landed has not tested them together, so treat the main line as unproven until it runs",
+      "signature": "A late end-to-end step could not log in because an earlier test's teardown had deleted the seeded accounts from the shared server database.",
+      "file": "incidents/INC-0361-a-test-s-teardown-emptied-a-shared-server-database-and-a-gat.md",
+      "related": [
+        "INC-0097",
+        "INC-0088",
+        "INC-0297"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0362",
+      "title": "A landing loop written for one shell's arrays ran under another and committed one of two files",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "vcs-destruction"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Iterate arrays with an explicit form valid in the running shell (the quoted all-elements expansion), and derive a commit message from the committed diff summary after the commit, not from intent",
+      "signature": "A commit message claimed two files but only the first of the two was committed.",
+      "file": "incidents/INC-0362-a-landing-loop-written-for-one-shell-s-arrays-ran-under-anot.md",
+      "related": [
+        "INC-0165",
+        "INC-0248",
+        "INC-0357"
       ],
       "evidence": []
     }

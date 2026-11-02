@@ -38,3 +38,7 @@ Checked by the reviewer or engineer who reported it. Not checked: whether the ne
 ## Transferable rule
 
 > Every file that mutates shared state restores it or reseeds, and helpers match the documented field shapes.
+
+## Related
+
+[INC-0361](./INC-0361-a-test-s-teardown-emptied-a-shared-server-database-and-a-gat.md)

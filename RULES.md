@@ -346,6 +346,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0358 / medium]** When a ruling is restated in a spec, copy its population word for word; a qualifier borrowed from another purpose narrows an alarm, so diff every restated condition against the ruling's own words and fix each sibling copy
 - **[INC-0359 / medium]** A stored proof that unlocks a faster or riskier route must carry the tool versions it was produced under and compare them at use; a mismatch or a missing field takes the safe route with a named reason, never the fast one
 - **[INC-0360 / medium]** Ownership recorded before a create covers an uncertain outcome only; on a definite already-exists error release the claim before rethrowing, and test with a pre-existing object under the exact name
+- **[INC-0361 / medium]** A test that mutates shared state must restore the baseline its successors expect (reset then reseed, never reset only), and the harness should re-establish and check that baseline when each shared step starts; a slow gate with no recorded completion since two tests landed has not tested them together, so treat the main line as unproven until it runs
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -367,6 +368,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0350 / low]** Read the clock immediately before writing any time stamp; when you did not, write a bounded range from the last real reads, never an estimate
 - **[INC-0351 / low]** Before copying a shared tool cache into an isolated run, list its links; a registry of outside links is metadata to exclude, while any other outside link is a containment failure
 - **[INC-0357 / low]** Never pipe a gating command into a formatter in a chain whose later steps destroy the input; check the gate's own exit status
+- **[INC-0362 / low]** Iterate arrays with an explicit form valid in the running shell (the quoted all-elements expansion), and derive a commit message from the committed diff summary after the commit, not from intent
 
 ## Practices
 

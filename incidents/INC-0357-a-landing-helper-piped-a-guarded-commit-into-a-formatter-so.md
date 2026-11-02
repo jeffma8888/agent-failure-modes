@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0347](./INC-0347-a-final-print-in-a-wrapper-replaced-the-command-s-failure-wi.md) [INC-0280](./INC-0280-never-chain-a-write-after-a-diagnostic.md) [INC-0162](./INC-0162-a-chained-amend-reworded-the-previous-commit-after-a-failed.md) [INC-0254](./INC-0254-raw-evidence-was-deleted-with-the-scratch-area.md)
+[INC-0347](./INC-0347-a-final-print-in-a-wrapper-replaced-the-command-s-failure-wi.md) [INC-0280](./INC-0280-never-chain-a-write-after-a-diagnostic.md) [INC-0162](./INC-0162-a-chained-amend-reworded-the-previous-commit-after-a-failed.md) [INC-0254](./INC-0254-raw-evidence-was-deleted-with-the-scratch-area.md) [INC-0362](./INC-0362-a-landing-loop-written-for-one-shell-s-arrays-ran-under-anot.md)
