@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 341,
+  "count": 343,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6354,12 +6354,50 @@
       ],
       "severity": "medium",
       "status": "fixed",
-      "rule": "Under a push freeze, pin the subject by role and prove the freeze with a remote query; a stale remote-tracking ref is not freeze evidence",
+      "rule": "Under a push freeze, pin the subject by role and corroborate the freeze with a remote query (one tip query does not prove the history); a stale remote-tracking ref is not freeze evidence",
       "signature": "An owner packet asserted checkout, clone and remote at one hash, and the assertion went stale only because local commits accumulated.",
       "file": "incidents/INC-0341-a-registration-subject-pinned-to-the-current-local-head-read.md",
       "related": [
         "INC-0069",
         "INC-0239"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0342",
+      "title": "A shortcut launcher lacked the protection the canonical entry supplies implicitly",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Close a gate only through the canonical entry; a shortcut launcher may lack protections the canonical path supplies implicitly",
+      "signature": "A gate was run by starting the test runner directly, and a nested fixture's package manager then pruned the host dependency tree.",
+      "file": "incidents/INC-0342-a-shortcut-launcher-lacked-the-protection-the-canonical-entr.md",
+      "related": [
+        "INC-0340",
+        "INC-0256"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0343",
+      "title": "A surviving mutant named a missing contract cell",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a mutant survives, add the cell where the coarse signal is right and the checked detail is wrong, and rerun the mutant to prove the cell kills it",
+      "signature": "Weakening a final title check survived an offline response-contract suite because no case left the title wrong while the status looked right.",
+      "file": "incidents/INC-0343-a-surviving-mutant-named-a-missing-contract-cell.md",
+      "related": [
+        "INC-0314",
+        "INC-0339"
       ],
       "evidence": []
     }

@@ -29,7 +29,7 @@ Equality of three places holds until the first local commit, and a stale remote-
 
 ## Fix
 
-Pin the subject as remote main equals clone head, prove the freeze with a remote query, exclude the lead checkout from the equality while the freeze holds and record its distance
+Pin the subject as remote main equals clone head, corroborate the freeze with a remote query (one tip query does not prove the history), exclude the lead checkout from the equality while the freeze holds and record its distance
 
 ## Verification
 
@@ -37,7 +37,7 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Transferable rule
 
-> Under a push freeze, pin the subject by role and prove the freeze with a remote query; a stale remote-tracking ref is not freeze evidence
+> Under a push freeze, pin the subject by role and corroborate the freeze with a remote query (one tip query does not prove the history); a stale remote-tracking ref is not freeze evidence
 
 ## Related
 
