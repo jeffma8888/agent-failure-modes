@@ -436,6 +436,12 @@ One rule per incident, ordered by severity then id.
 - **[INC-0427 / low]** A load gate holds regardless of who causes the load; continue static work and do not touch system daemons
 - **[INC-0428 / low]** Defer a marker or registry change that would trip an active freeze test to the activation step, and name the approval it will cite
 - **[INC-0429 / low]** Before waiting on a dependency, read the backlog for the row that owns it; if a later row owns it, ship without it and add no stub
+- **[INC-0430 / low]** Check every producer output against every consumer validator before signing a design, with a control for the edge output and for each refused value
+- **[INC-0431 / low]** Sign interim content as a visibly marked placeholder with its open question and owner; never present an invented value as sourced
+- **[INC-0432 / low]** Under a held state flip, deliver by hand on the established precedent and reconcile once after the hold; keep every freeze rule
+- **[INC-0433 / low]** Read the log for every commit a job text names before acting on it, and record the correction
+- **[INC-0434 / low]** Verify a reviewer's framework claim in the installed source before adopting it, and cite the source
+- **[INC-0435 / low]** When a low-load window opens, dispatch the gated runs at once, reading the load in its own command before each launch
 
 ## Practices
 

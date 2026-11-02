@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0405](./INC-0405-the-demo-server-served-a-build-made-before-the-merge-so-a-wa.md) [INC-0401](./INC-0401-a-dispatch-packet-called-a-root-absent-an-hour-after-it-had.md)
+[INC-0405](./INC-0405-the-demo-server-served-a-build-made-before-the-merge-so-a-wa.md) [INC-0401](./INC-0401-a-dispatch-packet-called-a-root-absent-an-hour-after-it-had.md) [INC-0430](./INC-0430-a-route-validator-rejected-a-width-that-the-generator-was-re.md)

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 429,
+  "count": 435,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1308,7 +1308,8 @@
         "INC-0057",
         "INC-0041",
         "INC-0042",
-        "INC-0425"
+        "INC-0425",
+        "INC-0434"
       ],
       "evidence": []
     },
@@ -3314,7 +3315,8 @@
       "file": "incidents/INC-0173-a-ruling-widened-a-shared-valid-state-and-only-some-payloads.md",
       "related": [
         "INC-0151",
-        "INC-0424"
+        "INC-0424",
+        "INC-0430"
       ],
       "evidence": []
     },
@@ -4147,7 +4149,8 @@
         "INC-0209",
         "INC-0393",
         "INC-0417",
-        "INC-0427"
+        "INC-0427",
+        "INC-0435"
       ],
       "evidence": []
     },
@@ -6006,7 +6009,8 @@
         "INC-0041",
         "INC-0298",
         "INC-0128",
-        "INC-0416"
+        "INC-0416",
+        "INC-0432"
       ],
       "evidence": []
     },
@@ -7257,7 +7261,8 @@
         "INC-0332",
         "INC-0391",
         "INC-0394",
-        "INC-0404"
+        "INC-0404",
+        "INC-0431"
       ],
       "evidence": []
     },
@@ -7492,7 +7497,8 @@
         "INC-0368",
         "INC-0401",
         "INC-0405",
-        "INC-0413"
+        "INC-0413",
+        "INC-0433"
       ],
       "evidence": []
     },
@@ -7529,7 +7535,8 @@
       "related": [
         "INC-0385",
         "INC-0379",
-        "INC-0399"
+        "INC-0399",
+        "INC-0431"
       ],
       "evidence": []
     },
@@ -7549,7 +7556,8 @@
         "INC-0219",
         "INC-0271",
         "INC-0406",
-        "INC-0417"
+        "INC-0417",
+        "INC-0435"
       ],
       "evidence": []
     },
@@ -7698,7 +7706,8 @@
       "related": [
         "INC-0390",
         "INC-0376",
-        "INC-0414"
+        "INC-0414",
+        "INC-0433"
       ],
       "evidence": []
     },
@@ -7864,7 +7873,8 @@
       "file": "incidents/INC-0410-the-lead-re-merged-the-full-candidate-itself-rather-than-que.md",
       "related": [
         "INC-0399",
-        "INC-0385"
+        "INC-0385",
+        "INC-0432"
       ],
       "evidence": []
     },
@@ -7936,7 +7946,8 @@
       "file": "incidents/INC-0414-a-static-package-constant-check-before-dispatch-found-a-desi.md",
       "related": [
         "INC-0405",
-        "INC-0401"
+        "INC-0401",
+        "INC-0430"
       ],
       "evidence": []
     },
@@ -8139,7 +8150,8 @@
       "file": "incidents/INC-0425-a-framework-operation-order-showed-that-file-data-is-generat.md",
       "related": [
         "INC-0062",
-        "INC-0298"
+        "INC-0298",
+        "INC-0434"
       ],
       "evidence": []
     },
@@ -8213,6 +8225,114 @@
       "related": [
         "INC-0115",
         "INC-0424"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0430",
+      "title": "A route validator rejected a width that the generator was required to emit",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Check every producer output against every consumer validator before signing a design, with a control for the edge output and for each refused value",
+      "signature": "A consumer refused a value that its own producer was required to emit.",
+      "file": "incidents/INC-0430-a-route-validator-rejected-a-width-that-the-generator-was-re.md",
+      "related": [
+        "INC-0173",
+        "INC-0414"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0431",
+      "title": "Interim content was signed as clearly marked placeholder copy instead of being invented as sourced",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Sign interim content as a visibly marked placeholder with its open question and owner; never present an invented value as sourced",
+      "signature": "Seed content needed text that no source provided.",
+      "file": "incidents/INC-0431-interim-content-was-signed-as-clearly-marked-placeholder-cop.md",
+      "related": [
+        "INC-0392",
+        "INC-0378"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0432",
+      "title": "Hand delivery under a hold, with one reconciliation after the load, replaced blocking on a state flip",
+      "date": "2026-11-02",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Under a held state flip, deliver by hand on the established precedent and reconcile once after the hold; keep every freeze rule",
+      "signature": "Three rows waited on a backlog state flip that was held on purpose.",
+      "file": "incidents/INC-0432-hand-delivery-under-a-hold-with-one-reconciliation-after-the.md",
+      "related": [
+        "INC-0410",
+        "INC-0317"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0433",
+      "title": "A job text swapped two commit identities, and reading the log caught it",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Read the log for every commit a job text names before acting on it, and record the correction",
+      "signature": "Two commits were named the wrong way round in an instruction.",
+      "file": "incidents/INC-0433-a-job-text-swapped-two-commit-identities-and-reading-the-log.md",
+      "related": [
+        "INC-0401",
+        "INC-0390"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0434",
+      "title": "A reviewer's framework claim was corrected from the installed source: a draft save writes only the versions table",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Verify a reviewer's framework claim in the installed source before adopting it, and cite the source",
+      "signature": "A reviewer stated a framework behavior that the installed source does not show.",
+      "file": "incidents/INC-0434-a-reviewer-s-framework-claim-was-corrected-from-the-installe.md",
+      "related": [
+        "INC-0062",
+        "INC-0425"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0435",
+      "title": "A low-load window needed immediate dispatch of the gated runs",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When a low-load window opens, dispatch the gated runs at once, reading the load in its own command before each launch",
+      "signature": "Gated runs waited while a short low-load window was open.",
+      "file": "incidents/INC-0435-a-low-load-window-needed-immediate-dispatch-of-the-gated-run.md",
+      "related": [
+        "INC-0393",
+        "INC-0219"
       ],
       "evidence": []
     }

@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0151](./INC-0151-a-hygiene-rule-against-conditional-test-omission-needed-a-pr.md) [INC-0424](./INC-0424-a-captions-upload-relation-in-a-spec-would-have-added-a-medi.md)
+[INC-0151](./INC-0151-a-hygiene-rule-against-conditional-test-omission-needed-a-pr.md) [INC-0424](./INC-0424-a-captions-upload-relation-in-a-spec-would-have-added-a-medi.md) [INC-0430](./INC-0430-a-route-validator-rejected-a-width-that-the-generator-was-re.md)
