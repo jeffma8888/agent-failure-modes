@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 387,
+  "count": 392,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -7010,7 +7010,8 @@
         "INC-0340",
         "INC-0351",
         "INC-0316",
-        "INC-0372"
+        "INC-0372",
+        "INC-0390"
       ],
       "evidence": []
     },
@@ -7069,7 +7070,8 @@
         "INC-0043",
         "INC-0126",
         "INC-0375",
-        "INC-0380"
+        "INC-0380",
+        "INC-0389"
       ],
       "evidence": []
     },
@@ -7092,7 +7094,8 @@
         "INC-0336",
         "INC-0368",
         "INC-0378",
-        "INC-0382"
+        "INC-0382",
+        "INC-0388"
       ],
       "evidence": []
     },
@@ -7166,7 +7169,9 @@
       "signature": "Two reviews gave different locations for the same file.",
       "file": "incidents/INC-0376-a-signed-design-heading-outranked-a-plan-census-parenthetica.md",
       "related": [
-        "INC-0369"
+        "INC-0369",
+        "INC-0390",
+        "INC-0391"
       ],
       "evidence": []
     },
@@ -7201,7 +7206,8 @@
       "file": "incidents/INC-0378-a-default-that-silently-let-a-guard-pass-made-a-reviewer-rea.md",
       "related": [
         "INC-0372",
-        "INC-0332"
+        "INC-0332",
+        "INC-0391"
       ],
       "evidence": []
     },
@@ -7219,7 +7225,8 @@
       "file": "incidents/INC-0379-splitting-a-review-s-amendments-kept-the-engineer-busy-while.md",
       "related": [
         "INC-0128",
-        "INC-0385"
+        "INC-0385",
+        "INC-0392"
       ],
       "evidence": []
     },
@@ -7237,7 +7244,8 @@
       "file": "incidents/INC-0380-a-landing-helper-s-clean-step-deleted-a-pending-root-directo.md",
       "related": [
         "INC-0351",
-        "INC-0371"
+        "INC-0371",
+        "INC-0389"
       ],
       "evidence": []
     },
@@ -7272,7 +7280,8 @@
       "signature": "A walk reported failure on every run, so a new failure was indistinguishable.",
       "file": "incidents/INC-0382-a-click-around-walk-that-always-exits-1-from-a-known-gap-can.md",
       "related": [
-        "INC-0372"
+        "INC-0372",
+        "INC-0388"
       ],
       "evidence": []
     },
@@ -7327,7 +7336,8 @@
       "signature": "A STOP had an unknown cause and a single diagnosis would have been unchecked.",
       "file": "incidents/INC-0385-two-engineers-answered-the-same-stop-diagnosis-independently.md",
       "related": [
-        "INC-0379"
+        "INC-0379",
+        "INC-0392"
       ],
       "evidence": []
     },
@@ -7364,6 +7374,96 @@
       "related": [
         "INC-0043",
         "INC-0374"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0388",
+      "title": "A baseline comparison graded only rows present in the baseline, so a new failing row passed",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A baseline comparison must grade a row new in the run on its own outcome",
+      "signature": "A run with a new failing row compared equal to its baseline.",
+      "file": "incidents/INC-0388-a-baseline-comparison-graded-only-rows-present-in-the-baseli.md",
+      "related": [
+        "INC-0382",
+        "INC-0372"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0389",
+      "title": "Two plan checks ran at a wrong script path and the last line of their output looked like a result",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Match the explicit pass line of a check, never its last line",
+      "signature": "A crashed check ended with a line that resembled a result.",
+      "file": "incidents/INC-0389-two-plan-checks-ran-at-a-wrong-script-path-and-the-last-line.md",
+      "related": [
+        "INC-0380",
+        "INC-0371"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0390",
+      "title": "A dispatch packet written for a future branch went stale when a later ruling started the work elsewhere",
+      "date": "2026-11-01",
+      "classes": [
+        "stale-module"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Reconcile a dispatch packet with the newest ruling when it lands",
+      "signature": "A packet named a branch and checkout that a later ruling had superseded.",
+      "file": "incidents/INC-0390-a-dispatch-packet-written-for-a-future-branch-went-stale-whe.md",
+      "related": [
+        "INC-0376",
+        "INC-0368"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0391",
+      "title": "An implementer's evidence admitted one case that contradicted its own every-undeclared-case-throws rule",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When evidence contradicts a stated rule, the rule wins: change the code, not the wording",
+      "signature": "The evidence listed a case the stated rule said could not exist.",
+      "file": "incidents/INC-0391-an-implementer-s-evidence-admitted-one-case-that-contradicte.md",
+      "related": [
+        "INC-0378",
+        "INC-0376"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0392",
+      "title": "A declaration request that split sourced values from decisions let the lead rule eleven items in one pass",
+      "date": "2026-11-01",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Request declarations as sourced values and decisions, each with its gap",
+      "signature": "A request mixed facts and open choices, which would have needed several rounds.",
+      "file": "incidents/INC-0392-a-declaration-request-that-split-sourced-values-from-decisio.md",
+      "related": [
+        "INC-0385",
+        "INC-0379"
       ],
       "evidence": []
     }

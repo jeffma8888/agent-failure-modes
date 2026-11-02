@@ -352,6 +352,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0372 / medium]** List the collected files before a filtered run and stop if any excluded file is still collected
 - **[INC-0378 / medium]** A guard must fail closed with an explicit configuration error; never let a default make it pass
 - **[INC-0380 / medium]** A clean step must not leave a tracked unchanged file deleted; restore tracked files after a fast-forward and check tree status
+- **[INC-0388 / medium]** A baseline comparison must grade a row new in the run on its own outcome
+- **[INC-0391 / medium]** When evidence contradicts a stated rule, the rule wins: change the code, not the wording
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -394,6 +396,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0385 / low]** When a STOP cause is unknown, ask for two independent static answers before routing the fix
 - **[INC-0386 / low]** A path-identity guard compares real paths, never strings
 - **[INC-0387 / low]** Pin an error name, never message text, as the oracle
+- **[INC-0389 / low]** Match the explicit pass line of a check, never its last line
+- **[INC-0390 / low]** Reconcile a dispatch packet with the newest ruling when it lands
+- **[INC-0392 / low]** Request declarations as sourced values and decisions, each with its gap
 
 ## Practices
 

@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0372](./INC-0372-a-test-run-s-command-line-exclusion-flag-did-not-take-effect.md) [INC-0332](./INC-0332-a-tier-exclusion-matched-only-one-file-extension.md)
+[INC-0372](./INC-0372-a-test-run-s-command-line-exclusion-flag-did-not-take-effect.md) [INC-0332](./INC-0332-a-tier-exclusion-matched-only-one-file-extension.md) [INC-0391](./INC-0391-an-implementer-s-evidence-admitted-one-case-that-contradicte.md)

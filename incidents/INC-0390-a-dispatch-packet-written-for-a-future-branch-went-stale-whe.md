@@ -1,0 +1,44 @@
+---
+id: INC-0390
+title: A dispatch packet written for a future branch went stale when a later ruling started the work elsewhere
+date: 2026-11-01
+classes: [stale-module]
+severity: low
+status: fixed
+---
+
+# INC-0390 - A dispatch packet written for a future branch went stale when a later ruling started the work elsewhere
+
+**Cost:** A packet pointed at a branch the work had already left.
+
+## Signature - how you recognise it
+
+A packet named a branch and checkout that a later ruling had superseded.
+
+## What happened
+
+a dispatch packet written for a future branch went stale when a later ruling had already started the work on another checkout
+
+## Root cause
+
+the packet was written ahead of time and not compared with the rulings made since
+
+## Why it was hard to see
+
+The packet was correct when written, so it read as authoritative.
+
+## Fix
+
+Reconcile a packet with the newest ruling at the moment it lands
+
+## Verification
+
+Checked by the lead. Not checked: whether the new rule prevents recurrence.
+
+## Transferable rule
+
+> Reconcile a dispatch packet with the newest ruling when it lands
+
+## Related
+
+[INC-0376](./INC-0376-a-signed-design-heading-outranked-a-plan-census-parenthetica.md) [INC-0368](./INC-0368-a-new-worktree-symlinked-its-dependency-trees-to-another-wor.md)
