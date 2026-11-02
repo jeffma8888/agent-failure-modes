@@ -41,4 +41,4 @@ Checked by the engineer, reviewer or lead who reported it. Not checked: whether 
 
 ## Related
 
-[INC-0087](./INC-0087-an-import-level-audit-missed-helper-calls-that-needed-a-late.md)
+[INC-0087](./INC-0087-an-import-level-audit-missed-helper-calls-that-needed-a-late.md) [INC-0422](./INC-0422-a-scoped-compiler-config-flagged-an-import-style-that-the-ca.md)

@@ -427,6 +427,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0418 / low]** Read an environment file line by line, never shell-source it; a value with angle brackets breaks sourcing
 - **[INC-0419 / low]** Change the registry line and the supersession record whose old path it names in one control commit, and assert the sorted order first
 - **[INC-0420 / low]** Assign a hook registration owner only after reading which row owns the hook's neighbours
+- **[INC-0421 / low]** Admit a freeze-test hit only narrowly: name the landing, why the run cannot read it, and the change that makes it a new STOP; never waive the identity step
+- **[INC-0422 / low]** Check a scoped compiler diagnostic against the canonical build before calling it a defect; fix a scoped-config artifact in the retained config, not the repository
+- **[INC-0423 / low]** Keep the reviewer on the critical path on that path and reassign off-path reviews to another non-author
+- **[INC-0424 / low]** Before adding a relation to a shared collection, check what the collection holds and which referrer lists it joins; defer and record a gap if it does not fit
 
 ## Practices
 

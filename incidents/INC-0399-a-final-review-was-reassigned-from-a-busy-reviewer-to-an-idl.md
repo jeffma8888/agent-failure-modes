@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0392](./INC-0392-a-declaration-request-that-split-sourced-values-from-decisio.md) [INC-0385](./INC-0385-two-engineers-answered-the-same-stop-diagnosis-independently.md) [INC-0410](./INC-0410-the-lead-re-merged-the-full-candidate-itself-rather-than-que.md)
+[INC-0392](./INC-0392-a-declaration-request-that-split-sourced-values-from-decisio.md) [INC-0385](./INC-0385-two-engineers-answered-the-same-stop-diagnosis-independently.md) [INC-0410](./INC-0410-the-lead-re-merged-the-full-candidate-itself-rather-than-que.md) [INC-0423](./INC-0423-a-review-was-reassigned-off-the-critical-path-so-the-reviewe.md)

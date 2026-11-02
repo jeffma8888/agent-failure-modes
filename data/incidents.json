@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 420,
+  "count": 424,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -2168,7 +2168,8 @@
       "signature": "A test passes in a warm checkout and needs a database or path that the fresh lifecycle never creates.",
       "file": "incidents/INC-0110-a-cross-row-test-needed-setup-absent-from-its-own-lifecycle.md",
       "related": [
-        "INC-0087"
+        "INC-0087",
+        "INC-0422"
       ],
       "evidence": []
     },
@@ -3310,7 +3311,8 @@
       "signature": "Some negatives passed against the tip only.",
       "file": "incidents/INC-0173-a-ruling-widened-a-shared-valid-state-and-only-some-payloads.md",
       "related": [
-        "INC-0151"
+        "INC-0151",
+        "INC-0424"
       ],
       "evidence": []
     },
@@ -5597,7 +5599,8 @@
         "INC-0297",
         "INC-0286",
         "INC-0288",
-        "INC-0420"
+        "INC-0420",
+        "INC-0424"
       ],
       "evidence": []
     },
@@ -6351,7 +6354,8 @@
       "file": "incidents/INC-0335-a-pinned-base-digest-froze-a-file-that-a-later-row-split-nee.md",
       "related": [
         "INC-0326",
-        "INC-0122"
+        "INC-0122",
+        "INC-0421"
       ],
       "evidence": []
     },
@@ -6391,7 +6395,8 @@
       "related": [
         "INC-0201",
         "INC-0220",
-        "INC-0346"
+        "INC-0346",
+        "INC-0423"
       ],
       "evidence": []
     },
@@ -6494,7 +6499,8 @@
         "INC-0340",
         "INC-0256",
         "INC-0344",
-        "INC-0354"
+        "INC-0354",
+        "INC-0422"
       ],
       "evidence": []
     },
@@ -6532,7 +6538,8 @@
       "file": "incidents/INC-0344-focused-runs-after-a-refactor-hid-static-check-residue-until.md",
       "related": [
         "INC-0342",
-        "INC-0221"
+        "INC-0221",
+        "INC-0422"
       ],
       "evidence": []
     },
@@ -6848,7 +6855,8 @@
       "related": [
         "INC-0354",
         "INC-0256",
-        "INC-0356"
+        "INC-0356",
+        "INC-0421"
       ],
       "evidence": []
     },
@@ -7643,7 +7651,8 @@
       "related": [
         "INC-0392",
         "INC-0385",
-        "INC-0410"
+        "INC-0410",
+        "INC-0423"
       ],
       "evidence": []
     },
@@ -8028,6 +8037,79 @@
       "file": "incidents/INC-0420-a-reviewer-finding-moved-a-hook-registration-owner-twice-in.md",
       "related": [
         "INC-0149",
+        "INC-0298"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0421",
+      "title": "A closure packet freeze test turned positive on a control-only landing and the lead admitted it narrowly",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Admit a freeze-test hit only narrowly: name the landing, why the run cannot read it, and the change that makes it a new STOP; never waive the identity step",
+      "signature": "A freeze test reported a change that the guarded run could not read.",
+      "file": "incidents/INC-0421-a-closure-packet-freeze-test-turned-positive-on-a-control-on.md",
+      "related": [
+        "INC-0335",
+        "INC-0359"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0422",
+      "title": "A scoped compiler config flagged an import style that the canonical build never compiles",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Check a scoped compiler diagnostic against the canonical build before calling it a defect; fix a scoped-config artifact in the retained config, not the repository",
+      "signature": "A scoped compile failed on a file the canonical build does not compile.",
+      "file": "incidents/INC-0422-a-scoped-compiler-config-flagged-an-import-style-that-the-ca.md",
+      "related": [
+        "INC-0342",
+        "INC-0344",
+        "INC-0110"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0423",
+      "title": "A review was reassigned off the critical path so the reviewer who owned the blocking recheck stayed on it",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Keep the reviewer on the critical path on that path and reassign off-path reviews to another non-author",
+      "signature": "One reviewer held two reviews while a blocking recheck waited.",
+      "file": "incidents/INC-0423-a-review-was-reassigned-off-the-critical-path-so-the-reviewe.md",
+      "related": [
+        "INC-0399",
+        "INC-0337"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0424",
+      "title": "A captions upload relation in a spec would have added a media referrer to a collection defined as image-only",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Before adding a relation to a shared collection, check what the collection holds and which referrer lists it joins; defer and record a gap if it does not fit",
+      "signature": "A relation targeted a collection that does not accept its content.",
+      "file": "incidents/INC-0424-a-captions-upload-relation-in-a-spec-would-have-added-a-medi.md",
+      "related": [
+        "INC-0173",
         "INC-0298"
       ],
       "evidence": []

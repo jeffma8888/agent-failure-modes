@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0342](./INC-0342-a-shortcut-launcher-lacked-the-protection-the-canonical-entr.md) [INC-0221](./INC-0221-a-performance-refactor-was-checked-only-on-the-real-tree.md)
+[INC-0342](./INC-0342-a-shortcut-launcher-lacked-the-protection-the-canonical-entr.md) [INC-0221](./INC-0221-a-performance-refactor-was-checked-only-on-the-real-tree.md) [INC-0422](./INC-0422-a-scoped-compiler-config-flagged-an-import-style-that-the-ca.md)

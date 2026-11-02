@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0354](./INC-0354-gating-by-an-environment-variable-leaked-into-nested-runners.md) [INC-0256](./INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md) [INC-0356](./INC-0356-a-reviewed-recipe-never-ran-its-real-tool-queries-because-ev.md)
+[INC-0354](./INC-0354-gating-by-an-environment-variable-leaked-into-nested-runners.md) [INC-0256](./INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md) [INC-0356](./INC-0356-a-reviewed-recipe-never-ran-its-real-tool-queries-because-ev.md) [INC-0421](./INC-0421-a-closure-packet-freeze-test-turned-positive-on-a-control-on.md)

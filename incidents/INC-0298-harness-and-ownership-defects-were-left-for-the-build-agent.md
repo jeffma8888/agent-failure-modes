@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0289](./INC-0289-a-passing-identity-check-was-taken-as-agreement-with-the-sig.md) [INC-0297](./INC-0297-a-test-needed-a-second-account-that-the-minimal-seed-did-not.md) [INC-0286](./INC-0286-fix-module-resolution-once-at-the-root-not-per-test.md) [INC-0288](./INC-0288-verify-a-worktree-can-run-the-required-checks-before-assigni.md) [INC-0420](./INC-0420-a-reviewer-finding-moved-a-hook-registration-owner-twice-in.md)
+[INC-0289](./INC-0289-a-passing-identity-check-was-taken-as-agreement-with-the-sig.md) [INC-0297](./INC-0297-a-test-needed-a-second-account-that-the-minimal-seed-did-not.md) [INC-0286](./INC-0286-fix-module-resolution-once-at-the-root-not-per-test.md) [INC-0288](./INC-0288-verify-a-worktree-can-run-the-required-checks-before-assigni.md) [INC-0420](./INC-0420-a-reviewer-finding-moved-a-hook-registration-owner-twice-in.md) [INC-0424](./INC-0424-a-captions-upload-relation-in-a-spec-would-have-added-a-medi.md)
