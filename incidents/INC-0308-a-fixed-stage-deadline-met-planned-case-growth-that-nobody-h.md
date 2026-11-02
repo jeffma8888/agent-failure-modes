@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0209](./INC-0209-a-full-step-deadline-was-shorter-than-the-measured-stage-tim.md) [INC-0290](./INC-0290-a-setup-hook-was-sized-from-file-time-or-from-a-refused-atte.md) [INC-0291](./INC-0291-a-known-unrelated-load-timeout-blocked-a-row-until-one-combi.md)
+[INC-0209](./INC-0209-a-full-step-deadline-was-shorter-than-the-measured-stage-tim.md) [INC-0290](./INC-0290-a-setup-hook-was-sized-from-file-time-or-from-a-refused-atte.md) [INC-0291](./INC-0291-a-known-unrelated-load-timeout-blocked-a-row-until-one-combi.md) [INC-0312](./INC-0312-a-whole-stage-was-divided-by-a-parallel-speedup-although-par.md)

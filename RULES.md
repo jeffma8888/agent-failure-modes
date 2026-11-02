@@ -299,6 +299,12 @@ One rule per incident, ordered by severity then id.
 - **[INC-0308 / medium]** When an acceptance checklist adds cases to a bounded stage, project the stage time per rung and decide who re-measures before the load, not after the first timeout
 - **[INC-0309 / medium]** Read a tool's usage line before a destructive mode, even your own tool; keep destructive steps in tools that verify the kind of each argument
 - **[INC-0310 / medium]** Key coverage ledgers on the exact bytes executed, from any report, not on report names
+- **[INC-0311 / medium]** Before re-routing tests between groups, list every caller that selects the group by name and prove each still selects the same files
+- **[INC-0312 / medium]** Model a parallelised stage as serial work plus parallel makespan plus new cold starts, never as total time over N
+- **[INC-0313 / medium]** A test that creates shared resources goes in a serial group with no concurrent inventory reader; a focused single-file run is not evidence of isolation
+- **[INC-0314 / medium]** Add a positive control that goes green on current code before trusting a red from new probe machinery
+- **[INC-0315 / medium]** A static tool's PASS is labeled as static and anchored to recorded hashes; it never stands in for runtime or acceptance
+- **[INC-0316 / medium]** Verify copied trees with a manifest that does not follow symlinks; fixtures point symlinks at fixture-owned targets
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

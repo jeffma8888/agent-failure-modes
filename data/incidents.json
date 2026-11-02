@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 310,
+  "count": 316,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5720,7 +5720,8 @@
       "related": [
         "INC-0209",
         "INC-0290",
-        "INC-0291"
+        "INC-0291",
+        "INC-0312"
       ],
       "evidence": []
     },
@@ -5763,6 +5764,120 @@
         "INC-0234",
         "INC-0284",
         "INC-0283"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0311",
+      "title": "Moving tests into a new group silently dropped them from callers that select the old group by name",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Before re-routing tests between groups, list every caller that selects the group by name and prove each still selects the same files",
+      "signature": "A proposed move would have made every selector that names the old group omit the moved files.",
+      "file": "incidents/INC-0311-moving-tests-into-a-new-group-silently-dropped-them-from-cal.md",
+      "related": [
+        "INC-0132",
+        "INC-0173"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0312",
+      "title": "A whole stage was divided by a parallel speedup although part of it had to stay serial",
+      "date": "2026-11-01",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Model a parallelised stage as serial work plus parallel makespan plus new cold starts, never as total time over N",
+      "signature": "A projected stage time divided the serial files by the speedup too.",
+      "file": "incidents/INC-0312-a-whole-stage-was-divided-by-a-parallel-speedup-although-par.md",
+      "related": [
+        "INC-0308",
+        "INC-0209"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0313",
+      "title": "Tests in a parallel group raced a test that drops the shared inventory",
+      "date": "2026-11-01",
+      "classes": [
+        "concurrency",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A test that creates shared resources goes in a serial group with no concurrent inventory reader; a focused single-file run is not evidence of isolation",
+      "signature": "A single-file run passed or failed alone while the full parallel run could race.",
+      "file": "incidents/INC-0313-tests-in-a-parallel-group-raced-a-test-that-drops-the-shared.md",
+      "related": [
+        "INC-0132",
+        "INC-0305"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0314",
+      "title": "A probe-based test never ran its probe, so its red proved nothing about the probe",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Add a positive control that goes green on current code before trusting a red from new probe machinery",
+      "signature": "The test was red on the feature assertion without the probe ever executing.",
+      "file": "incidents/INC-0314-a-probe-based-test-never-ran-its-probe-so-its-red-proved-not.md",
+      "related": [
+        "INC-0082",
+        "INC-0095"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0315",
+      "title": "A static checker's PASS was read as acceptance without an anchored baseline",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A static tool's PASS is labeled as static and anchored to recorded hashes; it never stands in for runtime or acceptance",
+      "signature": "An identity PASS appeared with no recorded hash behind the supplied baseline.",
+      "file": "incidents/INC-0315-a-static-checker-s-pass-was-read-as-acceptance-without-an-an.md",
+      "related": [
+        "INC-0289",
+        "INC-0193"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0316",
+      "title": "A recursive diff of a copied tree followed fixture symlinks into the host",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Verify copied trees with a manifest that does not follow symlinks; fixtures point symlinks at fixture-owned targets",
+      "signature": "A copy check wandered outside the copied tree and hit sockets and pipes.",
+      "file": "incidents/INC-0316-a-recursive-diff-of-a-copied-tree-followed-fixture-symlinks.md",
+      "related": [
+        "INC-0293",
+        "INC-0295"
       ],
       "evidence": []
     }
