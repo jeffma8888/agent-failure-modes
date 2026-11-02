@@ -41,4 +41,4 @@ Two reviewers independently caught it by converting the units. The revised plan 
 
 ## Related
 
-[INC-0002](./INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0003](./INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md)
+[INC-0002](./INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) [INC-0003](./INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md) [INC-0352](./INC-0352-a-transport-size-limit-and-a-full-identity-requirement-were.md)

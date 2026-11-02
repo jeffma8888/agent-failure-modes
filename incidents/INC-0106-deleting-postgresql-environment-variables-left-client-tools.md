@@ -38,3 +38,7 @@ Checked by the engineer, reviewer or lead who reported it. Not checked: whether 
 ## Transferable rule
 
 > Pin the target explicitly; do not rely on removing the alternatives.
+
+## Related
+
+[INC-0354](./INC-0354-gating-by-an-environment-variable-leaked-into-nested-runners.md)

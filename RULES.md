@@ -338,6 +338,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0347 / medium]** In a wrapper, save the exit status on the very next line and end with an explicit exit of it; prove a nonzero child makes the wrapper nonzero
 - **[INC-0348 / medium]** When a rule demands margin k, the budget is the deadline divided by k; track the slowest sample against that, not the deadline
 - **[INC-0349 / medium]** A digest proves which bytes you meant, not that you can still run them; keep every reviewed revision's bytes until the fix lands
+- **[INC-0352 / medium]** When a transport limit and a completeness requirement meet, specify the framing and reconstruction, and test with long and non-ASCII identities
+- **[INC-0353 / medium]** Put the authorization point before the first event that must carry the identity, and test the forged-object negative
+- **[INC-0354 / medium]** Never treat an inherited environment variable as authority; bind it to the process that was authorized
+- **[INC-0355 / medium]** When a spec sets a global bound, check the existing per-item loop arithmetic; sequential waits add up
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

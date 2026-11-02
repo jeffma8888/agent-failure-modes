@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0340](./INC-0340-a-fixture-that-linked-the-host-dependency-tree-let-the-packa.md) [INC-0256](./INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md) [INC-0344](./INC-0344-focused-runs-after-a-refactor-hid-static-check-residue-until.md)
+[INC-0340](./INC-0340-a-fixture-that-linked-the-host-dependency-tree-let-the-packa.md) [INC-0256](./INC-0256-evidence-commands-ran-on-a-shimmed-runtime-instead-of-the-pi.md) [INC-0344](./INC-0344-focused-runs-after-a-refactor-hid-static-check-residue-until.md) [INC-0354](./INC-0354-gating-by-an-environment-variable-leaked-into-nested-runners.md)

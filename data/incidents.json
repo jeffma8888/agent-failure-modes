@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 351,
+  "count": 355,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1473,7 +1473,8 @@
       "file": "incidents/INC-0071-a-plan-claimed-minutes-denominated-stage-times-fit-inside-a.md",
       "related": [
         "INC-0002",
-        "INC-0003"
+        "INC-0003",
+        "INC-0352"
       ],
       "evidence": []
     },
@@ -2073,7 +2074,9 @@
       "rule": "Pin the target explicitly; do not rely on removing the alternatives.",
       "signature": "A test clears PG variables to avoid the shared cluster, and a client tool uses its defaults.",
       "file": "incidents/INC-0106-deleting-postgresql-environment-variables-left-client-tools.md",
-      "related": [],
+      "related": [
+        "INC-0354"
+      ],
       "evidence": []
     },
     {
@@ -4530,7 +4533,9 @@
       "signature": "The missing binding was not declared anywhere.",
       "file": "incidents/INC-0243-a-proposed-subject-was-treated-as-if-its-seam-were-declared.md",
       "related": [
-        "INC-0242"
+        "INC-0242",
+        "INC-0352",
+        "INC-0353"
       ],
       "evidence": []
     },
@@ -5712,7 +5717,8 @@
         "INC-0256",
         "INC-0257",
         "INC-0305",
-        "INC-0320"
+        "INC-0320",
+        "INC-0354"
       ],
       "evidence": []
     },
@@ -5735,7 +5741,8 @@
         "INC-0291",
         "INC-0312",
         "INC-0333",
-        "INC-0348"
+        "INC-0348",
+        "INC-0355"
       ],
       "evidence": []
     },
@@ -5820,7 +5827,8 @@
         "INC-0209",
         "INC-0230",
         "INC-0345",
-        "INC-0333"
+        "INC-0333",
+        "INC-0355"
       ],
       "evidence": []
     },
@@ -6415,7 +6423,8 @@
       "related": [
         "INC-0340",
         "INC-0256",
-        "INC-0344"
+        "INC-0344",
+        "INC-0354"
       ],
       "evidence": []
     },
@@ -6532,7 +6541,8 @@
       "related": [
         "INC-0345",
         "INC-0209",
-        "INC-0308"
+        "INC-0308",
+        "INC-0355"
       ],
       "evidence": []
     },
@@ -6591,6 +6601,87 @@
         "INC-0316",
         "INC-0340",
         "INC-0119"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0352",
+      "title": "A transport size limit and a full-identity requirement were specified for the same record with no framing",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a transport limit and a completeness requirement meet, specify the framing and reconstruction, and test with long and non-ASCII identities",
+      "signature": "A timing spec required every record to fit 512 bytes and to carry full file and case identity, and a long path could not satisfy both.",
+      "file": "incidents/INC-0352-a-transport-size-limit-and-a-full-identity-requirement-were.md",
+      "related": [
+        "INC-0071",
+        "INC-0243",
+        "INC-0353"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0353",
+      "title": "An authorization point was placed after the first event that needs the identity",
+      "date": "2026-11-01",
+      "classes": [
+        "spec-and-scope",
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Put the authorization point before the first event that must carry the identity, and test the forged-object negative",
+      "signature": "A spec required records that happen before the authorization point to carry an identity that did not exist until after it.",
+      "file": "incidents/INC-0353-an-authorization-point-was-placed-after-the-first-event-that.md",
+      "related": [
+        "INC-0243",
+        "INC-0352",
+        "INC-0354"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0354",
+      "title": "Gating by an environment variable leaked into nested runners that copy the environment",
+      "date": "2026-11-01",
+      "classes": [
+        "ipc-and-env",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Never treat an inherited environment variable as authority; bind it to the process that was authorized",
+      "signature": "A spec claimed a feature was inert in nested children, but a nested helper copied the whole environment and started a fresh runner directly.",
+      "file": "incidents/INC-0354-gating-by-an-environment-variable-leaked-into-nested-runners.md",
+      "related": [
+        "INC-0106",
+        "INC-0307",
+        "INC-0342",
+        "INC-0353"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0355",
+      "title": "Per-item sequential timeouts could not meet a global deadline stated in the spec",
+      "date": "2026-11-01",
+      "classes": [
+        "stage-timeout",
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "When a spec sets a global bound, check the existing per-item loop arithmetic; sequential waits add up",
+      "signature": "A spec required all process groups reaped within 10 s while the harness stopped them one after another, about 10 s each.",
+      "file": "incidents/INC-0355-per-item-sequential-timeouts-could-not-meet-a-global-deadlin.md",
+      "related": [
+        "INC-0348",
+        "INC-0312",
+        "INC-0308"
       ],
       "evidence": []
     }

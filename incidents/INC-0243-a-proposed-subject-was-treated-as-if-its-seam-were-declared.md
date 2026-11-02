@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0242](./INC-0242-four-of-five-test-authors-stopped-at-the-same-undeclared-sea.md)
+[INC-0242](./INC-0242-four-of-five-test-authors-stopped-at-the-same-undeclared-sea.md) [INC-0352](./INC-0352-a-transport-size-limit-and-a-full-identity-requirement-were.md) [INC-0353](./INC-0353-an-authorization-point-was-placed-after-the-first-event-that.md)
