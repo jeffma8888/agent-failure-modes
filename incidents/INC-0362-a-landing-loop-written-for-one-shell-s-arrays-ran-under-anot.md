@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0165](./INC-0165-a-shell-variable-followed-by-a-colon-and-a-letter-became-a-h.md) [INC-0248](./INC-0248-the-env-script-could-not-be-sourced-in-zsh.md) [INC-0357](./INC-0357-a-landing-helper-piped-a-guarded-commit-into-a-formatter-so.md)
+[INC-0165](./INC-0165-a-shell-variable-followed-by-a-colon-and-a-letter-became-a-h.md) [INC-0248](./INC-0248-the-env-script-could-not-be-sourced-in-zsh.md) [INC-0357](./INC-0357-a-landing-helper-piped-a-guarded-commit-into-a-formatter-so.md) [INC-0364](./INC-0364-a-hand-written-landing-chain-swallowed-a-failed-post-commit.md)

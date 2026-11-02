@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 363,
+  "count": 364,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5656,7 +5656,8 @@
       "file": "incidents/INC-0303-a-guard-added-to-a-test-tool-broke-the-check-under-test.md",
       "related": [
         "INC-0275",
-        "INC-0282"
+        "INC-0282",
+        "INC-0364"
       ],
       "evidence": []
     },
@@ -6750,7 +6751,8 @@
         "INC-0280",
         "INC-0162",
         "INC-0254",
-        "INC-0362"
+        "INC-0362",
+        "INC-0364"
       ],
       "evidence": []
     },
@@ -6850,7 +6852,8 @@
       "related": [
         "INC-0165",
         "INC-0248",
-        "INC-0357"
+        "INC-0357",
+        "INC-0364"
       ],
       "evidence": []
     },
@@ -6871,6 +6874,26 @@
         "INC-0083",
         "INC-0318",
         "INC-0320"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0364",
+      "title": "A hand-written landing chain swallowed a failed post-commit leak scan and three commits landed on top",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Print the exit status of every commit and check step explicitly (never only on success), run the range leak scan before landing anything on top of a new commit, and use the guarded landing helper, not an ad-hoc chain",
+      "signature": "A landing step printed nothing and the chain moved on, although the script it ran had exited non-zero.",
+      "file": "incidents/INC-0364-a-hand-written-landing-chain-swallowed-a-failed-post-commit.md",
+      "related": [
+        "INC-0357",
+        "INC-0362",
+        "INC-0303"
       ],
       "evidence": []
     }

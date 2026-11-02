@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0275](./INC-0275-a-probe-that-sends-a-session-cookie-alone-may-test-guest-beh.md) [INC-0282](./INC-0282-a-test-that-claims-a-role-must-prove-the-role-before-relying.md)
+[INC-0275](./INC-0275-a-probe-that-sends-a-session-cookie-alone-may-test-guest-beh.md) [INC-0282](./INC-0282-a-test-that-claims-a-role-must-prove-the-role-before-relying.md) [INC-0364](./INC-0364-a-hand-written-landing-chain-swallowed-a-failed-post-commit.md)
