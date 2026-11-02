@@ -370,6 +370,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0505 / medium]** A test that exercises an option goes through the real entry point and asserts an observable effect that differs with and without the option; exit 0 and side markers are not evidence the option took effect.
 - **[INC-0506 / medium]** When two fields can claim one state, derive one from the other or assert both in the same test, and write through the framework supported transition.
 - **[INC-0507 / medium]** Define independence per agent instance, and name which artifacts block (wrote the test or judged its cases) and which only need disclosure (inventories, citation audits).
+- **[INC-0512 / medium]** When load is spiky, admit by waiting for the gate with a bounded timeout and a printed admitting reading, not by one reading at launch.
+- **[INC-0513 / medium]** Before activating a root, confirm on current main that it is still the terminal of its supersession chain; run the identity check after merging main into the branch, not only before.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -516,6 +518,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0504 / low]** Scan every commit of a range, not only the final tree, before merging anything that will be pushed; a scrub in a later commit does not clean history.
 - **[INC-0508 / low]** Pick each step load threshold by whether its result depends on timing; a build that only gets slower uses the looser class.
 - **[INC-0509 / low]** Report a run as running only from its own output (a launch line, a PID that exists); a started task is not a started run.
+- **[INC-0510 / low]** A mutation run keeps a receipt per mutant, the diff and the hash after restore, as a file before the scratch copy is deleted; tool output is not evidence a second reviewer can check.
+- **[INC-0511 / low]** A test must not assert on state it did not create; compare only the names the test itself made.
 
 ## Practices
 

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 509,
+  "count": 513,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9780,6 +9780,78 @@
       "file": "incidents/INC-0509-an-agent-reported-a-background-run-as-running-from-its-launc.md",
       "related": [
         "INC-0490"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0510",
+      "title": "Mutation restore receipts were kept only in tool output, so two independent reviewers could not verify restoration",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A mutation run keeps a receipt per mutant, the diff and the hash after restore, as a file before the scratch copy is deleted; tool output is not evidence a second reviewer can check.",
+      "signature": "A reviewer asks for proof that a mutated file was restored, and the only record is output that was not saved.",
+      "file": "incidents/INC-0510-mutation-restore-receipts-were-kept-only-in-tool-output-so-t.md",
+      "related": [
+        "INC-0476",
+        "INC-0126"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0511",
+      "title": "A harness test failed because another run's orphan database vanished mid-test, so the test depended on state it did not own",
+      "date": "2026-11-02",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A test must not assert on state it did not create; compare only the names the test itself made.",
+      "signature": "A cleanliness assertion over a shared server sees a resource disappear between its baseline and its end.",
+      "file": "incidents/INC-0511-a-harness-test-failed-because-another-run-s-orphan-database.md",
+      "related": [
+        "INC-0361",
+        "INC-0436"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0512",
+      "title": "Read-once-and-refuse load admission stopped whole teammate cycles while load spiked and fell within a minute",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When load is spiky, admit by waiting for the gate with a bounded timeout and a printed admitting reading, not by one reading at launch.",
+      "signature": "A launch is refused on one load reading, and the next reading a minute later would have admitted it.",
+      "file": "incidents/INC-0512-read-once-and-refuse-load-admission-stopped-whole-teammate-c.md",
+      "related": [
+        "INC-0500",
+        "INC-0465"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0513",
+      "title": "An activation moved a superseded root's spec while main carried the approved successor edge, and identity failed only after the merge",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Before activating a root, confirm on current main that it is still the terminal of its supersession chain; run the identity check after merging main into the branch, not only before.",
+      "signature": "An identity check reports a missing deletion of a pending copy after a branch merges a main that supersedes the activated revision.",
+      "file": "incidents/INC-0513-an-activation-moved-a-superseded-root-s-spec-while-main-carr.md",
+      "related": [
+        "INC-0473",
+        "INC-0284"
       ],
       "evidence": []
     }
