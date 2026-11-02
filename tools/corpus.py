@@ -8288,6 +8288,23 @@ _BATCH20: list[dict] = [
         "rule": 'Before ordering a test edit, check whether the file is pinned by a QA identity manifest; if it is, route the change through a successor root authored by a QA identity, not an engineer edit.',
         "related": ['INC-0377', 'INC-0403', 'INC-0161'],
     },
+    {
+        "id": "INC-0474",
+        "title": 'A range whitespace check exited 2 on generated migration SQL, while the worktree only form had exited 0 earlier',
+        "date": "2026-11-02",
+        "classes": ['false-green'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Minor: caught before the merge; the earlier exit 0 had been read as range proof.",
+        "signature": 'A worktree only check passed where the branch range check failed.',
+        "what": 'A static whitespace check over the branch range exited 2 on a generated migration file, while the worktree only form had exited 0 earlier, so that earlier result was not range proof. The same class of generator output was already on the main branch in two older migration files.',
+        "root_cause": 'The worktree only form does not read committed changes in the range, so it could not see the generated file.',
+        "why_hard": 'Both forms are the same command with different scope, and an exit 0 looks like a pass for the whole branch.',
+        "fix": 'Run the check over the whole branch range, exclude generator output by path, never reformat generated SQL, and keep every other path clean; the range check must exit 0 with that exclusion.',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'A worktree only whitespace check is not range proof; run the check over the branch range, exclude generator output by path, never reformat it, and keep every other path clean.',
+        "related": ['INC-0426'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

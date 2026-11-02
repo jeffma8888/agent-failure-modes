@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 473,
+  "count": 474,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9140,6 +9140,23 @@
         "INC-0377",
         "INC-0403",
         "INC-0161"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0474",
+      "title": "A range whitespace check exited 2 on generated migration SQL, while the worktree only form had exited 0 earlier",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A worktree only whitespace check is not range proof; run the check over the branch range, exclude generator output by path, never reformat it, and keep every other path clean.",
+      "signature": "A worktree only check passed where the branch range check failed.",
+      "file": "incidents/INC-0474-a-range-whitespace-check-exited-2-on-generated-migration-sql.md",
+      "related": [
+        "INC-0426"
       ],
       "evidence": []
     }
