@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 504,
+  "count": 506,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9692,6 +9692,41 @@
       "related": [
         "INC-0437",
         "INC-0436"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0505",
+      "title": "A run command silently dropped a named option, and three tests that ran it asserted only things that are true for the full data set too",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A test that exercises an option goes through the real entry point and asserts an observable effect that differs with and without the option; exit 0 and side markers are not evidence the option took effect.",
+      "signature": "A test runs a command with an option and asserts exit status, timing and a side marker, all of which hold with or without the option.",
+      "file": "incidents/INC-0505-a-run-command-silently-dropped-a-named-option-and-three-test.md",
+      "related": [
+        "INC-0372",
+        "INC-0497"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0506",
+      "title": "Two fields claimed the same publication state, and the seed wrote only one, so the admin and the public predicate disagreed",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When two fields can claim one state, derive one from the other or assert both in the same test, and write through the framework supported transition.",
+      "signature": "An application status says published and the framework draft status says draft for the same record.",
+      "file": "incidents/INC-0506-two-fields-claimed-the-same-publication-state-and-the-seed-w.md",
+      "related": [
+        "INC-0448"
       ],
       "evidence": []
     }

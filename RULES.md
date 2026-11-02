@@ -367,6 +367,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0498 / medium]** A config that lists a column or a field is not evidence that the page shows it or works offline; only a browser run on the real page is.
 - **[INC-0499 / medium]** When one instance of a defect class appears, audit for the whole class before fixing only the instance.
 - **[INC-0500 / medium]** Size an admission gate to the class of run it protects, and find what is actually producing the load before tightening or waiting on it.
+- **[INC-0505 / medium]** A test that exercises an option goes through the real entry point and asserts an observable effect that differs with and without the option; exit 0 and side markers are not evidence the option took effect.
+- **[INC-0506 / medium]** When two fields can claim one state, derive one from the other or assert both in the same test, and write through the framework supported transition.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
