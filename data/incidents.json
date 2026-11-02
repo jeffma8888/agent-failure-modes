@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 479,
+  "count": 480,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9247,6 +9247,25 @@
       "related": [
         "INC-0238",
         "INC-0364"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0480",
+      "title": "A push gate that piped the test run into a trimming command would have pushed even if the tests had failed",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Never pipe a gating command; capture its exit status first, by pipefail or by writing to a file and checking the status before reading the file.",
+      "signature": "A gating command was piped, so the gate read the last command status.",
+      "file": "incidents/INC-0480-a-push-gate-that-piped-the-test-run-into-a-trimming-command.md",
+      "related": [
+        "INC-0357",
+        "INC-0347",
+        "INC-0389"
       ],
       "evidence": []
     }

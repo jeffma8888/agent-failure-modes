@@ -8390,6 +8390,23 @@ _BATCH20: list[dict] = [
         "rule": 'Gate a push on a scan of an export of the tracked tree; a scan of the working directory blocks on files that never ship.',
         "related": ['INC-0238', 'INC-0364'],
     },
+    {
+        "id": "INC-0480",
+        "title": 'A push gate that piped the test run into a trimming command would have pushed even if the tests had failed',
+        "date": "2026-11-02",
+        "classes": ['false-green'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "None: the tests happened to pass, so nothing bad shipped; the gate was simply not a gate.",
+        "signature": 'A gating command was piped, so the gate read the last command status.',
+        "what": 'A push gate was written as run the tests, pipe the output to a trimming command, and push on success. The exit status of a pipeline is the last command status, so the trimming command succeeding would have let the push run even if the tests failed. The tests passed, so nothing bad shipped.',
+        "root_cause": 'The pipeline reported the status of the last command, not of the tests.',
+        "why_hard": 'The command line reads naturally and passes every time the tests pass, so the gap shows only on a failing run.',
+        "fix": 'Never pipe a gating command; capture its exit status first, with the pipefail option, or by writing the output to a file, checking the status, and then reading the file.',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'Never pipe a gating command; capture its exit status first, by pipefail or by writing to a file and checking the status before reading the file.',
+        "related": ['INC-0357', 'INC-0347', 'INC-0389'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

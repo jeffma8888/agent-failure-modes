@@ -486,6 +486,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0477 / low]** When a fix moves a failure later in a test, treat every newly reached step as never verified; a green earlier step proves only that step.
 - **[INC-0478 / low]** A blocking guard logs the API name, the full arguments and a stack trace on the first run, so one run is enough to classify the target.
 - **[INC-0479 / low]** Gate a push on a scan of an export of the tracked tree; a scan of the working directory blocks on files that never ship.
+- **[INC-0480 / low]** Never pipe a gating command; capture its exit status first, by pipefail or by writing to a file and checking the status before reading the file.
 
 ## Practices
 
