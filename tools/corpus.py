@@ -5549,7 +5549,7 @@ _BATCH20: list[dict] = [
         "fix": 'Model the new time as serial work plus parallel makespan plus new cold starts, and state the serial floor',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Model a parallelised stage as serial work plus parallel makespan plus new cold starts, never as total time over N',
-        "related": ['INC-0308', 'INC-0209', 'INC-0230'],
+        "related": ['INC-0308', 'INC-0209', 'INC-0230', 'INC-0345'],
     },
     {
         "id": "INC-0313",
@@ -6008,7 +6008,7 @@ _BATCH20: list[dict] = [
         "fix": 'Ask for both: a behavioural mutant of the shared code that goes red at the intended assertion, and a real-resource witness with controlled fault injection and end-state checks',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'A helper mutant proves the test can see the bug; a real-resource witness proves the resource ends in the right state; when both are claimed, require both',
-        "related": ['INC-0314', 'INC-0083'],
+        "related": ['INC-0314', 'INC-0083', 'INC-0343'],
     },
     {
         "id": "INC-0340",
@@ -6025,7 +6025,7 @@ _BATCH20: list[dict] = [
         "fix": 'Restore offline from the frozen lockfile, stop running the tier until the fixture is hermetic, and fix the payload through a pending root',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": "Never link a writable host dependency tree into a fixture that runs the package manager; if unavoidable, turn auto-install off explicitly in the fixture environment and add a guard that fails when the host tree's listing changes",
-        "related": ['INC-0316', 'INC-0257'],
+        "related": ['INC-0316', 'INC-0257', 'INC-0342'],
     },
     {
         "id": "INC-0341",
@@ -6063,7 +6063,7 @@ _BATCH20: list[dict] = [
     },
     {
         "id": "INC-0343",
-        "title": 'A surviving mutant named a missing contract cell',
+        "title": 'A weakened final check survived a contract suite that lacked the right-signal, wrong-detail case',
         "date": "2026-11-01",
         "classes": ['false-green', 'detector-fail-open'],
         "severity": "medium",

@@ -5802,7 +5802,8 @@
       "related": [
         "INC-0308",
         "INC-0209",
-        "INC-0230"
+        "INC-0230",
+        "INC-0345"
       ],
       "evidence": []
     },
@@ -6321,7 +6322,8 @@
       "file": "incidents/INC-0339-a-mutant-of-a-shared-helper-proved-sensitivity-but-not-the-r.md",
       "related": [
         "INC-0314",
-        "INC-0083"
+        "INC-0083",
+        "INC-0343"
       ],
       "evidence": []
     },
@@ -6340,7 +6342,8 @@
       "file": "incidents/INC-0340-a-fixture-that-linked-the-host-dependency-tree-let-the-packa.md",
       "related": [
         "INC-0316",
-        "INC-0257"
+        "INC-0257",
+        "INC-0342"
       ],
       "evidence": []
     },
@@ -6384,7 +6387,7 @@
     },
     {
       "id": "INC-0343",
-      "title": "A surviving mutant named a missing contract cell",
+      "title": "A weakened final check survived a contract suite that lacked the right-signal, wrong-detail case",
       "date": "2026-11-01",
       "classes": [
         "false-green",
@@ -6394,7 +6397,7 @@
       "status": "fixed",
       "rule": "When a mutant survives, add the cell where the coarse signal is right and the checked detail is wrong, and rerun the mutant to prove the cell kills it",
       "signature": "Weakening a final title check survived an offline response-contract suite because no case left the title wrong while the status looked right.",
-      "file": "incidents/INC-0343-a-surviving-mutant-named-a-missing-contract-cell.md",
+      "file": "incidents/INC-0343-a-weakened-final-check-survived-a-contract-suite-that-lacked.md",
       "related": [
         "INC-0314",
         "INC-0339"

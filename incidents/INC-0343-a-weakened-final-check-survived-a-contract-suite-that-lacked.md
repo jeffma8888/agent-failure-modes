@@ -1,13 +1,13 @@
 ---
 id: INC-0343
-title: A surviving mutant named a missing contract cell
+title: A weakened final check survived a contract suite that lacked the right-signal, wrong-detail case
 date: 2026-11-01
 classes: [false-green, detector-fail-open]
 severity: medium
 status: fixed
 ---
 
-# INC-0343 - A surviving mutant named a missing contract cell
+# INC-0343 - A weakened final check survived a contract suite that lacked the right-signal, wrong-detail case
 
 **Cost:** Minor: caught before it shipped.
 

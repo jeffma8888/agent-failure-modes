@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0316](./INC-0316-a-recursive-diff-of-a-copied-tree-followed-fixture-symlinks.md) [INC-0257](./INC-0257-moving-the-home-directory-broke-a-launch-that-found-its-cach.md)
+[INC-0316](./INC-0316-a-recursive-diff-of-a-copied-tree-followed-fixture-symlinks.md) [INC-0257](./INC-0257-moving-the-home-directory-broke-a-launch-that-found-its-cach.md) [INC-0342](./INC-0342-a-shortcut-launcher-lacked-the-protection-the-canonical-entr.md)

@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0314](./INC-0314-a-probe-based-test-never-ran-its-probe-so-its-red-proved-not.md) [INC-0083](./INC-0083-controls-that-fail-in-only-one-direction-a-drop-guard-keyed.md)
+[INC-0314](./INC-0314-a-probe-based-test-never-ran-its-probe-so-its-red-proved-not.md) [INC-0083](./INC-0083-controls-that-fail-in-only-one-direction-a-drop-guard-keyed.md) [INC-0343](./INC-0343-a-weakened-final-check-survived-a-contract-suite-that-lacked.md)
