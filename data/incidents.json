@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 521,
+  "count": 525,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9990,6 +9990,78 @@
       "related": [
         "INC-0427",
         "INC-0500"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0522",
+      "title": "A helper script was edited in place while another process was executing it, and that run died with a syntax error at a shifted line",
+      "date": "2026-11-02",
+      "classes": [
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Never rewrite a script in place while any process may run it; write a new file and switch names, and quote the helper hash in the evidence that used it.",
+      "signature": "A script that other threads run is rewritten in place, and a running shell fails at a line number that no longer matches.",
+      "file": "incidents/INC-0522-a-helper-script-was-edited-in-place-while-another-process-wa.md",
+      "related": [
+        "INC-0518",
+        "INC-0497"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0523",
+      "title": "Three test roots by three authors used the same guessed locator for a generated field that the installed library does not render",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Do not guess a locator for a generated field; cite the installed source line that renders it, and when one guess is found, audit every root for the same guess.",
+      "signature": "Several browser tests scope a generated field by a role or label that its library never renders.",
+      "file": "incidents/INC-0523-three-test-roots-by-three-authors-used-the-same-guessed-loca.md",
+      "related": [
+        "INC-0499",
+        "INC-0506"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0524",
+      "title": "A root named a mutation its assertions could not see, because the next line returned the same status",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A mutation named as a case witness must be one the assertions can see; trace what the next line returns before naming it, and state the expected red line.",
+      "signature": "The named mutation is removed, and the case still passes because a later line refuses the same way.",
+      "file": "incidents/INC-0524-a-root-named-a-mutation-its-assertions-could-not-see-because.md",
+      "related": [
+        "INC-0476",
+        "INC-0510"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0525",
+      "title": "A feedback check accepted any visible alert on the page, so a stale alert could satisfy it",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A feedback assertion must fail without the action under test: assert the element is absent before the action and present after it, on a fresh page and scoped to the field, never on any alert on the page.",
+      "signature": "An assertion looks for any visible alert, and an alert from earlier or from another field satisfies it.",
+      "file": "incidents/INC-0525-a-feedback-check-accepted-any-visible-alert-on-the-page-so-a.md",
+      "related": [
+        "INC-0505",
+        "INC-0497"
       ],
       "evidence": []
     }

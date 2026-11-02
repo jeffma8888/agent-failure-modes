@@ -372,6 +372,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0507 / medium]** Define independence per agent instance, and name which artifacts block (wrote the test or judged its cases) and which only need disclosure (inventories, citation audits).
 - **[INC-0512 / medium]** When load is spiky, admit by waiting for the gate with a bounded timeout and a printed admitting reading, not by one reading at launch.
 - **[INC-0513 / medium]** Before activating a root, confirm on current main that it is still the terminal of its supersession chain; run the identity check after merging main into the branch, not only before.
+- **[INC-0522 / medium]** Never rewrite a script in place while any process may run it; write a new file and switch names, and quote the helper hash in the evidence that used it.
+- **[INC-0523 / medium]** Do not guess a locator for a generated field; cite the installed source line that renders it, and when one guess is found, audit every root for the same guess.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -528,6 +530,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0519 / low]** Give a landing helper each item once and in its one documented form; an item named twice is a cleanup that can fail halfway.
 - **[INC-0520 / low]** Run the landing gate own identity check on a root before handing it over, so a mechanical ordering rule is met by the author and not found at the landing.
 - **[INC-0521 / low]** A short child-process bound fails under parallel load while the test is correct; classify such a timeout by an isolated rerun, and give child-process tests a bound that tolerates the load class they run in.
+- **[INC-0524 / low]** A mutation named as a case witness must be one the assertions can see; trace what the next line returns before naming it, and state the expected red line.
+- **[INC-0525 / low]** A feedback assertion must fail without the action under test: assert the element is absent before the action and present after it, on a fresh page and scoped to the field, never on any alert on the page.
 
 ## Practices
 
