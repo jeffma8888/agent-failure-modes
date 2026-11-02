@@ -523,6 +523,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0514 / low]** When a new contract collides with a pinned test mock, keep the mocked function return shape and add a new function or wrapper for the new contract; change the test only through a successor root authored by someone else.
 - **[INC-0515 / low]** Do not require a read whose size exceeds what the reader tool returns; name the exact sections to read, and treat an unnamed old section as outside the compliance check.
 - **[INC-0516 / low]** Update a backlog row status with the merge commit at the time its fix merges, so the backlog stays the record of what is done.
+- **[INC-0517 / low]** Before naming a reviewer, read the root coverage author line and review history; the reviewer own author check is the second line, not the first.
+- **[INC-0518 / low]** A tool that accepts both root names and file paths must not guess which one a bare token is; list what it will land and compare with what was intended before it runs.
+- **[INC-0519 / low]** Give a landing helper each item once and in its one documented form; an item named twice is a cleanup that can fail halfway.
+- **[INC-0520 / low]** Run the landing gate own identity check on a root before handing it over, so a mechanical ordering rule is met by the author and not found at the landing.
+- **[INC-0521 / low]** A short child-process bound fails under parallel load while the test is correct; classify such a timeout by an isolated rerun, and give child-process tests a bound that tolerates the load class they run in.
 
 ## Practices
 

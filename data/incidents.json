@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 516,
+  "count": 521,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9903,6 +9903,93 @@
       "file": "incidents/INC-0516-backlog-rows-stayed-open-after-their-fixes-merged-so-the-bac.md",
       "related": [
         "INC-0449"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0517",
+      "title": "Two reviewers were named who had written or judged the roots they were to review, and both stopped at the author check",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before naming a reviewer, read the root coverage author line and review history; the reviewer own author check is the second line, not the first.",
+      "signature": "A reviewer is named without reading the root author line and review history, and the reviewer author check refuses.",
+      "file": "incidents/INC-0517-two-reviewers-were-named-who-had-written-or-judged-the-roots.md",
+      "related": [
+        "INC-0502",
+        "INC-0507"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0518",
+      "title": "A landing tool read a bare file name as a test-root name, so a file was left out of a landing and the identifier check failed",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A tool that accepts both root names and file paths must not guess which one a bare token is; list what it will land and compare with what was intended before it runs.",
+      "signature": "A tool accepts root names and file paths, and a bare file name is taken as a root name.",
+      "file": "incidents/INC-0518-a-landing-tool-read-a-bare-file-name-as-a-test-root-name-so.md",
+      "related": [
+        "INC-0490"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0519",
+      "title": "A root was passed to a landing helper by name and by path, and the cleanup removed a file twice and stopped",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Give a landing helper each item once and in its one documented form; an item named twice is a cleanup that can fail halfway.",
+      "signature": "The same item is given to a helper in two forms, and a later step acts on it twice.",
+      "file": "incidents/INC-0519-a-root-was-passed-to-a-landing-helper-by-name-and-by-path-an.md",
+      "related": [
+        "INC-0490"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0520",
+      "title": "A manifest listed its lines unsorted and the landing gate refused it",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Run the landing gate own identity check on a root before handing it over, so a mechanical ordering rule is met by the author and not found at the landing.",
+      "signature": "The identity check requires sorted manifest lines, and a manifest lists one group before another.",
+      "file": "incidents/INC-0520-a-manifest-listed-its-lines-unsorted-and-the-landing-gate-re.md",
+      "related": [
+        "INC-0513"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0521",
+      "title": "Three unit tests timed out at a short child-process bound under parallel load and passed in isolation",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A short child-process bound fails under parallel load while the test is correct; classify such a timeout by an isolated rerun, and give child-process tests a bound that tolerates the load class they run in.",
+      "signature": "Tests that spawn a child process fail with a spawn timeout at a five-second bound only while the host is loaded.",
+      "file": "incidents/INC-0521-three-unit-tests-timed-out-at-a-short-child-process-bound-un.md",
+      "related": [
+        "INC-0427",
+        "INC-0500"
       ],
       "evidence": []
     }
