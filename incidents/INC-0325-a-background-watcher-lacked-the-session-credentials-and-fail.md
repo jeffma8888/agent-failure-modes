@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0009](./INC-0009-interactive-only-credential-expiry-silently-stalls-unattende.md) [INC-0068](./INC-0068-a-retry-ladder-wrapped-the-model-call-but-not-the-credential.md)
+[INC-0009](./INC-0009-interactive-only-credential-expiry-silently-stalls-unattende.md) [INC-0068](./INC-0068-a-retry-ladder-wrapped-the-model-call-but-not-the-credential.md) [INC-0180](./INC-0180-a-readiness-check-ran-without-the-dispatcher-environment.md)

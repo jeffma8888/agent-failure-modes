@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0122](./INC-0122-a-digest-present-anywhere-in-a-manifest-was-taken-as-proof-i.md) [INC-0228](./INC-0228-a-digest-manifest-without-digests-was-cited-as-evidence.md)
+[INC-0122](./INC-0122-a-digest-present-anywhere-in-a-manifest-was-taken-as-proof-i.md) [INC-0228](./INC-0228-a-digest-manifest-without-digests-was-cited-as-evidence.md) [INC-0277](./INC-0277-sign-the-stable-re-checked-part-of-a-design-addendum-instead.md)

@@ -5549,7 +5549,7 @@ _BATCH20: list[dict] = [
         "fix": 'Model the new time as serial work plus parallel makespan plus new cold starts, and state the serial floor',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Model a parallelised stage as serial work plus parallel makespan plus new cold starts, never as total time over N',
-        "related": ['INC-0308', 'INC-0209'],
+        "related": ['INC-0308', 'INC-0209', 'INC-0230'],
     },
     {
         "id": "INC-0313",
@@ -5634,7 +5634,7 @@ _BATCH20: list[dict] = [
         "fix": 'When an output file stops changing and no reply came, check the run status and land from disk',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'Never wait on a reply alone: when an output file stops changing and no reply came, check the run status and land from disk',
-        "related": ['INC-0041', 'INC-0298'],
+        "related": ['INC-0041', 'INC-0298', 'INC-0128'],
     },
     {
         "id": "INC-0318",
@@ -5770,7 +5770,7 @@ _BATCH20: list[dict] = [
         "fix": 'Check what a background watcher can authenticate to before relying on it, keep authenticated checks in live turns, and never write a session secret to disk to make it work',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'Check what a background watcher can authenticate to before relying on it; keep authenticated checks in live turns and never write a session secret to disk',
-        "related": ['INC-0009', 'INC-0068'],
+        "related": ['INC-0009', 'INC-0068', 'INC-0180'],
     },
     {
         "id": "INC-0326",
@@ -5787,7 +5787,24 @@ _BATCH20: list[dict] = [
         "fix": 'Recompute the digest from the stated recipe before signing, and append the signature after the hashed range so the digest stays valid',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'A signature binds to bytes the signer has hashed himself, and appending the signature must not change the hashed range',
-        "related": ['INC-0122', 'INC-0228'],
+        "related": ['INC-0122', 'INC-0228', 'INC-0277'],
+    },
+    {
+        "id": "INC-0327",
+        "title": "A marker checker matched a bare word and pushed authors to a workaround",
+        "date": "2026-11-01",
+        "classes": ['detector-fail-closed', 'tooling-paths'],
+        "severity": "medium",
+        "status": "fixed",
+        "cost": "Minor: caught before it shipped.",
+        "signature": "A checker reported many focused-test markers that were only object keys.",
+        "what": 'a static checker for focused-test markers rejected the bare word fit even as an object key, so the author quoted the key to get past the false positive instead of fixing the checker',
+        "root_cause": 'a static checker for focused-test markers rejected the bare word fit even as an object key, so the author quoted the key to get past the false positive instead of fixing the checker',
+        "why_hard": "The workaround passes the check, so the false positive hides and every later author repeats it.",
+        "fix": "Anchor the marker check on call syntax, not a bare word, and when a false positive forces a workaround, record it and fix the checker instead of spreading workarounds",
+        "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
+        "rule": "Anchor a marker check on call syntax, not a bare word; when a checker false positive forces a workaround, record it and fix the checker rather than spreading workarounds",
+        "related": ['INC-0287', 'INC-0252'],
     },
 ]
 

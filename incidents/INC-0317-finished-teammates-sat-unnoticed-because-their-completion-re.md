@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0041](./INC-0041-a-verifier-that-lived-and-answered-can-still-deliver-an-unus.md) [INC-0298](./INC-0298-harness-and-ownership-defects-were-left-for-the-build-agent.md)
+[INC-0041](./INC-0041-a-verifier-that-lived-and-answered-can-still-deliver-an-unus.md) [INC-0298](./INC-0298-harness-and-ownership-defects-were-left-for-the-build-agent.md) [INC-0128](./INC-0128-finished-work-sat-for-hours-because-replies-never-arrived-th.md)

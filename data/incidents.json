@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 326,
+  "count": 327,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -5801,7 +5801,8 @@
       "file": "incidents/INC-0312-a-whole-stage-was-divided-by-a-parallel-speedup-although-par.md",
       "related": [
         "INC-0308",
-        "INC-0209"
+        "INC-0209",
+        "INC-0230"
       ],
       "evidence": []
     },
@@ -5896,7 +5897,8 @@
       "file": "incidents/INC-0317-finished-teammates-sat-unnoticed-because-their-completion-re.md",
       "related": [
         "INC-0041",
-        "INC-0298"
+        "INC-0298",
+        "INC-0128"
       ],
       "evidence": []
     },
@@ -6048,7 +6050,8 @@
       "file": "incidents/INC-0325-a-background-watcher-lacked-the-session-credentials-and-fail.md",
       "related": [
         "INC-0009",
-        "INC-0068"
+        "INC-0068",
+        "INC-0180"
       ],
       "evidence": []
     },
@@ -6067,7 +6070,27 @@
       "file": "incidents/INC-0326-a-signer-recomputed-the-declared-digest-before-signing-and-k.md",
       "related": [
         "INC-0122",
-        "INC-0228"
+        "INC-0228",
+        "INC-0277"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0327",
+      "title": "A marker checker matched a bare word and pushed authors to a workaround",
+      "date": "2026-11-01",
+      "classes": [
+        "detector-fail-closed",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Anchor a marker check on call syntax, not a bare word; when a checker false positive forces a workaround, record it and fix the checker rather than spreading workarounds",
+      "signature": "A checker reported many focused-test markers that were only object keys.",
+      "file": "incidents/INC-0327-a-marker-checker-matched-a-bare-word-and-pushed-authors-to-a.md",
+      "related": [
+        "INC-0287",
+        "INC-0252"
       ],
       "evidence": []
     }
