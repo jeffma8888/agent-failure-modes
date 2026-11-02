@@ -499,6 +499,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0489 / low]** A rule written in teammate briefs binds the lead's own shell too; read your own command against the standing rules before running it, and undo any slip by its exact recorded name before any run.
 - **[INC-0491 / low]** When a test tool's guards are reviewed in more rounds than the tool is run, run it or simplify it; a guard that no allowed target can pass is a defect.
 - **[INC-0492 / low]** Name a successor after the family it supersedes, and read the checker's acceptance rule before writing the mapping; never loosen the gate to fit the artifact.
+- **[INC-0493 / low]** Before naming a target in an order, read the guards of every command you name against that target.
 
 ## Practices
 

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 492,
+  "count": 493,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9479,6 +9479,23 @@
       "related": [
         "INC-0403",
         "INC-0397"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0493",
+      "title": "An order named a scratch target without reading the guard of the command that would fill it",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before naming a target in an order, read the guards of every command you name against that target.",
+      "signature": "The target named in the order was on the list of targets the named command refuses.",
+      "file": "incidents/INC-0493-an-order-named-a-scratch-target-without-reading-the-guard-of.md",
+      "related": [
+        "INC-0489"
       ],
       "evidence": []
     }
