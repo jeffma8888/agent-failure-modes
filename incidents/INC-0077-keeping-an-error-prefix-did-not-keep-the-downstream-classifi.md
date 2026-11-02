@@ -41,4 +41,4 @@ Checked: the classifier's scan order was read and the revised spec removes free 
 
 ## Related
 
-[INC-0033](./INC-0033-one-normaliser-is-not-enough-if-it-maps-the-two-sides-into-d.md) [INC-0032](./INC-0032-removing-a-veto-exposes-the-broken-classifier-it-was-masking.md) [INC-0068](./INC-0068-a-retry-ladder-wrapped-the-model-call-but-not-the-credential.md)
+[INC-0033](./INC-0033-one-normaliser-is-not-enough-if-it-maps-the-two-sides-into-d.md) [INC-0032](./INC-0032-removing-a-veto-exposes-the-broken-classifier-it-was-masking.md) [INC-0068](./INC-0068-a-retry-ladder-wrapped-the-model-call-but-not-the-credential.md) [INC-0395](./INC-0395-handing-a-counting-stream-to-a-framework-that-catches-stream.md)

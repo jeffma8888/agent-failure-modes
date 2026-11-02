@@ -354,6 +354,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0380 / medium]** A clean step must not leave a tracked unchanged file deleted; restore tracked files after a fast-forward and check tree status
 - **[INC-0388 / medium]** A baseline comparison must grade a row new in the run on its own outcome
 - **[INC-0391 / medium]** When evidence contradicts a stated rule, the rule wins: change the code, not the wording
+- **[INC-0394 / medium]** A security predicate allows only on the exact expected value, never on truthiness
+- **[INC-0395 / medium]** Own the refusal contract before handing a stream to a framework that catches stream failures
+- **[INC-0396 / medium]** Verify each landing by the commit log, never by the last line of the command
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -399,6 +402,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0389 / low]** Match the explicit pass line of a check, never its last line
 - **[INC-0390 / low]** Reconcile a dispatch packet with the newest ruling when it lands
 - **[INC-0392 / low]** Request declarations as sourced values and decisions, each with its gap
+- **[INC-0393 / low]** Gate on load where you launch, immediately before; an earlier or second-hand reading is stale
 
 ## Practices
 

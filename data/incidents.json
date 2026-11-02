@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 392,
+  "count": 396,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -413,7 +413,8 @@
       "signature": "A monitor built on `grep -E 'A\\|B'` or `grep 'A\\|B'` prints nothing while the eye clearly sees both patterns in the log. A negative result is being read as health.",
       "file": "incidents/INC-0018-fail-open-detector-pipe-alternation-matches-nothing-under-on.md",
       "related": [
-        "INC-0019"
+        "INC-0019",
+        "INC-0394"
       ],
       "evidence": []
     },
@@ -1595,7 +1596,8 @@
       "related": [
         "INC-0033",
         "INC-0032",
-        "INC-0068"
+        "INC-0068",
+        "INC-0395"
       ],
       "evidence": []
     },
@@ -4129,7 +4131,8 @@
       "signature": "Unrelated deadlines failed under a shared load.",
       "file": "incidents/INC-0219-a-shared-host-reached-load-491-and-unrelated-deadlines-faile.md",
       "related": [
-        "INC-0209"
+        "INC-0209",
+        "INC-0393"
       ],
       "evidence": []
     },
@@ -5077,7 +5080,8 @@
       "signature": "A run stopped early under load and its remaining time looked like spare budget.",
       "file": "incidents/INC-0271-a-load-induced-harness-red-is-not-headroom.md",
       "related": [
-        "INC-0236"
+        "INC-0236",
+        "INC-0393"
       ],
       "evidence": []
     },
@@ -6930,7 +6934,8 @@
       "related": [
         "INC-0357",
         "INC-0362",
-        "INC-0303"
+        "INC-0303",
+        "INC-0396"
       ],
       "evidence": []
     },
@@ -7207,7 +7212,8 @@
       "related": [
         "INC-0372",
         "INC-0332",
-        "INC-0391"
+        "INC-0391",
+        "INC-0394"
       ],
       "evidence": []
     },
@@ -7409,7 +7415,8 @@
       "file": "incidents/INC-0389-two-plan-checks-ran-at-a-wrong-script-path-and-the-last-line.md",
       "related": [
         "INC-0380",
-        "INC-0371"
+        "INC-0371",
+        "INC-0396"
       ],
       "evidence": []
     },
@@ -7464,6 +7471,77 @@
       "related": [
         "INC-0385",
         "INC-0379"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0393",
+      "title": "A load reading taken minutes before a launch was stale, and the launch read much higher",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Gate on load where you launch, immediately before; an earlier or second-hand reading is stale",
+      "signature": "A load gate passed from a reading that no longer described the host.",
+      "file": "incidents/INC-0393-a-load-reading-taken-minutes-before-a-launch-was-stale-and-t.md",
+      "related": [
+        "INC-0219",
+        "INC-0271"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0394",
+      "title": "A security predicate checked for truthiness failed open on an undefined or null value",
+      "date": "2026-11-02",
+      "classes": [
+        "detector-fail-open"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A security predicate allows only on the exact expected value, never on truthiness",
+      "signature": "A guard allowed access when its input was missing.",
+      "file": "incidents/INC-0394-a-security-predicate-checked-for-truthiness-failed-open-on-a.md",
+      "related": [
+        "INC-0018",
+        "INC-0378"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0395",
+      "title": "Handing a counting stream to a framework that catches stream failures lost the custom refusal contract",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Own the refusal contract before handing a stream to a framework that catches stream failures",
+      "signature": "A custom refusal never reached the caller once the framework wrapped the stream.",
+      "file": "incidents/INC-0395-handing-a-counting-stream-to-a-framework-that-catches-stream.md",
+      "related": [
+        "INC-0077"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0396",
+      "title": "A multi-step command reported success for its later steps while its middle step had not happened",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Verify each landing by the commit log, never by the last line of the command",
+      "signature": "A command's final output said done while one step had never run.",
+      "file": "incidents/INC-0396-a-multi-step-command-reported-success-for-its-later-steps-wh.md",
+      "related": [
+        "INC-0364",
+        "INC-0389"
       ],
       "evidence": []
     }

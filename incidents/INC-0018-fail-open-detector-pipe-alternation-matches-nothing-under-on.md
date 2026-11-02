@@ -41,4 +41,4 @@ A synthetic 'credential refresh failed' line in a tmp file caused the fixed matc
 
 ## Related
 
-[INC-0019](./INC-0019-fail-open-detector-parsing-the-wrong-column-reports-healthy.md)
+[INC-0019](./INC-0019-fail-open-detector-parsing-the-wrong-column-reports-healthy.md) [INC-0394](./INC-0394-a-security-predicate-checked-for-truthiness-failed-open-on-a.md)

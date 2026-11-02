@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0236](./INC-0236-a-blocked-result-came-from-a-deadline-before-the-plant-ran.md)
+[INC-0236](./INC-0236-a-blocked-result-came-from-a-deadline-before-the-plant-ran.md) [INC-0393](./INC-0393-a-load-reading-taken-minutes-before-a-launch-was-stale-and-t.md)

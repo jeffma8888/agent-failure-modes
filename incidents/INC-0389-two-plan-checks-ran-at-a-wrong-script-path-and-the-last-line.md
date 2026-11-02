@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0380](./INC-0380-a-landing-helper-s-clean-step-deleted-a-pending-root-directo.md) [INC-0371](./INC-0371-a-byte-count-compare-at-the-exact-old-length-reported-end-of.md)
+[INC-0380](./INC-0380-a-landing-helper-s-clean-step-deleted-a-pending-root-directo.md) [INC-0371](./INC-0371-a-byte-count-compare-at-the-exact-old-length-reported-end-of.md) [INC-0396](./INC-0396-a-multi-step-command-reported-success-for-its-later-steps-wh.md)

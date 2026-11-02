@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0209](./INC-0209-a-full-step-deadline-was-shorter-than-the-measured-stage-tim.md)
+[INC-0209](./INC-0209-a-full-step-deadline-was-shorter-than-the-measured-stage-tim.md) [INC-0393](./INC-0393-a-load-reading-taken-minutes-before-a-launch-was-stale-and-t.md)

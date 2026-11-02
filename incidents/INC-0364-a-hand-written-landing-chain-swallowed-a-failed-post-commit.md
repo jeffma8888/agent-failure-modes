@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0357](./INC-0357-a-landing-helper-piped-a-guarded-commit-into-a-formatter-so.md) [INC-0362](./INC-0362-a-landing-loop-written-for-one-shell-s-arrays-ran-under-anot.md) [INC-0303](./INC-0303-a-guard-added-to-a-test-tool-broke-the-check-under-test.md)
+[INC-0357](./INC-0357-a-landing-helper-piped-a-guarded-commit-into-a-formatter-so.md) [INC-0362](./INC-0362-a-landing-loop-written-for-one-shell-s-arrays-ran-under-anot.md) [INC-0303](./INC-0303-a-guard-added-to-a-test-tool-broke-the-check-under-test.md) [INC-0396](./INC-0396-a-multi-step-command-reported-success-for-its-later-steps-wh.md)
