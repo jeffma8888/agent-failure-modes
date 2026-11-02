@@ -369,6 +369,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0351 / low]** Before copying a shared tool cache into an isolated run, list its links; a registry of outside links is metadata to exclude, while any other outside link is a containment failure
 - **[INC-0357 / low]** Never pipe a gating command into a formatter in a chain whose later steps destroy the input; check the gate's own exit status
 - **[INC-0362 / low]** Iterate arrays with an explicit form valid in the running shell (the quoted all-elements expansion), and derive a commit message from the committed diff summary after the commit, not from intent
+- **[INC-0363 / low]** Before counting a red as missing-API, prove the guard both ways (module present: silent; module absent: fires), and never route a presence check through a mock the same test installs
 
 ## Practices
 

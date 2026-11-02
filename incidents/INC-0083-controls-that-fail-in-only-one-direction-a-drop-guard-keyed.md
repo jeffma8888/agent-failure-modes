@@ -41,4 +41,4 @@ Checked by re-reading the revised tests against these stubs. Not checked: execut
 
 ## Related
 
-[INC-0078](./INC-0078-a-subprocess-wrapper-decoded-output-strictly-so-malformed-by.md)
+[INC-0078](./INC-0078-a-subprocess-wrapper-decoded-output-strictly-so-malformed-by.md) [INC-0363](./INC-0363-a-module-presence-guard-went-through-the-test-s-own-file-sys.md)

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 362,
+  "count": 363,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1697,7 +1697,8 @@
       "signature": "Refusal tests pass against a stub that accepts everything, or against a guard that does nothing because the target is unreachable anyway.",
       "file": "incidents/INC-0083-controls-that-fail-in-only-one-direction-a-drop-guard-keyed.md",
       "related": [
-        "INC-0078"
+        "INC-0078",
+        "INC-0363"
       ],
       "evidence": []
     },
@@ -5971,7 +5972,8 @@
       "related": [
         "INC-0082",
         "INC-0314",
-        "INC-0329"
+        "INC-0329",
+        "INC-0363"
       ],
       "evidence": []
     },
@@ -6009,7 +6011,8 @@
       "file": "incidents/INC-0320-a-positive-control-s-first-red-was-the-control-s-own-defect.md",
       "related": [
         "INC-0314",
-        "INC-0307"
+        "INC-0307",
+        "INC-0363"
       ],
       "evidence": []
     },
@@ -6848,6 +6851,26 @@
         "INC-0165",
         "INC-0248",
         "INC-0357"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0363",
+      "title": "A module-presence guard went through the test's own file-system mock, so a missing-API label was never proven",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green",
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Before counting a red as missing-API, prove the guard both ways (module present: silent; module absent: fires), and never route a presence check through a mock the same test installs",
+      "signature": "Tests labelled as missing-API reds still failed at the same guard after the module existed.",
+      "file": "incidents/INC-0363-a-module-presence-guard-went-through-the-test-s-own-file-sys.md",
+      "related": [
+        "INC-0083",
+        "INC-0318",
+        "INC-0320"
       ],
       "evidence": []
     }

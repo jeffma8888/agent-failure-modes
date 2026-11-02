@@ -1655,7 +1655,7 @@ _BATCH20: list[dict] = [
         "fix": "Run refusal cases against an always-accept stub and valid controls against an always-refuse stub, both must fail. Have the drop guard check a recorded set of created names. In fresh-child refusal tests exclude connection and module errors.",
         "verification": "Checked by re-reading the revised tests against these stubs. Not checked: execution, the suites were pending.",
         "rule": "A control counts only if it fails in both directions; scope destructive guards to recorded identities, and assert the specific refusal, not any error.",
-        "related": ["INC-0078"],
+        "related": ["INC-0078", 'INC-0363'],
     },
     {
         "id": "INC-0084",
@@ -5651,7 +5651,7 @@ _BATCH20: list[dict] = [
         "fix": 'Make negative targets exist, pair every guard with a positive control that must return the other value, and run one selftest on the real unpatched checker',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'Negative targets must exist; pair every guard with a positive control that must return the other value, and run one selftest on the real unpatched checker',
-        "related": ['INC-0082', 'INC-0314', 'INC-0329'],
+        "related": ['INC-0082', 'INC-0314', 'INC-0329', 'INC-0363'],
     },
     {
         "id": "INC-0319",
@@ -5685,7 +5685,7 @@ _BATCH20: list[dict] = [
         "fix": 'Suspect the control first, fix it as a tests-only commit, and keep the red',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'When a new positive control fails, suspect the control first, fix it as a tests-only commit and keep the red',
-        "related": ['INC-0314', 'INC-0307'],
+        "related": ['INC-0314', 'INC-0307', 'INC-0363'],
     },
     {
         "id": "INC-0321",
@@ -6400,6 +6400,23 @@ _BATCH20: list[dict] = [
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": "Iterate arrays with an explicit form valid in the running shell (the quoted all-elements expansion), and derive a commit message from the committed diff summary after the commit, not from intent",
         "related": ['INC-0165', 'INC-0248', 'INC-0357'],
+    },
+    {
+        "id": "INC-0363",
+        "title": "A module-presence guard went through the test's own file-system mock, so a missing-API label was never proven",
+        "date": "2026-11-01",
+        "classes": ['false-green', 'test-isolation'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Minor: six red cells carried an unproven label until the first green run; nothing shipped.",
+        "signature": "Tests labelled as missing-API reds still failed at the same guard after the module existed.",
+        "what": "six tests were labelled missing-API reds at the first red stage. At the first green run they still failed at the same guard although the module existed. The guard checked module presence with a file-existence call, and the same test file replaced the file-system module with a mock that answered true only for one configuration string and false for the module's location. The guard therefore fired whether or not the module existed, and the missing-API label was never evidence. The green run showed four real behavioural gaps and six guard failures, with no genuine missing-API failure",
+        "root_cause": "a presence check was routed through a mock installed by the same test, and the red classification was accepted without observing the guard in both states (module present, module absent)",
+        "why_hard": "A red at the guard looks exactly like the expected missing-API red, and a guard that always fires can never contradict the label.",
+        "fix": "The earlier label was withdrawn as unproven. A test-only change makes the mock pass every other argument through to the real implementation, or the guard uses a presence check that does not use the mock; both observations are recorded (module present: the guard is silent; module hidden in a controlled way: the guard fires)",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Before counting a red as missing-API, prove the guard both ways (module present: silent; module absent: fires), and never route a presence check through a mock the same test installs",
+        "related": ['INC-0083', 'INC-0318', 'INC-0320'],
     },
 ]
 

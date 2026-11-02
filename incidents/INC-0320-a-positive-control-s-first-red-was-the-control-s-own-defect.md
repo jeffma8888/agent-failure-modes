@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0314](./INC-0314-a-probe-based-test-never-ran-its-probe-so-its-red-proved-not.md) [INC-0307](./INC-0307-a-measurement-wrapper-inherited-the-environment-the-tests-re.md)
+[INC-0314](./INC-0314-a-probe-based-test-never-ran-its-probe-so-its-red-proved-not.md) [INC-0307](./INC-0307-a-measurement-wrapper-inherited-the-environment-the-tests-re.md) [INC-0363](./INC-0363-a-module-presence-guard-went-through-the-test-s-own-file-sys.md)
