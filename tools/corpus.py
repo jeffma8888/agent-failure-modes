@@ -8764,6 +8764,23 @@ _BATCH20: list[dict] = [
         "rule": 'When an error names only the leaf of a dependency chain, trace the chain in source and act on all of it, rather than letting each run name the next link.',
         "related": ['INC-0477', 'INC-0472'],
     },
+    {
+        "id": "INC-0502",
+        "title": 'An implementer was assigned after checking only who wrote the test payload, and the root also held a coverage statement the implementer had written',
+        "date": "2026-11-02",
+        "classes": ['spec-and-scope'],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": 'One assignment and one round trip: the implementer stopped before any work and the row was reassigned.',
+        "signature": 'An author-conflict check was run on one file of a root, and a different file of the same root named the assignee as author.',
+        "what": 'The lead assigned an implementer to an early row after checking only that the implementer had not authored the test payload. The root also contained a coverage statement that the implementer had written. The implementer ran its own check, found its name on that file, and stopped. The coverage statement was ruled to be part of the root, and the row was reassigned to another implementer with the same author and reviewer check.',
+        "root_cause": 'The check was scoped to the file most obviously authored, not to every file of the root, so coverage statements and approval markers were left out.',
+        "why_hard": 'The payload is the visible product of the authors, so checking it feels complete; the other files of a root are short and easy to forget as authored work.',
+        "fix": 'Check the author of every file of the root, including coverage statements and approval markers, by version-control log and a name search, before the assignment is sent. Keep the implementer own check as the second line.',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'An author-conflict check covers every file of the root, including coverage statements and approval markers, by log and a name search, before the assignment is sent; the implementer own check stays as the second line.',
+        "related": ['INC-0467'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
