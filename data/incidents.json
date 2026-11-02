@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 480,
+  "count": 481,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9266,6 +9266,24 @@
         "INC-0357",
         "INC-0347",
         "INC-0389"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0481",
+      "title": "Two new work item ids were minted from the current list alone, and both had already been used by merged work",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Before minting an id, check every place ids have ever lived (branch names, commit subjects, plan text), not only the current list; a checker that reads only the current list cannot catch reuse.",
+      "signature": "A checker that read only the current list passed ids that history had already used.",
+      "file": "incidents/INC-0481-two-new-work-item-ids-were-minted-from-the-current-list-alon.md",
+      "related": [
+        "INC-0079",
+        "INC-0140"
       ],
       "evidence": []
     }

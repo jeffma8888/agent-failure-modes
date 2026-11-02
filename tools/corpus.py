@@ -8407,6 +8407,23 @@ _BATCH20: list[dict] = [
         "rule": 'Never pipe a gating command; capture its exit status first, by pipefail or by writing to a file and checking the status before reading the file.',
         "related": ['INC-0357', 'INC-0347', 'INC-0389'],
     },
+    {
+        "id": "INC-0481",
+        "title": 'Two new work item ids were minted from the current list alone, and both had already been used by merged work',
+        "date": "2026-11-02",
+        "classes": ['identity-and-keying'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Minor: found when a branch creation failed; the new items were renamed and earlier mentions rewritten.",
+        "signature": 'A checker that read only the current list passed ids that history had already used.',
+        "what": 'A coordinator minted two new work item ids by reading only the current backlog list. Both ids had already been used by merged work, one in branch names and merge subjects and one in a regression branch. The backlog checker passed because the current list did not hold the old ids. The collision surfaced only when an engineer\'s branch creation failed on an existing branch name.',
+        "root_cause": 'Ids were checked against the current list only, while earlier ids lived on in branch names, commit subjects and plan text.',
+        "why_hard": 'The checker passed, so there was no signal until a tool tried to reuse an existing name.',
+        "fix": 'Rename the new items to the next free ids, rewrite earlier mentions, leave the old branches as history, and before minting an id search every place ids have lived.',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'Before minting an id, check every place ids have ever lived (branch names, commit subjects, plan text), not only the current list; a checker that reads only the current list cannot catch reuse.',
+        "related": ['INC-0079', 'INC-0140'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

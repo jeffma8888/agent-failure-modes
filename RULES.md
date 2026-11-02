@@ -487,6 +487,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0478 / low]** A blocking guard logs the API name, the full arguments and a stack trace on the first run, so one run is enough to classify the target.
 - **[INC-0479 / low]** Gate a push on a scan of an export of the tracked tree; a scan of the working directory blocks on files that never ship.
 - **[INC-0480 / low]** Never pipe a gating command; capture its exit status first, by pipefail or by writing to a file and checking the status before reading the file.
+- **[INC-0481 / low]** Before minting an id, check every place ids have ever lived (branch names, commit subjects, plan text), not only the current list; a checker that reads only the current list cannot catch reuse.
 
 ## Practices
 
