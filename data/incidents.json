@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 469,
+  "count": 470,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3351,7 +3351,8 @@
       "signature": "Totals matched while the contents differed.",
       "file": "incidents/INC-0174-a-count-change-was-reconciled-by-totals-and-a-route-switch-l.md",
       "related": [
-        "INC-0146"
+        "INC-0146",
+        "INC-0470"
       ],
       "evidence": []
     },
@@ -4388,7 +4389,8 @@
       "signature": "The figures had no tree behind them.",
       "file": "incidents/INC-0231-a-measurement-was-at-risk-of-coming-from-an-overlay-in-a-scr.md",
       "related": [
-        "INC-0146"
+        "INC-0146",
+        "INC-0470"
       ],
       "evidence": []
     },
@@ -4442,7 +4444,8 @@
       "signature": "The reviewer saw only what the author listed.",
       "file": "incidents/INC-0234-a-ledger-review-that-started-from-the-author-list-could-inhe.md",
       "related": [
-        "INC-0198"
+        "INC-0198",
+        "INC-0470"
       ],
       "evidence": []
     },
@@ -9055,6 +9058,25 @@
         "INC-0325",
         "INC-0060",
         "INC-0091"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0470",
+      "title": "A count delta in an acceptance document was first attributed to specific rows without a per file check",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "State a count delta with its base commit, and attribute it to a row only after a per file check",
+      "signature": "A count change was credited to rows with no per file evidence.",
+      "file": "incidents/INC-0470-a-count-delta-in-an-acceptance-document-was-first-attributed.md",
+      "related": [
+        "INC-0174",
+        "INC-0231",
+        "INC-0234"
       ],
       "evidence": []
     }

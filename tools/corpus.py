@@ -3203,7 +3203,7 @@ _BATCH20: list[dict] = [
         "fix": 'Reconcile by exact file identity, re-run the original surviving mutant, clear route switches on the default path.',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Explain a count change by file identity, not by totals.',
-        "related": ['INC-0146'],
+        "related": ['INC-0146', 'INC-0470'],
     },
     {
         "id": "INC-0175",
@@ -4172,7 +4172,7 @@ _BATCH20: list[dict] = [
         "fix": 'Measure on the exact tree that carries it and label each figure with its SHA, instead of overlaying bytes into a scratch tree',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Measure on the exact tree that carries the file and label every figure with its SHA',
-        "related": ['INC-0146'],
+        "related": ['INC-0146', 'INC-0470'],
     },
     {
         "id": "INC-0232",
@@ -4223,7 +4223,7 @@ _BATCH20: list[dict] = [
         "fix": 'Derive the ledger from the plan yourself, then compare',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Derive a ledger from the plan yourself before reading the author list, then compare',
-        "related": ['INC-0198'],
+        "related": ['INC-0198', 'INC-0470'],
     },
     {
         "id": "INC-0235",
@@ -8219,6 +8219,23 @@ _BATCH20: list[dict] = [
         "verification": "Checked by the lead. Not checked: whether the new rule prevents recurrence.",
         "rule": "Launch a long run as a tracked background task, and check that its first output file exists right after the launch",
         "related": ['INC-0325', 'INC-0060', 'INC-0091'],
+    },
+    {
+        "id": "INC-0470",
+        "title": "A count delta in an acceptance document was first attributed to specific rows without a per file check",
+        "date": "2026-11-02",
+        "classes": ['observability'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "None: amended before anyone used it.",
+        "signature": "A count change was credited to rows with no per file evidence.",
+        "what": "an acceptance document first attributed a change in test counts to specific rows without checking per file; the lead amended it before anyone used it",
+        "root_cause": "the attribution was inferred from the total, not from the files",
+        "why_hard": "A total that moved by the expected amount looks like proof of its cause.",
+        "fix": "state a count delta with its base commit, and attribute it to a row only after a per file check",
+        "verification": "Checked by the lead. Not checked: whether the new rule prevents recurrence.",
+        "rule": "State a count delta with its base commit, and attribute it to a row only after a per file check",
+        "related": ['INC-0174', 'INC-0231', 'INC-0234'],
     },
 ]
 

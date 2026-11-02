@@ -476,6 +476,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0467 / low]** Check an assignment against the independence rules of the plan before sending it
 - **[INC-0468 / low]** Write the evidence line before any shutdown call, bound the shutdown with a timeout, and exit explicitly
 - **[INC-0469 / low]** Launch a long run as a tracked background task, and check that its first output file exists right after the launch
+- **[INC-0470 / low]** State a count delta with its base commit, and attribute it to a row only after a per file check
 
 ## Practices
 
