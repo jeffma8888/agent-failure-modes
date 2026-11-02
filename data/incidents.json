@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 495,
+  "count": 496,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9531,6 +9531,24 @@
       "file": "incidents/INC-0495-the-acceptance-run-lacked-an-environment-variable-that-the-b.md",
       "related": [
         "INC-0412"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0496",
+      "title": "An acceptance record was ready for signature with every test tier green while the main page of the row was blank",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Before signing a row that ships a page, require one observed run of that page; green test tiers alone are not acceptance for a user-facing row.",
+      "signature": "Every test tier was green and a page the row ships returned a blank body.",
+      "file": "incidents/INC-0496-an-acceptance-record-was-ready-for-signature-with-every-test.md",
+      "related": [
+        "INC-0494",
+        "INC-0490"
       ],
       "evidence": []
     }
