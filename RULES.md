@@ -509,6 +509,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0495 / low]** Record the environment of every run you compare, and give the acceptance run the same environment the full suite gives.
 - **[INC-0501 / low]** When an error names only the leaf of a dependency chain, trace the chain in source and act on all of it, rather than letting each run name the next link.
 - **[INC-0502 / low]** An author-conflict check covers every file of the root, including coverage statements and approval markers, by log and a name search, before the assignment is sent; the implementer own check stays as the second line.
+- **[INC-0503 / low]** State a baseline environment from the script or log that produced it, never from memory; an implementer who sees a premise contradict the artifact follows the artifact and reports it.
+- **[INC-0504 / low]** Scan every commit of a range, not only the final tree, before merging anything that will be pushed; a scrub in a later commit does not clean history.
 
 ## Practices
 
