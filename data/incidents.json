@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 499,
+  "count": 500,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9603,6 +9603,24 @@
       "related": [
         "INC-0498",
         "INC-0494"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0500",
+      "title": "One load gate sized for full runs was applied to every run, and scoped runs were refused while the real load producer went unexamined",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Size an admission gate to the class of run it protects, and find what is actually producing the load before tightening or waiting on it.",
+      "signature": "A single load threshold chosen for full-suite runs refuses small scoped runs once several teammates work in parallel.",
+      "file": "incidents/INC-0500-one-load-gate-sized-for-full-runs-was-applied-to-every-run-a.md",
+      "related": [
+        "INC-0427",
+        "INC-0393"
       ],
       "evidence": []
     }

@@ -8730,6 +8730,23 @@ _BATCH20: list[dict] = [
         "rule": 'When one instance of a defect class appears, audit for the whole class before fixing only the instance.',
         "related": ['INC-0498', 'INC-0494'],
     },
+    {
+        "id": "INC-0500",
+        "title": 'One load gate sized for full runs was applied to every run, and scoped runs were refused while the real load producer went unexamined',
+        "date": "2026-11-02",
+        "classes": ['stage-timeout'],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": 'Scoped single-row runs were refused repeatedly (one engineer three times, another twice) and the reds that gate every fix stalled; one admitted red was a timeout, a wasted run.',
+        "signature": 'A single load threshold chosen for full-suite runs refuses small scoped runs once several teammates work in parallel.',
+        "what": 'One load limit, sized for full-suite runs, was applied to every database and browser run. With more teammates in parallel, scoped single-row runs were refused again and again at readings only moderately above the limit, and the reds that gate each fix waited. The first admitted red was a timeout, which counts as a wasted run and not as a red. The load was then examined and found to come mostly from the system file indexer working through the installed packages of each new worktree, with several setups overlapping, not from the tests.',
+        "root_cause": 'The gate was sized for the heaviest class of run and applied to the lightest, and the team tightened or waited on the load without first finding what produced it.',
+        "why_hard": 'A load average does not say who produced it, and a refusal looks like a correct safety stop, so the cost of a gate sized too tightly shows up only as stalled work, not as a failure.',
+        "fix": 'Gate by run class: scoped runs under a higher threshold, full runs and comparison walks under the lower one. Keep the evidence rules unchanged: a timeout, setup failure or harness error at any load is a wasted run, not a red and not a pass. Create new worktrees in a folder the system file indexer skips, and ask the owner to turn indexing off for project folders.',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'Size an admission gate to the class of run it protects, and find what is actually producing the load before tightening or waiting on it.',
+        "related": ['INC-0427', 'INC-0393'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

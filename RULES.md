@@ -366,6 +366,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0497 / medium]** When a change hides or removes a credential from responses, test every flow that needs that credential to finish, not only that it is hidden.
 - **[INC-0498 / medium]** A config that lists a column or a field is not evidence that the page shows it or works offline; only a browser run on the real page is.
 - **[INC-0499 / medium]** When one instance of a defect class appears, audit for the whole class before fixing only the instance.
+- **[INC-0500 / medium]** Size an admission gate to the class of run it protects, and find what is actually producing the load before tightening or waiting on it.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
