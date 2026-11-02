@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0244](./INC-0244-a-correct-not-found-page-was-served-with-a-200-status.md) [INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md)
+[INC-0244](./INC-0244-a-correct-not-found-page-was-served-with-a-200-status.md) [INC-0252](./INC-0252-a-word-grep-reported-a-failure-in-a-passing-log.md) [INC-0366](./INC-0366-a-walk-checklist-attached-another-request-variant-s-clause-t.md)

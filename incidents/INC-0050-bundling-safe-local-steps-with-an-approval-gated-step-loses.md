@@ -41,4 +41,4 @@ The refusal message said the command was refused, and a status check showed noth
 
 ## Related
 
-[INC-0046](./INC-0046-a-script-with-external-writes-was-only-dry-run-for-its-first.md) [INC-0044](./INC-0044-pushing-a-local-repository-to-a-new-remote-publishes-its-who.md)
+[INC-0046](./INC-0046-a-script-with-external-writes-was-only-dry-run-for-its-first.md) [INC-0044](./INC-0044-pushing-a-local-repository-to-a-new-remote-publishes-its-who.md) [INC-0365](./INC-0365-a-delegated-test-run-needed-login-and-logout-which-delegates.md)

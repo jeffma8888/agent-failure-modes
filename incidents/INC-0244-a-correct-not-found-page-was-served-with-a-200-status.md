@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0265](./INC-0265-a-rendered-not-found-view-is-not-proof-of-a-404-status.md)
+[INC-0265](./INC-0265-a-rendered-not-found-view-is-not-proof-of-a-404-status.md) [INC-0366](./INC-0366-a-walk-checklist-attached-another-request-variant-s-clause-t.md)

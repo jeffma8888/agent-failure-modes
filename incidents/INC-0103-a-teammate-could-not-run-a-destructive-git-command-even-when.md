@@ -38,3 +38,7 @@ Checked by the engineer, reviewer or lead who reported it. Not checked: whether 
 ## Transferable rule
 
 > Plan destructive operations for the context that holds the permission.
+
+## Related
+
+[INC-0365](./INC-0365-a-delegated-test-run-needed-login-and-logout-which-delegates.md)

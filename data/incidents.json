@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 364,
+  "count": 366,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1072,7 +1072,8 @@
       "file": "incidents/INC-0050-bundling-safe-local-steps-with-an-approval-gated-step-loses.md",
       "related": [
         "INC-0046",
-        "INC-0044"
+        "INC-0044",
+        "INC-0365"
       ],
       "evidence": []
     },
@@ -2031,7 +2032,9 @@
       "rule": "Plan destructive operations for the context that holds the permission.",
       "signature": "A lead instructs a teammate to run a reset or similar, and the permission ceiling refuses it.",
       "file": "incidents/INC-0103-a-teammate-could-not-run-a-destructive-git-command-even-when.md",
-      "related": [],
+      "related": [
+        "INC-0365"
+      ],
       "evidence": []
     },
     {
@@ -3771,7 +3774,8 @@
       "signature": "The red had nothing to do with the code.",
       "file": "incidents/INC-0200-a-sandbox-permission-failure-was-at-risk-of-reading-as-a-cod.md",
       "related": [
-        "INC-0179"
+        "INC-0179",
+        "INC-0365"
       ],
       "evidence": []
     },
@@ -4563,7 +4567,8 @@
       "signature": "The page looked right and the status was wrong.",
       "file": "incidents/INC-0244-a-correct-not-found-page-was-served-with-a-200-status.md",
       "related": [
-        "INC-0265"
+        "INC-0265",
+        "INC-0366"
       ],
       "evidence": []
     },
@@ -4947,7 +4952,8 @@
       "file": "incidents/INC-0265-a-rendered-not-found-view-is-not-proof-of-a-404-status.md",
       "related": [
         "INC-0244",
-        "INC-0252"
+        "INC-0252",
+        "INC-0366"
       ],
       "evidence": []
     },
@@ -6894,6 +6900,45 @@
         "INC-0357",
         "INC-0362",
         "INC-0303"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0365",
+      "title": "A delegated test run needed login and logout, which delegates may not do, so the lead ran the pinned script",
+      "date": "2026-11-01",
+      "classes": [
+        "ipc-and-env",
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When a test needs an action above a delegate's permission ceiling, the delegate writes and statically validates the script and pins its hash and exact command; the lead runs it unchanged and returns the artifacts; never weaken the test to fit the ceiling, and never let the delegate claim a result it did not observe",
+      "signature": "A delegate prepared a browser walk that logs in and out but the runtime refused it for delegated agents.",
+      "file": "incidents/INC-0365-a-delegated-test-run-needed-login-and-logout-which-delegates.md",
+      "related": [
+        "INC-0103",
+        "INC-0200",
+        "INC-0050"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0366",
+      "title": "A walk checklist attached another request variant's clause to the keyless request, so a correct response read as a failure",
+      "date": "2026-11-01",
+      "classes": [
+        "detector-fail-closed",
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Derive each checklist expectation verbatim from the delivered spec row and cite the row; triage every failure against the spec, the code and the active tests before calling it a defect",
+      "signature": "A walk reported one failure on a response that matched the delivered spec.",
+      "file": "incidents/INC-0366-a-walk-checklist-attached-another-request-variant-s-clause-t.md",
+      "related": [
+        "INC-0265",
+        "INC-0244"
       ],
       "evidence": []
     }
