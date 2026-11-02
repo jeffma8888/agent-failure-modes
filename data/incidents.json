@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 408,
+  "count": 411,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6940,7 +6940,8 @@
         "INC-0357",
         "INC-0362",
         "INC-0303",
-        "INC-0396"
+        "INC-0396",
+        "INC-0409"
       ],
       "evidence": []
     },
@@ -7204,7 +7205,8 @@
         "INC-0351",
         "INC-0397",
         "INC-0400",
-        "INC-0402"
+        "INC-0402",
+        "INC-0411"
       ],
       "evidence": []
     },
@@ -7244,7 +7246,8 @@
       "related": [
         "INC-0128",
         "INC-0385",
-        "INC-0392"
+        "INC-0392",
+        "INC-0411"
       ],
       "evidence": []
     },
@@ -7265,7 +7268,8 @@
         "INC-0371",
         "INC-0389",
         "INC-0400",
-        "INC-0404"
+        "INC-0404",
+        "INC-0409"
       ],
       "evidence": []
     },
@@ -7360,7 +7364,8 @@
       "related": [
         "INC-0379",
         "INC-0392",
-        "INC-0399"
+        "INC-0399",
+        "INC-0410"
       ],
       "evidence": []
     },
@@ -7620,7 +7625,8 @@
       "file": "incidents/INC-0399-a-final-review-was-reassigned-from-a-busy-reviewer-to-an-idl.md",
       "related": [
         "INC-0392",
-        "INC-0385"
+        "INC-0385",
+        "INC-0410"
       ],
       "evidence": []
     },
@@ -7784,6 +7790,60 @@
       "related": [
         "INC-0389",
         "INC-0396"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0409",
+      "title": "A landing helper's clean step fast-forwarded a merged feature branch's ref, which would have moved a live branch",
+      "date": "2026-11-02",
+      "classes": [
+        "vcs-destruction"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A clean step must never move a branch ref that is still under work",
+      "signature": "A clean step changed the ref of a branch that had already been merged, and it could have been one still in use.",
+      "file": "incidents/INC-0409-a-landing-helper-s-clean-step-fast-forwarded-a-merged-featur.md",
+      "related": [
+        "INC-0380",
+        "INC-0364"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0410",
+      "title": "The lead re-merged the full candidate itself rather than queue behind the busy owner, and proved the delta path by path",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "When the owner is busy, redo a mechanical merge directly and prove the new delta equals the old path by path",
+      "signature": "A mechanical merge was waiting for a busy owner.",
+      "file": "incidents/INC-0410-the-lead-re-merged-the-full-candidate-itself-rather-than-que.md",
+      "related": [
+        "INC-0399",
+        "INC-0385"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0411",
+      "title": "A red phase may start while a spec recheck runs because the reviewed bytes fix the behavior",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Start the red phase while a spec recheck runs; only the production commit waits",
+      "signature": "Work waited for a recheck that could not change the reviewed behavior.",
+      "file": "incidents/INC-0411-a-red-phase-may-start-while-a-spec-recheck-runs-because-the.md",
+      "related": [
+        "INC-0379",
+        "INC-0377"
       ],
       "evidence": []
     }

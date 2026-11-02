@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0351](./INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md) [INC-0397](./INC-0397-a-pending-root-whose-supersession-line-said-review-pending-f.md) [INC-0400](./INC-0400-an-activation-instruction-to-delete-superseded-pending-copie.md) [INC-0402](./INC-0402-an-author-who-received-a-ruling-mid-run-superseded-its-own-e.md)
+[INC-0351](./INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md) [INC-0397](./INC-0397-a-pending-root-whose-supersession-line-said-review-pending-f.md) [INC-0400](./INC-0400-an-activation-instruction-to-delete-superseded-pending-copie.md) [INC-0402](./INC-0402-an-author-who-received-a-ruling-mid-run-superseded-its-own-e.md) [INC-0411](./INC-0411-a-red-phase-may-start-while-a-spec-recheck-runs-because-the.md)

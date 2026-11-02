@@ -358,6 +358,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0395 / medium]** Own the refusal contract before handing a stream to a framework that catches stream failures
 - **[INC-0396 / medium]** Verify each landing by the commit log, never by the last line of the command
 - **[INC-0404 / medium]** When a state is uncertain, treat the item as surviving; fail closed, never read a refusal as gone
+- **[INC-0409 / medium]** A clean step must never move a branch ref that is still under work
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -415,6 +416,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0406 / low]** Equal load readings around a sub-second run are expected from the fixed update interval; record each as read, never copy
 - **[INC-0407 / low]** Sign with a role name; a product name in a signature line fails the scrub
 - **[INC-0408 / low]** Close an evidence gap by a re-run that keeps and records the artifact, not by a reconstruction
+- **[INC-0410 / low]** When the owner is busy, redo a mechanical merge directly and prove the new delta equals the old path by path
+- **[INC-0411 / low]** Start the red phase while a spec recheck runs; only the production commit waits
 
 ## Practices
 

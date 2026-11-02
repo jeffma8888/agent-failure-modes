@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0128](./INC-0128-finished-work-sat-for-hours-because-replies-never-arrived-th.md) [INC-0385](./INC-0385-two-engineers-answered-the-same-stop-diagnosis-independently.md) [INC-0392](./INC-0392-a-declaration-request-that-split-sourced-values-from-decisio.md)
+[INC-0128](./INC-0128-finished-work-sat-for-hours-because-replies-never-arrived-th.md) [INC-0385](./INC-0385-two-engineers-answered-the-same-stop-diagnosis-independently.md) [INC-0392](./INC-0392-a-declaration-request-that-split-sourced-values-from-decisio.md) [INC-0411](./INC-0411-a-red-phase-may-start-while-a-spec-recheck-runs-because-the.md)
