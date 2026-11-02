@@ -483,6 +483,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0474 / low]** A worktree only whitespace check is not range proof; run the check over the branch range, exclude generator output by path, never reformat it, and keep every other path clean.
 - **[INC-0475 / low]** A process guard normalises only trailing whitespace in process list output and searches with a self excluding pattern in a call that contains nothing else; it keeps failing closed.
 - **[INC-0476 / low]** A passing suite is not a discriminating suite; run cheap mutations before merge, count only runs that executed the tests, and open a follow-up change for survivors instead of reopening the merge.
+- **[INC-0477 / low]** When a fix moves a failure later in a test, treat every newly reached step as never verified; a green earlier step proves only that step.
 
 ## Practices
 

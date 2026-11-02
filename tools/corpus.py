@@ -8339,6 +8339,23 @@ _BATCH20: list[dict] = [
         "rule": 'A passing suite is not a discriminating suite; run cheap mutations before merge, count only runs that executed the tests, and open a follow-up change for survivors instead of reopening the merge.',
         "related": ['INC-0133', 'INC-0444'],
     },
+    {
+        "id": "INC-0477",
+        "title": 'A browser test failed at its first API read, and the next run failed at a step that had never executed',
+        "date": "2026-11-02",
+        "classes": ['false-green'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Minor: one extra run to reach the step; found before merge.",
+        "signature": 'Fixing an early test failure exposed a later step that had never run.',
+        "what": 'A browser test failed at its first API read with a 403, which hid every later step. After the fix for that cause, the next run passed login and the new identity assertion and failed where a locator for a form field was not found on the edit view, a step that had never run. The fix moved the failure later and did not finish the test.',
+        "root_cause": 'The early failure stopped the test, so the later steps had never been executed and carried no evidence.',
+        "why_hard": 'A fixed first failure looks like progress toward green, and the later steps look verified because they exist in the file.',
+        "fix": 'After a fix moves a failure later, treat each newly reached step as never verified, read it against the framework source before the next run, and keep the evidence of the earlier steps separate.',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'When a fix moves a failure later in a test, treat every newly reached step as never verified; a green earlier step proves only that step.',
+        "related": ['INC-0447', 'INC-0472'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
