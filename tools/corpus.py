@@ -8747,6 +8747,23 @@ _BATCH20: list[dict] = [
         "rule": 'Size an admission gate to the class of run it protects, and find what is actually producing the load before tightening or waiting on it.',
         "related": ['INC-0427', 'INC-0393'],
     },
+    {
+        "id": "INC-0501",
+        "title": 'An error named only the leaf of an import chain, and a rule to add a link only when the next run named it spent a run per link',
+        "date": "2026-11-02",
+        "classes": ['stage-timeout'],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": 'One unit run was spent before a source search showed the whole import chain at once.',
+        "signature": 'A load error names one package, but that package is reached through others that fail the same way.',
+        "what": 'The unit tier failed before any test because the runtime refused a stylesheet file shipped by a leaf package, reached through a framework export that a generated map had begun to import. The first ruling allowed only the packages in the failing chain to be added to the runner inline list, and another only if the next run named it. The error named only the leaf, so each further link would have cost one run. A search of installed source showed that the export re-exports a UI package whose client index also imports the stylesheet.',
+        "root_cause": 'The rule let the error message decide what was on the path, and an error names the point of failure, not the chain that leads to it.',
+        "why_hard": 'Adding only what the last error named looks careful and minimal, and each run looks like progress, so the cost of serial discovery is easy to mistake for diligence.',
+        "fix": 'Trace the chain in installed source from the leaf to the entry, add every package that source shows on the path in one change, and record the file and line for each. Keep the other evidence requirements unchanged.',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'When an error names only the leaf of a dependency chain, trace the chain in source and act on all of it, rather than letting each run name the next link.',
+        "related": ['INC-0477', 'INC-0472'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
