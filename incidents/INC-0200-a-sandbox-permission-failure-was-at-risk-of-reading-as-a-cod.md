@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0179](./INC-0179-a-chat-pre-approval-did-not-lift-an-explicit-approval-rule.md) [INC-0365](./INC-0365-a-delegated-test-run-needed-login-and-logout-which-delegates.md)
+[INC-0179](./INC-0179-a-chat-pre-approval-did-not-lift-an-explicit-approval-rule.md) [INC-0365](./INC-0365-a-delegated-test-run-needed-login-and-logout-which-delegates.md) [INC-0370](./INC-0370-a-scrub-command-was-refused-as-a-broad-home-directory-scan-b.md)

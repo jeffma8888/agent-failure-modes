@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0332](./INC-0332-a-tier-exclusion-matched-only-one-file-extension.md) [INC-0314](./INC-0314-a-probe-based-test-never-ran-its-probe-so-its-red-proved-not.md)
+[INC-0332](./INC-0332-a-tier-exclusion-matched-only-one-file-extension.md) [INC-0314](./INC-0314-a-probe-based-test-never-ran-its-probe-so-its-red-proved-not.md) [INC-0372](./INC-0372-a-test-run-s-command-line-exclusion-flag-did-not-take-effect.md)

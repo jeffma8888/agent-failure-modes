@@ -41,4 +41,4 @@ Checked by the reviewer, engineer or lead who reported it. Not checked: whether 
 
 ## Related
 
-[INC-0116](./INC-0116-two-validators-enforcing-the-same-rule-masked-single-file-mu.md) [INC-0113](./INC-0113-a-rule-set-widened-by-tag-survived-dropping-one-tag-because.md)
+[INC-0116](./INC-0116-two-validators-enforcing-the-same-rule-masked-single-file-mu.md) [INC-0113](./INC-0113-a-rule-set-widened-by-tag-survived-dropping-one-tag-because.md) [INC-0371](./INC-0371-a-byte-count-compare-at-the-exact-old-length-reported-end-of.md)

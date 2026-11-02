@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0212](./INC-0212-a-relative-path-was-resolved-against-the-wrong-root.md)
+[INC-0212](./INC-0212-a-relative-path-was-resolved-against-the-wrong-root.md) [INC-0369](./INC-0369-a-bare-syntax-check-resolved-to-a-different-runtime-that-ign.md) [INC-0370](./INC-0370-a-scrub-command-was-refused-as-a-broad-home-directory-scan-b.md)

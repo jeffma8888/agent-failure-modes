@@ -47,4 +47,4 @@ Where this was observed, so the claim is checkable rather than anecdotal:
 
 ## Related
 
-[INC-0030](./INC-0030-rewriting-a-region-by-slicing-between-two-markers-deletes-wh.md) [INC-0027](./INC-0027-a-cache-keyed-on-a-recycled-id-judged-each-record-on-its-pre.md) [INC-0038](./INC-0038-a-determinism-test-that-scans-the-live-working-tree-cannot-p.md)
+[INC-0030](./INC-0030-rewriting-a-region-by-slicing-between-two-markers-deletes-wh.md) [INC-0027](./INC-0027-a-cache-keyed-on-a-recycled-id-judged-each-record-on-its-pre.md) [INC-0038](./INC-0038-a-determinism-test-that-scans-the-live-working-tree-cannot-p.md) [INC-0371](./INC-0371-a-byte-count-compare-at-the-exact-old-length-reported-end-of.md)

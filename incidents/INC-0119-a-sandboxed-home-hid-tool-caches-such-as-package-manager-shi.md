@@ -41,4 +41,4 @@ Checked by the reviewer or lead who reported it. Not checked: whether the new ru
 
 ## Related
 
-[INC-0106](./INC-0106-deleting-postgresql-environment-variables-left-client-tools.md) [INC-0351](./INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md)
+[INC-0106](./INC-0106-deleting-postgresql-environment-variables-left-client-tools.md) [INC-0351](./INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md) [INC-0370](./INC-0370-a-scrub-command-was-refused-as-a-broad-home-directory-scan-b.md)

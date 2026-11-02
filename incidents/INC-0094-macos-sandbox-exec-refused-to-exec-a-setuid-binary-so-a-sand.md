@@ -38,3 +38,7 @@ Checked by the engineer, reviewer or lead who reported it. Not checked: whether 
 ## Transferable rule
 
 > List every binary a fixture executes, setuid ones included, when writing a sandbox profile.
+
+## Related
+
+[INC-0369](./INC-0369-a-bare-syntax-check-resolved-to-a-different-runtime-that-ign.md)

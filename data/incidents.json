@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 367,
+  "count": 373,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -934,7 +934,8 @@
       "related": [
         "INC-0030",
         "INC-0027",
-        "INC-0038"
+        "INC-0038",
+        "INC-0371"
       ],
       "evidence": [
         "https://github.com/jeffma8888/agent-failure-modes - this repository is where the collision happened: tools/corpus.py now carries the repaired composition line, and commit bccb9d1 is the concurrent writer's batch that was briefly shadowed."
@@ -1879,7 +1880,9 @@
       "rule": "List every binary a fixture executes, setuid ones included, when writing a sandbox profile.",
       "signature": "A sandboxed run fails when a fixture runs ps or another setuid tool.",
       "file": "incidents/INC-0094-macos-sandbox-exec-refused-to-exec-a-setuid-binary-so-a-sand.md",
-      "related": [],
+      "related": [
+        "INC-0369"
+      ],
       "evidence": []
     },
     {
@@ -2322,7 +2325,8 @@
       "file": "incidents/INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md",
       "related": [
         "INC-0106",
-        "INC-0351"
+        "INC-0351",
+        "INC-0370"
       ],
       "evidence": []
     },
@@ -2449,7 +2453,8 @@
       "file": "incidents/INC-0126-test-discovery-was-compared-with-an-absolute-scratch-prefix.md",
       "related": [
         "INC-0116",
-        "INC-0113"
+        "INC-0113",
+        "INC-0371"
       ],
       "evidence": []
     },
@@ -2484,7 +2489,8 @@
       "file": "incidents/INC-0128-finished-work-sat-for-hours-because-replies-never-arrived-th.md",
       "related": [
         "INC-0091",
-        "INC-0350"
+        "INC-0350",
+        "INC-0373"
       ],
       "evidence": []
     },
@@ -3777,7 +3783,8 @@
       "file": "incidents/INC-0200-a-sandbox-permission-failure-was-at-risk-of-reading-as-a-cod.md",
       "related": [
         "INC-0179",
-        "INC-0365"
+        "INC-0365",
+        "INC-0370"
       ],
       "evidence": []
     },
@@ -4660,7 +4667,9 @@
       "signature": "The command was refused although the path was allowed.",
       "file": "incidents/INC-0249-a-cd-to-a-path-in-a-variable-was-refused-by-the-sandbox.md",
       "related": [
-        "INC-0212"
+        "INC-0212",
+        "INC-0369",
+        "INC-0370"
       ],
       "evidence": []
     },
@@ -5941,7 +5950,8 @@
         "INC-0293",
         "INC-0295",
         "INC-0351",
-        "INC-0340"
+        "INC-0340",
+        "INC-0368"
       ],
       "evidence": []
     },
@@ -6179,7 +6189,8 @@
         "INC-0287",
         "INC-0311",
         "INC-0327",
-        "INC-0332"
+        "INC-0332",
+        "INC-0372"
       ],
       "evidence": []
     },
@@ -6257,7 +6268,8 @@
       "related": [
         "INC-0328",
         "INC-0170",
-        "INC-0336"
+        "INC-0336",
+        "INC-0372"
       ],
       "evidence": []
     },
@@ -6334,7 +6346,8 @@
       "file": "incidents/INC-0336-a-tier-exclusion-was-added-only-after-a-witness-failed-witho.md",
       "related": [
         "INC-0332",
-        "INC-0314"
+        "INC-0314",
+        "INC-0372"
       ],
       "evidence": []
     },
@@ -6414,7 +6427,8 @@
         "INC-0316",
         "INC-0257",
         "INC-0342",
-        "INC-0351"
+        "INC-0351",
+        "INC-0368"
       ],
       "evidence": []
     },
@@ -6612,7 +6626,8 @@
       "file": "incidents/INC-0350-time-stamps-written-from-an-estimate-ran-ahead-of-the-clock.md",
       "related": [
         "INC-0128",
-        "INC-0346"
+        "INC-0346",
+        "INC-0373"
       ],
       "evidence": []
     },
@@ -6633,7 +6648,8 @@
         "INC-0316",
         "INC-0340",
         "INC-0119",
-        "INC-0356"
+        "INC-0356",
+        "INC-0368"
       ],
       "evidence": []
     },
@@ -6961,6 +6977,121 @@
         "INC-0074",
         "INC-0136",
         "INC-0365"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0368",
+      "title": "A new worktree symlinked its dependency trees to another worktree's, and the package manager relinked through them",
+      "date": "2026-11-01",
+      "classes": [
+        "concurrency",
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "Never share a dependency tree between worktrees by symlink; give each worktree a private clone; never run the package manager unless the exact command is authorized; keep the verify-before-run settings off for every child; compare the full link inventory against a clean sibling after any suspected mutation",
+      "signature": "A package manager command in one worktree changed the dependency links of another worktree.",
+      "file": "incidents/INC-0368-a-new-worktree-symlinked-its-dependency-trees-to-another-wor.md",
+      "related": [
+        "INC-0340",
+        "INC-0351",
+        "INC-0316",
+        "INC-0372"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0369",
+      "title": "A bare syntax check resolved to a different runtime that ignored the flag and executed the script",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Run syntax checks with the pinned binary by absolute path, and make every script that can act externally refuse at its first line without its required environment",
+      "signature": "A syntax-check command executed the script it was meant only to parse.",
+      "file": "incidents/INC-0369-a-bare-syntax-check-resolved-to-a-different-runtime-that-ign.md",
+      "related": [
+        "INC-0249",
+        "INC-0094"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0370",
+      "title": "A scrub command was refused as a broad home-directory scan by the operating system's privacy layer",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Scope searches to tracked files in your own tree; never scan the home directory",
+      "signature": "A search step was refused by the operating system as a scan of the whole home directory.",
+      "file": "incidents/INC-0370-a-scrub-command-was-refused-as-a-broad-home-directory-scan-b.md",
+      "related": [
+        "INC-0200",
+        "INC-0249",
+        "INC-0119"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0371",
+      "title": "A byte-count compare at the exact old length reported end of file on a prefix that matched",
+      "date": "2026-11-01",
+      "classes": [
+        "detector-fail-closed"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Verify append-only files with an explicit byte-prefix compare, not a limited-length compare at the exact length",
+      "signature": "A prefix check on an append-only file exited non-zero although the old bytes were unchanged.",
+      "file": "incidents/INC-0371-a-byte-count-compare-at-the-exact-old-length-reported-end-of.md",
+      "related": [
+        "INC-0043",
+        "INC-0126"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0372",
+      "title": "A test run's command-line exclusion flag did not take effect, so excluded cases ran and called the package manager",
+      "date": "2026-11-01",
+      "classes": [
+        "detector-fail-open",
+        "test-isolation"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "List the collected files before a filtered run and stop if any excluded file is still collected",
+      "signature": "Cases that were meant to be excluded from a run executed anyway.",
+      "file": "incidents/INC-0372-a-test-run-s-command-line-exclusion-flag-did-not-take-effect.md",
+      "related": [
+        "INC-0328",
+        "INC-0332",
+        "INC-0336",
+        "INC-0368"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0373",
+      "title": "Two replies were stamped with times ahead of the clock",
+      "date": "2026-11-01",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Read the clock immediately before writing any timestamp, never estimate it",
+      "signature": "Replies carried a time stamp later than the moment they were sent.",
+      "file": "incidents/INC-0373-two-replies-were-stamped-with-times-ahead-of-the-clock.md",
+      "related": [
+        "INC-0350",
+        "INC-0128"
       ],
       "evidence": []
     }

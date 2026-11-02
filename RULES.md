@@ -348,6 +348,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0360 / medium]** Ownership recorded before a create covers an uncertain outcome only; on a definite already-exists error release the claim before rethrowing, and test with a pre-existing object under the exact name
 - **[INC-0361 / medium]** A test that mutates shared state must restore the baseline its successors expect (reset then reseed, never reset only), and the harness should re-establish and check that baseline when each shared step starts; a slow gate with no recorded completion since two tests landed has not tested them together, so treat the main line as unproven until it runs
 - **[INC-0364 / medium]** Print the exit status of every commit and check step explicitly (never only on success), run the range leak scan before landing anything on top of a new commit, and use the guarded landing helper, not an ad-hoc chain
+- **[INC-0368 / medium]** Never share a dependency tree between worktrees by symlink; give each worktree a private clone; never run the package manager unless the exact command is authorized; keep the verify-before-run settings off for every child; compare the full link inventory against a clean sibling after any suspected mutation
+- **[INC-0372 / medium]** List the collected files before a filtered run and stop if any excluded file is still collected
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -374,6 +376,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0365 / low]** When a test needs an action above a delegate's permission ceiling, the delegate writes and statically validates the script and pins its hash and exact command; the lead runs it unchanged and returns the artifacts; never weaken the test to fit the ceiling, and never let the delegate claim a result it did not observe
 - **[INC-0366 / low]** Derive each checklist expectation verbatim from the delivered spec row and cite the row; triage every failure against the spec, the code and the active tests before calling it a defect
 - **[INC-0367 / low]** A brief that asks for a runtime run must carry its runtime environment (the exact endpoint and environment variables, which slot is free, the load gate, and what must never be touched); a delegate that finds a required environment value missing stops and asks, never infers one
+- **[INC-0369 / low]** Run syntax checks with the pinned binary by absolute path, and make every script that can act externally refuse at its first line without its required environment
+- **[INC-0370 / low]** Scope searches to tracked files in your own tree; never scan the home directory
+- **[INC-0371 / low]** Verify append-only files with an explicit byte-prefix compare, not a limited-length compare at the exact length
+- **[INC-0373 / low]** Read the clock immediately before writing any timestamp, never estimate it
 
 ## Practices
 

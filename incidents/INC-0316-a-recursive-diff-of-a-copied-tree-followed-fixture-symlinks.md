@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0293](./INC-0293-the-before-state-was-not-preserved-before-an-operator-edit.md) [INC-0295](./INC-0295-a-pure-move-onto-an-existing-path-was-read-from-the-diff-s-r.md) [INC-0351](./INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md) [INC-0340](./INC-0340-a-fixture-that-linked-the-host-dependency-tree-let-the-packa.md)
+[INC-0293](./INC-0293-the-before-state-was-not-preserved-before-an-operator-edit.md) [INC-0295](./INC-0295-a-pure-move-onto-an-existing-path-was-read-from-the-diff-s-r.md) [INC-0351](./INC-0351-a-physical-copy-of-a-shared-package-store-carried-its-regist.md) [INC-0340](./INC-0340-a-fixture-that-linked-the-host-dependency-tree-let-the-packa.md) [INC-0368](./INC-0368-a-new-worktree-symlinked-its-dependency-trees-to-another-wor.md)

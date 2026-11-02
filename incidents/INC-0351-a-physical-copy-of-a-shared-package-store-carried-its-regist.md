@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0316](./INC-0316-a-recursive-diff-of-a-copied-tree-followed-fixture-symlinks.md) [INC-0340](./INC-0340-a-fixture-that-linked-the-host-dependency-tree-let-the-packa.md) [INC-0119](./INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md) [INC-0356](./INC-0356-a-reviewed-recipe-never-ran-its-real-tool-queries-because-ev.md)
+[INC-0316](./INC-0316-a-recursive-diff-of-a-copied-tree-followed-fixture-symlinks.md) [INC-0340](./INC-0340-a-fixture-that-linked-the-host-dependency-tree-let-the-packa.md) [INC-0119](./INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md) [INC-0356](./INC-0356-a-reviewed-recipe-never-ran-its-real-tool-queries-because-ev.md) [INC-0368](./INC-0368-a-new-worktree-symlinked-its-dependency-trees-to-another-wor.md)
