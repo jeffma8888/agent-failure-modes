@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 484,
+  "count": 486,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9340,6 +9340,42 @@
         "INC-0477",
         "INC-0222",
         "INC-0082"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0485",
+      "title": "The merge acceptance checklist was drafted before the row finished, and reading it found a test change that the merge would have turned red",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Draft the merge acceptance checklist while the row is still open, and for each source change read the tests that assert on it, so owed test changes are found before the merge turns the full run red.",
+      "signature": "A source change altered a seed record, while a unit test still asserted the old shape.",
+      "file": "incidents/INC-0485-the-merge-acceptance-checklist-was-drafted-before-the-row-fi.md",
+      "related": [
+        "INC-0482",
+        "INC-0477"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0486",
+      "title": "An approval that landed on main after the branch forked was not an ancestor of the branch, so the activation commit would have been refused",
+      "date": "2026-11-02",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "An approval that landed on main after a branch forked is not an ancestor of that branch; merge main into the branch before any activation commit that a checker ties to that approval.",
+      "signature": "A checker required the approval commit to be an ancestor of the branch head, and the branch had forked before the approval landed.",
+      "file": "incidents/INC-0486-an-approval-that-landed-on-main-after-the-branch-forked-was.md",
+      "related": [
+        "INC-0164",
+        "INC-0204"
       ],
       "evidence": []
     }

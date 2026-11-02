@@ -491,6 +491,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0481 / low]** Before minting an id, check every place ids have ever lived (branch names, commit subjects, plan text), not only the current list; a checker that reads only the current list cannot catch reuse.
 - **[INC-0483 / low]** A test that counts a shared directory or table must count only what the case creates, by baseline delta or by name, because the per-test reset and seed change the total.
 - **[INC-0484 / low]** Build a fixture that passes every guard except the one under test, and assert which guard refused; an earlier guard's refusal masks the guard the case is meant to prove.
+- **[INC-0485 / low]** Draft the merge acceptance checklist while the row is still open, and for each source change read the tests that assert on it, so owed test changes are found before the merge turns the full run red.
+- **[INC-0486 / low]** An approval that landed on main after a branch forked is not an ancestor of that branch; merge main into the branch before any activation commit that a checker ties to that approval.
 
 ## Practices
 
