@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 404,
+  "count": 408,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -4476,7 +4476,8 @@
       "signature": "The scan failed closed on a merge long after the files were added.",
       "file": "incidents/INC-0238-a-leak-scanner-matched-part-of-a-generated-name-and-blocked.md",
       "related": [
-        "INC-0215"
+        "INC-0215",
+        "INC-0407"
       ],
       "evidence": []
     },
@@ -5083,7 +5084,8 @@
       "file": "incidents/INC-0271-a-load-induced-harness-red-is-not-headroom.md",
       "related": [
         "INC-0236",
-        "INC-0393"
+        "INC-0393",
+        "INC-0406"
       ],
       "evidence": []
     },
@@ -7058,7 +7060,8 @@
         "INC-0200",
         "INC-0249",
         "INC-0119",
-        "INC-0386"
+        "INC-0386",
+        "INC-0407"
       ],
       "evidence": []
     },
@@ -7299,7 +7302,8 @@
       "file": "incidents/INC-0382-a-click-around-walk-that-always-exits-1-from-a-known-gap-can.md",
       "related": [
         "INC-0372",
-        "INC-0388"
+        "INC-0388",
+        "INC-0405"
       ],
       "evidence": []
     },
@@ -7429,7 +7433,8 @@
       "related": [
         "INC-0380",
         "INC-0371",
-        "INC-0396"
+        "INC-0396",
+        "INC-0408"
       ],
       "evidence": []
     },
@@ -7448,7 +7453,8 @@
       "related": [
         "INC-0376",
         "INC-0368",
-        "INC-0401"
+        "INC-0401",
+        "INC-0405"
       ],
       "evidence": []
     },
@@ -7503,7 +7509,8 @@
       "file": "incidents/INC-0393-a-load-reading-taken-minutes-before-a-launch-was-stale-and-t.md",
       "related": [
         "INC-0219",
-        "INC-0271"
+        "INC-0271",
+        "INC-0406"
       ],
       "evidence": []
     },
@@ -7557,7 +7564,8 @@
       "file": "incidents/INC-0396-a-multi-step-command-reported-success-for-its-later-steps-wh.md",
       "related": [
         "INC-0364",
-        "INC-0389"
+        "INC-0389",
+        "INC-0408"
       ],
       "evidence": []
     },
@@ -7704,6 +7712,78 @@
         "INC-0378",
         "INC-0394",
         "INC-0380"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0405",
+      "title": "The demo server served a build made before the merge, so a walk after a source merge would have observed nothing new",
+      "date": "2026-11-02",
+      "classes": [
+        "stale-module"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "A milestone walk needs a fresh build of the merged SHA on its own port, never the running demo server",
+      "signature": "A walk after a merge would have run against a server built before it.",
+      "file": "incidents/INC-0405-the-demo-server-served-a-build-made-before-the-merge-so-a-wa.md",
+      "related": [
+        "INC-0382",
+        "INC-0390"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0406",
+      "title": "Two load readings around a sub-second run were equal because the host load average updates on a fixed interval",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Equal load readings around a sub-second run are expected from the fixed update interval; record each as read, never copy",
+      "signature": "Two readings of host load were identical around a very short run.",
+      "file": "incidents/INC-0406-two-load-readings-around-a-sub-second-run-were-equal-because.md",
+      "related": [
+        "INC-0393",
+        "INC-0271"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0407",
+      "title": "A lead signature line containing the assistant's product name failed the scrub",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Sign with a role name; a product name in a signature line fails the scrub",
+      "signature": "A signature line failed the scrub.",
+      "file": "incidents/INC-0407-a-lead-signature-line-containing-the-assistant-s-product-nam.md",
+      "related": [
+        "INC-0238",
+        "INC-0370"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0408",
+      "title": "An evidence gap, a temporary config not retained, was closed by a lead re-run that kept it, not by asking the author to reconstruct it",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Close an evidence gap by a re-run that keeps and records the artifact, not by a reconstruction",
+      "signature": "A run's evidence omitted a temporary config that had been deleted.",
+      "file": "incidents/INC-0408-an-evidence-gap-a-temporary-config-not-retained-was-closed-b.md",
+      "related": [
+        "INC-0389",
+        "INC-0396"
       ],
       "evidence": []
     }

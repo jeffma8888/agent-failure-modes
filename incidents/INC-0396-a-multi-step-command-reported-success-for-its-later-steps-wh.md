@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0364](./INC-0364-a-hand-written-landing-chain-swallowed-a-failed-post-commit.md) [INC-0389](./INC-0389-two-plan-checks-ran-at-a-wrong-script-path-and-the-last-line.md)
+[INC-0364](./INC-0364-a-hand-written-landing-chain-swallowed-a-failed-post-commit.md) [INC-0389](./INC-0389-two-plan-checks-ran-at-a-wrong-script-path-and-the-last-line.md) [INC-0408](./INC-0408-an-evidence-gap-a-temporary-config-not-retained-was-closed-b.md)

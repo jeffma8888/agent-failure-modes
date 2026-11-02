@@ -41,4 +41,4 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 
 ## Related
 
-[INC-0372](./INC-0372-a-test-run-s-command-line-exclusion-flag-did-not-take-effect.md) [INC-0388](./INC-0388-a-baseline-comparison-graded-only-rows-present-in-the-baseli.md)
+[INC-0372](./INC-0372-a-test-run-s-command-line-exclusion-flag-did-not-take-effect.md) [INC-0388](./INC-0388-a-baseline-comparison-graded-only-rows-present-in-the-baseli.md) [INC-0405](./INC-0405-the-demo-server-served-a-build-made-before-the-merge-so-a-wa.md)

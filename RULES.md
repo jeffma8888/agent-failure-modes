@@ -411,6 +411,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0401 / low]** A conditional packet must re-read the newest main for every root it names before review
 - **[INC-0402 / low]** When a ruling changes a status, append a dated addendum that supersedes it; never rewrite the historical bytes
 - **[INC-0403 / low]** A marker maps only replaced paths; a successor's new path needs no predecessor line
+- **[INC-0405 / low]** A milestone walk needs a fresh build of the merged SHA on its own port, never the running demo server
+- **[INC-0406 / low]** Equal load readings around a sub-second run are expected from the fixed update interval; record each as read, never copy
+- **[INC-0407 / low]** Sign with a role name; a product name in a signature line fails the scrub
+- **[INC-0408 / low]** Close an evidence gap by a re-run that keeps and records the artifact, not by a reconstruction
 
 ## Practices
 
