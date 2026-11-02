@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0043](./INC-0043-an-anchored-replace-that-matches-a-prefix-of-a-line-is-still.md) [INC-0126](./INC-0126-test-discovery-was-compared-with-an-absolute-scratch-prefix.md) [INC-0375](./INC-0375-an-engineer-overwrote-its-own-unit-ledger-with-a-later-run.md)
+[INC-0043](./INC-0043-an-anchored-replace-that-matches-a-prefix-of-a-line-is-still.md) [INC-0126](./INC-0126-test-discovery-was-compared-with-an-absolute-scratch-prefix.md) [INC-0375](./INC-0375-an-engineer-overwrote-its-own-unit-ledger-with-a-later-run.md) [INC-0380](./INC-0380-a-landing-helper-s-clean-step-deleted-a-pending-root-directo.md)

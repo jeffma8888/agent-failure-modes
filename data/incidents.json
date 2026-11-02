@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 379,
+  "count": 383,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -6432,7 +6432,8 @@
         "INC-0257",
         "INC-0342",
         "INC-0351",
-        "INC-0368"
+        "INC-0368",
+        "INC-0381"
       ],
       "evidence": []
     },
@@ -6631,7 +6632,8 @@
       "related": [
         "INC-0128",
         "INC-0346",
-        "INC-0373"
+        "INC-0373",
+        "INC-0383"
       ],
       "evidence": []
     },
@@ -6655,7 +6657,9 @@
         "INC-0356",
         "INC-0368",
         "INC-0375",
-        "INC-0377"
+        "INC-0377",
+        "INC-0380",
+        "INC-0381"
       ],
       "evidence": []
     },
@@ -7060,7 +7064,8 @@
       "related": [
         "INC-0043",
         "INC-0126",
-        "INC-0375"
+        "INC-0375",
+        "INC-0380"
       ],
       "evidence": []
     },
@@ -7082,7 +7087,8 @@
         "INC-0332",
         "INC-0336",
         "INC-0368",
-        "INC-0378"
+        "INC-0378",
+        "INC-0382"
       ],
       "evidence": []
     },
@@ -7100,7 +7106,8 @@
       "file": "incidents/INC-0373-two-replies-were-stamped-with-times-ahead-of-the-clock.md",
       "related": [
         "INC-0350",
-        "INC-0128"
+        "INC-0128",
+        "INC-0383"
       ],
       "evidence": []
     },
@@ -7206,6 +7213,77 @@
       "file": "incidents/INC-0379-splitting-a-review-s-amendments-kept-the-engineer-busy-while.md",
       "related": [
         "INC-0128"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0380",
+      "title": "A landing helper's clean step deleted a pending root directory and left an unchanged tracked file deleted after the fast-forward",
+      "date": "2026-11-01",
+      "classes": [
+        "vcs-destruction"
+      ],
+      "severity": "medium",
+      "status": "fixed",
+      "rule": "A clean step must not leave a tracked unchanged file deleted; restore tracked files after a fast-forward and check tree status",
+      "signature": "A tracked file that had not changed was gone after a landing.",
+      "file": "incidents/INC-0380-a-landing-helper-s-clean-step-deleted-a-pending-root-directo.md",
+      "related": [
+        "INC-0351",
+        "INC-0371"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0381",
+      "title": "A whole-tree content digest detected a dependency change but could not say which file",
+      "date": "2026-11-01",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Record a marker-time file list as well as the whole-tree digest, so a change can be attributed to a file",
+      "signature": "A digest differed from the marker value and gave no hint which file changed.",
+      "file": "incidents/INC-0381-a-whole-tree-content-digest-detected-a-dependency-change-but.md",
+      "related": [
+        "INC-0340",
+        "INC-0351"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0382",
+      "title": "A click-around walk that always exits 1 from a known gap cannot gate regressions",
+      "date": "2026-11-01",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Compare a walk with a known gap against a named baseline result; an exit code that is always failing cannot gate",
+      "signature": "A walk reported failure on every run, so a new failure was indistinguishable.",
+      "file": "incidents/INC-0382-a-click-around-walk-that-always-exits-1-from-a-known-gap-can.md",
+      "related": [
+        "INC-0372"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0383",
+      "title": "A ruling was stamped four minutes ahead of the clock because the time was written before the clock was read",
+      "date": "2026-11-01",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Read the clock first, then write the time, in that order within the step",
+      "signature": "A ruling carried a time stamp later than the moment it was written.",
+      "file": "incidents/INC-0383-a-ruling-was-stamped-four-minutes-ahead-of-the-clock-because.md",
+      "related": [
+        "INC-0373",
+        "INC-0350"
       ],
       "evidence": []
     }

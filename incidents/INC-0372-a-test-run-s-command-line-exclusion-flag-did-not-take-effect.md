@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0328](./INC-0328-a-selector-mirroring-a-config-s-exclusions-matched-basenames.md) [INC-0332](./INC-0332-a-tier-exclusion-matched-only-one-file-extension.md) [INC-0336](./INC-0336-a-tier-exclusion-was-added-only-after-a-witness-failed-witho.md) [INC-0368](./INC-0368-a-new-worktree-symlinked-its-dependency-trees-to-another-wor.md) [INC-0378](./INC-0378-a-default-that-silently-let-a-guard-pass-made-a-reviewer-rea.md)
+[INC-0328](./INC-0328-a-selector-mirroring-a-config-s-exclusions-matched-basenames.md) [INC-0332](./INC-0332-a-tier-exclusion-matched-only-one-file-extension.md) [INC-0336](./INC-0336-a-tier-exclusion-was-added-only-after-a-witness-failed-witho.md) [INC-0368](./INC-0368-a-new-worktree-symlinked-its-dependency-trees-to-another-wor.md) [INC-0378](./INC-0378-a-default-that-silently-let-a-guard-pass-made-a-reviewer-rea.md) [INC-0382](./INC-0382-a-click-around-walk-that-always-exits-1-from-a-known-gap-can.md)
