@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0258](./INC-0258-a-failed-closing-run-could-leave-a-signed-record-public.md)
+[INC-0258](./INC-0258-a-failed-closing-run-could-leave-a-signed-record-public.md) [INC-0357](./INC-0357-a-landing-helper-piped-a-guarded-commit-into-a-formatter-so.md)

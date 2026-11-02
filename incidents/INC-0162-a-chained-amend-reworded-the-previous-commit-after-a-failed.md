@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0147](./INC-0147-a-moved-history-row-was-silently-modernized-instead-of-stayi.md)
+[INC-0147](./INC-0147-a-moved-history-row-was-silently-modernized-instead-of-stayi.md) [INC-0357](./INC-0357-a-landing-helper-piped-a-guarded-commit-into-a-formatter-so.md)

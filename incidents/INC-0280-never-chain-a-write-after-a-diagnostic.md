@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0162](./INC-0162-a-chained-amend-reworded-the-previous-commit-after-a-failed.md)
+[INC-0162](./INC-0162-a-chained-amend-reworded-the-previous-commit-after-a-failed.md) [INC-0357](./INC-0357-a-landing-helper-piped-a-guarded-commit-into-a-formatter-so.md)

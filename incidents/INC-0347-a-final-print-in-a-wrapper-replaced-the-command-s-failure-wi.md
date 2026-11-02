@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0051](./INC-0051-a-fallible-edit-script-followed-by-a-semicolon-let-the-commi.md) [INC-0120](./INC-0120-a-guard-control-asserted-only-exit-0-so-a-warn-and-pass-guar.md)
+[INC-0051](./INC-0051-a-fallible-edit-script-followed-by-a-semicolon-let-the-commi.md) [INC-0120](./INC-0120-a-guard-control-asserted-only-exit-0-so-a-warn-and-pass-guar.md) [INC-0357](./INC-0357-a-landing-helper-piped-a-guarded-commit-into-a-formatter-so.md)

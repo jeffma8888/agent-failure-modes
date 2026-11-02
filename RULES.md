@@ -363,6 +363,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0090 / low]** Write test code in erasable TypeScript only, and assert through contracts that exist.
 - **[INC-0350 / low]** Read the clock immediately before writing any time stamp; when you did not, write a bounded range from the last real reads, never an estimate
 - **[INC-0351 / low]** Before copying a shared tool cache into an isolated run, list its links; a registry of outside links is metadata to exclude, while any other outside link is a containment failure
+- **[INC-0357 / low]** Never pipe a gating command into a formatter in a chain whose later steps destroy the input; check the gate's own exit status
 
 ## Practices
 

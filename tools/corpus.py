@@ -2999,7 +2999,7 @@ _BATCH20: list[dict] = [
         "fix": 'Repair the reworded commit and redo the revert with a valid flag.',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Chain an amend only with && after a step whose success is checked, and confirm the HEAD subject before amending.',
-        "related": ['INC-0147'],
+        "related": ['INC-0147', 'INC-0357'],
     },
     {
         "id": "INC-0163",
@@ -4563,7 +4563,7 @@ _BATCH20: list[dict] = [
         "fix": 'Copy evidence and logs out before cleanup',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Copy raw evidence and logs out of a scratch area before the cleanup runs',
-        "related": ['INC-0258'],
+        "related": ['INC-0258', 'INC-0357'],
     },
     {
         "id": "INC-0255",
@@ -5005,7 +5005,7 @@ _BATCH20: list[dict] = [
         "fix": 'Run the write on its own, and assert the written file exists before trusting later checks',
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": 'Never chain a write after a diagnostic with &&; assert the written file exists before trusting later checks',
-        "related": ['INC-0162'],
+        "related": ['INC-0162', 'INC-0357'],
     },
     {
         "id": "INC-0281",
@@ -6144,7 +6144,7 @@ _BATCH20: list[dict] = [
         "fix": 'Save the status on the next line, write the record, exit with the saved status, stop nonzero if evidence writing fails, and prove it with stub controls for each nonzero class',
         "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
         "rule": 'In a wrapper, save the exit status on the very next line and end with an explicit exit of it; prove a nonzero child makes the wrapper nonzero',
-        "related": ['INC-0051', 'INC-0120'],
+        "related": ['INC-0051', 'INC-0120', 'INC-0357'],
     },
     {
         "id": "INC-0348",
@@ -6298,6 +6298,23 @@ _BATCH20: list[dict] = [
         "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
         "rule": "A stubbed control proves the recipe's logic, not its commands; before an authorized run, execute every real read-only command once against the pinned tool versions",
         "related": ['INC-0104', 'INC-0046', 'INC-0256', 'INC-0351'],
+    },
+    {
+        "id": "INC-0357",
+        "title": "A landing helper piped a guarded commit into a formatter, so the guard's failure did not stop the cleanup",
+        "date": "2026-11-01",
+        "classes": ['tooling-paths', 'vcs-destruction'],
+        "severity": "low",
+        "status": "fixed",
+        "cost": "Minor: nothing was lost because the lead noticed.",
+        "signature": "A scrub guard failed, yet the helper went on to delete the source file because the pipeline reported the formatter's zero status.",
+        "what": "a shell helper ran a copy, then a scrub-and-commit script piped into \"tail -1\", then a cleanup that deletes the source file from the author's worktree; the scrub failed on two absolute paths, but the pipeline's status was the formatter's (zero), so the cleanup ran and the only copy left was an uncommitted file in the main checkout",
+        "root_cause": "the guarded step was piped into a formatter, so the chain saw the formatter's exit status and the guard's failure could not stop the later destructive step",
+        "why_hard": "The output looked normal and the chain exited zero; the guard's failure was visible only in the text the formatter cut away.",
+        "fix": "Capture the guarded step's output in a variable and return on its own nonzero status before printing or cleaning",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Never pipe a gating command into a formatter in a chain whose later steps destroy the input; check the gate's own exit status",
+        "related": ['INC-0347', 'INC-0280', 'INC-0162', 'INC-0254'],
     },
 ]
 

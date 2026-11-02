@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 356,
+  "count": 357,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -3080,7 +3080,8 @@
       "signature": "A revert failed on an invalid flag and the next chained step changed the wrong commit.",
       "file": "incidents/INC-0162-a-chained-amend-reworded-the-previous-commit-after-a-failed.md",
       "related": [
-        "INC-0147"
+        "INC-0147",
+        "INC-0357"
       ],
       "evidence": []
     },
@@ -4735,7 +4736,8 @@
       "signature": "Only extracted tables survived.",
       "file": "incidents/INC-0254-raw-evidence-was-deleted-with-the-scratch-area.md",
       "related": [
-        "INC-0258"
+        "INC-0258",
+        "INC-0357"
       ],
       "evidence": []
     },
@@ -5207,7 +5209,8 @@
       "signature": "A write skipped by a failed diagnostic left every later check green.",
       "file": "incidents/INC-0280-never-chain-a-write-after-a-diagnostic.md",
       "related": [
-        "INC-0162"
+        "INC-0162",
+        "INC-0357"
       ],
       "evidence": []
     },
@@ -6524,7 +6527,8 @@
       "file": "incidents/INC-0347-a-final-print-in-a-wrapper-replaced-the-command-s-failure-wi.md",
       "related": [
         "INC-0051",
-        "INC-0120"
+        "INC-0120",
+        "INC-0357"
       ],
       "evidence": []
     },
@@ -6707,6 +6711,27 @@
         "INC-0046",
         "INC-0256",
         "INC-0351"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0357",
+      "title": "A landing helper piped a guarded commit into a formatter, so the guard's failure did not stop the cleanup",
+      "date": "2026-11-01",
+      "classes": [
+        "tooling-paths",
+        "vcs-destruction"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Never pipe a gating command into a formatter in a chain whose later steps destroy the input; check the gate's own exit status",
+      "signature": "A scrub guard failed, yet the helper went on to delete the source file because the pipeline reported the formatter's zero status.",
+      "file": "incidents/INC-0357-a-landing-helper-piped-a-guarded-commit-into-a-formatter-so.md",
+      "related": [
+        "INC-0347",
+        "INC-0280",
+        "INC-0162",
+        "INC-0254"
       ],
       "evidence": []
     }
