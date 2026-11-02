@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 481,
+  "count": 482,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -9284,6 +9284,24 @@
       "related": [
         "INC-0079",
         "INC-0140"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0482",
+      "title": "Tests added by a branch in the server tier were never run before the merge, and the full suite failed on them afterwards",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "open",
+      "rule": "Before a merge, the branch acceptance run must run every test file the branch adds or changes, in its own tier; a full run after the merge is a backstop, not the first execution.",
+      "signature": "Tests nobody ran before the merge failed on their first execution after it.",
+      "file": "incidents/INC-0482-tests-added-by-a-branch-in-the-server-tier-were-never-run-be.md",
+      "related": [
+        "INC-0447",
+        "INC-0477"
       ],
       "evidence": []
     }

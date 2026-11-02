@@ -8424,6 +8424,23 @@ _BATCH20: list[dict] = [
         "rule": 'Before minting an id, check every place ids have ever lived (branch names, commit subjects, plan text), not only the current list; a checker that reads only the current list cannot catch reuse.',
         "related": ['INC-0079', 'INC-0140'],
     },
+    {
+        "id": "INC-0482",
+        "title": 'Tests added by a branch in the server tier were never run before the merge, and the full suite failed on them afterwards',
+        "date": "2026-11-02",
+        "classes": ['false-green'],
+        "severity": "medium",
+        "status": "open",
+        "cost": "The merged main was red at one test tier and further merges were frozen until a fix landed.",
+        "signature": 'Tests nobody ran before the merge failed on their first execution after it.',
+        "what": 'A branch added engineer written tests in the server tier. The branch acceptance run covered its unit tests, its integration tests and one browser case, but not those server tier files, so they were never executed before the merge. The full suite after the merge was their first run. One test failed on its own fixture, because the create was refused by a size check before the assertion was reached, and a second, older test then failed too. A leftover file from the refused create is a hypothesis, not a finding.',
+        "root_cause": 'The branch acceptance run did not include every test file the branch added, so the first execution of some files happened after the merge.',
+        "why_hard": 'The acceptance run was green and complete for the tiers it covered, so nothing signalled that other added files had not run.',
+        "fix": 'Fix forward on the merged branch with further merges frozen, and run every test file a branch adds or changes, in its own tier, in the branch acceptance run before the merge.',
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": 'Before a merge, the branch acceptance run must run every test file the branch adds or changes, in its own tier; a full run after the merge is a backstop, not the first execution.',
+        "related": ['INC-0447', 'INC-0477'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
