@@ -41,4 +41,4 @@ Checked by the reviewer or engineer who reported it. Not checked: whether the ne
 
 ## Related
 
-[INC-0416](./INC-0416-ten-teammate-threads-showed-state-paused-with-complete-outpu.md)
+[INC-0416](./INC-0416-ten-teammate-threads-showed-state-paused-with-complete-outpu.md) [INC-0469](./INC-0469-a-long-acceptance-run-launched-with-a-detached-command-insid.md)

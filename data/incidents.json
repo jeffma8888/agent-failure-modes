@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 467,
+  "count": 469,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1268,7 +1268,9 @@
       "file": "incidents/INC-0060-a-probe-hung-on-a-background-child-that-held-the-pipe-and-th.md",
       "related": [
         "INC-0037",
-        "INC-0024"
+        "INC-0024",
+        "INC-0468",
+        "INC-0469"
       ],
       "evidence": []
     },
@@ -1844,7 +1846,8 @@
       "signature": "A teammate finished and replied, but the lead assumed work was still in flight.",
       "file": "incidents/INC-0091-teammate-replies-arrived-while-the-lead-was-busy-and-were-mi.md",
       "related": [
-        "INC-0416"
+        "INC-0416",
+        "INC-0469"
       ],
       "evidence": []
     },
@@ -2998,7 +3001,8 @@
       "signature": "A rehearsal passed on elapsed time while the leftovers of the killed run were unexamined.",
       "file": "incidents/INC-0155-a-kill-rehearsal-met-its-timeout-but-nobody-checked-what-the.md",
       "related": [
-        "INC-0153"
+        "INC-0153",
+        "INC-0468"
       ],
       "evidence": []
     },
@@ -4812,7 +4816,8 @@
       "related": [
         "INC-0258",
         "INC-0357",
-        "INC-0360"
+        "INC-0360",
+        "INC-0468"
       ],
       "evidence": []
     },
@@ -6199,7 +6204,8 @@
       "related": [
         "INC-0009",
         "INC-0068",
-        "INC-0180"
+        "INC-0180",
+        "INC-0469"
       ],
       "evidence": []
     },
@@ -9011,6 +9017,44 @@
         "INC-0337",
         "INC-0399",
         "INC-0423"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0468",
+      "title": "A helper finished its work but hung in the framework shutdown call, and its pass line came after the shutdown, so no evidence printed",
+      "date": "2026-11-02",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Write the evidence line before any shutdown call, bound the shutdown with a timeout, and exit explicitly",
+      "signature": "A step did its work and then sat idle with no output.",
+      "file": "incidents/INC-0468-a-helper-finished-its-work-but-hung-in-the-framework-shutdow.md",
+      "related": [
+        "INC-0254",
+        "INC-0060",
+        "INC-0155"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0469",
+      "title": "A long acceptance run launched with a detached command inside a subshell from a tool shell never started, and no output file existed minutes later",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "rule": "Launch a long run as a tracked background task, and check that its first output file exists right after the launch",
+      "signature": "A launched run left no output and no process.",
+      "file": "incidents/INC-0469-a-long-acceptance-run-launched-with-a-detached-command-insid.md",
+      "related": [
+        "INC-0325",
+        "INC-0060",
+        "INC-0091"
       ],
       "evidence": []
     }

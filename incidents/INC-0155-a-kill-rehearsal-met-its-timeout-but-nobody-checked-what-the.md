@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0153](./INC-0153-a-test-checked-only-the-dispatch-argv-of-a-child-stage-not-i.md)
+[INC-0153](./INC-0153-a-test-checked-only-the-dispatch-argv-of-a-child-stage-not-i.md) [INC-0468](./INC-0468-a-helper-finished-its-work-but-hung-in-the-framework-shutdow.md)

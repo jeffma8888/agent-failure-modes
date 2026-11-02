@@ -41,4 +41,4 @@ The scripted probe terminated on its own and reported the client's real outcome.
 
 ## Related
 
-[INC-0037](./INC-0037-a-liveness-check-built-on-a-process-table-grep-counts-itself.md) [INC-0024](./INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md)
+[INC-0037](./INC-0037-a-liveness-check-built-on-a-process-table-grep-counts-itself.md) [INC-0024](./INC-0024-backtick-command-substitution-in-a-heredoc-corrupts-and-exec.md) [INC-0468](./INC-0468-a-helper-finished-its-work-but-hung-in-the-framework-shutdow.md) [INC-0469](./INC-0469-a-long-acceptance-run-launched-with-a-detached-command-insid.md)

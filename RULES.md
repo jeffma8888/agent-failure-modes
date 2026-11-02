@@ -474,6 +474,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0465 / low]** An admission admits the step: a reading within 60 seconds of the admission is a record, and a reading after that is a fresh gate
 - **[INC-0466 / low]** When a ruling changes a gate, list every script that encodes the old gate before the ruling is relied on
 - **[INC-0467 / low]** Check an assignment against the independence rules of the plan before sending it
+- **[INC-0468 / low]** Write the evidence line before any shutdown call, bound the shutdown with a timeout, and exit explicitly
+- **[INC-0469 / low]** Launch a long run as a tracked background task, and check that its first output file exists right after the launch
 
 ## Practices
 
