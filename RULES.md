@@ -548,6 +548,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0539 / low]** Before assigning a reviewer, search the record for every earlier author or judge of the row and pass the findings to the reviewer.
 - **[INC-0540 / low]** When a change touches files owned by different row families, plan one successor per family; do not widen the checker or add a cross-family marker.
 - **[INC-0541 / low]** An initial red that only shows a new function is missing is not behavioral evidence; say so, and ask for a mutation or old-code run that reaches the behavioral assertions.
+- **[INC-0542 / low]** When a rule is enforced in the schema as well as in code, a right-reason mutation must defeat both layers, in a disposable database with an exact recorded name.
+- **[INC-0543 / low]** Before reusing one production build for several origins, search the build output for the baked origin and record the empty result.
+- **[INC-0544 / low]** Measure the host load floor with no team job before fixing an admission limit; if the floor is above it, use the documented scoped limit and serialize the other runtime jobs.
 
 ## Practices
 

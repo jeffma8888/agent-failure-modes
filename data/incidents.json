@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 541,
+  "count": 544,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10344,6 +10344,58 @@
       "related": [
         "INC-0534",
         "INC-0524"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0542",
+      "title": "A mutation that flipped a field-level unique flag was masked by a unique index the migration had already created",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a rule is enforced in the schema as well as in code, a right-reason mutation must defeat both layers, in a disposable database with an exact recorded name.",
+      "signature": "The mutated product setting is not the only thing enforcing the rule, because a database index enforces it too.",
+      "file": "incidents/INC-0542-a-mutation-that-flipped-a-field-level-unique-flag-was-masked.md",
+      "related": [
+        "INC-0534",
+        "INC-0524"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0543",
+      "title": "Before two origins shared one production build, the engineer searched the build output for the baked origin and found none",
+      "date": "2026-11-02",
+      "classes": [
+        "ipc-and-env"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before reusing one production build for several origins, search the build output for the baked origin and record the empty result.",
+      "signature": "A production build can embed an origin or address, which would make one build wrong for a second origin.",
+      "file": "incidents/INC-0543-before-two-origins-shared-one-production-build-the-engineer.md",
+      "related": [
+        "INC-0535"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0544",
+      "title": "A walk load limit was unreachable because the host floor without any team job sat above it",
+      "date": "2026-11-02",
+      "classes": [
+        "concurrency"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Measure the host load floor with no team job before fixing an admission limit; if the floor is above it, use the documented scoped limit and serialize the other runtime jobs.",
+      "signature": "A wait-for-load limit is below the idle load of the host, so every admission would wait forever.",
+      "file": "incidents/INC-0544-a-walk-load-limit-was-unreachable-because-the-host-floor-wit.md",
+      "related": [
+        "INC-0535"
       ],
       "evidence": []
     }
