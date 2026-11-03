@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 553,
+  "count": 557,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10551,6 +10551,79 @@
       "file": "incidents/INC-0553-a-proposal-found-that-the-product-itself-writes-the-state-a.md",
       "related": [
         "INC-0549"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0554",
+      "title": "A host-wide load gate held a one-shot, time-windowed check until its window passed, because processes outside the team drove the load",
+      "date": "2026-11-02",
+      "classes": [
+        "concurrency",
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "open",
+      "rule": "Do not let one host-wide load threshold admit every job alike: size the gate to the job, attribute the load to its owners first, and reserve capacity for any observation that has a deadline.",
+      "signature": "Every runtime job, from a full suite to one read-only browser check, waits for the same host one-minute load average to fall under a fixed limit, while processes the team does not own set that load.",
+      "file": "incidents/INC-0554-a-host-wide-load-gate-held-a-one-shot-time-windowed-check-un.md",
+      "related": [
+        "INC-0544",
+        "INC-0551"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0555",
+      "title": "A load average of 176 was read as CPU demand while no process used more than one core, because the number counts waiting work and lags",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before acting on a high load average, list the top processes by CPU with their owners; a load far above the core count with no process above one core is waiting work or lag, not CPU demand.",
+      "signature": "A one-minute load average far above the core count while the per-process CPU list shows no process above one core.",
+      "file": "incidents/INC-0555-a-load-average-of-176-was-read-as-cpu-demand-while-no-proces.md",
+      "related": [
+        "INC-0554",
+        "INC-0544"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0556",
+      "title": "A polling host lock does not serve waiters in order, so a test run queued after its own setup took the lock first and failed on a database setup had not created",
+      "date": "2026-11-02",
+      "classes": [
+        "concurrency"
+      ],
+      "severity": "low",
+      "status": "open",
+      "rule": "Never rely on start order across separate acquisitions of a polling lock; run dependent steps under one acquisition or use a first-come ticket lock.",
+      "signature": "Two dependent steps are queued as separate acquisitions of a lock that waiters poll for, and the later one runs first.",
+      "file": "incidents/INC-0556-a-polling-host-lock-does-not-serve-waiters-in-order-so-a-tes.md",
+      "related": [
+        "INC-0554"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0557",
+      "title": "The lock holder waited for the load to fall while still holding the host lock, and eleven agents fed that one lock, so waits of 20 minutes became normal",
+      "date": "2026-11-02",
+      "classes": [
+        "concurrency",
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "open",
+      "rule": "Never hold a shared lock while waiting on a condition that other waiters also need, and match the number of agents doing runtime work to the capacity of the serialized resource, not to the size of the team.",
+      "signature": "Recorded lock waits grow with the number of agents, while the lock holder itself is waiting on the load gate.",
+      "file": "incidents/INC-0557-the-lock-holder-waited-for-the-load-to-fall-while-still-hold.md",
+      "related": [
+        "INC-0554",
+        "INC-0556"
       ],
       "evidence": []
     }

@@ -9648,6 +9648,74 @@ _BATCH20: list[dict] = [
         "rule": 'Before bypassing validation for a fixture, look for a product path that writes the state; if none works, stop and report rather than fall back to SQL.',
         "related": ['INC-0549'],
     },
+    {
+        "id": 'INC-0554',
+        "title": 'A host-wide load gate held a one-shot, time-windowed check until its window passed, because processes outside the team drove the load',
+        "date": '2026-11-02',
+        "classes": ['concurrency', 'observability'],
+        "severity": 'medium',
+        "status": 'open',
+        "cost": 'One evidence row was lost: the natural expiry of a lockout was never observed, and the walk closed with that row partial. Runtime jobs waited 20 to 25 minutes for the lock.',
+        "signature": 'Every runtime job, from a full suite to one read-only browser check, waits for the same host one-minute load average to fall under a fixed limit, while processes the team does not own set that load.',
+        "what": "An eleven-agent team serialized its runtime jobs on one host lock and admitted each job only when the one-minute load average was under a fixed limit (16 for suites, 20 for browser walk phases). During the evening the load rose from about 14 to between 100 and 260. The team itself ran one serialized job at a time; the rest came from co-tenants on the same machine: a separate autonomous test loop that started bursts of about a dozen parallel test workers, another desktop application's backend holding about three cores for ten hours, and the desktop file-event service at about 83 percent of a core for six days, fed by many worktrees and dependency trees inside watched folders. A walker had locked out a disposable account and needed one later browser read after the natural expiry time. When that time came, its gate did not admit the read (load 140.68), and the walker recorded expiry as NOT-RUN instead of inferring recovery. Other jobs recorded lock waits of 1180 and 1490 seconds.",
+        "root_cause": 'Admission keyed on one host-wide number that the team neither owned nor could lower, with the same kind of limit for heavy and light jobs, and no reserved slot for an observation with a deadline.',
+        "why_hard": 'Each job reported only that the load was too high and it was waiting, which reads as patience, not failure. Nobody looked up what was driving the load until late, and the lost observation surfaced only in the final report.',
+        "fix": 'Attribute the load by process and owner before reacting; give the owners of co-tenant load a concrete ask (cap parallel workers, keep work trees out of file indexing); never stop a process the team does not own. Gate by job weight, so one read-only check gets a lighter gate or a named exception. Take a time-windowed observation inside a session that is already admitted, or reserve a slot for it before the window opens.',
+        "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
+        "rule": 'Do not let one host-wide load threshold admit every job alike: size the gate to the job, attribute the load to its owners first, and reserve capacity for any observation that has a deadline.',
+        "related": ['INC-0544', 'INC-0551'],
+    },
+    {
+        "id": 'INC-0555',
+        "title": 'A load average of 176 was read as CPU demand while no process used more than one core, because the number counts waiting work and lags',
+        "date": '2026-11-02',
+        "classes": ['observability'],
+        "severity": 'low',
+        "status": 'mitigated',
+        "cost": "No direct loss; a risk of blaming the team's own jobs, or of stopping the wrong process.",
+        "signature": 'A one-minute load average far above the core count while the per-process CPU list shows no process above one core.',
+        "what": 'At one point the one-minute load average was 176 on a 12-core host. A per-process CPU listing at the same moment showed the file-event service at 83 percent of a core, a device-management agent at 22 percent and nothing else above 7 percent. A few minutes earlier the same listing had shown a dozen co-tenant test workers at about 50 percent each, which had already exited. The load average counts runnable threads and threads blocked in uninterruptible waits, which includes disk-bound work, and it is a moving average, so it kept reporting the burst and the input-output pressure after the CPU was free.',
+        "root_cause": 'The gate, and the people reading it, treated the load average as a measure of busy CPU.',
+        "why_hard": 'The load average is the number every tool prints first, and on a quiet machine it is close enough to CPU demand.',
+        "fix": 'Read the per-process CPU list with owners alongside the load average before deciding anything, and record both in the receipt.',
+        "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
+        "rule": 'Before acting on a high load average, list the top processes by CPU with their owners; a load far above the core count with no process above one core is waiting work or lag, not CPU demand.',
+        "related": ['INC-0554', 'INC-0544'],
+    },
+    {
+        "id": 'INC-0556',
+        "title": 'A polling host lock does not serve waiters in order, so a test run queued after its own setup took the lock first and failed on a database setup had not created',
+        "date": '2026-11-02',
+        "classes": ['concurrency'],
+        "severity": 'low',
+        "status": 'open',
+        "cost": 'One wasted run, discarded as not behavioral evidence; the retry was still queued when work paused.',
+        "signature": 'Two dependent steps are queued as separate acquisitions of a lock that waiters poll for, and the later one runs first.',
+        "what": 'The host lock was a directory created atomically, and waiters retried every ten seconds, so whichever waiter retried first after a release won. An engineer queued its worktree setup and then the first test run as two separate jobs. Under heavy contention the test run took the lock before the setup and failed because its database cluster did not exist yet. The engineer recorded that red as not behavioral evidence and queued a retry after setup.',
+        "root_cause": 'A polling lock gives no order among waiters, and the dependency between the two jobs lived only in the order they were started.',
+        "why_hard": 'On a quiet host the earlier job almost always wins, so the order looks guaranteed until contention exposes the race.',
+        "fix": 'Run dependent steps inside one job that takes the lock once, or use a ticket lock that serves waiters in arrival order.',
+        "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
+        "rule": 'Never rely on start order across separate acquisitions of a polling lock; run dependent steps under one acquisition or use a first-come ticket lock.',
+        "related": ['INC-0554'],
+    },
+    {
+        "id": 'INC-0557',
+        "title": 'The lock holder waited for the load to fall while still holding the host lock, and eleven agents fed that one lock, so waits of 20 minutes became normal',
+        "date": '2026-11-02',
+        "classes": ['concurrency', 'delegation'],
+        "severity": 'low',
+        "status": 'open',
+        "cost": 'Agents sat in queues for 20 to 25 minutes at a time; their running cost continued while their runtime work did not advance.',
+        "signature": 'Recorded lock waits grow with the number of agents, while the lock holder itself is waiting on the load gate.',
+        "what": 'The lock helper took the lock first and then waited, up to 15 minutes, for the load average to fall under its limit, still holding the lock. Under co-tenant load every waiter therefore queued behind a holder that was itself waiting. Eleven agents each had runtime steps (green runs, mutation cycles, restores, full suites), all through the one lock, and receipts showed lock waits of 1180 and 1490 seconds. The lead kept agents productive by giving the surplus static work (reviews, authoring tests, design proposals, audits), which needed no lock.',
+        "root_cause": 'The order lock-then-load made the load wait exclusive, and runtime parallelism was sized to the number of agents rather than to one lock.',
+        "why_hard": "Each agent's wait looks like a fair share of a scarce resource; the convoy is visible only when the waits are compared across receipts.",
+        "fix": 'Wait for load before taking the lock, or release it while waiting; size the number of agents with runtime steps to what the lock can serve, and give the rest static work.',
+        "verification": 'Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.',
+        "rule": 'Never hold a shared lock while waiting on a condition that other waiters also need, and match the number of agents doing runtime work to the capacity of the serialized resource, not to the size of the team.',
+        "related": ['INC-0554', 'INC-0556'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
@@ -9744,6 +9812,21 @@ PRACTICES: list[dict] = [
             "a determinism-versus-capability one, and recovery is systematically underpriced."
         ),
         "derived_from": ["INC-0014", "INC-0018", "INC-0024"],
+    },
+    {
+        "id": "PRA-0005",
+        "title": "Admission control for an agent team on a shared host",
+        "practice": (
+            "Treat the host as shared. Attribute load first: list processes by CPU and owner; the load average counts waiting work and lags. Never stop a process you do not own; ask its owner. Gate by job weight, not one limit for all. Reserve capacity for deadline-bound checks, or run them inside an admitted session. Use a first-come lock, wait for load before taking it, and run dependent steps under one acquisition. Match runtime parallelism to the serialized resource; give surplus agents static work. Log the admitting load, lock wait and holder in each receipt."
+        ),
+        "why": (
+            "A load gate protects timing-sensitive tests from noise, but on a shared host it also hands the "
+            "schedule to whoever else is running. Its failures are quiet: jobs wait instead of failing, and the "
+            "cost appears as idle agents, a convoy behind one lock, a reordered dependency, or an observation whose "
+            "window passed. Each item above comes from a separate incident, and the receipts that recorded load "
+            "and lock wait were what made the diagnosis possible after the fact."
+        ),
+        "derived_from": ["INC-0544", "INC-0551", "INC-0554", "INC-0555", "INC-0556", "INC-0557"],
     },
 ]
 

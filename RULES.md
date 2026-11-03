@@ -380,6 +380,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0532 / medium]** Check that every import of a root resolves from the path where the file will run, not only from where it is written; a pending copy that must move byte-identical cannot be repaired at activation.
 - **[INC-0533 / medium]** Before naming a mutation as a case witness, trace every independent guard on the path from the mutated line to the assertion; a second guard masks the mutant.
 - **[INC-0534 / medium]** A mutation counts for a case only when it fails at that case own assertion; check that the setup and fixture assertions do not fail first.
+- **[INC-0554 / medium]** Do not let one host-wide load threshold admit every job alike: size the gate to the job, attribute the load to its owners first, and reserve capacity for any observation that has a deadline.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -560,6 +561,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0551 / low]** A test that needs over half its timeout budget alone will time out under load; raise the budget with the measured duration recorded, and do not touch the assertion.
 - **[INC-0552 / low]** Trace a provisional mismatch to its expectation before filing a defect, and correct it append-only with evidence.
 - **[INC-0553 / low]** Before bypassing validation for a fixture, look for a product path that writes the state; if none works, stop and report rather than fall back to SQL.
+- **[INC-0555 / low]** Before acting on a high load average, list the top processes by CPU with their owners; a load far above the core count with no process above one core is waiting work or lag, not CPU demand.
+- **[INC-0556 / low]** Never rely on start order across separate acquisitions of a polling lock; run dependent steps under one acquisition or use a first-come ticket lock.
+- **[INC-0557 / low]** Never hold a shared lock while waiting on a condition that other waiters also need, and match the number of agents doing runtime work to the capacity of the serialized resource, not to the size of the team.
 
 ## Practices
 
@@ -574,3 +578,5 @@ Each practice names the incidents it generalizes, so it can never claim evidence
   - _derived from:_ INC-0005, INC-0018, INC-0019
 - **[PRA-0004]** Before arguing determinism versus capability, pick the CONSTRAINT SURFACE. Clamp the narrowest axis that makes the failure impossible AND is orthogonal to the capability you are paying for: output form, actions, blast radius, resources, the oracle, information, or identity - never the reasoning. Test: if clamping this axis to fully deterministic loses the reason you hired the model, it is the wrong axis. An apparent determinism-versus-capability trade-off is usually evidence of a coupled surface, not a law.
   - _derived from:_ INC-0014, INC-0018, INC-0024
+- **[PRA-0005]** Treat the host as shared. Attribute load first: list processes by CPU and owner; the load average counts waiting work and lags. Never stop a process you do not own; ask its owner. Gate by job weight, not one limit for all. Reserve capacity for deadline-bound checks, or run them inside an admitted session. Use a first-come lock, wait for load before taking it, and run dependent steps under one acquisition. Match runtime parallelism to the serialized resource; give surplus agents static work. Log the admitting load, lock wait and holder in each receipt.
+  - _derived from:_ INC-0544, INC-0551, INC-0554, INC-0555, INC-0556, INC-0557
