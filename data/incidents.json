@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 535,
+  "count": 538,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10240,6 +10240,58 @@
       "file": "incidents/INC-0535-a-standing-promise-to-guard-every-proven-behavior-had-no-inv.md",
       "related": [
         "INC-0524"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0536",
+      "title": "A one-line comment conflict hid a type break from the automatic part of the merge",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "After any merge conflict, inspect the whole merged file for changes the tool resolved automatically and run the type check before accepting; a tester does not resolve product conflicts.",
+      "signature": "A merge conflict looks like one stale comment, while the automatically merged lines of the same file are inconsistent with each other.",
+      "file": "incidents/INC-0536-a-one-line-comment-conflict-hid-a-type-break-from-the-automa.md",
+      "related": [
+        "INC-0535"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0537",
+      "title": "A protection root pinned an exact seed inventory, and a feature row that grew the seed turned it red",
+      "date": "2026-11-02",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A root that pins an exact inventory should derive it from the source declarations and fail closed on a shape change; a right-reason red from legitimate growth is fixed by a reviewed successor, never by the implementer editing the test.",
+      "signature": "An active root asserts an exact count of seeded records, and a feature branch adds more records.",
+      "file": "incidents/INC-0537-a-protection-root-pinned-an-exact-seed-inventory-and-a-featu.md",
+      "related": [
+        "INC-0535",
+        "INC-0524"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0538",
+      "title": "A dispatch draft marked every unsourced value for the lead to bind instead of guessing",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a value is missing, mark it for the owner to bind and list the gap; never fill it with a precedent or a guess.",
+      "signature": "A packet contains values with no source in any record, such as a credential location, a clock setting or a build mode.",
+      "file": "incidents/INC-0538-a-dispatch-draft-marked-every-unsourced-value-for-the-lead-t.md",
+      "related": [
+        "INC-0535"
       ],
       "evidence": []
     }

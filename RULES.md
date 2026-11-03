@@ -542,6 +542,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0530 / low]** Before writing a role-name locator for a control, read the installed source for its accessible name; an icon-only control with no label has none, and a test that waits for one can only time out.
 - **[INC-0531 / low]** To pause a team safely, tell each in-flight teammate to finish only the current step, write a resume checkpoint, and leave its worktree and processes as they are; resume from those checkpoints and never redo finished work.
 - **[INC-0535 / low]** Turn a broad protection promise into a per-item inventory with strict status definitions, a count, and a proposed guard for every gap; partial protection of a row is a gap.
+- **[INC-0536 / low]** After any merge conflict, inspect the whole merged file for changes the tool resolved automatically and run the type check before accepting; a tester does not resolve product conflicts.
+- **[INC-0537 / low]** A root that pins an exact inventory should derive it from the source declarations and fail closed on a shape change; a right-reason red from legitimate growth is fixed by a reviewed successor, never by the implementer editing the test.
+- **[INC-0538 / low]** When a value is missing, mark it for the owner to bind and list the gap; never fill it with a precedent or a guess.
 
 ## Practices
 
