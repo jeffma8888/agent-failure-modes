@@ -377,6 +377,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0527 / medium]** A regression root must be green on unchanged code before any mutation; an absence selector for a hidden field must account for the hidden input the library still renders.
 - **[INC-0528 / medium]** Replacing a framework default cell, field or component replaces everything it did, not only what the change targeted; list what the default provided before replacing it, and test it.
 - **[INC-0529 / medium]** A per-test bound left at the runner default is a decision nobody made; set it at the project level for the load class the step runs in, and treat a default-bound timeout under load as a wasted run, not a red.
+- **[INC-0532 / medium]** Check that every import of a root resolves from the path where the file will run, not only from where it is written; a pending copy that must move byte-identical cannot be repaired at activation.
+- **[INC-0533 / medium]** Before naming a mutation as a case witness, trace every independent guard on the path from the mutated line to the assertion; a second guard masks the mutant.
+- **[INC-0534 / medium]** A mutation counts for a case only when it fails at that case own assertion; check that the setup and fixture assertions do not fail first.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 531,
+  "count": 534,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10169,6 +10169,60 @@
       "file": "incidents/INC-0531-a-graceful-pause-worked-because-each-in-flight-teammate-fini.md",
       "related": [
         "INC-0449"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0532",
+      "title": "Test roots imported helpers by paths anchored at their pending depth, so every import would break at the active destination",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Check that every import of a root resolves from the path where the file will run, not only from where it is written; a pending copy that must move byte-identical cannot be repaired at activation.",
+      "signature": "A spec imports by relative paths that resolve from its pending folder and climb outside the repository from its active folder.",
+      "file": "incidents/INC-0532-test-roots-imported-helpers-by-paths-anchored-at-their-pendi.md",
+      "related": [
+        "INC-0513",
+        "INC-0473"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0533",
+      "title": "A named mutant was masked by an independent guard upstream, so the case could never turn red for the stated reason",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Before naming a mutation as a case witness, trace every independent guard on the path from the mutated line to the assertion; a second guard masks the mutant.",
+      "signature": "A mutation weakens one access setting, and a separate guard on the same path still refuses.",
+      "file": "incidents/INC-0533-a-named-mutant-was-masked-by-an-independent-guard-upstream-s.md",
+      "related": [
+        "INC-0524",
+        "INC-0476"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0534",
+      "title": "A configuration mutation failed a setup assertion before any case oracle ran, so the red proved nothing about the cases",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A mutation counts for a case only when it fails at that case own assertion; check that the setup and fixture assertions do not fail first.",
+      "signature": "A mutation breaks the configuration, and the shared setup asserts the same configuration and fails first.",
+      "file": "incidents/INC-0534-a-configuration-mutation-failed-a-setup-assertion-before-any.md",
+      "related": [
+        "INC-0524",
+        "INC-0533"
       ],
       "evidence": []
     }
