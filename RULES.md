@@ -545,6 +545,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0536 / low]** After any merge conflict, inspect the whole merged file for changes the tool resolved automatically and run the type check before accepting; a tester does not resolve product conflicts.
 - **[INC-0537 / low]** A root that pins an exact inventory should derive it from the source declarations and fail closed on a shape change; a right-reason red from legitimate growth is fixed by a reviewed successor, never by the implementer editing the test.
 - **[INC-0538 / low]** When a value is missing, mark it for the owner to bind and list the gap; never fill it with a precedent or a guess.
+- **[INC-0539 / low]** Before assigning a reviewer, search the record for every earlier author or judge of the row and pass the findings to the reviewer.
+- **[INC-0540 / low]** When a change touches files owned by different row families, plan one successor per family; do not widen the checker or add a cross-family marker.
+- **[INC-0541 / low]** An initial red that only shows a new function is missing is not behavioral evidence; say so, and ask for a mutation or old-code run that reaches the behavioral assertions.
 
 ## Practices
 

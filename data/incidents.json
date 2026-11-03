@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 538,
+  "count": 541,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10292,6 +10292,58 @@
       "file": "incidents/INC-0538-a-dispatch-draft-marked-every-unsourced-value-for-the-lead-t.md",
       "related": [
         "INC-0535"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0539",
+      "title": "Two reviewers in a row were assigned a slice they had already worked on, because the pick did not search the record",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before assigning a reviewer, search the record for every earlier author or judge of the row and pass the findings to the reviewer.",
+      "signature": "A reviewer is picked from availability alone and then stops at the author check.",
+      "file": "incidents/INC-0539-two-reviewers-in-a-row-were-assigned-a-slice-they-had-alread.md",
+      "related": [
+        "INC-0535"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0540",
+      "title": "A successor root needed to change a file owned by another row family, and the identity checker allows replacement only within one family",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a change touches files owned by different row families, plan one successor per family; do not widen the checker or add a cross-family marker.",
+      "signature": "One successor root must edit a file that a different row family owns.",
+      "file": "incidents/INC-0540-a-successor-root-needed-to-change-a-file-owned-by-another-ro.md",
+      "related": [
+        "INC-0537"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0541",
+      "title": "A reviewer accepted an initial red that only proved a new function was missing, and said so",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "An initial red that only shows a new function is missing is not behavioral evidence; say so, and ask for a mutation or old-code run that reaches the behavioral assertions.",
+      "signature": "A test-first red fails on an assertion that the new function exists.",
+      "file": "incidents/INC-0541-a-reviewer-accepted-an-initial-red-that-only-proved-a-new-fu.md",
+      "related": [
+        "INC-0534",
+        "INC-0524"
       ],
       "evidence": []
     }
