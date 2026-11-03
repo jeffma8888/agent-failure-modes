@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 529,
+  "count": 531,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10134,6 +10134,41 @@
       "related": [
         "INC-0521",
         "INC-0500"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0530",
+      "title": "An icon-only button had no accessible name, so a role-name locator could never match and the test timed out",
+      "date": "2026-11-02",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before writing a role-name locator for a control, read the installed source for its accessible name; an icon-only control with no label has none, and a test that waits for one can only time out.",
+      "signature": "A test waits for a button by role and name, and the button has no name to match.",
+      "file": "incidents/INC-0530-an-icon-only-button-had-no-accessible-name-so-a-role-name-lo.md",
+      "related": [
+        "INC-0523",
+        "INC-0527"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0531",
+      "title": "A graceful pause worked because each in-flight teammate finished one step, wrote a checkpoint and left its workspace as it was",
+      "date": "2026-11-02",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "To pause a team safely, tell each in-flight teammate to finish only the current step, write a resume checkpoint, and leave its worktree and processes as they are; resume from those checkpoints and never redo finished work.",
+      "signature": "A team stops on request and resumes later, and every member continues from its own recorded state.",
+      "file": "incidents/INC-0531-a-graceful-pause-worked-because-each-in-flight-teammate-fini.md",
+      "related": [
+        "INC-0449"
       ],
       "evidence": []
     }

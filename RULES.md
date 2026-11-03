@@ -536,6 +536,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0524 / low]** A mutation named as a case witness must be one the assertions can see; trace what the next line returns before naming it, and state the expected red line.
 - **[INC-0525 / low]** A feedback assertion must fail without the action under test: assert the element is absent before the action and present after it, on a fresh page and scoped to the field, never on any alert on the page.
 - **[INC-0526 / low]** An author-conflict check covers review files as well as commits: search both for the root identifier and read the author of every hit before the reviewer is named.
+- **[INC-0530 / low]** Before writing a role-name locator for a control, read the installed source for its accessible name; an icon-only control with no label has none, and a test that waits for one can only time out.
+- **[INC-0531 / low]** To pause a team safely, tell each in-flight teammate to finish only the current step, write a resume checkpoint, and leave its worktree and processes as they are; resume from those checkpoints and never redo finished work.
 
 ## Practices
 
