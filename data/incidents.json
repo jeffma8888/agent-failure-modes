@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 548,
+  "count": 553,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10466,6 +10466,91 @@
       "file": "incidents/INC-0548-an-activator-could-not-recover-an-earlier-brief-mutant-text.md",
       "related": [
         "INC-0524"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0549",
+      "title": "A reviewer wrote its own browser-only driver to reach a mutant after the row runner stopped at an integration red, without asking",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a mutant needs only part of a row, ask the lead first; do not write a private driver, and run every restored green through the standard runner.",
+      "signature": "The standard runner cannot reach the part of a row a mutant needs, and the runner is replaced by an ad hoc script.",
+      "file": "incidents/INC-0549-a-reviewer-wrote-its-own-browser-only-driver-to-reach-a-muta.md",
+      "related": [
+        "INC-0546"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0550",
+      "title": "Integration files that need a live server failed with connection refused under a runner that starts none, first read as a branch regression",
+      "date": "2026-11-02",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before reading a red as a regression, run the same files with the same runner on the main branch; a connection refused under a runner that starts no server is a precondition, not a regression.",
+      "signature": "Tests fail with connection refused on a branch, and the cause is a missing precondition of the runner.",
+      "file": "incidents/INC-0550-integration-files-that-need-a-live-server-failed-with-connec.md",
+      "related": [
+        "INC-0549"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0551",
+      "title": "A test that passed alone at about 63 percent of its timeout budget timed out in a loaded whole-suite run",
+      "date": "2026-11-02",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A test that needs over half its timeout budget alone will time out under load; raise the budget with the measured duration recorded, and do not touch the assertion.",
+      "signature": "A test finishes at well over half of its budget alone, then times out under load.",
+      "file": "incidents/INC-0551-a-test-that-passed-alone-at-about-63-percent-of-its-timeout.md",
+      "related": [
+        "INC-0550"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0552",
+      "title": "The walker helper produced two provisional mismatches of its own, which it traced and corrected append-only before any defect was filed",
+      "date": "2026-11-02",
+      "classes": [
+        "detector-fail-closed"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Trace a provisional mismatch to its expectation before filing a defect, and correct it append-only with evidence.",
+      "signature": "A walk check reports a mismatch that comes from the helper expectation, not from the product.",
+      "file": "incidents/INC-0552-the-walker-helper-produced-two-provisional-mismatches-of-its.md",
+      "related": [
+        "INC-0547"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0553",
+      "title": "A proposal found that the product itself writes the state a fixture needed, which turned a validation-bypass question into a product path",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before bypassing validation for a fixture, look for a product path that writes the state; if none works, stop and report rather than fall back to SQL.",
+      "signature": "A fixture needs a record that normal validation would refuse, which suggests bypassing validation.",
+      "file": "incidents/INC-0553-a-proposal-found-that-the-product-itself-writes-the-state-a.md",
+      "related": [
+        "INC-0549"
       ],
       "evidence": []
     }

@@ -555,6 +555,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0546 / low]** When a runner cannot filter cases, run the whole row and attribute each red to its own case line; never credit another case baseline red as a kill.
 - **[INC-0547 / low]** Reuse the exact recorded link instead of a looser selector, and record the element evidence for a link that cannot be clicked.
 - **[INC-0548 / low]** If an assigned mutant cannot be recovered, name your own, say so, and record its diff and restore hash; put mutant text in a file, not only in a message.
+- **[INC-0549 / low]** When a mutant needs only part of a row, ask the lead first; do not write a private driver, and run every restored green through the standard runner.
+- **[INC-0550 / low]** Before reading a red as a regression, run the same files with the same runner on the main branch; a connection refused under a runner that starts no server is a precondition, not a regression.
+- **[INC-0551 / low]** A test that needs over half its timeout budget alone will time out under load; raise the budget with the measured duration recorded, and do not touch the assertion.
+- **[INC-0552 / low]** Trace a provisional mismatch to its expectation before filing a defect, and correct it append-only with evidence.
+- **[INC-0553 / low]** Before bypassing validation for a fixture, look for a product path that writes the state; if none works, stop and report rather than fall back to SQL.
 
 ## Practices
 
