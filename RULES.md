@@ -551,6 +551,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0542 / low]** When a rule is enforced in the schema as well as in code, a right-reason mutation must defeat both layers, in a disposable database with an exact recorded name.
 - **[INC-0543 / low]** Before reusing one production build for several origins, search the build output for the baked origin and record the empty result.
 - **[INC-0544 / low]** Measure the host load floor with no team job before fixing an admission limit; if the floor is above it, use the documented scoped limit and serialize the other runtime jobs.
+- **[INC-0545 / low]** A helper must not guess whether an argument is a path or a name; take an explicit kind or fail closed on an unknown bare word.
+- **[INC-0546 / low]** When a runner cannot filter cases, run the whole row and attribute each red to its own case line; never credit another case baseline red as a kill.
+- **[INC-0547 / low]** Reuse the exact recorded link instead of a looser selector, and record the element evidence for a link that cannot be clicked.
+- **[INC-0548 / low]** If an assigned mutant cannot be recovered, name your own, say so, and record its diff and restore hash; put mutant text in a file, not only in a message.
 
 ## Practices
 

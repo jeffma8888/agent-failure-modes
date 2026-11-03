@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 544,
+  "count": 548,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10396,6 +10396,76 @@
       "file": "incidents/INC-0544-a-walk-load-limit-was-unreachable-because-the-host-floor-wit.md",
       "related": [
         "INC-0535"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0545",
+      "title": "A landing helper guessed the kind of each argument from its shape, so a plain file name was read as a pending root",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A helper must not guess whether an argument is a path or a name; take an explicit kind or fail closed on an unknown bare word.",
+      "signature": "A helper treats any word without a slash or a leading underscore as a name of a kind, not as a file.",
+      "file": "incidents/INC-0545-a-landing-helper-guessed-the-kind-of-each-argument-from-its.md",
+      "related": [
+        "INC-0518",
+        "INC-0519"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0546",
+      "title": "A reviewer asked for a mutant to run with a case filter, but the row runner takes one row and no filter",
+      "date": "2026-11-02",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a runner cannot filter cases, run the whole row and attribute each red to its own case line; never credit another case baseline red as a kill.",
+      "signature": "A review note names a run option that the runner does not have.",
+      "file": "incidents/INC-0546-a-reviewer-asked-for-a-mutant-to-run-with-a-case-filter-but.md",
+      "related": [
+        "INC-0534",
+        "INC-0524"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0547",
+      "title": "A walker harness could not open a blank autosave draft from the list because its name link had no text, and a second selector matched three links",
+      "date": "2026-11-02",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Reuse the exact recorded link instead of a looser selector, and record the element evidence for a link that cannot be clicked.",
+      "signature": "A list link has no accessible text, and a looser selector matches more than the one intended link.",
+      "file": "incidents/INC-0547-a-walker-harness-could-not-open-a-blank-autosave-draft-from.md",
+      "related": [
+        "INC-0527"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0548",
+      "title": "An activator could not recover an earlier brief mutant text, so it named its own mutant and said so",
+      "date": "2026-11-02",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "If an assigned mutant cannot be recovered, name your own, say so, and record its diff and restore hash; put mutant text in a file, not only in a message.",
+      "signature": "The brief that carried the mutant text is no longer available to the activator.",
+      "file": "incidents/INC-0548-an-activator-could-not-recover-an-earlier-brief-mutant-text.md",
+      "related": [
+        "INC-0524"
       ],
       "evidence": []
     }
