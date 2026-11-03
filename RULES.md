@@ -541,6 +541,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0526 / low]** An author-conflict check covers review files as well as commits: search both for the root identifier and read the author of every hit before the reviewer is named.
 - **[INC-0530 / low]** Before writing a role-name locator for a control, read the installed source for its accessible name; an icon-only control with no label has none, and a test that waits for one can only time out.
 - **[INC-0531 / low]** To pause a team safely, tell each in-flight teammate to finish only the current step, write a resume checkpoint, and leave its worktree and processes as they are; resume from those checkpoints and never redo finished work.
+- **[INC-0535 / low]** Turn a broad protection promise into a per-item inventory with strict status definitions, a count, and a proposed guard for every gap; partial protection of a row is a gap.
 
 ## Practices
 

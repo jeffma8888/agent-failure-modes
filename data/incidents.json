@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 534,
+  "count": 535,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10223,6 +10223,23 @@
       "related": [
         "INC-0524",
         "INC-0533"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0535",
+      "title": "A standing promise to guard every proven behavior had no inventory, so partial protection could pass as coverage",
+      "date": "2026-11-02",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Turn a broad protection promise into a per-item inventory with strict status definitions, a count, and a proposed guard for every gap; partial protection of a row is a gap.",
+      "signature": "A broad request such as never break what already works is acknowledged but never turned into a per-item count of what is guarded.",
+      "file": "incidents/INC-0535-a-standing-promise-to-guard-every-proven-behavior-had-no-inv.md",
+      "related": [
+        "INC-0524"
       ],
       "evidence": []
     }
