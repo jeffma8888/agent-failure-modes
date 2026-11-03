@@ -9716,6 +9716,23 @@ _BATCH20: list[dict] = [
         "rule": 'Never hold a shared lock while waiting on a condition that other waiters also need, and match the number of agents doing runtime work to the capacity of the serialized resource, not to the size of the team.',
         "related": ['INC-0554', 'INC-0556'],
     },
+    {
+        "id": 'INC-0558',
+        "title": 'Two agents cancelled their queued heavy jobs by task id during a pause, but the queued shells survived; one later took the host lock and ran its test after the agent had reported it cancelled',
+        "date": '2026-11-02',
+        "classes": ['concurrency', 'ipc-and-env', 'observability'],
+        "severity": 'low',
+        "status": 'open',
+        "cost": 'A browser test ran after the team was told to pause, and the agent\'s checkpoint said the job was cancelled; the lead found the run only by reading log timestamps against the report.',
+        "signature": 'A job reported as cancelled has a log whose first line is written after the cancellation time, or its shell PIDs still answer ps.',
+        "what": 'When the operator paused the team, each agent cancelled its own queued runtime job by exact task id, as the pause rules required. The jobs were queued behind the shared host lock, so the cancelled task wrapper had launched shells that were still polling for the lock. One agent checked ps after cancelling, found its two queued shells still alive, and sent SIGTERM to those exact PIDs. The other agent wrote its checkpoint ("cancelled while waiting for lock") without that check. About a minute later its queued shell acquired the lock (lock wait 50 seconds, load1 13), ran migrations, seeded a database and ran three browser tests, and wrote a complete log after the checkpoint. The work was harmless (an expected failing test on unchanged code), but it ran after the pause and against the written state.',
+        "root_cause": 'Cancelling the task wrapper did not signal the process group it had started, and a long lock queue keeps a cancelled job alive long enough to become runnable later.',
+        "why_hard": 'The cancellation returns a success notification and the log is empty at that moment, so both available signals say the job is gone; the shell is only visible to ps, by PID.',
+        "fix": 'After cancelling any queued or running job, list its recorded PIDs and the lock owner, and signal the exact PIDs that remain; have the lock helper exit when its parent task is gone.',
+        "verification": 'Checked by the person who reported it, from the log timestamps and the lock line in the log. Not checked: whether the new rule prevents recurrence.',
+        "rule": 'A cancellation is complete only when the job\'s own PIDs are gone from ps; record that check in the checkpoint, and make any helper that waits on a lock exit when its parent dies.',
+        "related": ['INC-0556', 'INC-0557'],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
@@ -9826,7 +9843,7 @@ PRACTICES: list[dict] = [
             "window passed. Each item above comes from a separate incident, and the receipts that recorded load "
             "and lock wait were what made the diagnosis possible after the fact."
         ),
-        "derived_from": ["INC-0544", "INC-0551", "INC-0554", "INC-0555", "INC-0556", "INC-0557"],
+        "derived_from": ["INC-0544", "INC-0551", "INC-0554", "INC-0555", "INC-0556", "INC-0557", "INC-0558"],
     },
 ]
 

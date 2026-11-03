@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 557,
+  "count": 558,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10624,6 +10624,26 @@
       "related": [
         "INC-0554",
         "INC-0556"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0558",
+      "title": "Two agents cancelled their queued heavy jobs by task id during a pause, but the queued shells survived; one later took the host lock and ran its test after the agent had reported it cancelled",
+      "date": "2026-11-02",
+      "classes": [
+        "concurrency",
+        "ipc-and-env",
+        "observability"
+      ],
+      "severity": "low",
+      "status": "open",
+      "rule": "A cancellation is complete only when the job's own PIDs are gone from ps; record that check in the checkpoint, and make any helper that waits on a lock exit when its parent dies.",
+      "signature": "A job reported as cancelled has a log whose first line is written after the cancellation time, or its shell PIDs still answer ps.",
+      "file": "incidents/INC-0558-two-agents-cancelled-their-queued-heavy-jobs-by-task-id-duri.md",
+      "related": [
+        "INC-0556",
+        "INC-0557"
       ],
       "evidence": []
     }

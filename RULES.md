@@ -564,6 +564,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0555 / low]** Before acting on a high load average, list the top processes by CPU with their owners; a load far above the core count with no process above one core is waiting work or lag, not CPU demand.
 - **[INC-0556 / low]** Never rely on start order across separate acquisitions of a polling lock; run dependent steps under one acquisition or use a first-come ticket lock.
 - **[INC-0557 / low]** Never hold a shared lock while waiting on a condition that other waiters also need, and match the number of agents doing runtime work to the capacity of the serialized resource, not to the size of the team.
+- **[INC-0558 / low]** A cancellation is complete only when the job's own PIDs are gone from ps; record that check in the checkpoint, and make any helper that waits on a lock exit when its parent dies.
 
 ## Practices
 
@@ -579,4 +580,4 @@ Each practice names the incidents it generalizes, so it can never claim evidence
 - **[PRA-0004]** Before arguing determinism versus capability, pick the CONSTRAINT SURFACE. Clamp the narrowest axis that makes the failure impossible AND is orthogonal to the capability you are paying for: output form, actions, blast radius, resources, the oracle, information, or identity - never the reasoning. Test: if clamping this axis to fully deterministic loses the reason you hired the model, it is the wrong axis. An apparent determinism-versus-capability trade-off is usually evidence of a coupled surface, not a law.
   - _derived from:_ INC-0014, INC-0018, INC-0024
 - **[PRA-0005]** Treat the host as shared. Attribute load first: list processes by CPU and owner; the load average counts waiting work and lags. Never stop a process you do not own; ask its owner. Gate by job weight, not one limit for all. Reserve capacity for deadline-bound checks, or run them inside an admitted session. Use a first-come lock, wait for load before taking it, and run dependent steps under one acquisition. Match runtime parallelism to the serialized resource; give surplus agents static work. Log the admitting load, lock wait and holder in each receipt.
-  - _derived from:_ INC-0544, INC-0551, INC-0554, INC-0555, INC-0556, INC-0557
+  - _derived from:_ INC-0544, INC-0551, INC-0554, INC-0555, INC-0556, INC-0557, INC-0558
