@@ -48,6 +48,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0250 / high]** Verify Markdown by the target renderer's own parse, not by structural lint; never leave a bare <slot> outside code.
 - **[INC-0585 / high]** After taking a lock on a file opened by path, compare the open file identity with the path identity and retry on mismatch; never create a silent new guard.
 - **[INC-0587 / high]** A release removes a lock only after proving, under the guard, that the lock target is the caller's own recorded stage.
+- **[INC-0596 / high]** Before trusting a zero-violations monitor, require a positive control: a known event it must record in the process that makes it.
 - **[INC-0006 / medium]** Success is an ARTIFACT, not an exit code. Under a hard timeout, an agent that writes its minimal complete output first and refines in place still succeeds if killed. Correspondingly: never call a timeout a failure without checking whether the output file exists.
 - **[INC-0007 / medium]** A success predicate defined as 'the output file exists' hides a chronically over-budget step. Report the DURATION DISTRIBUTION per step, not just the outcome, and compare against a sibling running the same pipeline on the same box - which cheaply falsifies 'the machine is slow' or 'the provider is throttling'.
 - **[INC-0017 / medium]** To stop a well-behaved detached loop, remove the input it polls (a STOP file it honors), not just its pid - a supervisor or scheduler can re-launch a killed pid. Same argv on a new pid = auto-resurrection; different argv = a fresh authorized launch. Hunt the launcher accordingly, and leave a documented STOP so you and the other session do not fight over the process.
@@ -391,6 +392,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0586 / medium]** When a guard or an owner identity cannot be proved, exit promptly with a manual step naming the exact path; never spin or skip silently.
 - **[INC-0590 / medium]** When a step stops at its hang limit with all reported cases passing, do not call it green or red and do not rerun into the same limit; raise the budget from measured times, cite them, then rerun.
 - **[INC-0594 / medium]** Before landing a successor, check that its named old bytes equal the bytes on main; if they name an unapproved revision, park it.
+- **[INC-0595 / medium]** An approval header must name a commit whose tree holds the reviewed manifest: the first main commit holding both the review and the root.
+- **[INC-0597 / medium]** When a run-before-approve needs a swap, ask for a runtime route with a trap restore instead of editing identity records, and give it no credit.
+- **[INC-0599 / medium]** Before a checklist states what a screen shows, verify it against installed UI source; do not infer request type or excuse missing headers.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -601,6 +605,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0591 / low]** When raising one step budget for load slowdown, check each sibling step's measured share of its limit and cover any that would fail at that slowdown in the same ruling.
 - **[INC-0592 / low]** When a freeze keeps a finished row open, record the delivering merge commit in its status text.
 - **[INC-0593 / low]** When you cannot read a source, mark every claim that rests on it so the next checker knows what to verify.
+- **[INC-0598 / low]** Name a GO baseline by its condition, and recheck it against rulings made since the packet was written.
 
 ## Practices
 

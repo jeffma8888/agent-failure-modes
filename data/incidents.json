@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 594,
+  "count": 599,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11264,6 +11264,92 @@
       "related": [
         "INC-0403",
         "INC-0492"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0595",
+      "title": "An approval header named the review commit, whose tree did not yet hold the reviewed root, and the identity checker refused it",
+      "date": "2026-11-04",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "An approval header must name a commit whose tree holds the reviewed manifest: the first main commit holding both the review and the root.",
+      "signature": "An approval names a commit that predates the merge of the root it approves.",
+      "file": "incidents/INC-0595-an-approval-header-named-the-review-commit-whose-tree-did-no.md",
+      "related": [
+        "INC-0403",
+        "INC-0594"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0596",
+      "title": "An observer recorded zero denied connects while it also missed the server's database connect, so zero denied proved nothing",
+      "date": "2026-11-04",
+      "classes": [
+        "detector-fail-open"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "Before trusting a zero-violations monitor, require a positive control: a known event it must record in the process that makes it.",
+      "signature": "A monitor reports zero violations and zero of an event that must occur.",
+      "file": "incidents/INC-0596-an-observer-recorded-zero-denied-connects-while-it-also-miss.md",
+      "related": [
+        "INC-0575"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0597",
+      "title": "A run-before-approve test asked for a runtime route that keeps the harness untouched instead of bypassing identity",
+      "date": "2026-11-04",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When a run-before-approve needs a swap, ask for a runtime route with a trap restore instead of editing identity records, and give it no credit.",
+      "signature": "A candidate test must run before approval but the normal row selection would pick the active predecessor.",
+      "file": "incidents/INC-0597-a-run-before-approve-test-asked-for-a-runtime-route-that-kee.md",
+      "related": [
+        "INC-0540"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0598",
+      "title": "A go decision was tied to a stale commit that later rulings had overtaken, and the ruling moved it to a named condition",
+      "date": "2026-11-04",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Name a GO baseline by its condition, and recheck it against rulings made since the packet was written.",
+      "signature": "A go packet names a fixed commit that predates later rulings.",
+      "file": "incidents/INC-0598-a-go-decision-was-tied-to-a-stale-commit-that-later-rulings.md",
+      "related": [
+        "INC-0160"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0599",
+      "title": "A checklist expected a slug first link and excused absent headers, and installed UI source and a reviewer disproved both",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Before a checklist states what a screen shows, verify it against installed UI source; do not infer request type or excuse missing headers.",
+      "signature": "A manual checklist states what the UI will show without reading the installed UI code.",
+      "file": "incidents/INC-0599-a-checklist-expected-a-slug-first-link-and-excused-absent-he.md",
+      "related": [
+        "INC-0538"
       ],
       "evidence": []
     }
