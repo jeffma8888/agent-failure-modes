@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 589,
+  "count": 594,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11176,6 +11176,94 @@
       "file": "incidents/INC-0589-the-only-copies-of-eight-reviewed-drafts-sat-untracked-in-on.md",
       "related": [
         "INC-0510"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0590",
+      "title": "A full acceptance run stopped at a step hang limit with every reported case passing, and the budget was raised from measured times",
+      "date": "2026-11-04",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When a step stops at its hang limit with all reported cases passing, do not call it green or red and do not rerun into the same limit; raise the budget from measured times, cite them, then rerun.",
+      "signature": "A step stops at its hang limit after a partial report in which every case passed, and the wrapper exits 0.",
+      "file": "incidents/INC-0590-a-full-acceptance-run-stopped-at-a-step-hang-limit-with-ever.md",
+      "related": [
+        "INC-0348",
+        "INC-0551"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0591",
+      "title": "A triage showed a neighbouring step already at 69 percent of its limit at lower load, so the budget ruling covered it before it failed",
+      "date": "2026-11-04",
+      "classes": [
+        "stage-timeout"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When raising one step budget for load slowdown, check each sibling step's measured share of its limit and cover any that would fail at that slowdown in the same ruling.",
+      "signature": "A step that passed in an earlier run used most of its hang limit at lower load than the run that failed.",
+      "file": "incidents/INC-0591-a-triage-showed-a-neighbouring-step-already-at-69-percent-of.md",
+      "related": [
+        "INC-0590",
+        "INC-0551"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0592",
+      "title": "A static triage found four open rows already done by named merges, and the freeze rule kept them open with the merge commit in the status text",
+      "date": "2026-11-04",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a freeze keeps a finished row open, record the delivering merge commit in its status text.",
+      "signature": "Plan rows read as open although merged work already delivered them.",
+      "file": "incidents/INC-0592-a-static-triage-found-four-open-rows-already-done-by-named-m.md",
+      "related": [
+        "INC-0160"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0593",
+      "title": "A packet author who could not read the rulings file marked every claim resting on it, so the recheck knew what to verify",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When you cannot read a source, mark every claim that rests on it so the next checker knows what to verify.",
+      "signature": "A packet states ruling-dependent facts that its author could not check against the source.",
+      "file": "incidents/INC-0593-a-packet-author-who-could-not-read-the-rulings-file-marked-e.md",
+      "related": [
+        "INC-0538"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0594",
+      "title": "A successor draft named as its old bytes a revision that was never approved, so it cannot land against the bytes on main",
+      "date": "2026-11-04",
+      "classes": [
+        "identity-and-keying"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Before landing a successor, check that its named old bytes equal the bytes on main; if they name an unapproved revision, park it.",
+      "signature": "A successor line names old bytes that differ from the helper actually on main.",
+      "file": "incidents/INC-0594-a-successor-draft-named-as-its-old-bytes-a-revision-that-was.md",
+      "related": [
+        "INC-0403",
+        "INC-0492"
       ],
       "evidence": []
     }

@@ -389,6 +389,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0573 / medium]** When a teammate shows finished with no reply, read its report file at once; do not wait for the message.
 - **[INC-0575 / medium]** A lock or queue needs tests that force a signal or cancel between every pair of publication steps; publish ownership atomically and only when complete.
 - **[INC-0586 / medium]** When a guard or an owner identity cannot be proved, exit promptly with a manual step naming the exact path; never spin or skip silently.
+- **[INC-0590 / medium]** When a step stops at its hang limit with all reported cases passing, do not call it green or red and do not rerun into the same limit; raise the budget from measured times, cite them, then rerun.
+- **[INC-0594 / medium]** Before landing a successor, check that its named old bytes equal the bytes on main; if they name an unapproved revision, park it.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -596,6 +598,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0584 / low]** An exception for known failures must end when its fix merges; require the tree to contain the fix and compare to the frozen set.
 - **[INC-0588 / low]** When an old reproducer cannot run against a revision, report it as stale test semantics, not a kill, and report the adapted run separately.
 - **[INC-0589 / low]** Before cleaning a worktree, triage its untracked items against main; keep untouched any item nothing supersedes.
+- **[INC-0591 / low]** When raising one step budget for load slowdown, check each sibling step's measured share of its limit and cover any that would fail at that slowdown in the same ruling.
+- **[INC-0592 / low]** When a freeze keeps a finished row open, record the delivering merge commit in its status text.
+- **[INC-0593 / low]** When you cannot read a source, mark every claim that rests on it so the next checker knows what to verify.
 
 ## Practices
 
