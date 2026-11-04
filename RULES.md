@@ -381,6 +381,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0533 / medium]** Before naming a mutation as a case witness, trace every independent guard on the path from the mutated line to the assertion; a second guard masks the mutant.
 - **[INC-0534 / medium]** A mutation counts for a case only when it fails at that case own assertion; check that the setup and fixture assertions do not fail first.
 - **[INC-0554 / medium]** Do not let one host-wide load threshold admit every job alike: size the gate to the job, attribute the load to its owners first, and reserve capacity for any observation that has a deadline.
+- **[INC-0562 / medium]** When a new observer denies traffic on the unchanged base, stop and report; never widen the allowlist, and key any refinement to recorded listeners.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -565,6 +566,12 @@ One rule per incident, ordered by severity then id.
 - **[INC-0556 / low]** Never rely on start order across separate acquisitions of a polling lock; run dependent steps under one acquisition or use a first-come ticket lock.
 - **[INC-0557 / low]** Never hold a shared lock while waiting on a condition that other waiters also need, and match the number of agents doing runtime work to the capacity of the serialized resource, not to the size of the team.
 - **[INC-0558 / low]** A cancellation is complete only when the job's own PIDs are gone from ps; record that check in the checkpoint, and make any helper that waits on a lock exit when its parent dies.
+- **[INC-0559 / low]** A root that pins a list of framework internals must be checked against the installed configuration and run once before approval; a setup failure is a root defect, fixed by a new successor, never by an in-place edit.
+- **[INC-0560 / low]** Classify a non-assertion red by where it was raised: a domain error from the mutated path inside the expectation is a right-reason kill; setup, timeout, harness or outside-path errors are not.
+- **[INC-0561 / low]** Strip color escapes for matching only; never alter the raw evidence bytes or the hash of them.
+- **[INC-0563 / low]** Carry an instrumentation preload through a harness-built environment value that replaces any inherited one, and require a ready record from every process in the tree.
+- **[INC-0564 / low]** Do not hand-edit generated files to satisfy a whitespace check; exempt them by an exact pattern and keep checking all other files.
+- **[INC-0565 / low]** A second request for a part-row driver means the runner needs a case filter; until it has one, ask for each sanction.
 
 ## Practices
 

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 558,
+  "count": 565,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10644,6 +10644,127 @@
       "related": [
         "INC-0556",
         "INC-0557"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0559",
+      "title": "A successor root was authored and approved without a run, and its first baseline failed because the installed config had one more internal collection than its exact list",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A root that pins a list of framework internals must be checked against the installed configuration and run once before approval; a setup failure is a root defect, fixed by a new successor, never by an in-place edit.",
+      "signature": "An exact list of framework internals in a root is stale against the installed configuration.",
+      "file": "incidents/INC-0559-a-successor-root-was-authored-and-approved-without-a-run-and.md",
+      "related": [
+        "INC-0534"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0560",
+      "title": "A mutant made the product raise its own domain error inside the awaited expectation, before the matcher ran, and the agent disclosed that it was not an assertion error",
+      "date": "2026-11-04",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Classify a non-assertion red by where it was raised: a domain error from the mutated path inside the expectation is a right-reason kill; setup, timeout, harness or outside-path errors are not.",
+      "signature": "A red whose error type is not an assertion error, raised by the mutated product path.",
+      "file": "incidents/INC-0560-a-mutant-made-the-product-raise-its-own-domain-error-inside.md",
+      "related": [
+        "INC-0534",
+        "INC-0524"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0561",
+      "title": "A verifier matched plain text in colored logs and stopped",
+      "date": "2026-11-04",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Strip color escapes for matching only; never alter the raw evidence bytes or the hash of them.",
+      "signature": "A text match over raw logs that contain terminal color escape codes.",
+      "file": "incidents/INC-0561-a-verifier-matched-plain-text-in-colored-logs-and-stopped.md",
+      "related": [
+        "INC-0545"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0562",
+      "title": "The first real run of a new egress observer on unchanged main caught the dev server phoning home, and the agent stopped instead of widening the allowlist",
+      "date": "2026-11-04",
+      "classes": [
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When a new observer denies traffic on the unchanged base, stop and report; never widen the allowlist, and key any refinement to recorded listeners.",
+      "signature": "A new network observer denies connects that the unchanged product already makes.",
+      "file": "incidents/INC-0562-the-first-real-run-of-a-new-egress-observer-on-unchanged-mai.md",
+      "related": [
+        "INC-0535"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0563",
+      "title": "A preload flag on the package manager argv would not reach the exec'd child processes",
+      "date": "2026-11-04",
+      "classes": [
+        "ipc-and-env"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Carry an instrumentation preload through a harness-built environment value that replaces any inherited one, and require a ready record from every process in the tree.",
+      "signature": "An instrumentation flag set on a parent command does not reach children that the parent execs.",
+      "file": "incidents/INC-0563-a-preload-flag-on-the-package-manager-argv-would-not-reach-t.md",
+      "related": [
+        "INC-0535"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0564",
+      "title": "A merge check rejected a generated migration for whitespace that every earlier generated migration also had",
+      "date": "2026-11-04",
+      "classes": [
+        "detector-fail-closed"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Do not hand-edit generated files to satisfy a whitespace check; exempt them by an exact pattern and keep checking all other files.",
+      "signature": "A whitespace check rejects the output of a code generator.",
+      "file": "incidents/INC-0564-a-merge-check-rejected-a-generated-migration-for-whitespace.md",
+      "related": [
+        "INC-0545"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0565",
+      "title": "A second request for a part-row driver showed that the row runner needs a case filter",
+      "date": "2026-11-04",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A second request for a part-row driver means the runner needs a case filter; until it has one, ask for each sanction.",
+      "signature": "A runner cannot run one case, so people ask for private drivers.",
+      "file": "incidents/INC-0565-a-second-request-for-a-part-row-driver-showed-that-the-row-r.md",
+      "related": [
+        "INC-0549",
+        "INC-0546"
       ],
       "evidence": []
     }
