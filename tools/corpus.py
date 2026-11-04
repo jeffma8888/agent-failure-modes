@@ -10770,6 +10770,23 @@ _BATCH20: list[dict] = [
         "rule": "Make the process impossible to get wrong: issue the clock call as the only call in its batch, and write the label only in a later call.",
         "related": ["INC-0617", "INC-0613"],
     },
+    {
+        "id": "INC-0620",
+        "title": "A publish gate chain ran a build script at a path that does not exist, printed the failing exit status and carried on to the export and the leak scan",
+        "date": "2026-11-04",
+        "classes": ["false-green"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "None. The slip was caught by reading the output before the push, and the gate was rerun with the right path.",
+        "signature": "A chained gate prints a non-zero status for one step and still runs the steps after it.",
+        "what": "In the corpus push gate the lead called the build script at the repository root, where it does not exist, and it exited 2. The call sat inside one chained command that printed each exit status and carried on to the export and the leak scan. It was caught on reading the output before the push, and the build was rerun at its real path, exit 0 twice with an empty porcelain.",
+        "root_cause": "The chain printed statuses and did not stop on them.",
+        "why_hard": "Later steps ran and looked fine, so the chain finished with output that read like a pass.",
+        "fix": "Join gate steps with && or run them in fail-fast shell mode so the first failure stops the rest, use the real script path, and read the output before pushing.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "A gate chain stops at the first failed step; a printed status is not a check.",
+        "related": ["INC-0611", "INC-0605"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

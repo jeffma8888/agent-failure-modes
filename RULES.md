@@ -401,6 +401,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0609 / medium]** When a brief moves a cleanup, state the exact body to run; a seed that is find-or-create without a reset first does not restore a baseline.
 - **[INC-0616 / medium]** Before signing, read the tool's installed semantics against each requirement it must prove; a command name is not evidence it proves the claim.
 - **[INC-0618 / medium]** Before ruling an oracle that depends on framework behaviour, read the entire installed function chain end to end and rule every affected assertion at once.
+- **[INC-0620 / medium]** A gate chain stops at the first failed step; a printed status is not a check.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
