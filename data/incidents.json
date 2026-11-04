@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 599,
+  "count": 602,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11350,6 +11350,60 @@
       "file": "incidents/INC-0599-a-checklist-expected-a-slug-first-link-and-excused-absent-he.md",
       "related": [
         "INC-0538"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0600",
+      "title": "Two branches each green alone with a clean merge-tree went red together, because one sanctioned product change altered the label the other test selected by",
+      "date": "2026-11-04",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "A clean merge-tree and two green branches do not show the merge is green; before merging a test that selects by a visible label, run it on a base that holds every sanctioned label change, and audit other specs for the old label.",
+      "signature": "A test passes on its own branch and the merged tree is red with no textual conflict.",
+      "file": "incidents/INC-0600-two-branches-each-green-alone-with-a-clean-merge-tree-went-r.md",
+      "related": [
+        "INC-0160",
+        "INC-0594"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0601",
+      "title": "A nested driver deleted NODE_OPTIONS, so a preload capture never reached the nested harness and a zero counted from copied receipts was not zero",
+      "date": "2026-11-04",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "A capture injected through an inherited environment variable is blind to any child that clears it; count from the log, and treat a zero from copies as unproven until a positive control shows the capture reaches the innermost process.",
+      "signature": "A results file reports an empty denial list while the log lists denials.",
+      "file": "incidents/INC-0601-a-nested-driver-deleted-node-options-so-a-preload-capture-ne.md",
+      "related": [
+        "INC-0596",
+        "INC-0575"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0602",
+      "title": "A request-context identity check omitted the Origin header the repo helper sends and read user null, an author defect that looked like a product failure",
+      "date": "2026-11-04",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a hand-written request context reads user null after a good login, compare its headers with the repo helper before blaming the product.",
+      "signature": "A login returns success but the following identity request reports no user.",
+      "file": "incidents/INC-0602-a-request-context-identity-check-omitted-the-origin-header-t.md",
+      "related": [
+        "INC-0599",
+        "INC-0595"
       ],
       "evidence": []
     }

@@ -49,6 +49,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0585 / high]** After taking a lock on a file opened by path, compare the open file identity with the path identity and retry on mismatch; never create a silent new guard.
 - **[INC-0587 / high]** A release removes a lock only after proving, under the guard, that the lock target is the caller's own recorded stage.
 - **[INC-0596 / high]** Before trusting a zero-violations monitor, require a positive control: a known event it must record in the process that makes it.
+- **[INC-0600 / high]** A clean merge-tree and two green branches do not show the merge is green; before merging a test that selects by a visible label, run it on a base that holds every sanctioned label change, and audit other specs for the old label.
+- **[INC-0601 / high]** A capture injected through an inherited environment variable is blind to any child that clears it; count from the log, and treat a zero from copies as unproven until a positive control shows the capture reaches the innermost process.
 - **[INC-0006 / medium]** Success is an ARTIFACT, not an exit code. Under a hard timeout, an agent that writes its minimal complete output first and refines in place still succeeds if killed. Correspondingly: never call a timeout a failure without checking whether the output file exists.
 - **[INC-0007 / medium]** A success predicate defined as 'the output file exists' hides a chronically over-budget step. Report the DURATION DISTRIBUTION per step, not just the outcome, and compare against a sibling running the same pipeline on the same box - which cheaply falsifies 'the machine is slow' or 'the provider is throttling'.
 - **[INC-0017 / medium]** To stop a well-behaved detached loop, remove the input it polls (a STOP file it honors), not just its pid - a supervisor or scheduler can re-launch a killed pid. Same argv on a new pid = auto-resurrection; different argv = a fresh authorized launch. Hunt the launcher accordingly, and leave a documented STOP so you and the other session do not fight over the process.
@@ -606,6 +608,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0592 / low]** When a freeze keeps a finished row open, record the delivering merge commit in its status text.
 - **[INC-0593 / low]** When you cannot read a source, mark every claim that rests on it so the next checker knows what to verify.
 - **[INC-0598 / low]** Name a GO baseline by its condition, and recheck it against rulings made since the packet was written.
+- **[INC-0602 / low]** When a hand-written request context reads user null after a good login, compare its headers with the repo helper before blaming the product.
 
 ## Practices
 
