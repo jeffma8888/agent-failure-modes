@@ -623,6 +623,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0613 / low]** Read the clock in its own call and see its output before any label is typed; never issue the read and the label write together.
 - **[INC-0614 / low]** Derive a signed command allow-list by walking every required step of the packet, including test-first reds and static gates, not from the runtime list alone.
 - **[INC-0615 / low]** Before ordering gates, trace each generated artifact to every caller it can break, and place the typecheck after the step that fixes the last caller.
+- **[INC-0617 / low]** Run date alone, read the output, then write; never quote a clock value that a call in the same batch has not yet returned.
 
 ## Practices
 

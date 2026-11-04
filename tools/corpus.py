@@ -10719,6 +10719,23 @@ _BATCH20: list[dict] = [
         "rule": "Before signing, read the tool's installed semantics against each requirement it must prove; a command name is not evidence it proves the claim.",
         "related": ["INC-0612", "INC-0615"],
     },
+    {
+        "id": "INC-0617",
+        "title": "A ruling quoted a clock value that was never read, because the write ran in the same parallel batch as the clock call; the fourth recurrence",
+        "date": "2026-11-04",
+        "classes": ["observability"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "One ruling carried a clock value 13 seconds ahead of the real read and was corrected with a note; the heading kept its time because a teammate was already pointed at it.",
+        "signature": "A quoted clock value matches no actual clock read.",
+        "what": "The lead typed a clock value in the same parallel batch as the clock call, quoting a reading of 04:40:08 that never happened. The real read was 04:39:55. A correction note was added. This is the fourth recurrence of the same class, after estimated labels, a label in the same script as the read, and a label in the same batch as the read.",
+        "root_cause": "The rule was stated each time, but nothing prevented issuing the write and the read together.",
+        "why_hard": "Each earlier fix named the rule without changing the order of calls, so the habit survived.",
+        "fix": "Run the clock call alone, read its output, then write the label with that exact value.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Run date alone, read the output, then write; never quote a clock value that a call in the same batch has not yet returned.",
+        "related": ["INC-0613", "INC-0606", "INC-0611"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

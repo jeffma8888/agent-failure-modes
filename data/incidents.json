@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 616,
+  "count": 617,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11648,6 +11648,25 @@
       "related": [
         "INC-0612",
         "INC-0615"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0617",
+      "title": "A ruling quoted a clock value that was never read, because the write ran in the same parallel batch as the clock call; the fourth recurrence",
+      "date": "2026-11-04",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Run date alone, read the output, then write; never quote a clock value that a call in the same batch has not yet returned.",
+      "signature": "A quoted clock value matches no actual clock read.",
+      "file": "incidents/INC-0617-a-ruling-quoted-a-clock-value-that-was-never-read-because-th.md",
+      "related": [
+        "INC-0613",
+        "INC-0606",
+        "INC-0611"
       ],
       "evidence": []
     }
