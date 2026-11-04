@@ -612,6 +612,9 @@ One rule per incident, ordered by severity then id.
 - **[INC-0602 / low]** When a hand-written request context reads user null after a good login, compare its headers with the repo helper before blaming the product.
 - **[INC-0603 / low]** When a bounded run fails before any child runs, void it openly as a wrapper defect and report the corrected invocation; do not retry silently.
 - **[INC-0604 / low]** Before briefing a row run, check which name the runner takes, family or revision, and list the selected specs and cases.
+- **[INC-0606 / low]** Read the clock with date before every time label; never extend a time by estimate, and correct wrong labels from timestamped records.
+- **[INC-0607 / low]** In a sandboxed shell, change directory only to a literal absolute path, never to a variable, and check what ran after any refusal.
+- **[INC-0608 / low]** When a mutant turns a looped assertion red, state which items were witnessed; items after the first failure are not witnessed unless each has its own case.
 
 ## Practices
 

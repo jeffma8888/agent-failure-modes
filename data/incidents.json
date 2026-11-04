@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 605,
+  "count": 608,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11455,6 +11455,57 @@
       "file": "incidents/INC-0605-corpus-commits-sat-unpushed-after-the-gate-and-a-push-was-an.md",
       "related": [
         "INC-0592"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0606",
+      "title": "Ruling labels written from an estimated clock ran up to six minutes ahead of the real clock",
+      "date": "2026-11-04",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Read the clock with date before every time label; never extend a time by estimate, and correct wrong labels from timestamped records.",
+      "signature": "A time label disagrees with the step records of the run it describes.",
+      "file": "incidents/INC-0606-ruling-labels-written-from-an-estimated-clock-ran-up-to-six.md",
+      "related": [
+        "INC-0590"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0607",
+      "title": "A sandboxed shell refused a directory change whose target was held in a variable",
+      "date": "2026-11-04",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "In a sandboxed shell, change directory only to a literal absolute path, never to a variable, and check what ran after any refusal.",
+      "signature": "A cd is refused as outside the workspace with an unresolvable target.",
+      "file": "incidents/INC-0607-a-sandboxed-shell-refused-a-directory-change-whose-target-wa.md",
+      "related": [
+        "INC-0603"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0608",
+      "title": "A mutant was witnessed red only on the first item of a loop, so the second row was not witnessed under the mutant",
+      "date": "2026-11-04",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a mutant turns a looped assertion red, state which items were witnessed; items after the first failure are not witnessed unless each has its own case.",
+      "signature": "A loop assertion goes red at its first item, so later items never run under the mutant.",
+      "file": "incidents/INC-0608-a-mutant-was-witnessed-red-only-on-the-first-item-of-a-loop.md",
+      "related": [
+        "INC-0588"
       ],
       "evidence": []
     }
