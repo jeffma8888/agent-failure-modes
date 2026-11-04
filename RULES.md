@@ -586,6 +586,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0577 / low]** A review of an exact list compares it with the current main product source, including business items, not the internal entries alone.
 - **[INC-0578 / low]** Bind a collapsed or open state to the attributes the framework sets, not to a visibility matcher.
 - **[INC-0579 / low]** Before authoring an error oracle, diff the whole document, including shadow roots, and bind the new element to the installed source.
+- **[INC-0580 / low]** Do not patch a dependency or mask fetch to silence a dev-only call; find which mode reaches it, and place the zero-outbound check where the shipped app runs.
+- **[INC-0581 / low]** A runner selection error before any test is not run, never a red; briefs name the base row.
+- **[INC-0582 / low]** A helper that classifies arguments by shape must treat a name with a dot or a slash as a file and must stop when an argument copies nothing.
+- **[INC-0583 / low]** A runner must own the scratch directories its tests write to and ignore caller values for that tier; a row that passes only with an exported path is not green.
+- **[INC-0584 / low]** An exception for known failures must end when its fix merges; require the tree to contain the fix and compare to the frozen set.
 
 ## Practices
 

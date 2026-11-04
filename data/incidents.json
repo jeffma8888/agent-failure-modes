@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 579,
+  "count": 584,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11004,6 +11004,92 @@
       "file": "incidents/INC-0579-a-broad-any-alert-selector-matched-the-framework-s-empty-rou.md",
       "related": [
         "INC-0571"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0580",
+      "title": "A dependency had no switch for a dev-only outbound call, and the implementer stopped instead of guessing",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Do not patch a dependency or mask fetch to silence a dev-only call; find which mode reaches it, and place the zero-outbound check where the shipped app runs.",
+      "signature": "A requirement to disable an outbound call has no switch in the installed dependency.",
+      "file": "incidents/INC-0580-a-dependency-had-no-switch-for-a-dev-only-outbound-call-and.md",
+      "related": [
+        "INC-0562",
+        "INC-0569"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0581",
+      "title": "A brief named the revision id as the row, and the row runner refused before any test ran",
+      "date": "2026-11-04",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A runner selection error before any test is not run, never a red; briefs name the base row.",
+      "signature": "A runner receives a revision id where it expects the base row name.",
+      "file": "incidents/INC-0581-a-brief-named-the-revision-id-as-the-row-and-the-row-runner.md",
+      "related": [
+        "INC-0546"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0582",
+      "title": "A landing helper treated a top-level file name with no slash as a test root, so it copied nothing for it",
+      "date": "2026-11-04",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A helper that classifies arguments by shape must treat a name with a dot or a slash as a file and must stop when an argument copies nothing.",
+      "signature": "A helper classifies an argument by its shape, and a plain file name falls into the wrong class.",
+      "file": "incidents/INC-0582-a-landing-helper-treated-a-top-level-file-name-with-no-slash.md",
+      "related": [
+        "INC-0545"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0583",
+      "title": "A unit row passed only because the caller exported a scratch media directory, and the runner did not own one",
+      "date": "2026-11-04",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A runner must own the scratch directories its tests write to and ignore caller values for that tier; a row that passes only with an exported path is not green.",
+      "signature": "A row passes only when the caller environment supplies a path the runner should own.",
+      "file": "incidents/INC-0583-a-unit-row-passed-only-because-the-caller-exported-a-scratch.md",
+      "related": [
+        "INC-0550"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0584",
+      "title": "An exception that allowed two known failures in a unit comparison was closed the moment their fix merged",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "An exception for known failures must end when its fix merges; require the tree to contain the fix and compare to the frozen set.",
+      "signature": "A comparison exception outlives the failures it was written for.",
+      "file": "incidents/INC-0584-an-exception-that-allowed-two-known-failures-in-a-unit-compa.md",
+      "related": [
+        "INC-0568"
       ],
       "evidence": []
     }
