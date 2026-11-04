@@ -10634,6 +10634,23 @@ _BATCH20: list[dict] = [
         "rule": "Read the clock in its own call and copy that value into the label; a rule that exists is not a check.",
         "related": ["INC-0606"],
     },
+    {
+        "id": "INC-0612",
+        "title": "A ruling set a lock wait the installed lock could not honour, because the tool hard-codes the wait and reads no variable",
+        "date": "2026-11-04",
+        "classes": ["spec-and-scope"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "One ruling could not be carried out as written, and the single readmission attempt waited for a signal instead of running.",
+        "signature": "A ruling names a tool parameter that the installed tool does not expose.",
+        "what": "After an invocation ended NOT-RUN on the lock wait limit of 2700 s, the lead granted one readmission with the wait raised to 5400 s. The installed lock hard-codes 2700 s and reads no environment variable, so the ruling could not be honoured without an altered copy. The author asked instead of improvising. The lead amended the ruling: the installed tool unchanged, and the one readmission submitted only when the lead signals that the queue holds at most one other job. The lead declined a copied wrapper because the lock has no queue order and the one-invocation rule is better served by timing.",
+        "root_cause": "The wait was ruled from what was wanted, not from what the installed tool exposes.",
+        "why_hard": "Raising a wait looks like a harmless parameter change; only reading the tool shows it is a constant.",
+        "fix": "Amend the ruling to the unchanged tool plus a signal to submit when the queue is short, and have authors ask when a ruling cannot be carried out as written.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Before ruling a parameter, read the tool to confirm it exposes that parameter; if a ruling cannot be carried out as written, ask instead of improvising a copy.",
+        "related": ["INC-0609", "INC-0594"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
