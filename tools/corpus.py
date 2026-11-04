@@ -10668,6 +10668,23 @@ _BATCH20: list[dict] = [
         "rule": "Read the clock in its own call and see its output before any label is typed; never issue the read and the label write together.",
         "related": ["INC-0606", "INC-0611"],
     },
+    {
+        "id": "INC-0614",
+        "title": "A signed command allow-list written from the runtime list omitted the commands the packet's own test-first and static steps needed, and the engineer stopped",
+        "date": "2026-11-04",
+        "classes": ["spec-and-scope"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "The engineer could not run two required steps and stopped, so work waited for an amended allow-list.",
+        "signature": "A packet requires a step whose command is not on its own signed allow-list.",
+        "what": "A go packet was signed with a command allow-list written from the runtime command list. The packet's own test-first steps, a scoped unit run and a typecheck, needed commands the list omitted. The engineer stopped correctly instead of improvising a command outside the signed list.",
+        "root_cause": "The allow-list was built from the runtime commands and not from the packet's required steps.",
+        "why_hard": "The list looked complete against the runtime, and the gap showed only when the engineer reached the early steps.",
+        "fix": "Derive the allow-list by walking every required step of the packet, including test-first reds and static gates, and have the engineer stop and ask when a step needs an unlisted command.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Derive a signed command allow-list by walking every required step of the packet, including test-first reds and static gates, not from the runtime list alone.",
+        "related": ["INC-0612", "INC-0609"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

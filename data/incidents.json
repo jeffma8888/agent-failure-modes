@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 613,
+  "count": 614,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11594,6 +11594,24 @@
       "related": [
         "INC-0606",
         "INC-0611"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0614",
+      "title": "A signed command allow-list written from the runtime list omitted the commands the packet's own test-first and static steps needed, and the engineer stopped",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Derive a signed command allow-list by walking every required step of the packet, including test-first reds and static gates, not from the runtime list alone.",
+      "signature": "A packet requires a step whose command is not on its own signed allow-list.",
+      "file": "incidents/INC-0614-a-signed-command-allow-list-written-from-the-runtime-list-om.md",
+      "related": [
+        "INC-0612",
+        "INC-0609"
       ],
       "evidence": []
     }

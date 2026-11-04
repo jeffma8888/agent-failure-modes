@@ -620,6 +620,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0611 / low]** Read the clock in its own call and copy that value into the label; a rule that exists is not a check.
 - **[INC-0612 / low]** Before ruling a parameter, read the tool to confirm it exposes that parameter; if a ruling cannot be carried out as written, ask instead of improvising a copy.
 - **[INC-0613 / low]** Read the clock in its own call and see its output before any label is typed; never issue the read and the label write together.
+- **[INC-0614 / low]** Derive a signed command allow-list by walking every required step of the packet, including test-first reds and static gates, not from the runtime list alone.
 
 ## Practices
 
