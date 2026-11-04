@@ -630,6 +630,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0619 / low]** Make the process impossible to get wrong: issue the clock call as the only call in its batch, and write the label only in a later call.
 - **[INC-0621 / low]** Before naming a check in a gate list, read what the check requires and confirm it can pass on the post-step tree.
 - **[INC-0622 / low]** Brace variables before a colon, as in ${r}:path, and treat the hash of empty input as a failure signal.
+- **[INC-0624 / low]** Copy a time label from the returned clock output, never type it; make the check mechanical by comparing the heading's time with the last clock output.
 
 ## Practices
 

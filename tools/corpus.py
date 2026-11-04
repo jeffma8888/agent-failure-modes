@@ -10838,6 +10838,23 @@ _BATCH20: list[dict] = [
         "rule": "Never put && after a pipe to tail; check the helper's own status with pipefail or a separate call.",
         "related": ["INC-0620"],
     },
+    {
+        "id": "INC-0624",
+        "title": "The clock call ran alone in its own message, yet the ruling label was typed from expectation instead of copied from the returned value; the seventh recurrence",
+        "date": "2026-11-04",
+        "classes": ["observability"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "One ruling carried a label 53 seconds behind the real read and was corrected with a note.",
+        "signature": "A heading time differs from the clock output returned just before it.",
+        "what": "The clock call ran alone in its own message, as the earlier batching fix required. The lead then typed the ruling label from expectation, 05:55:24, instead of copying the returned 05:56:17. This is the seventh recurrence of the clock-label class. The batching fix closed one path, writing in the same batch as the read, and not the transcription step.",
+        "root_cause": "The fix controlled when the clock was read, not how its value reached the label.",
+        "why_hard": "With the read isolated, the slip moved to the one step left, and nothing checked the label against the output.",
+        "fix": "Copy the label from the returned output, never type it, and add a check that compares the heading's time with the last clock output.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Copy a time label from the returned clock output, never type it; make the check mechanical by comparing the heading's time with the last clock output.",
+        "related": ["INC-0619", "INC-0617", "INC-0613"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
