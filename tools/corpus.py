@@ -10685,6 +10685,23 @@ _BATCH20: list[dict] = [
         "rule": "Derive a signed command allow-list by walking every required step of the packet, including test-first reds and static gates, not from the runtime list alone.",
         "related": ["INC-0612", "INC-0609"],
     },
+    {
+        "id": "INC-0615",
+        "title": "A gate order put the typecheck right after type generation without walking the type dependency, and the engineer stopped again",
+        "date": "2026-11-04",
+        "classes": ["spec-and-scope"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "A third stop for the engineer, and a ruling that replaced the gate order and admitted one known typecheck error until a later step.",
+        "signature": "A gate required green immediately after a step that creates the error it checks.",
+        "what": "The ordering placed a green typecheck right after type generation. The generated type made a field required, and the only create call lacking it was the seed episode create, which a later step changes. The typecheck failed with exactly one error at that call. The engineer stopped. The ruling admitted that single error before the later step, treated every other error as a stop, and required exit 0 with an empty log after the later step.",
+        "root_cause": "The order was set without tracing the generated type to the callers it can break.",
+        "why_hard": "Regenerating types looks like a safe step, and the one failing caller sat in a later step's file.",
+        "fix": "Trace each generated artifact to every caller it can break, and place the gate after the step that fixes the last caller; if a red is admitted earlier, name its exact error and require green later.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Before ordering gates, trace each generated artifact to every caller it can break, and place the typecheck after the step that fixes the last caller.",
+        "related": ["INC-0614", "INC-0609"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
