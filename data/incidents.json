@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 608,
+  "count": 611,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11506,6 +11506,58 @@
       "file": "incidents/INC-0608-a-mutant-was-witnessed-red-only-on-the-first-item-of-a-loop.md",
       "related": [
         "INC-0588"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0609",
+      "title": "A brief said to move a post-case full seed to afterAll, but the seed is find-or-create, so a seed without a reset first does not restore the baseline",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When a brief moves a cleanup, state the exact body to run; a seed that is find-or-create without a reset first does not restore a baseline.",
+      "signature": "A cleanup hook that only seeds leaves earlier rows in place.",
+      "file": "incidents/INC-0609-a-brief-said-to-move-a-post-case-full-seed-to-afterall-but-t.md",
+      "related": [
+        "INC-0594",
+        "INC-0538"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0610",
+      "title": "Landing a review moved it out of the reviewer tree while another teammate had been told to read it there",
+      "date": "2026-11-04",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "In a brief, name the path on main, or land the file first; a path in another tree stops being valid when the file lands.",
+      "signature": "A brief names a path in a worktree and the file later lives only on main.",
+      "file": "incidents/INC-0610-landing-a-review-moved-it-out-of-the-reviewer-tree-while-ano.md",
+      "related": [
+        "INC-0589"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0611",
+      "title": "A time label was written in the same script that read the clock afterwards, minutes after a rule to read the clock first was recorded",
+      "date": "2026-11-04",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Read the clock in its own call and copy that value into the label; a rule that exists is not a check.",
+      "signature": "A time label is later than the clock read in the same script.",
+      "file": "incidents/INC-0611-a-time-label-was-written-in-the-same-script-that-read-the-cl.md",
+      "related": [
+        "INC-0606"
       ],
       "evidence": []
     }

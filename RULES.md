@@ -398,6 +398,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0597 / medium]** When a run-before-approve needs a swap, ask for a runtime route with a trap restore instead of editing identity records, and give it no credit.
 - **[INC-0599 / medium]** Before a checklist states what a screen shows, verify it against installed UI source; do not infer request type or excuse missing headers.
 - **[INC-0605 / medium]** After every push, read the remote head back with ls-remote and compare it with the local head; do not call a gate-passed commit published until they match.
+- **[INC-0609 / medium]** When a brief moves a cleanup, state the exact body to run; a seed that is find-or-create without a reset first does not restore a baseline.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -615,6 +616,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0606 / low]** Read the clock with date before every time label; never extend a time by estimate, and correct wrong labels from timestamped records.
 - **[INC-0607 / low]** In a sandboxed shell, change directory only to a literal absolute path, never to a variable, and check what ran after any refusal.
 - **[INC-0608 / low]** When a mutant turns a looped assertion red, state which items were witnessed; items after the first failure are not witnessed unless each has its own case.
+- **[INC-0610 / low]** In a brief, name the path on main, or land the file first; a path in another tree stops being valid when the file lands.
+- **[INC-0611 / low]** Read the clock in its own call and copy that value into the label; a rule that exists is not a check.
 
 ## Practices
 
