@@ -384,6 +384,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0562 / medium]** When a new observer denies traffic on the unchanged base, stop and report; never widen the allowlist, and key any refinement to recorded listeners.
 - **[INC-0568 / medium]** A branch that changes product code merges only after a whole-unit comparison equal to the frozen baseline.
 - **[INC-0569 / medium]** Do not widen an egress allowlist to make the app work; attribute each listener by an operating system query, and allow only listeners owned by instrumented processes.
+- **[INC-0573 / medium]** When a teammate shows finished with no reply, read its report file at once; do not wait for the message.
+- **[INC-0575 / medium]** A lock or queue needs tests that force a signal or cancel between every pair of publication steps; publish ownership atomically and only when complete.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -579,6 +581,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0570 / low]** Before stating a branch base or a new file in a ruling, read it from git; correct by an appended note.
 - **[INC-0571 / low]** Assert that an error selector matches nothing before the action; otherwise a post-action visibility check can pass for the wrong reason.
 - **[INC-0572 / low]** When a brief and a file header disagree on a count, ask for the unit before editing.
+- **[INC-0574 / low]** A mutation driver must judge exit codes, not log tails; if text must be matched, strip escapes for matching only.
+- **[INC-0576 / low]** Test a proposed replacement marker with the real checker, and use the form that matches the predecessor state.
+- **[INC-0577 / low]** A review of an exact list compares it with the current main product source, including business items, not the internal entries alone.
+- **[INC-0578 / low]** Bind a collapsed or open state to the attributes the framework sets, not to a visibility matcher.
+- **[INC-0579 / low]** Before authoring an error oracle, diff the whole document, including shadow roots, and bind the new element to the installed source.
 
 ## Practices
 

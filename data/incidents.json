@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 572,
+  "count": 579,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10885,6 +10885,125 @@
       "file": "incidents/INC-0572-a-brief-said-one-sorted-line-for-a-root-with-two-specs-which.md",
       "related": [
         "INC-0540"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0573",
+      "title": "Teammate replies stopped reaching the lead for about 25 minutes while their files landed on disk",
+      "date": "2026-11-04",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When a teammate shows finished with no reply, read its report file at once; do not wait for the message.",
+      "signature": "A teammate is finished and its files exist, but no reply message arrives.",
+      "file": "incidents/INC-0573-teammate-replies-stopped-reaching-the-lead-for-about-25-minu.md",
+      "related": [
+        "INC-0449"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0574",
+      "title": "Two mutation drivers stopped before the restored green because they matched a log-tail string the harness does not print",
+      "date": "2026-11-04",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A mutation driver must judge exit codes, not log tails; if text must be matched, strip escapes for matching only.",
+      "signature": "A driver waits for a text in a log tail, and the text is never printed or is colored.",
+      "file": "incidents/INC-0574-two-mutation-drivers-stopped-before-the-restored-green-becau.md",
+      "related": [
+        "INC-0561"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0575",
+      "title": "A lock design passed its own 14 tests, and a reviewer's four forced interleavings each broke it",
+      "date": "2026-11-04",
+      "classes": [
+        "concurrency"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A lock or queue needs tests that force a signal or cancel between every pair of publication steps; publish ownership atomically and only when complete.",
+      "signature": "Tests of the happy paths pass, and timing between two steps of publication is untested.",
+      "file": "incidents/INC-0575-a-lock-design-passed-its-own-14-tests-and-a-reviewer-s-four.md",
+      "related": [
+        "INC-0558"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0576",
+      "title": "A reviewer tested a proposed supersession line with the real checker and found it in the wrong form for an already active predecessor",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Test a proposed replacement marker with the real checker, and use the form that matches the predecessor state.",
+      "signature": "A replacement marker is written in the form for a pending predecessor when the predecessor is already active.",
+      "file": "incidents/INC-0576-a-reviewer-tested-a-proposed-supersession-line-with-the-real.md",
+      "related": [
+        "INC-0540"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0577",
+      "title": "An exact list in a test was authored on an older base and reviewed on a newer one where a new collection already existed",
+      "date": "2026-11-04",
+      "classes": [
+        "stale-module"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "A review of an exact list compares it with the current main product source, including business items, not the internal entries alone.",
+      "signature": "An exact list of business items is authored before a merge that adds an item, and reviewed after.",
+      "file": "incidents/INC-0577-an-exact-list-in-a-test-was-authored-on-an-older-base-and-re.md",
+      "related": [
+        "INC-0559"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0578",
+      "title": "Not visible was the wrong oracle for a collapsed sidebar, because the closed navigation stays in the page with opacity zero and inert",
+      "date": "2026-11-04",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Bind a collapsed or open state to the attributes the framework sets, not to a visibility matcher.",
+      "signature": "A closed menu is still in the DOM, and the visibility matcher ignores inert and off-screen position.",
+      "file": "incidents/INC-0578-not-visible-was-the-wrong-oracle-for-a-collapsed-sidebar-bec.md",
+      "related": [
+        "INC-0571"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0579",
+      "title": "A broad any-alert selector matched the framework's empty route announcer before any action, and a second whole-document probe found the real refusal messages in toasts",
+      "date": "2026-11-04",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before authoring an error oracle, diff the whole document, including shadow roots, and bind the new element to the installed source.",
+      "signature": "A union selector matches an empty framework element before the action under test.",
+      "file": "incidents/INC-0579-a-broad-any-alert-selector-matched-the-framework-s-empty-rou.md",
+      "related": [
+        "INC-0571"
       ],
       "evidence": []
     }
