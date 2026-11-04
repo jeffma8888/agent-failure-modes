@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 612,
+  "count": 613,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11576,6 +11576,24 @@
       "related": [
         "INC-0609",
         "INC-0594"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0613",
+      "title": "A time label was typed in the same parallel batch of calls that read the clock, so it was written before the clock was seen; the third recurrence",
+      "date": "2026-11-04",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Read the clock in its own call and see its output before any label is typed; never issue the read and the label write together.",
+      "signature": "A time label is written in a call issued alongside the clock read, and the two disagree.",
+      "file": "incidents/INC-0613-a-time-label-was-typed-in-the-same-parallel-batch-of-calls-t.md",
+      "related": [
+        "INC-0606",
+        "INC-0611"
       ],
       "evidence": []
     }

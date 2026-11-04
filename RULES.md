@@ -619,6 +619,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0610 / low]** In a brief, name the path on main, or land the file first; a path in another tree stops being valid when the file lands.
 - **[INC-0611 / low]** Read the clock in its own call and copy that value into the label; a rule that exists is not a check.
 - **[INC-0612 / low]** Before ruling a parameter, read the tool to confirm it exposes that parameter; if a ruling cannot be carried out as written, ask instead of improvising a copy.
+- **[INC-0613 / low]** Read the clock in its own call and see its output before any label is typed; never issue the read and the label write together.
 
 ## Practices
 

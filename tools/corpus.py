@@ -10651,6 +10651,23 @@ _BATCH20: list[dict] = [
         "rule": "Before ruling a parameter, read the tool to confirm it exposes that parameter; if a ruling cannot be carried out as written, ask instead of improvising a copy.",
         "related": ["INC-0609", "INC-0594"],
     },
+    {
+        "id": "INC-0613",
+        "title": "A time label was typed in the same parallel batch of calls that read the clock, so it was written before the clock was seen; the third recurrence",
+        "date": "2026-11-04",
+        "classes": ["observability"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "One ruling carried a label that had to be corrected in place with a note.",
+        "signature": "A time label is written in a call issued alongside the clock read, and the two disagree.",
+        "what": "The lead issued the clock read and the write of the ruling label in the same parallel batch of tool calls, so the label was typed before the clock output was seen. The label was corrected in place with a note. This is the third recurrence: an estimated clock ran up to six minutes fast, then a label was written in the same script that read the clock afterwards, and now a label sat in a batch alongside the clock read.",
+        "root_cause": "The two earlier fixes put the clock read first in intent but not in order: the read and the write still ran together.",
+        "why_hard": "Parallel calls look like one step, and a rule about reading first is satisfied in words while the order is not enforced.",
+        "fix": "Make the clock its own call, and copy its output into the label only after it has been seen.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Read the clock in its own call and see its output before any label is typed; never issue the read and the label write together.",
+        "related": ["INC-0606", "INC-0611"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
