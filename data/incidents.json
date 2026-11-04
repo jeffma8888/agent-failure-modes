@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 627,
+  "count": 628,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11849,6 +11849,24 @@
       "related": [
         "INC-0600",
         "INC-0208"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0628",
+      "title": "A walk's no-write audit counted every non-GET request as a write, and the capture held no request headers or bodies, so override reads stopped the walk",
+      "date": "2026-11-04",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Capture request headers for non-GET requests and classify override reads at capture time; do not classify a request as a write by its method alone.",
+      "signature": "An audit reports writes for requests that the server treats as reads.",
+      "file": "incidents/INC-0628-a-walk-s-no-write-audit-counted-every-non-get-request-as-a-w.md",
+      "related": [
+        "INC-0625",
+        "INC-0596"
       ],
       "evidence": []
     }

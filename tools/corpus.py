@@ -10906,6 +10906,23 @@ _BATCH20: list[dict] = [
         "rule": "A branch that adds or changes end-to-end files runs the full end-to-end step before merge; a row gate alone does not show load-order errors.",
         "related": ["INC-0600", "INC-0208"],
     },
+    {
+        "id": "INC-0628",
+        "title": "A walk's no-write audit counted every non-GET request as a write, and the capture held no request headers or bodies, so override reads stopped the walk",
+        "date": "2026-11-04",
+        "classes": ["false-green"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "A walk stopped until installed source, response statuses and an end inventory settled what the requests were.",
+        "signature": "An audit reports writes for requests that the server treats as reads.",
+        "what": "A manual walk's no-write audit counted every non-GET request as a write. The admin client sends reads as POST with an override-GET header, which the server turns into a read. The network capture kept no request headers or bodies, so these reads could not be told from writes and stopped the walk. The installed source, the 200 status instead of the 201 a create returns, and an end inventory showing nothing changed settled it.",
+        "root_cause": "The audit classified by HTTP method alone, and the capture lacked the data needed to classify by effect.",
+        "why_hard": "A POST looks like a write, and the evidence that it was a read was not in the capture.",
+        "fix": "Capture request headers for non-GET requests, classify override reads at capture time, and keep an end inventory as the final check.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Capture request headers for non-GET requests and classify override reads at capture time; do not classify a request as a write by its method alone.",
+        "related": ["INC-0625", "INC-0596"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
