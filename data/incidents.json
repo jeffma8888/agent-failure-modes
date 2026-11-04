@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 617,
+  "count": 619,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11667,6 +11667,43 @@
         "INC-0613",
         "INC-0606",
         "INC-0611"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0618",
+      "title": "Three successive oracle changes were ruled for one test without first reading the whole framework function that mutates the object under test, so the engineer stopped three times",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Before ruling an oracle that depends on framework behaviour, read the entire installed function chain end to end and rule every affected assertion at once.",
+      "signature": "Each fix to a test oracle passes its assertion and fails the next one that reads the same mutated object.",
+      "file": "incidents/INC-0618-three-successive-oracle-changes-were-ruled-for-one-test-with.md",
+      "related": [
+        "INC-0616",
+        "INC-0615",
+        "INC-0612"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0619",
+      "title": "A clock label slip recurred a fifth time, and the clock call became the only call in its batch",
+      "date": "2026-11-04",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Make the process impossible to get wrong: issue the clock call as the only call in its batch, and write the label only in a later call.",
+      "signature": "A quoted clock value matches no clock read.",
+      "file": "incidents/INC-0619-a-clock-label-slip-recurred-a-fifth-time-and-the-clock-call.md",
+      "related": [
+        "INC-0617",
+        "INC-0613"
       ],
       "evidence": []
     }

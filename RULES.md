@@ -400,6 +400,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0605 / medium]** After every push, read the remote head back with ls-remote and compare it with the local head; do not call a gate-passed commit published until they match.
 - **[INC-0609 / medium]** When a brief moves a cleanup, state the exact body to run; a seed that is find-or-create without a reset first does not restore a baseline.
 - **[INC-0616 / medium]** Before signing, read the tool's installed semantics against each requirement it must prove; a command name is not evidence it proves the claim.
+- **[INC-0618 / medium]** Before ruling an oracle that depends on framework behaviour, read the entire installed function chain end to end and rule every affected assertion at once.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -624,6 +625,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0614 / low]** Derive a signed command allow-list by walking every required step of the packet, including test-first reds and static gates, not from the runtime list alone.
 - **[INC-0615 / low]** Before ordering gates, trace each generated artifact to every caller it can break, and place the typecheck after the step that fixes the last caller.
 - **[INC-0617 / low]** Run date alone, read the output, then write; never quote a clock value that a call in the same batch has not yet returned.
+- **[INC-0619 / low]** Make the process impossible to get wrong: issue the clock call as the only call in its batch, and write the label only in a later call.
 
 ## Practices
 
