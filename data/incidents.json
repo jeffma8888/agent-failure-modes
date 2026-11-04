@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 620,
+  "count": 621,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11722,6 +11722,25 @@
       "related": [
         "INC-0611",
         "INC-0605"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0621",
+      "title": "A gate list named a pending-root validator after a pure-rename activation that removes the very payload the validator requires, and the engineer stopped",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before naming a check in a gate list, read what the check requires and confirm it can pass on the post-step tree.",
+      "signature": "A named gate cannot pass on the tree the preceding step produces.",
+      "file": "incidents/INC-0621-a-gate-list-named-a-pending-root-validator-after-a-pure-rena.md",
+      "related": [
+        "INC-0612",
+        "INC-0616",
+        "INC-0618"
       ],
       "evidence": []
     }

@@ -627,6 +627,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0615 / low]** Before ordering gates, trace each generated artifact to every caller it can break, and place the typecheck after the step that fixes the last caller.
 - **[INC-0617 / low]** Run date alone, read the output, then write; never quote a clock value that a call in the same batch has not yet returned.
 - **[INC-0619 / low]** Make the process impossible to get wrong: issue the clock call as the only call in its batch, and write the label only in a later call.
+- **[INC-0621 / low]** Before naming a check in a gate list, read what the check requires and confirm it can pass on the post-step tree.
 
 ## Practices
 

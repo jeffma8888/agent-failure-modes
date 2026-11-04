@@ -10787,6 +10787,23 @@ _BATCH20: list[dict] = [
         "rule": "A gate chain stops at the first failed step; a printed status is not a check.",
         "related": ["INC-0611", "INC-0605"],
     },
+    {
+        "id": "INC-0621",
+        "title": "A gate list named a pending-root validator after a pure-rename activation that removes the very payload the validator requires, and the engineer stopped",
+        "date": "2026-11-04",
+        "classes": ["spec-and-scope"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "One engineer stop; the check was satisfied by a run on main before the activation instead.",
+        "signature": "A named gate cannot pass on the tree the preceding step produces.",
+        "what": "The activation ruling listed a pending-root validator as a gate after a step that activates the root by a pure rename, which removes the physical payload under the pending path. The validator requires every manifest entry to exist there with a matching digest, so it could not pass afterwards. The engineer read the tool source and stopped. Earlier activations had never run it. The lead satisfied the check by running it on main where the root was still pending (exit 0, one payload file passed), and the activated bytes have the same digest. This is the fourth recurrence of ruling on a tool's behaviour without reading its source.",
+        "root_cause": "The check was named from its purpose, not from what it requires of the tree.",
+        "why_hard": "The name suggests a check on any root, and earlier activations had skipped it, so no prior run exposed the mismatch.",
+        "fix": "Run the check where its precondition holds (before the activation) and cite that run, and drop it from the post-step gate list.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Before naming a check in a gate list, read what the check requires and confirm it can pass on the post-step tree.",
+        "related": ["INC-0612", "INC-0616", "INC-0618"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
