@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 625,
+  "count": 627,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11813,6 +11813,42 @@
       "related": [
         "INC-0623",
         "INC-0620"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0626",
+      "title": "A landing subject was written from the lead's expectation of what a plan revision covered, and the author report said less",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Write a landing subject from the artifact's own header or report, not from what you expect it covers.",
+      "signature": "A commit subject names a wider range than the artifact it lands.",
+      "file": "incidents/INC-0626-a-landing-subject-was-written-from-the-lead-s-expectation-of.md",
+      "related": [
+        "INC-0593",
+        "INC-0611"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0627",
+      "title": "A new end-to-end case passed alone in its row gate, the merge went ahead with no full end-to-end tier on the branch tip, and the first full run after the merge failed it",
+      "date": "2026-11-04",
+      "classes": [
+        "test-isolation"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "A branch that adds or changes end-to-end files runs the full end-to-end step before merge; a row gate alone does not show load-order errors.",
+      "signature": "A case green in its own row fails in the full tier with a module-format load error.",
+      "file": "incidents/INC-0627-a-new-end-to-end-case-passed-alone-in-its-row-gate-the-merge.md",
+      "related": [
+        "INC-0600",
+        "INC-0208"
       ],
       "evidence": []
     }
