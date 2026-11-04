@@ -10923,6 +10923,23 @@ _BATCH20: list[dict] = [
         "rule": "Capture request headers for non-GET requests and classify override reads at capture time; do not classify a request as a write by its method alone.",
         "related": ["INC-0625", "INC-0596"],
     },
+    {
+        "id": "INC-0629",
+        "title": "A ruling said a test helper needed no revision route because one search seemed to show it was in no identity manifest, and the full gate then failed that check on exactly that entry",
+        "date": "2026-11-04",
+        "classes": ["spec-and-scope"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "A full gate run of about three minutes ended in an identity-check failure on the manifest entry the search had missed.",
+        "signature": "A repo checker that runs in under a second fails late in a long gate on a point already ruled.",
+        "what": "The lead ruled that a test helper needed no revision route because one search seemed to show it was in no identity manifest. The full gate then failed the repo's own identity check on exactly that manifest entry, after a run of about three minutes. The repo checker itself runs in about 0.4 seconds on the candidate tip.",
+        "root_cause": "A route was ruled from an inference drawn from one search, not from the repo's own checker.",
+        "why_hard": "The search result looked decisive, and the checker's verdict only appeared late in the long gate.",
+        "fix": "Run the repo's own checker on the candidate tip before ruling a route.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Before ruling a route, run the repo's own checker on the candidate tip instead of inferring from a search.",
+        "related": ["INC-0621", "INC-0618"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

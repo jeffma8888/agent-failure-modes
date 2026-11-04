@@ -406,6 +406,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0623 / medium]** Never put && after a pipe to tail; check the helper's own status with pipefail or a separate call.
 - **[INC-0625 / medium]** A script asserts each dependent step's precondition with a fresh read right before the write and exits before any later step on failure.
 - **[INC-0628 / medium]** Capture request headers for non-GET requests and classify override reads at capture time; do not classify a request as a write by its method alone.
+- **[INC-0629 / medium]** Before ruling a route, run the repo's own checker on the candidate tip instead of inferring from a search.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
