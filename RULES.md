@@ -402,6 +402,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0616 / medium]** Before signing, read the tool's installed semantics against each requirement it must prove; a command name is not evidence it proves the claim.
 - **[INC-0618 / medium]** Before ruling an oracle that depends on framework behaviour, read the entire installed function chain end to end and rule every affected assertion at once.
 - **[INC-0620 / medium]** A gate chain stops at the first failed step; a printed status is not a check.
+- **[INC-0623 / medium]** Never put && after a pipe to tail; check the helper's own status with pipefail or a separate call.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -628,6 +629,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0617 / low]** Run date alone, read the output, then write; never quote a clock value that a call in the same batch has not yet returned.
 - **[INC-0619 / low]** Make the process impossible to get wrong: issue the clock call as the only call in its batch, and write the label only in a later call.
 - **[INC-0621 / low]** Before naming a check in a gate list, read what the check requires and confirm it can pass on the post-step tree.
+- **[INC-0622 / low]** Brace variables before a colon, as in ${r}:path, and treat the hash of empty input as a failure signal.
 
 ## Practices
 

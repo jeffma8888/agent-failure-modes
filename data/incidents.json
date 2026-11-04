@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 621,
+  "count": 623,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11741,6 +11741,41 @@
         "INC-0612",
         "INC-0616",
         "INC-0618"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0622",
+      "title": "An unbraced shell variable followed by a colon and a letter was read as a history modifier, so a revision was mangled and the hash printed was of empty input",
+      "date": "2026-11-04",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Brace variables before a colon, as in ${r}:path, and treat the hash of empty input as a failure signal.",
+      "signature": "A hash printed for a path read from a revision equals the hash of empty input.",
+      "file": "incidents/INC-0622-an-unbraced-shell-variable-followed-by-a-colon-and-a-letter.md",
+      "related": [
+        "INC-0607",
+        "INC-0620"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0623",
+      "title": "A helper piped to tail and followed by && ran the next step although the helper failed, because a pipeline's status is its last command's",
+      "date": "2026-11-04",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Never put && after a pipe to tail; check the helper's own status with pipefail or a separate call.",
+      "signature": "A chain continues after a step that printed a failure, because a pipe hid its status.",
+      "file": "incidents/INC-0623-a-helper-piped-to-tail-and-followed-by-ran-the-next-step-alt.md",
+      "related": [
+        "INC-0620"
       ],
       "evidence": []
     }
