@@ -46,6 +46,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0068 / high]** A retry ladder must cover every external call on the path to a model turn, including helpers that fetch credentials. When a dependency that passes manual probes fails in the loop, log the failing attempt's stderr instead of a classification, and never let a one-shot preflight decide whether an unattended system restarts.
 - **[INC-0077 / high]** When output feeds a downstream classifier, test the classifier's verdict on it, not its prefix. Emit fixed categories instead of free text when the text could carry secrets or markers.
 - **[INC-0250 / high]** Verify Markdown by the target renderer's own parse, not by structural lint; never leave a bare <slot> outside code.
+- **[INC-0585 / high]** After taking a lock on a file opened by path, compare the open file identity with the path identity and retry on mismatch; never create a silent new guard.
+- **[INC-0587 / high]** A release removes a lock only after proving, under the guard, that the lock target is the caller's own recorded stage.
 - **[INC-0006 / medium]** Success is an ARTIFACT, not an exit code. Under a hard timeout, an agent that writes its minimal complete output first and refines in place still succeeds if killed. Correspondingly: never call a timeout a failure without checking whether the output file exists.
 - **[INC-0007 / medium]** A success predicate defined as 'the output file exists' hides a chronically over-budget step. Report the DURATION DISTRIBUTION per step, not just the outcome, and compare against a sibling running the same pipeline on the same box - which cheaply falsifies 'the machine is slow' or 'the provider is throttling'.
 - **[INC-0017 / medium]** To stop a well-behaved detached loop, remove the input it polls (a STOP file it honors), not just its pid - a supervisor or scheduler can re-launch a killed pid. Same argv on a new pid = auto-resurrection; different argv = a fresh authorized launch. Hunt the launcher accordingly, and leave a documented STOP so you and the other session do not fight over the process.
@@ -386,6 +388,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0569 / medium]** Do not widen an egress allowlist to make the app work; attribute each listener by an operating system query, and allow only listeners owned by instrumented processes.
 - **[INC-0573 / medium]** When a teammate shows finished with no reply, read its report file at once; do not wait for the message.
 - **[INC-0575 / medium]** A lock or queue needs tests that force a signal or cancel between every pair of publication steps; publish ownership atomically and only when complete.
+- **[INC-0586 / medium]** When a guard or an owner identity cannot be proved, exit promptly with a manual step naming the exact path; never spin or skip silently.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -591,6 +594,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0582 / low]** A helper that classifies arguments by shape must treat a name with a dot or a slash as a file and must stop when an argument copies nothing.
 - **[INC-0583 / low]** A runner must own the scratch directories its tests write to and ignore caller values for that tier; a row that passes only with an exported path is not green.
 - **[INC-0584 / low]** An exception for known failures must end when its fix merges; require the tree to contain the fix and compare to the frozen set.
+- **[INC-0588 / low]** When an old reproducer cannot run against a revision, report it as stale test semantics, not a kill, and report the adapted run separately.
+- **[INC-0589 / low]** Before cleaning a worktree, triage its untracked items against main; keep untouched any item nothing supersedes.
 
 ## Practices
 

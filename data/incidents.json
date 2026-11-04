@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 584,
+  "count": 589,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11090,6 +11090,92 @@
       "file": "incidents/INC-0584-an-exception-that-allowed-two-known-failures-in-a-unit-compa.md",
       "related": [
         "INC-0568"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0585",
+      "title": "A lock protected by an advisory lock on a file opened by path let two holders run when the file was replaced",
+      "date": "2026-11-04",
+      "classes": [
+        "concurrency"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "After taking a lock on a file opened by path, compare the open file identity with the path identity and retry on mismatch; never create a silent new guard.",
+      "signature": "A guard file is unlinked and recreated, and the next caller locks a new file object.",
+      "file": "incidents/INC-0585-a-lock-protected-by-an-advisory-lock-on-a-file-opened-by-pat.md",
+      "related": [
+        "INC-0575"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0586",
+      "title": "A waiter whose helper could not open its guard spun to the wait limit with tracebacks, and a malformed owner record was skipped silently",
+      "date": "2026-11-04",
+      "classes": [
+        "observability"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "When a guard or an owner identity cannot be proved, exit promptly with a manual step naming the exact path; never spin or skip silently.",
+      "signature": "A failure to open the guard and an unreadable owner record produce no report that names a manual step.",
+      "file": "incidents/INC-0586-a-waiter-whose-helper-could-not-open-its-guard-spun-to-the-w.md",
+      "related": [
+        "INC-0575"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0587",
+      "title": "A release removed a lock link by owner text without checking that the link pointed at the caller's own stage",
+      "date": "2026-11-04",
+      "classes": [
+        "concurrency"
+      ],
+      "severity": "high",
+      "status": "mitigated",
+      "rule": "A release removes a lock only after proving, under the guard, that the lock target is the caller's own recorded stage.",
+      "signature": "A release compares text and removes a link that may now belong to another holder.",
+      "file": "incidents/INC-0587-a-release-removed-a-lock-link-by-owner-text-without-checking.md",
+      "related": [
+        "INC-0575",
+        "INC-0585"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0588",
+      "title": "A reviewer's original race script could not run unmodified against the revision because the step it interrupted no longer exists, and the reviewer reported it as stale test semantics",
+      "date": "2026-11-04",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When an old reproducer cannot run against a revision, report it as stale test semantics, not a kill, and report the adapted run separately.",
+      "signature": "An old reproducer asserts a step that the revision removed.",
+      "file": "incidents/INC-0588-a-reviewer-s-original-race-script-could-not-run-unmodified-a.md",
+      "related": [
+        "INC-0534"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0589",
+      "title": "The only copies of eight reviewed drafts sat untracked in one worktree, and the ruling kept them untouched",
+      "date": "2026-11-04",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before cleaning a worktree, triage its untracked items against main; keep untouched any item nothing supersedes.",
+      "signature": "Reviewed work exists only as untracked files in a worktree that someone may clean.",
+      "file": "incidents/INC-0589-the-only-copies-of-eight-reviewed-drafts-sat-untracked-in-on.md",
+      "related": [
+        "INC-0510"
       ],
       "evidence": []
     }
