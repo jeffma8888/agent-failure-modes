@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 624,
+  "count": 625,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11795,6 +11795,24 @@
         "INC-0619",
         "INC-0617",
         "INC-0613"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0625",
+      "title": "A walk script ran a signed write whose precondition was absent because the step before it had been refused, and the write succeeded on a record that never met the condition",
+      "date": "2026-11-04",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A script asserts each dependent step's precondition with a fresh read right before the write and exits before any later step on failure.",
+      "signature": "A dependent step succeeds on a record that never reached the state the step requires.",
+      "file": "incidents/INC-0625-a-walk-script-ran-a-signed-write-whose-precondition-was-abse.md",
+      "related": [
+        "INC-0623",
+        "INC-0620"
       ],
       "evidence": []
     }

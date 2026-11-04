@@ -10855,6 +10855,23 @@ _BATCH20: list[dict] = [
         "rule": "Copy a time label from the returned clock output, never type it; make the check mechanical by comparing the heading's time with the last clock output.",
         "related": ["INC-0619", "INC-0617", "INC-0613"],
     },
+    {
+        "id": "INC-0625",
+        "title": "A walk script ran a signed write whose precondition was absent because the step before it had been refused, and the write succeeded on a record that never met the condition",
+        "date": "2026-11-04",
+        "classes": ["false-green"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "One step's result is void, neither a pass nor a defect, and the walk item stays blocked.",
+        "signature": "A dependent step succeeds on a record that never reached the state the step requires.",
+        "what": "A manual walk script saved two edits, then tried to publish, which was refused because a required value had not been supplied. The same script still ran the next step, a slug change signed for after a real published version. It saved on a record that had never been published, so it ran outside its signed condition. The walker caught the breach and reported it. The ruling voided that step, classified the refused publish as a walker input error and not a product finding, and kept the item blocked. The independent steps in the same script stand.",
+        "root_cause": "The script did not stop when a step failed and did not check the precondition of the dependent step.",
+        "why_hard": "The dependent write succeeded, so its output looked like a pass.",
+        "fix": "Assert each dependent step's precondition with a fresh read right before the write, and exit before any later step on failure.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "A script asserts each dependent step's precondition with a fresh read right before the write and exits before any later step on failure.",
+        "related": ["INC-0623", "INC-0620"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
