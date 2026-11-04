@@ -382,6 +382,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0534 / medium]** A mutation counts for a case only when it fails at that case own assertion; check that the setup and fixture assertions do not fail first.
 - **[INC-0554 / medium]** Do not let one host-wide load threshold admit every job alike: size the gate to the job, attribute the load to its owners first, and reserve capacity for any observation that has a deadline.
 - **[INC-0562 / medium]** When a new observer denies traffic on the unchanged base, stop and report; never widen the allowlist, and key any refinement to recorded listeners.
+- **[INC-0568 / medium]** A branch that changes product code merges only after a whole-unit comparison equal to the frozen baseline.
+- **[INC-0569 / medium]** Do not widen an egress allowlist to make the app work; attribute each listener by an operating system query, and allow only listeners owned by instrumented processes.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -572,6 +574,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0563 / low]** Carry an instrumentation preload through a harness-built environment value that replaces any inherited one, and require a ready record from every process in the tree.
 - **[INC-0564 / low]** Do not hand-edit generated files to satisfy a whitespace check; exempt them by an exact pattern and keep checking all other files.
 - **[INC-0565 / low]** A second request for a part-row driver means the runner needs a case filter; until it has one, ask for each sanction.
+- **[INC-0566 / low]** Never judge a multi-step run by the wrapper exit status; read the step file and the per-tier counts.
+- **[INC-0567 / low]** Read the clock immediately before writing a timestamp; when a stamp is wrong, trust file and log times and append a correction.
+- **[INC-0570 / low]** Before stating a branch base or a new file in a ruling, read it from git; correct by an appended note.
+- **[INC-0571 / low]** Assert that an error selector matches nothing before the action; otherwise a post-action visibility check can pass for the wrong reason.
+- **[INC-0572 / low]** When a brief and a file header disagree on a count, ask for the unit before editing.
 
 ## Practices
 

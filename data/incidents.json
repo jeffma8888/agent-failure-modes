@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 565,
+  "count": 572,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -10765,6 +10765,126 @@
       "related": [
         "INC-0549",
         "INC-0546"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0566",
+      "title": "A run wrapper exited zero although one of its steps exited one",
+      "date": "2026-11-04",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Never judge a multi-step run by the wrapper exit status; read the step file and the per-tier counts.",
+      "signature": "The wrapper exit status is zero while a recorded step failed.",
+      "file": "incidents/INC-0566-a-run-wrapper-exited-zero-although-one-of-its-steps-exited-o.md",
+      "related": [
+        "INC-0490"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0567",
+      "title": "Heading times in several rulings and briefs ran thirty to seventy minutes ahead of the real clock",
+      "date": "2026-11-04",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Read the clock immediately before writing a timestamp; when a stamp is wrong, trust file and log times and append a correction.",
+      "signature": "A heading time was written from memory or estimation, not read from the clock.",
+      "file": "incidents/INC-0567-heading-times-in-several-rulings-and-briefs-ran-thirty-to-se.md",
+      "related": [
+        "INC-0535"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0568",
+      "title": "A feature branch merged on static gates only, and a unit test elsewhere that encoded the old seed order then went red on main",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "A branch that changes product code merges only after a whole-unit comparison equal to the frozen baseline.",
+      "signature": "A branch that changes product code passes type, lint, identity and backlog checks, but no whole-unit comparison ran.",
+      "file": "incidents/INC-0568-a-feature-branch-merged-on-static-gates-only-and-a-unit-test.md",
+      "related": [
+        "INC-0553"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0569",
+      "title": "Denying unexplained loopback connects in an egress observer broke the app, and the agent stopped instead of widening",
+      "date": "2026-11-04",
+      "classes": [
+        "detector-fail-closed"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Do not widen an egress allowlist to make the app work; attribute each listener by an operating system query, and allow only listeners owned by instrumented processes.",
+      "signature": "A strict denial rule blocks connects the application makes to its own native listeners.",
+      "file": "incidents/INC-0569-denying-unexplained-loopback-connects-in-an-egress-observer.md",
+      "related": [
+        "INC-0562"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0570",
+      "title": "Two lead rulings narrated facts that git disagreed with, and the corrections were appended after checking git",
+      "date": "2026-11-04",
+      "classes": [
+        "observability"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before stating a branch base or a new file in a ruling, read it from git; correct by an appended note.",
+      "signature": "A ruling states a branch base or a new file that the commit history contradicts.",
+      "file": "incidents/INC-0570-two-lead-rulings-narrated-facts-that-git-disagreed-with-and.md",
+      "related": [
+        "INC-0567"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0571",
+      "title": "A pre-action zero-count check in a browser test showed the error selector already matched one element before any action",
+      "date": "2026-11-04",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Assert that an error selector matches nothing before the action; otherwise a post-action visibility check can pass for the wrong reason.",
+      "signature": "The error-visible selector matches an element before the action under test.",
+      "file": "incidents/INC-0571-a-pre-action-zero-count-check-in-a-browser-test-showed-the-e.md",
+      "related": [
+        "INC-0559",
+        "INC-0534"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0572",
+      "title": "A brief said one sorted line for a root with two specs, which could be read two ways",
+      "date": "2026-11-04",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a brief and a file header disagree on a count, ask for the unit before editing.",
+      "signature": "A count in a brief does not say what it counts.",
+      "file": "incidents/INC-0572-a-brief-said-one-sorted-line-for-a-root-with-two-specs-which.md",
+      "related": [
+        "INC-0540"
       ],
       "evidence": []
     }
