@@ -397,6 +397,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0595 / medium]** An approval header must name a commit whose tree holds the reviewed manifest: the first main commit holding both the review and the root.
 - **[INC-0597 / medium]** When a run-before-approve needs a swap, ask for a runtime route with a trap restore instead of editing identity records, and give it no credit.
 - **[INC-0599 / medium]** Before a checklist states what a screen shows, verify it against installed UI source; do not infer request type or excuse missing headers.
+- **[INC-0605 / medium]** After every push, read the remote head back with ls-remote and compare it with the local head; do not call a gate-passed commit published until they match.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -609,6 +610,8 @@ One rule per incident, ordered by severity then id.
 - **[INC-0593 / low]** When you cannot read a source, mark every claim that rests on it so the next checker knows what to verify.
 - **[INC-0598 / low]** Name a GO baseline by its condition, and recheck it against rulings made since the packet was written.
 - **[INC-0602 / low]** When a hand-written request context reads user null after a good login, compare its headers with the repo helper before blaming the product.
+- **[INC-0603 / low]** When a bounded run fails before any child runs, void it openly as a wrapper defect and report the corrected invocation; do not retry silently.
+- **[INC-0604 / low]** Before briefing a row run, check which name the runner takes, family or revision, and list the selected specs and cases.
 
 ## Practices
 

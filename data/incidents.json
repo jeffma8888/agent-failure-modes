@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 602,
+  "count": 605,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11404,6 +11404,57 @@
       "related": [
         "INC-0599",
         "INC-0595"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0603",
+      "title": "A measurement wrapper called an agent CLI inside a locked shell and failed before any child ran, and the one-invocation bound was kept by voiding the attempt",
+      "date": "2026-11-04",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "When a bounded run fails before any child runs, void it openly as a wrapper defect and report the corrected invocation; do not retry silently.",
+      "signature": "A bounded run exits before any child process starts.",
+      "file": "incidents/INC-0603-a-measurement-wrapper-called-an-agent-cli-inside-a-locked-sh.md",
+      "related": [
+        "INC-0588"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0604",
+      "title": "A row runner selected by family while the brief named a revision, so the run stopped before the harness",
+      "date": "2026-11-04",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Before briefing a row run, check which name the runner takes, family or revision, and list the selected specs and cases.",
+      "signature": "A run stops at row selection with an unknown row name.",
+      "file": "incidents/INC-0604-a-row-runner-selected-by-family-while-the-brief-named-a-revi.md",
+      "related": [
+        "INC-0592"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0605",
+      "title": "Corpus commits sat unpushed after the gate, and a push was answered with a server error, so the remote head must be read back after every push",
+      "date": "2026-11-04",
+      "classes": [
+        "checkpoint"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "After every push, read the remote head back with ls-remote and compare it with the local head; do not call a gate-passed commit published until they match.",
+      "signature": "Local commits exist after a passed gate and the remote head is older.",
+      "file": "incidents/INC-0605-corpus-commits-sat-unpushed-after-the-gate-and-a-push-was-an.md",
+      "related": [
+        "INC-0592"
       ],
       "evidence": []
     }
