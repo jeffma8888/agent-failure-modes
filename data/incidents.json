@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 632,
+  "count": 633,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11939,6 +11939,24 @@
       "related": [
         "INC-0599",
         "INC-0588"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0633",
+      "title": "A record naming a commit id was written in the same parallel batch as the call that creates the commit, so a plausible id was written instead of the real one",
+      "date": "2026-11-08",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Never record a value produced by a call in the same parallel batch as that call; write the record after the call returns and copy the value from its output. A record that must name an output waits one turn.",
+      "signature": "A recorded commit id does not exist in the repository.",
+      "file": "incidents/INC-0633-a-record-naming-a-commit-id-was-written-in-the-same-parallel.md",
+      "related": [
+        "INC-0611",
+        "INC-0623"
       ],
       "evidence": []
     }

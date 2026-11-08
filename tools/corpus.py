@@ -10991,6 +10991,23 @@ _BATCH20: list[dict] = [
         "rule": "Never provision a worktree by writing through the main checkout's dependency tree; a gate that copies dependencies verifies workspace links resolve inside its own tree before any test. A no-change claim about a checkout must check the ignored trees it could have touched, not only git status.",
         "related": ["INC-0599", "INC-0588"],
     },
+    {
+        "id": "INC-0633",
+        "title": "A record naming a commit id was written in the same parallel batch as the call that creates the commit, so a plausible id was written instead of the real one",
+        "date": "2026-11-08",
+        "classes": ["false-green"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "One record carried a wrong commit id for about a minute, until the landing output was read and the line fixed.",
+        "signature": "A recorded commit id does not exist in the repository.",
+        "what": "A lead ran two tool calls in one parallel batch: the landing of a review, which creates a commit, and the ledger write that records that landing. The ledger line had to name the new commit, which did not exist when the line was composed, so a plausible id was written instead of the real one. The slip was caught from the landing output a minute later and fixed with an anchored replace that asserted the old text appeared once and the new text once.",
+        "root_cause": "A record was composed in the same batch as the call that produces the value it names.",
+        "why_hard": "A plausible id reads as correct, and the batch gave no point at which the real value was available.",
+        "fix": "Write the record after the producing call returns and copy the value from its output; fix a wrong line with a replace that asserts the old text once and the new text once.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Never record a value produced by a call in the same parallel batch as that call; write the record after the call returns and copy the value from its output. A record that must name an output waits one turn.",
+        "related": ["INC-0611", "INC-0623"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
