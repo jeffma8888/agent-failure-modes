@@ -11933,7 +11933,7 @@
       ],
       "severity": "high",
       "status": "mitigated",
-      "rule": "Never provision a worktree by writing through the main checkout's dependency tree; a gate that copies dependencies verifies workspace links resolve inside its own tree before any test.",
+      "rule": "Never provision a worktree by writing through the main checkout's dependency tree; a gate that copies dependencies verifies workspace links resolve inside its own tree before any test. A no-change claim about a checkout must check the ignored trees it could have touched, not only git status.",
       "signature": "A module-not-found error in a copied dependency tree for a workspace package that main resolves.",
       "file": "incidents/INC-0632-an-untracked-workspace-link-in-the-main-checkout-was-rewritt.md",
       "related": [

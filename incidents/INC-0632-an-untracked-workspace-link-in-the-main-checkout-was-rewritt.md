@@ -17,7 +17,7 @@ A module-not-found error in a copied dependency tree for a workspace package tha
 
 ## What happened
 
-An untracked workspace link in the main checkout was rewritten at 06:10 on 11/04, inside a sibling prototype worktree's provisioning window, to a relative target that reached the prototype's copy of the shared package. From main's depth it resolved by accident, so main kept working. Four days later a full gate that copies the dependency tree from main into a deeper worktree met the dangling link and failed integration with module-not-found, which looked like a product fault. The earlier run had started before the rewrite and the next stopped before any tier, so this was the first to meet it. A scan of the dependency trees found no other link into a worktree. The link was restored to main's own package, and the gate script now stops before any test unless the link resolves inside its own tree, which was red-checked on the failed worktree.
+An untracked workspace link in the main checkout was rewritten at 06:10 on 11/04, inside a sibling prototype worktree's provisioning window, to a relative target that reached the prototype's copy of the shared package. From main's depth it resolved by accident, so main kept working. Four days later a full gate that copies the dependency tree from main into a deeper worktree met the dangling link and failed integration with module-not-found, which looked like a product fault. The earlier run had started before the rewrite and the next stopped before any tier, so this was the first to meet it. A scan of the dependency trees found no other link into a worktree. The link was restored to main's own package, and the gate script now stops before any test unless the link resolves inside its own tree, which was red-checked on the failed worktree. The engineer's account refines the mechanism: the prototype worktree's dependency directories were first linked into main, and a package-manager command run in that worktree did an automatic install pass that, through the alias, rewrote main's nested workspace link. A later copy of the directories carried the rewritten link. The engineer's earlier claim of no changes in main rested on an empty git status, which never shows ignored dependency trees.
 
 ## Root cause
 
@@ -37,7 +37,7 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Transferable rule
 
-> Never provision a worktree by writing through the main checkout's dependency tree; a gate that copies dependencies verifies workspace links resolve inside its own tree before any test.
+> Never provision a worktree by writing through the main checkout's dependency tree; a gate that copies dependencies verifies workspace links resolve inside its own tree before any test. A no-change claim about a checkout must check the ignored trees it could have touched, not only git status.
 
 ## Related
 
