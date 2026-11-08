@@ -52,6 +52,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0600 / high]** A clean merge-tree and two green branches do not show the merge is green; before merging a test that selects by a visible label, run it on a base that holds every sanctioned label change, and audit other specs for the old label.
 - **[INC-0601 / high]** A capture injected through an inherited environment variable is blind to any child that clears it; count from the log, and treat a zero from copies as unproven until a positive control shows the capture reaches the innermost process.
 - **[INC-0627 / high]** A branch that adds or changes end-to-end files runs the full end-to-end step before merge; a row gate alone does not show load-order errors.
+- **[INC-0630 / high]** Act on verified on-disk outputs when the author is silent, and never end a turn waiting on a message alone.
 - **[INC-0006 / medium]** Success is an ARTIFACT, not an exit code. Under a hard timeout, an agent that writes its minimal complete output first and refines in place still succeeds if killed. Correspondingly: never call a timeout a failure without checking whether the output file exists.
 - **[INC-0007 / medium]** A success predicate defined as 'the output file exists' hides a chronically over-budget step. Report the DURATION DISTRIBUTION per step, not just the outcome, and compare against a sibling running the same pipeline on the same box - which cheaply falsifies 'the machine is slow' or 'the provider is throttling'.
 - **[INC-0017 / medium]** To stop a well-behaved detached loop, remove the input it polls (a STOP file it honors), not just its pid - a supervisor or scheduler can re-launch a killed pid. Same argv on a new pid = auto-resurrection; different argv = a fresh authorized launch. Hunt the launcher accordingly, and leave a documented STOP so you and the other session do not fight over the process.
@@ -636,6 +637,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0622 / low]** Brace variables before a colon, as in ${r}:path, and treat the hash of empty input as a failure signal.
 - **[INC-0624 / low]** Copy a time label from the returned clock output, never type it; make the check mechanical by comparing the heading's time with the last clock output.
 - **[INC-0626 / low]** Write a landing subject from the artifact's own header or report, not from what you expect it covers.
+- **[INC-0631 / low]** Write a landing subject's ranges from the author report, never from your own brief; copy ids as the report lists them.
 
 ## Practices
 
