@@ -10974,6 +10974,23 @@ _BATCH20: list[dict] = [
         "rule": "Write a landing subject's ranges from the author report, never from your own brief; copy ids as the report lists them.",
         "related": ["INC-0626", "INC-0593"],
     },
+    {
+        "id": "INC-0632",
+        "title": "A read-only audit ran git merge-tree --write-tree in a protected checkout; refs, index and worktree stayed clean while loose objects were written",
+        "date": "2026-11-07",
+        "classes": ["vcs-destruction", "false-green"],
+        "severity": "medium",
+        "status": "mitigated",
+        "cost": "An existing repository's object database was changed during a read-only audit. Without a pre-write inventory, the exact objects newly introduced by this operation cannot be identified reliably, and precise reversal has not been established. Cleanup was withheld, so the mutation stands as a process violation.",
+        "signature": "A read-only task includes git merge-tree --write-tree (or another command that writes objects), and the only post-check is a clean status and an unchanged HEAD.",
+        "what": "A delegated audit was told not to write to an existing checkout. To test whether two branches would merge, the auditor ran git merge-tree --write-tree there. The command leaves HEAD, refs, index and worktree alone, but it is an object-writing operation: it writes or reuses merge objects in the git directory, and each call need not add both new trees and new blobs. The auditor disclosed it, and the lead found a clean status and the same HEAD. The technical result was usable, but the rule had still been broken.",
+        "root_cause": "The auditor classified the command by visible worktree and ref changes instead of all state it writes. The brief forbade all writes to the existing checkout; it lacked an explicit object-database reminder, but that did not authorize object writes. A clean status and unchanged HEAD did not test the full boundary.",
+        "why_hard": "The merge result looked like a dry run, status stayed clean, and git does not label the object write. Without a pre-write inventory, a clean status cannot show which objects are new, and existing objects may already have been present.",
+        "fix": "Make the existing all-write prohibition explicit about the Git object database. Reconstruct hypothetical merges only in newly isolated scratch clones, with source checkouts read-only. Protected-repository mutations require separate explicit authorization; do not infer it from clean status or an inventory. Disclose violations, do not prune or clean unknown objects, and do not claim reversal or retroactive permission.",
+        "verification": "Verified: the lead saw an unchanged HEAD and a clean tracked and untracked state afterwards. Not verified: which objects were newly introduced, since no earlier inventory exists, or that the write can be reversed. Technical validation of the result is not process compliance.",
+        "rule": "Classify Git commands by all state they write, not clean status. Run object-writing analysis only in a newly isolated scratch clone. Protected-repository writes need separate explicit authorization; an inventory grants no permission and does not prove reversibility.",
+        "related": ["INC-0324", "INC-0600", "INC-0486"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

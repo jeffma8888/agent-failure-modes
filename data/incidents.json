@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 631,
+  "count": 632,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11921,6 +11921,26 @@
       "related": [
         "INC-0626",
         "INC-0593"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0632",
+      "title": "A read-only audit ran git merge-tree --write-tree in a protected checkout; refs, index and worktree stayed clean while loose objects were written",
+      "date": "2026-11-07",
+      "classes": [
+        "vcs-destruction",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Classify Git commands by all state they write, not clean status. Run object-writing analysis only in a newly isolated scratch clone. Protected-repository writes need separate explicit authorization; an inventory grants no permission and does not prove reversibility.",
+      "signature": "A read-only task includes git merge-tree --write-tree (or another command that writes objects), and the only post-check is a clean status and an unchanged HEAD.",
+      "file": "incidents/INC-0632-a-read-only-audit-ran-git-merge-tree-write-tree-in-a-protect.md",
+      "related": [
+        "INC-0324",
+        "INC-0600",
+        "INC-0486"
       ],
       "evidence": []
     }
