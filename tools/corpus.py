@@ -10974,6 +10974,23 @@ _BATCH20: list[dict] = [
         "rule": "Write a landing subject's ranges from the author report, never from your own brief; copy ids as the report lists them.",
         "related": ["INC-0626", "INC-0593"],
     },
+    {
+        "id": "INC-0632",
+        "title": "An untracked workspace link in the main checkout was rewritten during a sibling worktree's provisioning to a target that only worked from main by accident, and four days later a gate that copied dependencies failed in a way that looked like a product fault",
+        "date": "2026-11-08",
+        "classes": ["tooling-paths"],
+        "severity": "high",
+        "status": "mitigated",
+        "cost": "A full gate run failed 2 of 115 integration cases with a module-not-found error and was first read as a product fault; four days of unnoticed risk before it.",
+        "signature": "A module-not-found error in a copied dependency tree for a workspace package that main resolves.",
+        "what": "An untracked workspace link in the main checkout was rewritten at 06:10 on 11/04, inside a sibling prototype worktree's provisioning window, to a relative target that reached the prototype's copy of the shared package. From main's depth it resolved by accident, so main kept working. Four days later a full gate that copies the dependency tree from main into a deeper worktree met the dangling link and failed integration with module-not-found, which looked like a product fault. The earlier run had started before the rewrite and the next stopped before any tier, so this was the first to meet it. A scan of the dependency trees found no other link into a worktree. The link was restored to main's own package, and the gate script now stops before any test unless the link resolves inside its own tree, which was red-checked on the failed worktree.",
+        "root_cause": "Provisioning a worktree wrote through the main checkout's dependency tree, and the link was untracked, so nothing reviewed it.",
+        "why_hard": "The wrong link worked from main by depth coincidence, so nothing failed until a copy was made one level deeper.",
+        "fix": "Restore the link to its own package, add a gate guard that stops before any test unless workspace links resolve inside the gate's own tree, and prove the guard red on the failed worktree.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Never provision a worktree by writing through the main checkout's dependency tree; a gate that copies dependencies verifies workspace links resolve inside its own tree before any test.",
+        "related": ["INC-0599", "INC-0588"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20
