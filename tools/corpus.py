@@ -11008,6 +11008,23 @@ _BATCH20: list[dict] = [
         "rule": "Never record a value produced by a call in the same parallel batch as that call; write the record after the call returns and copy the value from its output. A record that must name an output waits one turn.",
         "related": ["INC-0611", "INC-0623"],
     },
+    {
+        "id": "INC-0634",
+        "title": "A review was assigned to a reviewer by role name, but the reviewer and the author ran the same model, so it was not an independent review",
+        "date": "2026-11-10",
+        "classes": ["delegation"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "One review assignment was caught at landing time and moved to a different reviewer; no output was accepted on the same-model review.",
+        "signature": "A reviewer assigned for independence runs the same model as the author of the work under review.",
+        "what": "A lead assigned the review of an engineer's audit to a QA thread by role name, on the rule that a different model reviews each output. Both threads ran the same model, so the review would not have been independent. The lead noticed at landing time, moved the review to a thread on a different model, and re-listed every review by the model of each thread.",
+        "root_cause": "The reviewer was chosen by role name, and the model of each thread was not compared with the author's model.",
+        "why_hard": "Role names suggest separate parties, and the model of a thread is not visible in its name or in the assignment.",
+        "fix": "Re-list each review by the model of the author thread and the model of the reviewer thread, and move any review whose models match.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Choose each reviewer by the model of its thread, checked against the author's thread, not by role name.",
+        "related": ["INC-0630", "INC-0589"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

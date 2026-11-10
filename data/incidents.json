@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 633,
+  "count": 634,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11957,6 +11957,24 @@
       "related": [
         "INC-0611",
         "INC-0623"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0634",
+      "title": "A review was assigned to a reviewer by role name, but the reviewer and the author ran the same model, so it was not an independent review",
+      "date": "2026-11-10",
+      "classes": [
+        "delegation"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Choose each reviewer by the model of its thread, checked against the author's thread, not by role name.",
+      "signature": "A reviewer assigned for independence runs the same model as the author of the work under review.",
+      "file": "incidents/INC-0634-a-review-was-assigned-to-a-reviewer-by-role-name-but-the-rev.md",
+      "related": [
+        "INC-0630",
+        "INC-0589"
       ],
       "evidence": []
     }
