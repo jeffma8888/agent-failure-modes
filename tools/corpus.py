@@ -11025,6 +11025,23 @@ _BATCH20: list[dict] = [
         "rule": "Choose each reviewer by the model of its thread, checked against the author's thread, not by role name.",
         "related": ["INC-0630", "INC-0589"],
     },
+    {
+        "id": "INC-0635",
+        "title": "A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words",
+        "date": "2026-11-10",
+        "classes": ["tooling-paths"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "All four sends failed and were redone by hand; caught from that call's own output, with no work lost.",
+        "signature": "A loop over pair strings reports an empty argument or a not-found target for every item.",
+        "what": "A lead sent four briefs with one loop that took each quoted string holding a target id and a file name, split it with the positional-parameter builtin, then sent the second word to the first. The shell was zsh, which does not word-split an unquoted parameter expansion, so the first parameter held the whole string and the second was empty. The file read became a read of a directory, the send had no message, and the follow-up step reported the target not found. The lead saw this in the output and resent with one explicit command per target.",
+        "root_cause": "The loop relied on word splitting, and the shell in use does not do that by default.",
+        "why_hard": "The same loop works in bash, and a side-effecting loop gives no error until its output is read.",
+        "fix": "Write one explicit command per item, or split explicitly with the shell's own syntax, and check each send's output for its success line before moving on.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Do not drive side-effecting actions through a loop that depends on word splitting without knowing the shell's splitting rule; prefer one explicit command per send and confirm each success line.",
+        "related": ["INC-0633", "INC-0599"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

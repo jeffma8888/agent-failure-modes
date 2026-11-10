@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 634,
+  "count": 635,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11975,6 +11975,24 @@
       "related": [
         "INC-0630",
         "INC-0589"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0635",
+      "title": "A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words",
+      "date": "2026-11-10",
+      "classes": [
+        "tooling-paths"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Do not drive side-effecting actions through a loop that depends on word splitting without knowing the shell's splitting rule; prefer one explicit command per send and confirm each success line.",
+      "signature": "A loop over pair strings reports an empty argument or a not-found target for every item.",
+      "file": "incidents/INC-0635-a-shell-loop-meant-to-send-four-messages-sent-none-because-t.md",
+      "related": [
+        "INC-0633",
+        "INC-0599"
       ],
       "evidence": []
     }
