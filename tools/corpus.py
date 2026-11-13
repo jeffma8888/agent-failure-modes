@@ -11042,6 +11042,23 @@ _BATCH20: list[dict] = [
         "rule": "Do not drive side-effecting actions through a loop that depends on word splitting without knowing the shell's splitting rule; prefer one explicit command per send and confirm each success line.",
         "related": ["INC-0633", "INC-0599"],
     },
+    {
+        "id": "INC-0636",
+        "title": "A ledger named a nonexistent commit after a short SHA was lengthened by hand",
+        "date": "2026-11-12",
+        "classes": ["false-green"],
+        "severity": "low",
+        "status": "mitigated",
+        "cost": "Two ledger lines named a nonexistent commit; both were corrected before any teammate read them.",
+        "signature": "A recorded SHA has the tool-produced prefix but a hand-added suffix that does not match the real commit.",
+        "what": "A landing command printed the new commit as an eight-character SHA. While writing two ledger lines, the lead typed a ninth hexadecimal digit rather than copying a longer SHA from git. A subsequent git rev-parse --short=9 in the same call printed a different ninth digit. The lead caught the mismatch in that call's output and corrected both lines to the original eight-character value before any teammate read them.",
+        "root_cause": "An opaque identifier already available from tool output was treated as editable text, and a longer form was invented by hand rather than obtained from git.",
+        "why_hard": "The prefix was correct and the extra character was valid hexadecimal, so the longer value looked like a more precise citation. Waiting for the landing output alone does not prevent corrupting a value while copying it.",
+        "fix": "Copy the SHA verbatim at the length the tool printed it. If a different length is needed, run git rev-parse first and copy that output; correct each affected ledger line from the observed value.",
+        "verification": "Checked by the person who reported it. Not checked: whether the new rule prevents recurrence.",
+        "rule": "Never lengthen, shorten or retype a SHA by hand; every SHA in a record is a verbatim copy of tool output at the length shown. For a different length, obtain that form from git before writing the record.",
+        "related": ["INC-0633"],
+    },
 ]
 
 INCIDENTS: list[dict] = _BATCH1 + _BATCH2 + _BATCH3 + _BATCH4 + _BATCH5 + _BATCH6 + _BATCH7 + _BATCH8 + _BATCH9 + _BATCH10 + _BATCH11 + _BATCH12 + _BATCH13 + _BATCH14 + _BATCH15 + _BATCH16 + _BATCH17 + _BATCH18 + _BATCH19 + _BATCH20

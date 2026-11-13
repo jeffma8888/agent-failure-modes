@@ -642,6 +642,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0633 / low]** Never record a value produced by a call in the same parallel batch as that call; write the record after the call returns and copy the value from its output. A record that must name an output waits one turn.
 - **[INC-0634 / low]** Choose each reviewer by the model of its thread, checked against the author's thread, not by role name.
 - **[INC-0635 / low]** Do not drive side-effecting actions through a loop that depends on word splitting without knowing the shell's splitting rule; prefer one explicit command per send and confirm each success line.
+- **[INC-0636 / low]** Never lengthen, shorten or retype a SHA by hand; every SHA in a record is a verbatim copy of tool output at the length shown. For a different length, obtain that form from git before writing the record.
 
 ## Practices
 

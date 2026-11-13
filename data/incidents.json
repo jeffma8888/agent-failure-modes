@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 635,
+  "count": 636,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11993,6 +11993,23 @@
       "related": [
         "INC-0633",
         "INC-0599"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0636",
+      "title": "A ledger named a nonexistent commit after a short SHA was lengthened by hand",
+      "date": "2026-11-12",
+      "classes": [
+        "false-green"
+      ],
+      "severity": "low",
+      "status": "mitigated",
+      "rule": "Never lengthen, shorten or retype a SHA by hand; every SHA in a record is a verbatim copy of tool output at the length shown. For a different length, obtain that form from git before writing the record.",
+      "signature": "A recorded SHA has the tool-produced prefix but a hand-added suffix that does not match the real commit.",
+      "file": "incidents/INC-0636-a-ledger-named-a-nonexistent-commit-after-a-short-sha-was-le.md",
+      "related": [
+        "INC-0633"
       ],
       "evidence": []
     }
