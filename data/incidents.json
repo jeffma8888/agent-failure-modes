@@ -302,7 +302,7 @@
       ],
       "severity": "high",
       "status": "mitigated",
-      "rule": "The git index is process-shared. A blanket `git add -A` stages everything in the tree, including uncommitted work you did not author. When a loop is live: do not hand-edit its tree; if you must, drop the loop's STOP sentinel first. A path-limited commit protects the loop from you, not you from the loop. `commit -a` sweeps too: commit named paths only.",
+      "rule": "In a multi-writer tree, never use `git add -A` or `git commit -a`; name paths on the commit itself and check its stat before moving on. A path-limited commit cannot protect your edits from another writer's blanket stage, so quiesce live loops before editing their tree. Undo an over-broad commit only while it is still HEAD and without changing working-tree bytes.",
       "signature": "`git log --oneline -S \"<a phrase you typed>\" -- <file>` shows your text landed in a commit whose SUBJECT is the loop's story.",
       "file": "incidents/INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md",
       "related": [
