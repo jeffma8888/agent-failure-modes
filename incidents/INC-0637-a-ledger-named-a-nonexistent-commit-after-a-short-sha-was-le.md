@@ -1,5 +1,5 @@
 ---
-id: INC-0636
+id: INC-0637
 title: A ledger named a nonexistent commit after a short SHA was lengthened by hand
 date: 2026-11-12
 classes: [false-green]
@@ -7,7 +7,7 @@ severity: low
 status: mitigated
 ---
 
-# INC-0636 - A ledger named a nonexistent commit after a short SHA was lengthened by hand
+# INC-0637 - A ledger named a nonexistent commit after a short SHA was lengthened by hand
 
 **Cost:** Two ledger lines named a nonexistent commit; both were corrected before any teammate read them.
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0633](./INC-0633-a-record-naming-a-commit-id-was-written-in-the-same-parallel.md)
+[INC-0634](./INC-0634-a-record-naming-a-commit-id-was-written-in-the-same-parallel.md)

@@ -1,5 +1,5 @@
 ---
-id: INC-0634
+id: INC-0635
 title: A review was assigned to a reviewer by role name, but the reviewer and the author ran the same model, so it was not an independent review
 date: 2026-11-10
 classes: [delegation]
@@ -7,7 +7,7 @@ severity: low
 status: mitigated
 ---
 
-# INC-0634 - A review was assigned to a reviewer by role name, but the reviewer and the author ran the same model, so it was not an independent review
+# INC-0635 - A review was assigned to a reviewer by role name, but the reviewer and the author ran the same model, so it was not an independent review
 
 **Cost:** One review assignment was caught at landing time and moved to a different reviewer; no output was accepted on the same-model review.
 

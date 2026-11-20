@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "count": 636,
+  "count": 637,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -11926,6 +11926,26 @@
     },
     {
       "id": "INC-0632",
+      "title": "A read-only audit ran git merge-tree --write-tree in a protected checkout; refs, index and worktree stayed clean while loose objects were written",
+      "date": "2026-11-07",
+      "classes": [
+        "vcs-destruction",
+        "false-green"
+      ],
+      "severity": "medium",
+      "status": "mitigated",
+      "rule": "Classify Git commands by all state they write, not clean status. Run object-writing analysis only in a newly isolated scratch clone. Protected-repository writes need separate explicit authorization; an inventory grants no permission and does not prove reversibility.",
+      "signature": "A read-only task includes git merge-tree --write-tree (or another command that writes objects), and the only post-check is a clean status and an unchanged HEAD.",
+      "file": "incidents/INC-0632-a-read-only-audit-ran-git-merge-tree-write-tree-in-a-protect.md",
+      "related": [
+        "INC-0324",
+        "INC-0600",
+        "INC-0486"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0633",
       "title": "An untracked workspace link in the main checkout was rewritten during a sibling worktree's provisioning to a target that only worked from main by accident, and four days later a gate that copied dependencies failed in a way that looked like a product fault",
       "date": "2026-11-08",
       "classes": [
@@ -11935,7 +11955,7 @@
       "status": "mitigated",
       "rule": "Never provision a worktree by writing through the main checkout's dependency tree; a gate that copies dependencies verifies workspace links resolve inside its own tree before any test. A no-change claim about a checkout must check the ignored trees it could have touched, not only git status.",
       "signature": "A module-not-found error in a copied dependency tree for a workspace package that main resolves.",
-      "file": "incidents/INC-0632-an-untracked-workspace-link-in-the-main-checkout-was-rewritt.md",
+      "file": "incidents/INC-0633-an-untracked-workspace-link-in-the-main-checkout-was-rewritt.md",
       "related": [
         "INC-0599",
         "INC-0588"
@@ -11943,7 +11963,7 @@
       "evidence": []
     },
     {
-      "id": "INC-0633",
+      "id": "INC-0634",
       "title": "A record naming a commit id was written in the same parallel batch as the call that creates the commit, so a plausible id was written instead of the real one",
       "date": "2026-11-08",
       "classes": [
@@ -11953,7 +11973,7 @@
       "status": "mitigated",
       "rule": "Never record a value produced by a call in the same parallel batch as that call; write the record after the call returns and copy the value from its output. A record that must name an output waits one turn.",
       "signature": "A recorded commit id does not exist in the repository.",
-      "file": "incidents/INC-0633-a-record-naming-a-commit-id-was-written-in-the-same-parallel.md",
+      "file": "incidents/INC-0634-a-record-naming-a-commit-id-was-written-in-the-same-parallel.md",
       "related": [
         "INC-0611",
         "INC-0623"
@@ -11961,7 +11981,7 @@
       "evidence": []
     },
     {
-      "id": "INC-0634",
+      "id": "INC-0635",
       "title": "A review was assigned to a reviewer by role name, but the reviewer and the author ran the same model, so it was not an independent review",
       "date": "2026-11-10",
       "classes": [
@@ -11971,7 +11991,7 @@
       "status": "mitigated",
       "rule": "Choose each reviewer by the model of its thread, checked against the author's thread, not by role name.",
       "signature": "A reviewer assigned for independence runs the same model as the author of the work under review.",
-      "file": "incidents/INC-0634-a-review-was-assigned-to-a-reviewer-by-role-name-but-the-rev.md",
+      "file": "incidents/INC-0635-a-review-was-assigned-to-a-reviewer-by-role-name-but-the-rev.md",
       "related": [
         "INC-0630",
         "INC-0589"
@@ -11979,7 +11999,7 @@
       "evidence": []
     },
     {
-      "id": "INC-0635",
+      "id": "INC-0636",
       "title": "A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words",
       "date": "2026-11-10",
       "classes": [
@@ -11989,15 +12009,15 @@
       "status": "mitigated",
       "rule": "Do not drive side-effecting actions through a loop that depends on word splitting without knowing the shell's splitting rule; prefer one explicit command per send and confirm each success line.",
       "signature": "A loop over pair strings reports an empty argument or a not-found target for every item.",
-      "file": "incidents/INC-0635-a-shell-loop-meant-to-send-four-messages-sent-none-because-t.md",
+      "file": "incidents/INC-0636-a-shell-loop-meant-to-send-four-messages-sent-none-because-t.md",
       "related": [
-        "INC-0633",
+        "INC-0634",
         "INC-0599"
       ],
       "evidence": []
     },
     {
-      "id": "INC-0636",
+      "id": "INC-0637",
       "title": "A ledger named a nonexistent commit after a short SHA was lengthened by hand",
       "date": "2026-11-12",
       "classes": [
@@ -12007,9 +12027,9 @@
       "status": "mitigated",
       "rule": "Never lengthen, shorten or retype a SHA by hand; every SHA in a record is a verbatim copy of tool output at the length shown. For a different length, obtain that form from git before writing the record.",
       "signature": "A recorded SHA has the tool-produced prefix but a hand-added suffix that does not match the real commit.",
-      "file": "incidents/INC-0636-a-ledger-named-a-nonexistent-commit-after-a-short-sha-was-le.md",
+      "file": "incidents/INC-0637-a-ledger-named-a-nonexistent-commit-after-a-short-sha-was-le.md",
       "related": [
-        "INC-0633"
+        "INC-0634"
       ],
       "evidence": []
     }

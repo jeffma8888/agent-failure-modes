@@ -1,5 +1,5 @@
 ---
-id: INC-0632
+id: INC-0633
 title: An untracked workspace link in the main checkout was rewritten during a sibling worktree's provisioning to a target that only worked from main by accident, and four days later a gate that copied dependencies failed in a way that looked like a product fault
 date: 2026-11-08
 classes: [tooling-paths]
@@ -7,7 +7,7 @@ severity: high
 status: mitigated
 ---
 
-# INC-0632 - An untracked workspace link in the main checkout was rewritten during a sibling worktree's provisioning to a target that only worked from main by accident, and four days later a gate that copied dependencies failed in a way that looked like a product fault
+# INC-0633 - An untracked workspace link in the main checkout was rewritten during a sibling worktree's provisioning to a target that only worked from main by accident, and four days later a gate that copied dependencies failed in a way that looked like a product fault
 
 **Cost:** A full gate run failed 2 of 115 integration cases with a module-not-found error and was first read as a product fault; four days of unnoticed risk before it.
 

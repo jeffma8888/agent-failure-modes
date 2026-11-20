@@ -1,5 +1,5 @@
 ---
-id: INC-0635
+id: INC-0636
 title: A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words
 date: 2026-11-10
 classes: [tooling-paths]
@@ -7,7 +7,7 @@ severity: low
 status: mitigated
 ---
 
-# INC-0635 - A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words
+# INC-0636 - A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words
 
 **Cost:** All four sends failed and were redone by hand; caught from that call's own output, with no work lost.
 
@@ -41,4 +41,4 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Related
 
-[INC-0633](./INC-0633-a-record-naming-a-commit-id-was-written-in-the-same-parallel.md) [INC-0599](./INC-0599-a-checklist-expected-a-slug-first-link-and-excused-absent-he.md)
+[INC-0634](./INC-0634-a-record-naming-a-commit-id-was-written-in-the-same-parallel.md) [INC-0599](./INC-0599-a-checklist-expected-a-slug-first-link-and-excused-absent-he.md)

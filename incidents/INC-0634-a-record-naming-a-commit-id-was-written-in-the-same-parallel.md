@@ -1,5 +1,5 @@
 ---
-id: INC-0633
+id: INC-0634
 title: A record naming a commit id was written in the same parallel batch as the call that creates the commit, so a plausible id was written instead of the real one
 date: 2026-11-08
 classes: [false-green]
@@ -7,7 +7,7 @@ severity: low
 status: mitigated
 ---
 
-# INC-0633 - A record naming a commit id was written in the same parallel batch as the call that creates the commit, so a plausible id was written instead of the real one
+# INC-0634 - A record naming a commit id was written in the same parallel batch as the call that creates the commit, so a plausible id was written instead of the real one
 
 **Cost:** One record carried a wrong commit id for about a minute, until the landing output was read and the line fixed.
 

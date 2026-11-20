@@ -53,7 +53,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0601 / high]** A capture injected through an inherited environment variable is blind to any child that clears it; count from the log, and treat a zero from copies as unproven until a positive control shows the capture reaches the innermost process.
 - **[INC-0627 / high]** A branch that adds or changes end-to-end files runs the full end-to-end step before merge; a row gate alone does not show load-order errors.
 - **[INC-0630 / high]** Act on verified on-disk outputs when the author is silent, and never end a turn waiting on a message alone.
-- **[INC-0632 / high]** Never provision a worktree by writing through the main checkout's dependency tree; a gate that copies dependencies verifies workspace links resolve inside its own tree before any test. A no-change claim about a checkout must check the ignored trees it could have touched, not only git status.
+- **[INC-0633 / high]** Never provision a worktree by writing through the main checkout's dependency tree; a gate that copies dependencies verifies workspace links resolve inside its own tree before any test. A no-change claim about a checkout must check the ignored trees it could have touched, not only git status.
 - **[INC-0006 / medium]** Success is an ARTIFACT, not an exit code. Under a hard timeout, an agent that writes its minimal complete output first and refines in place still succeeds if killed. Correspondingly: never call a timeout a failure without checking whether the output file exists.
 - **[INC-0007 / medium]** A success predicate defined as 'the output file exists' hides a chronically over-budget step. Report the DURATION DISTRIBUTION per step, not just the outcome, and compare against a sibling running the same pipeline on the same box - which cheaply falsifies 'the machine is slow' or 'the provider is throttling'.
 - **[INC-0017 / medium]** To stop a well-behaved detached loop, remove the input it polls (a STOP file it honors), not just its pid - a supervisor or scheduler can re-launch a killed pid. Same argv on a new pid = auto-resurrection; different argv = a fresh authorized launch. Hunt the launcher accordingly, and leave a documented STOP so you and the other session do not fight over the process.
@@ -409,6 +409,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0625 / medium]** A script asserts each dependent step's precondition with a fresh read right before the write and exits before any later step on failure.
 - **[INC-0628 / medium]** Capture request headers for non-GET requests and classify override reads at capture time; do not classify a request as a write by its method alone.
 - **[INC-0629 / medium]** Before ruling a route, run the repo's own checker on the candidate tip instead of inferring from a search.
+- **[INC-0632 / medium]** Classify Git commands by all state they write, not clean status. Run object-writing analysis only in a newly isolated scratch clone. Protected-repository writes need separate explicit authorization; an inventory grants no permission and does not prove reversibility.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -639,10 +640,10 @@ One rule per incident, ordered by severity then id.
 - **[INC-0624 / low]** Copy a time label from the returned clock output, never type it; make the check mechanical by comparing the heading's time with the last clock output.
 - **[INC-0626 / low]** Write a landing subject from the artifact's own header or report, not from what you expect it covers.
 - **[INC-0631 / low]** Write a landing subject's ranges from the author report, never from your own brief; copy ids as the report lists them.
-- **[INC-0633 / low]** Never record a value produced by a call in the same parallel batch as that call; write the record after the call returns and copy the value from its output. A record that must name an output waits one turn.
-- **[INC-0634 / low]** Choose each reviewer by the model of its thread, checked against the author's thread, not by role name.
-- **[INC-0635 / low]** Do not drive side-effecting actions through a loop that depends on word splitting without knowing the shell's splitting rule; prefer one explicit command per send and confirm each success line.
-- **[INC-0636 / low]** Never lengthen, shorten or retype a SHA by hand; every SHA in a record is a verbatim copy of tool output at the length shown. For a different length, obtain that form from git before writing the record.
+- **[INC-0634 / low]** Never record a value produced by a call in the same parallel batch as that call; write the record after the call returns and copy the value from its output. A record that must name an output waits one turn.
+- **[INC-0635 / low]** Choose each reviewer by the model of its thread, checked against the author's thread, not by role name.
+- **[INC-0636 / low]** Do not drive side-effecting actions through a loop that depends on word splitting without knowing the shell's splitting rule; prefer one explicit command per send and confirm each success line.
+- **[INC-0637 / low]** Never lengthen, shorten or retype a SHA by hand; every SHA in a record is a verbatim copy of tool output at the length shown. For a different length, obtain that form from git before writing the record.
 
 ## Practices
 
