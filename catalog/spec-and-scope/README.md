@@ -12,7 +12,7 @@ The loop does the wrong amount of work: it pursues the whole visible mission ins
 
 ## Topics
 
-n = occurrences: incidents filed in the topic plus their recorded repeats.
+n = occurrences: incidents filed in the topic plus their repeats.
 
 | Topic | Go here if | n | Link |
 |---|---|---|---|

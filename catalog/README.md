@@ -11,7 +11,7 @@ Start here. 637 incidents from autonomous agent loops, arranged as a tree: this 
 
 ## Most-recurrent failures
 
-Ranked by occurrences (an incident plus its recorded repeats), then severity, then id.
+Ranked by occurrences (an incident plus its repeats), then severity, then id.
 
 | Incident | n | Severity | Where | Title |
 |---|---|---|---|---|

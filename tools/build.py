@@ -480,7 +480,7 @@ def _short_entry(inc, m: Model, d: str) -> list[str]:
     n_ent = len(inc.get("recurrences", []))
     if stubs or n_ent:
         links = ", ".join(f"[{s['id']}]({rel(m.page(s), d)})" for s in stubs)
-        more = f"{n_ent} recorded repeat(s)" if n_ent else ""
+        more = f"{n_ent} dated repeat(s)" if n_ent else ""
         out.append("  - recurrences: " + ", ".join(x for x in (links, more) if x))
     return out
 
@@ -552,7 +552,7 @@ def class_node(c: str, m: Model) -> str:
             f"{len(also)} more filed elsewhere are also tagged {c}.", ""]
     if m.has_topics(c):
         head += ["## Topics", "",
-                 "n = occurrences: incidents filed in the topic plus their recorded repeats.", "",
+                 "n = occurrences: incidents filed in the topic plus their repeats.", "",
                  "| Topic | Go here if | n | Link |", "|---|---|---|---|"]
         rows = sorted(m.class_topics[c], key=lambda k: (-m.area_occ(m.topic_members[k]), k))
         for k in rows:
@@ -595,7 +595,7 @@ def _recurrence_note(m: Model) -> str:
         return ("No repeats are recorded yet, so every failure has occurred once and this list falls "
                 "back to severity, then id. A repeat recorded as a `recurrences` entry (see "
                 "AGENTS.md) raises its incident here.")
-    return "Ranked by occurrences (an incident plus its recorded repeats), then severity, then id."
+    return "Ranked by occurrences (an incident plus its repeats), then severity, then id."
 
 
 def leaf_areas(m: Model) -> list[tuple[str, str, list]]:
@@ -865,7 +865,7 @@ def agents_stats(m: Model) -> str:
     top = m.most_recurrent(3)
     return NL.join([
         f"- Incidents: {len(m.incidents)} ({len(m.incidents) - m.n_stubs()} canonical, "
-        f"{m.n_stubs()} recurrence records, {m.n_entries()} recorded repeats, "
+        f"{m.n_stubs()} recurrence records, {m.n_entries()} dated repeat entries, "
         f"{m.total_occ()} occurrences in total).",
         f"- Failure classes: {len(m.classes)}; topics: {len(m.topics)}; practices: {len(m.practices)}.",
         f"- Highest occurrence count: {m.max_occ()} "

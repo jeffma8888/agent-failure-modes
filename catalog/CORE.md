@@ -97,7 +97,7 @@ One distilled rule per topic, grouped by class.
 
 ## Rules of the most-recurrent incidents
 
-Ranked by occurrences (an incident plus its recorded repeats), then severity, then id.
+Ranked by occurrences (an incident plus its repeats), then severity, then id.
 
 - **[INC-0274 / medium / 10x]** Write a recorded time from a command output, never from memory
 - **[INC-0128 / medium / 5x]** Sweep the disk and read a real clock before trusting replies.

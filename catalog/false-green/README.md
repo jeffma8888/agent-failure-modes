@@ -12,7 +12,7 @@ A quality gate reports success while the work is not actually good: vacuous test
 
 ## Topics
 
-n = occurrences: incidents filed in the topic plus their recorded repeats.
+n = occurrences: incidents filed in the topic plus their repeats.
 
 | Topic | Go here if | n | Link |
 |---|---|---|---|

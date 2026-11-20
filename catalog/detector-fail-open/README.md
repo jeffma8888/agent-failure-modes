@@ -12,7 +12,7 @@ A monitor or safety check silently never fires: a wrong regex flavor, the wrong 
 
 ## Topics
 
-n = occurrences: incidents filed in the topic plus their recorded repeats.
+n = occurrences: incidents filed in the topic plus their repeats.
 
 | Topic | Go here if | n | Link |
 |---|---|---|---|

@@ -12,7 +12,7 @@ A hard per-step wall-clock cap (beneath any outer timeout you set) silently kill
 
 ## Topics
 
-n = occurrences: incidents filed in the topic plus their recorded repeats.
+n = occurrences: incidents filed in the topic plus their repeats.
 
 | Topic | Go here if | n | Link |
 |---|---|---|---|

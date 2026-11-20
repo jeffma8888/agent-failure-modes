@@ -38,7 +38,7 @@ def description(c: dict[str, int] | None = None) -> str:
     """Every incident record is one occurrence, so a separate occurrence count is quoted only
     once dated entries make the two differ."""
     c = c or counts()
-    split = f" ({c['distinct']} distinct failures plus {c['stubs']} recorded repeats)" if c["stubs"] else ""
+    split = f" ({c['distinct']} distinct failures; {c['stubs']} are repeats of an earlier one)" if c["stubs"] else ""
     occ = f", {c['occurrences']} occurrences in all," if c["occurrences"] != c["incidents"] else ""
     topics = f" and {c['topics']} topics" if c["topics"] else ""
     text = (f"Post-mortems from autonomous multi-agent build loops in production: {c['incidents']} real "

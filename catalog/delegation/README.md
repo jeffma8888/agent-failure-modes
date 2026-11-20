@@ -12,7 +12,7 @@ A sub-agent re-delegates instead of doing the work: it spawns another loop, scaf
 
 ## Topics
 
-n = occurrences: incidents filed in the topic plus their recorded repeats.
+n = occurrences: incidents filed in the topic plus their repeats.
 
 | Topic | Go here if | n | Link |
 |---|---|---|---|

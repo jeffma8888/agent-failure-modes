@@ -891,7 +891,7 @@ def test_repo_description_quotes_current_counts():
     assert f"{len(INCIDENTS)} real incidents" in text
     assert f"{len(CLASSES)} failure classes" in text
     if c["stubs"]:
-        assert f"({c['distinct']} distinct failures plus {c['stubs']} recorded repeats)" in text
+        assert f"({c['distinct']} distinct failures; {c['stubs']} are repeats of an earlier one)" in text
     assert ("occurrences" in text) == (c["occurrences"] != c["incidents"])
 
 
@@ -903,7 +903,7 @@ def test_repo_description_with_repeats_and_topics():
     assert c["occurrences"] == model(fx).total_occ()
     text = sync_repo_meta.description(c)
     assert len(text) <= 350
-    assert ("26 real incidents (24 distinct failures plus 2 recorded repeats), 29 occurrences in all, "
+    assert ("26 real incidents (24 distinct failures; 2 are repeats of an earlier one), 29 occurrences in all, "
             "across 2 failure classes and 2 topics,") in text
 
 
@@ -911,7 +911,7 @@ def test_repo_description_omits_the_occurrence_count_while_it_equals_the_inciden
     c = {"incidents": 637, "classes": 18, "topics": 54, "practices": 5, "distinct": 595,
          "stubs": 42, "entries": 0, "occurrences": 637}
     text = sync_repo_meta.description(c)
-    assert "637 real incidents (595 distinct failures plus 42 recorded repeats) across 18" in text
+    assert "637 real incidents (595 distinct failures; 42 are repeats of an earlier one) across 18" in text
     assert "occurrences" not in text and len(text) <= 350
     plain = sync_repo_meta.description({**c, "distinct": 637, "stubs": 0})
     assert "637 real incidents across 18 failure classes" in plain

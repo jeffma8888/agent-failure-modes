@@ -12,7 +12,7 @@ The signal you trust hides the truth: an outcome flag masks a chronically over-b
 
 ## Topics
 
-n = occurrences: incidents filed in the topic plus their recorded repeats.
+n = occurrences: incidents filed in the topic plus their repeats.
 
 | Topic | Go here if | n | Link |
 |---|---|---|---|
