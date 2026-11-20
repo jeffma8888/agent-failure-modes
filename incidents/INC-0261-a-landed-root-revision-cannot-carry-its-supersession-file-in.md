@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [identity-and-keying, checkpoint]
 severity: medium
 status: fixed
-topic: null
-occurrences: 1
+topic: identity-and-keying/approval-names-wrong-commit
+occurrences: 2
 ---
 
 # INC-0261 - A landed root revision cannot carry its supersession file in the same commit
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [An approval or activation names the wrong commit or line of history](../catalog/identity-and-keying/approval-names-wrong-commit.md)
 
 **Cost:** Minor: caught before it shipped.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Land a root revision first and add its supersession file after the non-author re-check
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0595](./INC-0595-an-approval-header-named-the-review-commit-whose-tree-did-no.md) - 2026-11-04 - An approval header named the review commit, whose tree did not yet hold the reviewed root, and the identity checker refused it
 
 ## Related
 

@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
+topic: false-green/mutation-witness-proves-less
 occurrences: 1
 ---
 
 # INC-0560 - A mutant made the product raise its own domain error inside the awaited expectation, before the matcher ran, and the agent disclosed that it was not an assertion error
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A mutant or red-first witness does not prove what it is named for](../catalog/false-green/mutation-witness-proves-less.md)
 
 **Cost:** None. The disclosure let the lead rule on the classification.
 

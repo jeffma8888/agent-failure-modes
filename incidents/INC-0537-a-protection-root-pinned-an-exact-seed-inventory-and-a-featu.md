@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: mitigated
-topic: null
+topic: test-isolation/assertion-wider-than-contract
 occurrences: 1
 ---
 
 # INC-0537 - A protection root pinned an exact seed inventory, and a feature row that grew the seed turned it red
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Assertion measures more than its contract: caches, order, whole totals](../catalog/test-isolation/assertion-wider-than-contract.md)
 
 **Cost:** No loss. The red was correct and was routed to a successor root instead of a test edit.
 

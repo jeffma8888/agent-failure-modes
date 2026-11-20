@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
-topic: null
-occurrences: 1
+topic: false-green/step-failed-but-gate-passed
+occurrences: 2
 ---
 
 # INC-0490 - A wrapper exited zero while a step record said the step failed
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A gate verdict came from a wrapper, pipe, chain or last line](../catalog/false-green/step-failed-but-gate-passed.md)
 
 **Cost:** None incurred: the exit status was not trusted; reading it alone would have recorded a red run as green.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Gate on the step records, never on the wrapper exit status; a wrapper can exit zero while a step record says failed.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0566](./INC-0566-a-run-wrapper-exited-zero-although-one-of-its-steps-exited-o.md) - 2026-11-04 - A run wrapper exited zero although one of its steps exited one
 
 ## Related
 

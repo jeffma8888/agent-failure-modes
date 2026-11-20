@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
-topic: null
-occurrences: 1
+topic: false-green/oracle-or-claim-written-from-memory
+occurrences: 2
 ---
 
 # INC-0523 - Three test roots by three authors used the same guessed locator for a generated field that the installed library does not render
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test oracle, locator or review claim came from memory, not source](../catalog/false-green/oracle-or-claim-written-from-memory.md)
 
 **Cost:** Every root with the guess was defective on unchanged main and needed a successor; found by reading installed source.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Do not guess a locator for a generated field; cite the installed source line that renders it, and when one guess is found, audit every root for the same guess.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0530](./INC-0530-an-icon-only-button-had-no-accessible-name-so-a-role-name-lo.md) - 2026-11-02 - An icon-only button had no accessible name, so a role-name locator could never match and the test timed out
 
 ## Related
 

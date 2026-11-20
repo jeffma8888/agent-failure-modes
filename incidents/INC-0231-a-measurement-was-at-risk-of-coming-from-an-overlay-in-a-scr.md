@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [observability, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: observability/misleading-metrics-and-status
 occurrences: 1
 ---
 
 # INC-0231 - A measurement was at risk of coming from an overlay in a scratch tree
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [A reassuring signal contradicts the underlying evidence](../catalog/observability/misleading-metrics-and-status.md)
 
 **Cost:** Minor: caught before it shipped.
 

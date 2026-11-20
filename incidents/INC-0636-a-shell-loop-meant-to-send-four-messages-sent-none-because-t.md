@@ -5,13 +5,16 @@ date: 2026-11-10
 classes: [tooling-paths]
 severity: low
 status: mitigated
-topic: null
+topic: tooling-paths/zsh-expansion-surprises
 occurrences: 1
+recurrence_of: INC-0207
 ---
 
 # INC-0636 - A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [zsh reads your variable differently: colon modifier, word split, array](../catalog/tooling-paths/zsh-expansion-surprises.md)
+
+> **Recurrence of [INC-0207](./INC-0207-three-sends-failed-because-a-packed-string-went-out-as-one-a.md).** This record repeats an earlier failure and is kept for history; INC-0207 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** All four sends failed and were redone by hand; caught from that call's own output, with no work lost.
 

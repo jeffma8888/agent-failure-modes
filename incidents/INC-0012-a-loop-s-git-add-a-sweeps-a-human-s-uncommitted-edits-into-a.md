@@ -6,7 +6,7 @@ classes: [vcs-destruction, concurrency]
 severity: high
 status: mitigated
 topic: null
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0012 - A loop's `git add -A` sweeps a human's uncommitted edits into a loop commit
@@ -42,6 +42,12 @@ After the human edit was staged into a proper quiesced window, the next 30 itera
 ## Transferable rule
 
 > In a multi-writer tree, never use `git add -A` or `git commit -a`; name paths on the commit itself and check its stat before moving on. A path-limited commit cannot protect your edits from another writer's blanket stage, so quiesce live loops before editing their tree. Undo an over-broad commit only while it is still HEAD and without changing working-tree bytes.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0229](./INC-0229-a-commit-swept-another-session-uncommitted-entries.md) - 2026-10-31 - A commit swept another session uncommitted entries
 
 ## Related
 

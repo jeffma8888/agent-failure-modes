@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: fixed
-topic: null
+topic: test-isolation/the-test-itself-is-the-defect
 occurrences: 1
 ---
 
 # INC-0472 - The first browser test to load the app config failed to link because one module was reached by two loaders
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [The red comes from the test's own fixture, tool option or control](../catalog/test-isolation/the-test-itself-is-the-defect.md)
 
 **Cost:** One failed test step, no product harm.
 

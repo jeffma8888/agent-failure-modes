@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [delegation, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/brief-or-plan-left-a-gap
 occurrences: 1
 ---
 
 # INC-0135 - A QA-template line pasted into an engineer task contradicted the engineer commit duty
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [The brief or plan left a gap the worker fell through](../catalog/delegation/brief-or-plan-left-a-gap.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped, except item one which delayed finished work.
 

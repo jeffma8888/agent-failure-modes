@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [detector-fail-open]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/guard-defaults-and-negative-controls
 occurrences: 1
 ---
 
 # INC-0394 - A security predicate checked for truthiness failed open on an undefined or null value
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [A broken guard implementation still appears valid](../catalog/detector-fail-open/guard-defaults-and-negative-controls.md)
 
 **Cost:** A missing value could have been read as permission.
 

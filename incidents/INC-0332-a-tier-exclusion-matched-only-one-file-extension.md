@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, tooling-paths]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/tests-do-not-prove-the-contract
 occurrences: 1
 ---
 
 # INC-0332 - A tier exclusion matched only one file extension
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Green tests omit or misstate required behavior](../catalog/spec-and-scope/tests-do-not-prove-the-contract.md)
 
 **Cost:** Minor: caught before it shipped.
 

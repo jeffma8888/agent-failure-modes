@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
-topic: null
-occurrences: 1
+topic: tooling-paths/argument-read-as-other-kind
+occurrences: 2
 ---
 
 # INC-0581 - A brief named the revision id as the row, and the row runner refused before any test ran
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A helper or runner reads your argument as a different kind or name](../catalog/tooling-paths/argument-read-as-other-kind.md)
 
 **Cost:** None. The result was recorded as not run.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > A runner selection error before any test is not run, never a red; briefs name the base row.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0604](./INC-0604-a-row-runner-selected-by-family-while-the-brief-named-a-revi.md) - 2026-11-04 - A row runner selected by family while the brief named a revision, so the run stopped before the harness
 
 ## Related
 

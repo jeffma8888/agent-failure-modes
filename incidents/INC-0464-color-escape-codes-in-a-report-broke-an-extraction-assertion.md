@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: fixed
-topic: null
-occurrences: 1
+topic: tooling-paths/edit-or-match-hit-wrong-bytes
+occurrences: 2
 ---
 
 # INC-0464 - Color escape codes in a report broke an extraction assertion, and only the zero match assertion caught it
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [An edit anchor or text match hit different bytes than you meant](../catalog/tooling-paths/edit-or-match-hit-wrong-bytes.md)
 
 **Cost:** None: nothing was written.
 
@@ -42,6 +42,12 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 ## Transferable rule
 
 > Strip terminal escape codes before parsing a report, and keep a zero match assertion so a failed extraction writes nothing
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0561](./INC-0561-a-verifier-matched-plain-text-in-colored-logs-and-stopped.md) - 2026-11-04 - A verifier matched plain text in colored logs and stopped
 
 ## Related
 

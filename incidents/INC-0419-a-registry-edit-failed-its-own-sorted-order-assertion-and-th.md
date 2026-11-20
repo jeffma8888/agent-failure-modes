@@ -5,13 +5,16 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: fixed
-topic: null
+topic: identity-and-keying/replacement-record-malformed
 occurrences: 1
+recurrence_of: INC-0279
 ---
 
 # INC-0419 - A registry edit failed its own sorted-order assertion, and the identity checker refuses a supersession whose old path the registry still names
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A file-replacement (supersession) record is refused or claims too much](../catalog/identity-and-keying/replacement-record-malformed.md)
+
+> **Recurrence of [INC-0279](./INC-0279-replacing-an-active-test-file-moves-the-replacement-its-supe.md).** This record repeats an earlier failure and is kept for history; INC-0279 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** One registry edit was rejected by its own assertion before landing.
 

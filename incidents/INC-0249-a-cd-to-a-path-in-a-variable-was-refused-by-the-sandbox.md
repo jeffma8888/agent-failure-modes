@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths]
 severity: medium
 status: fixed
-topic: null
-occurrences: 1
+topic: tooling-paths/sandbox-refuses-allowed-target
+occurrences: 2
 ---
 
 # INC-0249 - A cd to a path in a variable was refused by the sandbox
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [Sandbox cannot resolve or authorize the target you actually meant](../catalog/tooling-paths/sandbox-refuses-allowed-target.md)
 
 **Cost:** Minor: caught before it shipped.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Use literal paths for cd in a sandbox
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0607](./INC-0607-a-sandboxed-shell-refused-a-directory-change-whose-target-wa.md) - 2026-11-04 - A sandboxed shell refused a directory change whose target was held in a variable
 
 ## Related
 

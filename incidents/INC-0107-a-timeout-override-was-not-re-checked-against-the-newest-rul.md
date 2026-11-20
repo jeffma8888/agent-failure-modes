@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: stage-timeout/timeout-policy-and-lifecycle-boundaries
 occurrences: 1
 ---
 
 # INC-0107 - A timeout override was not re-checked against the newest ruling, and fixes were verified from the coverage note
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Timeout policy ignores purpose, call path or lifecycle](../catalog/stage-timeout/timeout-policy-and-lifecycle-boundaries.md)
 
 **Cost:** Minor: caught by a stop rule, a re-check or review before it shipped.
 

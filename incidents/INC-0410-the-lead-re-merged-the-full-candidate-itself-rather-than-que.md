@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
-topic: null
+topic: delegation/stalled-behind-one-owner-or-decision
 occurrences: 1
 ---
 
 # INC-0410 - The lead re-merged the full candidate itself rather than queue behind the busy owner, and proved the delta path by path
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Parallel work stalls behind one busy owner, open decision or slot cap](../catalog/delegation/stalled-behind-one-owner-or-decision.md)
 
 **Cost:** The candidate was ready without waiting, and the equal delta was shown rather than assumed.
 

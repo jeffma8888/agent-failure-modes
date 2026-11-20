@@ -5,13 +5,16 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
-topic: null
+topic: tooling-paths/zsh-expansion-surprises
 occurrences: 1
+recurrence_of: INC-0165
 ---
 
 # INC-0622 - An unbraced shell variable followed by a colon and a letter was read as a history modifier, so a revision was mangled and the hash printed was of empty input
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [zsh reads your variable differently: colon modifier, word split, array](../catalog/tooling-paths/zsh-expansion-surprises.md)
+
+> **Recurrence of [INC-0165](./INC-0165-a-shell-variable-followed-by-a-colon-and-a-letter-became-a-h.md).** This record repeats an earlier failure and is kept for history; INC-0165 is the canonical record (3 occurrences in total) and carries the rule to apply.
 
 **Cost:** One check printed a hash of nothing, caught as the well-known empty-input hash.
 

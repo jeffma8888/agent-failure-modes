@@ -6,7 +6,7 @@ classes: [stale-module]
 severity: low
 status: fixed
 topic: null
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0390 - A dispatch packet written for a future branch went stale when a later ruling started the work elsewhere
@@ -42,6 +42,12 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 ## Transferable rule
 
 > Reconcile a dispatch packet with the newest ruling when it lands
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0401](./INC-0401-a-dispatch-packet-called-a-root-absent-an-hour-after-it-had.md) - 2026-11-02 - A dispatch packet called a root absent an hour after it had landed
 
 ## Related
 

@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, observability]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/requirements-and-limits-collide
 occurrences: 1
 ---
 
 # INC-0352 - A size limit on each transported record and a full-identity requirement were specified together with no framing
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Requirements, units, or hard limits cannot hold together](../catalog/spec-and-scope/requirements-and-limits-collide.md)
 
 **Cost:** Minor: caught before it shipped.
 

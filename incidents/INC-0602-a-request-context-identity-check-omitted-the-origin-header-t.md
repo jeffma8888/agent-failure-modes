@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [test-isolation]
 severity: low
 status: mitigated
-topic: null
+topic: test-isolation/the-test-itself-is-the-defect
 occurrences: 1
 ---
 
 # INC-0602 - A request-context identity check omitted the Origin header the repo helper sends and read user null, an author defect that looked like a product failure
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [The red comes from the test's own fixture, tool option or control](../catalog/test-isolation/the-test-itself-is-the-defect.md)
 
 **Cost:** One failed baseline kept as evidence and one rerun.
 

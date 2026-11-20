@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/check-satisfied-by-unrelated-cause
 occurrences: 1
 ---
 
 # INC-0287 - An oracle that matches a substring or a loose boundary can be satisfied by a decoy
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A negative, absence or presence check passed for an unrelated reason](../catalog/false-green/check-satisfied-by-unrelated-cause.md)
 
 **Cost:** Minor: caught before it shipped.
 

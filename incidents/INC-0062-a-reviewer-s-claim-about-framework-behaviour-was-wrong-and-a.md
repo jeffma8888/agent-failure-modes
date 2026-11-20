@@ -5,13 +5,13 @@ date: 2026-10-29
 classes: [false-green, observability]
 severity: medium
 status: mitigated
-topic: null
+topic: false-green/oracle-or-claim-written-from-memory
 occurrences: 1
 ---
 
 # INC-0062 - A reviewer's claim about framework behaviour was wrong, and accepting it would have put a wrong assertion into the tests
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test oracle, locator or review claim came from memory, not source](../catalog/false-green/oracle-or-claim-written-from-memory.md)
 
 **Cost:** Near miss, caught before landing. Taken as written, the review's advisory would have made a test assert an error that the framework does not return at that attempt, so the test would fail on correct behaviour or the design would be bent to match a false fact.
 

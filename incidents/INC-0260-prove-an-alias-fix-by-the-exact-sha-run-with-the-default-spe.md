@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: tooling-paths/sandbox-refuses-allowed-target
 occurrences: 1
 ---
 
 # INC-0260 - Prove an alias fix by the exact-SHA run with the default spelling
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [Sandbox cannot resolve or authorize the target you actually meant](../catalog/tooling-paths/sandbox-refuses-allowed-target.md)
 
 **Cost:** Minor: caught before it shipped.
 

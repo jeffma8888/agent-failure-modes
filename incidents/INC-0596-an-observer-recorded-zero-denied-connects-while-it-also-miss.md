@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [detector-fail-open]
 severity: high
 status: mitigated
-topic: null
+topic: detector-fail-open/coverage-and-controls-not-proven
 occurrences: 1
 ---
 
 # INC-0596 - An observer recorded zero denied connects while it also missed the server's database connect, so zero denied proved nothing
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [The checker ran but its target coverage is unproven](../catalog/detector-fail-open/coverage-and-controls-not-proven.md)
 
 **Cost:** A run that looked clean could not be credited; the criteria were rewritten around a positive control.
 

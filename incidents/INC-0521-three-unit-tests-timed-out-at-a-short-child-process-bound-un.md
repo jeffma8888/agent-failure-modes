@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: mitigated
-topic: null
+topic: stage-timeout/work-outgrows-enforced-timeouts
 occurrences: 1
 ---
 
 # INC-0521 - Three unit tests timed out at a short child-process bound under parallel load and passed in isolation
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Work outgrows hidden caps or loses timeout headroom](../catalog/stage-timeout/work-outgrows-enforced-timeouts.md)
 
 **Cost:** An acceptance run showed three extra failures and needed an isolated rerun to classify them.
 

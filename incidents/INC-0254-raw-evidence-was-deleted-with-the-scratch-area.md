@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [observability, checkpoint]
 severity: medium
 status: fixed
-topic: null
+topic: observability/missing-or-unverifiable-receipts
 occurrences: 1
 ---
 
 # INC-0254 - Raw evidence was deleted with the scratch area
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Missing evidence keeps findings unverified](../catalog/observability/missing-or-unverifiable-receipts.md)
 
 **Cost:** Minor: caught before it shipped.
 

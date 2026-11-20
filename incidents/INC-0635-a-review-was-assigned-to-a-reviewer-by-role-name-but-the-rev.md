@@ -5,13 +5,13 @@ date: 2026-11-10
 classes: [delegation]
 severity: low
 status: mitigated
-topic: null
+topic: delegation/reviewer-not-independent-or-free
 occurrences: 1
 ---
 
 # INC-0635 - A review was assigned to a reviewer by role name, but the reviewer and the author ran the same model, so it was not an independent review
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [The reviewer or runner you named was not independent or not free](../catalog/delegation/reviewer-not-independent-or-free.md)
 
 **Cost:** One review assignment was caught at landing time and moved to a different reviewer; no output was accepted on the same-model review.
 

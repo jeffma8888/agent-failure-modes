@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: fixed
-topic: null
+topic: stage-timeout/stale-or-overbroad-load-admission
 occurrences: 1
 ---
 
 # INC-0450 - A load gate stop was the right call and cost nothing because the runner created nothing before the check
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Stale or overbroad load gates block or mis-admit work](../catalog/stage-timeout/stale-or-overbroad-load-admission.md)
 
 **Cost:** None: nothing was created, and the walk was re-dispatched later.
 

@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [observability, detector-fail-open]
 severity: medium
 status: fixed
-topic: null
+topic: observability/missing-or-unverifiable-receipts
 occurrences: 1
 ---
 
 # INC-0227 - A retry wrapper logged the dependency stderr privately and starved the caller diagnosis
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Missing evidence keeps findings unverified](../catalog/observability/missing-or-unverifiable-receipts.md)
 
 **Cost:** Minor: caught before it shipped.
 

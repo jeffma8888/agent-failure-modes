@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: medium
 status: mitigated
-topic: null
+topic: spec-and-scope/framework-contract-assumptions
 occurrences: 1
 ---
 
 # INC-0528 - A fix gave a list column a custom cell and dropped the default cell's link to the record, so the list lost its only way to open a record
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Framework behavior contradicts the design or test](../catalog/spec-and-scope/framework-contract-assumptions.md)
 
 **Cost:** The list had no link from a row to its editor from the fix until it was found in review; a new row and a root red by design were created for the repair.
 

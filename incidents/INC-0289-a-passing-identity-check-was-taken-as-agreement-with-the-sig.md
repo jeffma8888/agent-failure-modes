@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/wrong-owner-path-or-scope
 occurrences: 1
 ---
 
 # INC-0289 - A passing identity check was taken as agreement with the signed plan
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Work lands under the wrong owner, path, or write boundary](../catalog/spec-and-scope/wrong-owner-path-or-scope.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: mitigated
-topic: null
+topic: observability/missing-or-unverifiable-receipts
 occurrences: 1
 ---
 
 # INC-0515 - A rulings file grew past what a reader's tool returns, and a read of a named range was clipped, so compliance could not be certified
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Missing evidence keeps findings unverified](../catalog/observability/missing-or-unverifiable-receipts.md)
 
 **Cost:** A required read could not be certified as done; the rule was changed to name sections instead of a range.
 

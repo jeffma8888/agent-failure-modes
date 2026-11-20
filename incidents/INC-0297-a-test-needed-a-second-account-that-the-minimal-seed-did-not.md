@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [test-isolation, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: test-isolation/passes-warm-fails-clean
 occurrences: 1
 ---
 
 # INC-0297 - A test needed a second account that the minimal seed did not create
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Passes in a warm checkout, fails in a fresh clone, CI or other runner](../catalog/test-isolation/passes-warm-fails-clean.md)
 
 **Cost:** Minor: caught before it shipped.
 

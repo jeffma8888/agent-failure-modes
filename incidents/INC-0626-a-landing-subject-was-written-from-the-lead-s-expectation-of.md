@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: low
 status: mitigated
-topic: null
-occurrences: 1
+topic: spec-and-scope/claims-outrun-available-evidence
+occurrences: 2
 ---
 
 # INC-0626 - A landing subject was written from the lead's expectation of what a plan revision covered, and the author report said less
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Claims or instructions say more than the evidence supports](../catalog/spec-and-scope/claims-outrun-available-evidence.md)
 
 **Cost:** A landed commit subject overstated what it landed; history was not rewritten, so an erratum records it.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Write a landing subject from the artifact's own header or report, not from what you expect it covers.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0631](./INC-0631-a-landing-subject-s-assignment-range-was-again-written-from.md) - 2026-11-07 - A landing subject's assignment range was again written from the lead's own brief instead of the author report; the second time
 
 ## Related
 

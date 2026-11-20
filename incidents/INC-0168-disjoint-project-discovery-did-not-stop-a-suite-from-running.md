@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [false-green, stage-timeout]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/verified-a-different-target
 occurrences: 1
 ---
 
 # INC-0168 - Disjoint project discovery did not stop a suite from running twice
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Verified a shortcut, a part or an old revision instead of what ships](../catalog/false-green/verified-a-different-target.md)
 
 **Cost:** Minor: about 40 seconds of every fast run.
 

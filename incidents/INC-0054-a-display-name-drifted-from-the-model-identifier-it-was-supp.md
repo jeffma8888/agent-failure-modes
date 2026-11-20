@@ -5,13 +5,13 @@ date: 2026-10-29
 classes: [identity-and-keying, observability]
 severity: low
 status: fixed
-topic: null
+topic: identity-and-keying/key-is-a-proxy
 occurrences: 1
 ---
 
 # INC-0054 - A display name drifted from the model identifier it was supposed to describe
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A name, path string or digest stands in for the real identity, drifts](../catalog/identity-and-keying/key-is-a-proxy.md)
 
 **Cost:** A roster and review credits named a newer model than the one that actually did the work. Caught before a routing policy was written on top of it.
 

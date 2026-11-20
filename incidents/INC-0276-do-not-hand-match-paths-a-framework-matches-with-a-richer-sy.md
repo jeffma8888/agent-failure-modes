@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/framework-contract-assumptions
 occurrences: 1
 ---
 
 # INC-0276 - Do not hand-match paths a framework matches with a richer syntax
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Framework behavior contradicts the design or test](../catalog/spec-and-scope/framework-contract-assumptions.md)
 
 **Cost:** Minor: caught before it shipped.
 

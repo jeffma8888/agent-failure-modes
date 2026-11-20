@@ -5,13 +5,13 @@ date: 2026-08-15
 classes: [stage-timeout, verdict-token, checkpoint]
 severity: high
 status: open
-topic: null
+topic: stage-timeout/work-outgrows-enforced-timeouts
 occurrences: 1
 ---
 
 # INC-0025 - Retrying a killed verification step without resumable evidence is one failure, not four chances
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Work outgrows hidden caps or loses timeout headroom](../catalog/stage-timeout/work-outgrows-enforced-timeouts.md)
 
 **Cost:** No new loss to report: this is the measured residual of INC-0005, whose abort path has converted a finished, reviewed iteration into a total loss nine times.
 

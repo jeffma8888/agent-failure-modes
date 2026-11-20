@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
-topic: null
+topic: false-green/oracle-or-claim-written-from-memory
 occurrences: 1
 ---
 
 # INC-0527 - An absence check for a hidden field matched the hidden input the library renders, so a regression root was red on unchanged code
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test oracle, locator or review claim came from memory, not source](../catalog/false-green/oracle-or-claim-written-from-memory.md)
 
 **Cost:** An activation run stopped on a baseline red, and a successor root was needed; no product change.
 

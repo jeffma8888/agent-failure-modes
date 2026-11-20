@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: medium
 status: mitigated
-topic: null
+topic: stage-timeout/stale-or-overbroad-load-admission
 occurrences: 1
 ---
 
 # INC-0500 - One load gate sized for full runs was applied to every run, and scoped runs were refused while the real load producer went unexamined
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Stale or overbroad load gates block or mis-admit work](../catalog/stage-timeout/stale-or-overbroad-load-admission.md)
 
 **Cost:** Scoped single-row runs were refused repeatedly (one engineer three times, another twice) and the reds that gate every fix stalled; one admitted red was a timeout, a wasted run.
 

@@ -6,11 +6,20 @@ Version control is used as a weapon against the working tree: a blanket stage sw
 
 **Ask:** Whose uncommitted work is in this tree, and what does a failure-path reset or a blanket 'add all' do to it?
 
+**You are probably here if:** A commit holds files you never touched, work vanished after a reset or clean step, a rename looks wrong, or history carries a name or file it must not.
+
 21 incidents filed here (21 occurrences); 9 more filed elsewhere are also tagged vcs-destruction.
 
 ## Incidents
 
 This class has no topics, so this node is the leaf. Ordered by occurrences, then severity, then id.
+
+### [INC-0012](../../incidents/INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md) - A loop's `git add -A` sweeps a human's uncommitted edits into a loop commit
+- occurrences 2, severity high, status mitigated
+- **Signature:** `git log --oneline -S "<a phrase you typed>" -- <file>` shows your text landed in a commit whose SUBJECT is the loop's story.
+- **Rule:** In a multi-writer tree, never use `git add -A` or `git commit -a`; name paths on the commit itself and check its stat before moving on. A path-limited commit cannot protect your edits from another writer's blanket stage, so quiesce live loops before editing their tree. Undo an over-broad commit only while it is still HEAD and without changing working-tree bytes.
+- **Recurrences:**
+  - [INC-0229](../../incidents/INC-0229-a-commit-swept-another-session-uncommitted-entries.md) - 2026-10-31 - A commit swept another session uncommitted entries
 
 ### [INC-0014](../../incidents/INC-0014-a-revert-on-failure-loop-destroys-uncommitted-human-work-in.md) - A revert-on-failure loop destroys uncommitted human work in a shared tree
 - occurrences 1, severity critical, status mitigated
@@ -21,11 +30,6 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - occurrences 1, severity critical, status fixed
 - **Signature:** `git log --all --format='%an <%ae>'` on any repo shows an identity string you did not consciously set for THAT repo.
 - **Rule:** For any repo destined to be public, set BOTH repo-local `user.name` AND `user.email` (to a public handle and id-anchored noreply) BEFORE the first commit. Verify with `git log --all --format='%an <%ae>'`. A noreply email alone does not stop the ambient global name from leaking. An `includeIf` gitdir must be the REAL path, not a symlink.
-
-### [INC-0012](../../incidents/INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md) - A loop's `git add -A` sweeps a human's uncommitted edits into a loop commit
-- occurrences 1, severity high, status mitigated
-- **Signature:** `git log --oneline -S "<a phrase you typed>" -- <file>` shows your text landed in a commit whose SUBJECT is the loop's story.
-- **Rule:** In a multi-writer tree, never use `git add -A` or `git commit -a`; name paths on the commit itself and check its stat before moving on. A path-limited commit cannot protect your edits from another writer's blanket stage, so quiesce live loops before editing their tree. Undo an over-broad commit only while it is still HEAD and without changing working-tree bytes.
 
 ### [INC-0013](../../incidents/INC-0013-add-then-commit-is-a-shared-index-race-use-a-path-limited-co.md) - add-then-commit is a shared-index race; use a path-limited commit
 - occurrences 1, severity high, status fixed
@@ -77,11 +81,6 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - **Signature:** The extra changes sat inside a large merge.
 - **Rule:** Verify a hand-made merge against a mechanical merge of the same parents
 
-### [INC-0229](../../incidents/INC-0229-a-commit-swept-another-session-uncommitted-entries.md) - A commit swept another session uncommitted entries
-- occurrences 1, severity medium, status fixed
-- **Signature:** Entries landed under a message about a different lesson.
-- **Rule:** In a shared checkout, stage only your own paths and check the log for foreign commits before writing
-
 ### [INC-0281](../../incidents/INC-0281-confirm-the-landing-commit-contains-every-file-before-cleani.md) - Confirm the landing commit contains every file before cleaning the source
 - occurrences 1, severity medium, status fixed
 - **Signature:** A source was cleaned against a failed commit and its change was reverted.
@@ -102,13 +101,9 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - **Signature:** A clean step changed the ref of a branch that had already been merged, and it could have been one still in use.
 - **Rule:** A clean step must never move a branch ref that is still under work
 
-### [INC-0632](../../incidents/INC-0632-a-read-only-audit-ran-git-merge-tree-write-tree-in-a-protect.md) - A read-only audit ran git merge-tree --write-tree in a protected checkout; refs, index and worktree stayed clean while loose objects were written
-- occurrences 1, severity medium, status mitigated
-- **Signature:** A read-only task includes git merge-tree --write-tree (or another command that writes objects), and the only post-check is a clean status and an unchanged HEAD.
-- **Rule:** Classify Git commands by all state they write, not clean status. Run object-writing analysis only in a newly isolated scratch clone. Protected-repository writes need separate explicit authorization; an inventory grants no permission and does not prove reversibility.
+The 3 entries below are listed by title only so this node stays under 12 KB. Open the page, or run `python3 tools/afm.py show INC-XXXX`, for its signature and rule.
 
-The 2 entries below are listed by title only so this node stays under 12 KB. Open the page, or run `python3 tools/afm.py show INC-XXXX`, for its signature and rule.
-
+- [INC-0632](../../incidents/INC-0632-a-read-only-audit-ran-git-merge-tree-write-tree-in-a-protect.md) - A read-only audit ran git merge-tree --write-tree in a protected checkout; refs, index and worktree stayed clean while loose objects were written (n=1, medium)
 - [INC-0400](../../incidents/INC-0400-an-activation-instruction-to-delete-superseded-pending-copie.md) - An activation instruction to delete superseded pending copies had nothing to delete because an earlier pure rename had already moved them (n=1, low)
 - [INC-0436](../../incidents/INC-0436-a-squash-recipe-equated-the-landing-tree-with-a-stale-branch.md) - A squash recipe equated the landing tree with a stale branch tree and would have dropped later main work (n=1, low)
 
@@ -116,11 +111,13 @@ The 2 entries below are listed by title only so this node stays under 12 KB. Ope
 
 9 incidents filed under another home class also carry this class. Listed by the node where they live:
 
-- [tooling-paths](../tooling-paths/README.md): INC-0024, INC-0030, INC-0046, INC-0357, INC-0362
+- [tooling-paths/chain-ran-on-after-failure](../tooling-paths/chain-ran-on-after-failure.md): INC-0046, INC-0357
+- [tooling-paths/edit-or-match-hit-wrong-bytes](../tooling-paths/edit-or-match-hit-wrong-bytes.md): INC-0024, INC-0030
 - [checkpoint](../checkpoint/README.md): INC-0293
 - [concurrency](../concurrency/README.md): INC-0324
-- [detector-fail-open](../detector-fail-open/README.md): INC-0215
-- [false-green](../false-green/README.md): INC-0295
+- [detector-fail-open/coverage-and-controls-not-proven](../detector-fail-open/coverage-and-controls-not-proven.md): INC-0215
+- [false-green/proxy-artifact-cited-as-evidence](../false-green/proxy-artifact-cited-as-evidence.md): INC-0295
+- [tooling-paths/zsh-expansion-surprises](../tooling-paths/zsh-expansion-surprises.md): INC-0362
 
 ## Practices touching this class
 

@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: medium
 status: mitigated
-topic: null
+topic: spec-and-scope/instructions-tools-cannot-follow
 occurrences: 1
 ---
 
 # INC-0609 - A brief said to move a post-case full seed to afterAll, but the seed is find-or-create, so a seed without a reset first does not restore the baseline
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Instructions fail a gate or omit the required operation](../catalog/spec-and-scope/instructions-tools-cannot-follow.md)
 
 **Cost:** One author's matrix was admitted on the old bytes and could be credited for those bytes only; the candidate needed a revision and a fresh matrix.
 

@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: medium
 status: mitigated
-topic: null
+topic: stage-timeout/stale-or-overbroad-load-admission
 occurrences: 1
 ---
 
 # INC-0512 - Read-once-and-refuse load admission stopped whole teammate cycles while load spiked and fell within a minute
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Stale or overbroad load gates block or mis-admit work](../catalog/stage-timeout/stale-or-overbroad-load-admission.md)
 
 **Cost:** Whole teammate cycles ended on a single refusal while the host load was back under the limit within a minute.
 

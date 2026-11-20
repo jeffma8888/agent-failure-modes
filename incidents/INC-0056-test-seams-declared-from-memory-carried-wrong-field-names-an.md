@@ -5,13 +5,13 @@ date: 2026-10-28
 classes: [false-green, tooling-paths]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/oracle-or-claim-written-from-memory
 occurrences: 1
 ---
 
 # INC-0056 - Test seams declared from memory carried wrong field names, and a bulk replacement silently missed a row
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test oracle, locator or review claim came from memory, not source](../catalog/false-green/oracle-or-claim-written-from-memory.md)
 
 **Cost:** A test oracle named two design fields without their required prefix. A test author working from it would have written tests against fields that do not exist, which fail or pass vacuously depending on the framework.
 

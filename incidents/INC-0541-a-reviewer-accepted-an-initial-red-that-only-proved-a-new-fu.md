@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
+topic: false-green/mutation-witness-proves-less
 occurrences: 1
 ---
 
 # INC-0541 - A reviewer accepted an initial red that only proved a new function was missing, and said so
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A mutant or red-first witness does not prove what it is named for](../catalog/false-green/mutation-witness-proves-less.md)
 
 **Cost:** None. The limit was disclosed, so the red was not counted as behavioral evidence.
 

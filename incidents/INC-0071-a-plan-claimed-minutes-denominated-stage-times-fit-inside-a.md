@@ -5,13 +5,13 @@ date: 2026-10-29
 classes: [spec-and-scope, stage-timeout]
 severity: medium
 status: mitigated
-topic: null
+topic: spec-and-scope/requirements-and-limits-collide
 occurrences: 1
 ---
 
 # INC-0071 - A plan claimed minutes-denominated stage times fit inside a cap stated in seconds
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Requirements, units, or hard limits cannot hold together](../catalog/spec-and-scope/requirements-and-limits-collide.md)
 
 **Cost:** Caught in plan review before the plan was accepted. Left in, it would have scheduled work that the hard per-step cap kills.
 

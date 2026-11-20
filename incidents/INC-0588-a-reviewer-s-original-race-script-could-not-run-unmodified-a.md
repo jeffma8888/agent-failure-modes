@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
+topic: false-green/mutation-witness-proves-less
 occurrences: 1
 ---
 
 # INC-0588 - A reviewer's original race script could not run unmodified against the revision because the step it interrupted no longer exists, and the reviewer reported it as stale test semantics
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A mutant or red-first witness does not prove what it is named for](../catalog/false-green/mutation-witness-proves-less.md)
 
 **Cost:** None. The reviewer did not count the stop as a kill.
 

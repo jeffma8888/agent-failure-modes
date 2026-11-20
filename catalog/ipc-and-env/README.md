@@ -6,11 +6,20 @@ The loop breaks on its runtime environment rather than its logic: a rotated sock
 
 **Ask:** What environmental state did this process capture at launch that can change underneath it while it runs?
 
+**You are probably here if:** Every step fails the same way, code unchanged: stale socket, expired or cached credential, missing or inherited env var, wrong PATH, HOME or runtime, or sleep.
+
 22 incidents filed here (22 occurrences); 14 more filed elsewhere are also tagged ipc-and-env.
 
 ## Incidents
 
 This class has no topics, so this node is the leaf. Ordered by occurrences, then severity, then id.
+
+### [INC-0119](../../incidents/INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md) - A sandboxed HOME hid tool caches such as package-manager shims
+- occurrences 2, severity medium, status fixed
+- **Signature:** A tool works normally and fails once HOME points at a temp directory.
+- **Rule:** When replacing HOME, forward every cache the tools need and block fetching.
+- **Recurrences:**
+  - [INC-0257](../../incidents/INC-0257-moving-the-home-directory-broke-a-launch-that-found-its-cach.md) - 2026-11-01 - Moving the home directory broke a launch that found its cache through it
 
 ### [INC-0008](../../incidents/INC-0008-stale-ipc-endpoint-after-the-host-application-restarts.md) - Stale IPC endpoint after the host application restarts
 - occurrences 1, severity high, status mitigated
@@ -52,11 +61,6 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - **Signature:** A test clears PG variables to avoid the shared cluster, and a client tool uses its defaults.
 - **Rule:** Pin the target explicitly; do not rely on removing the alternatives.
 
-### [INC-0119](../../incidents/INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md) - A sandboxed HOME hid tool caches such as package-manager shims
-- occurrences 1, severity medium, status fixed
-- **Signature:** A tool works normally and fails once HOME points at a temp directory.
-- **Rule:** When replacing HOME, forward every cache the tools need and block fetching.
-
 ### [INC-0180](../../incidents/INC-0180-a-readiness-check-ran-without-the-dispatcher-environment.md) - A readiness check ran without the dispatcher environment
 - occurrences 1, severity medium, status fixed
 - **Signature:** A missing variable read as a missing tool.
@@ -72,11 +76,6 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - **Signature:** The version reported was not the pinned one.
 - **Rule:** Run evidence commands with the pinned binary by absolute path and print its version in the log
 
-### [INC-0257](../../incidents/INC-0257-moving-the-home-directory-broke-a-launch-that-found-its-cach.md) - Moving the home directory broke a launch that found its cache through it
-- occurrences 1, severity medium, status fixed
-- **Signature:** The cache location was implicit.
-- **Rule:** Name every home-resolved cache explicitly when moving HOME for isolation
-
 ### [INC-0325](../../incidents/INC-0325-a-background-watcher-lacked-the-session-credentials-and-fail.md) - A background watcher lacked the session credentials and failed every poll
 - occurrences 1, severity medium, status fixed
 - **Signature:** A watcher reported nothing because every poll was refused.
@@ -87,18 +86,10 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - **Signature:** A spec claimed an opt-in feature was inert in nested child runs, but a nested helper copied the whole environment and started a fresh runner directly.
 - **Rule:** Never treat an inherited environment variable as authority; bind it to the process that was authorized
 
-### [INC-0365](../../incidents/INC-0365-a-delegated-test-run-needed-login-and-logout-which-delegates.md) - A delegated test run needed login and logout, which delegates may not do, so the lead ran the pinned script
-- occurrences 1, severity low, status fixed
-- **Signature:** A delegate prepared a browser walk that logs in and out but the runtime refused it for delegated agents.
-- **Rule:** When a test needs an action above a delegate's permission ceiling, the delegate writes and statically validates the script and pins its hash and exact command; the lead runs it unchanged and returns the artifacts; never weaken the test to fit the ceiling, and never let the delegate claim a result it did not observe
+The 7 entries below are listed by title only so this node stays under 12 KB. Open the page, or run `python3 tools/afm.py show INC-XXXX`, for its signature and rule.
 
-### [INC-0367](../../incidents/INC-0367-a-brief-for-a-database-backed-run-omitted-the-test-database.md) - A brief for a database-backed run omitted the test database endpoint, so the delegate rightly stopped
-- occurrences 1, severity low, status fixed
-- **Signature:** A delegate stopped before a database-backed run and reported a missing environment variable.
-- **Rule:** A brief that asks for a runtime run must carry its runtime environment (the exact endpoint and environment variables, which slot is free, the load gate, and what must never be touched); a delegate that finds a required environment value missing stops and asks, never infers one
-
-The 5 entries below are listed by title only so this node stays under 12 KB. Open the page, or run `python3 tools/afm.py show INC-XXXX`, for its signature and rule.
-
+- [INC-0365](../../incidents/INC-0365-a-delegated-test-run-needed-login-and-logout-which-delegates.md) - A delegated test run needed login and logout, which delegates may not do, so the lead ran the pinned script (n=1, low)
+- [INC-0367](../../incidents/INC-0367-a-brief-for-a-database-backed-run-omitted-the-test-database.md) - A brief for a database-backed run omitted the test database endpoint, so the delegate rightly stopped (n=1, low)
 - [INC-0418](../../incidents/INC-0418-the-milestone-runbook-shell-sourced-an-environment-file-and.md) - The milestone runbook shell-sourced an environment file and failed before the build on a value with angle brackets (n=1, low)
 - [INC-0454](../../incidents/INC-0454-a-file-creation-mask-from-an-earlier-tool-call-did-not-carry.md) - A file creation mask from an earlier tool call did not carry over, and the database dump came out world readable (n=1, low)
 - [INC-0463](../../incidents/INC-0463-a-subprocess-call-failed-with-not-found-when-the-pinned-runt.md) - A subprocess call failed with not found when the pinned runtime directory was missing from the search path, and the first run showed five extra failures (n=1, low)
@@ -109,11 +100,17 @@ The 5 entries below are listed by title only so this node stays under 12 KB. Ope
 
 14 incidents filed under another home class also carry this class. Listed by the node where they live:
 
-- [tooling-paths](../tooling-paths/README.md): INC-0094, INC-0181, INC-0188, INC-0248, INC-0307
 - [concurrency](../concurrency/README.md): INC-0011, INC-0305, INC-0558
-- [delegation](../delegation/README.md): INC-0017, INC-0270
-- [false-green](../false-green/README.md): INC-0155, INC-0174
-- [observability](../observability/README.md): INC-0036, INC-0053
+- [tooling-paths/tree-lacks-what-job-needs](../tooling-paths/tree-lacks-what-job-needs.md): INC-0181, INC-0188
+- [delegation](../delegation/README.md): INC-0017
+- [delegation/order-collides-with-rule-or-guard](../delegation/order-collides-with-rule-or-guard.md): INC-0270
+- [false-green/count-or-total-computed-wrong](../false-green/count-or-total-computed-wrong.md): INC-0174
+- [false-green/test-cannot-see-the-defect](../false-green/test-cannot-see-the-defect.md): INC-0155
+- [observability/misleading-metrics-and-status](../observability/misleading-metrics-and-status.md): INC-0053
+- [observability/missing-or-unverifiable-receipts](../observability/missing-or-unverifiable-receipts.md): INC-0036
+- [tooling-paths/sandbox-refuses-allowed-target](../tooling-paths/sandbox-refuses-allowed-target.md): INC-0094
+- [tooling-paths/tool-defaults-not-target](../tooling-paths/tool-defaults-not-target.md): INC-0307
+- [tooling-paths/zsh-expansion-surprises](../tooling-paths/zsh-expansion-surprises.md): INC-0248
 
 ## Practices touching this class
 

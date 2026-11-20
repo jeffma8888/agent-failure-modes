@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [delegation, observability]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/guessed-or-stale-id-name-path
 occurrences: 1
 ---
 
 # INC-0263 - Refresh the team roster at each phase change
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [A record is guessed or stale, or lives only in a message or worktree](../catalog/delegation/guessed-or-stale-id-name-path.md)
 
 **Cost:** Minor: caught before it shipped.
 

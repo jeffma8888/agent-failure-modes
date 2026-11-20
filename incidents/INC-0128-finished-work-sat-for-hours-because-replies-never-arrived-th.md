@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [delegation, observability]
 severity: medium
 status: fixed
-topic: null
-occurrences: 1
+topic: delegation/finished-on-disk-no-reply
+occurrences: 5
 ---
 
 # INC-0128 - Finished work sat for hours because replies never arrived, the clock was misread and worktrees were not swept
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Teammates finished on disk; the reply never came or went unnoticed](../catalog/delegation/finished-on-disk-no-reply.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped, except item one which delayed finished work.
 
@@ -42,6 +42,15 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Sweep the disk and read a real clock before trusting replies.
+
+## Recurrences
+
+Occurrences: 5. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0317](./INC-0317-finished-teammates-sat-unnoticed-because-their-completion-re.md) - 2026-11-01 - Finished teammates sat unnoticed because their completion replies never arrived
+- [INC-0416](./INC-0416-ten-teammate-threads-showed-state-paused-with-complete-outpu.md) - 2026-11-02 - Ten teammate threads showed state paused with complete outputs on disk and no reply message
+- [INC-0573](./INC-0573-teammate-replies-stopped-reaching-the-lead-for-about-25-minu.md) - 2026-11-04 - Teammate replies stopped reaching the lead for about 25 minutes while their files landed on disk
+- [INC-0630](./INC-0630-a-lead-ended-its-turn-waiting-for-a-reviewer-s-completion-me.md) - 2026-11-07 - A lead ended its turn waiting for a reviewer's completion message while the reviewer's finished files were already on disk, and nothing moved for days
 
 ## Related
 

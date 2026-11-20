@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, detector-fail-open]
 severity: medium
 status: fixed
-topic: null
+topic: identity-and-keying/replacement-record-malformed
 occurrences: 1
 ---
 
 # INC-0161 - Landing a revision beside a supersession edge broke identity on main
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A file-replacement (supersession) record is refused or claims too much](../catalog/identity-and-keying/replacement-record-malformed.md)
 
 **Cost:** Minor: main sat red until a sweep caught it.
 

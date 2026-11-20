@@ -552,7 +552,7 @@ def test_budget_core_carries_every_topic_rule():
 
 
 def test_budget_caps_are_the_documented_ones():
-    assert (build.NODE_BUDGET, build.CORE_BUDGET, build.AGENTS_BUDGET) == (12 * 1024, 16 * 1024, 8 * 1024)
+    assert (build.NODE_BUDGET, build.CORE_BUDGET, build.AGENTS_BUDGET) == (12 * 1024, 26 * 1024, 8 * 1024)
 
 
 # --------------------------------------------------------------------------- afm (library)

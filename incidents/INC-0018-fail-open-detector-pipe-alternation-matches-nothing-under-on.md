@@ -5,13 +5,13 @@ date: 2026-08-05
 classes: [detector-fail-open]
 severity: high
 status: fixed
-topic: null
+topic: detector-fail-open/wrong-parser-or-pattern
 occurrences: 1
 ---
 
 # INC-0018 - Fail-open detector: pipe alternation matches nothing under one regex flavor
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [A parser or pattern reads the wrong evidence](../catalog/detector-fail-open/wrong-parser-or-pattern.md)
 
 **Cost:** The credential-expiry branch of a watchdog could never have fired for the several days it was live - so a real credential outage would not have been caught.
 

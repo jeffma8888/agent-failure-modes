@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [stage-timeout, observability]
 severity: medium
 status: fixed
-topic: null
+topic: stage-timeout/timing-models-and-critical-path
 occurrences: 1
 ---
 
 # INC-0210 - A slow suite was a candidate for cutting before it was profiled
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Timing models or optimizations are not measured](../catalog/stage-timeout/timing-models-and-critical-path.md)
 
 **Cost:** Minor: caught before it shipped.
 

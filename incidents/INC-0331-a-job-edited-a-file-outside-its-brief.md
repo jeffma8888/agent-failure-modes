@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [delegation, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/brief-or-plan-left-a-gap
 occurrences: 1
 ---
 
 # INC-0331 - A job edited a file outside its brief
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [The brief or plan left a gap the worker fell through](../catalog/delegation/brief-or-plan-left-a-gap.md)
 
 **Cost:** Minor: caught before it shipped.
 

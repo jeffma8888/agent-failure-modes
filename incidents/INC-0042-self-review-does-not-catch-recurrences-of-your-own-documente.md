@@ -5,13 +5,13 @@ date: 2026-09-01
 classes: [false-green, observability, delegation]
 severity: high
 status: mitigated
-topic: null
+topic: false-green/oracle-or-claim-written-from-memory
 occurrences: 1
 ---
 
 # INC-0042 - Self-review does not catch recurrences of your own documented rules
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test oracle, locator or review claim came from memory, not source](../catalog/false-green/oracle-or-claim-written-from-memory.md)
 
 **Cost:** Three defects survived a deliberate self-review of a decision document and were found by an independent verifier minutes later. All three were recurrences of failure families already written down in the reviewer's OWN standing rules.
 

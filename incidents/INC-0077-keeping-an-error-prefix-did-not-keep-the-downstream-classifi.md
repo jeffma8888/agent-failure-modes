@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, observability]
 severity: high
 status: mitigated
-topic: null
+topic: detector-fail-open/wrong-parser-or-pattern
 occurrences: 1
 ---
 
 # INC-0077 - Keeping an error prefix did not keep the downstream classification, and a free-text reason could carry markers or secrets
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [A parser or pattern reads the wrong evidence](../catalog/detector-fail-open/wrong-parser-or-pattern.md)
 
 **Cost:** Near miss, caught by an independent pre-implementation review. A spec would have let a cleaned-up reason string reclassify a fatal authentication failure as another failure kind, and its length-based redaction could not prove that no secret survived.
 

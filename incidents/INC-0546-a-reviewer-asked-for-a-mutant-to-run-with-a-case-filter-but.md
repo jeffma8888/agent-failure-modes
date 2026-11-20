@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: mitigated
-topic: null
+topic: tooling-paths/argument-read-as-other-kind
 occurrences: 1
 ---
 
 # INC-0546 - A reviewer asked for a mutant to run with a case filter, but the row runner takes one row and no filter
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A helper or runner reads your argument as a different kind or name](../catalog/tooling-paths/argument-read-as-other-kind.md)
 
 **Cost:** None. The activator ran the whole row and attributed each red to its own case line.
 

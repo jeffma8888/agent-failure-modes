@@ -5,13 +5,13 @@ date: 2026-08-05
 classes: [tooling-paths, vcs-destruction]
 severity: high
 status: fixed
-topic: null
+topic: tooling-paths/edit-or-match-hit-wrong-bytes
 occurrences: 1
 ---
 
 # INC-0024 - Backtick command substitution in a heredoc corrupts and executes
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [An edit anchor or text match hit different bytes than you meant](../catalog/tooling-paths/edit-or-match-hit-wrong-bytes.md)
 
 **Cost:** A subagent's technical study document lost every backticked citation (leaving empty `()` in about 9 places) and had ~380KB of progress-bar spam dumped into the middle, because one substitution actually ran and opened an auth browser.
 

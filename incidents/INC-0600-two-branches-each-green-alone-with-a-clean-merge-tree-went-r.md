@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [test-isolation]
 severity: high
 status: mitigated
-topic: null
+topic: test-isolation/green-alone-red-together
 occurrences: 1
 ---
 
 # INC-0600 - Two branches each green alone with a clean merge-tree went red together, because one sanctioned product change altered the label the other test selected by
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Green alone, red in the full suite, with another run, or after a merge](../catalog/test-isolation/green-alone-red-together.md)
 
 **Cost:** A full run went red on one end-to-end case after both merges, and the next run, the go decision and the manual walk waited for a successor test.
 

@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [false-green, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/oracle-or-claim-written-from-memory
 occurrences: 1
 ---
 
 # INC-0234 - A ledger review that started from the author list could inherit its gaps
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test oracle, locator or review claim came from memory, not source](../catalog/false-green/oracle-or-claim-written-from-memory.md)
 
 **Cost:** Minor: caught before it shipped.
 

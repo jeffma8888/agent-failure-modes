@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: medium
 status: mitigated
-topic: null
+topic: spec-and-scope/instructions-tools-cannot-follow
 occurrences: 1
 ---
 
 # INC-0629 - A ruling said a test helper needed no revision route because one search seemed to show it was in no identity manifest, and the full gate then failed that check on exactly that entry
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Instructions fail a gate or omit the required operation](../catalog/spec-and-scope/instructions-tools-cannot-follow.md)
 
 **Cost:** A full gate run of about three minutes ended in an identity-check failure on the manifest entry the search had missed.
 

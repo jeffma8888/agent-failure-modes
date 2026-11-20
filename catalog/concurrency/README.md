@@ -6,6 +6,8 @@ Independent agents or sessions contend for one shared resource - a rate-limited 
 
 **Ask:** How many live agents share this one resource right now, and what happens to the one you are waiting on when a second appears?
 
+**You are probably here if:** Jobs stall, race or vanish because several agents or runs share one thing: a provider quota, a host lock or load gate, a cluster, a worktree, a script.
+
 20 incidents filed here (20 occurrences); 16 more filed elsewhere are also tagged concurrency.
 
 ## Incidents
@@ -92,18 +94,10 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - **Signature:** Proposed numbers collided with each other and with live listeners.
 - **Rule:** Allocate shared numbered resources centrally and probe the live system at use time; a text search for free numbers is not a probe
 
-### [INC-0544](../../incidents/INC-0544-a-walk-load-limit-was-unreachable-because-the-host-floor-wit.md) - A walk load limit was unreachable because the host floor without any team job sat above it
-- occurrences 1, severity low, status mitigated
-- **Signature:** A wait-for-load limit is below the idle load of the host, so every admission would wait forever.
-- **Rule:** Measure the host load floor with no team job before fixing an admission limit; if the floor is above it, use the documented scoped limit and serialize the other runtime jobs.
+The 4 entries below are listed by title only so this node stays under 12 KB. Open the page, or run `python3 tools/afm.py show INC-XXXX`, for its signature and rule.
 
-### [INC-0556](../../incidents/INC-0556-a-polling-host-lock-does-not-serve-waiters-in-order-so-a-tes.md) - A polling host lock does not serve waiters in order, so a test run queued after its own setup took the lock first and failed on a database setup had not created
-- occurrences 1, severity low, status open
-- **Signature:** Two dependent steps are queued as separate acquisitions of a lock that waiters poll for, and the later one runs first.
-- **Rule:** Never rely on start order across separate acquisitions of a polling lock; run dependent steps under one acquisition or use a first-come ticket lock.
-
-The 2 entries below are listed by title only so this node stays under 12 KB. Open the page, or run `python3 tools/afm.py show INC-XXXX`, for its signature and rule.
-
+- [INC-0544](../../incidents/INC-0544-a-walk-load-limit-was-unreachable-because-the-host-floor-wit.md) - A walk load limit was unreachable because the host floor without any team job sat above it (n=1, low)
+- [INC-0556](../../incidents/INC-0556-a-polling-host-lock-does-not-serve-waiters-in-order-so-a-tes.md) - A polling host lock does not serve waiters in order, so a test run queued after its own setup took the lock first and failed on a database setup had not created (n=1, low)
 - [INC-0557](../../incidents/INC-0557-the-lock-holder-waited-for-the-load-to-fall-while-still-hold.md) - The lock holder waited for the load to fall while still holding the host lock, and eleven agents fed that one lock, so waits of 20 minutes became normal (n=1, low)
 - [INC-0558](../../incidents/INC-0558-two-agents-cancelled-their-queued-heavy-jobs-by-task-id-duri.md) - Two agents cancelled their queued heavy jobs by task id during a pause, but the queued shells survived; one later took the host lock and ran its test after the agent had reported it cancelled (n=1, low)
 
@@ -111,13 +105,14 @@ The 2 entries below are listed by title only so this node stays under 12 KB. Ope
 
 16 incidents filed under another home class also carry this class. Listed by the node where they live:
 
-- [test-isolation](../test-isolation/README.md): INC-0038, INC-0132, INC-0136, INC-0138, INC-0169
+- [test-isolation/green-alone-red-together](../test-isolation/green-alone-red-together.md): INC-0038, INC-0132, INC-0136, INC-0138, INC-0169
 - [vcs-destruction](../vcs-destruction/README.md): INC-0012, INC-0013, INC-0229
-- [false-green](../false-green/README.md): INC-0104, INC-0329
-- [identity-and-keying](../identity-and-keying/README.md): INC-0079, INC-0125
-- [tooling-paths](../tooling-paths/README.md): INC-0030, INC-0043
-- [delegation](../delegation/README.md): INC-0237
-- [stage-timeout](../stage-timeout/README.md): INC-0092
+- [identity-and-keying/new-id-already-taken](../identity-and-keying/new-id-already-taken.md): INC-0079, INC-0125
+- [tooling-paths/edit-or-match-hit-wrong-bytes](../tooling-paths/edit-or-match-hit-wrong-bytes.md): INC-0030, INC-0043
+- [delegation/stalled-behind-one-owner-or-decision](../delegation/stalled-behind-one-owner-or-decision.md): INC-0237
+- [false-green/red-for-the-wrong-reason](../false-green/red-for-the-wrong-reason.md): INC-0329
+- [false-green/test-cannot-see-the-defect](../false-green/test-cannot-see-the-defect.md): INC-0104
+- [stage-timeout/timeout-policy-and-lifecycle-boundaries](../stage-timeout/timeout-policy-and-lifecycle-boundaries.md): INC-0092
 
 ## Practices touching this class
 

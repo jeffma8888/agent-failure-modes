@@ -5,13 +5,13 @@ date: 2026-08-04
 classes: [test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: test-isolation/passes-warm-fails-clean
 occurrences: 1
 ---
 
 # INC-0023 - CI shallow clone breaks tests that read git history
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Passes in a warm checkout, fails in a fresh clone, CI or other runner](../catalog/test-isolation/passes-warm-fails-clean.md)
 
 **Cost:** Four consecutive CI builds went red on the same three tests, none caused by the commits under test. Local was green.
 

@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: low
 status: mitigated
-topic: null
+topic: spec-and-scope/framework-contract-assumptions
 occurrences: 1
 ---
 
 # INC-0580 - A dependency had no switch for a dev-only outbound call, and the implementer stopped instead of guessing
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Framework behavior contradicts the design or test](../catalog/spec-and-scope/framework-contract-assumptions.md)
 
 **Cost:** None. The work paused for a ruling, and no dependency was patched.
 

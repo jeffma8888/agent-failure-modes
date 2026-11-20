@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: fixed
-topic: null
+topic: identity-and-keying/new-id-already-taken
 occurrences: 1
 ---
 
 # INC-0448 - Two fields mapping to one database enum made the generated migration narrow a five-state status to two states
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A newly minted id or name collides with one already in use](../catalog/identity-and-keying/new-id-already-taken.md)
 
 **Cost:** No bad migration landed; the engineer stopped and regenerated.
 

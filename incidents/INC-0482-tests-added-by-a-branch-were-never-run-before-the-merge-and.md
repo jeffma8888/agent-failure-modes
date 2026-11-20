@@ -5,13 +5,16 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: open
-topic: null
+topic: false-green/green-but-cases-never-ran
 occurrences: 1
+recurrence_of: INC-0447
 ---
 
 # INC-0482 - Tests added by a branch were never run before the merge, and the full suite failed on them afterwards
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [The gate was green but the cases it vouches for never executed](../catalog/false-green/green-but-cases-never-ran.md)
+
+> **Recurrence of [INC-0447](./INC-0447-tests-authored-but-never-executed-passed-acceptance-and-the.md).** This record repeats an earlier failure and is kept for history; INC-0447 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** The merged main was red in one test group and further merges were frozen until a fix landed.
 

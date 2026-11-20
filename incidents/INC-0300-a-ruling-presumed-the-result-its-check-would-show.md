@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/claims-outrun-available-evidence
 occurrences: 1
 ---
 
 # INC-0300 - A ruling presumed the result its check would show
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Claims or instructions say more than the evidence supports](../catalog/spec-and-scope/claims-outrun-available-evidence.md)
 
 **Cost:** Minor: caught before it shipped.
 

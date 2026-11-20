@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
-topic: null
+topic: false-green/green-but-cases-never-ran
 occurrences: 1
 ---
 
 # INC-0477 - A browser test failed at its first request, and after that was fixed the next run failed at a step that had never run
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [The gate was green but the cases it vouches for never executed](../catalog/false-green/green-but-cases-never-ran.md)
 
 **Cost:** Minor: one extra run to reach the step; found before merge.
 

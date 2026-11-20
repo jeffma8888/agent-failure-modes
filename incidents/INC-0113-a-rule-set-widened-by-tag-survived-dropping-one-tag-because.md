@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/guard-defaults-and-negative-controls
 occurrences: 1
 ---
 
 # INC-0113 - A rule set widened by tag survived dropping one tag because only some tags had a planted violation
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [A broken guard implementation still appears valid](../catalog/detector-fail-open/guard-defaults-and-negative-controls.md)
 
 **Cost:** Minor: caught by a stop rule, an audit or review before it shipped.
 

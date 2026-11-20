@@ -5,13 +5,16 @@ date: 2026-11-04
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
+topic: false-green/step-failed-but-gate-passed
 occurrences: 1
+recurrence_of: INC-0490
 ---
 
 # INC-0566 - A run wrapper exited zero although one of its steps exited one
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A gate verdict came from a wrapper, pipe, chain or last line](../catalog/false-green/step-failed-but-gate-passed.md)
+
+> **Recurrence of [INC-0490](./INC-0490-a-wrapper-exited-zero-while-a-step-record-said-the-step-fail.md).** This record repeats an earlier failure and is kept for history; INC-0490 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** None. The run was judged from its step file and tier counts, and the failure was an environment fault, not a product result.
 

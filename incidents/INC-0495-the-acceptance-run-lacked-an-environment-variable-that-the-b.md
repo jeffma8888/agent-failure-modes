@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: mitigated
-topic: null
+topic: test-isolation/passes-warm-fails-clean
 occurrences: 1
 ---
 
 # INC-0495 - The acceptance run lacked an environment variable that the branch run and the full suite set
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Passes in a warm checkout, fails in a fresh clone, CI or other runner](../catalog/test-isolation/passes-warm-fails-clean.md)
 
 **Cost:** Minor: one extra failing test in the first acceptance run and a re-run.
 

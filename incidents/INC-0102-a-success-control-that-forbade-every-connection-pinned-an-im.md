@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/requirements-and-limits-collide
 occurrences: 1
 ---
 
 # INC-0102 - A success control that forbade every connection pinned an implementation from before a later startup step that must connect
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Requirements, units, or hard limits cannot hold together](../catalog/spec-and-scope/requirements-and-limits-collide.md)
 
 **Cost:** Minor: caught by a stop rule, a re-check or review before it shipped.
 

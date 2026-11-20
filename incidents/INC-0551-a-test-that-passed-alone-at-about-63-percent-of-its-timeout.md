@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: mitigated
-topic: null
+topic: stage-timeout/work-outgrows-enforced-timeouts
 occurrences: 1
 ---
 
 # INC-0551 - A test that passed alone at about 63 percent of its timeout budget timed out in a loaded whole-suite run
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Work outgrows hidden caps or loses timeout headroom](../catalog/stage-timeout/work-outgrows-enforced-timeouts.md)
 
 **Cost:** One red in a merge run, classified as load sensitive and handed to the next full run.
 

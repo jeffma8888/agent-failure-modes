@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [detector-fail-open, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/wrong-parser-or-pattern
 occurrences: 1
 ---
 
 # INC-0224 - A classifier kept a legacy pattern list beside a new exact signature
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [A parser or pattern reads the wrong evidence](../catalog/detector-fail-open/wrong-parser-or-pattern.md)
 
 **Cost:** Minor: caught before it shipped.
 

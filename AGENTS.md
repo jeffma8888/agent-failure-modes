@@ -6,9 +6,9 @@ single source of truth is `tools/corpus.py`; every other content file is generat
 by `tools/build.py`.
 
 <!-- BEGIN GENERATED: agents-stats -->
-- Incidents: 637 (637 canonical, 0 recurrence records, 0 recorded repeats, 637 occurrences in total).
-- Failure classes: 18; topics: 0; practices: 5.
-- Highest occurrence count: 1 (no repeats recorded yet).
+- Incidents: 637 (595 canonical, 42 recurrence records, 0 recorded repeats, 637 occurrences in total).
+- Failure classes: 18; topics: 54; practices: 5.
+- Highest occurrence count: 10 (INC-0274).
 <!-- END GENERATED: agents-stats -->
 
 ## Read protocol

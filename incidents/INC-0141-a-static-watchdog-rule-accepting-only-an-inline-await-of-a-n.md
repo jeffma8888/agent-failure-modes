@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/syntax-shapes-and-benign-decoys
 occurrences: 1
 ---
 
 # INC-0141 - A static watchdog rule accepting only an inline await of a new promise flagged stored promises and other valid shapes
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [Syntax matching accepts decoys or rejects valid forms](../catalog/detector-fail-open/syntax-shapes-and-benign-decoys.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped.
 

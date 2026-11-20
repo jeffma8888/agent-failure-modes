@@ -7,11 +7,14 @@ severity: medium
 status: fixed
 topic: null
 occurrences: 1
+recurrence_of: INC-0012
 ---
 
 # INC-0229 - A commit swept another session uncommitted entries
 
 **Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
+
+> **Recurrence of [INC-0012](./INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md).** This record repeats an earlier failure and is kept for history; INC-0012 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** Minor: caught before it shipped.
 

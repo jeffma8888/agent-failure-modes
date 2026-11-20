@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [delegation, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/brief-or-plan-left-a-gap
 occurrences: 1
 ---
 
 # INC-0298 - Harness and ownership defects were left for the build agent to find
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [The brief or plan left a gap the worker fell through](../catalog/delegation/brief-or-plan-left-a-gap.md)
 
 **Cost:** Minor: caught before it shipped.
 

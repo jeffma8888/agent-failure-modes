@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [stage-timeout, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: stage-timeout/work-outgrows-enforced-timeouts
 occurrences: 1
 ---
 
 # INC-0308 - A fixed stage deadline met planned case growth that nobody had projected
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Work outgrows hidden caps or loses timeout headroom](../catalog/stage-timeout/work-outgrows-enforced-timeouts.md)
 
 **Cost:** Minor: caught before it shipped.
 

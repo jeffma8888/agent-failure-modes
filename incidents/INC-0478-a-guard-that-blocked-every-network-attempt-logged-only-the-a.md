@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: fixed
-topic: null
+topic: observability/missing-or-unverifiable-receipts
 occurrences: 1
 ---
 
 # INC-0478 - A guard that blocked every network attempt logged only the API name, so a second run was needed to learn the target
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Missing evidence keeps findings unverified](../catalog/observability/missing-or-unverifiable-receipts.md)
 
 **Cost:** Minor: one extra guarded run to classify the stop.
 

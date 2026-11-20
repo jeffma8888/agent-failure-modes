@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: identity-and-keying/new-id-already-taken
 occurrences: 1
 ---
 
 # INC-0080 - Two writers used the same short question ID for different gaps, so a real gap looked ruled
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A newly minted id or name collides with one already in use](../catalog/identity-and-keying/new-id-already-taken.md)
 
 **Cost:** Moderate: new gaps looked already tracked or answered, so nobody owned them until a cross review noticed the collision.
 

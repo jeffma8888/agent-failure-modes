@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: mitigated
-topic: null
+topic: delegation/order-collides-with-rule-or-guard
 occurrences: 1
 ---
 
 # INC-0489 - A rule written in teammate briefs was broken by the lead in its own shell
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Your order collided with a tool rule, permission ceiling, guard or pin](../catalog/delegation/order-collides-with-rule-or-guard.md)
 
 **Cost:** None incurred: the slip was seen in the next command and undone before any run.
 

@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: low
 status: mitigated
-topic: null
+topic: observability/misleading-metrics-and-status
 occurrences: 1
 ---
 
 # INC-0579 - A broad any-alert selector matched the framework's empty route announcer before any action, and a second whole-document probe found the real refusal messages in toasts
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [A reassuring signal contradicts the underlying evidence](../catalog/observability/misleading-metrics-and-status.md)
 
 **Cost:** None. Two diagnosis-only probes replaced an invented oracle.
 

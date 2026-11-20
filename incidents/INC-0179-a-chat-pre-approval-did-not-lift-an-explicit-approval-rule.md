@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [delegation, tooling-paths]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/order-collides-with-rule-or-guard
 occurrences: 1
 ---
 
 # INC-0179 - A chat pre-approval did not lift an explicit approval rule
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Your order collided with a tool rule, permission ceiling, guard or pin](../catalog/delegation/order-collides-with-rule-or-guard.md)
 
 **Cost:** Minor: caught before it shipped.
 

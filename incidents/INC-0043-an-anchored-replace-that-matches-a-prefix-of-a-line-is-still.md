@@ -5,13 +5,13 @@ date: 2026-09-02
 classes: [tooling-paths, concurrency, identity-and-keying]
 severity: high
 status: fixed
-topic: null
+topic: tooling-paths/edit-or-match-hit-wrong-bytes
 occurrences: 1
 ---
 
 # INC-0043 - An anchored replace that matches a PREFIX of a line is still 'exactly once'
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [An edit anchor or text match hit different bytes than you meant](../catalog/tooling-paths/edit-or-match-hit-wrong-bytes.md)
 
 **Cost:** A concurrent writer's entire batch of seven records silently disappeared from the generated output while the edit reported success. Nothing in the writing script noticed; only the build's own invariant tests caught it, after the damage was on disk.
 

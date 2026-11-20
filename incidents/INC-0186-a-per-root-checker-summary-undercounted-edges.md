@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, identity-and-keying]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/coverage-and-controls-not-proven
 occurrences: 1
 ---
 
 # INC-0186 - A per-root checker summary undercounted edges
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [The checker ran but its target coverage is unproven](../catalog/detector-fail-open/coverage-and-controls-not-proven.md)
 
 **Cost:** Minor: caught before it shipped.
 

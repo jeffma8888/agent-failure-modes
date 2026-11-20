@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/instructions-tools-cannot-follow
 occurrences: 1
 ---
 
 # INC-0330 - A runbook described steps its own script's gate refused
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Instructions fail a gate or omit the required operation](../catalog/spec-and-scope/instructions-tools-cannot-follow.md)
 
 **Cost:** Minor: caught before it shipped.
 

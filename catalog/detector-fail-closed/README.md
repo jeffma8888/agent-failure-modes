@@ -6,6 +6,8 @@ A monitor or check fires when it should not: it reports a correct artifact as br
 
 **Ask:** Before acting on this check's accusation, have you verified the ACCUSATION against the primary source - and could the check's own normalisation, base path or parser be the thing that disagrees?
 
+**You are probably here if:** A check, scanner, lint or guard accuses an artifact you can see is correct: the quote is on the page, the file never ships, the bytes match main.
+
 14 incidents filed here (14 occurrences); 3 more filed elsewhere are also tagged detector-fail-closed.
 
 ## Incidents
@@ -86,6 +88,6 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 
 3 incidents filed under another home class also carry this class. Listed by the node where they live:
 
-- [detector-fail-open](../detector-fail-open/README.md): INC-0029
-- [observability](../observability/README.md): INC-0144
-- [tooling-paths](../tooling-paths/README.md): INC-0072
+- [detector-fail-open/wrong-parser-or-pattern](../detector-fail-open/wrong-parser-or-pattern.md): INC-0029
+- [observability/missing-or-unverifiable-receipts](../observability/missing-or-unverifiable-receipts.md): INC-0144
+- [tooling-paths/tool-defaults-not-target](../tooling-paths/tool-defaults-not-target.md): INC-0072

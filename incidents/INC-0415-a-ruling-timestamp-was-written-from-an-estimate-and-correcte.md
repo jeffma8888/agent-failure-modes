@@ -5,13 +5,16 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: fixed
-topic: null
+topic: observability/clock-labels-without-clock-evidence
 occurrences: 1
+recurrence_of: INC-0274
 ---
 
 # INC-0415 - A ruling timestamp was written from an estimate and corrected minutes later, twice in one round
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Timestamp labels disagree with the actual clock](../catalog/observability/clock-labels-without-clock-evidence.md)
+
+> **Recurrence of [INC-0274](./INC-0274-write-times-from-a-command-output-not-from-memory.md).** This record repeats an earlier failure and is kept for history; INC-0274 is the canonical record (10 occurrences in total) and carries the rule to apply.
 
 **Cost:** Minor: two timestamps were corrected minutes after they were written.
 

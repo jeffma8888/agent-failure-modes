@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [false-green, test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/verified-a-different-target
 occurrences: 1
 ---
 
 # INC-0214 - A helper was fixed and a caller still passed a literal empty object
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Verified a shortcut, a part or an old revision instead of what ships](../catalog/false-green/verified-a-different-target.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,13 +5,16 @@ date: 2026-11-04
 classes: [observability]
 severity: low
 status: mitigated
-topic: null
+topic: observability/clock-labels-without-clock-evidence
 occurrences: 1
+recurrence_of: INC-0611
 ---
 
 # INC-0619 - A clock label slip recurred a fifth time, and the clock call became the only call in its batch
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Timestamp labels disagree with the actual clock](../catalog/observability/clock-labels-without-clock-evidence.md)
+
+> **Recurrence of [INC-0611](./INC-0611-a-time-label-was-written-in-the-same-script-that-read-the-cl.md).** This record repeats an earlier failure and is kept for history; INC-0611 is the canonical record (4 occurrences in total) and carries the rule to apply.
 
 **Cost:** One ruling was first labelled with a clock value that was never read and had to be corrected.
 

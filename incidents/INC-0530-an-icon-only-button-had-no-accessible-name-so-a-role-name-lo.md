@@ -5,13 +5,16 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
+topic: false-green/oracle-or-claim-written-from-memory
 occurrences: 1
+recurrence_of: INC-0523
 ---
 
 # INC-0530 - An icon-only button had no accessible name, so a role-name locator could never match and the test timed out
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test oracle, locator or review claim came from memory, not source](../catalog/false-green/oracle-or-claim-written-from-memory.md)
+
+> **Recurrence of [INC-0523](./INC-0523-three-test-roots-by-three-authors-used-the-same-guessed-loca.md).** This record repeats an earlier failure and is kept for history; INC-0523 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** A browser test timed out at one line and needed a successor root; no product change.
 

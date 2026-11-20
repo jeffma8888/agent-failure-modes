@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [detector-fail-open]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/guard-defaults-and-negative-controls
 occurrences: 1
 ---
 
 # INC-0404 - A safe default could silently drop data when an uncertain state was read as gone
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [A broken guard implementation still appears valid](../catalog/detector-fail-open/guard-defaults-and-negative-controls.md)
 
 **Cost:** A permission error could have been read as proof an item was gone, and data dropped.
 

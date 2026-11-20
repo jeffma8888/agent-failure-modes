@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, identity-and-keying]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/records-drift-or-lose-provenance
 occurrences: 1
 ---
 
 # INC-0147 - A moved history row was silently modernized instead of staying byte identical
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [A cited baseline, count, line, or digest no longer matches its source](../catalog/spec-and-scope/records-drift-or-lose-provenance.md)
 
 **Cost:** Minor: caught by a reviewer, an auditor or the lead before it shipped.
 

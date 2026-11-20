@@ -5,13 +5,16 @@ date: 2026-11-04
 classes: [identity-and-keying]
 severity: medium
 status: mitigated
-topic: null
+topic: identity-and-keying/approval-names-wrong-commit
 occurrences: 1
+recurrence_of: INC-0261
 ---
 
 # INC-0595 - An approval header named the review commit, whose tree did not yet hold the reviewed root, and the identity checker refused it
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [An approval or activation names the wrong commit or line of history](../catalog/identity-and-keying/approval-names-wrong-commit.md)
+
+> **Recurrence of [INC-0261](./INC-0261-a-landed-root-revision-cannot-carry-its-supersession-file-in.md).** This record repeats an earlier failure and is kept for history; INC-0261 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** One refused approval attempt (approval tree manifest mismatch) before the header was corrected.
 

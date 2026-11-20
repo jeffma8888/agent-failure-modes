@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths, checkpoint]
 severity: medium
 status: fixed
-topic: null
+topic: tooling-paths/chain-ran-on-after-failure
 occurrences: 1
 ---
 
 # INC-0294 - Activating a replacement over the only file in a directory removed the directory
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A shell chain ran on after a failed step, or a refusal sank safe steps](../catalog/tooling-paths/chain-ran-on-after-failure.md)
 
 **Cost:** Minor: caught before it shipped.
 

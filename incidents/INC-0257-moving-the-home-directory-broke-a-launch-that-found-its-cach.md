@@ -7,11 +7,14 @@ severity: medium
 status: fixed
 topic: null
 occurrences: 1
+recurrence_of: INC-0119
 ---
 
 # INC-0257 - Moving the home directory broke a launch that found its cache through it
 
 **Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
+
+> **Recurrence of [INC-0119](./INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md).** This record repeats an earlier failure and is kept for history; INC-0119 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** Minor: caught before it shipped.
 

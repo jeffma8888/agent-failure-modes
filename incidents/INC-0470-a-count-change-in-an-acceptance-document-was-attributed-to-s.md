@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: fixed
-topic: null
+topic: observability/misleading-metrics-and-status
 occurrences: 1
 ---
 
 # INC-0470 - A count change in an acceptance document was attributed to specific items without a per file check
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [A reassuring signal contradicts the underlying evidence](../catalog/observability/misleading-metrics-and-status.md)
 
 **Cost:** None: amended before anyone used it.
 

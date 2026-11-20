@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
-topic: null
-occurrences: 1
+topic: false-green/green-but-cases-never-ran
+occurrences: 2
 ---
 
 # INC-0447 - Tests authored but never executed passed acceptance, and the first run of the heavy tier found a failing case
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [The gate was green but the cases it vouches for never executed](../catalog/false-green/green-but-cases-never-ran.md)
 
 **Cost:** A test defect surfaced one row late, and a fix branch and an acceptance addendum were needed.
 
@@ -42,6 +42,12 @@ Checked by the lead. Not checked: whether the new rule prevents recurrence.
 ## Transferable rule
 
 > Accept a production merge only after the heavy test tier passes on the merged tree; authored but unexecuted cases are missing evidence, not a pass
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0482](./INC-0482-tests-added-by-a-branch-were-never-run-before-the-merge-and.md) - 2026-11-02 - Tests added by a branch were never run before the merge, and the full suite failed on them afterwards
 
 ## Related
 

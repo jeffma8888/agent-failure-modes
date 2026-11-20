@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/framework-contract-assumptions
 occurrences: 1
 ---
 
 # INC-0134 - A QA case followed only 3xx redirects while Payload 3 admin redirects under Next 16 are soft redirects with HTTP 200
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Framework behavior contradicts the design or test](../catalog/spec-and-scope/framework-contract-assumptions.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped, except item one which delayed finished work.
 

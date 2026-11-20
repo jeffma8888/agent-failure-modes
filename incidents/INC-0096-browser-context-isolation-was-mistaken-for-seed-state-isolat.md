@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: test-isolation/green-alone-red-together
 occurrences: 1
 ---
 
 # INC-0096 - Browser-context isolation was mistaken for seed-state isolation
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Green alone, red in the full suite, with another run, or after a merge](../catalog/test-isolation/green-alone-red-together.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

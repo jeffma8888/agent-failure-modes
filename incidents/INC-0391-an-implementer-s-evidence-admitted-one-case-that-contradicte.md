@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/tests-do-not-prove-the-contract
 occurrences: 1
 ---
 
 # INC-0391 - An implementer's evidence admitted one case that contradicted its own every-undeclared-case-throws rule
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Green tests omit or misstate required behavior](../catalog/spec-and-scope/tests-do-not-prove-the-contract.md)
 
 **Cost:** A rule with a silent exception would have let one undeclared case through.
 

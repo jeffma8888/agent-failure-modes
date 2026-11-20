@@ -5,13 +5,13 @@ date: 2026-10-29
 classes: [false-green, tooling-paths]
 severity: low
 status: fixed
-topic: null
+topic: false-green/count-or-total-computed-wrong
 occurrences: 1
 ---
 
 # INC-0070 - Two reviewers' table parsers undercounted rows on escaped pipes and a sum included a header
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A reported count, total or ledger does not match what ran](../catalog/false-green/count-or-total-computed-wrong.md)
 
 **Cost:** Two reviewers' first counts of a plan's rows were wrong. Each caught its own error before reporting, so no false verdict was issued.
 

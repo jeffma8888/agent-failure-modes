@@ -5,13 +5,13 @@ date: 2026-08-28
 classes: [false-green, test-isolation, observability]
 severity: high
 status: fixed
-topic: null
+topic: false-green/test-cannot-see-the-defect
 occurrences: 1
 ---
 
 # INC-0031 - A concurrency test with no forced interleaving passes loudest when the feature is absent
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test stays green with the behavior removed or broken](../catalog/false-green/test-cannot-see-the-defect.md)
 
 **Cost:** A deliberately-broken build passed its own concurrency test, so the artifact would have taught its reader that a planted bug was absent.
 

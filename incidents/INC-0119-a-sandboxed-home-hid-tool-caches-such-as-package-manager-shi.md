@@ -6,7 +6,7 @@ classes: [ipc-and-env, test-isolation]
 severity: medium
 status: fixed
 topic: null
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0119 - A sandboxed HOME hid tool caches such as package-manager shims
@@ -42,6 +42,12 @@ Checked by the reviewer or lead who reported it. Not checked: whether the new ru
 ## Transferable rule
 
 > When replacing HOME, forward every cache the tools need and block fetching.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0257](./INC-0257-moving-the-home-directory-broke-a-launch-that-found-its-cach.md) - 2026-11-01 - Moving the home directory broke a launch that found its cache through it
 
 ## Related
 

@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/wrong-parser-or-pattern
 occurrences: 1
 ---
 
 # INC-0078 - A subprocess wrapper decoded output strictly, so malformed bytes skipped the retry and redaction path
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [A parser or pattern reads the wrong evidence](../catalog/detector-fail-open/wrong-parser-or-pattern.md)
 
 **Cost:** Moderate: a run made one try instead of three, wrote no failure event and printed raw exception text, the one path the design was meant to close. Caught in review before release.
 

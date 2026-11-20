@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [delegation, checkpoint]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/stalled-behind-one-owner-or-decision
 occurrences: 1
 ---
 
 # INC-0277 - Sign the stable re-checked part of a design addendum instead of waiting
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Parallel work stalls behind one busy owner, open decision or slot cap](../catalog/delegation/stalled-behind-one-owner-or-decision.md)
 
 **Cost:** Minor: caught before it shipped.
 

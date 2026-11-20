@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, tooling-paths]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/requirements-and-limits-collide
 occurrences: 1
 ---
 
 # INC-0189 - An override was written without reading the dependent declared range
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Requirements, units, or hard limits cannot hold together](../catalog/spec-and-scope/requirements-and-limits-collide.md)
 
 **Cost:** Minor: caught before it shipped.
 

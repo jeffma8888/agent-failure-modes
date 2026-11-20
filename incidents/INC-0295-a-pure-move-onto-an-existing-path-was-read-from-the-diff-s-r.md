@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, vcs-destruction]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/proxy-artifact-cited-as-evidence
 occurrences: 1
 ---
 
 # INC-0295 - A pure move onto an existing path was read from the diff's rename display
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [An artifact that looks like evidence was cited but proves no fact](../catalog/false-green/proxy-artifact-cited-as-evidence.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: tooling-paths/argument-read-as-other-kind
 occurrences: 1
 ---
 
 # INC-0137 - A database adapter created an absent database even with schema push disabled
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A helper or runner reads your argument as a different kind or name](../catalog/tooling-paths/argument-read-as-other-kind.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped.
 

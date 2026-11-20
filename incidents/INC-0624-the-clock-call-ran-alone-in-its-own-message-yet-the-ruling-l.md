@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: low
 status: mitigated
-topic: null
+topic: observability/clock-labels-without-clock-evidence
 occurrences: 1
 ---
 
 # INC-0624 - The clock call ran alone in its own message, yet the ruling label was typed from expectation instead of copied from the returned value; the seventh recurrence
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Timestamp labels disagree with the actual clock](../catalog/observability/clock-labels-without-clock-evidence.md)
 
 **Cost:** One ruling carried a label 53 seconds behind the real read and was corrected with a note.
 

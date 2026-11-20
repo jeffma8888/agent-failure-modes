@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: stage-timeout/timeout-policy-and-lifecycle-boundaries
 occurrences: 1
 ---
 
 # INC-0139 - A readiness deadline tested only inside a step was untested outside it
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Timeout policy ignores purpose, call path or lifecycle](../catalog/stage-timeout/timeout-policy-and-lifecycle-boundaries.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, tooling-paths]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/step-failed-but-gate-passed
 occurrences: 1
 ---
 
 # INC-0322 - A search helper ended a gather loop at the first file without a match
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A gate verdict came from a wrapper, pipe, chain or last line](../catalog/false-green/step-failed-but-gate-passed.md)
 
 **Cost:** Minor: caught before it shipped.
 

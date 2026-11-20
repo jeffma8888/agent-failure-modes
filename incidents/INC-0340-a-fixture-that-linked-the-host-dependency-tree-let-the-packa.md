@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [test-isolation, tooling-paths]
 severity: medium
 status: fixed
-topic: null
+topic: test-isolation/the-test-itself-is-the-defect
 occurrences: 1
 ---
 
 # INC-0340 - A fixture that linked the host dependency tree let the package manager rewrite it
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [The red comes from the test's own fixture, tool option or control](../catalog/test-isolation/the-test-itself-is-the-defect.md)
 
 **Cost:** Minor: caught before it shipped.
 

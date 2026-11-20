@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green]
 severity: low
 status: fixed
-topic: null
+topic: false-green/step-failed-but-gate-passed
 occurrences: 1
 ---
 
 # INC-0382 - A click-around walk that always exits 1 from a known gap cannot gate regressions
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A gate verdict came from a wrapper, pipe, chain or last line](../catalog/false-green/step-failed-but-gate-passed.md)
 
 **Cost:** A regression could hide behind a failure that was already expected.
 

@@ -5,13 +5,13 @@ date: 2026-10-28
 classes: [tooling-paths, false-green]
 severity: low
 status: fixed
-topic: null
+topic: tooling-paths/chain-ran-on-after-failure
 occurrences: 1
 ---
 
 # INC-0051 - A fallible edit script followed by a semicolon let the commit run on a partial result
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A shell chain ran on after a failed step, or a refusal sank safe steps](../catalog/tooling-paths/chain-ran-on-after-failure.md)
 
 **Cost:** One commit whose message named three files while its content held two. Fixed forward in the next commit; no data lost.
 

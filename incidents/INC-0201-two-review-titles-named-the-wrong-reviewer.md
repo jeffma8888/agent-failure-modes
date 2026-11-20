@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [delegation, observability]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/guessed-or-stale-id-name-path
 occurrences: 1
 ---
 
 # INC-0201 - Two review titles named the wrong reviewer
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [A record is guessed or stale, or lives only in a message or worktree](../catalog/delegation/guessed-or-stale-id-name-path.md)
 
 **Cost:** Minor: caught before it shipped.
 

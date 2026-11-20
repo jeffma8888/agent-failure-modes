@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
-topic: null
+topic: false-green/oracle-or-claim-written-from-memory
 occurrences: 1
 ---
 
 # INC-0455 - A provenance check that the generator can never satisfy: the zero parent id on every snapshot
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test oracle, locator or review claim came from memory, not source](../catalog/false-green/oracle-or-claim-written-from-memory.md)
 
 **Cost:** None: the stop came before any harm.
 

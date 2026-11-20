@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, ipc-and-env]
 severity: medium
 status: fixed
-topic: null
+topic: tooling-paths/tree-lacks-what-job-needs
 occurrences: 1
 ---
 
 # INC-0181 - A package launcher in an uninstalled source clone reached for the registry
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [The checkout or dependency tree you ran in lacks what the job needs](../catalog/tooling-paths/tree-lacks-what-job-needs.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, observability]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/count-or-total-computed-wrong
 occurrences: 1
 ---
 
 # INC-0252 - A word grep reported a failure in a passing log
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A reported count, total or ledger does not match what ran](../catalog/false-green/count-or-total-computed-wrong.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,13 +5,16 @@ date: 2026-11-01
 classes: [tooling-paths, delegation]
 severity: medium
 status: fixed
-topic: null
+topic: tooling-paths/tree-lacks-what-job-needs
 occurrences: 1
+recurrence_of: INC-0288
 ---
 
 # INC-0319 - A sparse checkout hid a tracked file that every brief pointed at
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [The checkout or dependency tree you ran in lacks what the job needs](../catalog/tooling-paths/tree-lacks-what-job-needs.md)
+
+> **Recurrence of [INC-0288](./INC-0288-verify-a-worktree-can-run-the-required-checks-before-assigni.md).** This record repeats an earlier failure and is kept for history; INC-0288 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: mitigated
-topic: null
+topic: delegation/order-collides-with-rule-or-guard
 occurrences: 1
 ---
 
 # INC-0493 - An order named a scratch target without reading the guard of the command that would fill it
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Your order collided with a tool rule, permission ceiling, guard or pin](../catalog/delegation/order-collides-with-rule-or-guard.md)
 
 **Cost:** None incurred: a reviewer found it while writing a checklist, before any run, and the executor stopped before creating anything; the cost was a new dedicated database cluster and a re-issued order.
 

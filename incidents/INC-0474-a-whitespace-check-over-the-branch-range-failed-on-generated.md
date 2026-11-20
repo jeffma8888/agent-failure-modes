@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
-topic: null
+topic: false-green/verified-a-different-target
 occurrences: 1
 ---
 
 # INC-0474 - A whitespace check over the branch range failed on generated SQL, while the same check on the working tree alone had passed
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Verified a shortcut, a part or an old revision instead of what ships](../catalog/false-green/verified-a-different-target.md)
 
 **Cost:** Minor: caught before the merge; the earlier exit 0 had been read as range proof.
 

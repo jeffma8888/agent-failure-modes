@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: low
 status: mitigated
-topic: null
+topic: spec-and-scope/tests-do-not-prove-the-contract
 occurrences: 1
 ---
 
 # INC-0584 - An exception that allowed two known failures in a unit comparison was closed the moment their fix merged
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Green tests omit or misstate required behavior](../catalog/spec-and-scope/tests-do-not-prove-the-contract.md)
 
 **Cost:** None. The exception could not mask a new failure after the fix.
 

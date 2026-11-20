@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: fixed
-topic: null
+topic: stage-timeout/stale-or-overbroad-load-admission
 occurrences: 1
 ---
 
 # INC-0427 - A host load spike came from operating system daemons, not the team, and the load wait held
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Stale or overbroad load gates block or mis-admit work](../catalog/stage-timeout/stale-or-overbroad-load-admission.md)
 
 **Cost:** Runs waited; no run started on an overloaded host.
 

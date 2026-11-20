@@ -5,13 +5,13 @@ date: 2026-10-29
 classes: [observability, ipc-and-env]
 severity: medium
 status: fixed
-topic: null
+topic: observability/misleading-metrics-and-status
 occurrences: 1
 ---
 
 # INC-0053 - A command-line agent silently ran an older model than assumed and ignored an explicit model override
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [A reassuring signal contradicts the underlying evidence](../catalog/observability/misleading-metrics-and-status.md)
 
 **Cost:** Every build in a pipeline ran on an older model generation than the team believed. No wrong output was found, but capability assumptions in the plans were off for the whole period.
 

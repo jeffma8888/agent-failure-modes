@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green]
 severity: low
 status: fixed
-topic: null
+topic: false-green/step-failed-but-gate-passed
 occurrences: 1
 ---
 
 # INC-0389 - Two plan checks ran at a wrong script path and the last line of their output looked like a result
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A gate verdict came from a wrapper, pipe, chain or last line](../catalog/false-green/step-failed-but-gate-passed.md)
 
 **Cost:** A check that never ran looked like one that printed output.
 

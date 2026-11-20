@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [false-green, observability]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/green-but-cases-never-ran
 occurrences: 1
 ---
 
 # INC-0239 - A hold outcome had no proof that nothing changed
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [The gate was green but the cases it vouches for never executed](../catalog/false-green/green-but-cases-never-ran.md)
 
 **Cost:** Minor: caught before it shipped.
 

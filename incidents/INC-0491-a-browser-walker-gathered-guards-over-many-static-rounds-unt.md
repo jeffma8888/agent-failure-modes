@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: mitigated
-topic: null
+topic: observability/missing-or-unverifiable-receipts
 occurrences: 1
 ---
 
 # INC-0491 - A browser walker gathered guards over many static rounds until no allowed target could pass them
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Missing evidence keeps findings unverified](../catalog/observability/missing-or-unverifiable-receipts.md)
 
 **Cost:** Six review rounds spent on a tool that never ran, and a milestone click-around duty left unmet meanwhile.
 

@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout, delegation]
 severity: medium
 status: fixed
-topic: null
+topic: stage-timeout/work-outgrows-enforced-timeouts
 occurrences: 1
 ---
 
 # INC-0143 - Two branches implementing the same stage split were merged without re-measuring, although merged tests can change a project time several times over
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Work outgrows hidden caps or loses timeout headroom](../catalog/stage-timeout/work-outgrows-enforced-timeouts.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped.
 

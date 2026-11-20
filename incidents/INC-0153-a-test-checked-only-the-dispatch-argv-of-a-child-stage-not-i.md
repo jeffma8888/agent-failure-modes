@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [false-green, test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/test-cannot-see-the-defect
 occurrences: 1
 ---
 
 # INC-0153 - A test checked only the dispatch argv of a child stage, not its semantics
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test stays green with the behavior removed or broken](../catalog/false-green/test-cannot-see-the-defect.md)
 
 **Cost:** Minor: caught by a reviewer, an auditor or the lead before it shipped.
 

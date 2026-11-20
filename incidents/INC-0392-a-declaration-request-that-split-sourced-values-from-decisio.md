@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [delegation]
 severity: low
 status: fixed
-topic: null
+topic: delegation/stalled-behind-one-owner-or-decision
 occurrences: 1
 ---
 
 # INC-0392 - A declaration request that split sourced values from decisions let the lead rule eleven items in one pass
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Parallel work stalls behind one busy owner, open decision or slot cap](../catalog/delegation/stalled-behind-one-owner-or-decision.md)
 
 **Cost:** Eleven items were ruled in one pass instead of several rounds.
 

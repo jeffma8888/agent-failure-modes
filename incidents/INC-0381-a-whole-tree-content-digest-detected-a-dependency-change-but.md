@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [observability]
 severity: low
 status: fixed
-topic: null
+topic: observability/missing-or-unverifiable-receipts
 occurrences: 1
 ---
 
 # INC-0381 - A whole-tree content digest detected a dependency change but could not say which file
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Missing evidence keeps findings unverified](../catalog/observability/missing-or-unverifiable-receipts.md)
 
 **Cost:** A change was detected but its source file had to be rediscovered.
 

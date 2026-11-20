@@ -5,13 +5,13 @@ date: 2026-11-08
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
+topic: false-green/proxy-artifact-cited-as-evidence
 occurrences: 1
 ---
 
 # INC-0634 - A record naming a commit id was written in the same parallel batch as the call that creates the commit, so a plausible id was written instead of the real one
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [An artifact that looks like evidence was cited but proves no fact](../catalog/false-green/proxy-artifact-cited-as-evidence.md)
 
 **Cost:** One record carried a wrong commit id for about a minute, until the landing output was read and the line fixed.
 

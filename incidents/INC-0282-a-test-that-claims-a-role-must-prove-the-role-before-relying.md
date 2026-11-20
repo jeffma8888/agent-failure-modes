@@ -5,13 +5,16 @@ date: 2026-11-01
 classes: [false-green, test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/real-page-or-response-wrong-behind-green
 occurrences: 1
+recurrence_of: INC-0275
 ---
 
 # INC-0282 - A test that claims a role must prove the role before relying on it
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Tests pass but the real page, status or session is wrong](../catalog/false-green/real-page-or-response-wrong-behind-green.md)
+
+> **Recurrence of [INC-0275](./INC-0275-a-probe-that-sends-a-session-cookie-alone-may-test-guest-beh.md).** This record repeats an earlier failure and is kept for history; INC-0275 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** Minor: caught before it shipped.
 

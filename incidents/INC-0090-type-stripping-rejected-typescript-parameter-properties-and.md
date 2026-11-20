@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, spec-and-scope]
 severity: low
 status: fixed
-topic: null
+topic: tooling-paths/valid-alone-fails-in-host
 occurrences: 1
 ---
 
 # INC-0090 - Type-stripping rejected TypeScript parameter properties, and admin selectors were undefined
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [Code valid alone fails in the host runtime, module form or generator](../catalog/tooling-paths/valid-alone-fails-in-host.md)
 
 **Cost:** Minor: caught in review or by a stop rule before it shipped.
 

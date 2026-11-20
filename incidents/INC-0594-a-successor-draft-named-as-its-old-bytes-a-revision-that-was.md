@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [identity-and-keying]
 severity: medium
 status: mitigated
-topic: null
+topic: identity-and-keying/replacement-record-malformed
 occurrences: 1
 ---
 
 # INC-0594 - A successor draft named as its old bytes a revision that was never approved, so it cannot land against the bytes on main
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A file-replacement (supersession) record is refused or claims too much](../catalog/identity-and-keying/replacement-record-malformed.md)
 
 **Cost:** The draft cannot land unchanged, and two drafts stay parked.
 

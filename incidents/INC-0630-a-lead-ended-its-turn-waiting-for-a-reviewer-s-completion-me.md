@@ -5,13 +5,16 @@ date: 2026-11-07
 classes: [delegation]
 severity: high
 status: mitigated
-topic: null
+topic: delegation/finished-on-disk-no-reply
 occurrences: 1
+recurrence_of: INC-0128
 ---
 
 # INC-0630 - A lead ended its turn waiting for a reviewer's completion message while the reviewer's finished files were already on disk, and nothing moved for days
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Teammates finished on disk; the reply never came or went unnoticed](../catalog/delegation/finished-on-disk-no-reply.md)
+
+> **Recurrence of [INC-0128](./INC-0128-finished-work-sat-for-hours-because-replies-never-arrived-th.md).** This record repeats an earlier failure and is kept for history; INC-0128 is the canonical record (5 occurrences in total) and carries the rule to apply.
 
 **Cost:** Nothing moved from about 06:31 on 11/04 to 23:43 on 11/07, about three and a half days, while every output sat finished on disk.
 

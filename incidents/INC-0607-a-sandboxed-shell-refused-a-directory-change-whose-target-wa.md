@@ -5,13 +5,16 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
-topic: null
+topic: tooling-paths/sandbox-refuses-allowed-target
 occurrences: 1
+recurrence_of: INC-0249
 ---
 
 # INC-0607 - A sandboxed shell refused a directory change whose target was held in a variable
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [Sandbox cannot resolve or authorize the target you actually meant](../catalog/tooling-paths/sandbox-refuses-allowed-target.md)
+
+> **Recurrence of [INC-0249](./INC-0249-a-cd-to-a-path-in-a-variable-was-refused-by-the-sandbox.md).** This record repeats an earlier failure and is kept for history; INC-0249 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** One command batch was refused before any part ran, and had to be rerun with literal paths.
 

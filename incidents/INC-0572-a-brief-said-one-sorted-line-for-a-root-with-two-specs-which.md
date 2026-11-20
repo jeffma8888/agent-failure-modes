@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: low
 status: mitigated
-topic: null
+topic: spec-and-scope/requirements-and-limits-collide
 occurrences: 1
 ---
 
 # INC-0572 - A brief said one sorted line for a root with two specs, which could be read two ways
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Requirements, units, or hard limits cannot hold together](../catalog/spec-and-scope/requirements-and-limits-collide.md)
 
 **Cost:** None. The ambiguity was resolved by a ruling.
 

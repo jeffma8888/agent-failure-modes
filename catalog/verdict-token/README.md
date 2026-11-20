@@ -6,6 +6,8 @@ A machine-parsed decision token is missing or malformed, so a downstream parser 
 
 **Ask:** If the step is killed before it writes its decision, what does the parser assume - and is that assumption safe?
 
+**You are probably here if:** Good work was discarded, or unfinished work proceeded, with no error: the decision token was missing, cut off or advisory, and the parser applied its default.
+
 3 incidents filed here (3 occurrences); 2 more filed elsewhere are also tagged verdict-token.
 
 ## Incidents
@@ -31,8 +33,8 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 
 2 incidents filed under another home class also carry this class. Listed by the node where they live:
 
-- [observability](../observability/README.md): INC-0041
-- [stage-timeout](../stage-timeout/README.md): INC-0025
+- [observability/missing-or-unverifiable-receipts](../observability/missing-or-unverifiable-receipts.md): INC-0041
+- [stage-timeout/work-outgrows-enforced-timeouts](../stage-timeout/work-outgrows-enforced-timeouts.md): INC-0025
 
 ## Practices touching this class
 

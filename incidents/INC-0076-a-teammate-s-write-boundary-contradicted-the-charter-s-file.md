@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, delegation]
 severity: low
 status: fixed
-topic: null
+topic: spec-and-scope/wrong-owner-path-or-scope
 occurrences: 1
 ---
 
 # INC-0076 - A teammate's write boundary contradicted the charter's file layout, so a required record landed where activation would reject it
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Work lands under the wrong owner, path, or write boundary](../catalog/spec-and-scope/wrong-owner-path-or-scope.md)
 
 **Cost:** Caught before commit. A required coverage record was left inside the boundary's directory, where the activation step would have rejected it as an unlisted payload.
 

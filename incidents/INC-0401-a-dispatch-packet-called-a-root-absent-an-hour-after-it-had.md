@@ -7,11 +7,14 @@ severity: low
 status: fixed
 topic: null
 occurrences: 1
+recurrence_of: INC-0390
 ---
 
 # INC-0401 - A dispatch packet called a root absent an hour after it had landed
 
 **Catalog:** [root](../catalog/README.md) / [stale-module](../catalog/stale-module/README.md)
+
+> **Recurrence of [INC-0390](./INC-0390-a-dispatch-packet-written-for-a-future-branch-went-stale-whe.md).** This record repeats an earlier failure and is kept for history; INC-0390 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** A review could have been set up around a root that was no longer missing.
 

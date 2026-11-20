@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: fixed
-topic: null
+topic: spec-and-scope/requirements-and-limits-collide
 occurrences: 1
 ---
 
 # INC-0430 - A route validator rejected a width that the generator was required to emit
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Requirements, units, or hard limits cannot hold together](../catalog/spec-and-scope/requirements-and-limits-collide.md)
 
 **Cost:** No served file was affected; the seam was found at spec review.
 

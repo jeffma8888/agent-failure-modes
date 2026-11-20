@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/missing-or-late-prerequisites
 occurrences: 1
 ---
 
 # INC-0100 - A new test file was placed in a row whose activation order did not include a collection the file creates, and an oracle was asserted without its spec sentence
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [A planned step cannot run because its prerequisite is missing](../catalog/spec-and-scope/missing-or-late-prerequisites.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

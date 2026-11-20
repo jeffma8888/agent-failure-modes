@@ -5,13 +5,16 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
-topic: null
+topic: tooling-paths/edit-or-match-hit-wrong-bytes
 occurrences: 1
+recurrence_of: INC-0464
 ---
 
 # INC-0561 - A verifier matched plain text in colored logs and stopped
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [An edit anchor or text match hit different bytes than you meant](../catalog/tooling-paths/edit-or-match-hit-wrong-bytes.md)
+
+> **Recurrence of [INC-0464](./INC-0464-color-escape-codes-in-a-report-broke-an-extraction-assertion.md).** This record repeats an earlier failure and is kept for history; INC-0464 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** The index generation stopped before writing; no test ran and no product file changed.
 

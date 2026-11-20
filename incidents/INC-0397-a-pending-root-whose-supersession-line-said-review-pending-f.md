@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: fixed
-topic: null
+topic: identity-and-keying/approval-names-wrong-commit
 occurrences: 1
 ---
 
 # INC-0397 - A pending root whose supersession line said review pending failed the identity checker at landing
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [An approval or activation names the wrong commit or line of history](../catalog/identity-and-keying/approval-names-wrong-commit.md)
 
 **Cost:** A pending root could not land with a marker that claimed an approval it did not yet have.
 

@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [false-green, delegation]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/proxy-artifact-cited-as-evidence
 occurrences: 1
 ---
 
 # INC-0232 - A prompt render succeeded without reading the card bodies
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [An artifact that looks like evidence was cited but proves no fact](../catalog/false-green/proxy-artifact-cited-as-evidence.md)
 
 **Cost:** Minor: caught before it shipped.
 

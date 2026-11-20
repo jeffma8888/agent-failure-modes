@@ -5,13 +5,13 @@ date: 2026-08-05
 classes: [detector-fail-open, observability]
 severity: high
 status: fixed
-topic: null
+topic: detector-fail-open/wrong-parser-or-pattern
 occurrences: 1
 ---
 
 # INC-0019 - Fail-open detector: parsing the wrong column reports healthy
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [A parser or pattern reads the wrong evidence](../catalog/detector-fail-open/wrong-parser-or-pattern.md)
 
 **Cost:** Nearly logged 'auth OK' during a period when the long-lived credential had actually expired ~180 minutes earlier.
 

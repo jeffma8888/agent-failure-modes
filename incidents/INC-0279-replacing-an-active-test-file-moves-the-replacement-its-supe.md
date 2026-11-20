@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [identity-and-keying, checkpoint]
 severity: medium
 status: fixed
-topic: null
-occurrences: 1
+topic: identity-and-keying/replacement-record-malformed
+occurrences: 2
 ---
 
 # INC-0279 - Replacing an active test file moves the replacement, its supersession record and the registry line in one commit
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A file-replacement (supersession) record is refused or claims too much](../catalog/identity-and-keying/replacement-record-malformed.md)
 
 **Cost:** Minor: caught before it shipped.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Move a replacement, its supersession record and its registry line together in one commit when the old file is already active
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0419](./INC-0419-a-registry-edit-failed-its-own-sorted-order-assertion-and-th.md) - 2026-11-02 - A registry edit failed its own sorted-order assertion, and the identity checker refuses a supersession whose old path the registry still names
 
 ## Related
 

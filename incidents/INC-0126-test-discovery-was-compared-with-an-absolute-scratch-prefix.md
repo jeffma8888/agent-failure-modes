@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, detector-fail-open]
 severity: medium
 status: fixed
-topic: null
+topic: test-isolation/assertion-wider-than-contract
 occurrences: 1
 ---
 
 # INC-0126 - Test discovery was compared with an absolute scratch prefix that matched by accident, and guard omission mutants were not each killed
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Assertion measures more than its contract: caches, order, whole totals](../catalog/test-isolation/assertion-wider-than-contract.md)
 
 **Cost:** Minor: caught in review, an audit or an engineer check before it shipped.
 

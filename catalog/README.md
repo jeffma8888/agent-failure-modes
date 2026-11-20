@@ -7,24 +7,24 @@ Start here. 637 incidents from autonomous agent loops, arranged as a tree: this 
 1. Fastest: `python3 tools/afm.py route "what you observe"` prints the best nodes, and `python3 tools/afm.py search "text"` prints matching incidents with their rules. Both run from any directory.
 2. By hand: pick the class below whose "you are probably here if" matches what you SEE, open its node, then the topic whose "go here if" matches, then the incident.
 3. Before recording a failure, run `python3 tools/afm.py check "title + signature + root cause"`: a repeat becomes a recurrence, not a new incident. See [AGENTS.md](../AGENTS.md).
-4. Standing guidance for a prompt: [CORE.md](CORE.md) (max 16 KB). Do not load RULES.md, TAXONOMY.md or data/incidents.json whole.
+4. Standing guidance for a prompt: [CORE.md](CORE.md) (max 26 KB). Do not load RULES.md, TAXONOMY.md or data/incidents.json whole.
 
 ## Most-recurrent failures
 
-No repeats are recorded yet, so every failure has occurred once and this list falls back to severity, then id. A repeat recorded as a `recurrences` entry (see AGENTS.md) raises its incident here.
+Ranked by occurrences (an incident plus its recorded repeats), then severity, then id.
 
 | Incident | n | Severity | Where | Title |
 |---|---|---|---|---|
-| [INC-0002](../incidents/INC-0002-the-hard-per-step-wall-clock-cap-is-the-number-one-cause-of.md) | 1 | critical | [stage-timeout](stage-timeout/README.md) | The hard per-step wall-clock cap is the number-one cause of lost work |
-| [INC-0005](../incidents/INC-0005-a-killed-step-with-no-verdict-token-is-read-as-reverted.md) | 1 | critical | [verdict-token](verdict-token/README.md) | A killed step with no verdict token is read as REVERTED |
-| [INC-0011](../incidents/INC-0011-concurrent-agent-brains-silently-starve-and-kill-each-other.md) | 1 | critical | [concurrency](concurrency/README.md) | Concurrent agent brains silently starve and kill each other |
-| [INC-0014](../incidents/INC-0014-a-revert-on-failure-loop-destroys-uncommitted-human-work-in.md) | 1 | critical | [vcs-destruction](vcs-destruction/README.md) | A revert-on-failure loop destroys uncommitted human work in a shared tree |
-| [INC-0015](../incidents/INC-0015-git-identity-leak-real-name-via-ambient-global-config.md) | 1 | critical | [vcs-destruction](vcs-destruction/README.md) | Git identity leak: real name via ambient global config |
-| [INC-0027](../incidents/INC-0027-a-cache-keyed-on-a-recycled-id-judged-each-record-on-its-pre.md) | 1 | critical | [identity-and-keying](identity-and-keying/README.md) | A cache keyed on a recycled id judged each record on its predecessor's evidence |
-| [INC-0001](../incidents/INC-0001-reward-hacking-twelve-near-identical-features-shipped-as-dif.md) | 1 | high | [reward-hacking](reward-hacking/README.md) | Reward hacking: twelve near-identical features shipped as different work |
-| [INC-0003](../incidents/INC-0003-a-slow-test-suite-makes-a-product-unbuildable-by-the-loop.md) | 1 | high | [stage-timeout](stage-timeout/README.md) | A slow test suite makes a product unbuildable by the loop |
-| [INC-0004](../incidents/INC-0004-a-monotonically-growing-required-reading-file-silently-kills.md) | 1 | high | [stage-timeout](stage-timeout/README.md) | A monotonically growing required-reading file silently kills the loop |
-| [INC-0008](../incidents/INC-0008-stale-ipc-endpoint-after-the-host-application-restarts.md) | 1 | high | [ipc-and-env](ipc-and-env/README.md) | Stale IPC endpoint after the host application restarts |
+| [INC-0274](../incidents/INC-0274-write-times-from-a-command-output-not-from-memory.md) | 10 | medium | [observability/clock-labels-without-clock-evidence](observability/clock-labels-without-clock-evidence.md) | Write times from a command output, not from memory |
+| [INC-0128](../incidents/INC-0128-finished-work-sat-for-hours-because-replies-never-arrived-th.md) | 5 | medium | [delegation/finished-on-disk-no-reply](delegation/finished-on-disk-no-reply.md) | Finished work sat for hours because replies never arrived, the clock was misread and worktrees were not swept |
+| [INC-0611](../incidents/INC-0611-a-time-label-was-written-in-the-same-script-that-read-the-cl.md) | 4 | low | [observability/clock-labels-without-clock-evidence](observability/clock-labels-without-clock-evidence.md) | A time label was written in the same script that read the clock afterwards, minutes after a rule to read the clock first was recorded |
+| [INC-0165](../incidents/INC-0165-a-shell-variable-followed-by-a-colon-and-a-letter-became-a-h.md) | 3 | medium | [tooling-paths/zsh-expansion-surprises](tooling-paths/zsh-expansion-surprises.md) | A shell variable followed by a colon and a letter became a history modifier |
+| [INC-0517](../incidents/INC-0517-two-reviewers-were-named-who-had-written-or-judged-the-roots.md) | 3 | low | [delegation/reviewer-not-independent-or-free](delegation/reviewer-not-independent-or-free.md) | Two reviewers were named who had written or judged the roots they were to review, and both stopped at the author check |
+| [INC-0518](../incidents/INC-0518-a-landing-tool-read-a-bare-file-name-as-a-test-root-name-so.md) | 3 | low | [tooling-paths/argument-read-as-other-kind](tooling-paths/argument-read-as-other-kind.md) | A landing tool read a bare file name as a test-root name, so a file was left out of a landing and the identifier check failed |
+| [INC-0012](../incidents/INC-0012-a-loop-s-git-add-a-sweeps-a-human-s-uncommitted-edits-into-a.md) | 2 | high | [vcs-destruction](vcs-destruction/README.md) | A loop's `git add -A` sweeps a human's uncommitted edits into a loop commit |
+| [INC-0119](../incidents/INC-0119-a-sandboxed-home-hid-tool-caches-such-as-package-manager-shi.md) | 2 | medium | [ipc-and-env](ipc-and-env/README.md) | A sandboxed HOME hid tool caches such as package-manager shims |
+| [INC-0207](../incidents/INC-0207-three-sends-failed-because-a-packed-string-went-out-as-one-a.md) | 2 | medium | [tooling-paths/zsh-expansion-surprises](tooling-paths/zsh-expansion-surprises.md) | Three sends failed because a packed string went out as one argument |
+| [INC-0241](../incidents/INC-0241-automated-tests-passed-while-nobody-had-walked-the-real-site.md) | 2 | medium | [false-green/real-page-or-response-wrong-behind-green](false-green/real-page-or-response-wrong-behind-green.md) | Automated tests passed while nobody had walked the real site |
 
 ## Largest failure areas
 
@@ -32,41 +32,41 @@ Leaf nodes ranked by occurrences (n); incidents counts every record filed there.
 
 | Area | n | Incidents |
 |---|---|---|
-| [false-green](false-green/README.md) | 124 | 124 |
-| [spec-and-scope](spec-and-scope/README.md) | 104 | 104 |
-| [tooling-paths](tooling-paths/README.md) | 68 | 68 |
-| [delegation](delegation/README.md) | 44 | 44 |
-| [observability](observability/README.md) | 43 | 43 |
-| [stage-timeout](stage-timeout/README.md) | 40 | 40 |
-| [identity-and-keying](identity-and-keying/README.md) | 36 | 36 |
-| [test-isolation](test-isolation/README.md) | 36 | 36 |
-| [detector-fail-open](detector-fail-open/README.md) | 31 | 31 |
 | [ipc-and-env](ipc-and-env/README.md) | 22 | 22 |
+| [vcs-destruction](vcs-destruction/README.md) | 21 | 21 |
+| [concurrency](concurrency/README.md) | 20 | 20 |
+| [checkpoint](checkpoint/README.md) | 17 | 17 |
+| [observability/clock-labels-without-clock-evidence](observability/clock-labels-without-clock-evidence.md) | 15 | 15 |
+| [detector-fail-closed](detector-fail-closed/README.md) | 14 | 14 |
+| [false-green/green-but-cases-never-ran](false-green/green-but-cases-never-ran.md) | 14 | 14 |
+| [false-green/mutation-witness-proves-less](false-green/mutation-witness-proves-less.md) | 14 | 14 |
+| [identity-and-keying/replacement-record-malformed](identity-and-keying/replacement-record-malformed.md) | 14 | 14 |
+| [spec-and-scope/framework-contract-assumptions](spec-and-scope/framework-contract-assumptions.md) | 14 | 14 |
 
 ## Classes
 
-Home = incidents whose first class is this one; also = filed elsewhere but tagged with it. No class has topics yet.
+Home = incidents whose first class is this one; also = filed elsewhere but tagged with it. The classes hold 54 topics.
 
 | Class | You are probably here if | Home | Also |
 |---|---|---|---|
-| [reward-hacking](reward-hacking/README.md) | The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. | 2 | 0 |
-| [false-green](false-green/README.md) | A quality gate reports success while the work is not actually good: vacuous tests, tautological assertions, skipped cases, or a grader that cannot fail. | 124 | 60 |
-| [stage-timeout](stage-timeout/README.md) | A hard per-step wall-clock cap (beneath any outer timeout you set) silently kills work that runs too long. | 40 | 9 |
-| [verdict-token](verdict-token/README.md) | A machine-parsed decision token is missing or malformed, so a downstream parser reads the absence as the pessimistic default and discards good work. | 3 | 2 |
-| [steering-channel](steering-channel/README.md) | The channel meant to steer the loop (injected instructions, pinned notes) is not actually delivered - it is truncated, mis-parsed, or dropped by the consumer that was supposed to read it. | 4 | 1 |
-| [ipc-and-env](ipc-and-env/README.md) | The loop breaks on its runtime environment rather than its logic: a rotated socket, an expired credential, an inherited stale variable, the machine going to sleep. | 22 | 14 |
-| [concurrency](concurrency/README.md) | Independent agents or sessions contend for one shared resource - a rate-limited API quota, a git index, a working tree - and degrade or corrupt each other, often silently. | 20 | 16 |
-| [vcs-destruction](vcs-destruction/README.md) | Version control is used as a weapon against the working tree: a blanket stage sweeps in unrelated edits, a revert-to-remote discards uncommitted work, or identity leaks into history. | 21 | 9 |
-| [delegation](delegation/README.md) | A sub-agent re-delegates instead of doing the work: it spawns another loop, scaffolds a plan for a future iteration, and exits successfully having produced nothing. | 44 | 21 |
-| [detector-fail-open](detector-fail-open/README.md) | A monitor or safety check silently never fires: a wrong regex flavor, the wrong parsed field, a case mismatch. | 31 | 20 |
-| [detector-fail-closed](detector-fail-closed/README.md) | A monitor or check fires when it should not: it reports a correct artifact as broken, an honest quote as fabricated, a live process as dead. | 14 | 3 |
-| [stale-module](stale-module/README.md) | A long-running process runs the code it imported at launch. | 8 | 4 |
-| [checkpoint](checkpoint/README.md) | An all-or-nothing step loses everything when it is interrupted, because it writes its output only at the end instead of writing a minimal-but-complete artifact first and refining in place. | 17 | 15 |
-| [tooling-paths](tooling-paths/README.md) | The shell or tool layer betrays you: command substitution runs inside a string you meant as data, a built-in resolves paths from an unexpected root, an interpreter shim mutates the wrong environment. | 68 | 30 |
-| [test-isolation](test-isolation/README.md) | A test passes only in the environment where it was written: it depends on untracked local state, ambient file counts, a directory name, or git history a clean checkout does not have. | 36 | 33 |
-| [observability](observability/README.md) | The signal you trust hides the truth: an outcome flag masks a chronically over-budget step, a lifetime average hides a spike, a hardened process reports zero usage. | 43 | 56 |
-| [spec-and-scope](spec-and-scope/README.md) | The loop does the wrong amount of work: it pursues the whole visible mission instead of its assigned slice, or picks tasks by lowest effort instead of highest value, or grows an artifact without bound. | 104 | 58 |
-| [identity-and-keying](identity-and-keying/README.md) | Two distinct things share one identifier or cache key, so state computed for one is served for the other: a slot number a rejection recycles, a cache keyed on a mutable name, a record cited by its position in a re-sorted list. | 36 | 19 |
+| [reward-hacking](reward-hacking/README.md) | The loop keeps hitting its success metric while real progress stalls: near-duplicate ships, self-reported wins, or a gate the agent can switch off itself. | 2 | 0 |
+| [false-green](false-green/README.md) | A gate, test or check is green (or red) while the work it vouches for is broken, never ran, or was judged by a signal that cannot tell the difference. | 124 | 60 |
+| [stage-timeout](stage-timeout/README.md) | Work dies at a repeatable duration, passes alone but times out in a suite, or never starts because a load or deadline gate refuses it. | 40 | 9 |
+| [verdict-token](verdict-token/README.md) | Good work was discarded, or unfinished work proceeded, with no error: the decision token was missing, cut off or advisory, and the parser applied its default. | 3 | 2 |
+| [steering-channel](steering-channel/README.md) | A directive, pinned note or reply that should steer the loop was written, yet the consumer acted as if it never arrived, or saw it and never acted on it. | 4 | 1 |
+| [ipc-and-env](ipc-and-env/README.md) | Every step fails the same way, code unchanged: stale socket, expired or cached credential, missing or inherited env var, wrong PATH, HOME or runtime, or sleep. | 22 | 14 |
+| [concurrency](concurrency/README.md) | Jobs stall, race or vanish because several agents or runs share one thing: a provider quota, a host lock or load gate, a cluster, a worktree, a script. | 20 | 16 |
+| [vcs-destruction](vcs-destruction/README.md) | A commit holds files you never touched, work vanished after a reset or clean step, a rename looks wrong, or history carries a name or file it must not. | 21 | 9 |
+| [delegation](delegation/README.md) | Delegated work stalls or misfires: finished files but no reply, a reviewer stopping at an author check, an order a rule refuses, a brief with a gap. | 44 | 21 |
+| [detector-fail-open](detector-fail-open/README.md) | A check stays silent on known-bad input, matches the wrong evidence, skips part of its scope or treats missing data as permission. | 31 | 20 |
+| [detector-fail-closed](detector-fail-closed/README.md) | A check, scanner, lint or guard accuses an artifact you can see is correct: the quote is on the page, the file never ships, the bytes match main. | 14 | 3 |
+| [stale-module](stale-module/README.md) | Running behavior ignores merged changes, a gate checks another tree, or a packet, registry, or exact list describes obsolete files or exports. | 8 | 4 |
+| [checkpoint](checkpoint/README.md) | An interruption or later edit loses usable output or evidence, or completed work remains blocked, unrecorded, or unpublished. | 17 | 15 |
+| [tooling-paths](tooling-paths/README.md) | A command did other than you typed: a value truncated, a path refused or resolved elsewhere, a chain ran on after a failure, the wrong binary or tree answered. | 68 | 30 |
+| [test-isolation](test-isolation/README.md) | A test green on your machine, alone, or on its branch goes red in a fresh clone, CI, the full suite, or next to another run or agent, with no product change. | 36 | 33 |
+| [observability](observability/README.md) | Logs, timing, counts or status look reassuring, but the underlying run, evidence or reported chronology cannot be verified. | 43 | 56 |
+| [spec-and-scope](spec-and-scope/README.md) | Work exceeds its assigned slice or size cap, favors easy tasks over value, or a plan contradicts files, tools, dependencies, permissions, or delivered work. | 104 | 58 |
+| [identity-and-keying](identity-and-keying/README.md) | A lookup lands on the wrong thing: one identical reason across many inputs, entries vanish, a new id was already taken, a revision is tied to the wrong commit. | 36 | 19 |
 
 ## Practices
 

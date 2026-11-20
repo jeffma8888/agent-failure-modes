@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [detector-fail-open, vcs-destruction]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/coverage-and-controls-not-proven
 occurrences: 1
 ---
 
 # INC-0215 - A commit skipped the machine-wide pre-commit scanner
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [The checker ran but its target coverage is unproven](../catalog/detector-fail-open/coverage-and-controls-not-proven.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/count-or-total-computed-wrong
 occurrences: 1
 ---
 
 # INC-0323 - A red run that also renamed its checks counted name drift as defects
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A reported count, total or ledger does not match what ran](../catalog/false-green/count-or-total-computed-wrong.md)
 
 **Cost:** Minor: caught before it shipped.
 

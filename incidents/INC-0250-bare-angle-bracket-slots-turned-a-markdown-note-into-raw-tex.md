@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, detector-fail-open]
 severity: high
 status: fixed
-topic: null
+topic: false-green/real-page-or-response-wrong-behind-green
 occurrences: 1
 ---
 
 # INC-0250 - Bare angle-bracket slots turned a Markdown note into raw text after structural checks passed
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Tests pass but the real page, status or session is wrong](../catalog/false-green/real-page-or-response-wrong-behind-green.md)
 
 **Cost:** One note rendered as raw text from the first slot to the end, and the same bug sat in 20 more notes, two of them templates that seeded it. The user had been told the formatting was fine.
 

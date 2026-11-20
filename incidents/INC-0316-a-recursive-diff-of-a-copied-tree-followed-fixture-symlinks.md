@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths, test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: tooling-paths/path-resolves-from-wrong-root
 occurrences: 1
 ---
 
 # INC-0316 - A recursive diff of a copied tree followed fixture symlinks into the host
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A relative path or link resolves from a different root than assumed](../catalog/tooling-paths/path-resolves-from-wrong-root.md)
 
 **Cost:** Minor: caught before it shipped.
 

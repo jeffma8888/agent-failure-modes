@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/fix-misses-related-consumers
 occurrences: 1
 ---
 
 # INC-0086 - After a dependency fix, two rows still called the same seed function with different payloads
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [A local fix leaves sibling cases or callers broken](../catalog/spec-and-scope/fix-misses-related-consumers.md)
 
 **Cost:** Minor: caught in review or by a stop rule before it shipped.
 

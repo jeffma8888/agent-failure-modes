@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [delegation, concurrency]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/stalled-behind-one-owner-or-decision
 occurrences: 1
 ---
 
 # INC-0237 - A team runtime cap blocked new teammates behind retained idle ones
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Parallel work stalls behind one busy owner, open decision or slot cap](../catalog/delegation/stalled-behind-one-owner-or-decision.md)
 
 **Cost:** Minor: caught before it shipped.
 

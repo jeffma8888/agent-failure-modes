@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, identity-and-keying]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/guard-defaults-and-negative-controls
 occurrences: 1
 ---
 
 # INC-0108 - A fail-closed URL rule copied into several helpers was not applied to every copy or every URL part
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [A broken guard implementation still appears valid](../catalog/detector-fail-open/guard-defaults-and-negative-controls.md)
 
 **Cost:** Minor: caught by a stop rule, a re-check or review before it shipped.
 

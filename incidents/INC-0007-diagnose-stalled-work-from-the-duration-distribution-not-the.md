@@ -5,13 +5,13 @@ date: 2026-08-04
 classes: [observability, stage-timeout]
 severity: medium
 status: fixed
-topic: null
+topic: observability/misleading-metrics-and-status
 occurrences: 1
 ---
 
 # INC-0007 - Diagnose stalled work from the duration distribution, not the outcome
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [A reassuring signal contradicts the underlying evidence](../catalog/observability/misleading-metrics-and-status.md)
 
 **Cost:** A plausible-but-untested fix was shipped and failed. The correct diagnosis was in the log the whole time - it just needed to be tallied.
 

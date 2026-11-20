@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
-topic: null
+topic: tooling-paths/edit-or-match-hit-wrong-bytes
 occurrences: 1
 ---
 
 # INC-0574 - Two mutation drivers stopped before the restored green because they matched a log-tail string the harness does not print
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [An edit anchor or text match hit different bytes than you meant](../catalog/tooling-paths/edit-or-match-hit-wrong-bytes.md)
 
 **Cost:** Two restored-green runs were missed and one extra sanctioned invocation was needed for each.
 

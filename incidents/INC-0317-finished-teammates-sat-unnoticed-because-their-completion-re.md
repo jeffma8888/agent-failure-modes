@@ -5,13 +5,16 @@ date: 2026-11-01
 classes: [delegation, observability]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/finished-on-disk-no-reply
 occurrences: 1
+recurrence_of: INC-0128
 ---
 
 # INC-0317 - Finished teammates sat unnoticed because their completion replies never arrived
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Teammates finished on disk; the reply never came or went unnoticed](../catalog/delegation/finished-on-disk-no-reply.md)
+
+> **Recurrence of [INC-0128](./INC-0128-finished-work-sat-for-hours-because-replies-never-arrived-th.md).** This record repeats an earlier failure and is kept for history; INC-0128 is the canonical record (5 occurrences in total) and carries the rule to apply.
 
 **Cost:** Minor: caught before it shipped.
 

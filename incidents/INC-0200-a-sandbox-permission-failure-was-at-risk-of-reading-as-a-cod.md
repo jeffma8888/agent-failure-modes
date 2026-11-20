@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [false-green, tooling-paths]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/red-for-the-wrong-reason
 occurrences: 1
 ---
 
 # INC-0200 - A sandbox permission failure was at risk of reading as a code defect
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A red, blocked or failing result came from setup or environment](../catalog/false-green/red-for-the-wrong-reason.md)
 
 **Cost:** Minor: caught before it shipped.
 

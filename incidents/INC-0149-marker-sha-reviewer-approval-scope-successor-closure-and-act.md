@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: identity-and-keying/key-is-a-proxy
 occurrences: 1
 ---
 
 # INC-0149 - Marker SHA, reviewer approval scope, successor closure and activation ownership were treated as one fact
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A name, path string or digest stands in for the real identity, drifts](../catalog/identity-and-keying/key-is-a-proxy.md)
 
 **Cost:** Minor: caught by a reviewer, an auditor or the lead before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, checkpoint]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/records-drift-or-lose-provenance
 occurrences: 1
 ---
 
 # INC-0338 - A review pinned before the fix reported findings that were already closed
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [A cited baseline, count, line, or digest no longer matches its source](../catalog/spec-and-scope/records-drift-or-lose-provenance.md)
 
 **Cost:** Minor: caught before it shipped.
 

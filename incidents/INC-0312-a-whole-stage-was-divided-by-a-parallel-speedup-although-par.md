@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [stage-timeout, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: stage-timeout/timing-models-and-critical-path
 occurrences: 1
 ---
 
 # INC-0312 - A whole stage was divided by a parallel speedup although part of it had to stay serial
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Timing models or optimizations are not measured](../catalog/stage-timeout/timing-models-and-critical-path.md)
 
 **Cost:** Minor: caught before it shipped.
 

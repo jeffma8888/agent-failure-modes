@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, detector-fail-open]
 severity: medium
 status: fixed
-topic: null
+topic: identity-and-keying/key-is-a-proxy
 occurrences: 1
 ---
 
 # INC-0122 - A digest present anywhere in a manifest was taken as proof it belonged to its file
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A name, path string or digest stands in for the real identity, drifts](../catalog/identity-and-keying/key-is-a-proxy.md)
 
 **Cost:** Minor: caught by a re-check, an audit or review before it shipped.
 

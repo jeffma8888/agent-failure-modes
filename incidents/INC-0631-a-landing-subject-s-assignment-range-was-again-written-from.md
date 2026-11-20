@@ -5,13 +5,16 @@ date: 2026-11-07
 classes: [spec-and-scope]
 severity: low
 status: mitigated
-topic: null
+topic: spec-and-scope/claims-outrun-available-evidence
 occurrences: 1
+recurrence_of: INC-0626
 ---
 
 # INC-0631 - A landing subject's assignment range was again written from the lead's own brief instead of the author report; the second time
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Claims or instructions say more than the evidence supports](../catalog/spec-and-scope/claims-outrun-available-evidence.md)
+
+> **Recurrence of [INC-0626](./INC-0626-a-landing-subject-was-written-from-the-lead-s-expectation-of.md).** This record repeats an earlier failure and is kept for history; INC-0626 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** A landed commit subject named a wider range than its artifact, and an erratum records it.
 

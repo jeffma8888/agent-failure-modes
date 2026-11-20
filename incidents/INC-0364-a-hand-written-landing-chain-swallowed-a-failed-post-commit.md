@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: tooling-paths/chain-ran-on-after-failure
 occurrences: 1
 ---
 
 # INC-0364 - A hand-written landing chain swallowed a failed post-commit leak scan and three commits landed on top
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A shell chain ran on after a failed step, or a refusal sank safe steps](../catalog/tooling-paths/chain-ran-on-after-failure.md)
 
 **Cost:** Minor: a rewrite of four local commits and a branch move; nothing was pushed because pushes were frozen.
 

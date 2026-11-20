@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
-topic: null
+topic: false-green/verified-a-different-target
 occurrences: 1
 ---
 
 # INC-0421 - A closure packet freeze test turned positive on a control-only landing and the lead admitted it narrowly
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Verified a shortcut, a part or an old revision instead of what ships](../catalog/false-green/verified-a-different-target.md)
 
 **Cost:** No run was lost; the run waited for a written admission instead of proceeding or being blocked.
 

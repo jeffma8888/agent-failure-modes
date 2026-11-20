@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
+topic: false-green/mutation-witness-proves-less
 occurrences: 1
 ---
 
 # INC-0542 - A mutation that flipped a field-level unique flag was masked by a unique index the migration had already created
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A mutant or red-first witness does not prove what it is named for](../catalog/false-green/mutation-witness-proves-less.md)
 
 **Cost:** No loss. The reviewer blocked the root until a sanctioned route for right-reason evidence existed.
 

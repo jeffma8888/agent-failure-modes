@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, delegation]
 severity: medium
 status: fixed
-topic: null
-occurrences: 1
+topic: tooling-paths/zsh-expansion-surprises
+occurrences: 2
 ---
 
 # INC-0207 - Three sends failed because a packed string went out as one argument
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [zsh reads your variable differently: colon modifier, word split, array](../catalog/tooling-paths/zsh-expansion-surprises.md)
 
 **Cost:** Minor: caught before it shipped.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Check the exit status of every send, and pass real arguments, not a packed string
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0636](./INC-0636-a-shell-loop-meant-to-send-four-messages-sent-none-because-t.md) - 2026-11-10 - A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words
 
 ## Related
 

@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
-topic: null
+topic: delegation/order-collides-with-rule-or-guard
 occurrences: 1
 ---
 
 # INC-0452 - A ruling cannot override a teammate tool rules, so the lead sleep loop load waiter was refused and withdrawn
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Your order collided with a tool rule, permission ceiling, guard or pin](../catalog/delegation/order-collides-with-rule-or-guard.md)
 
 **Cost:** None: the refusal came before any run, and the helper was withdrawn.
 

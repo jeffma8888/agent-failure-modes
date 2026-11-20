@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
-topic: null
-occurrences: 1
+topic: false-green/step-failed-but-gate-passed
+occurrences: 2
 ---
 
 # INC-0480 - A push gate that piped the test run into a trimming command would have pushed even if the tests had failed
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A gate verdict came from a wrapper, pipe, chain or last line](../catalog/false-green/step-failed-but-gate-passed.md)
 
 **Cost:** None: the tests happened to pass, so nothing bad shipped; the gate was simply not a gate.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Never pipe a gating command; capture its exit status first, by pipefail or by writing to a file and checking the status before reading the file.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0623](./INC-0623-a-helper-piped-to-tail-and-followed-by-ran-the-next-step-alt.md) - 2026-11-04 - A helper piped to tail and followed by && ran the next step although the helper failed, because a pipeline's status is its last command's
 
 ## Related
 

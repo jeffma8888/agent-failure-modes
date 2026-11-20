@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: fixed
-topic: null
+topic: spec-and-scope/framework-contract-assumptions
 occurrences: 1
 ---
 
 # INC-0434 - A reviewer's framework claim was corrected from the installed source: a draft save writes only the versions table
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Framework behavior contradicts the design or test](../catalog/spec-and-scope/framework-contract-assumptions.md)
 
 **Cost:** No wrong assertion entered the tests or the spec.
 

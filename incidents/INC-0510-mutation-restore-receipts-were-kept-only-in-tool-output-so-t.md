@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: mitigated
-topic: null
+topic: observability/missing-or-unverifiable-receipts
 occurrences: 1
 ---
 
 # INC-0510 - Mutation restore receipts were kept only in tool output, so two independent reviewers could not verify restoration
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Missing evidence keeps findings unverified](../catalog/observability/missing-or-unverifiable-receipts.md)
 
 **Cost:** Two reviews held on the same gap until a ruling accepted the shipped-bytes evidence instead; no mutation rerun.
 

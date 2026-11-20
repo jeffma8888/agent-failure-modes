@@ -5,13 +5,16 @@ date: 2026-11-04
 classes: [false-green]
 severity: medium
 status: mitigated
-topic: null
+topic: false-green/step-failed-but-gate-passed
 occurrences: 1
+recurrence_of: INC-0480
 ---
 
 # INC-0623 - A helper piped to tail and followed by && ran the next step although the helper failed, because a pipeline's status is its last command's
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A gate verdict came from a wrapper, pipe, chain or last line](../catalog/false-green/step-failed-but-gate-passed.md)
+
+> **Recurrence of [INC-0480](./INC-0480-a-push-gate-that-piped-the-test-run-into-a-trimming-command.md).** This record repeats an earlier failure and is kept for history; INC-0480 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** A next step ran after a failed helper, caught on reading the output.
 

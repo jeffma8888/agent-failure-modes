@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, false-green]
 severity: low
 status: fixed
-topic: null
+topic: test-isolation/assertion-wider-than-contract
 occurrences: 1
 ---
 
 # INC-0084 - Test-summary assertions broke on ANSI color codes, and compile caches were mistaken for resource leaks
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Assertion measures more than its contract: caches, order, whole totals](../catalog/test-isolation/assertion-wider-than-contract.md)
 
 **Cost:** Minor: caught in review or by a stop rule before it shipped.
 

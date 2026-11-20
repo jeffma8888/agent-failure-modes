@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: mitigated
-topic: null
+topic: identity-and-keying/replacement-record-malformed
 occurrences: 1
 ---
 
 # INC-0514 - An implementer proposed editing a pinned root's mock to fit a new helper contract, and the fix was a wrapper that kept the mocked shape
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A file-replacement (supersession) record is refused or claims too much](../catalog/identity-and-keying/replacement-record-malformed.md)
 
 **Cost:** One round trip; the proposal was refused before any edit, so no identity failure occurred.
 

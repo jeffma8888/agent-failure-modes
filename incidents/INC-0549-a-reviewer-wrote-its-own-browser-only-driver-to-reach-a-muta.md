@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: mitigated
-topic: null
+topic: spec-and-scope/instructions-tools-cannot-follow
 occurrences: 1
 ---
 
 # INC-0549 - A reviewer wrote its own browser-only driver to reach a mutant after the row runner stopped at an integration red, without asking
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Instructions fail a gate or omit the required operation](../catalog/spec-and-scope/instructions-tools-cannot-follow.md)
 
 **Cost:** None. The lead accepted the evidence once and ruled it was not a precedent.
 

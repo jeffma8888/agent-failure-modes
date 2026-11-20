@@ -5,13 +5,16 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
-topic: null
+topic: false-green/real-page-or-response-wrong-behind-green
 occurrences: 1
+recurrence_of: INC-0241
 ---
 
 # INC-0496 - An acceptance record was ready for signature with every test tier green while the main page of the row was blank
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Tests pass but the real page, status or session is wrong](../catalog/false-green/real-page-or-response-wrong-behind-green.md)
+
+> **Recurrence of [INC-0241](./INC-0241-automated-tests-passed-while-nobody-had-walked-the-real-site.md).** This record repeats an earlier failure and is kept for history; INC-0241 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** Four record revisions reached the point of signature on a row whose deliverable page did not render; the signature and the later steps that wait on it were held.
 

@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [false-green, concurrency]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/test-cannot-see-the-defect
 occurrences: 1
 ---
 
 # INC-0104 - A process-group kill test used single-process stubs, so signalling the leader and the group looked the same
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test stays green with the behavior removed or broken](../catalog/false-green/test-cannot-see-the-defect.md)
 
 **Cost:** Minor: caught by a stop rule, a re-check or review before it shipped.
 

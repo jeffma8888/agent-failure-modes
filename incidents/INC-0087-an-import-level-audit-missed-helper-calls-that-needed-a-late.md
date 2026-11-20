@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [delegation, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/brief-or-plan-left-a-gap
 occurrences: 1
 ---
 
 # INC-0087 - An import-level audit missed helper calls that needed a later row, and only the engineer stop rule caught it
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [The brief or plan left a gap the worker fell through](../catalog/delegation/brief-or-plan-left-a-gap.md)
 
 **Cost:** Minor: caught in review or by a stop rule before it shipped.
 

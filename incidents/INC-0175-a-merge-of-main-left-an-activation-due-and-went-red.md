@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, checkpoint]
 severity: medium
 status: fixed
-topic: null
+topic: identity-and-keying/approval-names-wrong-commit
 occurrences: 1
 ---
 
 # INC-0175 - A merge of main left an activation due and went red
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [An approval or activation names the wrong commit or line of history](../catalog/identity-and-keying/approval-names-wrong-commit.md)
 
 **Cost:** Minor: caught before it shipped.
 

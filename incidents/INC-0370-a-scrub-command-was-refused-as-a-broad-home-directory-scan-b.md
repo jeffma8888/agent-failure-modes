@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths]
 severity: low
 status: fixed
-topic: null
+topic: tooling-paths/sandbox-refuses-allowed-target
 occurrences: 1
 ---
 
 # INC-0370 - A scrub command was refused as a broad home-directory scan by the operating system's privacy layer
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [Sandbox cannot resolve or authorize the target you actually meant](../catalog/tooling-paths/sandbox-refuses-allowed-target.md)
 
 **Cost:** Minor: one refused step and a rerun with a narrower search.
 

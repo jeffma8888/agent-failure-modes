@@ -5,13 +5,117 @@
  "counts": {
   "incidents": 637,
   "classes": 18,
-  "topics": 0,
+  "topics": 54,
   "practices": 5,
-  "recurrence_records": 0,
+  "recurrence_records": 42,
   "recorded_repeats": 0,
   "occurrences": 637
  },
  "most_recurrent": [
+  [
+   "INC-0274",
+   10
+  ],
+  [
+   "INC-0128",
+   5
+  ],
+  [
+   "INC-0611",
+   4
+  ],
+  [
+   "INC-0165",
+   3
+  ],
+  [
+   "INC-0517",
+   3
+  ],
+  [
+   "INC-0518",
+   3
+  ],
+  [
+   "INC-0012",
+   2
+  ],
+  [
+   "INC-0119",
+   2
+  ],
+  [
+   "INC-0207",
+   2
+  ],
+  [
+   "INC-0241",
+   2
+  ],
+  [
+   "INC-0244",
+   2
+  ],
+  [
+   "INC-0249",
+   2
+  ],
+  [
+   "INC-0261",
+   2
+  ],
+  [
+   "INC-0275",
+   2
+  ],
+  [
+   "INC-0279",
+   2
+  ],
+  [
+   "INC-0288",
+   2
+  ],
+  [
+   "INC-0490",
+   2
+  ],
+  [
+   "INC-0523",
+   2
+  ],
+  [
+   "INC-0390",
+   2
+  ],
+  [
+   "INC-0447",
+   2
+  ],
+  [
+   "INC-0464",
+   2
+  ],
+  [
+   "INC-0480",
+   2
+  ],
+  [
+   "INC-0483",
+   2
+  ],
+  [
+   "INC-0524",
+   2
+  ],
+  [
+   "INC-0581",
+   2
+  ],
+  [
+   "INC-0626",
+   2
+  ],
   [
    "INC-0002",
    1
@@ -61,10 +165,6 @@
    1
   ],
   [
-   "INC-0012",
-   1
-  ],
-  [
    "INC-0013",
    1
   ],
@@ -111,106 +211,6 @@
   [
    "INC-0031",
    1
-  ],
-  [
-   "INC-0032",
-   1
-  ],
-  [
-   "INC-0033",
-   1
-  ],
-  [
-   "INC-0035",
-   1
-  ],
-  [
-   "INC-0039",
-   1
-  ],
-  [
-   "INC-0041",
-   1
-  ],
-  [
-   "INC-0042",
-   1
-  ],
-  [
-   "INC-0043",
-   1
-  ],
-  [
-   "INC-0044",
-   1
-  ],
-  [
-   "INC-0045",
-   1
-  ],
-  [
-   "INC-0064",
-   1
-  ],
-  [
-   "INC-0065",
-   1
-  ],
-  [
-   "INC-0068",
-   1
-  ],
-  [
-   "INC-0077",
-   1
-  ],
-  [
-   "INC-0250",
-   1
-  ],
-  [
-   "INC-0585",
-   1
-  ],
-  [
-   "INC-0587",
-   1
-  ],
-  [
-   "INC-0596",
-   1
-  ],
-  [
-   "INC-0600",
-   1
-  ],
-  [
-   "INC-0601",
-   1
-  ],
-  [
-   "INC-0627",
-   1
-  ],
-  [
-   "INC-0630",
-   1
-  ],
-  [
-   "INC-0633",
-   1
-  ],
-  [
-   "INC-0006",
-   1
-  ],
-  [
-   "INC-0007",
-   1
-  ],
-  [
-   "INC-0017",
-   1
   ]
  ],
  "classes": {
@@ -231,132 +231,23 @@
    "home": 124,
    "also_tagged": 60,
    "occurrences": 124,
-   "topics": [],
+   "topics": [
+    "false-green/check-satisfied-by-unrelated-cause",
+    "false-green/count-or-total-computed-wrong",
+    "false-green/green-but-cases-never-ran",
+    "false-green/mutation-witness-proves-less",
+    "false-green/oracle-or-claim-written-from-memory",
+    "false-green/proxy-artifact-cited-as-evidence",
+    "false-green/real-page-or-response-wrong-behind-green",
+    "false-green/red-for-the-wrong-reason",
+    "false-green/step-failed-but-gate-passed",
+    "false-green/test-cannot-see-the-defect",
+    "false-green/verified-a-different-target"
+   ],
    "class_level": [
     "INC-0028",
-    "INC-0031",
-    "INC-0035",
     "INC-0040",
-    "INC-0042",
-    "INC-0056",
-    "INC-0057",
-    "INC-0058",
-    "INC-0061",
-    "INC-0062",
-    "INC-0070",
-    "INC-0082",
-    "INC-0083",
-    "INC-0095",
-    "INC-0104",
-    "INC-0112",
-    "INC-0116",
-    "INC-0120",
-    "INC-0133",
-    "INC-0153",
-    "INC-0155",
-    "INC-0163",
-    "INC-0168",
-    "INC-0174",
-    "INC-0190",
-    "INC-0192",
-    "INC-0193",
-    "INC-0196",
-    "INC-0200",
-    "INC-0202",
-    "INC-0203",
-    "INC-0205",
-    "INC-0208",
-    "INC-0213",
-    "INC-0214",
-    "INC-0221",
-    "INC-0222",
-    "INC-0228",
-    "INC-0232",
-    "INC-0233",
-    "INC-0234",
-    "INC-0236",
-    "INC-0239",
-    "INC-0241",
-    "INC-0244",
-    "INC-0246",
-    "INC-0247",
-    "INC-0250",
-    "INC-0252",
-    "INC-0253",
-    "INC-0259",
-    "INC-0265",
-    "INC-0266",
-    "INC-0272",
-    "INC-0273",
-    "INC-0275",
-    "INC-0280",
-    "INC-0282",
-    "INC-0283",
-    "INC-0284",
-    "INC-0287",
-    "INC-0290",
-    "INC-0291",
-    "INC-0295",
-    "INC-0310",
-    "INC-0314",
-    "INC-0315",
-    "INC-0318",
-    "INC-0321",
-    "INC-0322",
-    "INC-0323",
-    "INC-0329",
-    "INC-0336",
-    "INC-0339",
-    "INC-0343",
-    "INC-0344",
-    "INC-0347",
-    "INC-0356",
-    "INC-0363",
-    "INC-0382",
-    "INC-0388",
-    "INC-0389",
-    "INC-0396",
-    "INC-0408",
-    "INC-0412",
-    "INC-0421",
-    "INC-0447",
-    "INC-0455",
-    "INC-0461",
-    "INC-0474",
-    "INC-0476",
-    "INC-0477",
-    "INC-0480",
-    "INC-0482",
-    "INC-0484",
-    "INC-0485",
-    "INC-0487",
-    "INC-0490",
-    "INC-0496",
-    "INC-0497",
-    "INC-0498",
-    "INC-0505",
-    "INC-0523",
-    "INC-0524",
-    "INC-0525",
-    "INC-0527",
-    "INC-0530",
-    "INC-0533",
-    "INC-0534",
-    "INC-0541",
-    "INC-0542",
-    "INC-0560",
-    "INC-0566",
-    "INC-0571",
-    "INC-0578",
-    "INC-0588",
-    "INC-0601",
-    "INC-0608",
-    "INC-0620",
-    "INC-0623",
-    "INC-0625",
-    "INC-0628",
-    "INC-0634",
-    "INC-0637"
+    "INC-0205"
    ],
    "also_tagged_ids": [
     "INC-0001",
@@ -426,48 +317,16 @@
    "home": 40,
    "also_tagged": 9,
    "occurrences": 40,
-   "topics": [],
+   "topics": [
+    "stage-timeout/stale-or-overbroad-load-admission",
+    "stage-timeout/timeout-policy-and-lifecycle-boundaries",
+    "stage-timeout/timing-models-and-critical-path",
+    "stage-timeout/work-outgrows-enforced-timeouts"
+   ],
    "class_level": [
-    "INC-0002",
-    "INC-0003",
-    "INC-0004",
-    "INC-0025",
-    "INC-0092",
-    "INC-0093",
-    "INC-0107",
-    "INC-0111",
-    "INC-0124",
-    "INC-0131",
-    "INC-0139",
-    "INC-0143",
-    "INC-0187",
-    "INC-0195",
-    "INC-0209",
-    "INC-0210",
     "INC-0218",
-    "INC-0230",
-    "INC-0271",
-    "INC-0308",
-    "INC-0312",
-    "INC-0333",
-    "INC-0345",
-    "INC-0348",
-    "INC-0355",
-    "INC-0393",
-    "INC-0417",
-    "INC-0427",
     "INC-0444",
-    "INC-0450",
-    "INC-0465",
-    "INC-0500",
-    "INC-0501",
-    "INC-0508",
-    "INC-0512",
-    "INC-0521",
-    "INC-0529",
-    "INC-0551",
-    "INC-0590",
-    "INC-0591"
+    "INC-0501"
    ],
    "also_tagged_ids": [
     "INC-0005",
@@ -653,52 +512,17 @@
    "home": 44,
    "also_tagged": 21,
    "occurrences": 44,
-   "topics": [],
+   "topics": [
+    "delegation/brief-or-plan-left-a-gap",
+    "delegation/finished-on-disk-no-reply",
+    "delegation/guessed-or-stale-id-name-path",
+    "delegation/order-collides-with-rule-or-guard",
+    "delegation/reviewer-not-independent-or-free",
+    "delegation/stalled-behind-one-owner-or-decision"
+   ],
    "class_level": [
-    "INC-0016",
     "INC-0017",
-    "INC-0087",
-    "INC-0091",
-    "INC-0098",
-    "INC-0128",
-    "INC-0135",
-    "INC-0179",
-    "INC-0201",
-    "INC-0206",
-    "INC-0220",
-    "INC-0237",
-    "INC-0263",
-    "INC-0270",
-    "INC-0277",
-    "INC-0298",
-    "INC-0317",
-    "INC-0331",
-    "INC-0337",
-    "INC-0379",
-    "INC-0385",
-    "INC-0392",
-    "INC-0399",
-    "INC-0410",
-    "INC-0411",
-    "INC-0416",
-    "INC-0423",
-    "INC-0435",
-    "INC-0452",
-    "INC-0453",
-    "INC-0467",
-    "INC-0473",
-    "INC-0489",
-    "INC-0493",
-    "INC-0507",
-    "INC-0517",
-    "INC-0526",
-    "INC-0539",
-    "INC-0548",
-    "INC-0573",
-    "INC-0589",
-    "INC-0610",
-    "INC-0630",
-    "INC-0635"
+    "INC-0385"
    ],
    "also_tagged_ids": [
     "INC-0041",
@@ -729,39 +553,15 @@
    "home": 31,
    "also_tagged": 20,
    "occurrences": 31,
-   "topics": [],
+   "topics": [
+    "detector-fail-open/coverage-and-controls-not-proven",
+    "detector-fail-open/guard-defaults-and-negative-controls",
+    "detector-fail-open/syntax-shapes-and-benign-decoys",
+    "detector-fail-open/wrong-parser-or-pattern"
+   ],
    "class_level": [
-    "INC-0018",
-    "INC-0019",
-    "INC-0029",
-    "INC-0037",
-    "INC-0069",
-    "INC-0077",
-    "INC-0078",
-    "INC-0108",
-    "INC-0113",
-    "INC-0118",
-    "INC-0129",
-    "INC-0140",
-    "INC-0141",
-    "INC-0142",
-    "INC-0148",
     "INC-0150",
-    "INC-0151",
-    "INC-0166",
-    "INC-0176",
-    "INC-0186",
-    "INC-0215",
-    "INC-0224",
-    "INC-0292",
-    "INC-0372",
-    "INC-0374",
-    "INC-0378",
-    "INC-0394",
-    "INC-0404",
-    "INC-0458",
-    "INC-0504",
-    "INC-0596"
+    "INC-0458"
    ],
    "also_tagged_ids": [
     "INC-0009",
@@ -885,76 +685,21 @@
    "home": 68,
    "also_tagged": 30,
    "occurrences": 68,
-   "topics": [],
+   "topics": [
+    "tooling-paths/argument-read-as-other-kind",
+    "tooling-paths/chain-ran-on-after-failure",
+    "tooling-paths/edit-or-match-hit-wrong-bytes",
+    "tooling-paths/path-resolves-from-wrong-root",
+    "tooling-paths/sandbox-refuses-allowed-target",
+    "tooling-paths/tool-defaults-not-target",
+    "tooling-paths/tree-lacks-what-job-needs",
+    "tooling-paths/valid-alone-fails-in-host",
+    "tooling-paths/zsh-expansion-surprises"
+   ],
    "class_level": [
-    "INC-0024",
-    "INC-0030",
-    "INC-0043",
-    "INC-0046",
-    "INC-0047",
-    "INC-0050",
-    "INC-0051",
-    "INC-0060",
-    "INC-0072",
     "INC-0081",
-    "INC-0090",
-    "INC-0094",
-    "INC-0137",
-    "INC-0156",
-    "INC-0158",
-    "INC-0165",
-    "INC-0170",
-    "INC-0171",
-    "INC-0177",
-    "INC-0178",
-    "INC-0181",
-    "INC-0188",
-    "INC-0207",
-    "INC-0211",
-    "INC-0212",
-    "INC-0248",
-    "INC-0249",
-    "INC-0260",
-    "INC-0264",
-    "INC-0278",
-    "INC-0288",
-    "INC-0294",
-    "INC-0301",
-    "INC-0307",
-    "INC-0316",
-    "INC-0319",
-    "INC-0342",
-    "INC-0357",
-    "INC-0362",
-    "INC-0364",
-    "INC-0369",
-    "INC-0370",
     "INC-0407",
-    "INC-0422",
-    "INC-0426",
-    "INC-0437",
-    "INC-0439",
-    "INC-0446",
-    "INC-0464",
-    "INC-0469",
-    "INC-0475",
-    "INC-0518",
-    "INC-0519",
-    "INC-0532",
-    "INC-0545",
-    "INC-0546",
-    "INC-0561",
-    "INC-0565",
-    "INC-0574",
-    "INC-0581",
-    "INC-0582",
-    "INC-0597",
-    "INC-0603",
-    "INC-0604",
-    "INC-0607",
-    "INC-0622",
-    "INC-0633",
-    "INC-0636"
+    "INC-0437"
    ],
    "also_tagged_ids": [
     "INC-0029",
@@ -994,44 +739,14 @@
    "home": 36,
    "also_tagged": 33,
    "occurrences": 36,
-   "topics": [],
+   "topics": [
+    "test-isolation/assertion-wider-than-contract",
+    "test-isolation/green-alone-red-together",
+    "test-isolation/passes-warm-fails-clean",
+    "test-isolation/the-test-itself-is-the-defect"
+   ],
    "class_level": [
-    "INC-0022",
-    "INC-0023",
-    "INC-0038",
-    "INC-0084",
-    "INC-0088",
-    "INC-0096",
-    "INC-0097",
-    "INC-0110",
-    "INC-0126",
-    "INC-0132",
-    "INC-0136",
-    "INC-0138",
-    "INC-0169",
-    "INC-0172",
-    "INC-0183",
-    "INC-0286",
-    "INC-0297",
-    "INC-0299",
-    "INC-0303",
-    "INC-0320",
-    "INC-0340",
-    "INC-0351",
-    "INC-0360",
-    "INC-0361",
-    "INC-0398",
-    "INC-0460",
-    "INC-0472",
-    "INC-0483",
-    "INC-0495",
-    "INC-0511",
-    "INC-0537",
-    "INC-0550",
-    "INC-0583",
-    "INC-0600",
-    "INC-0602",
-    "INC-0627"
+    "INC-0286"
    ],
    "also_tagged_ids": [
     "INC-0003",
@@ -1074,51 +789,15 @@
    "home": 43,
    "also_tagged": 56,
    "occurrences": 43,
-   "topics": [],
+   "topics": [
+    "observability/clock-labels-without-clock-evidence",
+    "observability/misleading-metrics-and-status",
+    "observability/missing-or-unverifiable-receipts"
+   ],
    "class_level": [
-    "INC-0007",
-    "INC-0036",
-    "INC-0039",
-    "INC-0041",
-    "INC-0053",
-    "INC-0073",
-    "INC-0144",
-    "INC-0146",
-    "INC-0227",
-    "INC-0231",
-    "INC-0254",
-    "INC-0274",
-    "INC-0350",
     "INC-0358",
-    "INC-0373",
-    "INC-0381",
-    "INC-0383",
-    "INC-0384",
-    "INC-0406",
-    "INC-0415",
-    "INC-0442",
-    "INC-0456",
-    "INC-0470",
-    "INC-0478",
-    "INC-0488",
-    "INC-0491",
-    "INC-0494",
-    "INC-0509",
-    "INC-0510",
-    "INC-0515",
-    "INC-0547",
-    "INC-0555",
     "INC-0562",
-    "INC-0567",
-    "INC-0570",
-    "INC-0579",
-    "INC-0586",
-    "INC-0606",
-    "INC-0611",
-    "INC-0613",
-    "INC-0617",
-    "INC-0619",
-    "INC-0624"
+    "INC-0586"
    ],
    "also_tagged_ids": [
     "INC-0002",
@@ -1184,112 +863,20 @@
    "home": 104,
    "also_tagged": 58,
    "occurrences": 104,
-   "topics": [],
+   "topics": [
+    "spec-and-scope/claims-outrun-available-evidence",
+    "spec-and-scope/fix-misses-related-consumers",
+    "spec-and-scope/framework-contract-assumptions",
+    "spec-and-scope/instructions-tools-cannot-follow",
+    "spec-and-scope/missing-or-late-prerequisites",
+    "spec-and-scope/records-drift-or-lose-provenance",
+    "spec-and-scope/requirements-and-limits-collide",
+    "spec-and-scope/tests-do-not-prove-the-contract",
+    "spec-and-scope/wrong-owner-path-or-scope"
+   ],
    "class_level": [
     "INC-0026",
-    "INC-0055",
-    "INC-0063",
-    "INC-0071",
-    "INC-0074",
-    "INC-0075",
-    "INC-0076",
-    "INC-0085",
-    "INC-0086",
-    "INC-0089",
-    "INC-0099",
-    "INC-0100",
-    "INC-0102",
-    "INC-0105",
-    "INC-0109",
-    "INC-0115",
-    "INC-0121",
-    "INC-0127",
-    "INC-0134",
-    "INC-0147",
-    "INC-0159",
-    "INC-0173",
-    "INC-0184",
-    "INC-0189",
-    "INC-0191",
-    "INC-0194",
-    "INC-0197",
-    "INC-0198",
-    "INC-0217",
-    "INC-0225",
-    "INC-0235",
-    "INC-0242",
-    "INC-0243",
-    "INC-0245",
-    "INC-0251",
-    "INC-0255",
-    "INC-0262",
-    "INC-0267",
-    "INC-0269",
-    "INC-0276",
-    "INC-0285",
-    "INC-0289",
-    "INC-0296",
-    "INC-0300",
-    "INC-0302",
-    "INC-0304",
-    "INC-0306",
-    "INC-0311",
-    "INC-0326",
-    "INC-0328",
-    "INC-0330",
-    "INC-0332",
-    "INC-0334",
-    "INC-0335",
-    "INC-0338",
-    "INC-0346",
-    "INC-0352",
-    "INC-0353",
-    "INC-0376",
-    "INC-0387",
-    "INC-0391",
-    "INC-0395",
-    "INC-0413",
-    "INC-0420",
-    "INC-0424",
-    "INC-0425",
-    "INC-0429",
-    "INC-0430",
-    "INC-0431",
-    "INC-0434",
-    "INC-0440",
-    "INC-0441",
-    "INC-0457",
-    "INC-0459",
-    "INC-0466",
-    "INC-0499",
-    "INC-0502",
-    "INC-0503",
-    "INC-0506",
-    "INC-0528",
-    "INC-0535",
-    "INC-0536",
-    "INC-0538",
-    "INC-0540",
-    "INC-0549",
-    "INC-0553",
-    "INC-0559",
-    "INC-0568",
-    "INC-0572",
-    "INC-0576",
-    "INC-0580",
-    "INC-0584",
-    "INC-0593",
-    "INC-0599",
-    "INC-0609",
-    "INC-0612",
-    "INC-0614",
-    "INC-0615",
-    "INC-0616",
-    "INC-0618",
-    "INC-0621",
-    "INC-0626",
-    "INC-0629",
-    "INC-0631"
+    "INC-0262"
    ],
    "also_tagged_ids": [
     "INC-0001",
@@ -1357,44 +944,14 @@
    "home": 36,
    "also_tagged": 19,
    "occurrences": 36,
-   "topics": [],
+   "topics": [
+    "identity-and-keying/approval-names-wrong-commit",
+    "identity-and-keying/key-is-a-proxy",
+    "identity-and-keying/new-id-already-taken",
+    "identity-and-keying/replacement-record-malformed"
+   ],
    "class_level": [
-    "INC-0027",
-    "INC-0054",
-    "INC-0079",
-    "INC-0080",
-    "INC-0122",
-    "INC-0125",
-    "INC-0130",
-    "INC-0149",
-    "INC-0154",
-    "INC-0157",
-    "INC-0161",
-    "INC-0164",
-    "INC-0167",
-    "INC-0175",
-    "INC-0182",
-    "INC-0204",
-    "INC-0216",
-    "INC-0240",
-    "INC-0261",
-    "INC-0279",
-    "INC-0341",
-    "INC-0359",
-    "INC-0386",
-    "INC-0397",
-    "INC-0403",
-    "INC-0419",
-    "INC-0433",
-    "INC-0448",
-    "INC-0481",
-    "INC-0486",
-    "INC-0492",
-    "INC-0513",
-    "INC-0514",
-    "INC-0520",
-    "INC-0594",
-    "INC-0595"
+    "INC-0341"
    ],
    "also_tagged_ids": [
     "INC-0043",
@@ -1419,5 +976,890 @@
    ]
   }
  },
- "topics": {}
+ "topics": {
+  "delegation/brief-or-plan-left-a-gap": {
+   "title": "The brief or plan left a gap the worker fell through",
+   "node": "catalog/delegation/brief-or-plan-left-a-gap.md",
+   "occurrences": 7,
+   "incidents": [
+    "INC-0016",
+    "INC-0087",
+    "INC-0098",
+    "INC-0135",
+    "INC-0298",
+    "INC-0331",
+    "INC-0507"
+   ]
+  },
+  "delegation/finished-on-disk-no-reply": {
+   "title": "Teammates finished on disk; the reply never came or went unnoticed",
+   "node": "catalog/delegation/finished-on-disk-no-reply.md",
+   "occurrences": 6,
+   "incidents": [
+    "INC-0091",
+    "INC-0128",
+    "INC-0317",
+    "INC-0416",
+    "INC-0573",
+    "INC-0630"
+   ]
+  },
+  "delegation/guessed-or-stale-id-name-path": {
+   "title": "A record is guessed or stale, or lives only in a message or worktree",
+   "node": "catalog/delegation/guessed-or-stale-id-name-path.md",
+   "occurrences": 6,
+   "incidents": [
+    "INC-0201",
+    "INC-0206",
+    "INC-0263",
+    "INC-0548",
+    "INC-0589",
+    "INC-0610"
+   ]
+  },
+  "delegation/order-collides-with-rule-or-guard": {
+   "title": "Your order collided with a tool rule, permission ceiling, guard or pin",
+   "node": "catalog/delegation/order-collides-with-rule-or-guard.md",
+   "occurrences": 7,
+   "incidents": [
+    "INC-0179",
+    "INC-0270",
+    "INC-0452",
+    "INC-0453",
+    "INC-0473",
+    "INC-0489",
+    "INC-0493"
+   ]
+  },
+  "delegation/reviewer-not-independent-or-free": {
+   "title": "The reviewer or runner you named was not independent or not free",
+   "node": "catalog/delegation/reviewer-not-independent-or-free.md",
+   "occurrences": 9,
+   "incidents": [
+    "INC-0220",
+    "INC-0337",
+    "INC-0399",
+    "INC-0423",
+    "INC-0467",
+    "INC-0517",
+    "INC-0526",
+    "INC-0539",
+    "INC-0635"
+   ]
+  },
+  "delegation/stalled-behind-one-owner-or-decision": {
+   "title": "Parallel work stalls behind one busy owner, open decision or slot cap",
+   "node": "catalog/delegation/stalled-behind-one-owner-or-decision.md",
+   "occurrences": 7,
+   "incidents": [
+    "INC-0237",
+    "INC-0277",
+    "INC-0379",
+    "INC-0392",
+    "INC-0410",
+    "INC-0411",
+    "INC-0435"
+   ]
+  },
+  "detector-fail-open/coverage-and-controls-not-proven": {
+   "title": "The checker ran but its target coverage is unproven",
+   "node": "catalog/detector-fail-open/coverage-and-controls-not-proven.md",
+   "occurrences": 9,
+   "incidents": [
+    "INC-0037",
+    "INC-0069",
+    "INC-0140",
+    "INC-0186",
+    "INC-0215",
+    "INC-0292",
+    "INC-0372",
+    "INC-0504",
+    "INC-0596"
+   ]
+  },
+  "detector-fail-open/guard-defaults-and-negative-controls": {
+   "title": "A broken guard implementation still appears valid",
+   "node": "catalog/detector-fail-open/guard-defaults-and-negative-controls.md",
+   "occurrences": 6,
+   "incidents": [
+    "INC-0108",
+    "INC-0113",
+    "INC-0148",
+    "INC-0378",
+    "INC-0394",
+    "INC-0404"
+   ]
+  },
+  "detector-fail-open/syntax-shapes-and-benign-decoys": {
+   "title": "Syntax matching accepts decoys or rejects valid forms",
+   "node": "catalog/detector-fail-open/syntax-shapes-and-benign-decoys.md",
+   "occurrences": 7,
+   "incidents": [
+    "INC-0129",
+    "INC-0141",
+    "INC-0142",
+    "INC-0151",
+    "INC-0166",
+    "INC-0176",
+    "INC-0374"
+   ]
+  },
+  "detector-fail-open/wrong-parser-or-pattern": {
+   "title": "A parser or pattern reads the wrong evidence",
+   "node": "catalog/detector-fail-open/wrong-parser-or-pattern.md",
+   "occurrences": 7,
+   "incidents": [
+    "INC-0018",
+    "INC-0019",
+    "INC-0029",
+    "INC-0077",
+    "INC-0078",
+    "INC-0118",
+    "INC-0224"
+   ]
+  },
+  "false-green/check-satisfied-by-unrelated-cause": {
+   "title": "A negative, absence or presence check passed for an unrelated reason",
+   "node": "catalog/false-green/check-satisfied-by-unrelated-cause.md",
+   "occurrences": 11,
+   "incidents": [
+    "INC-0058",
+    "INC-0082",
+    "INC-0083",
+    "INC-0095",
+    "INC-0112",
+    "INC-0193",
+    "INC-0287",
+    "INC-0318",
+    "INC-0525",
+    "INC-0571",
+    "INC-0601"
+   ]
+  },
+  "false-green/count-or-total-computed-wrong": {
+   "title": "A reported count, total or ledger does not match what ran",
+   "node": "catalog/false-green/count-or-total-computed-wrong.md",
+   "occurrences": 6,
+   "incidents": [
+    "INC-0070",
+    "INC-0174",
+    "INC-0252",
+    "INC-0259",
+    "INC-0310",
+    "INC-0323"
+   ]
+  },
+  "false-green/green-but-cases-never-ran": {
+   "title": "The gate was green but the cases it vouches for never executed",
+   "node": "catalog/false-green/green-but-cases-never-ran.md",
+   "occurrences": 14,
+   "incidents": [
+    "INC-0196",
+    "INC-0203",
+    "INC-0239",
+    "INC-0253",
+    "INC-0266",
+    "INC-0283",
+    "INC-0290",
+    "INC-0321",
+    "INC-0356",
+    "INC-0447",
+    "INC-0461",
+    "INC-0477",
+    "INC-0482",
+    "INC-0485"
+   ]
+  },
+  "false-green/mutation-witness-proves-less": {
+   "title": "A mutant or red-first witness does not prove what it is named for",
+   "node": "catalog/false-green/mutation-witness-proves-less.md",
+   "occurrences": 14,
+   "incidents": [
+    "INC-0116",
+    "INC-0133",
+    "INC-0336",
+    "INC-0339",
+    "INC-0343",
+    "INC-0476",
+    "INC-0524",
+    "INC-0533",
+    "INC-0534",
+    "INC-0541",
+    "INC-0542",
+    "INC-0560",
+    "INC-0588",
+    "INC-0608"
+   ]
+  },
+  "false-green/oracle-or-claim-written-from-memory": {
+   "title": "A test oracle, locator or review claim came from memory, not source",
+   "node": "catalog/false-green/oracle-or-claim-written-from-memory.md",
+   "occurrences": 11,
+   "incidents": [
+    "INC-0042",
+    "INC-0056",
+    "INC-0057",
+    "INC-0061",
+    "INC-0062",
+    "INC-0234",
+    "INC-0455",
+    "INC-0523",
+    "INC-0527",
+    "INC-0530",
+    "INC-0578"
+   ]
+  },
+  "false-green/proxy-artifact-cited-as-evidence": {
+   "title": "An artifact that looks like evidence was cited but proves no fact",
+   "node": "catalog/false-green/proxy-artifact-cited-as-evidence.md",
+   "occurrences": 9,
+   "incidents": [
+    "INC-0228",
+    "INC-0232",
+    "INC-0233",
+    "INC-0247",
+    "INC-0295",
+    "INC-0315",
+    "INC-0408",
+    "INC-0634",
+    "INC-0637"
+   ]
+  },
+  "false-green/real-page-or-response-wrong-behind-green": {
+   "title": "Tests pass but the real page, status or session is wrong",
+   "node": "catalog/false-green/real-page-or-response-wrong-behind-green.md",
+   "occurrences": 12,
+   "incidents": [
+    "INC-0241",
+    "INC-0244",
+    "INC-0246",
+    "INC-0250",
+    "INC-0265",
+    "INC-0272",
+    "INC-0273",
+    "INC-0275",
+    "INC-0282",
+    "INC-0496",
+    "INC-0497",
+    "INC-0498"
+   ]
+  },
+  "false-green/red-for-the-wrong-reason": {
+   "title": "A red, blocked or failing result came from setup or environment",
+   "node": "catalog/false-green/red-for-the-wrong-reason.md",
+   "occurrences": 13,
+   "incidents": [
+    "INC-0192",
+    "INC-0200",
+    "INC-0202",
+    "INC-0213",
+    "INC-0236",
+    "INC-0291",
+    "INC-0314",
+    "INC-0329",
+    "INC-0363",
+    "INC-0412",
+    "INC-0484",
+    "INC-0487",
+    "INC-0628"
+   ]
+  },
+  "false-green/step-failed-but-gate-passed": {
+   "title": "A gate verdict came from a wrapper, pipe, chain or last line",
+   "node": "catalog/false-green/step-failed-but-gate-passed.md",
+   "occurrences": 13,
+   "incidents": [
+    "INC-0120",
+    "INC-0280",
+    "INC-0322",
+    "INC-0347",
+    "INC-0382",
+    "INC-0389",
+    "INC-0396",
+    "INC-0480",
+    "INC-0490",
+    "INC-0566",
+    "INC-0620",
+    "INC-0623",
+    "INC-0625"
+   ]
+  },
+  "false-green/test-cannot-see-the-defect": {
+   "title": "A test stays green with the behavior removed or broken",
+   "node": "catalog/false-green/test-cannot-see-the-defect.md",
+   "occurrences": 8,
+   "incidents": [
+    "INC-0031",
+    "INC-0104",
+    "INC-0153",
+    "INC-0155",
+    "INC-0221",
+    "INC-0222",
+    "INC-0388",
+    "INC-0505"
+   ]
+  },
+  "false-green/verified-a-different-target": {
+   "title": "Verified a shortcut, a part or an old revision instead of what ships",
+   "node": "catalog/false-green/verified-a-different-target.md",
+   "occurrences": 10,
+   "incidents": [
+    "INC-0035",
+    "INC-0163",
+    "INC-0168",
+    "INC-0190",
+    "INC-0208",
+    "INC-0214",
+    "INC-0284",
+    "INC-0344",
+    "INC-0421",
+    "INC-0474"
+   ]
+  },
+  "identity-and-keying/approval-names-wrong-commit": {
+   "title": "An approval or activation names the wrong commit or line of history",
+   "node": "catalog/identity-and-keying/approval-names-wrong-commit.md",
+   "occurrences": 9,
+   "incidents": [
+    "INC-0164",
+    "INC-0175",
+    "INC-0204",
+    "INC-0240",
+    "INC-0261",
+    "INC-0397",
+    "INC-0486",
+    "INC-0513",
+    "INC-0595"
+   ]
+  },
+  "identity-and-keying/key-is-a-proxy": {
+   "title": "A name, path string or digest stands in for the real identity, drifts",
+   "node": "catalog/identity-and-keying/key-is-a-proxy.md",
+   "occurrences": 6,
+   "incidents": [
+    "INC-0054",
+    "INC-0122",
+    "INC-0149",
+    "INC-0359",
+    "INC-0386",
+    "INC-0433"
+   ]
+  },
+  "identity-and-keying/new-id-already-taken": {
+   "title": "A newly minted id or name collides with one already in use",
+   "node": "catalog/identity-and-keying/new-id-already-taken.md",
+   "occurrences": 6,
+   "incidents": [
+    "INC-0027",
+    "INC-0079",
+    "INC-0080",
+    "INC-0125",
+    "INC-0448",
+    "INC-0481"
+   ]
+  },
+  "identity-and-keying/replacement-record-malformed": {
+   "title": "A file-replacement (supersession) record is refused or claims too much",
+   "node": "catalog/identity-and-keying/replacement-record-malformed.md",
+   "occurrences": 14,
+   "incidents": [
+    "INC-0130",
+    "INC-0154",
+    "INC-0157",
+    "INC-0161",
+    "INC-0167",
+    "INC-0182",
+    "INC-0216",
+    "INC-0279",
+    "INC-0403",
+    "INC-0419",
+    "INC-0492",
+    "INC-0514",
+    "INC-0520",
+    "INC-0594"
+   ]
+  },
+  "observability/clock-labels-without-clock-evidence": {
+   "title": "Timestamp labels disagree with the actual clock",
+   "node": "catalog/observability/clock-labels-without-clock-evidence.md",
+   "occurrences": 15,
+   "incidents": [
+    "INC-0274",
+    "INC-0350",
+    "INC-0373",
+    "INC-0383",
+    "INC-0384",
+    "INC-0415",
+    "INC-0442",
+    "INC-0456",
+    "INC-0567",
+    "INC-0606",
+    "INC-0611",
+    "INC-0613",
+    "INC-0617",
+    "INC-0619",
+    "INC-0624"
+   ]
+  },
+  "observability/misleading-metrics-and-status": {
+   "title": "A reassuring signal contradicts the underlying evidence",
+   "node": "catalog/observability/misleading-metrics-and-status.md",
+   "occurrences": 13,
+   "incidents": [
+    "INC-0007",
+    "INC-0039",
+    "INC-0053",
+    "INC-0073",
+    "INC-0146",
+    "INC-0231",
+    "INC-0406",
+    "INC-0470",
+    "INC-0509",
+    "INC-0547",
+    "INC-0555",
+    "INC-0570",
+    "INC-0579"
+   ]
+  },
+  "observability/missing-or-unverifiable-receipts": {
+   "title": "Missing evidence keeps findings unverified",
+   "node": "catalog/observability/missing-or-unverifiable-receipts.md",
+   "occurrences": 12,
+   "incidents": [
+    "INC-0036",
+    "INC-0041",
+    "INC-0144",
+    "INC-0227",
+    "INC-0254",
+    "INC-0381",
+    "INC-0478",
+    "INC-0488",
+    "INC-0491",
+    "INC-0494",
+    "INC-0510",
+    "INC-0515"
+   ]
+  },
+  "spec-and-scope/claims-outrun-available-evidence": {
+   "title": "Claims or instructions say more than the evidence supports",
+   "node": "catalog/spec-and-scope/claims-outrun-available-evidence.md",
+   "occurrences": 10,
+   "incidents": [
+    "INC-0089",
+    "INC-0300",
+    "INC-0306",
+    "INC-0413",
+    "INC-0431",
+    "INC-0503",
+    "INC-0538",
+    "INC-0593",
+    "INC-0626",
+    "INC-0631"
+   ]
+  },
+  "spec-and-scope/fix-misses-related-consumers": {
+   "title": "A local fix leaves sibling cases or callers broken",
+   "node": "catalog/spec-and-scope/fix-misses-related-consumers.md",
+   "occurrences": 8,
+   "incidents": [
+    "INC-0086",
+    "INC-0173",
+    "INC-0225",
+    "INC-0255",
+    "INC-0459",
+    "INC-0466",
+    "INC-0499",
+    "INC-0536"
+   ]
+  },
+  "spec-and-scope/framework-contract-assumptions": {
+   "title": "Framework behavior contradicts the design or test",
+   "node": "catalog/spec-and-scope/framework-contract-assumptions.md",
+   "occurrences": 14,
+   "incidents": [
+    "INC-0134",
+    "INC-0245",
+    "INC-0276",
+    "INC-0395",
+    "INC-0425",
+    "INC-0434",
+    "INC-0440",
+    "INC-0506",
+    "INC-0528",
+    "INC-0553",
+    "INC-0559",
+    "INC-0580",
+    "INC-0599",
+    "INC-0618"
+   ]
+  },
+  "spec-and-scope/instructions-tools-cannot-follow": {
+   "title": "Instructions fail a gate or omit the required operation",
+   "node": "catalog/spec-and-scope/instructions-tools-cannot-follow.md",
+   "occurrences": 12,
+   "incidents": [
+    "INC-0267",
+    "INC-0330",
+    "INC-0457",
+    "INC-0549",
+    "INC-0576",
+    "INC-0609",
+    "INC-0612",
+    "INC-0614",
+    "INC-0615",
+    "INC-0616",
+    "INC-0621",
+    "INC-0629"
+   ]
+  },
+  "spec-and-scope/missing-or-late-prerequisites": {
+   "title": "A planned step cannot run because its prerequisite is missing",
+   "node": "catalog/spec-and-scope/missing-or-late-prerequisites.md",
+   "occurrences": 11,
+   "incidents": [
+    "INC-0063",
+    "INC-0075",
+    "INC-0100",
+    "INC-0109",
+    "INC-0115",
+    "INC-0242",
+    "INC-0243",
+    "INC-0269",
+    "INC-0304",
+    "INC-0353",
+    "INC-0429"
+   ]
+  },
+  "spec-and-scope/records-drift-or-lose-provenance": {
+   "title": "A cited baseline, count, line, or digest no longer matches its source",
+   "node": "catalog/spec-and-scope/records-drift-or-lose-provenance.md",
+   "occurrences": 12,
+   "incidents": [
+    "INC-0055",
+    "INC-0147",
+    "INC-0194",
+    "INC-0198",
+    "INC-0217",
+    "INC-0235",
+    "INC-0296",
+    "INC-0302",
+    "INC-0326",
+    "INC-0335",
+    "INC-0338",
+    "INC-0346"
+   ]
+  },
+  "spec-and-scope/requirements-and-limits-collide": {
+   "title": "Requirements, units, or hard limits cannot hold together",
+   "node": "catalog/spec-and-scope/requirements-and-limits-collide.md",
+   "occurrences": 10,
+   "incidents": [
+    "INC-0071",
+    "INC-0102",
+    "INC-0127",
+    "INC-0189",
+    "INC-0334",
+    "INC-0352",
+    "INC-0424",
+    "INC-0430",
+    "INC-0441",
+    "INC-0572"
+   ]
+  },
+  "spec-and-scope/tests-do-not-prove-the-contract": {
+   "title": "Green tests omit or misstate required behavior",
+   "node": "catalog/spec-and-scope/tests-do-not-prove-the-contract.md",
+   "occurrences": 13,
+   "incidents": [
+    "INC-0105",
+    "INC-0159",
+    "INC-0184",
+    "INC-0191",
+    "INC-0285",
+    "INC-0311",
+    "INC-0328",
+    "INC-0332",
+    "INC-0387",
+    "INC-0391",
+    "INC-0535",
+    "INC-0568",
+    "INC-0584"
+   ]
+  },
+  "spec-and-scope/wrong-owner-path-or-scope": {
+   "title": "Work lands under the wrong owner, path, or write boundary",
+   "node": "catalog/spec-and-scope/wrong-owner-path-or-scope.md",
+   "occurrences": 12,
+   "incidents": [
+    "INC-0074",
+    "INC-0076",
+    "INC-0085",
+    "INC-0099",
+    "INC-0121",
+    "INC-0197",
+    "INC-0251",
+    "INC-0289",
+    "INC-0376",
+    "INC-0420",
+    "INC-0502",
+    "INC-0540"
+   ]
+  },
+  "stage-timeout/stale-or-overbroad-load-admission": {
+   "title": "Stale or overbroad load gates block or mis-admit work",
+   "node": "catalog/stage-timeout/stale-or-overbroad-load-admission.md",
+   "occurrences": 8,
+   "incidents": [
+    "INC-0393",
+    "INC-0417",
+    "INC-0427",
+    "INC-0450",
+    "INC-0465",
+    "INC-0500",
+    "INC-0508",
+    "INC-0512"
+   ]
+  },
+  "stage-timeout/timeout-policy-and-lifecycle-boundaries": {
+   "title": "Timeout policy ignores purpose, call path or lifecycle",
+   "node": "catalog/stage-timeout/timeout-policy-and-lifecycle-boundaries.md",
+   "occurrences": 7,
+   "incidents": [
+    "INC-0092",
+    "INC-0093",
+    "INC-0107",
+    "INC-0111",
+    "INC-0124",
+    "INC-0139",
+    "INC-0355"
+   ]
+  },
+  "stage-timeout/timing-models-and-critical-path": {
+   "title": "Timing models or optimizations are not measured",
+   "node": "catalog/stage-timeout/timing-models-and-critical-path.md",
+   "occurrences": 8,
+   "incidents": [
+    "INC-0187",
+    "INC-0195",
+    "INC-0210",
+    "INC-0230",
+    "INC-0271",
+    "INC-0312",
+    "INC-0345",
+    "INC-0348"
+   ]
+  },
+  "stage-timeout/work-outgrows-enforced-timeouts": {
+   "title": "Work outgrows hidden caps or loses timeout headroom",
+   "node": "catalog/stage-timeout/work-outgrows-enforced-timeouts.md",
+   "occurrences": 14,
+   "incidents": [
+    "INC-0002",
+    "INC-0003",
+    "INC-0004",
+    "INC-0025",
+    "INC-0131",
+    "INC-0143",
+    "INC-0209",
+    "INC-0308",
+    "INC-0333",
+    "INC-0521",
+    "INC-0529",
+    "INC-0551",
+    "INC-0590",
+    "INC-0591"
+   ]
+  },
+  "test-isolation/assertion-wider-than-contract": {
+   "title": "Assertion measures more than its contract: caches, order, whole totals",
+   "node": "catalog/test-isolation/assertion-wider-than-contract.md",
+   "occurrences": 8,
+   "incidents": [
+    "INC-0084",
+    "INC-0126",
+    "INC-0351",
+    "INC-0398",
+    "INC-0460",
+    "INC-0483",
+    "INC-0511",
+    "INC-0537"
+   ]
+  },
+  "test-isolation/green-alone-red-together": {
+   "title": "Green alone, red in the full suite, with another run, or after a merge",
+   "node": "catalog/test-isolation/green-alone-red-together.md",
+   "occurrences": 12,
+   "incidents": [
+    "INC-0038",
+    "INC-0088",
+    "INC-0096",
+    "INC-0097",
+    "INC-0132",
+    "INC-0136",
+    "INC-0138",
+    "INC-0169",
+    "INC-0360",
+    "INC-0361",
+    "INC-0600",
+    "INC-0627"
+   ]
+  },
+  "test-isolation/passes-warm-fails-clean": {
+   "title": "Passes in a warm checkout, fails in a fresh clone, CI or other runner",
+   "node": "catalog/test-isolation/passes-warm-fails-clean.md",
+   "occurrences": 8,
+   "incidents": [
+    "INC-0022",
+    "INC-0023",
+    "INC-0110",
+    "INC-0297",
+    "INC-0299",
+    "INC-0495",
+    "INC-0550",
+    "INC-0583"
+   ]
+  },
+  "test-isolation/the-test-itself-is-the-defect": {
+   "title": "The red comes from the test's own fixture, tool option or control",
+   "node": "catalog/test-isolation/the-test-itself-is-the-defect.md",
+   "occurrences": 7,
+   "incidents": [
+    "INC-0172",
+    "INC-0183",
+    "INC-0303",
+    "INC-0320",
+    "INC-0340",
+    "INC-0472",
+    "INC-0602"
+   ]
+  },
+  "tooling-paths/argument-read-as-other-kind": {
+   "title": "A helper or runner reads your argument as a different kind or name",
+   "node": "catalog/tooling-paths/argument-read-as-other-kind.md",
+   "occurrences": 10,
+   "incidents": [
+    "INC-0137",
+    "INC-0518",
+    "INC-0519",
+    "INC-0545",
+    "INC-0546",
+    "INC-0565",
+    "INC-0581",
+    "INC-0582",
+    "INC-0597",
+    "INC-0604"
+   ]
+  },
+  "tooling-paths/chain-ran-on-after-failure": {
+   "title": "A shell chain ran on after a failed step, or a refusal sank safe steps",
+   "node": "catalog/tooling-paths/chain-ran-on-after-failure.md",
+   "occurrences": 6,
+   "incidents": [
+    "INC-0046",
+    "INC-0050",
+    "INC-0051",
+    "INC-0294",
+    "INC-0357",
+    "INC-0364"
+   ]
+  },
+  "tooling-paths/edit-or-match-hit-wrong-bytes": {
+   "title": "An edit anchor or text match hit different bytes than you meant",
+   "node": "catalog/tooling-paths/edit-or-match-hit-wrong-bytes.md",
+   "occurrences": 8,
+   "incidents": [
+    "INC-0024",
+    "INC-0030",
+    "INC-0043",
+    "INC-0047",
+    "INC-0464",
+    "INC-0475",
+    "INC-0561",
+    "INC-0574"
+   ]
+  },
+  "tooling-paths/path-resolves-from-wrong-root": {
+   "title": "A relative path or link resolves from a different root than assumed",
+   "node": "catalog/tooling-paths/path-resolves-from-wrong-root.md",
+   "occurrences": 6,
+   "incidents": [
+    "INC-0177",
+    "INC-0212",
+    "INC-0316",
+    "INC-0446",
+    "INC-0532",
+    "INC-0633"
+   ]
+  },
+  "tooling-paths/sandbox-refuses-allowed-target": {
+   "title": "Sandbox cannot resolve or authorize the target you actually meant",
+   "node": "catalog/tooling-paths/sandbox-refuses-allowed-target.md",
+   "occurrences": 6,
+   "incidents": [
+    "INC-0094",
+    "INC-0211",
+    "INC-0249",
+    "INC-0260",
+    "INC-0370",
+    "INC-0607"
+   ]
+  },
+  "tooling-paths/tool-defaults-not-target": {
+   "title": "The tool's own resolution or defaults, not the target, caused it",
+   "node": "catalog/tooling-paths/tool-defaults-not-target.md",
+   "occurrences": 8,
+   "incidents": [
+    "INC-0060",
+    "INC-0072",
+    "INC-0307",
+    "INC-0342",
+    "INC-0369",
+    "INC-0422",
+    "INC-0469",
+    "INC-0603"
+   ]
+  },
+  "tooling-paths/tree-lacks-what-job-needs": {
+   "title": "The checkout or dependency tree you ran in lacks what the job needs",
+   "node": "catalog/tooling-paths/tree-lacks-what-job-needs.md",
+   "occurrences": 6,
+   "incidents": [
+    "INC-0181",
+    "INC-0188",
+    "INC-0264",
+    "INC-0288",
+    "INC-0301",
+    "INC-0319"
+   ]
+  },
+  "tooling-paths/valid-alone-fails-in-host": {
+   "title": "Code valid alone fails in the host runtime, module form or generator",
+   "node": "catalog/tooling-paths/valid-alone-fails-in-host.md",
+   "occurrences": 8,
+   "incidents": [
+    "INC-0090",
+    "INC-0156",
+    "INC-0158",
+    "INC-0170",
+    "INC-0171",
+    "INC-0178",
+    "INC-0426",
+    "INC-0439"
+   ]
+  },
+  "tooling-paths/zsh-expansion-surprises": {
+   "title": "zsh reads your variable differently: colon modifier, word split, array",
+   "node": "catalog/tooling-paths/zsh-expansion-surprises.md",
+   "occurrences": 7,
+   "incidents": [
+    "INC-0165",
+    "INC-0207",
+    "INC-0248",
+    "INC-0278",
+    "INC-0362",
+    "INC-0622",
+    "INC-0636"
+   ]
+  }
+ }
 }

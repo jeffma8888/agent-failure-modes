@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, observability]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/requirements-and-limits-collide
 occurrences: 1
 ---
 
 # INC-0127 - A document already at its hard size cap had no room for the next transcription, so the cap was met only after editing
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Requirements, units, or hard limits cannot hold together](../catalog/spec-and-scope/requirements-and-limits-collide.md)
 
 **Cost:** Minor: caught in review, an audit or an engineer check before it shipped.
 

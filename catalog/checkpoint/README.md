@@ -6,6 +6,8 @@ An all-or-nothing step loses everything when it is interrupted, because it write
 
 **Ask:** If this step is killed at minute 8 of 10, does a usable artifact already exist on disk?
 
+**You are probably here if:** An interruption or later edit loses usable output or evidence, or completed work remains blocked, unrecorded, or unpublished.
+
 17 incidents filed here (17 occurrences); 15 more filed elsewhere are also tagged checkpoint.
 
 ## Incidents
@@ -101,12 +103,14 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 
 15 incidents filed under another home class also carry this class. Listed by the node where they live:
 
-- [identity-and-keying](../identity-and-keying/README.md): INC-0164, INC-0175, INC-0261, INC-0279, INC-0341
-- [stage-timeout](../stage-timeout/README.md): INC-0002, INC-0025
-- [tooling-paths](../tooling-paths/README.md): INC-0050, INC-0294
-- [delegation](../delegation/README.md): INC-0277
+- [identity-and-keying/approval-names-wrong-commit](../identity-and-keying/approval-names-wrong-commit.md): INC-0164, INC-0175, INC-0261
+- [stage-timeout/work-outgrows-enforced-timeouts](../stage-timeout/work-outgrows-enforced-timeouts.md): INC-0002, INC-0025
+- [tooling-paths/chain-ran-on-after-failure](../tooling-paths/chain-ran-on-after-failure.md): INC-0050, INC-0294
+- [delegation/stalled-behind-one-owner-or-decision](../delegation/stalled-behind-one-owner-or-decision.md): INC-0277
 - [detector-fail-closed](../detector-fail-closed/README.md): INC-0034
-- [false-green](../false-green/README.md): INC-0284
-- [observability](../observability/README.md): INC-0254
-- [spec-and-scope](../spec-and-scope/README.md): INC-0338
+- [false-green/verified-a-different-target](../false-green/verified-a-different-target.md): INC-0284
+- [identity-and-keying](../identity-and-keying/README.md): INC-0341
+- [identity-and-keying/replacement-record-malformed](../identity-and-keying/replacement-record-malformed.md): INC-0279
+- [observability/missing-or-unverifiable-receipts](../observability/missing-or-unverifiable-receipts.md): INC-0254
+- [spec-and-scope/records-drift-or-lose-provenance](../spec-and-scope/records-drift-or-lose-provenance.md): INC-0338
 - [vcs-destruction](../vcs-destruction/README.md): INC-0281

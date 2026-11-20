@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [false-green, detector-fail-open]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/step-failed-but-gate-passed
 occurrences: 1
 ---
 
 # INC-0120 - A guard control asserted only exit 0, so a warn-and-pass guard looked like a clean pass
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A gate verdict came from a wrapper, pipe, chain or last line](../catalog/false-green/step-failed-but-gate-passed.md)
 
 **Cost:** Minor: caught by a re-check, an audit or review before it shipped.
 

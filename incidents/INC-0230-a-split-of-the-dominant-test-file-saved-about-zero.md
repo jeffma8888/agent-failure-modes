@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [stage-timeout, test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: stage-timeout/timing-models-and-critical-path
 occurrences: 1
 ---
 
 # INC-0230 - A split of the dominant test file saved about zero
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Timing models or optimizations are not measured](../catalog/stage-timeout/timing-models-and-critical-path.md)
 
 **Cost:** Minor: caught before it shipped.
 

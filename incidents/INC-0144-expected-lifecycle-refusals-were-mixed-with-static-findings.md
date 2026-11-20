@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [observability, detector-fail-closed]
 severity: medium
 status: fixed
-topic: null
+topic: observability/missing-or-unverifiable-receipts
 occurrences: 1
 ---
 
 # INC-0144 - Expected lifecycle refusals were mixed with static findings in a sweep
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Missing evidence keeps findings unverified](../catalog/observability/missing-or-unverifiable-receipts.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped.
 

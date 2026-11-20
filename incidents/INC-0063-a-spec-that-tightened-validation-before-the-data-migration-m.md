@@ -5,13 +5,13 @@ date: 2026-10-29
 classes: [spec-and-scope, false-green]
 severity: low
 status: fixed
-topic: null
+topic: spec-and-scope/missing-or-late-prerequisites
 occurrences: 1
 ---
 
 # INC-0063 - A spec that tightened validation before the data migration made every real-data test fail
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [A planned step cannot run because its prerequisite is missing](../catalog/spec-and-scope/missing-or-late-prerequisites.md)
 
 **Cost:** The implementer could not reach a green suite on the real data table, so code defects and missing data were indistinguishable. The implementer had to prove the code on a patched scratch copy instead.
 

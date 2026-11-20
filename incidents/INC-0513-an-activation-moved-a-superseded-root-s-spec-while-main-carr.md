@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: medium
 status: mitigated
-topic: null
+topic: identity-and-keying/approval-names-wrong-commit
 occurrences: 1
 ---
 
 # INC-0513 - An activation moved a superseded root's spec while main carried the approved successor edge, and identity failed only after the merge
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [An approval or activation names the wrong commit or line of history](../catalog/identity-and-keying/approval-names-wrong-commit.md)
 
 **Cost:** The identity check failed on the branch after merging main; the activation had to be redone on the terminal revision.
 

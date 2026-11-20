@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
+topic: false-green/red-for-the-wrong-reason
 occurrences: 1
 ---
 
 # INC-0487 - A setting that strips tokens from responses also stripped them from the test helper
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A red, blocked or failing result came from setup or environment](../catalog/false-green/red-for-the-wrong-reason.md)
 
 **Cost:** Minor: a database probe stayed red on cases that looked like product auth failures, until the probe itself was repaired.
 

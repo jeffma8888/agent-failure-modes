@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
-topic: null
+topic: false-green/test-cannot-see-the-defect
 occurrences: 1
 ---
 
 # INC-0505 - A run command silently dropped a named option, and three tests that ran it asserted only things that are true for the full data set too
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test stays green with the behavior removed or broken](../catalog/false-green/test-cannot-see-the-defect.md)
 
 **Cost:** The full data set loaded where the minimal one was requested, and no test failed; the defect was found only by reading installed source.
 

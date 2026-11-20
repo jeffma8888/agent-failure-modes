@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: medium
 status: mitigated
-topic: null
+topic: tooling-paths/argument-read-as-other-kind
 occurrences: 1
 ---
 
 # INC-0597 - A run-before-approve test asked for a runtime route that keeps the harness untouched instead of bypassing identity
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A helper or runner reads your argument as a different kind or name](../catalog/tooling-paths/argument-read-as-other-kind.md)
 
 **Cost:** None. The route was approved for run-before-approve only, with no credit.
 

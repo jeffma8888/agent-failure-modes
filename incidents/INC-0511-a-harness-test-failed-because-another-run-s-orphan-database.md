@@ -5,13 +5,16 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: mitigated
-topic: null
+topic: test-isolation/assertion-wider-than-contract
 occurrences: 1
+recurrence_of: INC-0483
 ---
 
 # INC-0511 - A harness test failed because another run's orphan database vanished mid-test, so the test depended on state it did not own
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Assertion measures more than its contract: caches, order, whole totals](../catalog/test-isolation/assertion-wider-than-contract.md)
+
+> **Recurrence of [INC-0483](./INC-0483-a-test-counted-a-whole-shared-directory-and-the-reset-reseed.md).** This record repeats an earlier failure and is kept for history; INC-0483 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** One full-suite run was spent on an environmental red, and a rerun was needed.
 

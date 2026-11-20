@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/guard-defaults-and-negative-controls
 occurrences: 1
 ---
 
 # INC-0148 - ASCII-only fixtures could not tell UTF-16 code unit order from UTF-8 byte order
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [A broken guard implementation still appears valid](../catalog/detector-fail-open/guard-defaults-and-negative-controls.md)
 
 **Cost:** Minor: caught by a reviewer, an auditor or the lead before it shipped.
 

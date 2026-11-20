@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, identity-and-keying]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/tests-do-not-prove-the-contract
 occurrences: 1
 ---
 
 # INC-0159 - A second reader of the same registry file was at risk of replacing the first
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Green tests omit or misstate required behavior](../catalog/spec-and-scope/tests-do-not-prove-the-contract.md)
 
 **Cost:** Minor: caught before it shipped.
 

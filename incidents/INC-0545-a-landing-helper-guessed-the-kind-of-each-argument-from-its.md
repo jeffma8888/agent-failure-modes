@@ -5,13 +5,16 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: mitigated
-topic: null
+topic: tooling-paths/argument-read-as-other-kind
 occurrences: 1
+recurrence_of: INC-0518
 ---
 
 # INC-0545 - A landing helper guessed the kind of each argument from its shape, so a plain file name was read as a pending root
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A helper or runner reads your argument as a different kind or name](../catalog/tooling-paths/argument-read-as-other-kind.md)
+
+> **Recurrence of [INC-0518](./INC-0518-a-landing-tool-read-a-bare-file-name-as-a-test-root-name-so.md).** This record repeats an earlier failure and is kept for history; INC-0518 is the canonical record (3 occurrences in total) and carries the rule to apply.
 
 **Cost:** One landing attempt failed its backlog check; the file was copied by hand and committed again.
 

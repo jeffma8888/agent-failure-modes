@@ -5,13 +5,13 @@ date: 2026-10-29
 classes: [tooling-paths, observability]
 severity: low
 status: fixed
-topic: null
+topic: tooling-paths/tool-defaults-not-target
 occurrences: 1
 ---
 
 # INC-0060 - A probe hung on a background child that held the pipe, and the timeout wrapper it relied on did not exist
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [The tool's own resolution or defaults, not the target, caused it](../catalog/tooling-paths/tool-defaults-not-target.md)
 
 **Cost:** A hung diagnostic session. The 'command not found' error that explained it had been written to a log nobody read until the hang.
 

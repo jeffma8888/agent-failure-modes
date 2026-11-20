@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
-occurrences: 1
+topic: false-green/real-page-or-response-wrong-behind-green
+occurrences: 2
 ---
 
 # INC-0275 - A probe that sends a session cookie alone may test guest behavior
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Tests pass but the real page, status or session is wrong](../catalog/false-green/real-page-or-response-wrong-behind-green.md)
 
 **Cost:** Minor: caught before it shipped.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Send every header an authenticated request needs, and run a control that proves the identity the probe claims
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0282](./INC-0282-a-test-that-claims-a-role-must-prove-the-role-before-relying.md) - 2026-11-01 - A test that claims a role must prove the role before relying on it
 
 ## Related
 

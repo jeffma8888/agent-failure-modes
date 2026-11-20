@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: stage-timeout/timeout-policy-and-lifecycle-boundaries
 occurrences: 1
 ---
 
 # INC-0111 - HTTP-only timeouts were copied from a process-hang pattern without the reason
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Timeout policy ignores purpose, call path or lifecycle](../catalog/stage-timeout/timeout-policy-and-lifecycle-boundaries.md)
 
 **Cost:** Minor: caught by a stop rule, an audit or review before it shipped.
 

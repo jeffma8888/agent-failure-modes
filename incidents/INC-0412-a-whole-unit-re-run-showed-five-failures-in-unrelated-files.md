@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
-topic: null
+topic: false-green/red-for-the-wrong-reason
 occurrences: 1
 ---
 
 # INC-0412 - A whole-unit re-run showed five failures in unrelated files because a required environment variable was unset in the shell
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A red, blocked or failing result came from setup or environment](../catalog/false-green/red-for-the-wrong-reason.md)
 
 **Cost:** Five red results could have been read as a regression or ignored as noise.
 

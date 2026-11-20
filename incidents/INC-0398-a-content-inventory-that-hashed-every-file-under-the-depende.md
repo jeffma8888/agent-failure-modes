@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: fixed
-topic: null
+topic: test-isolation/assertion-wider-than-contract
 occurrences: 1
 ---
 
 # INC-0398 - A content inventory that hashed every file under the dependency tree stopped a clean run because the test runner rewrote its result cache there
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Assertion measures more than its contract: caches, order, whole totals](../catalog/test-isolation/assertion-wider-than-contract.md)
 
 **Cost:** A passing run was stopped by a file the runner itself had written.
 

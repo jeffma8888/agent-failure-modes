@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, false-green]
 severity: medium
 status: mitigated
-topic: null
+topic: spec-and-scope/missing-or-late-prerequisites
 occurrences: 1
 ---
 
 # INC-0075 - Tests and code were written against a spec before its independent review returned, and the rulings then changed
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [A planned step cannot run because its prerequisite is missing](../catalog/spec-and-scope/missing-or-late-prerequisites.md)
 
 **Cost:** 48 tests and a full implementation were built on rulings that the review then changed. The work was parked as a checkpoint and the tests were revised before the code was ported, so a rework cycle was spent.
 

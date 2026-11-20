@@ -5,13 +5,16 @@ date: 2026-11-01
 classes: [false-green, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/real-page-or-response-wrong-behind-green
 occurrences: 1
+recurrence_of: INC-0244
 ---
 
 # INC-0265 - A rendered not-found view is not proof of a 404 status
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Tests pass but the real page, status or session is wrong](../catalog/false-green/real-page-or-response-wrong-behind-green.md)
+
+> **Recurrence of [INC-0244](./INC-0244-a-correct-not-found-page-was-served-with-a-200-status.md).** This record repeats an earlier failure and is kept for history; INC-0244 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** Minor: caught before it shipped.
 

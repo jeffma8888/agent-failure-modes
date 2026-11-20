@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
+topic: false-green/green-but-cases-never-ran
 occurrences: 1
 ---
 
 # INC-0485 - A merge checklist drafted early found a test change the merge would have broken
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [The gate was green but the cases it vouches for never executed](../catalog/false-green/green-but-cases-never-ran.md)
 
 **Cost:** None incurred: the owed change was found by reading before the merge, at the price of one extra assigned job.
 

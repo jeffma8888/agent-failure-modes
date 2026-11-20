@@ -6,11 +6,20 @@ A long-running process runs the code it imported at launch. Later commits to tha
 
 **Ask:** When did this process start, and how many commits to the code it imported have landed since - with no reload or restart?
 
+**You are probably here if:** Running behavior ignores merged changes, a gate checks another tree, or a packet, registry, or exact list describes obsolete files or exports.
+
 8 incidents filed here (8 occurrences); 4 more filed elsewhere are also tagged stale-module.
 
 ## Incidents
 
 This class has no topics, so this node is the leaf. Ordered by occurrences, then severity, then id.
+
+### [INC-0390](../../incidents/INC-0390-a-dispatch-packet-written-for-a-future-branch-went-stale-whe.md) - A dispatch packet written for a future branch went stale when a later ruling started the work elsewhere
+- occurrences 2, severity low, status fixed
+- **Signature:** A packet named a branch and checkout that a later ruling had superseded.
+- **Rule:** Reconcile a dispatch packet with the newest ruling when it lands
+- **Recurrences:**
+  - [INC-0401](../../incidents/INC-0401-a-dispatch-packet-called-a-root-absent-an-hour-after-it-had.md) - 2026-11-02 - A dispatch packet called a root absent an hour after it had landed
 
 ### [INC-0021](../../incidents/INC-0021-stale-module-import-shipped-is-not-live.md) - Stale module import: 'shipped' is not 'live'
 - occurrences 1, severity high, status mitigated
@@ -26,16 +35,6 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - occurrences 1, severity medium, status fixed
 - **Signature:** A readiness verdict is taken from one checkout and the gate reads another.
 - **Rule:** Check the tree the gate actually reads.
-
-### [INC-0390](../../incidents/INC-0390-a-dispatch-packet-written-for-a-future-branch-went-stale-whe.md) - A dispatch packet written for a future branch went stale when a later ruling started the work elsewhere
-- occurrences 1, severity low, status fixed
-- **Signature:** A packet named a branch and checkout that a later ruling had superseded.
-- **Rule:** Reconcile a dispatch packet with the newest ruling when it lands
-
-### [INC-0401](../../incidents/INC-0401-a-dispatch-packet-called-a-root-absent-an-hour-after-it-had.md) - A dispatch packet called a root absent an hour after it had landed
-- occurrences 1, severity low, status fixed
-- **Signature:** A packet stated a root was absent when it was already present on main.
-- **Rule:** A conditional packet must re-read the newest main for every root it names before review
 
 ### [INC-0405](../../incidents/INC-0405-the-demo-server-served-a-build-made-before-the-merge-so-a-wa.md) - The demo server served a build made before the merge, so a walk after a source merge would have observed nothing new
 - occurrences 1, severity low, status fixed
@@ -56,9 +55,9 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 
 4 incidents filed under another home class also carry this class. Listed by the node where they live:
 
-- [tooling-paths](../tooling-paths/README.md): INC-0264, INC-0301
+- [tooling-paths/tree-lacks-what-job-needs](../tooling-paths/tree-lacks-what-job-needs.md): INC-0264, INC-0301
 - [ipc-and-env](../ipc-and-env/README.md): INC-0064
-- [spec-and-scope](../spec-and-scope/README.md): INC-0296
+- [spec-and-scope/records-drift-or-lose-provenance](../spec-and-scope/records-drift-or-lose-provenance.md): INC-0296
 
 ## Practices touching this class
 

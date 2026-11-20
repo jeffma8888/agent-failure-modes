@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, detector-fail-open]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/mutation-witness-proves-less
 occurrences: 1
 ---
 
 # INC-0343 - A weakened final check survived a contract suite that lacked the right-signal, wrong-detail case
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A mutant or red-first witness does not prove what it is named for](../catalog/false-green/mutation-witness-proves-less.md)
 
 **Cost:** Minor: caught before it shipped.
 

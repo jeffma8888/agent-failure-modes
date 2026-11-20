@@ -5,13 +5,13 @@ date: 2026-09-02
 classes: [observability, verdict-token, delegation]
 severity: high
 status: mitigated
-topic: null
+topic: observability/missing-or-unverifiable-receipts
 occurrences: 1
 ---
 
 # INC-0041 - A verifier that lived and answered can still deliver an unusable verdict
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Missing evidence keeps findings unverified](../catalog/observability/missing-or-unverifiable-receipts.md)
 
 **Cost:** An audit's single FAIL was never identifiable. The verifier's reply was cut off before it reached the failing item, and the persisted task log truncated at the same point - so the finding was LOST rather than merely hidden, and the whole audit had to be redone by hand.
 

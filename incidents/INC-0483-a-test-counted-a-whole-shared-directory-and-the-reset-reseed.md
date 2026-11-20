@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: mitigated
-topic: null
-occurrences: 1
+topic: test-isolation/assertion-wider-than-contract
+occurrences: 2
 ---
 
 # INC-0483 - A test counted a whole shared directory, and the reset reseeded into it
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Assertion measures more than its contract: caches, order, whole totals](../catalog/test-isolation/assertion-wider-than-contract.md)
 
 **Cost:** Minor: a red full run on the merged branch; the case failed even when run alone.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > A test that counts a shared directory or table must count only what the case creates, by baseline delta or by name, because the per-test reset and seed change the total.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0511](./INC-0511-a-harness-test-failed-because-another-run-s-orphan-database.md) - 2026-11-02 - A harness test failed because another run's orphan database vanished mid-test, so the test depended on state it did not own
 
 ## Related
 

@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, test-isolation]
 severity: low
 status: fixed
-topic: null
+topic: false-green/red-for-the-wrong-reason
 occurrences: 1
 ---
 
 # INC-0363 - A module-presence guard went through the test's own file-system mock, so a missing-API label was never proven
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A red, blocked or failing result came from setup or environment](../catalog/false-green/red-for-the-wrong-reason.md)
 
 **Cost:** Minor: six red cells carried an unproven label until the first green run; nothing shipped.
 

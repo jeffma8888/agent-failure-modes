@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/missing-or-late-prerequisites
 occurrences: 1
 ---
 
 # INC-0243 - A proposed subject was treated as if its seam were declared
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [A planned step cannot run because its prerequisite is missing](../catalog/spec-and-scope/missing-or-late-prerequisites.md)
 
 **Cost:** Minor: caught before it shipped.
 

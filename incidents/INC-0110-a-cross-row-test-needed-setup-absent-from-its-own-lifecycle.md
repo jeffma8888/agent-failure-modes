@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: test-isolation/passes-warm-fails-clean
 occurrences: 1
 ---
 
 # INC-0110 - A cross-row test needed setup absent from its own lifecycle, and green was claimed without a fresh-clone setup or a canonical temp directory
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Passes in a warm checkout, fails in a fresh clone, CI or other runner](../catalog/test-isolation/passes-warm-fails-clean.md)
 
 **Cost:** Minor: caught by a stop rule, an audit or review before it shipped.
 

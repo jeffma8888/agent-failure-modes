@@ -5,13 +5,13 @@ date: 2026-10-29
 classes: [false-green, spec-and-scope]
 severity: medium
 status: mitigated
-topic: null
+topic: false-green/oracle-or-claim-written-from-memory
 occurrences: 1
 ---
 
 # INC-0057 - A revision that closed every finding introduced new defects in the seams it added
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test oracle, locator or review claim came from memory, not source](../catalog/false-green/oracle-or-claim-written-from-memory.md)
 
 **Cost:** A revision accepted all 12 blocking review findings and the blocking count rose to 15 on the next round. One more full revision and review cycle was needed.
 

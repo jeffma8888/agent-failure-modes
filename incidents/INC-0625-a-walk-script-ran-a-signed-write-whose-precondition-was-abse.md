@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: medium
 status: mitigated
-topic: null
+topic: false-green/step-failed-but-gate-passed
 occurrences: 1
 ---
 
 # INC-0625 - A walk script ran a signed write whose precondition was absent because the step before it had been refused, and the write succeeded on a record that never met the condition
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A gate verdict came from a wrapper, pipe, chain or last line](../catalog/false-green/step-failed-but-gate-passed.md)
 
 **Cost:** One step's result is void, neither a pass nor a defect, and the walk item stays blocked.
 

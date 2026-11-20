@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: fixed
-topic: null
+topic: tooling-paths/tool-defaults-not-target
 occurrences: 1
 ---
 
 # INC-0469 - A long acceptance run launched with a detached command inside a subshell from a tool shell never started, and no output file existed minutes later
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [The tool's own resolution or defaults, not the target, caused it](../catalog/tooling-paths/tool-defaults-not-target.md)
 
 **Cost:** A delay of several minutes before the missing run was noticed.
 

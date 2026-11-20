@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, concurrency]
 severity: medium
 status: fixed
-topic: null
+topic: test-isolation/green-alone-red-together
 occurrences: 1
 ---
 
 # INC-0138 - A stage that kept a database alive collided with later inventory and frozen-clock gc cases
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Green alone, red in the full suite, with another run, or after a merge](../catalog/test-isolation/green-alone-red-together.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, identity-and-keying]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/wrong-owner-path-or-scope
 occurrences: 1
 ---
 
 # INC-0085 - A helper owned by one test root was imported by later roots, creating an undeclared dependency
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Work lands under the wrong owner, path, or write boundary](../catalog/spec-and-scope/wrong-owner-path-or-scope.md)
 
 **Cost:** Minor: caught in review or by a stop rule before it shipped.
 

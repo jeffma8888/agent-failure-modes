@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/real-page-or-response-wrong-behind-green
 occurrences: 1
 ---
 
 # INC-0272 - Not-found under a streaming root layout answers 200 whatever the call site
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Tests pass but the real page, status or session is wrong](../catalog/false-green/real-page-or-response-wrong-behind-green.md)
 
 **Cost:** Minor: caught before it shipped.
 

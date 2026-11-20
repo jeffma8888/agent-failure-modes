@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
-topic: null
+topic: tooling-paths/tool-defaults-not-target
 occurrences: 1
 ---
 
 # INC-0603 - A measurement wrapper called an agent CLI inside a locked shell and failed before any child ran, and the one-invocation bound was kept by voiding the attempt
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [The tool's own resolution or defaults, not the target, caused it](../catalog/tooling-paths/tool-defaults-not-target.md)
 
 **Cost:** One heavy-run invocation spent on a wrapper defect, with no measurement from it.
 

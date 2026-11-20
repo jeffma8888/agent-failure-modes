@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
-topic: null
+topic: false-green/real-page-or-response-wrong-behind-green
 occurrences: 1
 ---
 
 # INC-0497 - A flag that hides the token from responses left first-user registration with an empty session cookie
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Tests pass but the real page, status or session is wrong](../catalog/false-green/real-page-or-response-wrong-behind-green.md)
 
 **Cost:** The first user of an empty system could register but not stay signed in, found only by a browser probe after the hardening tests were green.
 

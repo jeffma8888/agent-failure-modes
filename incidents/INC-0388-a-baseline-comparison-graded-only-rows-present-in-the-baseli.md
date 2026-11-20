@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/test-cannot-see-the-defect
 occurrences: 1
 ---
 
 # INC-0388 - A baseline comparison graded only rows present in the baseline, so a new failing row passed
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A test stays green with the behavior removed or broken](../catalog/false-green/test-cannot-see-the-defect.md)
 
 **Cost:** A new failing row could have passed as unchanged against the baseline.
 

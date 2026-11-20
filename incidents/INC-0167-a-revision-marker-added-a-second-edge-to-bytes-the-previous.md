@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: identity-and-keying/replacement-record-malformed
 occurrences: 1
 ---
 
 # INC-0167 - A revision marker added a second edge to bytes the previous marker already claimed
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A file-replacement (supersession) record is refused or claims too much](../catalog/identity-and-keying/replacement-record-malformed.md)
 
 **Cost:** Minor: caught on a scratch clone before the commit.
 

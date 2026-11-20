@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [detector-fail-open, observability]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/coverage-and-controls-not-proven
 occurrences: 1
 ---
 
 # INC-0292 - A snapshot recorder that finished was taken as proof it had collected
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [The checker ran but its target coverage is unproven](../catalog/detector-fail-open/coverage-and-controls-not-proven.md)
 
 **Cost:** Minor: caught before it shipped.
 

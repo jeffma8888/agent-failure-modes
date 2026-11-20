@@ -5,13 +5,13 @@ date: 2026-10-28
 classes: [tooling-paths, vcs-destruction]
 severity: low
 status: fixed
-topic: null
+topic: tooling-paths/chain-ran-on-after-failure
 occurrences: 1
 ---
 
 # INC-0046 - A script with external writes was only dry-run for its first step, and only write-last ordering made its failure harmless
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A shell chain ran on after a failed step, or a refusal sank safe steps](../catalog/tooling-paths/chain-ran-on-after-failure.md)
 
 **Cost:** None incurred. A history-swap script aborted on an invalid command flag. Because every external write came after every fallible local step, nothing external had happened; with the order reversed, the remote and the working copy would have diverged.
 

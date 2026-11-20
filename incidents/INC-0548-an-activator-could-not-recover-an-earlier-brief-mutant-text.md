@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: mitigated
-topic: null
+topic: delegation/guessed-or-stale-id-name-path
 occurrences: 1
 ---
 
 # INC-0548 - An activator could not recover an earlier brief mutant text, so it named its own mutant and said so
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [A record is guessed or stale, or lives only in a message or worktree](../catalog/delegation/guessed-or-stale-id-name-path.md)
 
 **Cost:** None. The mutant was disclosed as the activator own choice.
 

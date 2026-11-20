@@ -5,13 +5,16 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
-topic: null
+topic: false-green/mutation-witness-proves-less
 occurrences: 1
+recurrence_of: INC-0524
 ---
 
 # INC-0533 - A named mutant was masked by an independent guard upstream, so the case could never turn red for the stated reason
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A mutant or red-first witness does not prove what it is named for](../catalog/false-green/mutation-witness-proves-less.md)
+
+> **Recurrence of [INC-0524](./INC-0524-a-root-named-a-mutation-its-assertions-could-not-see-because.md).** This record repeats an earlier failure and is kept for history; INC-0524 is the canonical record (2 occurrences in total) and carries the rule to apply.
 
 **Cost:** A case was credited with a witness mutation that could not turn it red; caught in static review.
 

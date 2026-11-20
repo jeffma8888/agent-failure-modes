@@ -5,13 +5,13 @@ date: 2026-08-04
 classes: [stage-timeout, steering-channel, spec-and-scope]
 severity: high
 status: fixed
-topic: null
+topic: stage-timeout/work-outgrows-enforced-timeouts
 occurrences: 1
 ---
 
 # INC-0004 - A monotonically growing required-reading file silently kills the loop
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Work outgrows hidden caps or loses timeout headroom](../catalog/stage-timeout/work-outgrows-enforced-timeouts.md)
 
 **Cost:** A product stopped committing for 5 hours - four consecutive attempts, all 48-byte timeout logs.
 

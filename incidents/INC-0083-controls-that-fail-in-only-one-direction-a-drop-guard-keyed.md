@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [false-green, identity-and-keying]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/check-satisfied-by-unrelated-cause
 occurrences: 1
 ---
 
 # INC-0083 - Controls that fail in only one direction, a drop guard keyed on a name pattern, and refusal tests satisfied by unrelated connection errors
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A negative, absence or presence check passed for an unrelated reason](../catalog/false-green/check-satisfied-by-unrelated-cause.md)
 
 **Cost:** Caught in a re-check of revised tests; several cases could not have detected the guard they were meant to prove.
 

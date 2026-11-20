@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, observability]
 severity: medium
 status: fixed
-topic: null
-occurrences: 1
+topic: false-green/real-page-or-response-wrong-behind-green
+occurrences: 2
 ---
 
 # INC-0244 - A correct not-found page was served with a 200 status
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Tests pass but the real page, status or session is wrong](../catalog/false-green/real-page-or-response-wrong-behind-green.md)
 
 **Cost:** Minor: caught before it shipped.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Assert the response status and the rendered body together
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0265](./INC-0265-a-rendered-not-found-view-is-not-proof-of-a-404-status.md) - 2026-11-01 - A rendered not-found view is not proof of a 404 status
 
 ## Related
 

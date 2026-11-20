@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: mitigated
-topic: null
+topic: spec-and-scope/wrong-owner-path-or-scope
 occurrences: 1
 ---
 
 # INC-0502 - An implementer was assigned after checking only who wrote the test payload, and the root also held a coverage statement the implementer had written
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Work lands under the wrong owner, path, or write boundary](../catalog/spec-and-scope/wrong-owner-path-or-scope.md)
 
 **Cost:** One assignment and one round trip: the implementer stopped before any work and the row was reassigned.
 

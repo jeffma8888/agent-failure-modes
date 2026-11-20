@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: fixed
-topic: null
+topic: identity-and-keying/new-id-already-taken
 occurrences: 1
 ---
 
 # INC-0481 - Two new work item ids were minted from the current list alone, and both had already been used by merged work
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A newly minted id or name collides with one already in use](../catalog/identity-and-keying/new-id-already-taken.md)
 
 **Cost:** Minor: found when a branch creation failed; the new items were renamed and earlier mentions rewritten.
 

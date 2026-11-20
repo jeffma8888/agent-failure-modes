@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [delegation]
 severity: low
 status: mitigated
-topic: null
+topic: delegation/guessed-or-stale-id-name-path
 occurrences: 1
 ---
 
 # INC-0589 - The only copies of eight reviewed drafts sat untracked in one worktree, and the ruling kept them untouched
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [A record is guessed or stale, or lives only in a message or worktree](../catalog/delegation/guessed-or-stale-id-name-path.md)
 
 **Cost:** None. A triage found nothing superseded them, so no cleaning was done.
 

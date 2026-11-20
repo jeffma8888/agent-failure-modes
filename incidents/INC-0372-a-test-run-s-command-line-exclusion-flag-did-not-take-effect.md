@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [detector-fail-open, test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: detector-fail-open/coverage-and-controls-not-proven
 occurrences: 1
 ---
 
 # INC-0372 - A test run's command-line exclusion flag did not take effect, so excluded cases ran and called the package manager
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [The checker ran but its target coverage is unproven](../catalog/detector-fail-open/coverage-and-controls-not-proven.md)
 
 **Cost:** Moderate: a no-package-manager rule was breached by child processes; the breach was disclosed and the run inspected.
 

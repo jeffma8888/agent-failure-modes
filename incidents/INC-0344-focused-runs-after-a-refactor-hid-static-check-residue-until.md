@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, tooling-paths]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/verified-a-different-target
 occurrences: 1
 ---
 
 # INC-0344 - Focused runs after a refactor hid static-check residue until the first canonical run
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Verified a shortcut, a part or an old revision instead of what ships](../catalog/false-green/verified-a-different-target.md)
 
 **Cost:** Minor: caught before it shipped.
 

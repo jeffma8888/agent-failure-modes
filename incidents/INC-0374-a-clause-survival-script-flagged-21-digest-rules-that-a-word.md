@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [detector-fail-open]
 severity: low
 status: fixed
-topic: null
+topic: detector-fail-open/syntax-shapes-and-benign-decoys
 occurrences: 1
 ---
 
 # INC-0374 - A clause-survival script flagged 21 digest rules that a word diff showed were only wording compressions
 
-**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md) / [Syntax matching accepts decoys or rejects valid forms](../catalog/detector-fail-open/syntax-shapes-and-benign-decoys.md)
 
 **Cost:** A detector reported losses that were not real, which risked needless rework of the digest.
 

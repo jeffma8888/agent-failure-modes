@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: test-isolation/the-test-itself-is-the-defect
 occurrences: 1
 ---
 
 # INC-0183 - Sibling fixture factories lacked the metadata that makes a checker required
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [The red comes from the test's own fixture, tool option or control](../catalog/test-isolation/the-test-itself-is-the-defect.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-10-29
 classes: [false-green, tooling-paths]
 severity: low
 status: fixed
-topic: null
+topic: false-green/check-satisfied-by-unrelated-cause
 occurrences: 1
 ---
 
 # INC-0058 - A broad exception handler hid the difference between 'not found' and 'unknown name'
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A negative, absence or presence check passed for an unrelated reason](../catalog/false-green/check-satisfied-by-unrelated-cause.md)
 
 **Cost:** Caught while writing tests, before release. A command-line tool would have reported an unknown name as 'no eligible candidate', with the wrong exit code, and a test would have passed on the bug.
 

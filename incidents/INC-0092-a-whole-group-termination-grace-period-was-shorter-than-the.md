@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout, concurrency]
 severity: medium
 status: fixed
-topic: null
+topic: stage-timeout/timeout-policy-and-lifecycle-boundaries
 occurrences: 1
 ---
 
 # INC-0092 - A whole-group termination grace period was shorter than the wrapper process, so the wrapper exit ended the wait early
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Timeout policy ignores purpose, call path or lifecycle](../catalog/stage-timeout/timeout-policy-and-lifecycle-boundaries.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

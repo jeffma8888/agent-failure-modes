@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
-topic: null
+topic: delegation/stalled-behind-one-owner-or-decision
 occurrences: 1
 ---
 
 # INC-0435 - A low-load window needed immediate dispatch of the gated runs
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Parallel work stalls behind one busy owner, open decision or slot cap](../catalog/delegation/stalled-behind-one-owner-or-decision.md)
 
 **Cost:** Minor: an unused window delays every held run.
 

@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [delegation, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/reviewer-not-independent-or-free
 occurrences: 1
 ---
 
 # INC-0337 - Reviewers named at ruling time were busy when the artifact landed
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [The reviewer or runner you named was not independent or not free](../catalog/delegation/reviewer-not-independent-or-free.md)
 
 **Cost:** Minor: caught before it shipped.
 

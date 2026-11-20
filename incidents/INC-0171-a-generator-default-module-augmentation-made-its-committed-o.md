@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: tooling-paths/valid-alone-fails-in-host
 occurrences: 1
 ---
 
 # INC-0171 - A generator default module augmentation made its committed output fail the type check
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [Code valid alone fails in the host runtime, module form or generator](../catalog/tooling-paths/valid-alone-fails-in-host.md)
 
 **Cost:** Minor: a red type check.
 

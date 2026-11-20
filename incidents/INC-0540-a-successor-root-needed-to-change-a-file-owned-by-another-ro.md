@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: mitigated
-topic: null
+topic: spec-and-scope/wrong-owner-path-or-scope
 occurrences: 1
 ---
 
 # INC-0540 - A successor root needed to change a file owned by another row family, and the identity checker allows replacement only within one family
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Work lands under the wrong owner, path, or write boundary](../catalog/spec-and-scope/wrong-owner-path-or-scope.md)
 
 **Cost:** No loss. The author found it before activation and the lead split the successor.
 

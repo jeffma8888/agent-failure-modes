@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, concurrency]
 severity: medium
 status: fixed
-topic: null
+topic: test-isolation/green-alone-red-together
 occurrences: 1
 ---
 
 # INC-0169 - A garbage collection test with a moved clock reaped the outer tier own live database
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Green alone, red in the full suite, with another run, or after a merge](../catalog/test-isolation/green-alone-red-together.md)
 
 **Cost:** Minor: caught before it shipped.
 

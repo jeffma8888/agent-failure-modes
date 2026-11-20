@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
+topic: false-green/mutation-witness-proves-less
 occurrences: 1
 ---
 
 # INC-0608 - A mutant was witnessed red only on the first item of a loop, so the second row was not witnessed under the mutant
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A mutant or red-first witness does not prove what it is named for](../catalog/false-green/mutation-witness-proves-less.md)
 
 **Cost:** None. The limit was disclosed and accepted, but the second row had no mutant evidence.
 

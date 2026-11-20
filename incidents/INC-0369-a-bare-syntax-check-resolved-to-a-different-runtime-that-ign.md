@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths]
 severity: low
 status: fixed
-topic: null
+topic: tooling-paths/tool-defaults-not-target
 occurrences: 1
 ---
 
 # INC-0369 - A bare syntax check resolved to a different runtime that ignored the flag and executed the script
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [The tool's own resolution or defaults, not the target, caused it](../catalog/tooling-paths/tool-defaults-not-target.md)
 
 **Cost:** Minor: nothing ran, because the script refused at its first statement.
 

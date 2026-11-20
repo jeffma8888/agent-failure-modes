@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths]
 severity: medium
 status: fixed
-topic: null
-occurrences: 1
+topic: tooling-paths/zsh-expansion-surprises
+occurrences: 3
 ---
 
 # INC-0165 - A shell variable followed by a colon and a letter became a history modifier
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [zsh reads your variable differently: colon modifier, word split, array](../catalog/tooling-paths/zsh-expansion-surprises.md)
 
 **Cost:** Minor: a wrong string until noticed.
 
@@ -42,6 +42,13 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > In zsh, write the braces form of a variable before a colon.
+
+## Recurrences
+
+Occurrences: 3. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0278](./INC-0278-brace-a-shell-variable-that-is-followed-by-a-colon.md) - 2026-11-01 - Brace a shell variable that is followed by a colon
+- [INC-0622](./INC-0622-an-unbraced-shell-variable-followed-by-a-colon-and-a-letter.md) - 2026-11-04 - An unbraced shell variable followed by a colon and a letter was read as a history modifier, so a revision was mangled and the hash printed was of empty input
 
 ## Related
 

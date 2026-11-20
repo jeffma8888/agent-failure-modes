@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: mitigated
-topic: null
-occurrences: 1
+topic: delegation/reviewer-not-independent-or-free
+occurrences: 3
 ---
 
 # INC-0517 - Two reviewers were named who had written or judged the roots they were to review, and both stopped at the author check
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [The reviewer or runner you named was not independent or not free](../catalog/delegation/reviewer-not-independent-or-free.md)
 
 **Cost:** Two reviews were delayed and reassigned, plus a third review moved.
 
@@ -42,6 +42,13 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Before naming a reviewer, read the root coverage author line and review history; the reviewer own author check is the second line, not the first.
+
+## Recurrences
+
+Occurrences: 3. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0526](./INC-0526-a-reviewer-was-named-after-checking-commit-authorship-only-a.md) - 2026-11-02 - A reviewer was named after checking commit authorship only, and the reviewer had judged the root's cases in an earlier review file
+- [INC-0539](./INC-0539-two-reviewers-in-a-row-were-assigned-a-slice-they-had-alread.md) - 2026-11-02 - Two reviewers in a row were assigned a slice they had already worked on, because the pick did not search the record
 
 ## Related
 

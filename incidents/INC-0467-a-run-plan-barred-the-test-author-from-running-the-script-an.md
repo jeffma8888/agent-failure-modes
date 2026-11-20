@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
-topic: null
+topic: delegation/reviewer-not-independent-or-free
 occurrences: 1
 ---
 
 # INC-0467 - A run plan barred the test author from running the script, and a later message assigned that author anyway
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [The reviewer or runner you named was not independent or not free](../catalog/delegation/reviewer-not-independent-or-free.md)
 
 **Cost:** None: caught before the run.
 

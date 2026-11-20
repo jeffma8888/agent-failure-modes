@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [identity-and-keying, spec-and-scope]
 severity: medium
 status: fixed
-topic: null
+topic: identity-and-keying/key-is-a-proxy
 occurrences: 1
 ---
 
 # INC-0359 - A stored admission record left out the tool versions it was produced under
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A name, path string or digest stands in for the real identity, drifts](../catalog/identity-and-keying/key-is-a-proxy.md)
 
 **Cost:** Minor: caught in spec review before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: low
 status: mitigated
-topic: null
+topic: spec-and-scope/instructions-tools-cannot-follow
 occurrences: 1
 ---
 
 # INC-0614 - A signed command allow-list written from the runtime list omitted the commands the packet's own test-first and static steps needed, and the engineer stopped
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [Instructions fail a gate or omit the required operation](../catalog/spec-and-scope/instructions-tools-cannot-follow.md)
 
 **Cost:** The engineer could not run two required steps and stopped, so work waited for an amended allow-list.
 

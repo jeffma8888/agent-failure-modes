@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/real-page-or-response-wrong-behind-green
 occurrences: 1
 ---
 
 # INC-0246 - A short password check created the one-time account instead of showing an error
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Tests pass but the real page, status or session is wrong](../catalog/false-green/real-page-or-response-wrong-behind-green.md)
 
 **Cost:** Minor: caught before it shipped.
 

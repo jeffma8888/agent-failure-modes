@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, test-isolation]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/fix-misses-related-consumers
 occurrences: 1
 ---
 
 # INC-0255 - One batch finding hid 45 files with the same dependency
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [A local fix leaves sibling cases or callers broken](../catalog/spec-and-scope/fix-misses-related-consumers.md)
 
 **Cost:** Minor: caught before it shipped.
 

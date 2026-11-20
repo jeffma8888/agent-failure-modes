@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, detector-fail-open]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/red-for-the-wrong-reason
 occurrences: 1
 ---
 
 # INC-0314 - A probe-based test never ran its probe, so its red proved nothing about the probe
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A red, blocked or failing result came from setup or environment](../catalog/false-green/red-for-the-wrong-reason.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: medium
 status: mitigated
-topic: null
+topic: stage-timeout/work-outgrows-enforced-timeouts
 occurrences: 1
 ---
 
 # INC-0529 - A full run stopped at the unit step because one test hit the runner's default five-second bound while host load rose sevenfold
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Work outgrows hidden caps or loses timeout headroom](../catalog/stage-timeout/work-outgrows-enforced-timeouts.md)
 
 **Cost:** The later steps of a full run did not run, and the run was not green; acceptance stood on an earlier run.
 

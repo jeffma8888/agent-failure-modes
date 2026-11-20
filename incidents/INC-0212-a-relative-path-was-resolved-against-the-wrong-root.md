@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [tooling-paths]
 severity: medium
 status: fixed
-topic: null
+topic: tooling-paths/path-resolves-from-wrong-root
 occurrences: 1
 ---
 
 # INC-0212 - A relative path was resolved against the wrong root
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A relative path or link resolves from a different root than assumed](../catalog/tooling-paths/path-resolves-from-wrong-root.md)
 
 **Cost:** Minor: caught before it shipped.
 

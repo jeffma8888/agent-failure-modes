@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, concurrency]
 severity: medium
 status: fixed
-topic: null
+topic: identity-and-keying/new-id-already-taken
 occurrences: 1
 ---
 
 # INC-0125 - A marker generator listing every earlier unmarked root made a root approved later repeat an old path that a later marker already held
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A newly minted id or name collides with one already in use](../catalog/identity-and-keying/new-id-already-taken.md)
 
 **Cost:** Minor: caught in review, an audit or an engineer check before it shipped.
 

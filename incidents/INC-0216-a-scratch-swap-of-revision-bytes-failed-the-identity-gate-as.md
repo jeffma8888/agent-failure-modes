@@ -5,13 +5,13 @@ date: 2026-10-31
 classes: [identity-and-keying, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: identity-and-keying/replacement-record-malformed
 occurrences: 1
 ---
 
 # INC-0216 - A scratch swap of revision bytes failed the identity gate as designed
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [A file-replacement (supersession) record is refused or claims too much](../catalog/identity-and-keying/replacement-record-malformed.md)
 
 **Cost:** Minor: caught before it shipped.
 

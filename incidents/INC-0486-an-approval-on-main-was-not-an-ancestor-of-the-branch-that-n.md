@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: mitigated
-topic: null
+topic: identity-and-keying/approval-names-wrong-commit
 occurrences: 1
 ---
 
 # INC-0486 - An approval on main was not an ancestor of the branch that needed it
 
-**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md) / [An approval or activation names the wrong commit or line of history](../catalog/identity-and-keying/approval-names-wrong-commit.md)
 
 **Cost:** None incurred: caught by review before the activation commit, at the price of an extra branch-side merge step.
 

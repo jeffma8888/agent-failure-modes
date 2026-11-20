@@ -6,6 +6,8 @@ The channel meant to steer the loop (injected instructions, pinned notes) is not
 
 **Ask:** Did the CONSUMER's own parser emit the steering text verbatim, or did you only confirm you wrote it?
 
+**You are probably here if:** A directive, pinned note or reply that should steer the loop was written, yet the consumer acted as if it never arrived, or saw it and never acted on it.
+
 4 incidents filed here (4 occurrences); 1 more filed elsewhere are also tagged steering-channel.
 
 ## Incidents
@@ -36,7 +38,7 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 
 1 incidents filed under another home class also carry this class. Listed by the node where they live:
 
-- [stage-timeout](../stage-timeout/README.md): INC-0004
+- [stage-timeout/work-outgrows-enforced-timeouts](../stage-timeout/work-outgrows-enforced-timeouts.md): INC-0004
 
 ## Practices touching this class
 

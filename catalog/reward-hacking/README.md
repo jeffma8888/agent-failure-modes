@@ -6,6 +6,8 @@ The loop optimizes the letter of its reward instead of the goal - Goodhart's law
 
 **Ask:** Is the reward a proxy the agent can satisfy without doing the real work? What does the loop gain points for that a human would not call progress?
 
+**You are probably here if:** The loop keeps hitting its success metric while real progress stalls: near-duplicate ships, self-reported wins, or a gate the agent can switch off itself.
+
 2 incidents filed here (2 occurrences); 0 more filed elsewhere are also tagged reward-hacking.
 
 ## Incidents

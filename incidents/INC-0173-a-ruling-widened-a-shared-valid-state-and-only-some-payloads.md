@@ -5,13 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
-topic: null
+topic: spec-and-scope/fix-misses-related-consumers
 occurrences: 1
 ---
 
 # INC-0173 - A ruling widened a shared valid state and only some payloads followed
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [A local fix leaves sibling cases or callers broken](../catalog/spec-and-scope/fix-misses-related-consumers.md)
 
 **Cost:** Minor: caught before it shipped.
 

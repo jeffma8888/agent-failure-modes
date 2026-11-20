@@ -5,13 +5,13 @@ date: 2026-10-29
 classes: [observability, tooling-paths]
 severity: medium
 status: mitigated
-topic: null
+topic: observability/misleading-metrics-and-status
 occurrences: 1
 ---
 
 # INC-0073 - A bundled retry worked and the fix was credited to 'looking like a normal browser', which was wrong in every case tested
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [A reassuring signal contradicts the underlying evidence](../catalog/observability/misleading-metrics-and-status.md)
 
 **Cost:** The user was told the trick was making requests look like a browser, and asked for that technique to be recorded as the lesson. One target's robots.txt disallowed all automated agents and had not been read before the requests.
 

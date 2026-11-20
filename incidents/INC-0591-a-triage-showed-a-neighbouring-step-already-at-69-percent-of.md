@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [stage-timeout]
 severity: low
 status: mitigated
-topic: null
+topic: stage-timeout/work-outgrows-enforced-timeouts
 occurrences: 1
 ---
 
 # INC-0591 - A triage showed a neighbouring step already at 69 percent of its limit at lower load, so the budget ruling covered it before it failed
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Work outgrows hidden caps or loses timeout headroom](../catalog/stage-timeout/work-outgrows-enforced-timeouts.md)
 
 **Cost:** None. The second step was raised before it failed.
 

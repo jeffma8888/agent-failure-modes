@@ -5,13 +5,16 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: mitigated
-topic: null
+topic: delegation/reviewer-not-independent-or-free
 occurrences: 1
+recurrence_of: INC-0517
 ---
 
 # INC-0526 - A reviewer was named after checking commit authorship only, and the reviewer had judged the root's cases in an earlier review file
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [The reviewer or runner you named was not independent or not free](../catalog/delegation/reviewer-not-independent-or-free.md)
+
+> **Recurrence of [INC-0517](./INC-0517-two-reviewers-were-named-who-had-written-or-judged-the-roots.md).** This record repeats an earlier failure and is kept for history; INC-0517 is the canonical record (3 occurrences in total) and carries the rule to apply.
 
 **Cost:** One review was delayed and reassigned.
 

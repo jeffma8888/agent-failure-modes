@@ -107,7 +107,8 @@ def scan_repo(root: str, rules: list | None = None) -> dict[str, list[tuple[str,
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
         for fn in filenames:
             # This file holds the patterns; the private list holds the literals.
-            if fn in (SELF, PRIVATE_FILE) or fn.endswith(SKIP_EXT):
+            # A ".git" FILE is a worktree/submodule pointer (holds a local path); git never tracks it.
+            if fn in (SELF, PRIVATE_FILE, ".git") or fn.endswith(SKIP_EXT):
                 continue
             fp = os.path.join(dirpath, fn)
             try:

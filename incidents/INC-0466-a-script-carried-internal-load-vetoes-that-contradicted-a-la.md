@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: fixed
-topic: null
+topic: spec-and-scope/fix-misses-related-consumers
 occurrences: 1
 ---
 
 # INC-0466 - A script carried internal load vetoes that contradicted a later decision, and the script bytes were immutable
 
-**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md) / [A local fix leaves sibling cases or callers broken](../catalog/spec-and-scope/fix-misses-related-consumers.md)
 
 **Cost:** A successor script and a rerun of one step.
 

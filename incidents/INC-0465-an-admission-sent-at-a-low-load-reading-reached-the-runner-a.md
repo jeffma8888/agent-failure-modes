@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: fixed
-topic: null
+topic: stage-timeout/stale-or-overbroad-load-admission
 occurrences: 1
 ---
 
 # INC-0465 - An admission sent at a low load reading reached the runner after the load rose again, and the runner fresh reading then refused it
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Stale or overbroad load gates block or mis-admit work](../catalog/stage-timeout/stale-or-overbroad-load-admission.md)
 
 **Cost:** A delayed run and one more admission.
 

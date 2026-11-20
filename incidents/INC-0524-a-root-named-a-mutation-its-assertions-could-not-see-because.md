@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
-topic: null
-occurrences: 1
+topic: false-green/mutation-witness-proves-less
+occurrences: 2
 ---
 
 # INC-0524 - A root named a mutation its assertions could not see, because the next line returned the same status
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [A mutant or red-first witness does not prove what it is named for](../catalog/false-green/mutation-witness-proves-less.md)
 
 **Cost:** A case would have been credited with a witness mutation that could not turn it red.
 
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > A mutation named as a case witness must be one the assertions can see; trace what the next line returns before naming it, and state the expected red line.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- [INC-0533](./INC-0533-a-named-mutant-was-masked-by-an-independent-guard-upstream-s.md) - 2026-11-02 - A named mutant was masked by an independent guard upstream, so the case could never turn red for the stated reason
 
 ## Related
 

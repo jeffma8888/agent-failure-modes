@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [delegation]
 severity: low
 status: fixed
-topic: null
+topic: delegation/stalled-behind-one-owner-or-decision
 occurrences: 1
 ---
 
 # INC-0379 - Splitting a review's amendments kept the engineer busy while decisions were pending
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Parallel work stalls behind one busy owner, open decision or slot cap](../catalog/delegation/stalled-behind-one-owner-or-decision.md)
 
 **Cost:** Idle time while waiting on decisions was avoided without writing tests that a later decision would invalidate.
 

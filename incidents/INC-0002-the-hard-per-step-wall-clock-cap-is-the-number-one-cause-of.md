@@ -5,13 +5,13 @@ date: 2026-08-04
 classes: [stage-timeout, observability, checkpoint]
 severity: critical
 status: mitigated
-topic: null
+topic: stage-timeout/work-outgrows-enforced-timeouts
 occurrences: 1
 ---
 
 # INC-0002 - The hard per-step wall-clock cap is the number-one cause of lost work
 
-**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md) / [Work outgrows hidden caps or loses timeout headroom](../catalog/stage-timeout/work-outgrows-enforced-timeouts.md)
 
 **Cost:** About 9 hours across 2 full iterations produced zero shipped commits: 8 attempts, 8 timeouts, 0 output.
 

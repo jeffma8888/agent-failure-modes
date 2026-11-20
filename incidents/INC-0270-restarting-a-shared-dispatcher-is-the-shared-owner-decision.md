@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [delegation, ipc-and-env]
 severity: medium
 status: fixed
-topic: null
+topic: delegation/order-collides-with-rule-or-guard
 occurrences: 1
 ---
 
 # INC-0270 - Restarting a shared dispatcher is the shared owner decision
 
-**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md) / [Your order collided with a tool rule, permission ceiling, guard or pin](../catalog/delegation/order-collides-with-rule-or-guard.md)
 
 **Cost:** Minor: caught before it shipped.
 

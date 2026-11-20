@@ -5,13 +5,13 @@ date: 2026-11-04
 classes: [test-isolation]
 severity: high
 status: mitigated
-topic: null
+topic: test-isolation/green-alone-red-together
 occurrences: 1
 ---
 
 # INC-0627 - A new end-to-end case passed alone in its row gate, the merge went ahead with no full end-to-end tier on the branch tip, and the first full run after the merge failed it
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Green alone, red in the full suite, with another run, or after a merge](../catalog/test-isolation/green-alone-red-together.md)
 
 **Cost:** The main branch went red at the full run, and nothing downstream of it could proceed until a diagnosis.
 

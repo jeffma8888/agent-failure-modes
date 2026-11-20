@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
-topic: null
+topic: false-green/real-page-or-response-wrong-behind-green
 occurrences: 1
 ---
 
 # INC-0498 - The first browser run of new end-to-end cases found two product defects that config reads and other tiers missed
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Tests pass but the real page, status or session is wrong](../catalog/false-green/real-page-or-response-wrong-behind-green.md)
 
 **Cost:** Two product defects sat behind green tiers until the first browser run, and two fix rows were added.
 

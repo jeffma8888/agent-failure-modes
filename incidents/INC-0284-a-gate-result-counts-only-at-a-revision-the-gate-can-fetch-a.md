@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [false-green, checkpoint]
 severity: medium
 status: fixed
-topic: null
+topic: false-green/verified-a-different-target
 occurrences: 1
 ---
 
 # INC-0284 - A gate result counts only at a revision the gate can fetch and that holds its fix
 
-**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md) / [Verified a shortcut, a part or an old revision instead of what ships](../catalog/false-green/verified-a-different-target.md)
 
 **Cost:** Minor: caught before it shipped.
 

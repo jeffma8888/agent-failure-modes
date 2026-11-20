@@ -5,13 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: mitigated
-topic: null
+topic: test-isolation/passes-warm-fails-clean
 occurrences: 1
 ---
 
 # INC-0550 - Integration files that need a live server failed with connection refused under a runner that starts none, first read as a branch regression
 
-**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md) / [Passes in a warm checkout, fails in a fresh clone, CI or other runner](../catalog/test-isolation/passes-warm-fails-clean.md)
 
 **Cost:** One merge was held for triage until the failures were reproduced on the main branch.
 

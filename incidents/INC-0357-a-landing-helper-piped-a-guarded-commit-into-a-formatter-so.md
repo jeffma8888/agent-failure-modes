@@ -5,13 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths, vcs-destruction]
 severity: low
 status: fixed
-topic: null
+topic: tooling-paths/chain-ran-on-after-failure
 occurrences: 1
 ---
 
 # INC-0357 - A landing helper piped a guarded commit into a formatter, so the guard's failure did not stop the cleanup
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A shell chain ran on after a failed step, or a refusal sank safe steps](../catalog/tooling-paths/chain-ran-on-after-failure.md)
 
 **Cost:** Minor: nothing was lost because the operator noticed.
 

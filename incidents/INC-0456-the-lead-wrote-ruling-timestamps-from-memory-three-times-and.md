@@ -5,13 +5,16 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: fixed
-topic: null
+topic: observability/clock-labels-without-clock-evidence
 occurrences: 1
+recurrence_of: INC-0274
 ---
 
 # INC-0456 - The lead wrote ruling timestamps from memory three times and had to correct them
 
-**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md) / [Timestamp labels disagree with the actual clock](../catalog/observability/clock-labels-without-clock-evidence.md)
+
+> **Recurrence of [INC-0274](./INC-0274-write-times-from-a-command-output-not-from-memory.md).** This record repeats an earlier failure and is kept for history; INC-0274 is the canonical record (10 occurrences in total) and carries the rule to apply.
 
 **Cost:** Minor: three corrections.
 

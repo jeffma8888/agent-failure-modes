@@ -5,13 +5,13 @@ date: 2026-10-28
 classes: [tooling-paths, checkpoint]
 severity: low
 status: fixed
-topic: null
+topic: tooling-paths/chain-ran-on-after-failure
 occurrences: 1
 ---
 
 # INC-0050 - Bundling safe local steps with an approval-gated step loses the local steps when the gate refuses
 
-**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [A shell chain ran on after a failed step, or a refusal sank safe steps](../catalog/tooling-paths/chain-ran-on-after-failure.md)
 
 **Cost:** One turn of work redone. No damage: the refusal was clean and nothing was half-applied.
 
