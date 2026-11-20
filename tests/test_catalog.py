@@ -16,6 +16,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 
 import afm  # noqa: E402
 import build  # noqa: E402
+import eval_afm  # noqa: E402
 import sync_repo_meta  # noqa: E402
 from corpus import CLASSES, INCIDENTS, PRACTICES, TOPICS  # noqa: E402
 
@@ -183,6 +184,27 @@ BAD = {
     "bad incident date": (_set("INC-0002", date="2026-13-01"), "is not ISO"),
     "duplicate id": (_add(mk(2, ["alpha"], "alpha/two")), "duplicate id"),
     "related id missing": (_set("INC-0002", related=["INC-0999"]), "related id 'INC-0999' does not exist"),
+    # types: malformed input is an error message, never a traceback
+    "rule is a list": (_set("INC-0002", rule=["Do it."]), "'rule' must be a non-empty string, not list"),
+    "signature is a list": (_set("INC-0002", signature=["s"]), "'signature' must be a non-empty string"),
+    "title is whitespace": (_set("INC-0002", title="   "), "missing required field 'title'"),
+    "rule spans two lines": (_set("INC-0002", rule="Do it.\nThen more."), "rule must be one line"),
+    "severity is a list": (_set("INC-0002", severity=["high"]), "severity ['high'] not in"),
+    "classes is a string": (_set("INC-0004", classes="beta"), "classes must be a non-empty list"),
+    "classes is empty": (_set("INC-0004", classes=[]), "classes must be a non-empty list"),
+    "class id not a string": (_set("INC-0004", classes=["beta", ["alpha"]]), "class-id strings, not list"),
+    "related not a list": (_set("INC-0002", related="INC-0001"), "related must be a list of incident ids"),
+    "related entry not a string": (_set("INC-0002", related=[["INC-0001"]]), "related must be a list"),
+    "evidence not a list": (_set("INC-0002", evidence="https://example.org"),
+                            "evidence must be a list of non-empty strings"),
+    "evidence entry blank": (_set("INC-0002", evidence=["https://example.org - x", " "]),
+                             "evidence must be a list of non-empty strings"),
+    "incident not a dict": (_add("INC-0027"), "incident #27 in INCIDENTS must be a dict, not str"),
+    # ids: full match, positive, contiguous
+    "id zero": (_set("INC-0002", id="INC-0000"), "id must look like INC-0001"),
+    "id with a trailing newline": (_set("INC-0002", id="INC-0002\n"), "id must look like INC-0001"),
+    "id not a string": (_set("INC-0002", id=2), "id must look like INC-0001"),
+    "id gap": (_add(mk(28, ["alpha"], "alpha/one")), "without a gap; missing INC-0027"),
 }
 
 
@@ -199,6 +221,7 @@ def test_validation_rejects_bad_case(case):
 @pytest.mark.parametrize("case", [
     "three class-level outliers", "note of exactly 300", "route of exactly 160",
     "recurrence on its own date", "recurrence with evidence", "small class without topics",
+    "rule of exactly 400 on one line", "related and evidence lists", "next id appended",
 ])
 def test_validation_accepts_boundary_case(case):
     fx = copy.deepcopy(fixture())
@@ -214,7 +237,46 @@ def test_validation_accepts_boundary_case(case):
         _set("INC-0002", recurrences=[{"date": "2026-05-01", "note": "n", "evidence": ["a", "b"]}])(fx)
     elif case == "small class without topics":
         assert not any(k.startswith("beta/") for k in fx["topics"])
+    elif case == "rule of exactly 400 on one line":
+        _set("INC-0002", rule="x" * 400)(fx)
+    elif case == "related and evidence lists":
+        _set("INC-0002", related=["INC-0001", "INC-0004"], evidence=["https://example.org - the log"])(fx)
+    elif case == "next id appended":
+        _add(mk(27, ["alpha"], "alpha/two"))(fx)
     assert errors(fx) == [], case
+
+
+@pytest.mark.parametrize("value", [[["a", "nested", "list"]], 7, None, {"a": "dict"}],
+                         ids=["list", "int", "none", "dict"])
+def test_validation_reports_every_malformed_field_without_raising(value):
+    for f in build.REQUIRED + build.OPTIONAL:
+        fx = copy.deepcopy(fixture())
+        by_id(fx, "INC-0002")[f] = value
+        errs = errors(fx)  # must not raise
+        assert errs, f"{f}={value!r} accepted"
+
+
+def _sized(n_one: int) -> dict:
+    """The fixture with exactly n_one home records in alpha/one (INC-0001 and its stub INC-0003
+    count) and alpha/two kept within bounds, alpha staying above FLAT_MAX home incidents."""
+    fx = fixture()
+    fx["incidents"] = [i for i in fx["incidents"] if int(i["id"][4:]) <= 6]
+    n_two = max(10, 21 - n_one)  # alpha/two = INC-0002 + n_two; alpha home = 4 + n_one - 2 + n_two
+    keys = ["alpha/one"] * (n_one - 2) + ["alpha/two"] * n_two
+    fx["incidents"] += [mk(n, ["alpha"], key) for n, key in enumerate(keys, 7)]
+    return fx
+
+
+@pytest.mark.parametrize("n,ok", [(5, False), (6, True), (25, True), (26, False)])
+def test_topic_membership_bounds(n, ok):
+    fx = _sized(n)
+    assert sum(1 for i in fx["incidents"] if i.get("topic") == "alpha/one") == n
+    errs = errors(fx)
+    if ok:
+        assert errs == []
+    else:
+        assert errs == [f"topic alpha/one: {n} home records; a topic holds {build.TOPIC_MIN} to "
+                        f"{build.TOPIC_MAX} (merge a small one into a neighbour, split a large one)"]
 
 
 def test_build_refuses_an_invalid_corpus(monkeypatch, capsys):
@@ -623,6 +685,17 @@ def test_afm_route_aggregates_hits_and_node_text(fx_data):
     assert beta[0]["node"] == "catalog/beta/README.md"
 
 
+def test_afm_route_leave_one_out_floor(data):
+    """Fixed-seed leave-one-out: each sampled canonical (and its recurrence records) is removed
+    from the index and its signature routed. Measured at ROUTE_NODE_WEIGHT 3.0 on 637 incidents:
+    node top-1 15/40, node top-3 22/40, home class top-3 26/40 (1.0 gave 13, 21, 25). The floors
+    sit a few points below, so a regression fails and new data does not. Full numbers:
+    python3 tools/eval_afm.py."""
+    r = eval_afm.route_loo(data, eval_afm.route_sample(data, 40, SEED))
+    assert r["n"] == 40
+    assert r["node_top3"] >= 19 and r["class_top3"] >= 23, r
+
+
 def test_afm_route_real_symptom(data):
     nodes = [n["node"] for n in afm.route(data, "the gate was green but the code was broken", k=3)]
     assert "catalog/false-green/README.md" in nodes or any(n.startswith("catalog/false-green/") for n in nodes)
@@ -641,16 +714,93 @@ def test_afm_normalize_id(raw, expected):
     assert afm.normalize_id(raw) == expected
 
 
-def test_afm_next_id_without_a_remote(fx_data):
-    assert afm.next_id(fx_data) == ("INC-0027", None)
+def _source(tmp_path, ids, single_quoted=()) -> str:
+    """A tools/corpus.py stand-in: incident dicts, some single-quoted, plus a practice."""
+    lines = ["INCIDENTS = ["]
+    for n in ids:
+        q = "'" if n in single_quoted else '"'
+        lines.append(f"    {{{q}id{q}: {q}INC-{n:04d}{q}, {q}signature{q}: {q}s{q}}},")
+    lines += ["]", 'PRACTICES = [{"id": "PRA-0001", "derived_from": ["INC-0001"]}]', ""]
+    path = tmp_path / "corpus.py"
+    path.write_text("\n".join(lines), encoding="utf-8")
+    return str(path)
 
 
-def test_afm_next_id_warns_when_origin_is_ahead(fx_data, monkeypatch):
-    ahead = json.dumps({"incidents": [{"id": "INC-0030"}]})
+def _remote(monkeypatch, ids=None):
+    """origin/main's index holds these ids; None means there is no origin/main."""
+    out = json.dumps({"incidents": [{"id": f"INC-{n:04d}"} for n in ids or []]})
+    rc = 0 if ids is not None else 128
     monkeypatch.setattr(afm.subprocess, "run",
-                        lambda *a, **k: subprocess.CompletedProcess(a, 0, stdout=ahead, stderr=""))
-    nid, warn = afm.next_id(fx_data)
-    assert nid == "INC-0031" and "INC-0030" in warn and "rebase" in warn
+                        lambda *a, **k: subprocess.CompletedProcess(a, rc, stdout=out if rc == 0 else "", stderr=""))
+
+
+def test_afm_next_id_without_a_remote(fx_data, tmp_path, monkeypatch):
+    _remote(monkeypatch)
+    assert afm.next_id(fx_data, _source(tmp_path, range(1, 27))) == ("INC-0027", [])
+
+
+def test_afm_next_id_reads_a_newer_single_quoted_source_record_past_a_stale_index(fx_data, tmp_path, monkeypatch):
+    # the fixture index ends at INC-0026; the source already has INC-0027, single-quoted, unbuilt
+    _remote(monkeypatch)
+    nid, warns = afm.next_id(fx_data, _source(tmp_path, range(1, 28), single_quoted={27}))
+    assert nid == "INC-0028"
+    assert len(warns) == 1 and "ends at INC-0026" in warns[0] and "tools/build.py" in warns[0]
+
+
+def test_afm_next_id_warns_when_origin_is_ahead(fx_data, tmp_path, monkeypatch):
+    _remote(monkeypatch, range(1, 31))
+    nid, warns = afm.next_id(fx_data, _source(tmp_path, range(1, 27)))
+    assert nid == "INC-0031" and any("INC-0030" in w and "rebase" in w for w in warns)
+
+
+def test_afm_next_id_never_goes_below_the_built_index(fx_data, tmp_path, monkeypatch):
+    # an index id the source no longer has is still never reused
+    _remote(monkeypatch, range(1, 20))
+    assert afm.next_id(fx_data, _source(tmp_path, range(1, 25)))[0] == "INC-0027"
+
+
+@pytest.mark.parametrize("ids,expected", [
+    ([1, 3], "missing INC-0002"),
+    ([1, 2, 2, 3], "duplicated INC-0002"),
+    ([2, 3], "missing INC-0001"),
+])
+def test_afm_next_id_refuses_a_gapped_or_duplicated_source(fx_data, tmp_path, monkeypatch, ids, expected):
+    _remote(monkeypatch)
+    with pytest.raises(afm.SourceError, match=expected) as exc:
+        afm.next_id(fx_data, _source(tmp_path, ids))
+    assert "never reuses a hole" in str(exc.value)
+
+
+@pytest.mark.parametrize("text,expected", [
+    ('INCIDENTS = [{"id": f"INC-{1:04d}", "signature": "s"}]', "is not a literal INC-NNNN"),
+    ('INCIDENTS = [{"id": "INC-0000", "signature": "s"}]', "is not a literal INC-NNNN"),
+    ("INCIDENTS = [{'id': 'INC-1'}]", "is not a literal INC-NNNN"),
+    ('INCIDENTS = [{"id": "INC-0001",', "cannot read incident ids"),
+    ('PRACTICES = [{"id": "PRA-0001"}]', "no incident dict literals"),
+])
+def test_afm_source_ids_fails_clearly(tmp_path, text, expected):
+    (tmp_path / "corpus.py").write_text(text, encoding="utf-8")
+    with pytest.raises(afm.SourceError, match=expected):
+        afm.source_ids(str(tmp_path / "corpus.py"))
+    with pytest.raises(afm.SourceError, match="cannot read"):
+        afm.source_ids(str(tmp_path / "absent.py"))
+
+
+def test_afm_source_ids_match_the_real_corpus_quote_independently():
+    path = os.path.join(ROOT, "tools", "corpus.py")
+    assert re.search(r"""["']id["']: 'INC-""", open(path, encoding="utf-8").read()), \
+        "the corpus has single-quoted ids, so this test exercises them"
+    assert sorted(afm.source_ids(path)) == sorted(int(i["id"][4:]) for i in INCIDENTS)
+
+
+def test_afm_cli_next_id_refuses_a_gapped_source(fx_data, tmp_path, monkeypatch, capsys):
+    src = _source(tmp_path, [1, 3])
+    real = afm.source_ids
+    monkeypatch.setattr(afm, "load", lambda: fx_data)
+    monkeypatch.setattr(afm, "source_ids", lambda path: real(src))
+    assert afm.main(["next-id"]) == 2
+    out = capsys.readouterr()
+    assert out.out == "" and "missing INC-0002" in out.err
 
 
 def test_afm_load_refuses_schema_1(tmp_path):
@@ -681,7 +831,34 @@ AFM_SMOKE = {
     "show-rule": (["show", "1", "--rule"], 0, ["INC-0001 ["]),
     "show-missing": (["show", "INC-9999"], 2, []),
     "next-id": (["next-id"], 0, ["INC-"]),
+    "check-no-candidates": (["check", "zzqqwwvv"], 0, [afm.NO_CANDIDATES]),
 }
+
+AFM_REJECT = {
+    "search-stopwords-only": (["search", "the of and"], "no searchable word"),
+    "route-whitespace": (["route", "   "], "no searchable word"),
+    "check-empty": (["check", ""], "no searchable word"),
+    "check-punctuation": (["check", "?! -"], "no searchable word"),
+    "search-k-negative": (["search", "gate", "-k", "-1"], "must be a positive integer"),
+    "route-k-zero": (["route", "gate", "-k", "0"], "must be a positive integer"),
+    "check-k-not-a-number": (["check", "gate", "-k", "many"], "must be a positive integer"),
+    "top-n-negative": (["top", "-n", "-1"], "must be a positive integer"),
+    "top-n-zero": (["top", "-n", "0"], "must be a positive integer"),
+}
+
+
+@pytest.mark.parametrize("case", sorted(AFM_REJECT))
+def test_afm_cli_rejects_a_query_without_words_or_a_bad_limit(tmp_path, case):
+    args, needle = AFM_REJECT[case]
+    r = _cli(tmp_path, "afm.py", *args)
+    assert r.returncode == 2 and r.stdout == "", f"{case}: rc {r.returncode}\n{r.stdout[:500]}"
+    assert needle in r.stderr and "Traceback" not in r.stderr, r.stderr
+
+
+def test_afm_check_offers_only_candidates_that_share_a_word(data):
+    assert afm.check(data, "zzqqwwvv") == []
+    hits = afm.check(data, "a gate reported green while the tests never ran", k=50)
+    assert hits and all(h["similarity"] > 0 for h in hits)
 
 
 @pytest.mark.parametrize("case", sorted(AFM_SMOKE))
@@ -698,6 +875,8 @@ def test_afm_cli_smoke(tmp_path, case):
         assert re.fullmatch(r"INC-\d{4}", nid)
         assert int(nid[4:]) > max(int(i["id"][4:]) for i in INCIDENTS)
         assert "git fetch origin" in r.stderr
+    if case == "check-no-candidates":
+        assert "1. INC-" not in r.stdout and "Read the top pages" not in r.stdout
     if case == "show-rule":
         first = next(i for i in INCIDENTS if i["id"] == "INC-0001")
         assert r.stdout.strip() == f"INC-0001 [{first['severity']}]: {first['rule']}"
@@ -707,27 +886,40 @@ def test_afm_cli_smoke(tmp_path, case):
 
 def test_repo_description_quotes_current_counts():
     text = sync_repo_meta.description()
-    assert len(text) <= 350
+    c = sync_repo_meta.counts()
+    assert len(text) <= 350 and text.endswith("Agents: start at AGENTS.md.")
     assert f"{len(INCIDENTS)} real incidents" in text
     assert f"{len(CLASSES)} failure classes" in text
-    assert "AGENTS.md" in text
+    if c["stubs"]:
+        assert f"({c['distinct']} distinct failures plus {c['stubs']} recorded repeats)" in text
+    assert ("occurrences" in text) == (c["occurrences"] != c["incidents"])
 
 
 def test_repo_description_with_repeats_and_topics():
     fx = fixture()
     c = sync_repo_meta.counts(fx["incidents"], fx["classes"], fx["topics"], fx["practices"])
     assert c == {"incidents": 26, "classes": 2, "topics": 2, "practices": 1, "distinct": 24,
-                 "occurrences": 29, "repeats": 5}
+                 "stubs": 2, "entries": 3, "occurrences": 29}
     assert c["occurrences"] == model(fx).total_occ()
     text = sync_repo_meta.description(c)
     assert len(text) <= 350
-    assert "26 real incidents (24 distinct failures, 29 occurrences)" in text
-    assert "2 failure classes and 2 topics" in text
+    assert ("26 real incidents (24 distinct failures plus 2 recorded repeats), 29 occurrences in all, "
+            "across 2 failure classes and 2 topics,") in text
+
+
+def test_repo_description_omits_the_occurrence_count_while_it_equals_the_incident_count():
+    c = {"incidents": 637, "classes": 18, "topics": 54, "practices": 5, "distinct": 595,
+         "stubs": 42, "entries": 0, "occurrences": 637}
+    text = sync_repo_meta.description(c)
+    assert "637 real incidents (595 distinct failures plus 42 recorded repeats) across 18" in text
+    assert "occurrences" not in text and len(text) <= 350
+    plain = sync_repo_meta.description({**c, "distinct": 637, "stubs": 0})
+    assert "637 real incidents across 18 failure classes" in plain
 
 
 def test_repo_description_never_exceeds_the_github_cap():
     huge = {"incidents": 10 ** 60, "classes": 10 ** 60, "topics": 10 ** 60, "practices": 1,
-            "distinct": 10 ** 60, "occurrences": 10 ** 60, "repeats": 10 ** 60}
+            "distinct": 10 ** 60, "stubs": 10 ** 60, "entries": 10 ** 60, "occurrences": 2 * 10 ** 60}
     text = sync_repo_meta.description(huge)
     assert len(text) <= 350 and str(10 ** 60) in text
 

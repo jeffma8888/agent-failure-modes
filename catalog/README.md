@@ -4,7 +4,7 @@ Start here. 637 incidents from autonomous agent loops, arranged as a tree: this 
 
 ## How to navigate
 
-1. Fastest: `python3 tools/afm.py route "what you observe"` prints the best nodes, and `python3 tools/afm.py search "text"` prints matching incidents with their rules. Both run from any directory.
+1. Fastest, from the repository root: `python3 tools/afm.py route "what you observe"` prints the best nodes, and `python3 tools/afm.py search "text"` prints matching incidents with their rules. From another directory call it by path: `python3 "$AFM_ROOT/tools/afm.py" route "..."`, with AFM_ROOT set to your checkout.
 2. By hand: pick the class below whose "you are probably here if" matches what you SEE, open its node, then the topic whose "go here if" matches, then the incident.
 3. Before recording a failure, run `python3 tools/afm.py check "title + signature + root cause"`: a repeat becomes a recurrence, not a new incident. See [AGENTS.md](../AGENTS.md).
 4. Standing guidance for a prompt: [CORE.md](CORE.md) (max 26 KB). Do not load RULES.md, TAXONOMY.md or data/incidents.json whole.

@@ -203,7 +203,8 @@ def test_every_practice_derives_from_real_incidents():
 
 
 def test_rules_file_carries_every_practice():
-    """RULES.md is the prompt payload; a practice missing from it is not shipped."""
+    """RULES.md is the complete rule and practice export (CORE.md is the prompt payload);
+    a practice missing from it is not shipped."""
     text = open(os.path.join(ROOT, "RULES.md"), encoding="utf-8").read()
     assert "## Practices" in text
     for pra in PRACTICES:

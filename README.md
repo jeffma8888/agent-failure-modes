@@ -21,13 +21,13 @@ The point of this collection is that these failures are *transferable*. They are
 
 The corpus is large; nobody should read it front to back. Ask it questions instead.
 
-- **Find what you are hitting.** Describe what you observe, not what you think the cause is: `python3 tools/afm.py route "tests pass locally but fail in a fresh clone"` names the catalog nodes to open, and `python3 tools/afm.py search "..."` lists matching incidents with their rules. Both are standard-library Python and run from any directory.
+- **Find what you are hitting.** Describe what you observe, not what you think the cause is: `python3 tools/afm.py route "tests pass locally but fail in a fresh clone"` names the catalog nodes to open, and `python3 tools/afm.py search "..."` lists matching incidents with their rules. Both are standard-library Python. The examples run from the repository root; from any other directory call the script by path, `python3 "$AFM_ROOT/tools/afm.py" route "..."`, with `AFM_ROOT` set to your checkout.
 - **Browse.** Start at [catalog/README.md](catalog/README.md): pick the class whose "you are probably here if" matches, then the topic, then the incident.
 - **Give an agent the lessons.** Load [catalog/CORE.md](catalog/CORE.md) into its prompt, and point it at [AGENTS.md](AGENTS.md), which tells it never to load the large files whole.
 - **See what happens most.** `python3 tools/afm.py top` ranks failures by how often they recurred, and the catalog root opens with the same list.
 - **Record a failure.** Run `python3 tools/afm.py check "title + signature + root cause"` first. If a candidate has the same mechanism AND the same rule, add a dated entry to its `recurrences` list instead of a new incident; otherwise file a new one. [AGENTS.md](AGENTS.md) has the full write protocol and push checklist.
 
-The corpus is the file at [`tools/corpus.py`](tools/corpus.py). Everything else is generated from it by [`tools/build.py`](tools/build.py), so the incident pages, the JSON index and the taxonomy cannot drift apart.
+The corpus is the file at [`tools/corpus.py`](tools/corpus.py). [`tools/build.py`](tools/build.py) generates `incidents/`, `catalog/`, `data/`, `RULES.md`, `TAXONOMY.md` and the marked regions of this README and AGENTS.md from it, so the incident pages, the catalog, the JSON index and the taxonomy cannot drift apart. The rest of the prose, the tools and the tests are written by hand.
 
 ## Where these come from
 

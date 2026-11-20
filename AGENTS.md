@@ -2,8 +2,12 @@
 
 This repository is a corpus of post-mortems from autonomous agent loops. Use it to avoid
 repeating a known failure, and to record a new one without duplicating an old one. The
-single source of truth is `tools/corpus.py`; every other content file is generated from it
-by `tools/build.py`.
+single source of truth is `tools/corpus.py`. From it `tools/build.py` generates `incidents/`,
+`catalog/`, `data/`, `RULES.md`, `TAXONOMY.md` and the marked regions of `README.md` and this
+file; the rest of the prose, the tools and the tests are hand-written.
+
+Every command below runs from the repository root. From any other directory, call the script
+by path with `AFM_ROOT` set to your checkout: `python3 "$AFM_ROOT/tools/afm.py" route "..."`.
 
 <!-- BEGIN GENERATED: agents-stats -->
 - Incidents: 637 (595 canonical, 42 recurrence records, 0 recorded repeats, 637 occurrences in total).
@@ -17,7 +21,7 @@ Never load these whole: `RULES.md`, `TAXONOMY.md`, `data/incidents.json`, `tools
 or a listing of `incidents/`. Each costs tens of thousands of tokens and most of it is noise
 for your question.
 
-1. **CLI first.** `tools/afm.py` is stdlib-only and runs from any directory:
+1. **CLI first.** `tools/afm.py` is stdlib-only:
    - `python3 tools/afm.py route "what you observe"` - the best catalog nodes for a symptom.
    - `python3 tools/afm.py search "text" [-k 8] [--class C]` - ranked incidents with their rules.
    - `python3 tools/afm.py show INC-0042 [--rule]` - one incident page, or only its rule.
@@ -37,18 +41,24 @@ for your question.
    candidates' pages. The output is a ranked list, not a verdict: lexical similarity cannot
    tell a repeat from a neighbour, so you decide.
 3. **Same mechanism AND same rule** as a candidate: it is a repeat. Do NOT mint an id.
-   Append to that incident's `recurrences` list in `tools/corpus.py`:
+   Append to the CANONICAL: if the candidate has `recurrence_of`, follow it. Add an entry to
+   the canonical's `recurrences` list in `tools/corpus.py`:
    `{"date": "YYYY-MM-DD", "note": "what recurred and where, max 300 chars", "evidence": [...]}`
    (`evidence` optional). Same topic or similar wording is NOT enough; if the rule that
    would have prevented it differs, it is a new incident.
-4. **Otherwise a new incident.** `python3 tools/afm.py next-id`, then add a dict to the last
-   batch in `tools/corpus.py` with every required field (`tools/build.py` REQUIRED). The
+4. **Otherwise a new incident.** `python3 tools/afm.py next-id` prints one past the largest
+   id in `tools/corpus.py`, `data/incidents.json` and `origin/main`; it reserves nothing, and
+   it refuses while the corpus ids have a gap (repair that first, never refill a hole). Add a
+   dict to the last batch in `tools/corpus.py` with every required field (`tools/build.py`
+   REQUIRED, each a non-empty string; `classes` a non-empty list of class ids). The
    first entry of `classes` is the HOME class: it decides where the incident lives. The
    `rule` is one imperative line, max 400 characters.
 5. **Topic.** If the home class has topics (its catalog node shows a Topics table), set
    `"topic": "{class}/{slug}"` - pick it with `afm.py route`. At most 3 home incidents per
-   topic class may stay at class level. A new topic is registered in `TOPICS` in
-   `tools/corpus.py` (title max 70, go_here_if max 200, rule max 400).
+   topic class may stay at class level. Only a class with more than 22 home incidents has
+   topics; each topic holds 6 to 25 home records (recurrence records count) and is never
+   empty. A new topic is registered in `TOPICS` in `tools/corpus.py` (title max 70,
+   go_here_if max 200, rule max 400); the build refuses one that breaks these limits.
 6. **Never** set `recurrence_of` on a new record: it exists for historical duplicates that
    already have an id. It must point at an earlier canonical in the same class and topic.
 7. **Build and verify:** `python3 tools/build.py`, then `python3 -m pytest tests -q`, then

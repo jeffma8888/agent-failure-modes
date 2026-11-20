@@ -27,12 +27,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REQUIRED = ["id", "title", "date", "classes", "severity", "status", "cost",
             "signature", "what", "root_cause", "why_hard", "fix", "verification", "rule"]
 OPTIONAL = ["related", "evidence", "topic", "recurrence_of", "recurrences"]
+TEXT_FIELDS = [f for f in REQUIRED if f != "classes"]  # each a non-empty string
 SEVERITIES = {"low", "medium", "high", "critical"}
 STATUSES = {"fixed", "mitigated", "open", "structural"}
 SEV_ORDER = {"critical": 0, "high": 1, "medium": 2, "low": 3}
 
 FLAT_MAX = 22            # authoring rule: a class with <= this many home incidents has no topics
 MAX_OUTLIERS = 3         # a class with topics may keep this many home incidents at class level
+TOPIC_MIN, TOPIC_MAX = 6, 25  # home records per topic (recurrence records count as placed)
 RULE_MAX = 400
 ROUTE_MAX = 160
 NOTE_MAX = 300
@@ -49,7 +51,7 @@ CORE_MAX_RULES = 25       # most-recurrent incident rules in CORE.md (budget per
 CORE_MIN_RECURRENT = 10   # of those, reserved before topic rules compete for the budget
 JSON_TOP = 50             # most-recurrent ids in data/catalog.json
 
-ID_RE = re.compile(r"^INC-\d{4}$")
+ID_RE = re.compile(r"INC-(\d{4})")    # fullmatch; the number is positive
 SLUG_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 NL = chr(10)
@@ -125,32 +127,58 @@ def validate(incidents=None, classes=None, topics=None, practices=None) -> list[
             errs.append(f"topic {key}: unknown field(s) {extra}")
 
     seen: set = set()
+    nums: list[int] = []
     allowed = set(REQUIRED) | set(OPTIONAL)
+    bad = [n for n, inc in enumerate(incidents, 1) if not isinstance(inc, dict)]
+    for n in bad:
+        errs.append(f"incident #{n} in INCIDENTS must be a dict, not {type(incidents[n - 1]).__name__}")
+    incidents = [inc for inc in incidents if isinstance(inc, dict)]
     for inc in incidents:
-        i = inc.get("id", "<no id>")
-        for f in REQUIRED:
-            if not inc.get(f):
+        raw = inc.get("id")
+        i = raw if isinstance(raw, str) else f"<id {raw!r}>"
+        for f in TEXT_FIELDS:
+            v = inc.get(f)
+            if v is not None and not isinstance(v, str):
+                errs.append(f"{i}: '{f}' must be a non-empty string, not {type(v).__name__}")
+            elif not v or not v.strip():
                 errs.append(f"{i}: missing required field '{f}'")
         if extra := sorted(set(inc) - allowed):
             errs.append(f"{i}: unknown field(s) {extra}; optional fields are {OPTIONAL}")
-        if not isinstance(i, str) or not ID_RE.match(i):
-            errs.append(f"{i}: id must look like INC-0001")
-        if i in seen:
-            errs.append(f"{i}: duplicate id")
-        seen.add(i)
+        m = ID_RE.fullmatch(raw) if isinstance(raw, str) else None
+        if not m or not int(m.group(1)):
+            errs.append(f"{i}: id must look like INC-0001 (four digits, from INC-0001 up)")
+        else:
+            nums.append(int(m.group(1)))
+            if raw in seen:
+                errs.append(f"{i}: duplicate id")
+            seen.add(raw)
         if inc.get("date") and not _iso(inc.get("date")):
             errs.append(f"{i}: date {inc.get('date')!r} is not ISO YYYY-MM-DD")
-        if inc.get("severity") not in SEVERITIES:
-            errs.append(f"{i}: severity '{inc.get('severity')}' not in {sorted(SEVERITIES)}")
-        if inc.get("status") not in STATUSES:
-            errs.append(f"{i}: status '{inc.get('status')}' not in {sorted(STATUSES)}")
-        for c in inc.get("classes") or []:
-            if c not in classes:
+        for f, allowed_set in (("severity", SEVERITIES), ("status", STATUSES)):
+            v = inc.get(f)
+            if not isinstance(v, str) or v not in allowed_set:
+                errs.append(f"{i}: {f} {v!r} not in {sorted(allowed_set)}")
+        cls = inc.get("classes")
+        if not isinstance(cls, list) or not cls:
+            errs.append(f"{i}: classes must be a non-empty list of class ids (the first is the home class)")
+            cls = []
+        for c in cls:
+            if not isinstance(c, str):
+                errs.append(f"{i}: classes entries must be class-id strings, not {type(c).__name__}")
+            elif c not in classes:
                 errs.append(f"{i}: unknown class '{c}'")
-        if len(inc.get("rule") or "") > RULE_MAX:
-            errs.append(f"{i}: rule is {len(inc['rule'])} chars; keep it under {RULE_MAX} so it fits a prompt")
+        rule = inc.get("rule")
+        if isinstance(rule, str):
+            if len(rule) > RULE_MAX:
+                errs.append(f"{i}: rule is {len(rule)} chars; keep it under {RULE_MAX} so it fits a prompt")
+            if "\n" in rule or "\r" in rule:
+                errs.append(f"{i}: rule must be one line (no line breaks)")
+        for f, what in (("related", "incident ids"), ("evidence", "non-empty strings")):
+            if f in inc and (not isinstance(inc[f], list) or not all(
+                    isinstance(e, str) and e.strip() for e in inc[f])):
+                errs.append(f"{i}: {f} must be a list of {what}")
         t = inc.get("topic")
-        if t is not None:
+        if "topic" in inc:  # omit the field for no topic; None is not a topic
             if not isinstance(t, str) or t not in topics:
                 errs.append(f"{i}: topic {t!r} is not registered in TOPICS")
             elif t.split("/", 1)[0] != _home(inc):
@@ -181,11 +209,16 @@ def validate(incidents=None, classes=None, topics=None, practices=None) -> list[
                         isinstance(e, str) and e.strip() for e in r["evidence"])):
                     errs.append(f"{w}: evidence must be a list of non-empty strings")
 
-    byid = {inc.get("id"): inc for inc in incidents}
+    if nums and (missing := sorted(set(range(1, max(nums) + 1)) - set(nums))):
+        errs.append(f"incident ids must run INC-0001..INC-{max(nums):04d} without a gap; missing "
+                    f"{', '.join(f'INC-{n:04d}' for n in missing[:8])}. Reconcile or renumber them: "
+                    "a hole is never refilled automatically")
+    byid = {inc["id"]: inc for inc in incidents if isinstance(inc.get("id"), str)}
     for inc in incidents:
-        i = inc.get("id", "<no id>")
-        for r in inc.get("related", []):
-            if r not in byid:
+        i = inc["id"] if isinstance(inc.get("id"), str) else f"<id {inc.get('id')!r}>"
+        rel_ids = inc.get("related", [])
+        for r in rel_ids if isinstance(rel_ids, list) else []:
+            if isinstance(r, str) and r not in byid:
                 errs.append(f"{i}: related id '{r}' does not exist")
         if "recurrence_of" not in inc:
             continue
@@ -212,6 +245,9 @@ def validate(incidents=None, classes=None, topics=None, practices=None) -> list[
     for key in topics:
         if not carried[key]:
             errs.append(f"topic {key}: registered but no incident carries it")
+        elif not TOPIC_MIN <= carried[key] <= TOPIC_MAX:
+            errs.append(f"topic {key}: {carried[key]} home records; a topic holds {TOPIC_MIN} to "
+                        f"{TOPIC_MAX} (merge a small one into a neighbour, split a large one)")
     topic_classes = {k.split("/", 1)[0] for k in topics}
     for cid in classes:
         if cid not in topic_classes:
@@ -220,7 +256,7 @@ def validate(incidents=None, classes=None, topics=None, practices=None) -> list[
         if n_home <= FLAT_MAX:
             errs.append(f"class {cid}: has topics but only {n_home} home incidents; a class with "
                         f"{FLAT_MAX} or fewer has none (its class node is the leaf)")
-        loose = sorted(inc.get("id", "?") for inc in incidents
+        loose = sorted(str(inc.get("id", "?")) for inc in incidents
                        if _home(inc) == cid and not inc.get("topic"))
         if len(loose) > MAX_OUTLIERS:
             errs.append(f"class {cid}: has topics, so every home incident needs a topic except at most "
@@ -228,7 +264,7 @@ def validate(incidents=None, classes=None, topics=None, practices=None) -> list[
 
     for pra in practices:
         for ref in pra.get("derived_from", []):
-            if ref not in byid:
+            if not isinstance(ref, str) or ref not in byid:
                 errs.append(f"{pra.get('id')}: derived_from cites unknown incident {ref}")
     return errs
 
@@ -582,9 +618,10 @@ def root_node(m: Model) -> str:
            f"small enough to read whole (max {NODE_BUDGET // 1024} KB). Generated by tools/build.py "
            "from tools/corpus.py: never edit it by hand.", "",
            "## How to navigate", "",
-           "1. Fastest: `python3 tools/afm.py route \"what you observe\"` prints the best nodes, and "
-           "`python3 tools/afm.py search \"text\"` prints matching incidents with their rules. Both run "
-           "from any directory.",
+           "1. Fastest, from the repository root: `python3 tools/afm.py route \"what you observe\"` "
+           "prints the best nodes, and `python3 tools/afm.py search \"text\"` prints matching incidents "
+           "with their rules. From another directory call it by path: "
+           "`python3 \"$AFM_ROOT/tools/afm.py\" route \"...\"`, with AFM_ROOT set to your checkout.",
            "2. By hand: pick the class below whose \"you are probably here if\" matches what you SEE, "
            "open its node, then the topic whose \"go here if\" matches, then the incident.",
            "3. Before recording a failure, run `python3 tools/afm.py check \"title + signature + root "
