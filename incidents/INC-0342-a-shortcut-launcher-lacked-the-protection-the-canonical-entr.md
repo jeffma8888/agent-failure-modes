@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0342 - A shortcut launcher lacked the protection the canonical entry supplies implicitly
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

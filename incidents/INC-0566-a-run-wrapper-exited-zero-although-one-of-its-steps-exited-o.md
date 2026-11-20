@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0566 - A run wrapper exited zero although one of its steps exited one
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** None. The run was judged from its step file and tier counts, and the failure was an environment fault, not a product result.
 

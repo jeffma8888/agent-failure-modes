@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0534 - A configuration mutation failed a setup assertion before any case oracle ran, so the red proved nothing about the cases
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Two cases were credited with mutations whose red would have come from setup; caught in static review.
 

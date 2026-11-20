@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [vcs-destruction]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0409 - A landing helper's clean step fast-forwarded a merged feature branch's ref, which would have moved a live branch
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** A live branch could have been moved under its owner, losing the owner's base.
 

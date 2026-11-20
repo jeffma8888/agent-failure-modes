@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0156 - A test fixture name collided with a framework built-in and only collection revealed it
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

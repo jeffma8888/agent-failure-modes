@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0105 - A function signature named in the plan but never called by any test shipped ignoring its second argument
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught by a stop rule, a re-check or review before it shipped.
 

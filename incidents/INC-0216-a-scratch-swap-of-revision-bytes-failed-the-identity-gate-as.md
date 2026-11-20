@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [identity-and-keying, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0216 - A scratch swap of revision bytes failed the identity gate as designed
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

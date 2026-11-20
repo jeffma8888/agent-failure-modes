@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0616 - A signed packet required a tail-only migration rollback, but the named command rolls back a whole batch, so on a fresh database it would undo every migration
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** The engineer's fourth stop; no database was allocated, and the proof step was replaced by a driver script.
 

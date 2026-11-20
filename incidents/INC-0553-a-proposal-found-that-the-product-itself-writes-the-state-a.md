@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0553 - A proposal found that the product itself writes the state a fixture needed, which turned a validation-bypass question into a product path
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** None. The sanctioned fixture path replaced a forbidden database bypass.
 

@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0272 - Not-found under a streaming root layout answers 200 whatever the call site
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

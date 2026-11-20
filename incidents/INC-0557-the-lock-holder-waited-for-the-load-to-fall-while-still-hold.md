@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [concurrency, delegation]
 severity: low
 status: open
+topic: null
+occurrences: 1
 ---
 
 # INC-0557 - The lock holder waited for the load to fall while still holding the host lock, and eleven agents fed that one lock, so waits of 20 minutes became normal
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** Agents sat in queues for 20 to 25 minutes at a time; their running cost continued while their runtime work did not advance.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0431 - Interim content was signed as clearly marked placeholder copy instead of being invented as sourced
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** No invented copy entered the seed as if sourced.
 

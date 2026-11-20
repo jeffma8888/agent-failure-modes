@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0444 - A static closure packet that did not converge in three rounds was replaced by running the thing and diagnosing the receipts
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Three review rounds were spent before the approach changed.
 

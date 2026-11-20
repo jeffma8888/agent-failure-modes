@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0288 - Verify a worktree can run the required checks before assigning work there
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

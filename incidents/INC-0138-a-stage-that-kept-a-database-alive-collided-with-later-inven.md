@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, concurrency]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0138 - A stage that kept a database alive collided with later inventory and frozen-clock gc cases
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped.
 

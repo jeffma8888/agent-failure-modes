@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0202 - One adapter rejection looked like ten separate defects
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

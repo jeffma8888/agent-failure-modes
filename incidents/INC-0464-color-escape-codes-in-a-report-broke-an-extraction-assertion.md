@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0464 - Color escape codes in a report broke an extraction assertion, and only the zero match assertion caught it
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** None: nothing was written.
 

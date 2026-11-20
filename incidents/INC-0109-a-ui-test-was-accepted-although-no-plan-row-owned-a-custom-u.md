@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, delegation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0109 - A UI test was accepted although no plan row owned a custom UI component it needed
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught by a stop rule, a re-check or review before it shipped.
 

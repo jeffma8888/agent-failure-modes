@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0619 - A clock label slip recurred a fifth time, and the clock call became the only call in its batch
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** One ruling was first labelled with a clock value that was never read and had to be corrected.
 

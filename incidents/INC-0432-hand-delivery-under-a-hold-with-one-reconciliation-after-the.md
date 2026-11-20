@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [checkpoint]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0432 - Hand delivery under a hold, with one reconciliation after the load, replaced blocking on a state flip
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** No rows were blocked; one reconciliation step was added after the load.
 

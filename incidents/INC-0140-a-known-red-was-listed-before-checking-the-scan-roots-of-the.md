@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0140 - A known red was listed before checking the scan roots of the hygiene rule that raised it
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped.
 

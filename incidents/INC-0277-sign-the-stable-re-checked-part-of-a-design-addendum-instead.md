@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [delegation, checkpoint]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0277 - Sign the stable re-checked part of a design addendum instead of waiting
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

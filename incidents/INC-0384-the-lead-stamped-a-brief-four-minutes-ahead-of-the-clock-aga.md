@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [observability]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0384 - The lead stamped a brief four minutes ahead of the clock again, one round after the same correction
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** A brief carried a time later than the real one, a second time in two rounds.
 

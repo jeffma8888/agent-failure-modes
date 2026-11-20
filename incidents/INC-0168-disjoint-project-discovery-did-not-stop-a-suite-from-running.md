@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, stage-timeout]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0168 - Disjoint project discovery did not stop a suite from running twice
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: about 40 seconds of every fast run.
 

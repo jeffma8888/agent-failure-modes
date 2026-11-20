@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [checkpoint]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0598 - A go decision was tied to a stale commit that later rulings had overtaken, and the ruling moved it to a named condition
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** None. The packet was corrected before GO.
 

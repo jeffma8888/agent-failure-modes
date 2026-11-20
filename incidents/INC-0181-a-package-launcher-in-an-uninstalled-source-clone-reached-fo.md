@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, ipc-and-env]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0181 - A package launcher in an uninstalled source clone reached for the registry
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

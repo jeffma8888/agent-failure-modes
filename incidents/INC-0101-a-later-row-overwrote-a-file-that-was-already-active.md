@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [vcs-destruction, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0101 - A later row overwrote a file that was already active
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

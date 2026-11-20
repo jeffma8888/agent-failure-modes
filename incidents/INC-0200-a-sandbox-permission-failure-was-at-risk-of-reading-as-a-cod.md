@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0200 - A sandbox permission failure was at risk of reading as a code defect
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

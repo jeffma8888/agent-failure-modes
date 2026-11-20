@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [delegation, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0337 - Reviewers named at ruling time were busy when the artifact landed
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

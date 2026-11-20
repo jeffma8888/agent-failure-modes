@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0089 - A QA question claimed a credential or fact was undefined when the cut already defined it, and a restore through a gated write needed a satisfying seed
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught in review or by a stop rule before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0493 - An order named a scratch target without reading the guard of the command that would fill it
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** None incurred: a reviewer found it while writing a checklist, before any run, and the executor stopped before creating anything; the cost was a new dedicated database cluster and a re-issued order.
 

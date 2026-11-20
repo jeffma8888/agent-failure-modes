@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0082 - An absence check passed vacuously because the forbidden text never matched the real title and the document may never have been read
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Caught in review before activation; the check would have stayed green while the forbidden text was present.
 

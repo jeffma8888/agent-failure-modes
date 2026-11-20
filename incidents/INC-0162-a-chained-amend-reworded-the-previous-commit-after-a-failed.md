@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [vcs-destruction, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0162 - A chained amend reworded the previous commit after a failed revert
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Minor: a previous commit was reworded by mistake.
 

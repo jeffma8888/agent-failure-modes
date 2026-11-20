@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [delegation, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0091 - Teammate replies arrived while the lead was busy and were missed, leaving finished work idle for about 30 minutes
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught in review or by a stop rule before it shipped.
 

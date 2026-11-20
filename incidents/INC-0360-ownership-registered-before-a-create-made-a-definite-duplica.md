@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [test-isolation, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0360 - Ownership registered before a create made a definite duplicate error drop a foreign database
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: found by static reading before any run was affected.
 

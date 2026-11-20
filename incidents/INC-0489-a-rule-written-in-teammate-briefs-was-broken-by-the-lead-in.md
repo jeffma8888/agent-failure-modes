@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0489 - A rule written in teammate briefs was broken by the lead in its own shell
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** None incurred: the slip was seen in the next command and undone before any run.
 

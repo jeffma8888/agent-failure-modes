@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0334 - A bare number beside a time threshold invited a unit misread
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [observability, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0358 - A restated rule gained a qualifier the original ruling never had
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Minor: caught in review before it shipped.
 

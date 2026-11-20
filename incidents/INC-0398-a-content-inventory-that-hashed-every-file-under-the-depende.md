@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0398 - A content inventory that hashed every file under the dependency tree stopped a clean run because the test runner rewrote its result cache there
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** A passing run was stopped by a file the runner itself had written.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [checkpoint]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0443 - A self-imposed freeze outlived its reason and was blocking three rows' activations
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** Three rows' activations waited on a freeze that protected nothing.
 

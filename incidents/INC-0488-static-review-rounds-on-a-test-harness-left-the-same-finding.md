@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0488 - Static review rounds on a test harness left the same findings open
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Minor: several review rounds spent on a harness that had not yet been run.
 

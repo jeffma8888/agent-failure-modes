@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0131 - A stage hang deadline copied from a planning estimate killed a correct run once heavier tests joined
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped, except item one which delayed finished work.
 

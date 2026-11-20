@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0551 - A test that passed alone at about 63 percent of its timeout budget timed out in a loaded whole-suite run
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** One red in a merge run, classified as load sensitive and handed to the next full run.
 

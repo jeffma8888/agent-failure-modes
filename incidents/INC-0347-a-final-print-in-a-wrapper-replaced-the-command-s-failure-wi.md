@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0347 - A final print in a wrapper replaced the command's failure with success
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

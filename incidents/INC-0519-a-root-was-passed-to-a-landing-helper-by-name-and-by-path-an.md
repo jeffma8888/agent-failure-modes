@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0519 - A root was passed to a landing helper by name and by path, and the cleanup removed a file twice and stopped
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** One landing was finished by hand.
 

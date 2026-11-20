@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0356 - A reviewed recipe never ran its real tool queries because every control stubbed them
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** One scheduled authorized run was lost before setup.
 

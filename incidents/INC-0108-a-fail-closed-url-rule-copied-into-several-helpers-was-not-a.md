@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0108 - A fail-closed URL rule copied into several helpers was not applied to every copy or every URL part
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Minor: caught by a stop rule, a re-check or review before it shipped.
 

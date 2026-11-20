@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [detector-fail-closed]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0479 - A leak scanner that walked the working directory reported an ignored local file, and the push gate blocked on a file that never ships
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** Minor: a push was blocked until the finding was understood.
 

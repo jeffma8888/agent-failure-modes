@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0578 - Not visible was the wrong oracle for a collapsed sidebar, because the closed navigation stays in the page with opacity zero and inert
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** None. The run before approval caught it, and the unlanded root was revised in place.
 

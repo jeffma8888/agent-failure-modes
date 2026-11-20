@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [detector-fail-open, vcs-destruction]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0215 - A commit skipped the machine-wide pre-commit scanner
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

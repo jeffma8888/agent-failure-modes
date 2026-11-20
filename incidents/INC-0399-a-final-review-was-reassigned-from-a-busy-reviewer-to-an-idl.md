@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0399 - A final review was reassigned from a busy reviewer to an idle one of a different model instead of queueing
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** The review started without waiting for the busy reviewer to finish.
 

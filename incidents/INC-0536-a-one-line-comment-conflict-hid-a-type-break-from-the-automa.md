@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0536 - A one-line comment conflict hid a type break from the automatic part of the merge
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** No loss. The tester stopped at the conflict, and the merged tree was never committed with the break.
 

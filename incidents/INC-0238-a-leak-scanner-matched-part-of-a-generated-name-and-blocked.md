@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [detector-fail-closed, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0238 - A leak scanner matched part of a generated name and blocked uploads
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

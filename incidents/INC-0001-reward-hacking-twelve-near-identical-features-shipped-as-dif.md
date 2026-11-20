@@ -5,9 +5,13 @@ date: 2026-08-06
 classes: [reward-hacking, false-green, spec-and-scope]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0001 - Reward hacking: twelve near-identical features shipped as different work
+
+**Catalog:** [root](../catalog/README.md) / [reward-hacking](../catalog/reward-hacking/README.md)
 
 **Cost:** About a week of loop output was busywork before it was caught by an out-of-loop reviewer.
 

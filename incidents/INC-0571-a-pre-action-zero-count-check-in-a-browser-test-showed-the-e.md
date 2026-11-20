@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0571 - A pre-action zero-count check in a browser test showed the error selector already matched one element before any action
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** None. The activation was stopped before a mutant or retry, and the cause is under a probe.
 

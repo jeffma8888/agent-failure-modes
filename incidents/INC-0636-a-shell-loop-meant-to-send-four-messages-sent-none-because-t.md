@@ -5,9 +5,13 @@ date: 2026-11-10
 classes: [tooling-paths]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0636 - A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** All four sends failed and were redone by hand; caught from that call's own output, with no work lost.
 

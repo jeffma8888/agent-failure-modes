@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0487 - A setting that strips tokens from responses also stripped them from the test helper
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: a database probe stayed red on cases that looked like product auth failures, until the probe itself was repaired.
 

@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [detector-fail-closed, spec-and-scope]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0366 - A walk checklist attached another request variant's clause to the keyless request, so a correct response read as a failure
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** Minor: one triage cycle; no product change was needed.
 

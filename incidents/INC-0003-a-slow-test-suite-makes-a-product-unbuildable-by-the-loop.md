@@ -5,9 +5,13 @@ date: 2026-08-04
 classes: [stage-timeout, spec-and-scope, test-isolation]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0003 - A slow test suite makes a product unbuildable by the loop
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** About 7 hours across 3 iterations shipped 0 commits for one product; the correct fix touched a config the loop was not authorized to change.
 

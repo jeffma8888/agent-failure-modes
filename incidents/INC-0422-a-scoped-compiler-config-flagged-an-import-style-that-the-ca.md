@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0422 - A scoped compiler config flagged an import style that the canonical build never compiles
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: an error that was not a defect could have forced a repository config or test edit.
 

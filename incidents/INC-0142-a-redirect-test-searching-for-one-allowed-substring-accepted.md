@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0142 - A redirect test searching for one allowed substring accepted a bad target beside a benign decoy
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped.
 

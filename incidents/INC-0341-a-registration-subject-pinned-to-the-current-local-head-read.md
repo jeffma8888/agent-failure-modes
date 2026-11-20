@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [identity-and-keying, checkpoint]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0341 - A registration subject pinned to the current local head read as stale under a push freeze
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

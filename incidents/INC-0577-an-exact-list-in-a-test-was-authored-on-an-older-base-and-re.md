@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [stale-module]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0577 - An exact list in a test was authored on an older base and reviewed on a newer one where a new collection already existed
+
+**Catalog:** [root](../catalog/README.md) / [stale-module](../catalog/stale-module/README.md)
 
 **Cost:** The baseline failed in setup; no browser credit was given, and another successor was needed.
 

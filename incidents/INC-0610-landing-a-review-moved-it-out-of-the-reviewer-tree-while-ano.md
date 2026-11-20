@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [delegation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0610 - Landing a review moved it out of the reviewer tree while another teammate had been told to read it there
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** A teammate told to read a file at one path could not find it there once it landed on main.
 

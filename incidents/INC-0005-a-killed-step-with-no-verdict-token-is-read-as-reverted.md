@@ -5,9 +5,13 @@ date: 2026-08-10
 classes: [verdict-token, stage-timeout]
 severity: critical
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0005 - A killed step with no verdict token is read as REVERTED
+
+**Catalog:** [root](../catalog/README.md) / [verdict-token](../catalog/verdict-token/README.md)
 
 **Cost:** Two of three iterations reverted with every gate green, destroying verified work.
 

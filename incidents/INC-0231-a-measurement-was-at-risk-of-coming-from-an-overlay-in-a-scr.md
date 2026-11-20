@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [observability, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0231 - A measurement was at risk of coming from an overlay in a scratch tree
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

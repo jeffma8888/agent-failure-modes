@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0407 - A lead signature line containing the assistant's product name failed the scrub
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** A commit would have been blocked or a banned name published.
 

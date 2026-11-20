@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [checkpoint]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0605 - Corpus commits sat unpushed after the gate, and a push was answered with a server error, so the remote head must be read back after every push
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** Eight incidents were missing from the remote until the lead found them.
 

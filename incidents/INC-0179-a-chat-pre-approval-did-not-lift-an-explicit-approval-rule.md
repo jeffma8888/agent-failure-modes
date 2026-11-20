@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [delegation, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0179 - A chat pre-approval did not lift an explicit approval rule
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

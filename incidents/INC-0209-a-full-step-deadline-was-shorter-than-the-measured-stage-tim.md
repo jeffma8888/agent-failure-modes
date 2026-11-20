@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [stage-timeout, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0209 - A FULL step deadline was shorter than the measured stage time
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

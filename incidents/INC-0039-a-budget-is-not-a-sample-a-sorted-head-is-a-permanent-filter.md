@@ -5,9 +5,13 @@ date: 2026-08-29
 classes: [observability, spec-and-scope, false-green]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0039 - A budget is not a sample: a sorted head is a permanent filter, disguised as a performance knob
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Eight of eleven research dimensions were STRUCTURALLY unreachable for as long as the backlog stayed large. Every downstream artifact reported them as under-researched instead of unreached, and the resulting register was about 40% one dimension with nothing explaining why.
 

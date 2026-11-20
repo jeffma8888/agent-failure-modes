@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0163 - Acceptance ran bare vitest while the real gate ran setup then the FAST runner
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: a green row merge looked red.
 

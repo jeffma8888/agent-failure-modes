@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [concurrency, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0117 - Signalling a process group of only zombie members returned a permission error on macOS
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** Minor: caught by a re-check, an audit or review before it shipped.
 

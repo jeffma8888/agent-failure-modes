@@ -5,9 +5,13 @@ date: 2026-08-03
 classes: [ipc-and-env]
 severity: high
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0008 - Stale IPC endpoint after the host application restarts
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Every step instant-failed with a ~500-byte CLI help-text log; the dispatcher sat alive-but-broken for hours before the failure mode was recognized.
 

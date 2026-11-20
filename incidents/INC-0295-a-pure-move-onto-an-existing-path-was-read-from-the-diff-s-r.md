@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, vcs-destruction]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0295 - A pure move onto an existing path was read from the diff's rename display
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [ipc-and-env, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0325 - A background watcher lacked the session credentials and failed every poll
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

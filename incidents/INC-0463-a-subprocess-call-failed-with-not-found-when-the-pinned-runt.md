@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [ipc-and-env]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0463 - A subprocess call failed with not found when the pinned runtime directory was missing from the search path, and the first run showed five extra failures
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** A rerun with the search path set.
 

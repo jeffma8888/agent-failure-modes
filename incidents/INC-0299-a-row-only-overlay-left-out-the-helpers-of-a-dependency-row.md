@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [test-isolation, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0299 - A row-only overlay left out the helpers of a dependency row, so consumers looked blocked
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

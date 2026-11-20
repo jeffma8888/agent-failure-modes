@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [concurrency]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0522 - A helper script was edited in place while another process was executing it, and that run died with a syntax error at a shifted line
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** One comparison run was lost and rerun; an earlier near miss was caught by restoring the bytes within seconds.
 

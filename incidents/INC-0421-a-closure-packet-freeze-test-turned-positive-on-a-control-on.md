@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0421 - A closure packet freeze test turned positive on a control-only landing and the lead admitted it narrowly
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** No run was lost; the run waited for a written admission instead of proceeding or being blocked.
 

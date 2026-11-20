@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [test-isolation, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0320 - A positive control's first red was the control's own defect
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

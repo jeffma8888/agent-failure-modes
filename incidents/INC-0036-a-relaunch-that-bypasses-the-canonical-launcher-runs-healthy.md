@@ -5,9 +5,13 @@ date: 2026-08-23
 classes: [observability, ipc-and-env]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0036 - A relaunch that bypasses the canonical launcher runs healthy but unobservable, and the diagnostic inverts
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** One wasted drain-and-relaunch cycle, each drain costing its in-flight iteration, plus a false alarm: the freshness check reported that the restart had failed at the moment it had just succeeded - the reading most likely to trigger yet another destructive restart.
 

@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0176 - A shape regex was used as ownership evidence for a sweep
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

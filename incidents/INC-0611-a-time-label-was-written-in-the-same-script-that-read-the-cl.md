@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0611 - A time label was written in the same script that read the clock afterwards, minutes after a rule to read the clock first was recorded
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** One ruling carried a label a minute ahead of the real time until it was corrected in place with a note.
 

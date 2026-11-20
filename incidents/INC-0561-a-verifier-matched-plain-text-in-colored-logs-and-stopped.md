@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0561 - A verifier matched plain text in colored logs and stopped
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** The index generation stopped before writing; no test ran and no product file changed.
 

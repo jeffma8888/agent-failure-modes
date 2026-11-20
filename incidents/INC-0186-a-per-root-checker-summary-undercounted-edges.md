@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0186 - A per-root checker summary undercounted edges
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

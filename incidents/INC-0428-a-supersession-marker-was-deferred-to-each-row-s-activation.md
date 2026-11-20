@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [verdict-token]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0428 - A supersession marker was deferred to each row's activation because writing it now would trip the freeze test
+
+**Catalog:** [root](../catalog/README.md) / [verdict-token](../catalog/verdict-token/README.md)
 
 **Cost:** No STOP was raised; the marker waits for its activation step.
 

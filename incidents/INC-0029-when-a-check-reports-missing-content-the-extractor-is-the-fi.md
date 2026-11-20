@@ -5,9 +5,13 @@ date: 2026-08-27
 classes: [detector-fail-open, detector-fail-closed, tooling-paths, observability]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0029 - When a check reports missing content, the extractor is the first suspect
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Came one step from 'repairing' a CORRECT file by re-inserting 83 words that were never missing - which would have duplicated content and made a provably lossless artifact genuinely lossy.
 

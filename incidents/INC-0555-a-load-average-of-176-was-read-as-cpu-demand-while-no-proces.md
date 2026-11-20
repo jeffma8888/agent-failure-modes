@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0555 - A load average of 176 was read as CPU demand while no process used more than one core, because the number counts waiting work and lags
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** No direct loss; a risk of blaming the team's own jobs, or of stopping the wrong process.
 

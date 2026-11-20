@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0517 - Two reviewers were named who had written or judged the roots they were to review, and both stopped at the author check
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Two reviews were delayed and reassigned, plus a third review moved.
 

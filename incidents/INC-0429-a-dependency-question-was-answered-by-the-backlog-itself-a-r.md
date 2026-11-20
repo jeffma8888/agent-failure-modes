@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0429 - A dependency question was answered by the backlog itself, a relation owned by a later row, so no wait was needed
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** No work was blocked; a wait that was not needed was avoided.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0511 - A harness test failed because another run's orphan database vanished mid-test, so the test depended on state it did not own
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** One full-suite run was spent on an environmental red, and a rerun was needed.
 

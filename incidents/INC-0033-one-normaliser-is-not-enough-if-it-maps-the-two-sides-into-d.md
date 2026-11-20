@@ -5,9 +5,13 @@ date: 2026-08-28
 classes: [detector-fail-closed, observability]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0033 - One normaliser is not enough if it maps the two sides into different conventions
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** Third recurrence of the same defect in the same module. The first two were caught by hand before they did damage; this one ran long enough to produce roughly nineteen false accusations of fabricated evidence.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0453 - Teammates cannot remove or drop, so teardown belongs to the lead and runs from the runner names file
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** None: planned before the walk.
 

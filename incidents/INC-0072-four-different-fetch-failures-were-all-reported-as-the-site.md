@@ -5,9 +5,13 @@ date: 2026-10-29
 classes: [tooling-paths, detector-fail-closed]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0072 - Four different fetch failures were all reported as 'the site blocks automated access'
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** A research report told the user to run four public-record lookups by hand in a browser. All four were readable from the agent's own shell within minutes once each failure was classified; one needed a different, official source.
 

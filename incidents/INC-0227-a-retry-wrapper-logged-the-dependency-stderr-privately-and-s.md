@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [observability, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0227 - A retry wrapper logged the dependency stderr privately and starved the caller diagnosis
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

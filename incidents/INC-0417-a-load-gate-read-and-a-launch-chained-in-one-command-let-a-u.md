@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0417 - A load gate read and a launch chained in one command let a unit probe start at a load above the gate
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** One short probe ran above the gate and was recorded as a breach.
 

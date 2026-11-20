@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0427 - A host load spike came from operating system daemons, not the team, and the load wait held
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Runs waited; no run started on an overloaded host.
 

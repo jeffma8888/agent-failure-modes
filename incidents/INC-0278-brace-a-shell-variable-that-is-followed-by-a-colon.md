@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0278 - Brace a shell variable that is followed by a colon
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

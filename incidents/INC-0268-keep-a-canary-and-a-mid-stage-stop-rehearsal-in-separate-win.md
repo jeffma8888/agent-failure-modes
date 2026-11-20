@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [checkpoint, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0268 - Keep a canary and a mid-stage STOP rehearsal in separate windows
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

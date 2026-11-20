@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [delegation, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0263 - Refresh the team roster at each phase change
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

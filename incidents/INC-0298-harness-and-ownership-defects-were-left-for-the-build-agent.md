@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [delegation, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0298 - Harness and ownership defects were left for the build agent to find
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

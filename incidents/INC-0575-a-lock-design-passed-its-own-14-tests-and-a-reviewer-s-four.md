@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [concurrency]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0575 - A lock design passed its own 14 tests, and a reviewer's four forced interleavings each broke it
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** None. The first version stayed installed, and the revision was built before installing.
 

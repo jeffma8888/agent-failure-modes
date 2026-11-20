@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0492 - A successor test root was named so the identity checker could never accept it as a successor
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** None incurred: found by reading the checker before activation, at the price of a rename and a recheck.
 

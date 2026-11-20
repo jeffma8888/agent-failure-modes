@@ -5,9 +5,13 @@ date: 2026-08-10
 classes: [stale-module, observability]
 severity: high
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0021 - Stale module import: 'shipped' is not 'live'
+
+**Catalog:** [root](../catalog/README.md) / [stale-module](../catalog/stale-module/README.md)
 
 **Cost:** Twenty-six commits to a shared module were reported as SHIPPED by git and the changelog while all of them were inert in the running process for four days.
 

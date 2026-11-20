@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0525 - A feedback check accepted any visible alert on the page, so a stale alert could satisfy it
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A refusal case could pass with no refusal feedback produced by the action under test.
 

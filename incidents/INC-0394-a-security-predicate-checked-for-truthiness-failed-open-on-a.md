@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0394 - A security predicate checked for truthiness failed open on an undefined or null value
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** A missing value could have been read as permission.
 

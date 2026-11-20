@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0446 - A fresh worktree can be provisioned by a copy-on-write clone of the dependency tree instead of an install that may hit dead store links
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: a fresh worktree could not be provisioned by the usual install.
 

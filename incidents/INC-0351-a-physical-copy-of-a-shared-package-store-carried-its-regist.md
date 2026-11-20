@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [test-isolation, tooling-paths]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0351 - A physical copy of a shared package store carried its registry of outside links
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0416 - Ten teammate threads showed state paused with complete outputs on disk and no reply message
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** No work was lost; waiting on replies would have stalled ten reviews.
 

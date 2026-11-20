@@ -5,9 +5,13 @@ date: 2026-08-28
 classes: [identity-and-keying, observability, false-green]
 severity: critical
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0027 - A cache keyed on a recycled id judged each record on its predecessor's evidence
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** A newly-built gate refused 849 of 859 real candidates. Hand-labelled validation on 24 records had measured ZERO false positives, so the gate was about to be trusted on real data.
 

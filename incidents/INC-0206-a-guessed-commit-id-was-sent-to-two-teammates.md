@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [delegation, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0206 - A guessed commit id was sent to two teammates
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

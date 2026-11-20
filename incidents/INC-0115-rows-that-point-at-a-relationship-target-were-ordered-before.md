@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, delegation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0115 - Rows that point at a relationship target were ordered before the target was registered, tempting stubs or optional fields
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught by a stop rule, an audit or review before it shipped.
 

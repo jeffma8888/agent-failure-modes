@@ -5,9 +5,13 @@ date: 2026-08-28
 classes: [tooling-paths, concurrency, vcs-destruction]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0030 - Rewriting a region by slicing between two markers deletes whatever else lives there
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Silently deleted an unrelated helper function from a working tool. The tool then died on its next run with a NameError for a symbol the edit never mentioned.
 

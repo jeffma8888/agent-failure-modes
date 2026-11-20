@@ -5,9 +5,13 @@ date: 2026-08-03
 classes: [vcs-destruction, concurrency]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0013 - add-then-commit is a shared-index race; use a path-limited commit
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** An entire in-flight iteration's changeset shipped under a human's out-of-band commit message. Non-destructive but history mislabeled.
 

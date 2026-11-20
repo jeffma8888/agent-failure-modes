@@ -5,9 +5,13 @@ date: 2026-11-07
 classes: [delegation]
 severity: high
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0630 - A lead ended its turn waiting for a reviewer's completion message while the reviewer's finished files were already on disk, and nothing moved for days
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Nothing moved from about 06:31 on 11/04 to 23:43 on 11/07, about three and a half days, while every output sat finished on disk.
 

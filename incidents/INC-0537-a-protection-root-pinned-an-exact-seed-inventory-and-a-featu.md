@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0537 - A protection root pinned an exact seed inventory, and a feature row that grew the seed turned it red
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** No loss. The red was correct and was routed to a successor root instead of a test edit.
 

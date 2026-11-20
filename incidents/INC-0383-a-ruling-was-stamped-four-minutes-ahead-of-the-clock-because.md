@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [observability]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0383 - A ruling was stamped four minutes ahead of the clock because the time was written before the clock was read
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** One ruling carried a time later than the real one; corrected in the next ruling.
 

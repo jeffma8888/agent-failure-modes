@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [stage-timeout, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0271 - A load-induced harness red is not headroom
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

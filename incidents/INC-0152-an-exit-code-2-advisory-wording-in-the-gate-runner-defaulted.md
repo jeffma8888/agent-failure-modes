@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [verdict-token, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0152 - An exit code 2 advisory wording in the gate runner defaulted to proceed
+
+**Catalog:** [root](../catalog/README.md) / [verdict-token](../catalog/verdict-token/README.md)
 
 **Cost:** Minor: caught by a reviewer, an auditor or the lead before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0139 - A readiness deadline tested only inside a step was untested outside it
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped.
 

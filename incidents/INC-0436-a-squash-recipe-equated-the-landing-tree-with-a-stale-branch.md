@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [vcs-destruction]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0436 - A squash recipe equated the landing tree with a stale branch tree and would have dropped later main work
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** No work was lost; the recipe was corrected before the merge.
 

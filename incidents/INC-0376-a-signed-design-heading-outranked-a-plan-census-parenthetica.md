@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0376 - A signed design heading outranked a plan census parenthetical when two reviews disagreed on a file location
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Two reviews pulled the same file to different directories until the signed text was read.
 

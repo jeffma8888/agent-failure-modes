@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [ipc-and-env, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0354 - Gating by an environment variable leaked into nested runners that copy the environment
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

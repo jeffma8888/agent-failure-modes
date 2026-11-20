@@ -5,9 +5,13 @@ date: 2026-08-10
 classes: [concurrency, ipc-and-env]
 severity: critical
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0011 - Concurrent agent brains silently starve and kill each other
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** An 8-task research batch failed 8/8 across 5 retries each, zero outputs, because 8 subagents were launched into a saturated model-provider account already running an always-on dispatcher.
 

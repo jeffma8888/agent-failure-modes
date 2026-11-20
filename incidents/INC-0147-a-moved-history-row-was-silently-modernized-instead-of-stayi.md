@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0147 - A moved history row was silently modernized instead of staying byte identical
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught by a reviewer, an auditor or the lead before it shipped.
 

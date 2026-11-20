@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0187 - A slow stage was trimmed by cases instead of cut by grouping files
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0526 - A reviewer was named after checking commit authorship only, and the reviewer had judged the root's cases in an earlier review file
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** One review was delayed and reassigned.
 

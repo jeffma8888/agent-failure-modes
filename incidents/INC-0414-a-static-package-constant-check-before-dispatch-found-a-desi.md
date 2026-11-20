@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [stale-module]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0414 - A static package-constant check before dispatch found a design constant absent on main
+
+**Catalog:** [root](../catalog/README.md) / [stale-module](../catalog/stale-module/README.md)
 
 **Cost:** A runtime import failure was found at planning time instead of during a run.
 

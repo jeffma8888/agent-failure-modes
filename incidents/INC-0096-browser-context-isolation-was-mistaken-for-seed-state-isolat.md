@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0096 - Browser-context isolation was mistaken for seed-state isolation
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

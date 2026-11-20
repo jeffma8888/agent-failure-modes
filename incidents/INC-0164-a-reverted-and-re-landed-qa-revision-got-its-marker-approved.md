@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, checkpoint]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0164 - A reverted and re-landed QA revision got its marker approved at the wrong commit
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** Minor: a marker was rejected by the checker.
 

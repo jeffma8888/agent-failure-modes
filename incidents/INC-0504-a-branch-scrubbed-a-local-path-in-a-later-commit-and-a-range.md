@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [detector-fail-open]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0504 - A branch scrubbed a local path in a later commit, and a range scan found it still in history
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** The merge became a squash and the branch was kept locally as the review record; nothing leaked to the pushed history.
 

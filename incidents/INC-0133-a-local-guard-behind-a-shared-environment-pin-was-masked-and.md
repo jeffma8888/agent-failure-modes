@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0133 - A local guard behind a shared environment pin was masked, and a mutation claim was reasoned instead of measured
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped, except item one which delayed finished work.
 

@@ -5,9 +5,13 @@ date: 2026-08-05
 classes: [delegation]
 severity: high
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0016 - Anti-delegation clause must forbid 'scaffold a loop' too
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** A fan-out subagent produced no deliverable and exited 0, so the parent runner recorded 'done' with an empty artifact.
 

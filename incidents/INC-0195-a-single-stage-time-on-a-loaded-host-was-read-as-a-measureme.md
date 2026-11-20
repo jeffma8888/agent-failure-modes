@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0195 - A single stage time on a loaded host was read as a measurement
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

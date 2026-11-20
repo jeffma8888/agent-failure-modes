@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [delegation, concurrency]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0237 - A team runtime cap blocked new teammates behind retained idle ones
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

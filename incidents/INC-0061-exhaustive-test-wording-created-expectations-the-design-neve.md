@@ -5,9 +5,13 @@ date: 2026-10-29
 classes: [false-green, spec-and-scope]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0061 - Exhaustive test wording created expectations the design never defined
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A test requirement demanded invented values. Two independent reviewers caught it in a late review round; the fix was queued for a further revision.
 

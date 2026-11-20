@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0095 - Port validation tests lacked separate absent, zero and shared-port negatives and a positive callback control
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

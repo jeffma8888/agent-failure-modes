@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [vcs-destruction, delegation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0103 - A teammate could not run a destructive git command even when the lead instructed it
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Minor: caught by a stop rule, a re-check or review before it shipped.
 

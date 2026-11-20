@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0607 - A sandboxed shell refused a directory change whose target was held in a variable
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** One command batch was refused before any part ran, and had to be rerun with literal paths.
 

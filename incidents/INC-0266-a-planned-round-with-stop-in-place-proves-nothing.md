@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0266 - A planned round with STOP in place proves nothing
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

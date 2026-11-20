@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0476 - Unit mutation testing on a merged change found two survivors while every named test passed
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: found after the merge, before it could hide a regression; a follow-up change was opened.
 

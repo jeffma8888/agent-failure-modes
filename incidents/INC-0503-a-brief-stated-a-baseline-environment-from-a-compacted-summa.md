@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0503 - A brief stated a baseline environment from a compacted summary, and the baseline script showed the opposite
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** One round trip and a withdrawn brief; no wrong result was recorded because the implementer checked the script.
 

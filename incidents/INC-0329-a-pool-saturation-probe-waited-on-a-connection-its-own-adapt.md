@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, concurrency]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0329 - A pool saturation probe waited on a connection its own adapter retained
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [stale-module]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0401 - A dispatch packet called a root absent an hour after it had landed
+
+**Catalog:** [root](../catalog/README.md) / [stale-module](../catalog/stale-module/README.md)
 
 **Cost:** A review could have been set up around a root that was no longer missing.
 

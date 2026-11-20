@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [observability, checkpoint]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0254 - Raw evidence was deleted with the scratch area
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

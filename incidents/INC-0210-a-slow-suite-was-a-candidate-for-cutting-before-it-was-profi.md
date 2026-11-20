@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [stage-timeout, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0210 - A slow suite was a candidate for cutting before it was profiled
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0524 - A root named a mutation its assertions could not see, because the next line returned the same status
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A case would have been credited with a witness mutation that could not turn it red.
 

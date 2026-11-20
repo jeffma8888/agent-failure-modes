@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [checkpoint, vcs-destruction]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0293 - The before-state was not preserved before an operator edit
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

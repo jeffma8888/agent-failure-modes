@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [checkpoint]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0592 - A static triage found four open rows already done by named merges, and the freeze rule kept them open with the merge commit in the status text
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** None. The rows would otherwise have been rescheduled or reported as unfinished.
 

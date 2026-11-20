@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [checkpoint]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0516 - Backlog rows stayed open after their fixes merged, so the backlog no longer showed what was done
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** Six rows needed a catch-up status update, with a backlog check that must pass.
 

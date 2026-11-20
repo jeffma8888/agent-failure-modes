@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0565 - A second request for a part-row driver showed that the row runner needs a case filter
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** None. The request was sanctioned for one root and a case filter became a candidate row.
 

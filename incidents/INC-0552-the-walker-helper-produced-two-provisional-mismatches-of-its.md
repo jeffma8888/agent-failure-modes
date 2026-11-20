@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [detector-fail-closed]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0552 - The walker helper produced two provisional mismatches of its own, which it traced and corrected append-only before any defect was filed
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** None. Two false mismatches were corrected before they became defects.
 

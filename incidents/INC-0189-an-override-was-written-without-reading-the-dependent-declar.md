@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0189 - An override was written without reading the dependent declared range
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

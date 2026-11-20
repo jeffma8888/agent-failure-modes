@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [vcs-destruction, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0114 - A second clone named after the remote held a stale tip and was mistaken for the working checkout
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Minor: caught by a stop rule, an audit or review before it shipped.
 

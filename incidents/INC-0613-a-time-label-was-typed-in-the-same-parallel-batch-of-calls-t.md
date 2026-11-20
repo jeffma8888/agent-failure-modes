@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0613 - A time label was typed in the same parallel batch of calls that read the clock, so it was written before the clock was seen; the third recurrence
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** One ruling carried a label that had to be corrected in place with a note.
 

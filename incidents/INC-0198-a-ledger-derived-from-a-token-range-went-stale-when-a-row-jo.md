@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0198 - A ledger derived from a token range went stale when a row joined the range
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0455 - A provenance check that the generator can never satisfy: the zero parent id on every snapshot
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** None: the stop came before any harm.
 

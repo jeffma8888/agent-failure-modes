@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [ipc-and-env, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0223 - An empty environment caller was at risk of being repaired with inherited values
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

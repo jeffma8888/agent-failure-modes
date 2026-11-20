@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [observability, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0146 - A truncated FAST run stopped at the first red stage and understated the stage sum by about half
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Minor: caught by a reviewer, an auditor or the lead before it shipped.
 

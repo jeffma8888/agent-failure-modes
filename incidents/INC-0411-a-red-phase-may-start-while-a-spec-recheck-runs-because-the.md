@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0411 - A red phase may start while a spec recheck runs because the reviewed bytes fix the behavior
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** The engineer's work proceeded in parallel with the recheck.
 

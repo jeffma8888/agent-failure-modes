@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0190 - FAST stayed green while a command-adapter fixture missed a new execution project
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

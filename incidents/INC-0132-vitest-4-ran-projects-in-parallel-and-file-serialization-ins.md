@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, concurrency]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0132 - Vitest 4 ran projects in parallel and file serialization inside a project did not order whole-cluster checks
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught by an engineer, reviewer or the lead before it shipped, except item one which delayed finished work.
 

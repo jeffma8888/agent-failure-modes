@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0154 - A marker for an already activated revision used the pending path form
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** Minor: the identity checker went red on main until the edge was rewritten.
 

@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0112 - A control relied on state the test had changed earlier and silently became vacuous
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught by a stop rule, an audit or review before it shipped.
 

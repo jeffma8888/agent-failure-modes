@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0426 - A generated migration needed a lint-only edit, so the evidence carries the raw and delivered hashes and the one-line diff
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: an unrecorded hand edit to a generated file could have hidden a real change.
 

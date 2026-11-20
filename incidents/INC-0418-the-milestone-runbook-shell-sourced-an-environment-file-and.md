@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [ipc-and-env]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0418 - The milestone runbook shell-sourced an environment file and failed before the build on a value with angle brackets
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** The first walk attempt failed before the build and was rerun.
 

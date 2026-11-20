@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0483 - A test counted a whole shared directory, and the reset reseeded into it
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: a red full run on the merged branch; the case failed even when run alone.
 

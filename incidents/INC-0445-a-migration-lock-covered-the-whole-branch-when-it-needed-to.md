@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [concurrency]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0445 - A migration lock covered the whole branch when it needed to cover only the generators and schema paths
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** Parallel work was blocked until the lock was narrowed.
 

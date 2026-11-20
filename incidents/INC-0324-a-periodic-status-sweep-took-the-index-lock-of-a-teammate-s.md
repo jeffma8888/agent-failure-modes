@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [concurrency, vcs-destruction]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0324 - A periodic status sweep took the index lock of a teammate's worktree
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

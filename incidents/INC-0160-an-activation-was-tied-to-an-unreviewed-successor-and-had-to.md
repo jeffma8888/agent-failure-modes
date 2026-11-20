@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [checkpoint, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0160 - An activation was tied to an unreviewed successor and had to be re-ruled
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

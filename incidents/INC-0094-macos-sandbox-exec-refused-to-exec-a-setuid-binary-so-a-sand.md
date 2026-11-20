@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, ipc-and-env]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0094 - macOS sandbox-exec refused to exec a setuid binary, so a sandboxed acceptance profile failed on the process-introspection tool
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [concurrency]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0544 - A walk load limit was unreachable because the host floor without any team job sat above it
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** No loss. The lead changed the limit and serialized runtime jobs before the walk started.
 

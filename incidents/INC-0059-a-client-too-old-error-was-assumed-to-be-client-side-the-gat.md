@@ -5,9 +5,13 @@ date: 2026-10-29
 classes: [ipc-and-env, observability]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0059 - A 'client too old' error was assumed to be client-side; the gate was on the server and keyed on the request body
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Time spent on a wrong local theory while trying to move a build engine to a newer model. No damage; the finding changed the plan from patching the existing client to building an honest one.
 

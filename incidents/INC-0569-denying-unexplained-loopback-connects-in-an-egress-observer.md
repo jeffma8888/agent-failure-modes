@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [detector-fail-closed]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0569 - Denying unexplained loopback connects in an egress observer broke the app, and the agent stopped instead of widening
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** None to the product. The run was stopped, and the rule was refined only after the listeners were attributed.
 

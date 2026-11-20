@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0074 - A brief named a source directory the repository does not have, written from a conventional layout instead of a listing
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: one reviewer lost its first path lookup. Both recipients were lucky: one guessed the intent correctly, and a stricter reader could have refused the task or created the nonexistent directory.
 

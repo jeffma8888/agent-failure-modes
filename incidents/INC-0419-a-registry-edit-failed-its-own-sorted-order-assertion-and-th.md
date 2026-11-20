@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0419 - A registry edit failed its own sorted-order assertion, and the identity checker refuses a supersession whose old path the registry still names
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** One registry edit was rejected by its own assertion before landing.
 

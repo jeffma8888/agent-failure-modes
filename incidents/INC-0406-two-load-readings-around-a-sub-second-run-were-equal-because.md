@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0406 - Two load readings around a sub-second run were equal because the host load average updates on a fixed interval
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Equal readings could have been read as copied or invented.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [detector-fail-open]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0458 - A generated down migration defect fixed once came back in the next row because the fix was never turned into a check
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** A repeat of a known defect, caught by a static review before any run.
 

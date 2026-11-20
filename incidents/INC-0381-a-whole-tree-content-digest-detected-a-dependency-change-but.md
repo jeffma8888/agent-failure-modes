@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [observability]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0381 - A whole-tree content digest detected a dependency change but could not say which file
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** A change was detected but its source file had to be rediscovered.
 

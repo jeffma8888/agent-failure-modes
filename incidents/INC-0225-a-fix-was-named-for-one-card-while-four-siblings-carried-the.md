@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [spec-and-scope, delegation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0225 - A fix was named for one card while four siblings carried the same command
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

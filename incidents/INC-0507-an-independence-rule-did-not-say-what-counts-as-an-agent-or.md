@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0507 - An independence rule did not say what counts as an agent or as a part, and four of nine parallel slices stopped at once
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Four of nine parallel slices stopped at the same time until the rule was clarified.
 

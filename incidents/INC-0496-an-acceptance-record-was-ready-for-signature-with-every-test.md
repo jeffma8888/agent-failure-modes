@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0496 - An acceptance record was ready for signature with every test tier green while the main page of the row was blank
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Four record revisions reached the point of signature on a row whose deliverable page did not render; the signature and the later steps that wait on it were held.
 

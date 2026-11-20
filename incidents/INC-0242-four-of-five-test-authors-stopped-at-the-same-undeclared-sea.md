@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, delegation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0242 - Four of five test authors stopped at the same undeclared seam
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

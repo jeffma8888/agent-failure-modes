@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0322 - A search helper ended a gather loop at the first file without a match
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

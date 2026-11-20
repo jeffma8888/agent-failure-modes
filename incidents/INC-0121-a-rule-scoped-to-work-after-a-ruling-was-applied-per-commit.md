@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0121 - A rule scoped to work after a ruling was applied per commit while one commit held old and new patterns
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught by a re-check, an audit or review before it shipped.
 

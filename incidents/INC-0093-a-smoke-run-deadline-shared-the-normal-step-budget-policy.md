@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0093 - A smoke-run deadline shared the normal step budget policy
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [vcs-destruction, concurrency]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0229 - A commit swept another session uncommitted entries
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

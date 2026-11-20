@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [stale-module]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0405 - The demo server served a build made before the merge, so a walk after a source merge would have observed nothing new
+
+**Catalog:** [root](../catalog/README.md) / [stale-module](../catalog/stale-module/README.md)
 
 **Cost:** A walk would have passed against code that did not contain the merge.
 

@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths, ipc-and-env]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0248 - The env script could not be sourced in zsh
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

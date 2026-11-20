@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [ipc-and-env]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0367 - A brief for a database-backed run omitted the test database endpoint, so the delegate rightly stopped
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Minor: one round trip before the run could start; nothing was touched that should not have been.
 

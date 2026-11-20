@@ -5,9 +5,13 @@ date: 2026-08-11
 classes: [test-isolation]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0022 - Test precondition on gitignored local state passes only on this machine
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** A ship went green and the post-release fresh-clone gate immediately went BROKEN, because the test asserted counts that were true only in the developer's working tree.
 

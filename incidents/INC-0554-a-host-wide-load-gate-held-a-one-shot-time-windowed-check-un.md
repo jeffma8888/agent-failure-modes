@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [concurrency, observability]
 severity: medium
 status: open
+topic: null
+occurrences: 1
 ---
 
 # INC-0554 - A host-wide load gate held a one-shot, time-windowed check until its window passed, because processes outside the team drove the load
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** One evidence row was lost: the natural expiry of a lockout was never observed, and the walk closed with that row partial. Runtime jobs waited 20 to 25 minutes for the lock.
 

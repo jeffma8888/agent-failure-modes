@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0480 - A push gate that piped the test run into a trimming command would have pushed even if the tests had failed
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** None: the tests happened to pass, so nothing bad shipped; the gate was simply not a gate.
 

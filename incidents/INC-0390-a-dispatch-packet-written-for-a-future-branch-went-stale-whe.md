@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [stale-module]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0390 - A dispatch packet written for a future branch went stale when a later ruling started the work elsewhere
+
+**Catalog:** [root](../catalog/README.md) / [stale-module](../catalog/stale-module/README.md)
 
 **Cost:** A packet pointed at a branch the work had already left.
 

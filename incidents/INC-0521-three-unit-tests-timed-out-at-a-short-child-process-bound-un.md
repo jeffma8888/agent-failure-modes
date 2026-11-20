@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0521 - Three unit tests timed out at a short child-process bound under parallel load and passed in isolation
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** An acceptance run showed three extra failures and needed an isolated rerun to classify them.
 

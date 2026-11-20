@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [concurrency]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0471 - Drafts proposed test database ports by reading tracked text, and two clashed with each other and two with live listeners
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** None: found before any cluster was created.
 

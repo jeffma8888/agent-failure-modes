@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [checkpoint, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0258 - A failed closing run could leave a signed record public
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

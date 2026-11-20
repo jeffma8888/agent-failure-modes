@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0275 - A probe that sends a session cookie alone may test guest behavior
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

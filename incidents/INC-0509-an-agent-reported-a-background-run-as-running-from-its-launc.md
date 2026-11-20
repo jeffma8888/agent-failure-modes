@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0509 - An agent reported a background run as running from its launch, but the task had only echoed a prompt and no test process existed
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** A false running report until the agent rechecked and corrected it; no result was recorded from the missing run.
 

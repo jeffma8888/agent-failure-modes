@@ -5,9 +5,13 @@ date: 2026-10-28
 classes: [vcs-destruction, spec-and-scope]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0044 - Pushing a local repository to a new remote publishes its whole history, not its current tree
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Near miss, caught before the first push. Confidential commercial documents sat in the history of a planning repository about to get a remote; the plan was to leave them out, which would have changed the tree and not the history. Published history cannot be recalled, so the cost avoided was permanent.
 

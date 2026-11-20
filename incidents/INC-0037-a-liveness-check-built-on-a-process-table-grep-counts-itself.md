@@ -5,9 +5,13 @@ date: 2026-08-28
 classes: [detector-fail-open, tooling-paths, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0037 - A liveness check built on a process-table grep counts itself
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** A scheduled pipeline concluded on every tick that a worker was still running, and stood down, because the command asking the question matched the pattern it was asking about.
 

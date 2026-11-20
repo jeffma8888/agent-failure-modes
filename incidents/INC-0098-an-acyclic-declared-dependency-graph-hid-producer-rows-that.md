@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [delegation, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0098 - An acyclic declared dependency graph hid producer rows that an acceptance file needed
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

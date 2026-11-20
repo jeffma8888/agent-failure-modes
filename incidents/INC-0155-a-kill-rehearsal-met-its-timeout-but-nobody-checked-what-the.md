@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, ipc-and-env]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0155 - A kill rehearsal met its timeout but nobody checked what the killed process left behind
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught in review before it shipped.
 

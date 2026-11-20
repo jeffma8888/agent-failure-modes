@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [stage-timeout, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0124 - A poll timeout placed in assertion options was still a propagation override, and shared helpers were left out of the dependent root verdict
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Minor: caught in review, an audit or an engineer check before it shipped.
 

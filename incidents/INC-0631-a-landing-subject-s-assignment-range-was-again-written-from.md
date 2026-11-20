@@ -5,9 +5,13 @@ date: 2026-11-07
 classes: [spec-and-scope]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0631 - A landing subject's assignment range was again written from the lead's own brief instead of the author report; the second time
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** A landed commit subject named a wider range than its artifact, and an erratum records it.
 

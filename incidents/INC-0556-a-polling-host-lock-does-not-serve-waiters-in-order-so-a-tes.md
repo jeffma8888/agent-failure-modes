@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [concurrency]
 severity: low
 status: open
+topic: null
+occurrences: 1
 ---
 
 # INC-0556 - A polling host lock does not serve waiters in order, so a test run queued after its own setup took the lock first and failed on a database setup had not created
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** One wasted run, discarded as not behavioral evidence; the retry was still queued when work paused.
 

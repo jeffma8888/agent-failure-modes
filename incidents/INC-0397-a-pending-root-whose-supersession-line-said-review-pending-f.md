@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0397 - A pending root whose supersession line said review pending failed the identity checker at landing
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** A pending root could not land with a marker that claimed an approval it did not yet have.
 

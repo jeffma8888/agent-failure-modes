@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [concurrency, ipc-and-env]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0305 - A process the sandbox could not see was judged dead and its live run was removed
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

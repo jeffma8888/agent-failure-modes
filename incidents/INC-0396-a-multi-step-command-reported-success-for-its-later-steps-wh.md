@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0396 - A multi-step command reported success for its later steps while its middle step had not happened
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A plan sat uncommitted while later steps looked complete.
 

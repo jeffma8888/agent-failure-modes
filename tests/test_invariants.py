@@ -114,12 +114,13 @@ def test_build_is_deterministic_and_idempotent():
 
 def _snapshot():
     out = {}
-    for base in ("incidents", "data"):
+    for base in ("incidents", "data", "catalog"):
         for dirpath, _, filenames in os.walk(os.path.join(ROOT, base)):
             for fn in filenames:
                 fp = os.path.join(dirpath, fn)
                 out[os.path.relpath(fp, ROOT)] = open(fp, "rb").read()
-    for fn in ("RULES.md", "TAXONOMY.md", "README.md"):
+    assert any(k.startswith("catalog") for k in out), "the build wrote no catalog/ tree"
+    for fn in ("RULES.md", "TAXONOMY.md", "README.md", "AGENTS.md"):
         out[fn] = open(os.path.join(ROOT, fn), "rb").read()
     return out
 

@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0245 - A third-party avatar request was made without anyone noticing
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

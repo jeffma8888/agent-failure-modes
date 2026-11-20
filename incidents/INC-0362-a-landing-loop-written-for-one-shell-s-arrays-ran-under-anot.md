@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths, vcs-destruction]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0362 - A landing loop written for one shell's arrays ran under another and committed one of two files
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before cleanup finished; the missing file was re-landed.
 

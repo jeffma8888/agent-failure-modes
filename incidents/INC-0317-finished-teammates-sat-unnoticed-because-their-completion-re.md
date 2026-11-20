@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [delegation, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0317 - Finished teammates sat unnoticed because their completion replies never arrived
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

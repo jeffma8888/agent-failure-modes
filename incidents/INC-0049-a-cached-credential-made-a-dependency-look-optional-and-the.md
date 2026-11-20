@@ -5,9 +5,13 @@ date: 2026-10-28
 classes: [ipc-and-env, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0049 - A cached credential made a dependency look optional, and the outage was filed under the wrong root cause
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** A wrong root cause stood in the record for about a day. About nine hours after a recovery attributed to 'the session is not required', the cached upstream session expired and every stage of an autonomous loop failed again, burning failed attempts until it was stopped.
 

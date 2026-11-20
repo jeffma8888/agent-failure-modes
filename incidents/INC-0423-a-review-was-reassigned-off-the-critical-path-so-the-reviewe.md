@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0423 - A review was reassigned off the critical path so the reviewer who owned the blocking recheck stayed on it
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** No work was lost; the reassignment kept the critical recheck from queueing behind a second review.
 

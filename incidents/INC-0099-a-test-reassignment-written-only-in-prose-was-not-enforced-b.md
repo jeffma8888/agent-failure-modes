@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0099 - A test reassignment written only in prose was not enforced by any tool
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

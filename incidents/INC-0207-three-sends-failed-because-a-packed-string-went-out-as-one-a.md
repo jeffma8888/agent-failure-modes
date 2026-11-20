@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, delegation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0207 - Three sends failed because a packed string went out as one argument
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

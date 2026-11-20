@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [checkpoint]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0375 - An engineer overwrote its own unit ledger with a later run
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** The earlier run record was lost until it was restored from version control.
 

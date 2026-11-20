@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0415 - A ruling timestamp was written from an estimate and corrected minutes later, twice in one round
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Minor: two timestamps were corrected minutes after they were written.
 

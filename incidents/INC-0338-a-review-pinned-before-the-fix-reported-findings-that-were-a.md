@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, checkpoint]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0338 - A review pinned before the fix reported findings that were already closed
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

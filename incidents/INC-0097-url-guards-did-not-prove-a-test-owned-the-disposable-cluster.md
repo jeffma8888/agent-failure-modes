@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0097 - URL guards did not prove a test owned the disposable cluster, and shared state was not restored on failure
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught in review, a re-check or acceptance before it shipped.
 

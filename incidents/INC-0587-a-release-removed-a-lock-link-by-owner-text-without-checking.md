@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [concurrency]
 severity: high
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0587 - A release removed a lock link by owner text without checking that the link pointed at the caller's own stage
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** None. The review blocked the revision.
 

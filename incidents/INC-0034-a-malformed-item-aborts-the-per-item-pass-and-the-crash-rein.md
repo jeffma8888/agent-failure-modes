@@ -5,9 +5,13 @@ date: 2026-08-28
 classes: [detector-fail-closed, checkpoint]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0034 - A malformed item aborts the per-item pass, and the crash reinstates the veto wearing a traceback
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** No production loss - found while hardening the replacement. Had it run, a single item whose field held the wrong type would have crashed the whole per-item pass before any item was judged, restoring the exact all-or-nothing behaviour that had just cost twelve days.
 

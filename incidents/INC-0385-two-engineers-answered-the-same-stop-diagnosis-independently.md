@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0385 - Two engineers answered the same STOP diagnosis independently, and agreeing answers let the lead route at once
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Routing waited on one diagnosis fewer rounds because two independent answers agreed.
 

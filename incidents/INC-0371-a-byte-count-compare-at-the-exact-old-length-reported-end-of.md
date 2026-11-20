@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [detector-fail-closed]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0371 - A byte-count compare at the exact old length reported end of file on a prefix that matched
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** Minor: a false mismatch on an append-only file until a second compare showed it identical.
 

@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0582 - A landing helper treated a top-level file name with no slash as a test root, so it copied nothing for it
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** The commit stopped, nothing wrong landed; the file was copied by hand and committed after identity and backlog checks.
 

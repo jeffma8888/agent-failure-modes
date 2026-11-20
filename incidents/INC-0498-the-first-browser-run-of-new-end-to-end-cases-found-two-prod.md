@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0498 - The first browser run of new end-to-end cases found two product defects that config reads and other tiers missed
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Two product defects sat behind green tiers until the first browser run, and two fix rows were added.
 

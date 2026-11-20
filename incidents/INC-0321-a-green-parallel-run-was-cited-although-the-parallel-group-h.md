@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0321 - A green parallel run was cited although the parallel group held no files
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

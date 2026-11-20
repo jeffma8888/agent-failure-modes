@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0562 - The first real run of a new egress observer on unchanged main caught the dev server phoning home, and the agent stopped instead of widening the allowlist
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** The seam work paused for a ruling; a product defect row and a refined rule came out of it.
 

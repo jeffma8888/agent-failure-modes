@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [test-isolation, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0286 - Fix module resolution once at the root, not per test
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

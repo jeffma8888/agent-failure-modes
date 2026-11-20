@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0344 - Focused runs after a refactor hid static-check residue until the first canonical run
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

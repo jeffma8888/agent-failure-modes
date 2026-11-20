@@ -5,9 +5,13 @@ date: 2026-08-28
 classes: [spec-and-scope, observability, false-green]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0026 - A whole-batch verification veto turns one bad item into a permanent block
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Twelve days with zero promotions. The refusal streak grew from 13 to 113 consecutive holds while the input queue grew from 104 to 991 candidates; a launcher kept adding work every two hours to a pool that could no longer pass.
 

@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [vcs-destruction]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0380 - A landing helper's clean step deleted a pending root directory and left an unchanged tracked file deleted after the fast-forward
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** A tracked file was missing from the landed tree until the lead restored it.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0523 - Three test roots by three authors used the same guessed locator for a generated field that the installed library does not render
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Every root with the guess was defective on unchanged main and needed a successor; found by reading installed source.
 

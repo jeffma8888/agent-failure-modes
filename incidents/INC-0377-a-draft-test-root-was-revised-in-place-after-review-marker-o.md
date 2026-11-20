@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [checkpoint]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0377 - A draft test root was revised in place after review, marker or activation
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** Edits to a reviewed root would have made earlier review and activation records describe different bytes.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [checkpoint]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0531 - A graceful pause worked because each in-flight teammate finished one step, wrote a checkpoint and left its workspace as it was
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** None incurred; no finished work was redone on resume.
 

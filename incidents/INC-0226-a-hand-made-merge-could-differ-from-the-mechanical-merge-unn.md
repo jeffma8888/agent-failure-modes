@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [vcs-destruction, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0226 - A hand-made merge could differ from the mechanical merge unnoticed
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

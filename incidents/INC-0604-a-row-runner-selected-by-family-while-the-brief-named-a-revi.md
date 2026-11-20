@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0604 - A row runner selected by family while the brief named a revision, so the run stopped before the harness
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** One run stopped before the harness started.
 

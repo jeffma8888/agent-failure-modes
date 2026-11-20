@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0387 - One review asked to delete an error-text assertion while another asked to pin the text
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Two reviews pulled a test in opposite directions until a single rule settled both.
 

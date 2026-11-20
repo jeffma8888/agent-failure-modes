@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0485 - A merge checklist drafted early found a test change the merge would have broken
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** None incurred: the owed change was found by reading before the merge, at the price of one extra assigned job.
 

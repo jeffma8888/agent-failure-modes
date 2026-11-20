@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0378 - A default that silently let a guard pass made a reviewer read a requirement as met
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** A requirement looked satisfied while the guard had checked nothing.
 

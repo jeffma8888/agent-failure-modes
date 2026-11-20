@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0535 - A standing promise to guard every proven behavior had no inventory, so partial protection could pass as coverage
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** No loss. Without the inventory the share of walked behaviors with an automated guard was unknown, and gaps had no owner.
 

@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [delegation, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0220 - A reviewer proposed text was at risk of being applied by its own author
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

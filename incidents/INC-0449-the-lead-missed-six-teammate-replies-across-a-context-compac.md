@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [steering-channel]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0449 - The lead missed six teammate replies across a context compaction and left the critical-path engineer idle for 35 minutes
+
+**Catalog:** [root](../catalog/README.md) / [steering-channel](../catalog/steering-channel/README.md)
 
 **Cost:** The critical-path engineer idled about 35 minutes.
 

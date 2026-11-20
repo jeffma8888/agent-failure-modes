@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0506 - Two fields claimed the same publication state, and the seed wrote only one, so the admin and the public predicate disagreed
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Seeded records showed as drafts in the admin while the public predicate treated them as published; found by a read-only database inspection.
 

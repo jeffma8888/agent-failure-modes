@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [concurrency, stage-timeout]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0219 - A shared host reached load 491 and unrelated deadlines failed
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

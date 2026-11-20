@@ -5,9 +5,13 @@ date: 2026-10-29
 classes: [ipc-and-env, stale-module]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0064 - A launcher pointed a live unattended loop at the development checkout instead of a pinned release
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Near miss, caught before the cutover ran. Had it gone live, the next round of development in that checkout would have reached live stages half edited.
 

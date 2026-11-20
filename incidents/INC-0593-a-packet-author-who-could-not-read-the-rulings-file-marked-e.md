@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0593 - A packet author who could not read the rulings file marked every claim resting on it, so the recheck knew what to verify
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** None. The recheck was scoped to the marked claims.
 

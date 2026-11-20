@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0447 - Tests authored but never executed passed acceptance, and the first run of the heavy tier found a failing case
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A test defect surfaced one row late, and a fix branch and an acceptance addendum were needed.
 

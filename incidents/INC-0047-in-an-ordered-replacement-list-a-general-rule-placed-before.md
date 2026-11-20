@@ -5,9 +5,13 @@ date: 2026-10-28
 classes: [tooling-paths]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0047 - In an ordered replacement list, a general rule placed before a specific one consumes its match
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Near miss, caught before the run. The rewrite would have left a mangled fragment of a path in place of a clean replacement, in a text-rewrite whose purpose was removing sensitive tokens.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0433 - A job text swapped two commit identities, and reading the log caught it
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** No wrong commit was acted on.
 

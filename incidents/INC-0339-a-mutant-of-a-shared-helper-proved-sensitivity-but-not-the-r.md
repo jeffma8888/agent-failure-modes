@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0339 - A mutant of a shared helper proved sensitivity but not the real resource's end state
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0076 - A teammate's write boundary contradicted the charter's file layout, so a required record landed where activation would reject it
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Caught before commit. A required coverage record was left inside the boundary's directory, where the activation step would have rejected it as an unlisted payload.
 

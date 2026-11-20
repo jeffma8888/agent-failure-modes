@@ -5,9 +5,13 @@ date: 2026-11-07
 classes: [vcs-destruction, false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0632 - A read-only audit ran git merge-tree --write-tree in a protected checkout; refs, index and worktree stayed clean while loose objects were written
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** An existing repository's object database was changed during a read-only audit. Without a pre-write inventory, the exact objects newly introduced by this operation cannot be identified reliably, and precise reversal has not been established. Cleanup was withheld, so the mutation stands as a process violation.
 

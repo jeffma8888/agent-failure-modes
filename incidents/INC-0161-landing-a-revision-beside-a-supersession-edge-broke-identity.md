@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0161 - Landing a revision beside a supersession edge broke identity on main
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** Minor: main sat red until a sweep caught it.
 

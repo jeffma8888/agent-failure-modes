@@ -5,9 +5,13 @@ date: 2026-08-05
 classes: [checkpoint, stage-timeout]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0006 - Checkpoint-first: a killed step that already wrote its output still counts
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** An iteration that would have been the fourth consecutive loss instead shipped, because a role prompt shipped 34 minutes earlier had introduced the write-early rule.
 

@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0392 - A declaration request that split sourced values from decisions let the lead rule eleven items in one pass
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Eleven items were ruled in one pass instead of several rounds.
 

@@ -1,7 +1,7 @@
 # Rules
 
-Every transferable rule in this knowledge base, one line each.
-This file is the intended payload for an agent prompt: it is derived, so never edit it by hand.
+Every transferable rule in this knowledge base, one line each. This is the COMPLETE list, too large for a prompt: for a prompt payload load [catalog/CORE.md](catalog/CORE.md); to find the rule for a symptom, run `python3 tools/afm.py search "..."` or walk [catalog/README.md](catalog/README.md).
+It is derived from tools/corpus.py, so never edit it by hand.
 
 ## Rules from incidents
 

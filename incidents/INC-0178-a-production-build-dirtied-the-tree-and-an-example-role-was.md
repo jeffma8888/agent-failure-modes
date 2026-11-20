@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0178 - A production build dirtied the tree and an example role was missing locally
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0461 - A hook ran a query on create with an undefined id once a registry became non empty: a latent defect exposed by data, not code
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A fix commit and a rerun of the database class.
 

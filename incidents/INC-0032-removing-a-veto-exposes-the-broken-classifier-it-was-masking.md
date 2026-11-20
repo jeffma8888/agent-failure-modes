@@ -5,9 +5,13 @@ date: 2026-08-28
 classes: [detector-fail-closed, observability]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0032 - Removing a veto exposes the broken classifier it was masking
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** Twelve days of refusals were attributed to bad input data. Re-measured with the repaired comparison, roughly half the historical accusations are false: of 40 unique accusations across 113 escalation reports, 19 verify verbatim against their cited pages.
 

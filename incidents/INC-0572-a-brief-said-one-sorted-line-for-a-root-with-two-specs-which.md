@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0572 - A brief said one sorted line for a root with two specs, which could be read two ways
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** None. The ambiguity was resolved by a ruling.
 

@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [ipc-and-env, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0256 - Evidence commands ran on a shimmed runtime instead of the pinned one
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0497 - A flag that hides the token from responses left first-user registration with an empty session cookie
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** The first user of an empty system could register but not stay signed in, found only by a browser probe after the hardening tests were green.
 

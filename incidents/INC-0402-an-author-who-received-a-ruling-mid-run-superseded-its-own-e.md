@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [checkpoint]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0402 - An author who received a ruling mid-run superseded its own earlier status with a dated addendum without rewriting the historical bytes
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** The record kept both the earlier status and the change, so the history stayed readable.
 

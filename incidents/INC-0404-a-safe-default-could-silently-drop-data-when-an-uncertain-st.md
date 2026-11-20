@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0404 - A safe default could silently drop data when an uncertain state was read as gone
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** A permission error could have been read as proof an item was gone, and data dropped.
 

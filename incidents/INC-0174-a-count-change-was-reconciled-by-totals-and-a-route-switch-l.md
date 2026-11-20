@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, ipc-and-env]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0174 - A count change was reconciled by totals and a route switch leaked into the default path
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

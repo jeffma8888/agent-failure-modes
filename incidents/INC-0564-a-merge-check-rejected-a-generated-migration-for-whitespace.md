@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [detector-fail-closed]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0564 - A merge check rejected a generated migration for whitespace that every earlier generated migration also had
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** The first merge attempt stopped; the merge helper was changed to exclude generated migrations from the whitespace check.
 

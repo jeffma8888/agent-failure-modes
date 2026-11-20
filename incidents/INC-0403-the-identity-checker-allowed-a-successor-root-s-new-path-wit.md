@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [identity-and-keying]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0403 - The identity checker allowed a successor root's new path with no predecessor line, and a marker maps only replaced paths
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** A marker with an invented predecessor line would have claimed a replacement that did not occur.
 

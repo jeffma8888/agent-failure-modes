@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0159 - A second reader of the same registry file was at risk of replacing the first
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

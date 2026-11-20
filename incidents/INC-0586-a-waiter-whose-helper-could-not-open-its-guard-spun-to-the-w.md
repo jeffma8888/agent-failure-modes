@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0586 - A waiter whose helper could not open its guard spun to the wait limit with tracebacks, and a malformed owner record was skipped silently
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** None. Both were blocking findings of the review.
 

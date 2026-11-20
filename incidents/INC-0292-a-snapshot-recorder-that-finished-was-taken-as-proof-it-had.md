@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [detector-fail-open, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0292 - A snapshot recorder that finished was taken as proof it had collected
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

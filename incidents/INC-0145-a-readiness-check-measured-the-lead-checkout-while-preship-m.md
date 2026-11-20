@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [stale-module, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0145 - A readiness check measured the lead checkout while preship measures the Foundry clone
+
+**Catalog:** [root](../catalog/README.md) / [stale-module](../catalog/stale-module/README.md)
 
 **Cost:** Minor: caught by a reviewer, an auditor or the lead before it shipped.
 

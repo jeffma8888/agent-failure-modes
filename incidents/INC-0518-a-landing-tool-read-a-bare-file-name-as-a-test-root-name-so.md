@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0518 - A landing tool read a bare file name as a test-root name, so a file was left out of a landing and the identifier check failed
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** A landing was incomplete and an identifier check failed until the omission was found.
 

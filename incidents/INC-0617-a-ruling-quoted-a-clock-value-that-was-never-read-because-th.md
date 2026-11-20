@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0617 - A ruling quoted a clock value that was never read, because the write ran in the same parallel batch as the clock call; the fourth recurrence
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** One ruling carried a clock value 13 seconds ahead of the real read and was corrected with a note; the heading kept its time because a teammate was already pointed at it.
 

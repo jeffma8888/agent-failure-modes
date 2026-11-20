@@ -5,9 +5,13 @@ date: 2026-08-04
 classes: [vcs-destruction]
 severity: critical
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0014 - A revert-on-failure loop destroys uncommitted human work in a shared tree
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Potential (avoided): uncommitted human work sat in a tree the loop was about to run. The failure path would have destroyed it with `git reset --hard origin/main`.
 

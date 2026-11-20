@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, checkpoint]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0175 - A merge of main left an activation due and went red
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

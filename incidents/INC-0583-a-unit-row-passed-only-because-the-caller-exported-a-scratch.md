@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [test-isolation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0583 - A unit row passed only because the caller exported a scratch media directory, and the runner did not own one
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** No loss. A new harness row was opened before the dependence could hide a failure.
 

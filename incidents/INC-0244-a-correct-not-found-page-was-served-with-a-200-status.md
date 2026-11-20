@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0244 - A correct not-found page was served with a 200 status
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

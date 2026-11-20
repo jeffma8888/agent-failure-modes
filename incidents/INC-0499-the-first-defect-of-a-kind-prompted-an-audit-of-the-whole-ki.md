@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [spec-and-scope]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0499 - The first defect of a kind prompted an audit of the whole kind, which found a second
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** None incurred beyond one extra fix row: the second defect was found by a static audit before any release.
 

@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0622 - An unbraced shell variable followed by a colon and a letter was read as a history modifier, so a revision was mangled and the hash printed was of empty input
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** One check printed a hash of nothing, caught as the well-known empty-input hash.
 

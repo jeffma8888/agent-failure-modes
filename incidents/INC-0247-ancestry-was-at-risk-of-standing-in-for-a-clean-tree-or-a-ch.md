@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0247 - Ancestry was at risk of standing in for a clean tree or a checker run
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

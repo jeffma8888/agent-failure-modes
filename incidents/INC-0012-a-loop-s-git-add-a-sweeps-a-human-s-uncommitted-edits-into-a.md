@@ -5,9 +5,13 @@ date: 2026-08-05
 classes: [vcs-destruction, concurrency]
 severity: high
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0012 - A loop's `git add -A` sweeps a human's uncommitted edits into a loop commit
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Two prose edits landed under a loop's commit message; content survived, history was mislabeled. It recurred every iteration until the pattern was noticed. A later recurrence briefly swept 276 tracked files into a one-line status commit; the commit was undone with all working-tree bytes preserved.
 

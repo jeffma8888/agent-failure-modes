@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [false-green, delegation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0232 - A prompt render succeeded without reading the card bodies
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-08-30
 classes: [false-green, test-isolation, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0040 - A guard that asserts a lifecycle stage fails at exactly the moment it was written to protect
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A publication-safety gate was green on every local run for the entire life of the project and went red on the FIRST run after the artifact was published - the one moment its verdict actually mattered.
 

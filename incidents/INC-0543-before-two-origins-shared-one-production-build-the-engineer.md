@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [ipc-and-env]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0543 - Before two origins shared one production build, the engineer searched the build output for the baked origin and found none
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** None. The check removed the need for a second build.
 

@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [delegation, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0201 - Two review titles named the wrong reviewer
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

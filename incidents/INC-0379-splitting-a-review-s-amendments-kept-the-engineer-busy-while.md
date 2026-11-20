@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0379 - Splitting a review's amendments kept the engineer busy while decisions were pending
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Idle time while waiting on decisions was avoided without writing tests that a later decision would invalidate.
 

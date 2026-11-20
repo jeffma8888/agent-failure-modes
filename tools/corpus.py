@@ -16,6 +16,31 @@ it, so a reader can check the claim instead of taking it on trust; public
 third-party projects may be cited the same way. What is never named, in any
 field: an employer, an internal or private system, a private repository, a
 person, or a machine-local path.
+
+SCHEMA. Required incident fields are listed in tools/build.py (REQUIRED). The
+optional fields, all validated by the build:
+
+  related        ["INC-XXXX", ...]   other incidents worth reading alongside.
+  evidence       ["https://... - what it shows", ...]   public provenance only.
+  topic          "{class}/{slug}"    the incident's topic in the catalog tree.
+                 Must be a key of TOPICS whose class is this incident's HOME
+                 class, classes[0]. Without it the incident sits at its home
+                 class level. Once a class has topics, every home incident
+                 carries one except at most 3 class-level outliers.
+  recurrence_of  "INC-A"             this record is a repeat of an EARLIER failure
+                 kept for history. INC-A must exist, have a lower id, not be a
+                 recurrence itself, and share this record's home class and topic.
+                 The page stays; the catalog nests it under INC-A.
+  recurrences    [{"date": "YYYY-MM-DD", "note": "<= 300 chars",
+                   "evidence": [...]}]   how to record a repeat WITHOUT minting a
+                 new id: append an entry to the earlier incident. evidence is
+                 optional; the date may not precede the incident's own date.
+
+occurrences(A) = 1 + len(A.recurrences) + for every record S with
+recurrence_of == A: 1 + len(S.recurrences). It ranks the most-recurrent list.
+
+CLASSES[c] may carry an optional "route" (max 160 chars): what an agent would
+OBSERVE that should send it to this class - symptoms, not a definition.
 """
 from __future__ import annotations
 
@@ -95,6 +120,17 @@ CLASSES: dict[str, dict[str, str]] = {
         "ask": "Is this key unique across everything it will ever be asked about, or only across the subset that succeeded?",
     },
 }
+
+# Topics: the second level of the catalog tree, one leaf page per topic at
+# catalog/{class}/{slug}.md. Key "{class}/{slug}" (slug kebab-case, max 40);
+# an incident joins a topic by setting its topic field to "{class}/{slug}". A
+# class with 22 or fewer home incidents has no topics: its class node is the leaf.
+#   "false-green/example-slug": {
+#       "title": "max 70 chars",
+#       "go_here_if": "max 200 chars, phrased as what the agent observes",
+#       "rule": "max 400 chars, ONE distilled imperative rule for the topic",
+#   },
+TOPICS: dict[str, dict[str, str]] = {}
 
 
 _BATCH1: list[dict] = [

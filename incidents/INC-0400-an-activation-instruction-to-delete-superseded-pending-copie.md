@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [vcs-destruction]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0400 - An activation instruction to delete superseded pending copies had nothing to delete because an earlier pure rename had already moved them
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** A delete step written from an assumed state could have failed or removed the wrong file.
 

@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [reward-hacking, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0199 - An inline directive could bypass a lint rule on a protected path
+
+**Catalog:** [root](../catalog/README.md) / [reward-hacking](../catalog/reward-hacking/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

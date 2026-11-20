@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0547 - A walker harness could not open a blank autosave draft from the list because its name link had no text, and a second selector matched three links
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Two walk rows were blocked; the lead recorded the missing-text link as a candidate defect and ordered a rerun with the exact address and the earlier exact link.
 

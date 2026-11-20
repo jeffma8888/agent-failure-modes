@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0412 - A whole-unit re-run showed five failures in unrelated files because a required environment variable was unset in the shell
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Five red results could have been read as a regression or ignored as noise.
 

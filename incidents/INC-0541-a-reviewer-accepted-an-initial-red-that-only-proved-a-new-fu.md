@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0541 - A reviewer accepted an initial red that only proved a new function was missing, and said so
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** None. The limit was disclosed, so the red was not counted as behavioral evidence.
 

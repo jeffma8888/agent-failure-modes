@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [spec-and-scope, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0191 - A one-parser requirement was pinned by only one kind of test
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

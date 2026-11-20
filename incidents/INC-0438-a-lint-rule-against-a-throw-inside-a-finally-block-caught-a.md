@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [detector-fail-closed]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0438 - A lint rule against a throw inside a finally block caught a real defect in production code
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** The defects were fixed before the merge.
 

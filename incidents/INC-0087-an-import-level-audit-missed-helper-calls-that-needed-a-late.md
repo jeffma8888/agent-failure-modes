@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [delegation, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0087 - An import-level audit missed helper calls that needed a later row, and only the engineer stop rule caught it
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught in review or by a stop rule before it shipped.
 

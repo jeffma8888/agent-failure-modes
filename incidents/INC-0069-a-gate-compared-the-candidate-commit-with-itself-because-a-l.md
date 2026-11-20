@@ -5,9 +5,13 @@ date: 2026-10-29
 classes: [detector-fail-open, false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0069 - A gate compared the candidate commit with itself because a local clone redefines the remote-tracking ref
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** A planned hold check could never have fired. Caught in plan review before it shipped, by three independent reviewers, two of whom reproduced it in a scratch repository.
 

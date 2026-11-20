@@ -5,9 +5,13 @@ date: 2026-10-29
 classes: [spec-and-scope, stage-timeout]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0071 - A plan claimed minutes-denominated stage times fit inside a cap stated in seconds
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Caught in plan review before the plan was accepted. Left in, it would have scheduled work that the hard per-step cap kills.
 

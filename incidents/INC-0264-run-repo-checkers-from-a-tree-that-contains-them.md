@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths, stale-module]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0264 - Run repo checkers from a tree that contains them
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

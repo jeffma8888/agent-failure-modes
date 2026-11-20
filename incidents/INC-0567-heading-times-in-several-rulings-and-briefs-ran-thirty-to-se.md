@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0567 - Heading times in several rulings and briefs ran thirty to seventy minutes ahead of the real clock
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Timestamps in the ledger were wrong, so the order of events could not be read from headings.
 

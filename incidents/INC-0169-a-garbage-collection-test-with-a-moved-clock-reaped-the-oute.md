@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, concurrency]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0169 - A garbage collection test with a moved clock reaped the outer tier own live database
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

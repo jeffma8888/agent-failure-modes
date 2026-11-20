@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [steering-channel]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0451 - The lead missed eight teammate replies with no compaction and saw them only through thread activity
+
+**Catalog:** [root](../catalog/README.md) / [steering-channel](../catalog/steering-channel/README.md)
 
 **Cost:** None beyond a delay: the outputs were on disk and were landed once seen.
 

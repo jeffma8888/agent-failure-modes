@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0183 - Sibling fixture factories lacked the metadata that makes a checker required
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

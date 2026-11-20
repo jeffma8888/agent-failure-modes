@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [detector-fail-open, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0224 - A classifier kept a legacy pattern list beside a new exact signature
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

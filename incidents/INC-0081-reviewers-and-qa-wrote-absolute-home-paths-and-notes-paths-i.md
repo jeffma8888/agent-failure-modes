@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, observability]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0081 - Reviewers and QA wrote absolute home paths and notes paths into repository docs, and only the push guard caught them
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: four push attempts in one hour were blocked and reworded; nothing leaked because the guard ran before each push.
 

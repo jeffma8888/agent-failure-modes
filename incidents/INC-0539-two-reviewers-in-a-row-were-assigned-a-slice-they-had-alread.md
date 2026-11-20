@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0539 - Two reviewers in a row were assigned a slice they had already worked on, because the pick did not search the record
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Two review cycles ended at the independence check with no review; a third reviewer was needed.
 

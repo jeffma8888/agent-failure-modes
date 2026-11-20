@@ -5,9 +5,13 @@ date: 2026-10-28
 classes: [vcs-destruction, spec-and-scope]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0045 - Disabling a loop's push while its failure path resets to the remote erases shipped work
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Near miss in a design draft, caught before review. Had it shipped, the first failed stage would have discarded every iteration shipped since the last manual push, silently.
 

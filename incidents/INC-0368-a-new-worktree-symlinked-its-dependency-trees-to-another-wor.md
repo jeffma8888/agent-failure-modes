@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [concurrency, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0368 - A new worktree symlinked its dependency trees to another worktree's, and the package manager relinked through them
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** Minor: found within minutes; the other worktree's links, shims and state files had to be restored and compared.
 

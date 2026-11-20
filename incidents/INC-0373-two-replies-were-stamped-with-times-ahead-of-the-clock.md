@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [observability]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0373 - Two replies were stamped with times ahead of the clock
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Minor: two replies carried times later than the real send time; the correction was recorded in the next ruling.
 

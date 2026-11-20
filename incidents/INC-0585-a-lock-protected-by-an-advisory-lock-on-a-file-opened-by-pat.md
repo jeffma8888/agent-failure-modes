@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [concurrency]
 severity: high
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0585 - A lock protected by an advisory lock on a file opened by path let two holders run when the file was replaced
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** None. The review blocked the revision and the earlier version stayed installed.
 

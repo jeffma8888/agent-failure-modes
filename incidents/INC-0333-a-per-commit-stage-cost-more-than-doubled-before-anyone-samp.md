@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [stage-timeout, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0333 - A per-commit stage cost more than doubled before anyone sampled it
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

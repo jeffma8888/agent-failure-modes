@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0533 - A named mutant was masked by an independent guard upstream, so the case could never turn red for the stated reason
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A case was credited with a witness mutation that could not turn it red; caught in static review.
 

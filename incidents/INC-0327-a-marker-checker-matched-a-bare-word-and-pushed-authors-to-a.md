@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [detector-fail-closed, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0327 - A marker checker matched a bare word and pushed authors to a workaround
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

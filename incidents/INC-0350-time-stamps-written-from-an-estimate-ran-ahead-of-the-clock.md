@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [observability, spec-and-scope]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0350 - Time stamps written from an estimate ran ahead of the clock
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

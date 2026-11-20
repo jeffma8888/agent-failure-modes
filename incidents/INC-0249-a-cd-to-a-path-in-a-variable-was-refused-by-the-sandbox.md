@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0249 - A cd to a path in a variable was refused by the sandbox
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

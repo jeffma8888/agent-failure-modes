@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0599 - A checklist expected a slug first link and excused absent headers, and installed UI source and a reviewer disproved both
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** The checklist was blocked and rewritten before a walk used it.
 

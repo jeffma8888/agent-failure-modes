@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [identity-and-keying]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0595 - An approval header named the review commit, whose tree did not yet hold the reviewed root, and the identity checker refused it
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** One refused approval attempt (approval tree manifest mismatch) before the header was corrected.
 

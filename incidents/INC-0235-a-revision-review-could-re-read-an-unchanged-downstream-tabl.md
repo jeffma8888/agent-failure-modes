@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [spec-and-scope, observability]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0235 - A revision review could re-read an unchanged downstream table
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

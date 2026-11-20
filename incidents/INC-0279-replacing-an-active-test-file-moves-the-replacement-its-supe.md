@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [identity-and-keying, checkpoint]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0279 - Replacing an active test file moves the replacement, its supersession record and the registry line in one commit
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

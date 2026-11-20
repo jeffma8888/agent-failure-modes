@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0158 - A spec used import.meta under a package that loads specs as CommonJS
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0620 - A publish gate chain ran a build script at a path that does not exist, printed the failing exit status and carried on to the export and the leak scan
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** None. The slip was caught by reading the output before the push, and the gate was rerun with the right path.
 

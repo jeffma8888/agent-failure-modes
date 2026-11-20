@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0545 - A landing helper guessed the kind of each argument from its shape, so a plain file name was read as a pending root
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** One landing attempt failed its backlog check; the file was copied by hand and committed again.
 

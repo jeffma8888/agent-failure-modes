@@ -5,9 +5,13 @@ date: 2026-10-28
 classes: [detector-fail-closed, spec-and-scope]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0052 - A hygiene rule written against surface syntax rejects valid cases; enforce the property at the boundary where it happens
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** Near miss in a charter draft, caught before adoption. Adopted as written, the rules would have rejected legitimate tests of a URL normaliser and forbidden an intended reuse of one test file across several configurations.
 

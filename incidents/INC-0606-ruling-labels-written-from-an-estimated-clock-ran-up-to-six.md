@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0606 - Ruling labels written from an estimated clock ran up to six minutes ahead of the real clock
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** Time labels on three rulings and several briefs were wrong, and the true start of a full run had to be rebuilt from its step records.
 

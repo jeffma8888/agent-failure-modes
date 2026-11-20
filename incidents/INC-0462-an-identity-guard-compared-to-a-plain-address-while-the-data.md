@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [detector-fail-closed]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0462 - An identity guard compared to a plain address while the database cast rendered the address with a mask, so it could never pass, and a silent catch hid which check failed
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-closed](../catalog/detector-fail-closed/README.md)
 
 **Cost:** One stop, no state changed, and two successor scripts.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0472 - The first browser test to load the app config failed to link because one module was reached by two loaders
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** One failed test step, no product harm.
 

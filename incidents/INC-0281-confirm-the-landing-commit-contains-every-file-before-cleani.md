@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [vcs-destruction, checkpoint]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0281 - Confirm the landing commit contains every file before cleaning the source
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

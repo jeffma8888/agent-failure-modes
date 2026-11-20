@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0408 - An evidence gap, a temporary config not retained, was closed by a lead re-run that kept it, not by asking the author to reconstruct it
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** The gap was closed with observed content instead of a recollection.
 

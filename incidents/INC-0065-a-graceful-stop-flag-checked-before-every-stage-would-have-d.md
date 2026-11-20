@@ -5,9 +5,13 @@ date: 2026-10-29
 classes: [vcs-destruction, spec-and-scope]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0065 - A 'graceful' stop flag checked before every stage would have discarded the in-flight iteration's finished work
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Near miss, found by reading the dispatcher before writing the flag. Written mid-iteration, it would have abandoned the remaining stages and reverted the tree, possibly throwing away an already finished stage.
 

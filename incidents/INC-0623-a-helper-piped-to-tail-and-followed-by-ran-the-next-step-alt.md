@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0623 - A helper piped to tail and followed by && ran the next step although the helper failed, because a pipeline's status is its last command's
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A next step ran after a failed helper, caught on reading the output.
 

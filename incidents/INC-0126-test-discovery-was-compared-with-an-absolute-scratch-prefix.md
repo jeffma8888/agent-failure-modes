@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0126 - Test discovery was compared with an absolute scratch prefix that matched by accident, and guard omission mutants were not each killed
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught in review, an audit or an engineer check before it shipped.
 

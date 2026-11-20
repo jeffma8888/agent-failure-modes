@@ -5,9 +5,13 @@ date: 2026-10-28
 classes: [false-green, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0056 - Test seams declared from memory carried wrong field names, and a bulk replacement silently missed a row
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A test oracle named two design fields without their required prefix. A test author working from it would have written tests against fields that do not exist, which fail or pass vacuously depending on the framework.
 

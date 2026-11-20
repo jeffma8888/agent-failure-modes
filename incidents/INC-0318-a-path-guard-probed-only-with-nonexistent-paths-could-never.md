@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0318 - A path guard probed only with nonexistent paths could never fail
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

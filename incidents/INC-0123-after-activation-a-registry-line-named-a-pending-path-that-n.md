@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [stale-module, tooling-paths]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0123 - After activation a registry line named a pending path that no longer existed, and a verifier flagged it
+
+**Catalog:** [root](../catalog/README.md) / [stale-module](../catalog/stale-module/README.md)
 
 **Cost:** Minor: caught by a re-check, an audit or review before it shipped.
 

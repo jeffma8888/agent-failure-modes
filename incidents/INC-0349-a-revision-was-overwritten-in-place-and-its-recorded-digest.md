@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [checkpoint, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0349 - A revision was overwritten in place and its recorded digest named bytes that no longer existed
+
+**Catalog:** [root](../catalog/README.md) / [checkpoint](../catalog/checkpoint/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

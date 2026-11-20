@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0608 - A mutant was witnessed red only on the first item of a loop, so the second row was not witnessed under the mutant
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** None. The limit was disclosed and accepted, but the second row had no mutant evidence.
 

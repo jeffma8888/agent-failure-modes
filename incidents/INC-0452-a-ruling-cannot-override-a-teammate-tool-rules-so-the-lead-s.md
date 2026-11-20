@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0452 - A ruling cannot override a teammate tool rules, so the lead sleep loop load waiter was refused and withdrawn
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** None: the refusal came before any run, and the helper was withdrawn.
 

@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0615 - A gate order put the typecheck right after type generation without walking the type dependency, and the engineer stopped again
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** A third stop for the engineer, and a ruling that replaced the gate order and admitted one known typecheck error until a later step.
 

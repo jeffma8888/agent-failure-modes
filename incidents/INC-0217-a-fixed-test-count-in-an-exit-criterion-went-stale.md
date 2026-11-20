@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [spec-and-scope, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0217 - A fixed test count in an exit criterion went stale
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

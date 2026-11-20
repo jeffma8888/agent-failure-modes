@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0460 - An order sensitive comparison of two tool listings failed only when new files were added, though the contract was set membership
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** A named one line edit and a rerun.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0437 - Evidence receipts leaked absolute paths into branch history, and the lead landed by squash instead of rewriting history
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** The leaking history stayed out of main; the squash step was added.
 

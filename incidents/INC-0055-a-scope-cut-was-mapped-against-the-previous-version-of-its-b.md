@@ -5,9 +5,13 @@ date: 2026-10-28
 classes: [spec-and-scope, identity-and-keying]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0055 - A scope cut was mapped against the previous version of its baseline document
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** A draft classified every row of a plan's previous version while a newer version with 18 additional rows was already committed, so every surviving-row count and effort total was wrong. All three independent reviewers found it; a revision was needed.
 

@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [ipc-and-env]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0454 - A file creation mask from an earlier tool call did not carry over, and the database dump came out world readable
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** None: caught by an assertion before use, and fixed at once.
 

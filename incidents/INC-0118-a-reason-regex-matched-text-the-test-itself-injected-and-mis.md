@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0118 - A reason regex matched text the test itself injected and missed the reason on the error line
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Minor: caught by a re-check, an audit or review before it shipped.
 

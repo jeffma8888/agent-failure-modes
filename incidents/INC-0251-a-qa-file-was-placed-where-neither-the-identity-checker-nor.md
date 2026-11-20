@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [spec-and-scope, delegation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0251 - A QA file was placed where neither the identity checker nor the project would take it
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

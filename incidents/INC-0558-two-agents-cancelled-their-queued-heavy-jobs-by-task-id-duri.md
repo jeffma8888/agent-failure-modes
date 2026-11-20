@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [concurrency, ipc-and-env, observability]
 severity: low
 status: open
+topic: null
+occurrences: 1
 ---
 
 # INC-0558 - Two agents cancelled their queued heavy jobs by task id during a pause, but the queued shells survived; one later took the host lock and ran its test after the agent had reported it cancelled
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** A browser test ran after the team was told to pause, and the agent's checkpoint said the job was cancelled; the lead found the run only by reading log timestamps against the report.
 

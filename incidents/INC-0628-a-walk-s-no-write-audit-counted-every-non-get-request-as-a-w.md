@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0628 - A walk's no-write audit counted every non-GET request as a write, and the capture held no request headers or bodies, so override reads stopped the walk
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A walk stopped until installed source, response statuses and an end inventory settled what the requests were.
 

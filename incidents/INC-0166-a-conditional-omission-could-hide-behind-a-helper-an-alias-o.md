@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [detector-fail-open, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0166 - A conditional omission could hide behind a helper, an alias or an early return
+
+**Catalog:** [root](../catalog/README.md) / [detector-fail-open](../catalog/detector-fail-open/README.md)
 
 **Cost:** Minor: caught in review before it shipped.
 

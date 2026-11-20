@@ -5,9 +5,13 @@ date: 2026-08-28
 classes: [false-green, spec-and-scope]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0035 - Two individually safe options are unsafe together when their combination leaves a consumer unable to distinguish two states
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Nothing shipped - a second reviewer found the hole before the combined path ran. Had it run, the downstream publisher would have consumed unverified evidence, which is the single guarantee the whole verification stage exists to provide.
 

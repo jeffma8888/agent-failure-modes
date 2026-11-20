@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [concurrency, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0313 - Tests in a parallel group raced a test that drops the shared inventory
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

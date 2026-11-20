@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0110 - A cross-row test needed setup absent from its own lifecycle, and green was claimed without a fresh-clone setup or a canonical temp directory
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught by a stop rule, an audit or review before it shipped.
 

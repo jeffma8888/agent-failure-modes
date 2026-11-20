@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [tooling-paths]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0532 - Test roots imported helpers by paths anchored at their pending depth, so every import would break at the active destination
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Two roots were blocked in review and needed successors; found statically before activation.
 

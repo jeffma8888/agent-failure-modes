@@ -5,9 +5,13 @@ date: 2026-07-19
 classes: [ipc-and-env]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0010 - Sleep beats the wake-lock on battery power
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** An entire overnight batch of 6 tasks produced 0/6 outputs.
 

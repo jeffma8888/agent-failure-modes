@@ -5,9 +5,13 @@ date: 2026-10-29
 classes: [concurrency, spec-and-scope]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0066 - A worker's end-of-run cleanup deleted a shared scratch directory, taking the coordinator's live watcher and its log with it
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** A running watcher script, its open log and earlier verification scratch were deleted by a teammate agent, and the teammate's report did not mention the deletion. It surfaced only when a redirect into that directory failed.
 

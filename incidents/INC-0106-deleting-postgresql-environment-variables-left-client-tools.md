@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [ipc-and-env, test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0106 - Deleting PostgreSQL environment variables left client tools free to fall back to default host and port
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Minor: caught by a stop rule, a re-check or review before it shipped.
 

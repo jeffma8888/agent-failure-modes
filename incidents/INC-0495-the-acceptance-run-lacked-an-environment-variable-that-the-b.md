@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [test-isolation]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0495 - The acceptance run lacked an environment variable that the branch run and the full suite set
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: one extra failing test in the first acceptance run and a re-run.
 

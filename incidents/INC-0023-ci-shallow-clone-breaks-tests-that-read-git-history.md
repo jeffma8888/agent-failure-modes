@@ -5,9 +5,13 @@ date: 2026-08-04
 classes: [test-isolation]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0023 - CI shallow clone breaks tests that read git history
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Four consecutive CI builds went red on the same three tests, none caused by the commits under test. Local was green.
 

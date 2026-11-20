@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0626 - A landing subject was written from the lead's expectation of what a plan revision covered, and the author report said less
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** A landed commit subject overstated what it landed; history was not rewritten, so an erratum records it.
 

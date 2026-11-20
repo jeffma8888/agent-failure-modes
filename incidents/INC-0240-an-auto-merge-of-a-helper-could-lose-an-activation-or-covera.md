@@ -5,9 +5,13 @@ date: 2026-10-31
 classes: [identity-and-keying, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0240 - An auto-merge of a helper could lose an activation or coverage unnoticed
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

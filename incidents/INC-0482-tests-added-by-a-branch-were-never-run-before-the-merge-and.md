@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [false-green]
 severity: medium
 status: open
+topic: null
+occurrences: 1
 ---
 
 # INC-0482 - Tests added by a branch were never run before the merge, and the full suite failed on them afterwards
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** The merged main was red in one test group and further merges were frozen until a fix landed.
 

@@ -5,9 +5,13 @@ date: 2026-08-28
 classes: [false-green, observability, detector-fail-open]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0028 - When two distributions overlap there is no threshold - change the signal, not the number
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A tuning exercise that could never have converged: every lexical signal measured overlapped between the two populations it was supposed to separate, so each retune only chose which error to make.
 

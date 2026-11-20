@@ -5,9 +5,13 @@ date: 2026-07-31
 classes: [ipc-and-env, detector-fail-open]
 severity: high
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0009 - Interactive-only credential expiry silently stalls unattended loops
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** About 5 hours of silent stall across two iterations, then a couple more of the same before an alarm was built - all harmless (retries kept failing safely) but zero throughput.
 

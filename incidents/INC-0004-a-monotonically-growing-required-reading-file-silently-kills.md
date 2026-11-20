@@ -5,9 +5,13 @@ date: 2026-08-04
 classes: [stage-timeout, steering-channel, spec-and-scope]
 severity: high
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0004 - A monotonically growing required-reading file silently kills the loop
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** A product stopped committing for 5 hours - four consecutive attempts, all 48-byte timeout logs.
 

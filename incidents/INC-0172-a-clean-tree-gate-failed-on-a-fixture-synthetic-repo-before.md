@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [test-isolation, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0172 - A clean-tree gate failed on a fixture synthetic repo before the behavior under test
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

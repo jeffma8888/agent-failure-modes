@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [delegation]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0573 - Teammate replies stopped reaching the lead for about 25 minutes while their files landed on disk
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Finished work sat unread for up to 25 minutes, including the fix for a red main.
 

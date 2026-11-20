@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [ipc-and-env, delegation]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0365 - A delegated test run needed login and logout, which delegates may not do, so the lead ran the pinned script
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Minor: the run waited for the lead; nothing was weakened or lost.
 

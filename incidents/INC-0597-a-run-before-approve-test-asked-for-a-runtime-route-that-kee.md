@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [tooling-paths]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0597 - A run-before-approve test asked for a runtime route that keeps the harness untouched instead of bypassing identity
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** None. The route was approved for run-before-approve only, with no credit.
 

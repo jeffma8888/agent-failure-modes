@@ -5,9 +5,13 @@ date: 2026-08-06
 classes: [steering-channel]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0020 - A steering channel counts only when the consumer's own parser emits it
+
+**Catalog:** [root](../catalog/README.md) / [steering-channel](../catalog/steering-channel/README.md)
 
 **Cost:** Two products' pinned steering heads were silently truncated for hours while the operator believed the guidance had been delivered.
 

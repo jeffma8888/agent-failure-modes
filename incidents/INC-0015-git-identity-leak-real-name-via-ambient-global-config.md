@@ -5,9 +5,13 @@ date: 2026-07-31
 classes: [vcs-destruction]
 severity: critical
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0015 - Git identity leak: real name via ambient global config
+
+**Catalog:** [root](../catalog/README.md) / [vcs-destruction](../catalog/vcs-destruction/README.md)
 
 **Cost:** Three public repos published every commit under the author's real name for weeks before the leak was noticed; a subsequent rewrite required force-push across the history.
 

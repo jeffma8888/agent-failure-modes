@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0508 - A build step was given the load threshold meant for timing-sensitive runs and was refused twice while the host was busy
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** Two refused launches and a delayed build; no result was lost.
 

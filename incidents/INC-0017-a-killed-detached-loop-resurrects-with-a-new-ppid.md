@@ -5,9 +5,13 @@ date: 2026-08-05
 classes: [delegation, ipc-and-env]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0017 - A killed detached loop resurrects with a new PPID
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** About 90 minutes of confusion after a kill; the loop came back detached and continued producing unauthorized output.
 

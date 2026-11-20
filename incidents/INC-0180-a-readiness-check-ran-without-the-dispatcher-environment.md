@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [ipc-and-env, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0180 - A readiness check ran without the dispatcher environment
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

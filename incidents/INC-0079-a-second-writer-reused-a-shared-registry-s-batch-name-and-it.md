@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [identity-and-keying, concurrency]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0079 - A second writer reused a shared registry's batch name and its entries silently vanished
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** Minor: the writer's incidents dropped out of the composed list until the build's validation flagged the corpus as invalid.
 

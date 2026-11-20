@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [delegation, ipc-and-env]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0270 - Restarting a shared dispatcher is the shared owner decision
+
+**Catalog:** [root](../catalog/README.md) / [delegation](../catalog/delegation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

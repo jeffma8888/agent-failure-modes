@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0171 - A generator default module augmentation made its committed output fail the type check
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: a red type check.
 

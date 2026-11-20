@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0568 - A feature branch merged on static gates only, and a unit test elsewhere that encoded the old seed order then went red on main
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** Main was red at the unit tier until a successor root landed, and the following tiers did not run.
 

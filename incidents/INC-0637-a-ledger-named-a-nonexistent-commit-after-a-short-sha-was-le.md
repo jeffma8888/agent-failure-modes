@@ -5,9 +5,13 @@ date: 2026-11-12
 classes: [false-green]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0637 - A ledger named a nonexistent commit after a short SHA was lengthened by hand
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Two ledger lines named a nonexistent commit; both were corrected before any teammate read them.
 

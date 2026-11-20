@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, stage-timeout]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0291 - A known unrelated load timeout blocked a row until one combined run accepted both
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

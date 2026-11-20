@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [false-green, stage-timeout]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0290 - A setup hook was sized from file time, or from a refused attempt
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

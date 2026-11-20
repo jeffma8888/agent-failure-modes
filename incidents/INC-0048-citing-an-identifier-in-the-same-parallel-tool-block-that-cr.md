@@ -5,9 +5,13 @@ date: 2026-10-28
 classes: [concurrency, observability]
 severity: low
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0048 - Citing an identifier in the same parallel tool block that creates it makes the citation a guess
+
+**Catalog:** [root](../catalog/README.md) / [concurrency](../catalog/concurrency/README.md)
 
 **Cost:** A message cited a commit identifier that had not yet been produced, so the citation was a guess presented as a fact. Caught before it could mislead anyone, but a wrong identifier in a record is unfalsifiable by a reader who trusts it.
 

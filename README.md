@@ -10,9 +10,22 @@ The point of this collection is that these failures are *transferable*. They are
 - **[incidents/](incidents/)** - 637 human-readable post-mortems, one per file. Each has: signature (how to recognise it), what happened, root cause, why it was hard to see, fix, verification, and a transferable rule.
 - **[TAXONOMY.md](TAXONOMY.md)** - the 18 failure classes, each with the diagnostic question that surfaces it.
 <!-- END GENERATED: corpus-summary -->
-- **[RULES.md](RULES.md)** - every transferable rule in one place, ordered by severity. Intended as a prompt payload: paste it into an agent's system message or into a role card and the rules apply.
+- **[catalog/](catalog/README.md)** - the same incidents as a navigable tree: a root router, one node per class, one leaf per topic, then the incident page. Every node is small enough to read whole, and each incident page links back up the tree.
+- **[catalog/CORE.md](catalog/CORE.md)** - the prompt-sized payload: the practices, one distilled rule per topic, and the rules of the most-recurrent incidents. Paste this into an agent's system message or a role card.
+- **[RULES.md](RULES.md)** - every transferable rule in one place, ordered by severity. It is the complete list and too large for a prompt; use CORE.md for that.
 - **Practices** (a section inside [RULES.md](RULES.md)) - cross-incident best practice: what to do by DEFAULT, rather than what went wrong once. An incident cites a date and a root cause; a practice cites the incidents it generalizes, and a test enforces that it can never claim evidence this corpus lacks.
-- **[data/incidents.json](data/incidents.json)** - the same content in machine-readable form for anyone who wants to query it or build tooling on top.
+- **[data/incidents.json](data/incidents.json)** and **[data/catalog.json](data/catalog.json)** - the incidents and the catalog tree in machine-readable form, for tooling built on top.
+- **[AGENTS.md](AGENTS.md)** and **[tools/afm.py](tools/afm.py)** - the operating manual for agents, and the command-line tool it is built around.
+
+## Using this repository (agents and humans)
+
+The corpus is large; nobody should read it front to back. Ask it questions instead.
+
+- **Find what you are hitting.** Describe what you observe, not what you think the cause is: `python3 tools/afm.py route "tests pass locally but fail in a fresh clone"` names the catalog nodes to open, and `python3 tools/afm.py search "..."` lists matching incidents with their rules. Both are standard-library Python and run from any directory.
+- **Browse.** Start at [catalog/README.md](catalog/README.md): pick the class whose "you are probably here if" matches, then the topic, then the incident.
+- **Give an agent the lessons.** Load [catalog/CORE.md](catalog/CORE.md) into its prompt, and point it at [AGENTS.md](AGENTS.md), which tells it never to load the large files whole.
+- **See what happens most.** `python3 tools/afm.py top` ranks failures by how often they recurred, and the catalog root opens with the same list.
+- **Record a failure.** Run `python3 tools/afm.py check "title + signature + root cause"` first. If a candidate has the same mechanism AND the same rule, add a dated entry to its `recurrences` list instead of a new incident; otherwise file a new one. [AGENTS.md](AGENTS.md) has the full write protocol and push checklist.
 
 The corpus is the file at [`tools/corpus.py`](tools/corpus.py). Everything else is generated from it by [`tools/build.py`](tools/build.py), so the incident pages, the JSON index and the taxonomy cannot drift apart.
 
@@ -80,19 +93,21 @@ An earlier version of this file did carry the author's real name in a self-test 
 
 ## Contributing
 
-If you have hit a failure that generalises and does not fit any existing class, open an issue. If it fits an existing class, a PR against [`tools/corpus.py`](tools/corpus.py) is welcome. Constraints:
+If you have hit a failure that generalises and does not fit any existing class, open an issue. If it fits an existing class, a PR against [`tools/corpus.py`](tools/corpus.py) is welcome - run `python3 tools/afm.py check` first, because a repeat of a recorded failure is a `recurrences` entry, not a new incident. Constraints:
 
 - Every incident needs a signature, a fix, and a transferable rule of at most 400 characters.
 - Prefer honest cost estimates ("about 5 hours of silent stall") to marketing-shaped numbers.
 - Generic language throughout. No employer names, personal identity, or machine-local paths - the leak scanner enforces this.
-- Run `python3 tools/build.py` after any change; commit the regenerated `incidents/`, `data/`, `RULES.md`, `TAXONOMY.md`, and README regions alongside the corpus edit.
+- Run `python3 tools/build.py` after any change; commit the regenerated `incidents/`, `catalog/`, `data/`, `RULES.md`, `TAXONOMY.md`, and the generated regions of README and AGENTS.md alongside the corpus edit.
 
 ## Regenerate
 
 ```
-python3 tools/build.py     # rebuild everything from tools/corpus.py
-python3 tools/leakscan.py  # scan for banned tokens across the tree
-python3 -m pytest tests/   # run the invariants
+python3 tools/build.py          # rebuild everything from tools/corpus.py
+python3 tools/leakscan.py .     # scan for banned tokens across the tree (root is the argument)
+python3 -m pytest tests/        # run the invariants
+python3 tools/afm.py --help     # query the corpus
+python3 tools/sync_repo_meta.py # print the repository description computed from the corpus
 ```
 
 ## Part of a pipeline

@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [false-green, concurrency]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0104 - A process-group kill test used single-process stubs, so signalling the leader and the group looked the same
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** Minor: caught by a stop rule, a re-check or review before it shipped.
 

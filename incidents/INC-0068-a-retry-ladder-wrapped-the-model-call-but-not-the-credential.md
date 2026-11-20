@@ -5,9 +5,13 @@ date: 2026-10-29
 classes: [ipc-and-env, observability]
 severity: high
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0068 - A retry ladder wrapped the model call but not the credential helper on the same path, so one helper blip became a long hold
+
+**Catalog:** [root](../catalog/README.md) / [ipc-and-env](../catalog/ipc-and-env/README.md)
 
 **Cost:** In one afternoon: five stage deaths, five 30-minute holds (about 2.5 hours idle), and a launcher preflight that refused a relaunch on the same transient failure.
 

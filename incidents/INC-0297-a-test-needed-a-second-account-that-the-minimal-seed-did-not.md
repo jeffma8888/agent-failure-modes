@@ -5,9 +5,13 @@ date: 2026-11-01
 classes: [test-isolation, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0297 - A test needed a second account that the minimal seed did not create
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Minor: caught before it shipped.
 

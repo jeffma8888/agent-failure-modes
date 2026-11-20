@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [spec-and-scope]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0576 - A reviewer tested a proposed supersession line with the real checker and found it in the wrong form for an already active predecessor
+
+**Catalog:** [root](../catalog/README.md) / [spec-and-scope](../catalog/spec-and-scope/README.md)
 
 **Cost:** None. The author used the form that matches the predecessor state before activation.
 

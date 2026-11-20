@@ -5,9 +5,13 @@ date: 2026-08-28
 classes: [test-isolation, concurrency]
 severity: medium
 status: open
+topic: null
+occurrences: 1
 ---
 
 # INC-0038 - A determinism test that scans the live working tree cannot pass while another writer edits it
+
+**Catalog:** [root](../catalog/README.md) / [test-isolation](../catalog/test-isolation/README.md)
 
 **Cost:** Two tests intermittently red on an otherwise green suite, with no defect in the code under test. The cost is diagnostic: a red suite that is not evidence of a regression teaches a reader to ignore the suite, and it blocks a release gate that is supposed to mean something.
 

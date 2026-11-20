@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [false-green]
 severity: high
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0601 - A nested driver deleted NODE_OPTIONS, so a preload capture never reached the nested harness and a zero counted from copied receipts was not zero
+
+**Catalog:** [root](../catalog/README.md) / [false-green](../catalog/false-green/README.md)
 
 **Cost:** A measurement reported zero denials while the log held 22 denied decisions, so the zero could not be credited and the seam could not merge.
 

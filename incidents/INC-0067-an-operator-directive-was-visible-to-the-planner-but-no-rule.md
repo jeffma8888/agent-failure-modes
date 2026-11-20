@@ -5,9 +5,13 @@ date: 2026-10-27
 classes: [steering-channel, spec-and-scope]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0067 - An operator directive was visible to the planner but no rule ranked it, so it was deferred while the loop shipped its own picks
+
+**Catalog:** [root](../catalog/README.md) / [steering-channel](../catalog/steering-channel/README.md)
 
 **Cost:** Two precise operator directives were acknowledged and deferred for an iteration while the loop shipped lower-priority picks of its own. Found by grading the planner's own triage, which labelled both 'not in the current slate'.
 

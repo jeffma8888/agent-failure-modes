@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [observability]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0570 - Two lead rulings narrated facts that git disagreed with, and the corrections were appended after checking git
+
+**Catalog:** [root](../catalog/README.md) / [observability](../catalog/observability/README.md)
 
 **Cost:** None. The corrections were appended and the conclusions were not affected.
 

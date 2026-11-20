@@ -5,9 +5,13 @@ date: 2026-11-02
 classes: [stage-timeout]
 severity: low
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0501 - An error named only the leaf of an import chain, and a rule to add a link only when the next run named it spent a run per link
+
+**Catalog:** [root](../catalog/README.md) / [stage-timeout](../catalog/stage-timeout/README.md)
 
 **Cost:** One unit run was spent before a source search showed the whole import chain at once.
 

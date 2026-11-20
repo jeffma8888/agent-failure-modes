@@ -5,9 +5,13 @@ date: 2026-11-04
 classes: [identity-and-keying]
 severity: medium
 status: mitigated
+topic: null
+occurrences: 1
 ---
 
 # INC-0594 - A successor draft named as its old bytes a revision that was never approved, so it cannot land against the bytes on main
+
+**Catalog:** [root](../catalog/README.md) / [identity-and-keying](../catalog/identity-and-keying/README.md)
 
 **Cost:** The draft cannot land unchanged, and two drafts stay parked.
 

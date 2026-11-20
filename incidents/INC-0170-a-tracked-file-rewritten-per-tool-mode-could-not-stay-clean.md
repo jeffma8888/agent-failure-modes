@@ -5,9 +5,13 @@ date: 2026-10-30
 classes: [tooling-paths, false-green]
 severity: medium
 status: fixed
+topic: null
+occurrences: 1
 ---
 
 # INC-0170 - A tracked file rewritten per tool mode could not stay clean in both tiers
+
+**Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md)
 
 **Cost:** Minor: spurious dirty trees.
 
