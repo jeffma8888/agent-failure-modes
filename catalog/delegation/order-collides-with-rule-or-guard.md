@@ -6,7 +6,7 @@
 
 **Rule:** Before issuing an order, read it against the executor's tool rules and permission ceiling and the guards or digest pins of every command and file it names; a ruling never overrides those rules, a shared service restart belongs to its owner, and the rules you write for teammates bind your own shell too.
 
-7 incidents, 7 occurrences. Ordered by occurrences, then severity, then id.
+8 incidents, 8 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -19,6 +19,11 @@
 - occurrences 1, severity medium, status fixed
 - **Signature:** A team lead could have restarted a shared dispatcher that affects all teams.
 - **Rule:** Leave a shared service restart to its shared owner
+
+### [INC-0654](../../incidents/INC-0654-a-successful-teammate-spawn-masked-zero-turns-on-a-disabled.md) - A successful teammate spawn masked zero turns on a disabled model
+- occurrences 1, severity medium, status mitigated
+- **Signature:** A spawn command returns a thread identifier for a model the operator's standing rule marks as disabled, but no teammate turn or first checkpoint file appears.
+- **Rule:** Before assigning work, reconcile any user-named resource against standing disabled-resource rules; after spawn, verify an actual first turn or required checkpoint artifact within minutes. A returned thread ID is not evidence of execution.
 
 ### [INC-0452](../../incidents/INC-0452-a-ruling-cannot-override-a-teammate-tool-rules-so-the-lead-s.md) - A ruling cannot override a teammate tool rules, so the lead sleep loop load waiter was refused and withdrawn
 - occurrences 1, severity low, status fixed

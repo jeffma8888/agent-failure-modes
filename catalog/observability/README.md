@@ -8,7 +8,7 @@ The signal you trust hides the truth: an outcome flag masks a chronically over-b
 
 **You are probably here if:** Logs, timing, counts or status look reassuring, but the underlying run, evidence or reported chronology cannot be verified.
 
-43 incidents filed here (43 occurrences); 56 more filed elsewhere are also tagged observability.
+43 incidents filed here (43 occurrences); 58 more filed elsewhere are also tagged observability.
 
 ## Topics
 
@@ -41,7 +41,7 @@ Filed in this class but in none of its topics.
 
 ## Also tagged observability
 
-56 incidents filed under another home class also carry this class. Listed by the node where they live:
+58 incidents filed under another home class also carry this class. Listed by the node where they live:
 
 - [false-green/green-but-cases-never-ran](../false-green/green-but-cases-never-ran.md): INC-0239, INC-0253, INC-0266, INC-0283
 - [ipc-and-env](../ipc-and-env/README.md): INC-0049, INC-0059, INC-0068, INC-0325
@@ -60,6 +60,7 @@ Filed in this class but in none of its topics.
 - [spec-and-scope/records-drift-or-lose-provenance](../spec-and-scope/records-drift-or-lose-provenance.md): INC-0235, INC-0346
 - [stage-timeout/timing-models-and-critical-path](../stage-timeout/timing-models-and-critical-path.md): INC-0195, INC-0210
 - [stale-module](../stale-module/README.md): INC-0021, INC-0145
+- [delegation/order-collides-with-rule-or-guard](../delegation/order-collides-with-rule-or-guard.md): INC-0654
 - [false-green](../false-green/README.md): INC-0028
 - [false-green/red-for-the-wrong-reason](../false-green/red-for-the-wrong-reason.md): INC-0202
 - [false-green/test-cannot-see-the-defect](../false-green/test-cannot-see-the-defect.md): INC-0031
@@ -69,6 +70,7 @@ Filed in this class but in none of its topics.
 - [spec-and-scope/framework-contract-assumptions](../spec-and-scope/framework-contract-assumptions.md): INC-0245
 - [stage-timeout/work-outgrows-enforced-timeouts](../stage-timeout/work-outgrows-enforced-timeouts.md): INC-0002
 - [test-isolation/green-alone-red-together](../test-isolation/green-alone-red-together.md): INC-0361
+- [test-isolation/the-test-itself-is-the-defect](../test-isolation/the-test-itself-is-the-defect.md): INC-0638
 - [tooling-paths](../tooling-paths/README.md): INC-0081
 - [tooling-paths/tool-defaults-not-target](../tooling-paths/tool-defaults-not-target.md): INC-0060
 

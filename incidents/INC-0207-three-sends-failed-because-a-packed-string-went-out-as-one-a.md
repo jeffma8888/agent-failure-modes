@@ -6,7 +6,7 @@ classes: [tooling-paths, delegation]
 severity: medium
 status: fixed
 topic: tooling-paths/zsh-expansion-surprises
-occurrences: 2
+occurrences: 3
 ---
 
 # INC-0207 - Three sends failed because a packed string went out as one argument
@@ -45,9 +45,10 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Recurrences
 
-Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+Occurrences: 3. Repeats of this failure are recorded here instead of as new incidents.
 
 - [INC-0636](./INC-0636-a-shell-loop-meant-to-send-four-messages-sent-none-because-t.md) - 2026-11-10 - A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words
+- 2026-11-12 - While bisecting launch flags for a hung app, a set of flags held in one unquoted variable was passed to env under zsh, which does not word-split it, so every variant ran with the same single malformed argument and the bisect could not tell the variants apart.
 
 ## Related
 

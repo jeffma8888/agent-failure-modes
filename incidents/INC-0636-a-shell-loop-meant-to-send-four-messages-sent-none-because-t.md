@@ -14,7 +14,7 @@ recurrence_of: INC-0207
 
 **Catalog:** [root](../catalog/README.md) / [tooling-paths](../catalog/tooling-paths/README.md) / [zsh reads your variable differently: colon modifier, word split, array](../catalog/tooling-paths/zsh-expansion-surprises.md)
 
-> **Recurrence of [INC-0207](./INC-0207-three-sends-failed-because-a-packed-string-went-out-as-one-a.md).** This record repeats an earlier failure and is kept for history; INC-0207 is the canonical record (2 occurrences in total) and carries the rule to apply.
+> **Recurrence of [INC-0207](./INC-0207-three-sends-failed-because-a-packed-string-went-out-as-one-a.md).** This record repeats an earlier failure and is kept for history; INC-0207 is the canonical record (3 occurrences in total) and carries the rule to apply.
 
 **Cost:** All four sends failed and were redone by hand; caught from that call's own output, with no work lost.
 

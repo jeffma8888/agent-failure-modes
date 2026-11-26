@@ -7,7 +7,7 @@ The point of this collection is that these failures are *transferable*. They are
 ## What is in here
 
 <!-- BEGIN GENERATED: corpus-summary -->
-- **[incidents/](incidents/)** - 637 human-readable post-mortems, one per file. Each has: signature (how to recognise it), what happened, root cause, why it was hard to see, fix, verification, and a transferable rule.
+- **[incidents/](incidents/)** - 655 human-readable post-mortems, one per file. Each has: signature (how to recognise it), what happened, root cause, why it was hard to see, fix, verification, and a transferable rule.
 - **[TAXONOMY.md](TAXONOMY.md)** - the 18 failure classes, each with the diagnostic question that surfaces it.
 <!-- END GENERATED: corpus-summary -->
 - **[catalog/](catalog/README.md)** - the same incidents as a navigable tree: a root router, one node per class, one leaf per topic, then the incident page. Every node is small enough to read whole, and each incident page links back up the tree.

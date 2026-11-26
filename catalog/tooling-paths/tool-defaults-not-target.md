@@ -6,9 +6,16 @@
 
 **Rule:** Pin tools by absolute path and verify each wrapper, launch form and config exists and behaves as assumed in THIS shell before relying on it; close gates only through the canonical entry; read the tool's error stream and name the failure class before attributing a failure to the target.
 
-8 incidents, 8 occurrences. Ordered by occurrences, then severity, then id.
+9 incidents, 10 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
+
+### [INC-0640](../../incidents/INC-0640-a-fact-was-recorded-as-unverified-because-the-web-search-too.md) - A fact was recorded as unverified because the web-search tool errored, while the page-fetch tool and other retrieval routes still worked
+- occurrences 2, severity medium, status mitigated
+- **Signature:** A research note writes unverified or unchecked beside a fact right after one retrieval tool errored, and no other route is listed as tried.
+- **Rule:** Write unverified only after every retrieval route has failed, not one endpoint: when a search tool errors, run the documented fallbacks (news feeds through the page fetcher, a direct fetch of the likely source, reference and filing searches) and list the routes tried beside the gap word.
+- **Recurrences:**
+  - 2026-11-16 - A triage written ten days earlier marked a company's funding stage unchecked after the search tool errored; the fallback chain already in the research procedure (news feeds, metasearch, forum and filing searches, a job-board API, direct fetches) settled it in about ten calls and moved a score.
 
 ### [INC-0072](../../incidents/INC-0072-four-different-fetch-failures-were-all-reported-as-the-site.md) - Four different fetch failures were all reported as 'the site blocks automated access'
 - occurrences 1, severity medium, status mitigated

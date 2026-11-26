@@ -6,7 +6,7 @@
 
 **Rule:** Pair every negative or absence check with a positive control from the same read and state that must flip it, use one negative per rejection reason, assert the exact error or element rather than any match, and for a reaction assert the target is absent before the action and present after it.
 
-11 incidents, 11 occurrences. Ordered by occurrences, then severity, then id.
+12 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -49,6 +49,11 @@
 - occurrences 1, severity medium, status fixed
 - **Signature:** Every negative target returned allowed because the probed paths did not exist.
 - **Rule:** Negative targets must exist; pair every guard with a positive control that must return the other value, and run one selftest on the real unpatched checker
+
+### [INC-0642](../../incidents/INC-0642-a-quote-check-passed-on-the-collector-s-own-annotations-beca.md) - A quote check passed on the collector's own annotations because it only asked whether the text appeared anywhere in the capture file
+- occurrences 1, severity medium, status fixed
+- **Signature:** A claim says the source names something, its supporting quote is in the capture file, and the same words are not on the live page.
+- **Rule:** Keep verbatim captures and collector notes in visibly separate blocks, and grade every quote against the verbatim block only; a match anywhere in a capture file is not a match in the source.
 
 ### [INC-0058](../../incidents/INC-0058-a-broad-exception-handler-hid-the-difference-between-not-fou.md) - A broad exception handler hid the difference between 'not found' and 'unknown name'
 - occurrences 1, severity low, status fixed

@@ -6,7 +6,7 @@
 
 **Rule:** Close every hatch by name: forbid each escape route inline in one clause, list the only files a job may touch, define every term an independence rule uses, keep one template per role, derive dependency edges from what each file actually needs, and run a red check before the build agent starts.
 
-7 incidents, 7 occurrences. Ordered by occurrences, then severity, then id.
+8 incidents, 8 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -44,3 +44,8 @@
 - occurrences 1, severity medium, status mitigated
 - **Signature:** A rule says to stop if you authored or reviewed any part, and different agents read part and agent differently.
 - **Rule:** Define independence per agent instance, and name which artifacts block (wrote the test or judged its cases) and which only need disclosure (inventories, citation audits).
+
+### [INC-0644](../../incidents/INC-0644-a-brief-said-a-code-block-must-be-byte-identical-to-its-modu.md) - A brief said a code block must be byte-identical to its module, and the teammate planned to rename the checker's divider so the tests would sit in the document and still pass
+- occurrences 1, severity low, status mitigated
+- **Signature:** A worker proposes moving or renaming a marker that a verifier uses to decide what it compares, to satisfy a requirement worded more loosely than the verifier.
+- **Rule:** State every equality or done-check in the checker's own terms (what is compared, up to which marker); treat a plan to move or rename a checker's anchor so output passes as a red flag to stop and ask, not a compatibility detail.

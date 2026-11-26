@@ -3,13 +3,13 @@
  "root": "catalog/README.md",
  "core": "catalog/CORE.md",
  "counts": {
-  "incidents": 637,
+  "incidents": 655,
   "classes": 18,
   "topics": 54,
   "practices": 5,
   "recurrence_records": 42,
-  "recorded_repeats": 0,
-  "occurrences": 637
+  "recorded_repeats": 3,
+  "occurrences": 658
  },
  "most_recurrent": [
   [
@@ -29,6 +29,10 @@
    3
   ],
   [
+   "INC-0207",
+   3
+  ],
+  [
    "INC-0517",
    3
   ],
@@ -42,10 +46,6 @@
   ],
   [
    "INC-0119",
-   2
-  ],
-  [
-   "INC-0207",
    2
   ],
   [
@@ -82,6 +82,14 @@
   ],
   [
    "INC-0523",
+   2
+  ],
+  [
+   "INC-0640",
+   2
+  ],
+  [
+   "INC-0048",
    2
   ],
   [
@@ -203,34 +211,28 @@
   [
    "INC-0029",
    1
-  ],
-  [
-   "INC-0030",
-   1
-  ],
-  [
-   "INC-0031",
-   1
   ]
  ],
  "classes": {
   "reward-hacking": {
    "node": "catalog/reward-hacking/README.md",
    "home": 2,
-   "also_tagged": 0,
+   "also_tagged": 1,
    "occurrences": 2,
    "topics": [],
    "class_level": [
     "INC-0001",
     "INC-0199"
    ],
-   "also_tagged_ids": []
+   "also_tagged_ids": [
+    "INC-0644"
+   ]
   },
   "false-green": {
    "node": "catalog/false-green/README.md",
-   "home": 124,
+   "home": 129,
    "also_tagged": 60,
-   "occurrences": 124,
+   "occurrences": 129,
    "topics": [
     "false-green/check-satisfied-by-unrelated-cause",
     "false-green/count-or-total-computed-wrong",
@@ -423,7 +425,7 @@
    "node": "catalog/concurrency/README.md",
    "home": 20,
    "also_tagged": 16,
-   "occurrences": 20,
+   "occurrences": 21,
    "topics": [],
    "class_level": [
     "INC-0011",
@@ -509,9 +511,9 @@
   },
   "delegation": {
    "node": "catalog/delegation/README.md",
-   "home": 44,
-   "also_tagged": 21,
-   "occurrences": 44,
+   "home": 46,
+   "also_tagged": 23,
+   "occurrences": 46,
    "topics": [
     "delegation/brief-or-plan-left-a-gap",
     "delegation/finished-on-disk-no-reply",
@@ -545,7 +547,9 @@
     "INC-0304",
     "INC-0319",
     "INC-0365",
-    "INC-0557"
+    "INC-0557",
+    "INC-0651",
+    "INC-0655"
    ]
   },
   "detector-fail-open": {
@@ -588,9 +592,9 @@
   },
   "detector-fail-closed": {
    "node": "catalog/detector-fail-closed/README.md",
-   "home": 14,
+   "home": 15,
    "also_tagged": 3,
-   "occurrences": 14,
+   "occurrences": 15,
    "topics": [],
    "class_level": [
     "INC-0032",
@@ -606,7 +610,8 @@
     "INC-0479",
     "INC-0552",
     "INC-0564",
-    "INC-0569"
+    "INC-0569",
+    "INC-0653"
    ],
    "also_tagged_ids": [
     "INC-0029",
@@ -682,9 +687,9 @@
   },
   "tooling-paths": {
    "node": "catalog/tooling-paths/README.md",
-   "home": 68,
-   "also_tagged": 30,
-   "occurrences": 68,
+   "home": 69,
+   "also_tagged": 31,
+   "occurrences": 71,
    "topics": [
     "tooling-paths/argument-read-as-other-kind",
     "tooling-paths/chain-ran-on-after-failure",
@@ -731,14 +736,15 @@
     "INC-0344",
     "INC-0351",
     "INC-0356",
-    "INC-0368"
+    "INC-0368",
+    "INC-0652"
    ]
   },
   "test-isolation": {
    "node": "catalog/test-isolation/README.md",
-   "home": 36,
+   "home": 37,
    "also_tagged": 33,
-   "occurrences": 36,
+   "occurrences": 37,
    "topics": [
     "test-isolation/assertion-wider-than-contract",
     "test-isolation/green-alone-red-together",
@@ -787,7 +793,7 @@
   "observability": {
    "node": "catalog/observability/README.md",
    "home": 43,
-   "also_tagged": 56,
+   "also_tagged": 58,
    "occurrences": 43,
    "topics": [
     "observability/clock-labels-without-clock-evidence",
@@ -855,14 +861,16 @@
     "INC-0352",
     "INC-0361",
     "INC-0554",
-    "INC-0558"
+    "INC-0558",
+    "INC-0638",
+    "INC-0654"
    ]
   },
   "spec-and-scope": {
    "node": "catalog/spec-and-scope/README.md",
-   "home": 104,
-   "also_tagged": 58,
-   "occurrences": 104,
+   "home": 112,
+   "also_tagged": 60,
+   "occurrences": 112,
    "topics": [
     "spec-and-scope/claims-outrun-available-evidence",
     "spec-and-scope/fix-misses-related-consumers",
@@ -936,7 +944,9 @@
     "INC-0355",
     "INC-0358",
     "INC-0359",
-    "INC-0366"
+    "INC-0366",
+    "INC-0640",
+    "INC-0642"
    ]
   },
   "identity-and-keying": {
@@ -980,7 +990,7 @@
   "delegation/brief-or-plan-left-a-gap": {
    "title": "The brief or plan left a gap the worker fell through",
    "node": "catalog/delegation/brief-or-plan-left-a-gap.md",
-   "occurrences": 7,
+   "occurrences": 8,
    "incidents": [
     "INC-0016",
     "INC-0087",
@@ -988,7 +998,8 @@
     "INC-0135",
     "INC-0298",
     "INC-0331",
-    "INC-0507"
+    "INC-0507",
+    "INC-0644"
    ]
   },
   "delegation/finished-on-disk-no-reply": {
@@ -1020,7 +1031,7 @@
   "delegation/order-collides-with-rule-or-guard": {
    "title": "Your order collided with a tool rule, permission ceiling, guard or pin",
    "node": "catalog/delegation/order-collides-with-rule-or-guard.md",
-   "occurrences": 7,
+   "occurrences": 8,
    "incidents": [
     "INC-0179",
     "INC-0270",
@@ -1028,7 +1039,8 @@
     "INC-0453",
     "INC-0473",
     "INC-0489",
-    "INC-0493"
+    "INC-0493",
+    "INC-0654"
    ]
   },
   "delegation/reviewer-not-independent-or-free": {
@@ -1121,7 +1133,7 @@
   "false-green/check-satisfied-by-unrelated-cause": {
    "title": "A negative, absence or presence check passed for an unrelated reason",
    "node": "catalog/false-green/check-satisfied-by-unrelated-cause.md",
-   "occurrences": 11,
+   "occurrences": 12,
    "incidents": [
     "INC-0058",
     "INC-0082",
@@ -1133,20 +1145,22 @@
     "INC-0318",
     "INC-0525",
     "INC-0571",
-    "INC-0601"
+    "INC-0601",
+    "INC-0642"
    ]
   },
   "false-green/count-or-total-computed-wrong": {
    "title": "A reported count, total or ledger does not match what ran",
    "node": "catalog/false-green/count-or-total-computed-wrong.md",
-   "occurrences": 6,
+   "occurrences": 7,
    "incidents": [
     "INC-0070",
     "INC-0174",
     "INC-0252",
     "INC-0259",
     "INC-0310",
-    "INC-0323"
+    "INC-0323",
+    "INC-0652"
    ]
   },
   "false-green/green-but-cases-never-ran": {
@@ -1194,7 +1208,7 @@
   "false-green/oracle-or-claim-written-from-memory": {
    "title": "A test oracle, locator or review claim came from memory, not source",
    "node": "catalog/false-green/oracle-or-claim-written-from-memory.md",
-   "occurrences": 11,
+   "occurrences": 12,
    "incidents": [
     "INC-0042",
     "INC-0056",
@@ -1206,7 +1220,8 @@
     "INC-0523",
     "INC-0527",
     "INC-0530",
-    "INC-0578"
+    "INC-0578",
+    "INC-0651"
    ]
   },
   "false-green/proxy-artifact-cited-as-evidence": {
@@ -1287,7 +1302,7 @@
   "false-green/test-cannot-see-the-defect": {
    "title": "A test stays green with the behavior removed or broken",
    "node": "catalog/false-green/test-cannot-see-the-defect.md",
-   "occurrences": 8,
+   "occurrences": 10,
    "incidents": [
     "INC-0031",
     "INC-0104",
@@ -1296,7 +1311,9 @@
     "INC-0221",
     "INC-0222",
     "INC-0388",
-    "INC-0505"
+    "INC-0505",
+    "INC-0641",
+    "INC-0649"
    ]
   },
   "false-green/verified-a-different-target": {
@@ -1443,7 +1460,7 @@
   "spec-and-scope/claims-outrun-available-evidence": {
    "title": "Claims or instructions say more than the evidence supports",
    "node": "catalog/spec-and-scope/claims-outrun-available-evidence.md",
-   "occurrences": 10,
+   "occurrences": 13,
    "incidents": [
     "INC-0089",
     "INC-0300",
@@ -1454,7 +1471,10 @@
     "INC-0538",
     "INC-0593",
     "INC-0626",
-    "INC-0631"
+    "INC-0631",
+    "INC-0643",
+    "INC-0645",
+    "INC-0648"
    ]
   },
   "spec-and-scope/fix-misses-related-consumers": {
@@ -1533,7 +1553,7 @@
   "spec-and-scope/records-drift-or-lose-provenance": {
    "title": "A cited baseline, count, line, or digest no longer matches its source",
    "node": "catalog/spec-and-scope/records-drift-or-lose-provenance.md",
-   "occurrences": 12,
+   "occurrences": 15,
    "incidents": [
     "INC-0055",
     "INC-0147",
@@ -1546,13 +1566,16 @@
     "INC-0326",
     "INC-0335",
     "INC-0338",
-    "INC-0346"
+    "INC-0346",
+    "INC-0639",
+    "INC-0646",
+    "INC-0647"
    ]
   },
   "spec-and-scope/requirements-and-limits-collide": {
    "title": "Requirements, units, or hard limits cannot hold together",
    "node": "catalog/spec-and-scope/requirements-and-limits-collide.md",
-   "occurrences": 10,
+   "occurrences": 12,
    "incidents": [
     "INC-0071",
     "INC-0102",
@@ -1563,7 +1586,9 @@
     "INC-0424",
     "INC-0430",
     "INC-0441",
-    "INC-0572"
+    "INC-0572",
+    "INC-0650",
+    "INC-0655"
    ]
   },
   "spec-and-scope/tests-do-not-prove-the-contract": {
@@ -1722,7 +1747,7 @@
   "test-isolation/the-test-itself-is-the-defect": {
    "title": "The red comes from the test's own fixture, tool option or control",
    "node": "catalog/test-isolation/the-test-itself-is-the-defect.md",
-   "occurrences": 7,
+   "occurrences": 8,
    "incidents": [
     "INC-0172",
     "INC-0183",
@@ -1730,7 +1755,8 @@
     "INC-0320",
     "INC-0340",
     "INC-0472",
-    "INC-0602"
+    "INC-0602",
+    "INC-0638"
    ]
   },
   "tooling-paths/argument-read-as-other-kind": {
@@ -1807,7 +1833,7 @@
   "tooling-paths/tool-defaults-not-target": {
    "title": "The tool's own resolution or defaults, not the target, caused it",
    "node": "catalog/tooling-paths/tool-defaults-not-target.md",
-   "occurrences": 8,
+   "occurrences": 10,
    "incidents": [
     "INC-0060",
     "INC-0072",
@@ -1816,7 +1842,8 @@
     "INC-0369",
     "INC-0422",
     "INC-0469",
-    "INC-0603"
+    "INC-0603",
+    "INC-0640"
    ]
   },
   "tooling-paths/tree-lacks-what-job-needs": {
@@ -1850,7 +1877,7 @@
   "tooling-paths/zsh-expansion-surprises": {
    "title": "zsh reads your variable differently: colon modifier, word split, array",
    "node": "catalog/tooling-paths/zsh-expansion-surprises.md",
-   "occurrences": 7,
+   "occurrences": 8,
    "incidents": [
     "INC-0165",
     "INC-0207",

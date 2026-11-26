@@ -6,7 +6,7 @@
 
 **Rule:** Assume zsh: brace every variable before a colon (${r}:path), never rely on word splitting of an unquoted variable, iterate arrays with the quoted all-elements form, run bash-only env scripts via bash -c, and confirm each side-effecting send by its own exit status.
 
-7 incidents, 7 occurrences. Ordered by occurrences, then severity, then id.
+7 incidents, 8 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -19,11 +19,12 @@
   - [INC-0622](../../incidents/INC-0622-an-unbraced-shell-variable-followed-by-a-colon-and-a-letter.md) - 2026-11-04 - An unbraced shell variable followed by a colon and a letter was read as a history modifier, so a revision was mangled and the hash printed was of empty input
 
 ### [INC-0207](../../incidents/INC-0207-three-sends-failed-because-a-packed-string-went-out-as-one-a.md) - Three sends failed because a packed string went out as one argument
-- occurrences 2, severity medium, status fixed
+- occurrences 3, severity medium, status fixed
 - **Signature:** The sends failed with exit 1.
 - **Rule:** Check the exit status of every send, and pass real arguments, not a packed string
 - **Recurrences:**
   - [INC-0636](../../incidents/INC-0636-a-shell-loop-meant-to-send-four-messages-sent-none-because-t.md) - 2026-11-10 - A shell loop meant to send four messages sent none, because the shell does not split an unquoted variable into words
+  - 2026-11-12 - While bisecting launch flags for a hung app, a set of flags held in one unquoted variable was passed to env under zsh, which does not word-split it, so every variant ran with the same single malformed argument and the bisect could not tell the variants apart.
 
 ### [INC-0248](../../incidents/INC-0248-the-env-script-could-not-be-sourced-in-zsh.md) - The env script could not be sourced in zsh
 - occurrences 1, severity medium, status fixed

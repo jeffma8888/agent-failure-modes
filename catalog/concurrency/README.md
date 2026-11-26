@@ -8,11 +8,18 @@ Independent agents or sessions contend for one shared resource - a rate-limited 
 
 **You are probably here if:** Jobs stall, race or vanish because several agents or runs share one thing: a provider quota, a host lock or load gate, a cluster, a worktree, a script.
 
-20 incidents filed here (20 occurrences); 16 more filed elsewhere are also tagged concurrency.
+20 incidents filed here (21 occurrences); 16 more filed elsewhere are also tagged concurrency.
 
 ## Incidents
 
 This class has no topics, so this node is the leaf. Ordered by occurrences, then severity, then id.
+
+### [INC-0048](../../incidents/INC-0048-citing-an-identifier-in-the-same-parallel-tool-block-that-cr.md) - Citing an identifier in the same parallel tool block that creates it makes the citation a guess
+- occurrences 2, severity low, status fixed
+- **Signature:** One batch of parallel tool calls contains both a step that creates an identifier (commit hash, ticket number, file path) and a step that quotes it.
+- **Rule:** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
+- **Recurrences:**
+  - 2026-11-19 - A lead issued a teammate spawn and the write of a tracking file in one parallel batch, so the file recorded a thread id the spawn had not yet returned; a later retain call on that id failed with thread not found.
 
 ### [INC-0011](../../incidents/INC-0011-concurrent-agent-brains-silently-starve-and-kill-each-other.md) - Concurrent agent brains silently starve and kill each other
 - occurrences 1, severity critical, status mitigated
@@ -79,23 +86,14 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - **Signature:** Tests of the happy paths pass, and timing between two steps of publication is untested.
 - **Rule:** A lock or queue needs tests that force a signal or cancel between every pair of publication steps; publish ownership atomically and only when complete.
 
-### [INC-0048](../../incidents/INC-0048-citing-an-identifier-in-the-same-parallel-tool-block-that-cr.md) - Citing an identifier in the same parallel tool block that creates it makes the citation a guess
-- occurrences 1, severity low, status fixed
-- **Signature:** One batch of parallel tool calls contains both a step that creates an identifier (commit hash, ticket number, file path) and a step that quotes it.
-- **Rule:** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
-
 ### [INC-0445](../../incidents/INC-0445-a-migration-lock-covered-the-whole-branch-when-it-needed-to.md) - A migration lock covered the whole branch when it needed to cover only the generators and schema paths
 - occurrences 1, severity low, status fixed
 - **Signature:** A second branch idled although most of its work did not touch the locked resource.
 - **Rule:** Scope a lock to the shared paths and commands it protects, not the whole branch, and state how a second branch rejoins after the holder merges
 
-### [INC-0471](../../incidents/INC-0471-drafts-proposed-test-database-ports-by-reading-tracked-text.md) - Drafts proposed test database ports by reading tracked text, and two clashed with each other and two with live listeners
-- occurrences 1, severity low, status fixed
-- **Signature:** Proposed numbers collided with each other and with live listeners.
-- **Rule:** Allocate shared numbered resources centrally and probe the live system at use time; a text search for free numbers is not a probe
+The 5 entries below are listed by title only so this node stays under 12 KB. Open the page, or run `python3 tools/afm.py show INC-XXXX`, for its signature and rule.
 
-The 4 entries below are listed by title only so this node stays under 12 KB. Open the page, or run `python3 tools/afm.py show INC-XXXX`, for its signature and rule.
-
+- [INC-0471](../../incidents/INC-0471-drafts-proposed-test-database-ports-by-reading-tracked-text.md) - Drafts proposed test database ports by reading tracked text, and two clashed with each other and two with live listeners (n=1, low)
 - [INC-0544](../../incidents/INC-0544-a-walk-load-limit-was-unreachable-because-the-host-floor-wit.md) - A walk load limit was unreachable because the host floor without any team job sat above it (n=1, low)
 - [INC-0556](../../incidents/INC-0556-a-polling-host-lock-does-not-serve-waiters-in-order-so-a-tes.md) - A polling host lock does not serve waiters in order, so a test run queued after its own setup took the lock first and failed on a database setup had not created (n=1, low)
 - [INC-0557](../../incidents/INC-0557-the-lock-holder-waited-for-the-load-to-fall-while-still-hold.md) - The lock holder waited for the load to fall while still holding the host lock, and eleven agents fed that one lock, so waits of 20 minutes became normal (n=1, low)

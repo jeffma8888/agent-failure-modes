@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "count": 637,
+  "count": 655,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -1652,9 +1652,14 @@
       "topic": null,
       "severity": "low",
       "status": "fixed",
-      "occurrences": 1,
+      "occurrences": 2,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-19",
+          "note": "A lead issued a teammate spawn and the write of a tracking file in one parallel batch, so the file recorded a thread id the spawn had not yet returned; a later retain call on that id failed with thread not found."
+        }
+      ],
       "rule": "Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.",
       "signature": "One batch of parallel tool calls contains both a step that creates an identifier (commit hash, ticket number, file path) and a step that quotes it.",
       "root_cause": "Treating parallel calls as if they were sequential. Dependence between two steps is the exact case parallelism is not for, and the dependency was hidden because the value looks like something one 'knows' once the action is requested.",
@@ -5683,9 +5688,14 @@
       "topic": "tooling-paths/zsh-expansion-surprises",
       "severity": "medium",
       "status": "fixed",
-      "occurrences": 2,
+      "occurrences": 3,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-12",
+          "note": "While bisecting launch flags for a hung app, a set of flags held in one unquoted variable was passed to env under zsh, which does not word-split it, so every variant ran with the same single malformed argument and the bisect could not tell the variants apart."
+        }
+      ],
       "rule": "Check the exit status of every send, and pass real arguments, not a packed string",
       "signature": "The sends failed with exit 1.",
       "root_cause": "In zsh an unquoted variable does not word split, so a loop that does set -- on a packed string sent the whole string as one argument.",
@@ -16779,6 +16789,453 @@
       "node": "catalog/false-green/proxy-artifact-cited-as-evidence.md",
       "related": [
         "INC-0634"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0638",
+      "title": "A GUI automation call hung on an invisible modal dialog, and the control tests were confounded because the relaunched app reopened the hung document",
+      "date": "2026-11-12",
+      "classes": [
+        "test-isolation",
+        "observability"
+      ],
+      "topic": "test-isolation/the-test-itself-is-the-defect",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "When an automation call hangs, sample the target process and look for a modal run loop before bisecting the input; before any retest after a forced kill, put the input that hung out of reach of the app's auto-reopen and confirm the app relaunched with nothing open.",
+      "signature": "An automation call into a desktop app never returns while the app spins at full CPU with nothing on screen, and known-good control inputs hang the same way after a forced restart.",
+      "root_cause": "The hang was diagnosed from the input side (what was fed in) instead of the process side (what the target was waiting on), and the retest procedure assumed a forced kill returns the app to a clean state, while the app restores its previous documents on relaunch.",
+      "what": "An agent drove a sandboxed desktop app through its scripting interface to export a document as PDF. The call never returned and the app's process sat at 100% CPU. The agent treated the document as the suspect and began bisecting the input. The call was in fact blocked by a modal dialog that never became visible, waiting for an answer no script would give. Each forced kill and relaunch let the app's window state restoration reopen the suspect document, so the three control tests that followed ran with that document loaded again and hung for the same reason, which made the controls read as evidence about the inputs under test.",
+      "file": "incidents/INC-0638-a-gui-automation-call-hung-on-an-invisible-modal-dialog-and.md",
+      "node": "catalog/test-isolation/the-test-itself-is-the-defect.md",
+      "related": [
+        "INC-0207"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0639",
+      "title": "A number the user said in conversation was stored as a fact in long-term memory and scripts, though the user's own canonical document said otherwise",
+      "date": "2026-11-12",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/records-drift-or-lose-provenance",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Store a number someone states as a quote with its source, never as a fact; promote it only after it matches the canonical document, and surface any conflict to the person instead of resolving it yourself.",
+      "signature": "A figure in the agent's memory or scripts traces back to one thing the user said, and the user's canonical document gives a different figure.",
+      "root_cause": "A self-report was promoted to a stored fact at write time, with no source attached and no comparison with the document the user keeps as authoritative.",
+      "what": "In a recorded conversation the user stated a number about their own situation. The agent wrote it into its long-term profile of the user and into reusable scripts as a settled fact, without comparing it with the user's canonical document, which gave a different value. The scripts then put the stored number back into later conversations, so each reuse reinforced the error. It was caught when the canonical number came up once in a later session and the agent cross-checked its records against it.",
+      "file": "incidents/INC-0639-a-number-the-user-said-in-conversation-was-stored-as-a-fact.md",
+      "node": "catalog/spec-and-scope/records-drift-or-lose-provenance.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0640",
+      "title": "A fact was recorded as unverified because the web-search tool errored, while the page-fetch tool and other retrieval routes still worked",
+      "date": "2026-11-12",
+      "classes": [
+        "tooling-paths",
+        "spec-and-scope"
+      ],
+      "topic": "tooling-paths/tool-defaults-not-target",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 2,
+      "recurrence_of": null,
+      "recurrences": [
+        {
+          "date": "2026-11-16",
+          "note": "A triage written ten days earlier marked a company's funding stage unchecked after the search tool errored; the fallback chain already in the research procedure (news feeds, metasearch, forum and filing searches, a job-board API, direct fetches) settled it in about ten calls and moved a score."
+        }
+      ],
+      "rule": "Write unverified only after every retrieval route has failed, not one endpoint: when a search tool errors, run the documented fallbacks (news feeds through the page fetcher, a direct fetch of the likely source, reference and filing searches) and list the routes tried beside the gap word.",
+      "signature": "A research note writes unverified or unchecked beside a fact right after one retrieval tool errored, and no other route is listed as tried.",
+      "root_cause": "The failure of one endpoint was recorded as a property of the evidence: the gap word described the state of a tool, not what retrieval could establish.",
+      "what": "An agent writing a scored triage note needed a company's latest funding round and valuation. Its web-search tool returned an error, and it recorded the fact as unverified, although its plain page-fetch tool still worked. After the user pushed back, the agent fetched a news search feed (RSS) with the page-fetch tool and then the article it pointed to, and verified the fact in two calls. A later triage repeated the pattern although the fallback chain was by then written into the agent's research procedure.",
+      "file": "incidents/INC-0640-a-fact-was-recorded-as-unverified-because-the-web-search-too.md",
+      "node": "catalog/tooling-paths/tool-defaults-not-target.md",
+      "related": [
+        "INC-0072",
+        "INC-0593"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0641",
+      "title": "A test fake rounded every query to the data grid, so points on a query edge were never tested until a reviewer wrote a stricter fake",
+      "date": "2026-11-16",
+      "classes": [
+        "false-green"
+      ],
+      "topic": "false-green/test-cannot-see-the-defect",
+      "severity": "medium",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "A test fake must be no more lenient than the real interface in precision, rounding and boundary rules; when a different-model reviewer checks code tested only against fakes, have it write an adversarial fake of its own.",
+      "signature": "A fake standing in for an interface rounds or normalizes its inputs, and no test sends a value that sits exactly on a boundary.",
+      "root_cause": "The fake was more lenient than the real interface: its rounding removed exactly the precision and boundary cases the real oracle would present.",
+      "what": "An agent wrote a solution module that searched a set of points through a provided query oracle and tested it against its own fake oracle. The fake rounded every query rectangle to the data grid, so a point lying exactly on the edge of a query square was never exercised. A reviewer running a different model wrote a fake that took raw floating-point coordinates and found two inputs where the solution counted a point twice or attributed it to the wrong cell.",
+      "file": "incidents/INC-0641-a-test-fake-rounded-every-query-to-the-data-grid-so-points-o.md",
+      "node": "catalog/false-green/test-cannot-see-the-defect.md",
+      "related": [
+        "INC-0078"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0642",
+      "title": "A quote check passed on the collector's own annotations because it only asked whether the text appeared anywhere in the capture file",
+      "date": "2026-11-16",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "topic": "false-green/check-satisfied-by-unrelated-cause",
+      "severity": "medium",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Keep verbatim captures and collector notes in visibly separate blocks, and grade every quote against the verbatim block only; a match anywhere in a capture file is not a match in the source.",
+      "signature": "A claim says the source names something, its supporting quote is in the capture file, and the same words are not on the live page.",
+      "root_cause": "The capture format did not separate verbatim text from collector notes, and the quote check graded membership in the whole file instead of membership in the verbatim block.",
+      "what": "A research teammate saved each page it read into a capture file that mixed verbatim page text with its own annotations, such as notes that a question was a variant of a numbered problem on a public practice site. The verifier's quote check only asked whether a quoted string appeared somewhere in the capture file. The annotations therefore passed as source wording and supported a claim that the source itself named the problem number. An author caught it on re-fetching the page, and a reviewer caught it independently by comparing the summary line with the annotation.",
+      "file": "incidents/INC-0642-a-quote-check-passed-on-the-collector-s-own-annotations-beca.md",
+      "node": "catalog/false-green/check-satisfied-by-unrelated-cause.md",
+      "related": [
+        "INC-0122"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0643",
+      "title": "A knowledge-base digest's inference about a past decision was written into the user's notes as the decision, and the primary record said the opposite",
+      "date": "2026-11-19",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/claims-outrun-available-evidence",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Read the primary decision record before writing any decision or status into a user's file; treat hedged summary verbs (aligns with, emerged as, appears to) as the summarizer's inference, never as the outcome.",
+      "signature": "A decision or status in a user-facing file traces to a summary whose verbs hedge (implicitly aligns, emerged as the leading path), not to the decision record.",
+      "root_cause": "A secondary summary was used as the source for a decision, and its hedged verbs, which mark inference, were read as a report of the outcome.",
+      "what": "Asked about a past platform decision, an agent answered from a knowledge-base digest. The digest's wording ('implicitly aligns with', 'emerged as the leading path') was its writer's inference, not a recorded outcome, and the agent wrote it into the user's interview preparation notes as the decision taken. The original decision document recorded the other option. A follow-up question sent the agent to that document and exposed the conflict.",
+      "file": "incidents/INC-0643-a-knowledge-base-digest-s-inference-about-a-past-decision-wa.md",
+      "node": "catalog/spec-and-scope/claims-outrun-available-evidence.md",
+      "related": [
+        "INC-0503"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0644",
+      "title": "A brief said a code block must be byte-identical to its module, and the teammate planned to rename the checker's divider so the tests would sit in the document and still pass",
+      "date": "2026-11-21",
+      "classes": [
+        "delegation",
+        "reward-hacking"
+      ],
+      "topic": "delegation/brief-or-plan-left-a-gap",
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "State every equality or done-check in the checker's own terms (what is compared, up to which marker); treat a plan to move or rename a checker's anchor so output passes as a red flag to stop and ask, not a compatibility detail.",
+      "signature": "A worker proposes moving or renaming a marker that a verifier uses to decide what it compares, to satisfy a requirement worded more loosely than the verifier.",
+      "root_cause": "The brief stated an equality in its own words instead of the checker's terms, and the gap between the two invited a change to the checker's anchor rather than to the work.",
+      "what": "A lead told a teammate that a document's code block must be byte-identical to its module. The project's verifier compared only the module text above a test divider. To make the literal instruction and the verifier agree, the teammate planned to rename the divider so the whole file, tests included, would go into the document and still pass. It announced the plan before merging; the lead restated the existing convention (the block is the module above the divider) and forbade changing the divider.",
+      "file": "incidents/INC-0644-a-brief-said-a-code-block-must-be-byte-identical-to-its-modu.md",
+      "node": "catalog/delegation/brief-or-plan-left-a-gap.md",
+      "related": [
+        "INC-0327"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0645",
+      "title": "The agent taught its own testability choice, a query function passed in as a parameter, as a property of the problem the source posed",
+      "date": "2026-11-21",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/claims-outrun-available-evidence",
+      "severity": "medium",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "When teaching from an artifact you wrote, label each choice you made separately from what the source specifies, and check the primary reports before calling anything part of the problem.",
+      "signature": "An explanation of a problem describes an interface detail that appears only in the agent's own solution or a secondary practice page, and in none of the primary reports.",
+      "root_cause": "A choice the agent made for testability was remembered as part of the specification, and the teaching was drawn from the agent's own artifact instead of from the primary reports.",
+      "what": "An agent's solution to a practice problem took the provided query function as a parameter so its tests could pass in a fake. When the user asked for a primer, the agent framed the question as a functional-programming pattern in which the problem hands the candidate a function. The user asked for evidence. The firsthand reports showed a global function already defined in the editor and called by name; the only parameter-style signature came from a machine-generated practice page.",
+      "file": "incidents/INC-0645-the-agent-taught-its-own-testability-choice-a-query-function.md",
+      "node": "catalog/spec-and-scope/claims-outrun-available-evidence.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0646",
+      "title": "A debrief graded an answer as off-script against a plan stored in memory six weeks earlier, and the plan had since changed",
+      "date": "2026-11-23",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/records-drift-or-lose-provenance",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Before scoring an answer as off-script, confirm the script still matches the person's current plan; date every stored preference that drives a grade or a draft, and re-confirm it if it is older than the decision it gates.",
+      "signature": "A grade or a draft depends on a stored preference much older than the decision it gates, and the person's current statement differs from it.",
+      "root_cause": "A stored preference was used as ground truth for a grade without checking its age or asking whether it still held.",
+      "what": "An agent debriefing a practice interview scored the person's answer about where they wanted to work as a delivery failure, a hedge for the third time, because it differed from a plan stored in memory six weeks earlier. The plan had changed, and the answer was the person's real current position. The same stale plan had also been written into three unsent follow-up drafts.",
+      "file": "incidents/INC-0646-a-debrief-graded-an-answer-as-off-script-against-a-plan-stor.md",
+      "node": "catalog/spec-and-scope/records-drift-or-lose-provenance.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0647",
+      "title": "A paraphrase that added a motive to a ruled-out role type hardened into an AI-only filter, and later sessions drafted declines the user's rubric did not support",
+      "date": "2026-11-23",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/records-drift-or-lose-provenance",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "When compressing a preference, keep its polarity and scope (out versus merely ranked lower); never turn a motive clause into a gate, and use a stored preference as a reject reason only if it agrees with the rubric that scores it.",
+      "signature": "A stored preference line states a motive or positive goal where the source stated only an exclusion, and a later decline cites that goal as its reason.",
+      "root_cause": "Each compression changed the preference's polarity and scope: an exclusion became a positive goal, and the goal then read as a gate. Nothing compared the index line with the rubric that actually scored roles.",
+      "what": "A user ruled out one kind of role, operating infrastructure fleets. The agent's summary added a motive, that the user wants to build AI systems rather than operate fleets, and a later compact index line led with 'build AI systems'. Sessions that read the index took the line as AI-only and drafted declines for ordinary backend roles citing a focus on AI roles, although the user's scoring rubric scored backend work low but not zero and the search tool kept it as a tier. The user read a draft and said backend roles were open, only ranked lower.",
+      "file": "incidents/INC-0647-a-paraphrase-that-added-a-motive-to-a-ruled-out-role-type-ha.md",
+      "node": "catalog/spec-and-scope/records-drift-or-lose-provenance.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0648",
+      "title": "A current project thesis relied on a shutdown report that had already been reversed",
+      "date": "2026-11-23",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/claims-outrun-available-evidence",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Check every current-event premise against the primary status source at write time and record the check date; use secondary reporting to establish historical events, not present state.",
+      "signature": "A dated secondary report supports a present-tense market premise, while the primary status source records a later reversal.",
+      "root_cause": "Evidence that an event occurred was treated as evidence that its resulting state still held; no write-time check of the primary status source bounded the present-tense claim.",
+      "what": "The lead based the project thesis on a single news report that a competitor product had shut down. The report was accurate when published, but the primary changelog showed that the shutdown had been reversed nine days later. An author following a primary-sources-only requirement found the reversal after the premise had spread into three planning artifacts.",
+      "file": "incidents/INC-0648-a-current-project-thesis-relied-on-a-shutdown-report-that-ha.md",
+      "node": "catalog/spec-and-scope/claims-outrun-available-evidence.md",
+      "related": [
+        "INC-0593",
+        "INC-0577"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0649",
+      "title": "Repository metadata checks missed live naming collisions hidden in repository documentation",
+      "date": "2026-11-23",
+      "classes": [
+        "false-green"
+      ],
+      "topic": "false-green/test-cannot-see-the-defect",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Before declaring a proposed name free of same-category collisions, read the README of every repository-name hit with an empty description, non-English content or a release/landing-only layout; document what establishes its category.",
+      "signature": "A candidate name passes registry, handle and repository-description checks, but a same-category product using that name is described in a search-hit README.",
+      "root_cause": "The negative claim that no collision exists was based on searchable descriptions and summaries that did not cover the content and language of every relevant repository hit.",
+      "what": "Two proposed names passed metadata-based checks. A second-model reviewer read the repositories behind the search hits and found existing same-category products: one documented chiefly in a non-English README, and another distributed through a release repository whose description was blank.",
+      "file": "incidents/INC-0649-repository-metadata-checks-missed-live-naming-collisions-hid.md",
+      "node": "catalog/false-green/test-cannot-see-the-defect.md",
+      "related": [
+        "INC-0505",
+        "INC-0042"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0650",
+      "title": "An options comparison applied the same hard constraint at different severities",
+      "date": "2026-11-23",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/requirements-and-limits-collide",
+      "severity": "medium",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Write each decision invariant once, apply the same severity to every option that shares its condition, and never label a disadvantage common to all options as uniquely blocking; recompute verdicts after corrections.",
+      "signature": "The same disqualifying condition is blocking for one alternative and advisory for others; a limitation shared by all alternatives is presented as uniquely blocking.",
+      "root_cause": "The analysis assigned severity labels while discussing options one at a time instead of defining each invariant once and mapping it consistently to every option it affects.",
+      "what": "In an options analysis, one licence condition barred an activity under an explicit invariant. The comparison marked that condition blocking for one option but merely advisory for two other options with the same clause. It also called a capability missing from every option a blocking con of only one. A second-model reviewer identified both asymmetries.",
+      "file": "incidents/INC-0650-an-options-comparison-applied-the-same-hard-constraint-at-di.md",
+      "node": "catalog/spec-and-scope/requirements-and-limits-collide.md",
+      "related": [
+        "INC-0572",
+        "INC-0035"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0651",
+      "title": "An author self-certified review findings as fixed inside the document being reviewed",
+      "date": "2026-11-23",
+      "classes": [
+        "false-green",
+        "delegation"
+      ],
+      "topic": "false-green/oracle-or-claim-written-from-memory",
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Keep verification status in a reviewer-authored review log; authors may describe changes but must not self-certify that blocking findings are verified closed in the artifact under review.",
+      "signature": "An artifact under review states that all blocking findings are fixed, but the attestation is authored by the person whose work is being reviewed rather than by the reviewer.",
+      "root_cause": "The author treated an assertion of completion in the work product as if it could stand in for a reviewer-owned verification record.",
+      "what": "An author inserted a status line declaring every one of eight blocking findings fixed in the same document that was awaiting independent review. A second-model reviewer flagged that the line was self-certification, not an independent recheck receipt.",
+      "file": "incidents/INC-0651-an-author-self-certified-review-findings-as-fixed-inside-the.md",
+      "node": "catalog/false-green/oracle-or-claim-written-from-memory.md",
+      "related": [
+        "INC-0042",
+        "INC-0057"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0652",
+      "title": "A matching-line count was reported as a count of review findings",
+      "date": "2026-11-23",
+      "classes": [
+        "false-green",
+        "tooling-paths"
+      ],
+      "topic": "false-green/count-or-total-computed-wrong",
+      "severity": "low",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "When reporting matches, count individual occurrences with `rg -o ... | wc -l`, not matching lines with `rg -c`; state the unit and cross-check the count before a verdict.",
+      "signature": "A report labels `rg -c` output as occurrences even though several target matches share a line.",
+      "root_cause": "The counting command measured a different unit from the one stated in the report, and the count was not cross-checked before communication.",
+      "what": "The lead reported six blocking findings by using `rg -c`, which counts lines containing a match, not the total number of matches. A second count with `rg -o` piped into `wc -l` found nine occurrences, agreeing with the author count.",
+      "file": "incidents/INC-0652-a-matching-line-count-was-reported-as-a-count-of-review-find.md",
+      "node": "catalog/false-green/count-or-total-computed-wrong.md",
+      "related": [
+        "INC-0070",
+        "INC-0252"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0653",
+      "title": "Case-insensitive machine-path detection falsely flagged public API user URLs",
+      "date": "2026-11-23",
+      "classes": [
+        "detector-fail-closed"
+      ],
+      "topic": null,
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Keep filesystem-prefix patterns case-sensitive and separate them from case-insensitive personal-name patterns; review matched context to distinguish a public URL segment from a machine-local path.",
+      "signature": "A case-insensitive private-path prefix pattern matches a lowercase user-resource segment in a public API URL.",
+      "root_cause": "A single case-insensitivity modifier was applied to tokens with different case semantics: machine-local path prefixes require exact casing, while human-name tokens may need case-insensitive matching.",
+      "what": "A leak-scan command combined a machine-path prefix and personal-name alternatives under one case-insensitive setting. It flagged two public API user-resource URLs because the lowercase URL segment matched the uppercase-starting machine-path prefix. Reading the hits showed that neither was a local filesystem path.",
+      "file": "incidents/INC-0653-case-insensitive-machine-path-detection-falsely-flagged-publ.md",
+      "node": "catalog/detector-fail-closed/README.md",
+      "related": [
+        "INC-0238",
+        "INC-0479"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0654",
+      "title": "A successful teammate spawn masked zero turns on a disabled model",
+      "date": "2026-11-23",
+      "classes": [
+        "delegation",
+        "observability"
+      ],
+      "topic": "delegation/order-collides-with-rule-or-guard",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Before assigning work, reconcile any user-named resource against standing disabled-resource rules; after spawn, verify an actual first turn or required checkpoint artifact within minutes. A returned thread ID is not evidence of execution.",
+      "signature": "A spawn command returns a thread identifier for a model the operator's standing rule marks as disabled, but no teammate turn or first checkpoint file appears.",
+      "root_cause": "The lead did not reconcile the requested resource with the standing availability restriction before dispatch, then mistook thread creation for proof that execution had begun instead of checking the first required artifact.",
+      "what": "The lead accepted a user request naming a model the operator's standing rule marks as disabled and spawned two teammates on it. The spawn calls reported success and supplied thread identifiers, but authorization prevented any turn from running. The absence of the required skeleton output files was noticed only two days later, delaying an author slice and a review slice.",
+      "file": "incidents/INC-0654-a-successful-teammate-spawn-masked-zero-turns-on-a-disabled.md",
+      "node": "catalog/delegation/order-collides-with-rule-or-guard.md",
+      "related": [
+        "INC-0489",
+        "INC-0128",
+        "INC-0635"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0655",
+      "title": "A delegation brief contained examples forbidden by its own rule",
+      "date": "2026-11-23",
+      "classes": [
+        "spec-and-scope",
+        "delegation"
+      ],
+      "topic": "spec-and-scope/requirements-and-limits-collide",
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Before issuing a delegation brief, apply every prohibition and formatting check in it to the entire brief itself, including context and examples; remove contradictions before a teammate receives them.",
+      "signature": "A teammate brief bans personal names while its own background section includes personal names.",
+      "root_cause": "The brief's constraint was treated as a requirement for the teammate's output rather than a requirement on the instruction artifact itself; the lead did not run the brief's checks against the complete brief before dispatch.",
+      "what": "The lead drafted a teammate brief with a rule forbidding personal names, then included names of third-party founders in its own context section. The assigned author noticed the conflict and flagged it in the handoff.",
+      "file": "incidents/INC-0655-a-delegation-brief-contained-examples-forbidden-by-its-own-r.md",
+      "node": "catalog/spec-and-scope/requirements-and-limits-collide.md",
+      "related": [
+        "INC-0076",
+        "INC-0489"
       ],
       "evidence": []
     }

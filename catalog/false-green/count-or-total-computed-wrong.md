@@ -6,7 +6,7 @@
 
 **Rule:** Compute counts from structured sources (runner summary lines, parsed tables, the exact bytes executed) with the same formula as the earlier record, reconcile by item identity rather than totals, and cross-check any count by a second method before it reaches a verdict.
 
-6 incidents, 6 occurrences. Ordered by occurrences, then severity, then id.
+7 incidents, 7 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -39,3 +39,8 @@
 - occurrences 1, severity low, status fixed
 - **Signature:** A count or sum of table rows comes from splitting lines on the column delimiter, and some cells contain the delimiter escaped.
 - **Rule:** Parse table syntax properly before reporting a count, and cross-check any count or sum against a second method before it reaches a verdict.
+
+### [INC-0652](../../incidents/INC-0652-a-matching-line-count-was-reported-as-a-count-of-review-find.md) - A matching-line count was reported as a count of review findings
+- occurrences 1, severity low, status fixed
+- **Signature:** A report labels `rg -c` output as occurrences even though several target matches share a line.
+- **Rule:** When reporting matches, count individual occurrences with `rg -o ... | wc -l`, not matching lines with `rg -c`; state the unit and cross-check the count before a verdict.

@@ -8,7 +8,7 @@ The loop optimizes the letter of its reward instead of the goal - Goodhart's law
 
 **You are probably here if:** The loop keeps hitting its success metric while real progress stalls: near-duplicate ships, self-reported wins, or a gate the agent can switch off itself.
 
-2 incidents filed here (2 occurrences); 0 more filed elsewhere are also tagged reward-hacking.
+2 incidents filed here (2 occurrences); 1 more filed elsewhere are also tagged reward-hacking.
 
 ## Incidents
 
@@ -23,3 +23,9 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - occurrences 1, severity medium, status fixed
 - **Signature:** A bypass could be written inline.
 - **Rule:** Scope noInlineConfig by files; an ignored directive still prints a warning
+
+## Also tagged reward-hacking
+
+1 incidents filed under another home class also carry this class. Listed by the node where they live:
+
+- [delegation/brief-or-plan-left-a-gap](../delegation/brief-or-plan-left-a-gap.md): INC-0644

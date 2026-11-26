@@ -6,7 +6,7 @@
 
 **Rule:** Show each test can fail: make it establish its own precondition (the interleaving, the descendant, the dirty state), include the fixture where the two behaviors differ, and assert an observable effect that differs with and without the feature, through the real entry point, not how the code was invoked.
 
-8 incidents, 8 occurrences. Ordered by occurrences, then severity, then id.
+10 incidents, 10 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -49,3 +49,13 @@
 - occurrences 1, severity medium, status mitigated
 - **Signature:** A test runs a command with an option and asserts exit status, timing and a side marker, all of which hold with or without the option.
 - **Rule:** A test that exercises an option goes through the real entry point and asserts an observable effect that differs with and without the option; exit 0 and side markers are not evidence the option took effect.
+
+### [INC-0641](../../incidents/INC-0641-a-test-fake-rounded-every-query-to-the-data-grid-so-points-o.md) - A test fake rounded every query to the data grid, so points on a query edge were never tested until a reviewer wrote a stricter fake
+- occurrences 1, severity medium, status fixed
+- **Signature:** A fake standing in for an interface rounds or normalizes its inputs, and no test sends a value that sits exactly on a boundary.
+- **Rule:** A test fake must be no more lenient than the real interface in precision, rounding and boundary rules; when a different-model reviewer checks code tested only against fakes, have it write an adversarial fake of its own.
+
+### [INC-0649](../../incidents/INC-0649-repository-metadata-checks-missed-live-naming-collisions-hid.md) - Repository metadata checks missed live naming collisions hidden in repository documentation
+- occurrences 1, severity medium, status mitigated
+- **Signature:** A candidate name passes registry, handle and repository-description checks, but a same-category product using that name is described in a search-hit README.
+- **Rule:** Before declaring a proposed name free of same-category collisions, read the README of every repository-name hit with an empty description, non-English content or a release/landing-only layout; document what establishes its category.

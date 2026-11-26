@@ -6,7 +6,7 @@
 
 **Rule:** Bind every oracle, locator, identifier and behavior claim to its source of truth at the installed or pinned version: cite the line that renders or defines it and search for each name. Treat a fix or review claim as a new claim to verify, and review independently by deriving your own list before reading the author's. Run a new root green on unchanged code before any mutation.
 
-11 incidents, 11 occurrences. Ordered by occurrences, then severity, then id.
+12 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -61,3 +61,8 @@
 - occurrences 1, severity low, status mitigated
 - **Signature:** A closed menu is still in the DOM, and the visibility matcher ignores inert and off-screen position.
 - **Rule:** Bind a collapsed or open state to the attributes the framework sets, not to a visibility matcher.
+
+### [INC-0651](../../incidents/INC-0651-an-author-self-certified-review-findings-as-fixed-inside-the.md) - An author self-certified review findings as fixed inside the document being reviewed
+- occurrences 1, severity low, status mitigated
+- **Signature:** An artifact under review states that all blocking findings are fixed, but the attestation is authored by the person whose work is being reviewed rather than by the reviewer.
+- **Rule:** Keep verification status in a reviewer-authored review log; authors may describe changes but must not self-certify that blocking findings are verified closed in the artifact under review.

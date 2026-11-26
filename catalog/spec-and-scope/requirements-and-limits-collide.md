@@ -6,7 +6,7 @@
 
 **Rule:** Check all requirements together on explicit units and edge cases before signing, including dependency contracts, hard size limits, producer-consumer compatibility, and final-step rounding.
 
-10 incidents, 10 occurrences. Ordered by occurrences, then severity, then id.
+12 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -40,6 +40,11 @@
 - **Signature:** A timing spec required every record to fit 512 bytes and to carry full file and case identity, and a long path could not satisfy both.
 - **Rule:** When a transport limit and a completeness requirement meet, specify the framing and reconstruction, and test with long and non-ASCII identities
 
+### [INC-0650](../../incidents/INC-0650-an-options-comparison-applied-the-same-hard-constraint-at-di.md) - An options comparison applied the same hard constraint at different severities
+- occurrences 1, severity medium, status fixed
+- **Signature:** The same disqualifying condition is blocking for one alternative and advisory for others; a limitation shared by all alternatives is presented as uniquely blocking.
+- **Rule:** Write each decision invariant once, apply the same severity to every option that shares its condition, and never label a disadvantage common to all options as uniquely blocking; recompute verdicts after corrections.
+
 ### [INC-0424](../../incidents/INC-0424-a-captions-upload-relation-in-a-spec-would-have-added-a-medi.md) - A captions upload relation in a spec would have added a media referrer to a collection defined as image-only
 - occurrences 1, severity low, status fixed
 - **Signature:** A relation targeted a collection that does not accept its content.
@@ -59,3 +64,8 @@
 - occurrences 1, severity low, status mitigated
 - **Signature:** A count in a brief does not say what it counts.
 - **Rule:** When a brief and a file header disagree on a count, ask for the unit before editing.
+
+### [INC-0655](../../incidents/INC-0655-a-delegation-brief-contained-examples-forbidden-by-its-own-r.md) - A delegation brief contained examples forbidden by its own rule
+- occurrences 1, severity low, status mitigated
+- **Signature:** A teammate brief bans personal names while its own background section includes personal names.
+- **Rule:** Before issuing a delegation brief, apply every prohibition and formatting check in it to the entire brief itself, including context and examples; remove contradictions before a teammate receives them.

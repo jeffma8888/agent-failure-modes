@@ -6,7 +6,7 @@
 
 **Rule:** Pin derived records to current source revisions, preserve reviewed bytes, and reconcile citations, counts, rulings, and signatures against the exact source; diff unchanged ranges before reviewing the actual delta.
 
-12 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
+15 incidents, 15 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -69,3 +69,18 @@
 - occurrences 1, severity medium, status fixed
 - **Signature:** A reviewer found a ruling missing from the log, and it had to be reconstructed from message text with a caveat.
 - **Rule:** Write a ruling into the log in the same step as sending it; a ruling that exists only in a message is invisible to every other reader
+
+### [INC-0639](../../incidents/INC-0639-a-number-the-user-said-in-conversation-was-stored-as-a-fact.md) - A number the user said in conversation was stored as a fact in long-term memory and scripts, though the user's own canonical document said otherwise
+- occurrences 1, severity medium, status mitigated
+- **Signature:** A figure in the agent's memory or scripts traces back to one thing the user said, and the user's canonical document gives a different figure.
+- **Rule:** Store a number someone states as a quote with its source, never as a fact; promote it only after it matches the canonical document, and surface any conflict to the person instead of resolving it yourself.
+
+### [INC-0646](../../incidents/INC-0646-a-debrief-graded-an-answer-as-off-script-against-a-plan-stor.md) - A debrief graded an answer as off-script against a plan stored in memory six weeks earlier, and the plan had since changed
+- occurrences 1, severity medium, status mitigated
+- **Signature:** A grade or a draft depends on a stored preference much older than the decision it gates, and the person's current statement differs from it.
+- **Rule:** Before scoring an answer as off-script, confirm the script still matches the person's current plan; date every stored preference that drives a grade or a draft, and re-confirm it if it is older than the decision it gates.
+
+### [INC-0647](../../incidents/INC-0647-a-paraphrase-that-added-a-motive-to-a-ruled-out-role-type-ha.md) - A paraphrase that added a motive to a ruled-out role type hardened into an AI-only filter, and later sessions drafted declines the user's rubric did not support
+- occurrences 1, severity medium, status mitigated
+- **Signature:** A stored preference line states a motive or positive goal where the source stated only an exclusion, and a later decline cites that goal as its reason.
+- **Rule:** When compressing a preference, keep its polarity and scope (out versus merely ranked lower); never turn a motive clause into a gate, and use a stored preference as a reject reason only if it agrees with the rubric that scores it.

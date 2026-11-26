@@ -6,7 +6,7 @@ classes: [concurrency, observability]
 severity: low
 status: fixed
 topic: null
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0048 - Citing an identifier in the same parallel tool block that creates it makes the citation a guess
@@ -42,6 +42,12 @@ The corrected citation was read from the commit's own output.
 ## Transferable rule
 
 > Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-19 - A lead issued a teammate spawn and the write of a tracking file in one parallel batch, so the file recorded a thread id the spawn had not yet returned; a later retain call on that id failed with thread not found.
 
 ## Related
 

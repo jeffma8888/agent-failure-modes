@@ -8,7 +8,7 @@ A monitor or check fires when it should not: it reports a correct artifact as br
 
 **You are probably here if:** A check, scanner, lint or guard accuses an artifact you can see is correct: the quote is on the page, the file never ships, the bytes match main.
 
-14 incidents filed here (14 occurrences); 3 more filed elsewhere are also tagged detector-fail-closed.
+15 incidents filed here (15 occurrences); 3 more filed elsewhere are also tagged detector-fail-closed.
 
 ## Incidents
 
@@ -83,6 +83,11 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - occurrences 1, severity low, status mitigated
 - **Signature:** A whitespace check rejects the output of a code generator.
 - **Rule:** Do not hand-edit generated files to satisfy a whitespace check; exempt them by an exact pattern and keep checking all other files.
+
+### [INC-0653](../../incidents/INC-0653-case-insensitive-machine-path-detection-falsely-flagged-publ.md) - Case-insensitive machine-path detection falsely flagged public API user URLs
+- occurrences 1, severity low, status mitigated
+- **Signature:** A case-insensitive private-path prefix pattern matches a lowercase user-resource segment in a public API URL.
+- **Rule:** Keep filesystem-prefix patterns case-sensitive and separate them from case-insensitive personal-name patterns; review matched context to distinguish a public URL segment from a machine-local path.
 
 ## Also tagged detector-fail-closed
 

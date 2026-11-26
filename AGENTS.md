@@ -10,7 +10,7 @@ Every command below runs from the repository root. From any other directory, cal
 by path with `AFM_ROOT` set to your checkout: `python3 "$AFM_ROOT/tools/afm.py" route "..."`.
 
 <!-- BEGIN GENERATED: agents-stats -->
-- Incidents: 637 (595 canonical, 42 recurrence records, 0 dated repeat entries, 637 occurrences in total).
+- Incidents: 655 (613 canonical, 42 recurrence records, 3 dated repeat entries, 658 occurrences in total).
 - Failure classes: 18; topics: 54; practices: 5.
 - Highest occurrence count: 10 (INC-0274).
 <!-- END GENERATED: agents-stats -->

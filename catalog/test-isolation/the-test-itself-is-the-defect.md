@@ -6,7 +6,7 @@
 
 **Rule:** When a new test, control, fixture or tool option goes red, or never reaches its negative, suspect the test first: reproduce with a minimal variant or a known-good page, bisect the tool's options, compare a hand-written request with the repo helper, keep fixtures from writing outside themselves, and fix it as a tests-only change that keeps the right-reason red.
 
-7 incidents, 7 occurrences. Ordered by occurrences, then severity, then id.
+8 incidents, 8 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -34,6 +34,11 @@
 - occurrences 1, severity medium, status fixed
 - **Signature:** A fixture's package manager run pruned the linked host dependency tree and turned 11 failures into 51.
 - **Rule:** Never link a writable host dependency tree into a fixture that runs the package manager; if unavoidable, turn auto-install off explicitly in the fixture environment and add a guard that fails when the host tree's listing changes
+
+### [INC-0638](../../incidents/INC-0638-a-gui-automation-call-hung-on-an-invisible-modal-dialog-and.md) - A GUI automation call hung on an invisible modal dialog, and the control tests were confounded because the relaunched app reopened the hung document
+- occurrences 1, severity medium, status mitigated
+- **Signature:** An automation call into a desktop app never returns while the app spins at full CPU with nothing on screen, and known-good control inputs hang the same way after a forced restart.
+- **Rule:** When an automation call hangs, sample the target process and look for a modal run loop before bisecting the input; before any retest after a forced kill, put the input that hung out of reach of the app's auto-reopen and confirm the app relaunched with nothing open.
 
 ### [INC-0472](../../incidents/INC-0472-the-first-browser-test-to-load-the-app-config-failed-to-link.md) - The first browser test to load the app config failed to link because one module was reached by two loaders
 - occurrences 1, severity low, status fixed

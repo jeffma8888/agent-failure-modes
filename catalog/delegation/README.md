@@ -8,7 +8,7 @@ A sub-agent re-delegates instead of doing the work: it spawns another loop, scaf
 
 **You are probably here if:** Delegated work stalls or misfires: finished files but no reply, a reviewer stopping at an author check, an order a rule refuses, a brief with a gap.
 
-44 incidents filed here (44 occurrences); 21 more filed elsewhere are also tagged delegation.
+46 incidents filed here (46 occurrences); 23 more filed elsewhere are also tagged delegation.
 
 ## Topics
 
@@ -17,8 +17,8 @@ n = occurrences: incidents filed in the topic plus their repeats.
 | Topic | Go here if | n | Link |
 |---|---|---|---|
 | The reviewer or runner you named was not independent or not free | A reviewer stops at its own author check, runs the same model as the author, was pre-named and is busy when the artifact lands, would apply its own text, or an assignment breaks the independence rule | 9 | [reviewer-not-independent-or-free](reviewer-not-independent-or-free.md) |
-| The brief or plan left a gap the worker fell through | A worker scaffolded a loop a clause did not name, edited a file the brief never listed, stopped on an undefined term, got another role's template line, or hit a prerequisite the audit missed | 7 | [brief-or-plan-left-a-gap](brief-or-plan-left-a-gap.md) |
-| Your order collided with a tool rule, permission ceiling, guard or pin | A teammate refused a ruled helper or cannot run a removal; a gate or command guard refused the target you named; an approval prompt fired despite a chat pre-approval; you broke a rule you wrote | 7 | [order-collides-with-rule-or-guard](order-collides-with-rule-or-guard.md) |
+| The brief or plan left a gap the worker fell through | A worker scaffolded a loop a clause did not name, edited a file the brief never listed, stopped on an undefined term, got another role's template line, or hit a prerequisite the audit missed | 8 | [brief-or-plan-left-a-gap](brief-or-plan-left-a-gap.md) |
+| Your order collided with a tool rule, permission ceiling, guard or pin | A teammate refused a ruled helper or cannot run a removal; a gate or command guard refused the target you named; an approval prompt fired despite a chat pre-approval; you broke a rule you wrote | 8 | [order-collides-with-rule-or-guard](order-collides-with-rule-or-guard.md) |
 | Parallel work stalls behind one busy owner, open decision or slot cap | Teammates sit idle while one part of a document, one busy owner, one undecided batch of amendments, a runtime cap or a brief low-load window holds everything. | 7 | [stalled-behind-one-owner-or-decision](stalled-behind-one-owner-or-decision.md) |
 | Teammates finished on disk; the reply never came or went unnoticed | A thread shows finished or paused with no message, a reply arrived while you were busy and was never read, an output file stopped changing, or you are about to end a turn waiting on a message. | 6 | [finished-on-disk-no-reply](finished-on-disk-no-reply.md) |
 | A record is guessed or stale, or lives only in a message or worktree | A wrong commit id in a message, a report naming the previous reviewer, a stale roster, a brief pointing at a tree-local path, text only in a message lost, or untracked worktree files as the only copy. | 6 | [guessed-or-stale-id-name-path](guessed-or-stale-id-name-path.md) |
@@ -39,16 +39,17 @@ Filed in this class but in none of its topics.
 
 ## Also tagged delegation
 
-21 incidents filed under another home class also carry this class. Listed by the node where they live:
+23 incidents filed under another home class also carry this class. Listed by the node where they live:
 
 - [spec-and-scope/missing-or-late-prerequisites](../spec-and-scope/missing-or-late-prerequisites.md): INC-0109, INC-0115, INC-0242, INC-0304
 - [spec-and-scope/wrong-owner-path-or-scope](../spec-and-scope/wrong-owner-path-or-scope.md): INC-0074, INC-0076, INC-0197, INC-0251
+- [false-green/oracle-or-claim-written-from-memory](../false-green/oracle-or-claim-written-from-memory.md): INC-0042, INC-0651
 - [false-green/proxy-artifact-cited-as-evidence](../false-green/proxy-artifact-cited-as-evidence.md): INC-0232, INC-0233
 - [concurrency](../concurrency/README.md): INC-0557
-- [false-green/oracle-or-claim-written-from-memory](../false-green/oracle-or-claim-written-from-memory.md): INC-0042
 - [ipc-and-env](../ipc-and-env/README.md): INC-0365
 - [observability/missing-or-unverifiable-receipts](../observability/missing-or-unverifiable-receipts.md): INC-0041
 - [spec-and-scope/fix-misses-related-consumers](../spec-and-scope/fix-misses-related-consumers.md): INC-0225
+- [spec-and-scope/requirements-and-limits-collide](../spec-and-scope/requirements-and-limits-collide.md): INC-0655
 - [spec-and-scope/tests-do-not-prove-the-contract](../spec-and-scope/tests-do-not-prove-the-contract.md): INC-0184
 - [stage-timeout/work-outgrows-enforced-timeouts](../stage-timeout/work-outgrows-enforced-timeouts.md): INC-0143
 - [tooling-paths/path-resolves-from-wrong-root](../tooling-paths/path-resolves-from-wrong-root.md): INC-0177

@@ -410,6 +410,19 @@ One rule per incident, ordered by severity then id.
 - **[INC-0628 / medium]** Capture request headers for non-GET requests and classify override reads at capture time; do not classify a request as a write by its method alone.
 - **[INC-0629 / medium]** Before ruling a route, run the repo's own checker on the candidate tip instead of inferring from a search.
 - **[INC-0632 / medium]** Classify Git commands by all state they write, not clean status. Run object-writing analysis only in a newly isolated scratch clone. Protected-repository writes need separate explicit authorization; an inventory grants no permission and does not prove reversibility.
+- **[INC-0638 / medium]** When an automation call hangs, sample the target process and look for a modal run loop before bisecting the input; before any retest after a forced kill, put the input that hung out of reach of the app's auto-reopen and confirm the app relaunched with nothing open.
+- **[INC-0639 / medium]** Store a number someone states as a quote with its source, never as a fact; promote it only after it matches the canonical document, and surface any conflict to the person instead of resolving it yourself.
+- **[INC-0640 / medium]** Write unverified only after every retrieval route has failed, not one endpoint: when a search tool errors, run the documented fallbacks (news feeds through the page fetcher, a direct fetch of the likely source, reference and filing searches) and list the routes tried beside the gap word.
+- **[INC-0641 / medium]** A test fake must be no more lenient than the real interface in precision, rounding and boundary rules; when a different-model reviewer checks code tested only against fakes, have it write an adversarial fake of its own.
+- **[INC-0642 / medium]** Keep verbatim captures and collector notes in visibly separate blocks, and grade every quote against the verbatim block only; a match anywhere in a capture file is not a match in the source.
+- **[INC-0643 / medium]** Read the primary decision record before writing any decision or status into a user's file; treat hedged summary verbs (aligns with, emerged as, appears to) as the summarizer's inference, never as the outcome.
+- **[INC-0645 / medium]** When teaching from an artifact you wrote, label each choice you made separately from what the source specifies, and check the primary reports before calling anything part of the problem.
+- **[INC-0646 / medium]** Before scoring an answer as off-script, confirm the script still matches the person's current plan; date every stored preference that drives a grade or a draft, and re-confirm it if it is older than the decision it gates.
+- **[INC-0647 / medium]** When compressing a preference, keep its polarity and scope (out versus merely ranked lower); never turn a motive clause into a gate, and use a stored preference as a reject reason only if it agrees with the rubric that scores it.
+- **[INC-0648 / medium]** Check every current-event premise against the primary status source at write time and record the check date; use secondary reporting to establish historical events, not present state.
+- **[INC-0649 / medium]** Before declaring a proposed name free of same-category collisions, read the README of every repository-name hit with an empty description, non-English content or a release/landing-only layout; document what establishes its category.
+- **[INC-0650 / medium]** Write each decision invariant once, apply the same severity to every option that shares its condition, and never label a disadvantage common to all options as uniquely blocking; recompute verdicts after corrections.
+- **[INC-0654 / medium]** Before assigning work, reconcile any user-named resource against standing disabled-resource rules; after spawn, verify an actual first turn or required checkpoint artifact within minutes. A returned thread ID is not evidence of execution.
 - **[INC-0046 / low]** In any script that writes externally, order every fallible local step first and every external write last, and dry-run the WHOLE script end to end against scratch copies before the real run, not just its hardest step.
 - **[INC-0047 / low]** In ordered rewrite lists (sed scripts, replacement files, routing tables) put specific rules before general ones, and verify on the OUTPUT, not on the rules.
 - **[INC-0048 / low]** Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.
@@ -644,6 +657,11 @@ One rule per incident, ordered by severity then id.
 - **[INC-0635 / low]** Choose each reviewer by the model of its thread, checked against the author's thread, not by role name.
 - **[INC-0636 / low]** Do not drive side-effecting actions through a loop that depends on word splitting without knowing the shell's splitting rule; prefer one explicit command per send and confirm each success line.
 - **[INC-0637 / low]** Never lengthen, shorten or retype a SHA by hand; every SHA in a record is a verbatim copy of tool output at the length shown. For a different length, obtain that form from git before writing the record.
+- **[INC-0644 / low]** State every equality or done-check in the checker's own terms (what is compared, up to which marker); treat a plan to move or rename a checker's anchor so output passes as a red flag to stop and ask, not a compatibility detail.
+- **[INC-0651 / low]** Keep verification status in a reviewer-authored review log; authors may describe changes but must not self-certify that blocking findings are verified closed in the artifact under review.
+- **[INC-0652 / low]** When reporting matches, count individual occurrences with `rg -o ... | wc -l`, not matching lines with `rg -c`; state the unit and cross-check the count before a verdict.
+- **[INC-0653 / low]** Keep filesystem-prefix patterns case-sensitive and separate them from case-insensitive personal-name patterns; review matched context to distinguish a public URL segment from a machine-local path.
+- **[INC-0655 / low]** Before issuing a delegation brief, apply every prohibition and formatting check in it to the entire brief itself, including context and examples; remove contradictions before a teammate receives them.
 
 ## Practices
 
