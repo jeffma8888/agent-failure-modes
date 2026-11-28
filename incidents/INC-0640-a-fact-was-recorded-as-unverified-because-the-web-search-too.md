@@ -6,7 +6,7 @@ classes: [tooling-paths, spec-and-scope]
 severity: medium
 status: mitigated
 topic: tooling-paths/tool-defaults-not-target
-occurrences: 2
+occurrences: 3
 ---
 
 # INC-0640 - A fact was recorded as unverified because the web-search tool errored, while the page-fetch tool and other retrieval routes still worked
@@ -45,9 +45,10 @@ Checked: the first fact was verified in two calls after the pushback, and the se
 
 ## Recurrences
 
-Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+Occurrences: 3. Repeats of this failure are recorded here instead of as new incidents.
 
 - 2026-11-16 - A triage written ten days earlier marked a company's funding stage unchecked after the search tool errored; the fallback chain already in the research procedure (news feeds, metasearch, forum and filing searches, a job-board API, direct fetches) settled it in about ten calls and moved a score.
+- 2026-11-25 - A research author marked two vendors' pricing unverified because their pricing route returned a single-page-app shell with no text; the homepage and the site's llms.txt carried the prices. Caught by a reviewer, then by the author's re-fetch.
 
 ## Related
 

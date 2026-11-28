@@ -6,7 +6,7 @@ classes: [observability, spec-and-scope, false-green]
 severity: high
 status: fixed
 topic: observability/misleading-metrics-and-status
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0039 - A budget is not a sample: a sorted head is a permanent filter, disguised as a performance knob
@@ -42,6 +42,12 @@ The replacement selection function is committed with the measurement in its own 
 ## Transferable rule
 
 > For ANY truncated pass, ask whether the ORDER is independent of the PROPERTY being measured. Filename, insertion, directory and id order almost never are - so a sorted head is a permanent filter wearing a performance knob's clothes. Round-robin across the dimension you care about, best-first inside each bucket, and give unclassifiable items their own bucket.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-26 - A design review's first sample of 48 citations left two sections under-covered; the reviewer's own per-section tally showed it. Citation samples are now tallied per section before the table is closed.
 
 ## Provenance
 

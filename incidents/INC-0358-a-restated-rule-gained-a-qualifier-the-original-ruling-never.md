@@ -6,7 +6,7 @@ classes: [observability, spec-and-scope]
 severity: medium
 status: fixed
 topic: null
-occurrences: 1
+occurrences: 3
 ---
 
 # INC-0358 - A restated rule gained a qualifier the original ruling never had
@@ -42,6 +42,13 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > When a ruling is restated in a spec, copy its population word for word; a qualifier borrowed from another purpose narrows an alarm, so diff every restated condition against the ruling's own words and fix each sibling copy
+
+## Recurrences
+
+Occurrences: 3. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-26 - A design document labelled one choice as the upstream requirements document's default, but the label contradicted that document's own option set; a second-model reviewer found it.
+- 2026-11-26 - In the next version of the same design document, upstream priorities and conditions were paraphrased under a default label, so the requirements document appeared to say something it did not; the reviewer required verbatim quotes of upstream priorities and conditions.
 
 ## Related
 

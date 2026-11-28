@@ -6,7 +6,7 @@ classes: [spec-and-scope]
 severity: medium
 status: fixed
 topic: spec-and-scope/requirements-and-limits-collide
-occurrences: 1
+occurrences: 4
 ---
 
 # INC-0650 - An options comparison applied the same hard constraint at different severities
@@ -42,6 +42,14 @@ The reviewer found the inconsistent labels; the labels were revised and the opti
 ## Transferable rule
 
 > Write each decision invariant once, apply the same severity to every option that shares its condition, and never label a disadvantage common to all options as uniquely blocking; recompute verdicts after corrections.
+
+## Recurrences
+
+Occurrences: 4. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-26 - A requirements document's option set listed a con shared by every option under only one of them; a second-model reviewer flagged it.
+- 2026-11-26 - Retagging an elimination to cite a requirement left two options citing one requirement with different tags; the author flagged the pair to the reviewer. Same-condition-same-tag applies to requirements as well as invariants, with the differing condition stated in both cons.
+- 2026-11-26 - While downgrading over-aggressive eliminations in a design document, one option that an approved top-priority requirement rules out was left viable: the requirement was not re-applied to every viable option after the retag. A reviewer's re-verification caught it.
 
 ## Related
 

@@ -6,7 +6,7 @@ classes: [spec-and-scope, observability]
 severity: medium
 status: fixed
 topic: spec-and-scope/requirements-and-limits-collide
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0127 - A document already at its hard size cap had no room for the next transcription, so the cap was met only after editing
@@ -42,3 +42,9 @@ Checked by the reviewer, engineer or lead who reported it. Not checked: whether 
 ## Transferable rule
 
 > Plan against a hard cap before the edit, not after.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-26 - A design document's first five sections used 69 KB of a 70 KB cap before the tail sections existed, forcing about 6 KB of trims over 70 exact-match edits; the skeleton had no per-section byte budget. A template check left to the end also found six sections missing a required table.

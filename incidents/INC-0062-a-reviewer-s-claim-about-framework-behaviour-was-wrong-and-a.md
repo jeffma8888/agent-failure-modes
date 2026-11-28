@@ -6,7 +6,7 @@ classes: [false-green, observability]
 severity: medium
 status: mitigated
 topic: false-green/oracle-or-claim-written-from-memory
-occurrences: 1
+occurrences: 3
 ---
 
 # INC-0062 - A reviewer's claim about framework behaviour was wrong, and accepting it would have put a wrong assertion into the tests
@@ -42,6 +42,13 @@ The source of the pinned version showed which attempt stores the lock and which 
 ## Transferable rule
 
 > A reviewer's statement about framework or library behaviour is a hypothesis with the same standing as the author's. Verify it at the pinned version, reading the whole function, before it changes a test or a design.
+
+## Recurrences
+
+Occurrences: 3. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-25 - A research reviewer counted ten partner hosts on a page that lists eleven; the author read the fetched page instead of copying the review's number. A reviewer's fact about a source page is a hypothesis to verify, as with framework behaviour.
+- 2026-11-25 - A reviewer attributed a changelog fact to the newest release, and the lead copied that attribution into a revision brief and long-term memory without opening the release page; the author's fetch showed it shipped several releases earlier.
 
 ## Related
 

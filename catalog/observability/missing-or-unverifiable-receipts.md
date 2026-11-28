@@ -6,7 +6,7 @@
 
 **Rule:** Obtain inspectable evidence from a bounded diagnostic on the actual product instead of repeating inconclusive static reviews; preserve complete item-level logs and failure channels outside scratch state, verify launch artifacts and bound required reads so summaries never substitute for evidence.
 
-12 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
+13 incidents, 13 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -69,3 +69,8 @@
 - occurrences 1, severity low, status mitigated
 - **Signature:** An instruction requires reading a range of a file whose size exceeds what the reader tool returns.
 - **Rule:** Do not require a read whose size exceeds what the reader tool returns; name the exact sections to read, and treat an unnamed old section as outside the compliance check.
+
+### [INC-0666](../../incidents/INC-0666-a-reviewer-began-grading-from-partial-reads-a-file-view-clip.md) - A reviewer began grading from partial reads: a file view clipped in the middle and a criterion read only up to its waiver clause
+- occurrences 1, severity low, status mitigated
+- **Signature:** A file view shows an omission marker in the middle, or a grade is written for a criterion or section before its last clause and the requirement it cites have been read.
+- **Rule:** Never grade from a partial read: if a view shows an omission marker or fewer bytes than the file holds, re-read in ranges until it is whole; read each criterion to its last clause, and open every requirement a section claims to satisfy, before writing a verdict on it.

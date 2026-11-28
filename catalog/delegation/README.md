@@ -8,7 +8,7 @@ A sub-agent re-delegates instead of doing the work: it spawns another loop, scaf
 
 **You are probably here if:** Delegated work stalls or misfires: finished files but no reply, a reviewer stopping at an author check, an order a rule refuses, a brief with a gap.
 
-46 incidents filed here (46 occurrences); 23 more filed elsewhere are also tagged delegation.
+46 incidents filed here (46 occurrences); 25 more filed elsewhere are also tagged delegation.
 
 ## Topics
 
@@ -39,13 +39,14 @@ Filed in this class but in none of its topics.
 
 ## Also tagged delegation
 
-23 incidents filed under another home class also carry this class. Listed by the node where they live:
+25 incidents filed under another home class also carry this class. Listed by the node where they live:
 
 - [spec-and-scope/missing-or-late-prerequisites](../spec-and-scope/missing-or-late-prerequisites.md): INC-0109, INC-0115, INC-0242, INC-0304
 - [spec-and-scope/wrong-owner-path-or-scope](../spec-and-scope/wrong-owner-path-or-scope.md): INC-0074, INC-0076, INC-0197, INC-0251
-- [false-green/oracle-or-claim-written-from-memory](../false-green/oracle-or-claim-written-from-memory.md): INC-0042, INC-0651
+- [false-green/oracle-or-claim-written-from-memory](../false-green/oracle-or-claim-written-from-memory.md): INC-0042, INC-0651, INC-0657
 - [false-green/proxy-artifact-cited-as-evidence](../false-green/proxy-artifact-cited-as-evidence.md): INC-0232, INC-0233
 - [concurrency](../concurrency/README.md): INC-0557
+- [identity-and-keying/new-id-already-taken](../identity-and-keying/new-id-already-taken.md): INC-0671
 - [ipc-and-env](../ipc-and-env/README.md): INC-0365
 - [observability/missing-or-unverifiable-receipts](../observability/missing-or-unverifiable-receipts.md): INC-0041
 - [spec-and-scope/fix-misses-related-consumers](../spec-and-scope/fix-misses-related-consumers.md): INC-0225

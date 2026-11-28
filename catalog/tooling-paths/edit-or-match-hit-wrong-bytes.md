@@ -6,7 +6,7 @@
 
 **Rule:** Treat strings as bytes the tool will interpret: quote heredocs (<<'EOF'), anchor replacements on the whole unique line and diff afterwards, put specific rewrite rules before general ones, strip escape codes and trailing padding before matching, exclude your own command from process searches, and assert the match count.
 
-8 incidents, 8 occurrences. Ordered by occurrences, then severity, then id.
+9 incidents, 9 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -46,3 +46,8 @@
 - occurrences 1, severity low, status mitigated
 - **Signature:** A driver waits for a text in a log tail, and the text is never printed or is colored.
 - **Rule:** A mutation driver must judge exit codes, not log tails; if text must be matched, strip escapes for matching only.
+
+### [INC-0664](../../incidents/INC-0664-a-text-edit-wrote-literal-escape-sequences-instead-of-the-in.md) - A text edit wrote literal escape sequences instead of the intended characters
+- occurrences 1, severity low, status mitigated
+- **Signature:** An edited document displays backslash escape spellings where line breaks or punctuation were intended.
+- **Rule:** Treat edit arguments as literal text unless decoding is documented; supply the actual intended characters and read the changed file on disk after every edit.

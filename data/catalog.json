@@ -3,13 +3,13 @@
  "root": "catalog/README.md",
  "core": "catalog/CORE.md",
  "counts": {
-  "incidents": 655,
+  "incidents": 671,
   "classes": 18,
   "topics": 54,
   "practices": 5,
   "recurrence_records": 42,
-  "recorded_repeats": 3,
-  "occurrences": 658
+  "recorded_repeats": 24,
+  "occurrences": 695
  },
  "most_recurrent": [
   [
@@ -21,8 +21,20 @@
    5
   ],
   [
+   "INC-0650",
+   4
+  ],
+  [
+   "INC-0048",
+   4
+  ],
+  [
    "INC-0611",
    4
+  ],
+  [
+   "INC-0062",
+   3
   ],
   [
    "INC-0165",
@@ -30,6 +42,14 @@
   ],
   [
    "INC-0207",
+   3
+  ],
+  [
+   "INC-0358",
+   3
+  ],
+  [
+   "INC-0640",
    3
   ],
   [
@@ -41,11 +61,31 @@
    3
   ],
   [
+   "INC-0658",
+   3
+  ],
+  [
    "INC-0012",
    2
   ],
   [
+   "INC-0018",
+   2
+  ],
+  [
+   "INC-0019",
+   2
+  ],
+  [
+   "INC-0039",
+   2
+  ],
+  [
    "INC-0119",
+   2
+  ],
+  [
+   "INC-0127",
    2
   ],
   [
@@ -85,11 +125,15 @@
    2
   ],
   [
-   "INC-0640",
+   "INC-0648",
    2
   ],
   [
-   "INC-0048",
+   "INC-0074",
+   2
+  ],
+  [
+   "INC-0089",
    2
   ],
   [
@@ -113,6 +157,10 @@
    2
   ],
   [
+   "INC-0516",
+   2
+  ],
+  [
    "INC-0524",
    2
   ],
@@ -122,6 +170,10 @@
   ],
   [
    "INC-0626",
+   2
+  ],
+  [
+   "INC-0653",
    2
   ],
   [
@@ -159,58 +211,6 @@
   [
    "INC-0004",
    1
-  ],
-  [
-   "INC-0008",
-   1
-  ],
-  [
-   "INC-0009",
-   1
-  ],
-  [
-   "INC-0010",
-   1
-  ],
-  [
-   "INC-0013",
-   1
-  ],
-  [
-   "INC-0016",
-   1
-  ],
-  [
-   "INC-0018",
-   1
-  ],
-  [
-   "INC-0019",
-   1
-  ],
-  [
-   "INC-0021",
-   1
-  ],
-  [
-   "INC-0022",
-   1
-  ],
-  [
-   "INC-0024",
-   1
-  ],
-  [
-   "INC-0025",
-   1
-  ],
-  [
-   "INC-0026",
-   1
-  ],
-  [
-   "INC-0029",
-   1
   ]
  ],
  "classes": {
@@ -230,9 +230,9 @@
   },
   "false-green": {
    "node": "catalog/false-green/README.md",
-   "home": 129,
-   "also_tagged": 60,
-   "occurrences": 129,
+   "home": 131,
+   "also_tagged": 64,
+   "occurrences": 135,
    "topics": [
     "false-green/check-satisfied-by-unrelated-cause",
     "false-green/count-or-total-computed-wrong",
@@ -311,7 +311,11 @@
     "INC-0330",
     "INC-0349",
     "INC-0364",
-    "INC-0632"
+    "INC-0632",
+    "INC-0656",
+    "INC-0660",
+    "INC-0662",
+    "INC-0666"
    ]
   },
   "stage-timeout": {
@@ -425,7 +429,7 @@
    "node": "catalog/concurrency/README.md",
    "home": 20,
    "also_tagged": 16,
-   "occurrences": 21,
+   "occurrences": 23,
    "topics": [],
    "class_level": [
     "INC-0011",
@@ -512,7 +516,7 @@
   "delegation": {
    "node": "catalog/delegation/README.md",
    "home": 46,
-   "also_tagged": 23,
+   "also_tagged": 25,
    "occurrences": 46,
    "topics": [
     "delegation/brief-or-plan-left-a-gap",
@@ -549,14 +553,16 @@
     "INC-0365",
     "INC-0557",
     "INC-0651",
-    "INC-0655"
+    "INC-0655",
+    "INC-0657",
+    "INC-0671"
    ]
   },
   "detector-fail-open": {
    "node": "catalog/detector-fail-open/README.md",
    "home": 31,
    "also_tagged": 20,
-   "occurrences": 31,
+   "occurrences": 33,
    "topics": [
     "detector-fail-open/coverage-and-controls-not-proven",
     "detector-fail-open/guard-defaults-and-negative-controls",
@@ -593,8 +599,8 @@
   "detector-fail-closed": {
    "node": "catalog/detector-fail-closed/README.md",
    "home": 15,
-   "also_tagged": 3,
-   "occurrences": 15,
+   "also_tagged": 4,
+   "occurrences": 16,
    "topics": [],
    "class_level": [
     "INC-0032",
@@ -616,7 +622,8 @@
    "also_tagged_ids": [
     "INC-0029",
     "INC-0072",
-    "INC-0144"
+    "INC-0144",
+    "INC-0659"
    ]
   },
   "stale-module": {
@@ -644,9 +651,9 @@
   },
   "checkpoint": {
    "node": "catalog/checkpoint/README.md",
-   "home": 17,
+   "home": 18,
    "also_tagged": 15,
-   "occurrences": 17,
+   "occurrences": 19,
    "topics": [],
    "class_level": [
     "INC-0006",
@@ -665,7 +672,8 @@
     "INC-0531",
     "INC-0592",
     "INC-0598",
-    "INC-0605"
+    "INC-0605",
+    "INC-0661"
    ],
    "also_tagged_ids": [
     "INC-0002",
@@ -687,9 +695,9 @@
   },
   "tooling-paths": {
    "node": "catalog/tooling-paths/README.md",
-   "home": 69,
+   "home": 71,
    "also_tagged": 31,
-   "occurrences": 71,
+   "occurrences": 74,
    "topics": [
     "tooling-paths/argument-read-as-other-kind",
     "tooling-paths/chain-ran-on-after-failure",
@@ -792,9 +800,9 @@
   },
   "observability": {
    "node": "catalog/observability/README.md",
-   "home": 43,
+   "home": 44,
    "also_tagged": 58,
-   "occurrences": 43,
+   "occurrences": 47,
    "topics": [
     "observability/clock-labels-without-clock-evidence",
     "observability/misleading-metrics-and-status",
@@ -868,9 +876,9 @@
   },
   "spec-and-scope": {
    "node": "catalog/spec-and-scope/README.md",
-   "home": 112,
-   "also_tagged": 60,
-   "occurrences": 112,
+   "home": 121,
+   "also_tagged": 61,
+   "occurrences": 128,
    "topics": [
     "spec-and-scope/claims-outrun-available-evidence",
     "spec-and-scope/fix-misses-related-consumers",
@@ -946,14 +954,15 @@
     "INC-0359",
     "INC-0366",
     "INC-0640",
-    "INC-0642"
+    "INC-0642",
+    "INC-0658"
    ]
   },
   "identity-and-keying": {
    "node": "catalog/identity-and-keying/README.md",
-   "home": 36,
+   "home": 37,
    "also_tagged": 19,
-   "occurrences": 36,
+   "occurrences": 37,
    "topics": [
     "identity-and-keying/approval-names-wrong-commit",
     "identity-and-keying/key-is-a-proxy",
@@ -1119,7 +1128,7 @@
   "detector-fail-open/wrong-parser-or-pattern": {
    "title": "A parser or pattern reads the wrong evidence",
    "node": "catalog/detector-fail-open/wrong-parser-or-pattern.md",
-   "occurrences": 7,
+   "occurrences": 9,
    "incidents": [
     "INC-0018",
     "INC-0019",
@@ -1208,7 +1217,7 @@
   "false-green/oracle-or-claim-written-from-memory": {
    "title": "A test oracle, locator or review claim came from memory, not source",
    "node": "catalog/false-green/oracle-or-claim-written-from-memory.md",
-   "occurrences": 12,
+   "occurrences": 15,
    "incidents": [
     "INC-0042",
     "INC-0056",
@@ -1221,13 +1230,14 @@
     "INC-0527",
     "INC-0530",
     "INC-0578",
-    "INC-0651"
+    "INC-0651",
+    "INC-0657"
    ]
   },
   "false-green/proxy-artifact-cited-as-evidence": {
    "title": "An artifact that looks like evidence was cited but proves no fact",
    "node": "catalog/false-green/proxy-artifact-cited-as-evidence.md",
-   "occurrences": 9,
+   "occurrences": 12,
    "incidents": [
     "INC-0228",
     "INC-0232",
@@ -1237,7 +1247,8 @@
     "INC-0315",
     "INC-0408",
     "INC-0634",
-    "INC-0637"
+    "INC-0637",
+    "INC-0658"
    ]
   },
   "false-green/real-page-or-response-wrong-behind-green": {
@@ -1365,14 +1376,15 @@
   "identity-and-keying/new-id-already-taken": {
    "title": "A newly minted id or name collides with one already in use",
    "node": "catalog/identity-and-keying/new-id-already-taken.md",
-   "occurrences": 6,
+   "occurrences": 7,
    "incidents": [
     "INC-0027",
     "INC-0079",
     "INC-0080",
     "INC-0125",
     "INC-0448",
-    "INC-0481"
+    "INC-0481",
+    "INC-0671"
    ]
   },
   "identity-and-keying/replacement-record-malformed": {
@@ -1421,7 +1433,7 @@
   "observability/misleading-metrics-and-status": {
    "title": "A reassuring signal contradicts the underlying evidence",
    "node": "catalog/observability/misleading-metrics-and-status.md",
-   "occurrences": 13,
+   "occurrences": 14,
    "incidents": [
     "INC-0007",
     "INC-0039",
@@ -1441,7 +1453,7 @@
   "observability/missing-or-unverifiable-receipts": {
    "title": "Missing evidence keeps findings unverified",
    "node": "catalog/observability/missing-or-unverifiable-receipts.md",
-   "occurrences": 12,
+   "occurrences": 13,
    "incidents": [
     "INC-0036",
     "INC-0041",
@@ -1454,13 +1466,14 @@
     "INC-0491",
     "INC-0494",
     "INC-0510",
-    "INC-0515"
+    "INC-0515",
+    "INC-0666"
    ]
   },
   "spec-and-scope/claims-outrun-available-evidence": {
    "title": "Claims or instructions say more than the evidence supports",
    "node": "catalog/spec-and-scope/claims-outrun-available-evidence.md",
-   "occurrences": 13,
+   "occurrences": 19,
    "incidents": [
     "INC-0089",
     "INC-0300",
@@ -1474,7 +1487,11 @@
     "INC-0631",
     "INC-0643",
     "INC-0645",
-    "INC-0648"
+    "INC-0648",
+    "INC-0656",
+    "INC-0660",
+    "INC-0662",
+    "INC-0668"
    ]
   },
   "spec-and-scope/fix-misses-related-consumers": {
@@ -1516,7 +1533,7 @@
   "spec-and-scope/instructions-tools-cannot-follow": {
    "title": "Instructions fail a gate or omit the required operation",
    "node": "catalog/spec-and-scope/instructions-tools-cannot-follow.md",
-   "occurrences": 12,
+   "occurrences": 13,
    "incidents": [
     "INC-0267",
     "INC-0330",
@@ -1529,7 +1546,8 @@
     "INC-0615",
     "INC-0616",
     "INC-0621",
-    "INC-0629"
+    "INC-0629",
+    "INC-0665"
    ]
   },
   "spec-and-scope/missing-or-late-prerequisites": {
@@ -1553,7 +1571,7 @@
   "spec-and-scope/records-drift-or-lose-provenance": {
    "title": "A cited baseline, count, line, or digest no longer matches its source",
    "node": "catalog/spec-and-scope/records-drift-or-lose-provenance.md",
-   "occurrences": 15,
+   "occurrences": 16,
    "incidents": [
     "INC-0055",
     "INC-0147",
@@ -1569,13 +1587,14 @@
     "INC-0346",
     "INC-0639",
     "INC-0646",
-    "INC-0647"
+    "INC-0647",
+    "INC-0659"
    ]
   },
   "spec-and-scope/requirements-and-limits-collide": {
    "title": "Requirements, units, or hard limits cannot hold together",
    "node": "catalog/spec-and-scope/requirements-and-limits-collide.md",
-   "occurrences": 12,
+   "occurrences": 18,
    "incidents": [
     "INC-0071",
     "INC-0102",
@@ -1588,7 +1607,9 @@
     "INC-0441",
     "INC-0572",
     "INC-0650",
-    "INC-0655"
+    "INC-0655",
+    "INC-0669",
+    "INC-0670"
    ]
   },
   "spec-and-scope/tests-do-not-prove-the-contract": {
@@ -1614,7 +1635,7 @@
   "spec-and-scope/wrong-owner-path-or-scope": {
    "title": "Work lands under the wrong owner, path, or write boundary",
    "node": "catalog/spec-and-scope/wrong-owner-path-or-scope.md",
-   "occurrences": 12,
+   "occurrences": 14,
    "incidents": [
     "INC-0074",
     "INC-0076",
@@ -1627,7 +1648,8 @@
     "INC-0376",
     "INC-0420",
     "INC-0502",
-    "INC-0540"
+    "INC-0540",
+    "INC-0667"
    ]
   },
   "stage-timeout/stale-or-overbroad-load-admission": {
@@ -1792,7 +1814,7 @@
   "tooling-paths/edit-or-match-hit-wrong-bytes": {
    "title": "An edit anchor or text match hit different bytes than you meant",
    "node": "catalog/tooling-paths/edit-or-match-hit-wrong-bytes.md",
-   "occurrences": 8,
+   "occurrences": 9,
    "incidents": [
     "INC-0024",
     "INC-0030",
@@ -1801,7 +1823,8 @@
     "INC-0464",
     "INC-0475",
     "INC-0561",
-    "INC-0574"
+    "INC-0574",
+    "INC-0664"
    ]
   },
   "tooling-paths/path-resolves-from-wrong-root": {
@@ -1833,7 +1856,7 @@
   "tooling-paths/tool-defaults-not-target": {
    "title": "The tool's own resolution or defaults, not the target, caused it",
    "node": "catalog/tooling-paths/tool-defaults-not-target.md",
-   "occurrences": 10,
+   "occurrences": 12,
    "incidents": [
     "INC-0060",
     "INC-0072",
@@ -1843,7 +1866,8 @@
     "INC-0422",
     "INC-0469",
     "INC-0603",
-    "INC-0640"
+    "INC-0640",
+    "INC-0663"
    ]
   },
   "tooling-paths/tree-lacks-what-job-needs": {

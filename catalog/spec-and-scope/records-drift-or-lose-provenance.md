@@ -6,7 +6,7 @@
 
 **Rule:** Pin derived records to current source revisions, preserve reviewed bytes, and reconcile citations, counts, rulings, and signatures against the exact source; diff unchanged ranges before reviewing the actual delta.
 
-15 incidents, 15 occurrences. Ordered by occurrences, then severity, then id.
+16 incidents, 16 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -84,3 +84,8 @@
 - occurrences 1, severity medium, status mitigated
 - **Signature:** A stored preference line states a motive or positive goal where the source stated only an exclusion, and a later decline cites that goal as its reason.
 - **Rule:** When compressing a preference, keep its polarity and scope (out versus merely ranked lower); never turn a motive clause into a gate, and use a stored preference as a reject reason only if it agrees with the rubric that scores it.
+
+### [INC-0659](../../incidents/INC-0659-a-reviewer-called-a-correct-release-count-wrong-because-the.md) - A reviewer called a correct release count wrong because the feed had moved on since the document's date, and the real defect was a missing as-of date
+- occurrences 1, severity low, status mitigated
+- **Signature:** A review marks a number or a state as wrong after checking the live source, the document's date shows it was right when written, and the sentence carries no as-of date.
+- **Rule:** Write every time-varying fact with an as-of date; when reviewing one, check the document's date before calling it wrong, and report currency (stale since) separately from accuracy (wrong on its date).

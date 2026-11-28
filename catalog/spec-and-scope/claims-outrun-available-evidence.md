@@ -6,9 +6,23 @@
 
 **Rule:** Write each claim from the primary artifact or confirmed observation, mark unavailable facts and owner-bound gaps explicitly, and never replace missing evidence with an expected outcome or requested scope.
 
-13 incidents, 13 occurrences. Ordered by occurrences, then severity, then id.
+17 incidents, 19 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
+
+### [INC-0648](../../incidents/INC-0648-a-current-project-thesis-relied-on-a-shutdown-report-that-ha.md) - A current project thesis relied on a shutdown report that had already been reversed
+- occurrences 2, severity medium, status mitigated
+- **Signature:** A dated secondary report supports a present-tense market premise, while the primary status source records a later reversal.
+- **Rule:** Check every current-event premise against the primary status source at write time and record the check date; use secondary reporting to establish historical events, not present state.
+- **Recurrences:**
+  - 2026-11-25 - A research author assumed a precedent product still took new customers and offered it as a deployable alternative; its live docs said new-customer signup was closed and pointed elsewhere. Caught when the author fetched the live docs: a present-state premise again went unchecked at write time.
+
+### [INC-0089](../../incidents/INC-0089-a-qa-question-claimed-a-credential-or-fact-was-undefined-whe.md) - A QA question claimed a credential or fact was undefined when the cut already defined it, and a restore through a gated write needed a satisfying seed
+- occurrences 2, severity low, status fixed
+- **Signature:** A recorded question says a value is undefined, but a search of the cut finds it.
+- **Rule:** Search the oracle before recording a question, and design seeds for the gates that tests pass through.
+- **Recurrences:**
+  - 2026-11-26 - A design reviewer first classified an unresolved tier as a contradiction; the upstream handoff note already recorded it as a hold owned by an external approver. Caught on re-reading the handoff before the finding was issued; a gap is now classified by its stated owner first.
 
 ### [INC-0626](../../incidents/INC-0626-a-landing-subject-was-written-from-the-lead-s-expectation-of.md) - A landing subject was written from the lead's expectation of what a plan revision covered, and the author report said less
 - occurrences 2, severity low, status mitigated
@@ -37,15 +51,25 @@
 - **Signature:** An explanation of a problem describes an interface detail that appears only in the agent's own solution or a secondary practice page, and in none of the primary reports.
 - **Rule:** When teaching from an artifact you wrote, label each choice you made separately from what the source specifies, and check the primary reports before calling anything part of the problem.
 
-### [INC-0648](../../incidents/INC-0648-a-current-project-thesis-relied-on-a-shutdown-report-that-ha.md) - A current project thesis relied on a shutdown report that had already been reversed
+### [INC-0656](../../incidents/INC-0656-provider-technical-properties-were-asserted-from-a-category.md) - Provider technical properties were asserted from a category label, one consumer's configuration and a marketing page, not from the provider's technical documentation
 - occurrences 1, severity medium, status mitigated
-- **Signature:** A dated secondary report supports a present-tense market premise, while the primary status source records a later reversal.
-- **Rule:** Check every current-event premise against the primary status source at write time and record the check date; use secondary reporting to establish historical events, not present state.
+- **Signature:** A comparison groups or describes providers in the words of a marketing category, a landing page or one customer's setup, while the provider's own runtime or deployment documentation lists a different default or several options.
+- **Rule:** Take a provider's technical property (isolation boundary, persistence, deployment model) only from its own technical documentation for the specific offering and runtime class, and check it on the page cited; a category label, a marketing page or one consumer's configuration is never the provider's contract.
 
-### [INC-0089](../../incidents/INC-0089-a-qa-question-claimed-a-credential-or-fact-was-undefined-whe.md) - A QA question claimed a credential or fact was undefined when the cut already defined it, and a restore through a gated write needed a satisfying seed
-- occurrences 1, severity low, status fixed
-- **Signature:** A recorded question says a value is undefined, but a search of the cut finds it.
-- **Rule:** Search the oracle before recording a question, and design seeds for the gates that tests pass through.
+### [INC-0660](../../incidents/INC-0660-two-servers-licences-were-presumed-from-their-projects-permi.md) - Two servers' licences were presumed from their projects' permissive SDKs, and both packaged servers shipped under source-available licences
+- occurrences 1, severity medium, status mitigated
+- **Signature:** A licence statement about a server or engine rests on the project's SDK, client library or overview page, and no LICENSE file of the packaged server artifact is cited.
+- **Rule:** Before any architecture or white-label recommendation, read and cite the LICENSE of the exact packaged artifact and version you would deploy; a project's SDK or client licence says nothing about its server.
+
+### [INC-0662](../../incidents/INC-0662-two-derived-summaries-repeated-a-pricing-unit-error-and-near.md) - Two derived summaries repeated a pricing unit error and nearly corroborated each other
+- occurrences 1, severity medium, status mitigated
+- **Signature:** Two derived documents agree on a price unit, while their canonical fact section describes a different charging basis.
+- **Rule:** Check each price and its charging unit against the canonical fact section before writing or grading it; agreement between derived summaries is not independent corroboration.
+
+### [INC-0668](../../incidents/INC-0668-an-options-analysis-eliminated-alternatives-on-blocking-cons.md) - An options analysis eliminated alternatives on blocking cons that the cited sources did not support
+- occurrences 1, severity medium, status fixed
+- **Signature:** A con tagged blocking carries a citation, and the cited passage says only that the option is harder or needs more parts, or names a different constraint from the one the option breaks.
+- **Rule:** Tag a con blocking only if you can quote the source line or name the exact invariant that makes the option infeasible; if the source says only harder or needs more parts, tag it advisory; and list every option the upstream document kept viable so none is eliminated by omission.
 
 ### [INC-0413](../../incidents/INC-0413-an-acceptance-document-cited-a-ruling-that-did-not-yet-exist.md) - An acceptance document cited a ruling that did not yet exist when it was signed
 - occurrences 1, severity low, status fixed

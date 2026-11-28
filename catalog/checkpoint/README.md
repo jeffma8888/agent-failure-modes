@@ -8,11 +8,18 @@ An all-or-nothing step loses everything when it is interrupted, because it write
 
 **You are probably here if:** An interruption or later edit loses usable output or evidence, or completed work remains blocked, unrecorded, or unpublished.
 
-17 incidents filed here (17 occurrences); 15 more filed elsewhere are also tagged checkpoint.
+18 incidents filed here (19 occurrences); 15 more filed elsewhere are also tagged checkpoint.
 
 ## Incidents
 
 This class has no topics, so this node is the leaf. Ordered by occurrences, then severity, then id.
+
+### [INC-0516](../../incidents/INC-0516-backlog-rows-stayed-open-after-their-fixes-merged-so-the-bac.md) - Backlog rows stayed open after their fixes merged, so the backlog no longer showed what was done
+- occurrences 2, severity low, status mitigated
+- **Signature:** The backlog lists as open rows whose fixes are already on the main line.
+- **Rule:** Update a backlog row status with the merge commit at the time its fix merges, so the backlog stays the record of what is done.
+- **Recurrences:**
+  - 2026-11-26 - An approval was already in the review log, but the document header still called the same revision a draft. A later reviewer noticed the split; update the visible status in the same change that records approval.
 
 ### [INC-0006](../../incidents/INC-0006-checkpoint-first-a-killed-step-that-already-wrote-its-output.md) - Checkpoint-first: a killed step that already wrote its output still counts
 - occurrences 1, severity medium, status fixed
@@ -79,11 +86,6 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - **Signature:** A step did its work and then sat idle with no output.
 - **Rule:** Write the evidence line before any shutdown call, bound the shutdown with a timeout, and exit explicitly
 
-### [INC-0516](../../incidents/INC-0516-backlog-rows-stayed-open-after-their-fixes-merged-so-the-bac.md) - Backlog rows stayed open after their fixes merged, so the backlog no longer showed what was done
-- occurrences 1, severity low, status mitigated
-- **Signature:** The backlog lists as open rows whose fixes are already on the main line.
-- **Rule:** Update a backlog row status with the merge commit at the time its fix merges, so the backlog stays the record of what is done.
-
 ### [INC-0531](../../incidents/INC-0531-a-graceful-pause-worked-because-each-in-flight-teammate-fini.md) - A graceful pause worked because each in-flight teammate finished one step, wrote a checkpoint and left its workspace as it was
 - occurrences 1, severity low, status mitigated
 - **Signature:** A team stops on request and resumes later, and every member continues from its own recorded state.
@@ -98,6 +100,11 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - occurrences 1, severity low, status mitigated
 - **Signature:** A go packet names a fixed commit that predates later rulings.
 - **Rule:** Name a GO baseline by its condition, and recheck it against rulings made since the packet was written.
+
+### [INC-0661](../../incidents/INC-0661-an-early-review-checkpoint-held-headings-but-no-findings.md) - An early review checkpoint held headings but no findings
+- occurrences 1, severity low, status mitigated
+- **Signature:** A review file exists early, but it still contains only headings after several checks have been completed.
+- **Rule:** Checkpoint completed checks and findings on disk every few checks or after a finding; do not count an outline with no results as a progress checkpoint.
 
 ## Also tagged checkpoint
 

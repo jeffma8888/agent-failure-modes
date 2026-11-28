@@ -6,7 +6,7 @@ classes: [checkpoint]
 severity: low
 status: mitigated
 topic: null
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0516 - Backlog rows stayed open after their fixes merged, so the backlog no longer showed what was done
@@ -42,6 +42,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 ## Transferable rule
 
 > Update a backlog row status with the merge commit at the time its fix merges, so the backlog stays the record of what is done.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-26 - An approval was already in the review log, but the document header still called the same revision a draft. A later reviewer noticed the split; update the visible status in the same change that records approval.
 
 ## Related
 

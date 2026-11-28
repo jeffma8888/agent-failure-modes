@@ -8,7 +8,7 @@ The signal you trust hides the truth: an outcome flag masks a chronically over-b
 
 **You are probably here if:** Logs, timing, counts or status look reassuring, but the underlying run, evidence or reported chronology cannot be verified.
 
-43 incidents filed here (43 occurrences); 58 more filed elsewhere are also tagged observability.
+44 incidents filed here (47 occurrences); 58 more filed elsewhere are also tagged observability.
 
 ## Topics
 
@@ -17,17 +17,20 @@ n = occurrences: incidents filed in the topic plus their repeats.
 | Topic | Go here if | n | Link |
 |---|---|---|---|
 | Timestamp labels disagree with the actual clock | A ruling, brief or receipt has a time ahead of the clock, a guessed label or a quoted clock value no call returned. | 15 | [clock-labels-without-clock-evidence](clock-labels-without-clock-evidence.md) |
-| A reassuring signal contradicts the underlying evidence | The reported result looks settled, but inspecting the actual target does not support what the signal or summary claims. | 13 | [misleading-metrics-and-status](misleading-metrics-and-status.md) |
-| Missing evidence keeps findings unverified | You cannot verify a finding from inspectable evidence of the actual run, and repeated inspection still leaves the same questions open. | 12 | [missing-or-unverifiable-receipts](missing-or-unverifiable-receipts.md) |
+| A reassuring signal contradicts the underlying evidence | The reported result looks settled, but inspecting the actual target does not support what the signal or summary claims. | 14 | [misleading-metrics-and-status](misleading-metrics-and-status.md) |
+| Missing evidence keeps findings unverified | You cannot verify a finding from inspectable evidence of the actual run, and repeated inspection still leaves the same questions open. | 13 | [missing-or-unverifiable-receipts](missing-or-unverifiable-receipts.md) |
 
 ## Class-level incidents
 
 Filed in this class but in none of its topics.
 
 ### [INC-0358](../../incidents/INC-0358-a-restated-rule-gained-a-qualifier-the-original-ruling-never.md) - A restated rule gained a qualifier the original ruling never had
-- occurrences 1, severity medium, status fixed
+- occurrences 3, severity medium, status fixed
 - **Signature:** A ruling said to report every sample over a limit at once, but the spec that restated it said to report only eligible samples.
 - **Rule:** When a ruling is restated in a spec, copy its population word for word; a qualifier borrowed from another purpose narrows an alarm, so diff every restated condition against the ruling's own words and fix each sibling copy
+- **Recurrences:**
+  - 2026-11-26 - A design document labelled one choice as the upstream requirements document's default, but the label contradicted that document's own option set; a second-model reviewer found it.
+  - 2026-11-26 - In the next version of the same design document, upstream priorities and conditions were paraphrased under a default label, so the requirements document appeared to say something it did not; the reviewer required verbatim quotes of upstream priorities and conditions.
 
 ### [INC-0562](../../incidents/INC-0562-the-first-real-run-of-a-new-egress-observer-on-unchanged-mai.md) - The first real run of a new egress observer on unchanged main caught the dev server phoning home, and the agent stopped instead of widening the allowlist
 - occurrences 1, severity medium, status mitigated

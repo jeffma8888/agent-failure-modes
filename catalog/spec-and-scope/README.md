@@ -8,7 +8,7 @@ The loop does the wrong amount of work: it pursues the whole visible mission ins
 
 **You are probably here if:** Work exceeds its assigned slice or size cap, favors easy tasks over value, or a plan contradicts files, tools, dependencies, permissions, or delivered work.
 
-112 incidents filed here (112 occurrences); 60 more filed elsewhere are also tagged spec-and-scope.
+121 incidents filed here (128 occurrences); 61 more filed elsewhere are also tagged spec-and-scope.
 
 ## Topics
 
@@ -16,13 +16,13 @@ n = occurrences: incidents filed in the topic plus their repeats.
 
 | Topic | Go here if | n | Link |
 |---|---|---|---|
-| A cited baseline, count, line, or digest no longer matches its source | A baseline, count, citation, finding, or ruling no longer matches its source; moved or signed bytes differ, or review re-reads unchanged ranges and misses the actual delta. | 15 | [records-drift-or-lose-provenance](records-drift-or-lose-provenance.md) |
+| Claims or instructions say more than the evidence supports | A question is already answered, a diagnosis is only conditional, a value has no source, or a landing summary claims more work than the author delivered. | 19 | [claims-outrun-available-evidence](claims-outrun-available-evidence.md) |
+| Requirements, units, or hard limits cannot hold together | A duration exceeds its cap, a count has no unit, a complete identity cannot fit the transport, or a validator rejects a value its producer must emit. | 18 | [requirements-and-limits-collide](requirements-and-limits-collide.md) |
+| A cited baseline, count, line, or digest no longer matches its source | A baseline, count, citation, finding, or ruling no longer matches its source; moved or signed bytes differ, or review re-reads unchanged ranges and misses the actual delta. | 16 | [records-drift-or-lose-provenance](records-drift-or-lose-provenance.md) |
 | Framework behavior contradicts the design or test | The framework transforms input before a check, swallows a refusal, adds unexpected defaults, makes an undeclared request, or loses behavior when a component is replaced. | 14 | [framework-contract-assumptions](framework-contract-assumptions.md) |
-| Claims or instructions say more than the evidence supports | A question is already answered, a diagnosis is only conditional, a value has no source, or a landing summary claims more work than the author delivered. | 13 | [claims-outrun-available-evidence](claims-outrun-available-evidence.md) |
+| Work lands under the wrong owner, path, or write boundary | A task needs unowned files, a brief forbids a required output, a file is never collected, tools disagree on ownership, or a rule covers a whole commit instead of its affected files. | 14 | [wrong-owner-path-or-scope](wrong-owner-path-or-scope.md) |
+| Instructions fail a gate or omit the required operation | A gate cannot pass after its preceding step, a required command or parameter is unavailable, a tool exceeds promised effects, a runner cannot reach a check, or cleanup only seeds and leaves old rows. | 13 | [instructions-tools-cannot-follow](instructions-tools-cannot-follow.md) |
 | Green tests omit or misstate required behavior | A named parameter is untested, moved files vanish from a run, coverage summarizes a tier, an oracle pins the wrong detail, or static gates miss a unit regression. | 13 | [tests-do-not-prove-the-contract](tests-do-not-prove-the-contract.md) |
-| Instructions fail a gate or omit the required operation | A gate cannot pass after its preceding step, a required command or parameter is unavailable, a tool exceeds promised effects, a runner cannot reach a check, or cleanup only seeds and leaves old rows. | 12 | [instructions-tools-cannot-follow](instructions-tools-cannot-follow.md) |
-| Requirements, units, or hard limits cannot hold together | A duration exceeds its cap, a count has no unit, a complete identity cannot fit the transport, or a validator rejects a value its producer must emit. | 12 | [requirements-and-limits-collide](requirements-and-limits-collide.md) |
-| Work lands under the wrong owner, path, or write boundary | A task needs unowned files, a brief forbids a required output, a file is never collected, tools disagree on ownership, or a rule covers a whole commit instead of its affected files. | 12 | [wrong-owner-path-or-scope](wrong-owner-path-or-scope.md) |
 | A planned step cannot run because its prerequisite is missing | A row needs data, types, a callable seam, a component, or approval that arrives later; pressure grows to invent a stub or weaken the contract. | 11 | [missing-or-late-prerequisites](missing-or-late-prerequisites.md) |
 | A local fix leaves sibling cases or callers broken | A fix leaves sibling payloads or callers using old arguments, state, or commands; a second defect remains, or a tiny conflict hides inconsistent automatically merged code. | 8 | [fix-misses-related-consumers](fix-misses-related-consumers.md) |
 
@@ -42,7 +42,7 @@ Filed in this class but in none of its topics.
 
 ## Also tagged spec-and-scope
 
-60 incidents filed under another home class also carry this class. Listed by the node where they live:
+61 incidents filed under another home class also carry this class. Listed by the node where they live:
 
 - [delegation/brief-or-plan-left-a-gap](../delegation/brief-or-plan-left-a-gap.md): INC-0087, INC-0098, INC-0135, INC-0331
 - [false-green/real-page-or-response-wrong-behind-green](../false-green/real-page-or-response-wrong-behind-green.md): INC-0241, INC-0265, INC-0272, INC-0275
@@ -56,6 +56,7 @@ Filed in this class but in none of its topics.
 - [test-isolation/passes-warm-fails-clean](../test-isolation/passes-warm-fails-clean.md): INC-0110, INC-0297, INC-0299
 - [checkpoint](../checkpoint/README.md): INC-0160, INC-0268
 - [detector-fail-closed](../detector-fail-closed/README.md): INC-0052, INC-0366
+- [false-green/proxy-artifact-cited-as-evidence](../false-green/proxy-artifact-cited-as-evidence.md): INC-0315, INC-0658
 - [identity-and-keying/key-is-a-proxy](../identity-and-keying/key-is-a-proxy.md): INC-0149, INC-0359
 - [observability/clock-labels-without-clock-evidence](../observability/clock-labels-without-clock-evidence.md): INC-0274, INC-0350
 - [tooling-paths/valid-alone-fails-in-host](../tooling-paths/valid-alone-fails-in-host.md): INC-0090, INC-0171
@@ -63,7 +64,6 @@ Filed in this class but in none of its topics.
 - [delegation/reviewer-not-independent-or-free](../delegation/reviewer-not-independent-or-free.md): INC-0337
 - [false-green/count-or-total-computed-wrong](../false-green/count-or-total-computed-wrong.md): INC-0323
 - [false-green/mutation-witness-proves-less](../false-green/mutation-witness-proves-less.md): INC-0336
-- [false-green/proxy-artifact-cited-as-evidence](../false-green/proxy-artifact-cited-as-evidence.md): INC-0315
 - [false-green/verified-a-different-target](../false-green/verified-a-different-target.md): INC-0035
 - [identity-and-keying/new-id-already-taken](../identity-and-keying/new-id-already-taken.md): INC-0080
 - [observability](../observability/README.md): INC-0358

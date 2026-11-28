@@ -8,7 +8,7 @@ Two distinct things share one identifier or cache key, so state computed for one
 
 **You are probably here if:** A lookup lands on the wrong thing: one identical reason across many inputs, entries vanish, a new id was already taken, a revision is tied to the wrong commit.
 
-36 incidents filed here (36 occurrences); 19 more filed elsewhere are also tagged identity-and-keying.
+37 incidents filed here (37 occurrences); 19 more filed elsewhere are also tagged identity-and-keying.
 
 ## Topics
 
@@ -18,8 +18,8 @@ n = occurrences: incidents filed in the topic plus their repeats.
 |---|---|---|---|
 | A file-replacement (supersession) record is refused or claims too much | A record saying which file replaces which is refused or over-claims: duplicate edge, more edges than approved, name outside its family, old path in pending form, old digest not on main, unsorted list. | 14 | [replacement-record-malformed](replacement-record-malformed.md) |
 | An approval or activation names the wrong commit or line of history | A gate tying a revision to its approval refuses or wrongly passes: the named commit is not an ancestor, predates what it approves, is HEAD mid-merge, precedes review; a merge leaves activation due. | 9 | [approval-names-wrong-commit](approval-names-wrong-commit.md) |
+| A newly minted id or name collides with one already in use | A new id, batch name, enum name or short key turns out to be taken: entries vanish, a branch already exists, a cache serves another record's data, a refused id is reissued, a status silently narrows. | 7 | [new-id-already-taken](new-id-already-taken.md) |
 | A name, path string or digest stands in for the real identity, drifts | Two values that must agree were typed separately (display name vs model id, two spellings of one path, digest vs its path, commit order from memory); a proof omits a dimension; one field, many facts. | 6 | [key-is-a-proxy](key-is-a-proxy.md) |
-| A newly minted id or name collides with one already in use | A new id, batch name, enum name or short key turns out to be taken: entries vanish, a branch already exists, a cache serves another record's data, a refused id is reissued, a status silently narrows. | 6 | [new-id-already-taken](new-id-already-taken.md) |
 
 ## Class-level incidents
 

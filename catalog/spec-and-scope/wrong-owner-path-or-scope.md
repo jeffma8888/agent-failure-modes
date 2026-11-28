@@ -6,9 +6,16 @@
 
 **Rule:** Derive each assignment and write boundary from the governing layout and ownership registry, check every affected file and dependency before dispatch, and apply a ruling to the individual files it governs rather than the whole commit.
 
-12 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
+13 incidents, 14 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
+
+### [INC-0074](../../incidents/INC-0074-a-brief-named-a-source-directory-the-repository-does-not-hav.md) - A brief named a source directory the repository does not have, written from a conventional layout instead of a listing
+- occurrences 2, severity low, status fixed
+- **Signature:** A brief scopes work to a directory by name, and the name is the conventional one for the language or framework rather than one anyone listed.
+- **Rule:** Write path rules in a brief from a listing taken when the brief is written, never from memory of a conventional layout.
+- **Recurrences:**
+  - 2026-11-26 - A reviewer first measured an assumed documentation-subdirectory path, though the intended document lived at repository root. Discover the actual file location before reading or measuring it instead of inferring a conventional layout.
 
 ### [INC-0085](../../incidents/INC-0085-a-helper-owned-by-one-test-root-was-imported-by-later-roots.md) - A helper owned by one test root was imported by later roots, creating an undeclared dependency
 - occurrences 1, severity medium, status fixed
@@ -40,11 +47,6 @@
 - **Signature:** A file resolved to the wrong owner while its identity check passed.
 - **Rule:** Identity validity is not plan agreement; compare the resolved owner with the signed plan
 
-### [INC-0074](../../incidents/INC-0074-a-brief-named-a-source-directory-the-repository-does-not-hav.md) - A brief named a source directory the repository does not have, written from a conventional layout instead of a listing
-- occurrences 1, severity low, status fixed
-- **Signature:** A brief scopes work to a directory by name, and the name is the conventional one for the language or framework rather than one anyone listed.
-- **Rule:** Write path rules in a brief from a listing taken when the brief is written, never from memory of a conventional layout.
-
 ### [INC-0076](../../incidents/INC-0076-a-teammate-s-write-boundary-contradicted-the-charter-s-file.md) - A teammate's write boundary contradicted the charter's file layout, so a required record landed where activation would reject it
 - occurrences 1, severity low, status fixed
 - **Signature:** A brief limits writes to one directory, and the governing charter requires an output in a different one.
@@ -69,3 +71,8 @@
 - occurrences 1, severity low, status mitigated
 - **Signature:** One successor root must edit a file that a different row family owns.
 - **Rule:** When a change touches files owned by different row families, plan one successor per family; do not widen the checker or add a cross-family marker.
+
+### [INC-0667](../../incidents/INC-0667-a-requirements-document-s-option-set-settled-a-question-the.md) - A requirements document's option set settled a question the governing plan assigns to the design document
+- occurrences 1, severity low, status fixed
+- **Signature:** A document for one stage lists options and picks one for a question that the project's governing plan names as belonging to a later stage's document.
+- **Rule:** Before a stage document decides a question, check which stage the governing plan assigns it to; a requirements document states the need and the constraints and leaves a design-assigned question open for the design document.

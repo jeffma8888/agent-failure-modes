@@ -6,9 +6,25 @@
 
 **Rule:** Check all requirements together on explicit units and edge cases before signing, including dependency contracts, hard size limits, producer-consumer compatibility, and final-step rounding.
 
-12 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
+14 incidents, 18 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
+
+### [INC-0650](../../incidents/INC-0650-an-options-comparison-applied-the-same-hard-constraint-at-di.md) - An options comparison applied the same hard constraint at different severities
+- occurrences 4, severity medium, status fixed
+- **Signature:** The same disqualifying condition is blocking for one alternative and advisory for others; a limitation shared by all alternatives is presented as uniquely blocking.
+- **Rule:** Write each decision invariant once, apply the same severity to every option that shares its condition, and never label a disadvantage common to all options as uniquely blocking; recompute verdicts after corrections.
+- **Recurrences:**
+  - 2026-11-26 - A requirements document's option set listed a con shared by every option under only one of them; a second-model reviewer flagged it.
+  - 2026-11-26 - Retagging an elimination to cite a requirement left two options citing one requirement with different tags; the author flagged the pair to the reviewer. Same-condition-same-tag applies to requirements as well as invariants, with the differing condition stated in both cons.
+  - 2026-11-26 - While downgrading over-aggressive eliminations in a design document, one option that an approved top-priority requirement rules out was left viable: the requirement was not re-applied to every viable option after the retag. A reviewer's re-verification caught it.
+
+### [INC-0127](../../incidents/INC-0127-a-document-already-at-its-hard-size-cap-had-no-room-for-the.md) - A document already at its hard size cap had no room for the next transcription, so the cap was met only after editing
+- occurrences 2, severity medium, status fixed
+- **Signature:** An edit is made first and the size cap is discovered afterward.
+- **Rule:** Plan against a hard cap before the edit, not after.
+- **Recurrences:**
+  - 2026-11-26 - A design document's first five sections used 69 KB of a 70 KB cap before the tail sections existed, forcing about 6 KB of trims over 70 exact-match edits; the skeleton had no per-section byte budget. A template check left to the end also found six sections missing a required table.
 
 ### [INC-0071](../../incidents/INC-0071-a-plan-claimed-minutes-denominated-stage-times-fit-inside-a.md) - A plan claimed minutes-denominated stage times fit inside a cap stated in seconds
 - occurrences 1, severity medium, status mitigated
@@ -19,11 +35,6 @@
 - occurrences 1, severity medium, status fixed
 - **Signature:** A control test forbids all connections while a later row adds a startup step that connects.
 - **Rule:** Write prohibitions against the full startup contract, not the current implementation.
-
-### [INC-0127](../../incidents/INC-0127-a-document-already-at-its-hard-size-cap-had-no-room-for-the.md) - A document already at its hard size cap had no room for the next transcription, so the cap was met only after editing
-- occurrences 1, severity medium, status fixed
-- **Signature:** An edit is made first and the size cap is discovered afterward.
-- **Rule:** Plan against a hard cap before the edit, not after.
 
 ### [INC-0189](../../incidents/INC-0189-an-override-was-written-without-reading-the-dependent-declar.md) - An override was written without reading the dependent declared range
 - occurrences 1, severity medium, status fixed
@@ -40,10 +51,10 @@
 - **Signature:** A timing spec required every record to fit 512 bytes and to carry full file and case identity, and a long path could not satisfy both.
 - **Rule:** When a transport limit and a completeness requirement meet, specify the framing and reconstruction, and test with long and non-ASCII identities
 
-### [INC-0650](../../incidents/INC-0650-an-options-comparison-applied-the-same-hard-constraint-at-di.md) - An options comparison applied the same hard constraint at different severities
+### [INC-0669](../../incidents/INC-0669-sections-of-one-design-document-contradicted-each-other-on-a.md) - Sections of one design document contradicted each other on a terminal state, a durability promise and a component's access
 - occurrences 1, severity medium, status fixed
-- **Signature:** The same disqualifying condition is blocking for one alternative and advisory for others; a limitation shared by all alternatives is presented as uniquely blocking.
-- **Rule:** Write each decision invariant once, apply the same severity to every option that shares its condition, and never label a disadvantage common to all options as uniquely blocking; recompute verdicts after corrections.
+- **Signature:** One cause maps to different terminal states in a diagram and a table, or one section promises a property that a procedure in another section can break.
+- **Rule:** Before submitting a design document, search every state name and every durability, deletion or restore claim across all sections and reconcile them to one terminal state per cause; re-read each sentence copied from research against the decisions already made.
 
 ### [INC-0424](../../incidents/INC-0424-a-captions-upload-relation-in-a-spec-would-have-added-a-medi.md) - A captions upload relation in a spec would have added a media referrer to a collection defined as image-only
 - occurrences 1, severity low, status fixed
@@ -69,3 +80,8 @@
 - occurrences 1, severity low, status mitigated
 - **Signature:** A teammate brief bans personal names while its own background section includes personal names.
 - **Rule:** Before issuing a delegation brief, apply every prohibition and formatting check in it to the entire brief itself, including context and examples; remove contradictions before a teammate receives them.
+
+### [INC-0670](../../incidents/INC-0670-a-blocking-tag-was-attached-to-a-sub-variant-that-was-not-a.md) - A blocking tag was attached to a sub-variant that was not a listed option, so a viable option read as blocked and an unlisted variant read as eliminated
+- occurrences 1, severity low, status fixed
+- **Signature:** A comparison table or con list carries a blocking tag whose subject is one way of building an option, not one of the options the document lists.
+- **Rule:** Attach a blocking or advisory tag only to an option in the document's own option list; describe a bad sub-variant inside its option and say it is not this option, and before promoting a variant to an option check whether an equivalent one is already listed.

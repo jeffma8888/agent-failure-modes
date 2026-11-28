@@ -6,14 +6,16 @@
 
 **Rule:** Verify operational claims against fresh, complete evidence for the exact target and tree; bind probes to the actual rendered elements and inspect distributions, effective metadata and causal attribution rather than trusting a convenient signal or summary.
 
-13 incidents, 13 occurrences. Ordered by occurrences, then severity, then id.
+13 incidents, 14 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
 ### [INC-0039](../../incidents/INC-0039-a-budget-is-not-a-sample-a-sorted-head-is-a-permanent-filter.md) - A budget is not a sample: a sorted head is a permanent filter, disguised as a performance knob
-- occurrences 1, severity high, status fixed
+- occurrences 2, severity high, status fixed
 - **Signature:** A bounded pass reports steady healthy throughput, but its OUTPUT is concentrated in one region of the input space - and that region is the one that sorts first.
 - **Rule:** For ANY truncated pass, ask whether the ORDER is independent of the PROPERTY being measured. Filename, insertion, directory and id order almost never are - so a sorted head is a permanent filter wearing a performance knob's clothes. Round-robin across the dimension you care about, best-first inside each bucket, and give unclassifiable items their own bucket.
+- **Recurrences:**
+  - 2026-11-26 - A design review's first sample of 48 citations left two sections under-covered; the reviewer's own per-section tally showed it. Citation samples are now tallied per section before the table is closed.
 
 ### [INC-0007](../../incidents/INC-0007-diagnose-stalled-work-from-the-duration-distribution-not-the.md) - Diagnose stalled work from the duration distribution, not the outcome
 - occurrences 1, severity medium, status fixed

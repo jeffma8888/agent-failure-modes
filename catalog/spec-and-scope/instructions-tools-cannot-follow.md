@@ -6,7 +6,7 @@
 
 **Rule:** Walk each instruction through the installed tool and real checker on the intended post-step tree, including effects, parameters, permissions, and exact cleanup hook bodies; ask before substituting a private driver, and verify restored green through the standard runner.
 
-12 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
+13 incidents, 13 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -69,3 +69,8 @@
 - occurrences 1, severity low, status mitigated
 - **Signature:** A named gate cannot pass on the tree the preceding step produces.
 - **Rule:** Before naming a check in a gate list, read what the check requires and confirm it can pass on the post-step tree.
+
+### [INC-0665](../../incidents/INC-0665-a-process-spec-required-a-check-to-pass-before-the-event-tha.md) - A process spec required a check to pass before the event that triggers the check
+- occurrences 1, severity low, status fixed
+- **Signature:** A phase list places a gate before an event, and the check behind that gate only starts when the event happens.
+- **Rule:** When specifying approval phases, name the event that triggers each check and walk the sequence to confirm it can run in that order; a gate must never wait on a result that exists only after the step it gates.

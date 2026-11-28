@@ -6,7 +6,7 @@ classes: [detector-fail-open, observability]
 severity: high
 status: fixed
 topic: detector-fail-open/wrong-parser-or-pattern
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0019 - Fail-open detector: parsing the wrong column reports healthy
@@ -42,6 +42,12 @@ With field 5 read correctly, the parser surfaced two long-expired credentials th
 ## Transferable rule
 
 > A parser that fails silently by returning nothing is indistinguishable from a healthy sample. Sanity-check every parser by asserting that its rows come back with PLAUSIBLE values; if every row is unparseable, you have the wrong column, not a healthy system. Never make an alarm's positive answer look like its negative answer.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-25 - In a document review, a scan for names returned no matches because the field selector supplied empty input. Testing the complete scan on an input it should match exposed the blind spot before the silence was credited as a pass.
 
 ## Related
 

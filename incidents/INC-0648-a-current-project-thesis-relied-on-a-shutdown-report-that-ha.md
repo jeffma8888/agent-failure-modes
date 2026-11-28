@@ -6,7 +6,7 @@ classes: [spec-and-scope]
 severity: medium
 status: mitigated
 topic: spec-and-scope/claims-outrun-available-evidence
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0648 - A current project thesis relied on a shutdown report that had already been reversed
@@ -42,6 +42,12 @@ The author checked the primary changelog and found the later reversal. Not check
 ## Transferable rule
 
 > Check every current-event premise against the primary status source at write time and record the check date; use secondary reporting to establish historical events, not present state.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-25 - A research author assumed a precedent product still took new customers and offered it as a deployable alternative; its live docs said new-customer signup was closed and pointed elsewhere. Caught when the author fetched the live docs: a present-state premise again went unchecked at write time.
 
 ## Related
 

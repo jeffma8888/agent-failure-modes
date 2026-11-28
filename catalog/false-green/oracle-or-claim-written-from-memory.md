@@ -6,9 +6,17 @@
 
 **Rule:** Bind every oracle, locator, identifier and behavior claim to its source of truth at the installed or pinned version: cite the line that renders or defines it and search for each name. Treat a fix or review claim as a new claim to verify, and review independently by deriving your own list before reading the author's. Run a new root green on unchanged code before any mutation.
 
-12 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
+13 incidents, 15 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
+
+### [INC-0062](../../incidents/INC-0062-a-reviewer-s-claim-about-framework-behaviour-was-wrong-and-a.md) - A reviewer's claim about framework behaviour was wrong, and accepting it would have put a wrong assertion into the tests
+- occurrences 3, severity medium, status mitigated
+- **Signature:** A review finding states what a library or framework does, in confident terms, and the proposed change follows directly from that statement.
+- **Rule:** A reviewer's statement about framework or library behaviour is a hypothesis with the same standing as the author's. Verify it at the pinned version, reading the whole function, before it changes a test or a design.
+- **Recurrences:**
+  - 2026-11-25 - A research reviewer counted ten partner hosts on a page that lists eleven; the author read the fetched page instead of copying the review's number. A reviewer's fact about a source page is a hypothesis to verify, as with framework behaviour.
+  - 2026-11-25 - A reviewer attributed a changelog fact to the newest release, and the lead copied that attribution into a revision brief and long-term memory without opening the release page; the author's fetch showed it shipped several releases earlier.
 
 ### [INC-0523](../../incidents/INC-0523-three-test-roots-by-three-authors-used-the-same-guessed-loca.md) - Three test roots by three authors used the same guessed locator for a generated field that the installed library does not render
 - occurrences 2, severity medium, status mitigated
@@ -37,11 +45,6 @@
 - **Signature:** A test requirement says 'every' member of a set, and the source of truth defines behaviour for only some of them.
 - **Rule:** A per-ID test oracle may only require values its source of truth defines. 'Every' in a test requirement needs a check that the source covers every member.
 
-### [INC-0062](../../incidents/INC-0062-a-reviewer-s-claim-about-framework-behaviour-was-wrong-and-a.md) - A reviewer's claim about framework behaviour was wrong, and accepting it would have put a wrong assertion into the tests
-- occurrences 1, severity medium, status mitigated
-- **Signature:** A review finding states what a library or framework does, in confident terms, and the proposed change follows directly from that statement.
-- **Rule:** A reviewer's statement about framework or library behaviour is a hypothesis with the same standing as the author's. Verify it at the pinned version, reading the whole function, before it changes a test or a design.
-
 ### [INC-0234](../../incidents/INC-0234-a-ledger-review-that-started-from-the-author-list-could-inhe.md) - A ledger review that started from the author list could inherit its gaps
 - occurrences 1, severity medium, status fixed
 - **Signature:** The reviewer saw only what the author listed.
@@ -51,6 +54,11 @@
 - occurrences 1, severity medium, status mitigated
 - **Signature:** A test asserts that a selector for a hidden field matches nothing, and the library renders a hidden input with the field id.
 - **Rule:** A regression root must be green on unchanged code before any mutation; an absence selector for a hidden field must account for the hidden input the library still renders.
+
+### [INC-0657](../../incidents/INC-0657-documentation-urls-and-vendor-quotes-were-cited-from-memory.md) - Documentation URLs and vendor quotes were cited from memory: five links returned 404 and two quotes were no longer on the live pages
+- occurrences 1, severity medium, status mitigated
+- **Signature:** A cited URL or a quoted phrase has no fetch behind it in the current revision: the link returns 404, or the words are not on the page as it reads today.
+- **Rule:** Fetch every URL before you cite it or hand it to anyone, and copy it from the page that loaded; quote only text from a fetch made in the revision that cites it. A remembered or reconstructed route is a guess, and so is wording from an earlier visit.
 
 ### [INC-0455](../../incidents/INC-0455-a-provenance-check-that-the-generator-can-never-satisfy-the.md) - A provenance check that the generator can never satisfy: the zero parent id on every snapshot
 - occurrences 1, severity low, status fixed

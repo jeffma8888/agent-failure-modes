@@ -6,9 +6,17 @@
 
 **Rule:** Cite only evidence that directly establishes the claimed fact: open the artifact and check it holds what it claims (digests, bodies, byte equality, a runtime result), retain it, and copy every id or value verbatim from the output of the call that produced it, after that call has returned.
 
-9 incidents, 9 occurrences. Ordered by occurrences, then severity, then id.
+10 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
+
+### [INC-0658](../../incidents/INC-0658-facts-were-cited-to-a-neighbouring-page-that-does-not-state.md) - Facts were cited to a neighbouring page that does not state them: a general product page, the newest release, a paginated index
+- occurrences 3, severity low, status mitigated
+- **Signature:** A cited page loads and is about the right subject, but searching it for the claim finds nothing; the statement lives on a sibling page such as an older release note or a per-item page.
+- **Rule:** Cite each fact to the page whose text states it (the release note that contains it, the per-item page, the specific doc), and search that page for the claim before citing; a page merely about the subject, the newest release or an index page is not support.
+- **Recurrences:**
+  - 2026-11-25 - A research author stated that a workflow engine deploys as a single node and cited its deployment guide; the guide covers installation mechanisms only and states no topology. Caught by the author's own page check during revision.
+  - 2026-11-26 - An author cited audience confidence ratings to a section that discusses those audiences but assigns no ratings; one rating came from another document. The reviewer nearly accepted them because the section covered the topic, then read the cited lines.
 
 ### [INC-0228](../../incidents/INC-0228-a-digest-manifest-without-digests-was-cited-as-evidence.md) - A digest manifest without digests was cited as evidence
 - occurrences 1, severity medium, status fixed

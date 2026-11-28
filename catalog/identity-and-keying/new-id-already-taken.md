@@ -6,7 +6,7 @@
 
 **Rule:** Before minting an identifier, check every place that kind of identifier has ever lived (history, branches, other writers' entries, generated defaults), not only the current list of survivors; namespace shared short names by owner, check uniqueness globally rather than per batch, and never key derived state on an id a rejection or rename can recycle.
 
-6 incidents, 6 occurrences. Ordered by occurrences, then severity, then id.
+7 incidents, 7 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -39,3 +39,8 @@
 - occurrences 1, severity low, status fixed
 - **Signature:** A checker that read only the current list passed ids that history had already used.
 - **Rule:** Before minting an id, check every place ids have ever lived (branch names, commit subjects, plan text), not only the current list; a checker that reads only the current list cannot catch reuse.
+
+### [INC-0671](../../incidents/INC-0671-an-incident-id-from-a-private-log-was-read-as-an-id-in-a-pub.md) - An incident id from a private log was read as an id in a public corpus that numbers its records separately
+- occurrences 1, severity low, status mitigated
+- **Signature:** A note or brief says a failure is already recorded under an id, and the id has the target corpus's format but comes from a different log.
+- **Rule:** Resolve every cross-reference into a corpus with that corpus's own lookup (check, search or show) and read the record before using the id; never carry an id from one repository's numbering into another unresolved.

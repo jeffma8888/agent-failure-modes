@@ -6,7 +6,7 @@ classes: [detector-fail-open]
 severity: high
 status: fixed
 topic: detector-fail-open/wrong-parser-or-pattern
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0018 - Fail-open detector: pipe alternation matches nothing under one regex flavor
@@ -42,6 +42,12 @@ A synthetic 'credential refresh failed' line in a tmp file caused the fixed matc
 ## Transferable rule
 
 > A negative result from a detector is NOT evidence of health. Every alarm must be proven against a KNOWN-BAD sample before it is trusted (fires) and against a known-good sample (does not fire). Fail-open monitoring is worse than none. And know your regex flavor: `\|` is alternation in BRE but a LITERAL pipe in ripgrep - use plain `|`.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-25 - A reviewer used an escaped alternation in a ripgrep expression, carrying over basic grep syntax. The expression looked for a literal pipe instead of selecting either alternative.
 
 ## Related
 

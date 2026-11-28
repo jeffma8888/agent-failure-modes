@@ -8,7 +8,7 @@ The shell or tool layer betrays you: command substitution runs inside a string y
 
 **You are probably here if:** A command did other than you typed: a value truncated, a path refused or resolved elsewhere, a chain ran on after a failure, the wrong binary or tree answered.
 
-69 incidents filed here (71 occurrences); 31 more filed elsewhere are also tagged tooling-paths.
+71 incidents filed here (74 occurrences); 31 more filed elsewhere are also tagged tooling-paths.
 
 ## Topics
 
@@ -16,9 +16,9 @@ n = occurrences: incidents filed in the topic plus their repeats.
 
 | Topic | Go here if | n | Link |
 |---|---|---|---|
+| The tool's own resolution or defaults, not the target, caused it | 'command not found' in a log, a syntax check ran the script, a launch with no process or output, a wrapper ran zero tests, a scoped-config error the real build never raises, a fetch called 'blocked' | 12 | [tool-defaults-not-target](tool-defaults-not-target.md) |
 | A helper or runner reads your argument as a different kind or name | A bare file name taken as a root name, an item named twice acted on twice, a revision id refused where the runner wants the base row, an option the runner lacks is requested, a missing db gets created | 10 | [argument-read-as-other-kind](argument-read-as-other-kind.md) |
-| The tool's own resolution or defaults, not the target, caused it | 'command not found' in a log, a syntax check ran the script, a launch with no process or output, a wrapper ran zero tests, a scoped-config error the real build never raises, a fetch called 'blocked' | 10 | [tool-defaults-not-target](tool-defaults-not-target.md) |
-| An edit anchor or text match hit different bytes than you meant | Empty () or control characters in a file you just wrote; a symbol vanished or doubled after a 'confined' edit; a rewrite changed only a prefix; zero matches in visible text; a guard matched itself | 8 | [edit-or-match-hit-wrong-bytes](edit-or-match-hit-wrong-bytes.md) |
+| An edit anchor or text match hit different bytes than you meant | Empty () or control characters in a file you just wrote; a symbol vanished or doubled after a 'confined' edit; a rewrite changed only a prefix; zero matches in visible text; a guard matched itself | 9 | [edit-or-match-hit-wrong-bytes](edit-or-match-hit-wrong-bytes.md) |
 | Code valid alone fails in the host runtime, module form or generator | A spec or helper fails at collection or load (fixture name clash, import.meta under CommonJS, non-erasable syntax); a generated file dirties the tree, fails type-check or lint, or cannot round-trip | 8 | [valid-alone-fails-in-host](valid-alone-fails-in-host.md) |
 | zsh reads your variable differently: colon modifier, word split, array | A value is silently truncated, 'bad object name' on sha:path, a hash equals the hash of empty input, a loop sends one argument or none, one of two files committed, a checker ran without its env. | 8 | [zsh-expansion-surprises](zsh-expansion-surprises.md) |
 | A shell chain ran on after a failed step, or a refusal sank safe steps | A commit, push or cleanup ran although an earlier edit or check failed; the chain saw the formatter's status; a script died in an unrehearsed step; an approval refusal discarded bundled edits. | 6 | [chain-ran-on-after-failure](chain-ran-on-after-failure.md) |

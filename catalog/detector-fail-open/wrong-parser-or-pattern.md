@@ -6,19 +6,23 @@
 
 **Rule:** Prove extraction and classification against actual-format records, malformed input and adversarial decoys inside the full failure boundary; require plausible parsed values and the exact intended output evidence before trusting silence or a match.
 
-7 incidents, 7 occurrences. Ordered by occurrences, then severity, then id.
+7 incidents, 9 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
 ### [INC-0018](../../incidents/INC-0018-fail-open-detector-pipe-alternation-matches-nothing-under-on.md) - Fail-open detector: pipe alternation matches nothing under one regex flavor
-- occurrences 1, severity high, status fixed
+- occurrences 2, severity high, status fixed
 - **Signature:** A monitor built on `grep -E 'A\|B'` or `grep 'A\|B'` prints nothing while the eye clearly sees both patterns in the log. A negative result is being read as health.
 - **Rule:** A negative result from a detector is NOT evidence of health. Every alarm must be proven against a KNOWN-BAD sample before it is trusted (fires) and against a known-good sample (does not fire). Fail-open monitoring is worse than none. And know your regex flavor: `\|` is alternation in BRE but a LITERAL pipe in ripgrep - use plain `|`.
+- **Recurrences:**
+  - 2026-11-25 - A reviewer used an escaped alternation in a ripgrep expression, carrying over basic grep syntax. The expression looked for a literal pipe instead of selecting either alternative.
 
 ### [INC-0019](../../incidents/INC-0019-fail-open-detector-parsing-the-wrong-column-reports-healthy.md) - Fail-open detector: parsing the wrong column reports healthy
-- occurrences 1, severity high, status fixed
+- occurrences 2, severity high, status fixed
 - **Signature:** A cookie- or config-file parser produces empty output that reads as 'nothing to report' when in fact every row is unparseable because the code is reading the wrong field.
 - **Rule:** A parser that fails silently by returning nothing is indistinguishable from a healthy sample. Sanity-check every parser by asserting that its rows come back with PLAUSIBLE values; if every row is unparseable, you have the wrong column, not a healthy system. Never make an alarm's positive answer look like its negative answer.
+- **Recurrences:**
+  - 2026-11-25 - In a document review, a scan for names returned no matches because the field selector supplied empty input. Testing the complete scan on an input it should match exposed the blind spot before the silence was credited as a pass.
 
 ### [INC-0029](../../incidents/INC-0029-when-a-check-reports-missing-content-the-extractor-is-the-fi.md) - When a check reports missing content, the extractor is the first suspect
 - occurrences 1, severity high, status fixed

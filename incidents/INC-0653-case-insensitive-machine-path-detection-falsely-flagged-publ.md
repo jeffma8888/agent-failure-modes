@@ -6,7 +6,7 @@ classes: [detector-fail-closed]
 severity: low
 status: mitigated
 topic: null
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0653 - Case-insensitive machine-path detection falsely flagged public API user URLs
@@ -42,6 +42,12 @@ The two hits were inspected and found to be public URL paths rather than machine
 ## Transferable rule
 
 > Keep filesystem-prefix patterns case-sensitive and separate them from case-insensitive personal-name patterns; review matched context to distinguish a public URL segment from a machine-local path.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-26 - In a requirements-document review, a case-insensitive scan for a company name matched an ordinary word. Reading each hit showed no leak, and the reviewer caught it before any finding was reported; every scan hit is read before it is reported.
 
 ## Related
 

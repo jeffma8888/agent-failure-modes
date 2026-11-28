@@ -8,11 +8,18 @@ A monitor or check fires when it should not: it reports a correct artifact as br
 
 **You are probably here if:** A check, scanner, lint or guard accuses an artifact you can see is correct: the quote is on the page, the file never ships, the bytes match main.
 
-15 incidents filed here (15 occurrences); 3 more filed elsewhere are also tagged detector-fail-closed.
+15 incidents filed here (16 occurrences); 4 more filed elsewhere are also tagged detector-fail-closed.
 
 ## Incidents
 
 This class has no topics, so this node is the leaf. Ordered by occurrences, then severity, then id.
+
+### [INC-0653](../../incidents/INC-0653-case-insensitive-machine-path-detection-falsely-flagged-publ.md) - Case-insensitive machine-path detection falsely flagged public API user URLs
+- occurrences 2, severity low, status mitigated
+- **Signature:** A case-insensitive private-path prefix pattern matches a lowercase user-resource segment in a public API URL.
+- **Rule:** Keep filesystem-prefix patterns case-sensitive and separate them from case-insensitive personal-name patterns; review matched context to distinguish a public URL segment from a machine-local path.
+- **Recurrences:**
+  - 2026-11-26 - In a requirements-document review, a case-insensitive scan for a company name matched an ordinary word. Reading each hit showed no leak, and the reviewer caught it before any finding was reported; every scan hit is read before it is reported.
 
 ### [INC-0032](../../incidents/INC-0032-removing-a-veto-exposes-the-broken-classifier-it-was-masking.md) - Removing a veto exposes the broken classifier it was masking
 - occurrences 1, severity high, status fixed
@@ -84,15 +91,11 @@ This class has no topics, so this node is the leaf. Ordered by occurrences, then
 - **Signature:** A whitespace check rejects the output of a code generator.
 - **Rule:** Do not hand-edit generated files to satisfy a whitespace check; exempt them by an exact pattern and keep checking all other files.
 
-### [INC-0653](../../incidents/INC-0653-case-insensitive-machine-path-detection-falsely-flagged-publ.md) - Case-insensitive machine-path detection falsely flagged public API user URLs
-- occurrences 1, severity low, status mitigated
-- **Signature:** A case-insensitive private-path prefix pattern matches a lowercase user-resource segment in a public API URL.
-- **Rule:** Keep filesystem-prefix patterns case-sensitive and separate them from case-insensitive personal-name patterns; review matched context to distinguish a public URL segment from a machine-local path.
-
 ## Also tagged detector-fail-closed
 
-3 incidents filed under another home class also carry this class. Listed by the node where they live:
+4 incidents filed under another home class also carry this class. Listed by the node where they live:
 
 - [detector-fail-open/wrong-parser-or-pattern](../detector-fail-open/wrong-parser-or-pattern.md): INC-0029
 - [observability/missing-or-unverifiable-receipts](../observability/missing-or-unverifiable-receipts.md): INC-0144
+- [spec-and-scope/records-drift-or-lose-provenance](../spec-and-scope/records-drift-or-lose-provenance.md): INC-0659
 - [tooling-paths/tool-defaults-not-target](../tooling-paths/tool-defaults-not-target.md): INC-0072

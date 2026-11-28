@@ -6,7 +6,7 @@ classes: [spec-and-scope, delegation]
 severity: low
 status: fixed
 topic: spec-and-scope/wrong-owner-path-or-scope
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0074 - A brief named a source directory the repository does not have, written from a conventional layout instead of a listing
@@ -42,6 +42,12 @@ Checked: the two failing briefs against the actual repository layout. Not checke
 ## Transferable rule
 
 > Write path rules in a brief from a listing taken when the brief is written, never from memory of a conventional layout.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-26 - A reviewer first measured an assumed documentation-subdirectory path, though the intended document lived at repository root. Discover the actual file location before reading or measuring it instead of inferring a conventional layout.
 
 ## Related
 

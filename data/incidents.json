@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "count": 655,
+  "count": 671,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -819,9 +819,14 @@
       "topic": "detector-fail-open/wrong-parser-or-pattern",
       "severity": "high",
       "status": "fixed",
-      "occurrences": 1,
+      "occurrences": 2,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-25",
+          "note": "A reviewer used an escaped alternation in a ripgrep expression, carrying over basic grep syntax. The expression looked for a literal pipe instead of selecting either alternative."
+        }
+      ],
       "rule": "A negative result from a detector is NOT evidence of health. Every alarm must be proven against a KNOWN-BAD sample before it is trusted (fires) and against a known-good sample (does not fire). Fail-open monitoring is worse than none. And know your regex flavor: `\\|` is alternation in BRE but a LITERAL pipe in ripgrep - use plain `|`.",
       "signature": "A monitor built on `grep -E 'A\\|B'` or `grep 'A\\|B'` prints nothing while the eye clearly sees both patterns in the log. A negative result is being read as health.",
       "root_cause": "Two shell-tool assumptions differed. BSD grep (macOS default) uses BRE, where `\\|` is alternation only with `-E`. Ripgrep uses ERE-shaped regex by default and treats `\\|` as a literal. The single-backslash form is a footgun that reads correctly to a human familiar with only one of the two flavors.",
@@ -845,9 +850,14 @@
       "topic": "detector-fail-open/wrong-parser-or-pattern",
       "severity": "high",
       "status": "fixed",
-      "occurrences": 1,
+      "occurrences": 2,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-25",
+          "note": "In a document review, a scan for names returned no matches because the field selector supplied empty input. Testing the complete scan on an input it should match exposed the blind spot before the silence was credited as a pass."
+        }
+      ],
       "rule": "A parser that fails silently by returning nothing is indistinguishable from a healthy sample. Sanity-check every parser by asserting that its rows come back with PLAUSIBLE values; if every row is unparseable, you have the wrong column, not a healthy system. Never make an alarm's positive answer look like its negative answer.",
       "signature": "A cookie- or config-file parser produces empty output that reads as 'nothing to report' when in fact every row is unparseable because the code is reading the wrong field.",
       "root_cause": "Two errors on the same file. First, expiry is field 5 of 7 in the Netscape cookie format, not field 7. Second, some lines are prefixed with `#HttpOnly_` which must be stripped BEFORE the leading-`#` comment skip, or the real rows are silently dropped.",
@@ -1404,9 +1414,14 @@
       "topic": "observability/misleading-metrics-and-status",
       "severity": "high",
       "status": "fixed",
-      "occurrences": 1,
+      "occurrences": 2,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-26",
+          "note": "A design review's first sample of 48 citations left two sections under-covered; the reviewer's own per-section tally showed it. Citation samples are now tallied per section before the table is closed."
+        }
+      ],
       "rule": "For ANY truncated pass, ask whether the ORDER is independent of the PROPERTY being measured. Filename, insertion, directory and id order almost never are - so a sorted head is a permanent filter wearing a performance knob's clothes. Round-robin across the dimension you care about, best-first inside each bucket, and give unclassifiable items their own bucket.",
       "signature": "A bounded pass reports steady healthy throughput, but its OUTPUT is concentrated in one region of the input space - and that region is the one that sorts first.",
       "root_cause": "A truncation whose ORDER correlates with the PROPERTY being measured is not a sample, it is a filter - and it is applied on every tick, forever. It survives review because it reads as a resource limit: the code says 'cap the cost', and the bias is a property of the input's naming, which lives somewhere else entirely.",
@@ -1652,12 +1667,20 @@
       "topic": null,
       "severity": "low",
       "status": "fixed",
-      "occurrences": 2,
+      "occurrences": 4,
       "recurrence_of": null,
       "recurrences": [
         {
           "date": "2026-11-19",
           "note": "A lead issued a teammate spawn and the write of a tracking file in one parallel batch, so the file recorded a thread id the spawn had not yet returned; a later retain call on that id failed with thread not found."
+        },
+        {
+          "date": "2026-11-26",
+          "note": "A tracking log and a durable note recorded a guessed commit hash in the parallel batch that created the commit. The lead found the mismatch after reading the commit output."
+        },
+        {
+          "date": "2026-11-26",
+          "note": "Second time in one evening: a lead wrote a spawned thread's id into a retain call, a roster and a memory note in the batch after the spawn, from an id it had composed, not read; the retain failed with thread not found. The roster write must now quote the spawn output line."
         }
       ],
       "rule": "Never cite an identifier produced by a step that has not returned yet. If call B needs a value from call A, B goes in a later block and quotes what A actually returned.",
@@ -2026,9 +2049,18 @@
       "topic": "false-green/oracle-or-claim-written-from-memory",
       "severity": "medium",
       "status": "mitigated",
-      "occurrences": 1,
+      "occurrences": 3,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-25",
+          "note": "A reviewer attributed a changelog fact to the newest release, and the lead copied that attribution into a revision brief and long-term memory without opening the release page; the author's fetch showed it shipped several releases earlier."
+        },
+        {
+          "date": "2026-11-25",
+          "note": "A research reviewer counted ten partner hosts on a page that lists eleven; the author read the fetched page instead of copying the review's number. A reviewer's fact about a source page is a hypothesis to verify, as with framework behaviour."
+        }
+      ],
       "rule": "A reviewer's statement about framework or library behaviour is a hypothesis with the same standing as the author's. Verify it at the pinned version, reading the whole function, before it changes a test or a design.",
       "signature": "A review finding states what a library or framework does, in confident terms, and the proposed change follows directly from that statement.",
       "root_cause": "The reviewer's own account: the claim came from a truncated fetch of the main branch, not the version actually pinned, so the whole function was never read. A reviewer's statement about behaviour is a recollection or inference, not a measurement, but it arrives with the authority of a review. An off-by-one in when state changes versus when it is reported is exactly the kind of detail recalled wrongly.",
@@ -2344,9 +2376,14 @@
       "topic": "spec-and-scope/wrong-owner-path-or-scope",
       "severity": "low",
       "status": "fixed",
-      "occurrences": 1,
+      "occurrences": 2,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-26",
+          "note": "A reviewer first measured an assumed documentation-subdirectory path, though the intended document lived at repository root. Discover the actual file location before reading or measuring it instead of inferring a conventional layout."
+        }
+      ],
       "rule": "Write path rules in a brief from a listing taken when the brief is written, never from memory of a conventional layout.",
       "signature": "A brief scopes work to a directory by name, and the name is the conventional one for the language or framework rather than one anyone listed.",
       "root_cause": "The path rule was written from memory of a typical layout. A recipient has no way to tell a deliberate scope restriction from a stale one, so it either guesses, refuses, or builds the missing structure.",
@@ -2722,9 +2759,14 @@
       "topic": "spec-and-scope/claims-outrun-available-evidence",
       "severity": "low",
       "status": "fixed",
-      "occurrences": 1,
+      "occurrences": 2,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-26",
+          "note": "A design reviewer first classified an unresolved tier as a contradiction; the upstream handoff note already recorded it as a hold owned by an external approver. Caught on re-reading the handoff before the finding was issued; a gap is now classified by its stated owner first."
+        }
+      ],
       "rule": "Search the oracle before recording a question, and design seeds for the gates that tests pass through.",
       "signature": "A recorded question says a value is undefined, but a search of the cut finds it.",
       "root_cause": "The question was written without searching the oracle, and the gate precondition was not part of the seed.",
@@ -3673,9 +3715,14 @@
       "topic": "spec-and-scope/requirements-and-limits-collide",
       "severity": "medium",
       "status": "fixed",
-      "occurrences": 1,
+      "occurrences": 2,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-26",
+          "note": "A design document's first five sections used 69 KB of a 70 KB cap before the tail sections existed, forcing about 6 KB of trims over 70 exact-match edits; the skeleton had no per-section byte budget. A template check left to the end also found six sections missing a required table."
+        }
+      ],
       "rule": "Plan against a hard cap before the edit, not after.",
       "signature": "An edit is made first and the size cap is discovered afterward.",
       "root_cause": "The size limit was checked after the edit rather than planned.",
@@ -9692,9 +9739,18 @@
       "topic": null,
       "severity": "medium",
       "status": "fixed",
-      "occurrences": 1,
+      "occurrences": 3,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-26",
+          "note": "A design document labelled one choice as the upstream requirements document's default, but the label contradicted that document's own option set; a second-model reviewer found it."
+        },
+        {
+          "date": "2026-11-26",
+          "note": "In the next version of the same design document, upstream priorities and conditions were paraphrased under a default label, so the requirements document appeared to say something it did not; the reviewer required verbatim quotes of upstream priorities and conditions."
+        }
+      ],
       "rule": "When a ruling is restated in a spec, copy its population word for word; a qualifier borrowed from another purpose narrows an alarm, so diff every restated condition against the ruling's own words and fix each sibling copy",
       "signature": "A ruling said to report every sample over a limit at once, but the spec that restated it said to report only eligible samples.",
       "root_cause": "the restatement borrowed a qualifier from a different purpose (which samples count toward calibration) and applied it to an alarm, and the same wording was copied into a sibling document",
@@ -13804,9 +13860,14 @@
       "topic": null,
       "severity": "low",
       "status": "mitigated",
-      "occurrences": 1,
+      "occurrences": 2,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-26",
+          "note": "An approval was already in the review log, but the document header still called the same revision a draft. A later reviewer noticed the split; update the visible status in the same change that records approval."
+        }
+      ],
       "rule": "Update a backlog row status with the merge commit at the time its fix merges, so the backlog stays the record of what is done.",
       "signature": "The backlog lists as open rows whose fixes are already on the main line.",
       "root_cause": "Marking a row done was a separate step from the merge, with no check tying the two together.",
@@ -16850,12 +16911,16 @@
       "topic": "tooling-paths/tool-defaults-not-target",
       "severity": "medium",
       "status": "mitigated",
-      "occurrences": 2,
+      "occurrences": 3,
       "recurrence_of": null,
       "recurrences": [
         {
           "date": "2026-11-16",
           "note": "A triage written ten days earlier marked a company's funding stage unchecked after the search tool errored; the fallback chain already in the research procedure (news feeds, metasearch, forum and filing searches, a job-board API, direct fetches) settled it in about ten calls and moved a score."
+        },
+        {
+          "date": "2026-11-25",
+          "note": "A research author marked two vendors' pricing unverified because their pricing route returned a single-page-app shell with no text; the homepage and the site's llms.txt carried the prices. Caught by a reviewer, then by the author's re-fetch."
         }
       ],
       "rule": "Write unverified only after every retrieval route has failed, not one endpoint: when a search tool errors, run the documented fallbacks (news feeds through the page fetcher, a direct fetch of the likely source, reference and filing searches) and list the routes tried beside the gap word.",
@@ -17044,9 +17109,14 @@
       "topic": "spec-and-scope/claims-outrun-available-evidence",
       "severity": "medium",
       "status": "mitigated",
-      "occurrences": 1,
+      "occurrences": 2,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-25",
+          "note": "A research author assumed a precedent product still took new customers and offered it as a deployable alternative; its live docs said new-customer signup was closed and pointed elsewhere. Caught when the author fetched the live docs: a present-state premise again went unchecked at write time."
+        }
+      ],
       "rule": "Check every current-event premise against the primary status source at write time and record the check date; use secondary reporting to establish historical events, not present state.",
       "signature": "A dated secondary report supports a present-tense market premise, while the primary status source records a later reversal.",
       "root_cause": "Evidence that an event occurred was treated as evidence that its resulting state still held; no write-time check of the primary status source bounded the present-tense claim.",
@@ -17094,9 +17164,22 @@
       "topic": "spec-and-scope/requirements-and-limits-collide",
       "severity": "medium",
       "status": "fixed",
-      "occurrences": 1,
+      "occurrences": 4,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-26",
+          "note": "A requirements document's option set listed a con shared by every option under only one of them; a second-model reviewer flagged it."
+        },
+        {
+          "date": "2026-11-26",
+          "note": "While downgrading over-aggressive eliminations in a design document, one option that an approved top-priority requirement rules out was left viable: the requirement was not re-applied to every viable option after the retag. A reviewer's re-verification caught it."
+        },
+        {
+          "date": "2026-11-26",
+          "note": "Retagging an elimination to cite a requirement left two options citing one requirement with different tags; the author flagged the pair to the reviewer. Same-condition-same-tag applies to requirements as well as invariants, with the differing condition stated in both cons."
+        }
+      ],
       "rule": "Write each decision invariant once, apply the same severity to every option that shares its condition, and never label a disadvantage common to all options as uniquely blocking; recompute verdicts after corrections.",
       "signature": "The same disqualifying condition is blocking for one alternative and advisory for others; a limitation shared by all alternatives is presented as uniquely blocking.",
       "root_cause": "The analysis assigned severity labels while discussing options one at a time instead of defining each invariant once and mapping it consistently to every option it affects.",
@@ -17171,9 +17254,14 @@
       "topic": null,
       "severity": "low",
       "status": "mitigated",
-      "occurrences": 1,
+      "occurrences": 2,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-26",
+          "note": "In a requirements-document review, a case-insensitive scan for a company name matched an ordinary word. Reading each hit showed no leak, and the reviewer caught it before any finding was reported; every scan hit is read before it is reported."
+        }
+      ],
       "rule": "Keep filesystem-prefix patterns case-sensitive and separate them from case-insensitive personal-name patterns; review matched context to distinguish a public URL segment from a machine-local path.",
       "signature": "A case-insensitive private-path prefix pattern matches a lowercase user-resource segment in a public API URL.",
       "root_cause": "A single case-insensitivity modifier was applied to tokens with different case semantics: machine-local path prefixes require exact casing, while human-name tokens may need case-insensitive matching.",
@@ -17236,6 +17324,409 @@
       "related": [
         "INC-0076",
         "INC-0489"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0656",
+      "title": "Provider technical properties were asserted from a category label, one consumer's configuration and a marketing page, not from the provider's technical documentation",
+      "date": "2026-11-25",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "topic": "spec-and-scope/claims-outrun-available-evidence",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Take a provider's technical property (isolation boundary, persistence, deployment model) only from its own technical documentation for the specific offering and runtime class, and check it on the page cited; a category label, a marketing page or one consumer's configuration is never the provider's contract.",
+      "signature": "A comparison groups or describes providers in the words of a marketing category, a landing page or one customer's setup, while the provider's own runtime or deployment documentation lists a different default or several options.",
+      "root_cause": "The source used for a provider's technical property described something else: the category the provider markets itself under, how one customer configured it, or what a sales page promises. Each is true about something, so none looked fabricated, but none states the provider's contract for the specific offering and runtime class being compared.",
+      "what": "Several defects from one research effort share this mechanism. An author grouped two sandbox providers under their shared marketing category (microVM isolation); their runtime documentation showed that one defaults to a container and the other also offers a user-space kernel sandbox, so the grouping was wrong at exactly the level an isolation decision needs. The same author described a provider's storage as ephemeral because one consuming application configured it that way; the provider documents default persistence. A reviewer read a vendor's marketing page ('deploy in your own cloud network') as confirming a deployment claim, while the page the document actually cited showed vendor-hosted deployment. Another document's first draft overstated a vendor's deployment model the same way. The author's own primary-source pass caught the first two; review caught the other two.",
+      "file": "incidents/INC-0656-provider-technical-properties-were-asserted-from-a-category.md",
+      "node": "catalog/spec-and-scope/claims-outrun-available-evidence.md",
+      "related": [
+        "INC-0648"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0657",
+      "title": "Documentation URLs and vendor quotes were cited from memory: five links returned 404 and two quotes were no longer on the live pages",
+      "date": "2026-11-25",
+      "classes": [
+        "false-green",
+        "delegation"
+      ],
+      "topic": "false-green/oracle-or-claim-written-from-memory",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Fetch every URL before you cite it or hand it to anyone, and copy it from the page that loaded; quote only text from a fetch made in the revision that cites it. A remembered or reconstructed route is a guess, and so is wording from an earlier visit.",
+      "signature": "A cited URL or a quoted phrase has no fetch behind it in the current revision: the link returns 404, or the words are not on the page as it reads today.",
+      "root_cause": "URLs and quotes were produced from recall of how a documentation site is usually laid out, or of what a page said on an earlier visit, instead of being copied from a fetch made for this revision. Documentation sites reorganise paths and rewrite copy, so recall drifts from the live site without any signal.",
+      "what": "Three rows from one research effort. An author cited four documentation URLs from memory, and a citation audit found that all four returned 404. A reviewer reconstructed a documentation URL from memory instead of copying one it had fetched, and the lead passed it to the author in a revision brief without fetching it; it returned 404, and the author found the live page through the documentation site's search. A reviewer quoted two vendor phrases that were no longer on the live pages; the author re-fetched both pages and found different wording.",
+      "file": "incidents/INC-0657-documentation-urls-and-vendor-quotes-were-cited-from-memory.md",
+      "node": "catalog/false-green/oracle-or-claim-written-from-memory.md",
+      "related": [
+        "INC-0206",
+        "INC-0642"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0658",
+      "title": "Facts were cited to a neighbouring page that does not state them: a general product page, the newest release, a paginated index",
+      "date": "2026-11-25",
+      "classes": [
+        "false-green",
+        "spec-and-scope"
+      ],
+      "topic": "false-green/proxy-artifact-cited-as-evidence",
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 3,
+      "recurrence_of": null,
+      "recurrences": [
+        {
+          "date": "2026-11-25",
+          "note": "A research author stated that a workflow engine deploys as a single node and cited its deployment guide; the guide covers installation mechanisms only and states no topology. Caught by the author's own page check during revision."
+        },
+        {
+          "date": "2026-11-26",
+          "note": "An author cited audience confidence ratings to a section that discusses those audiences but assigns no ratings; one rating came from another document. The reviewer nearly accepted them because the section covered the topic, then read the cited lines."
+        }
+      ],
+      "rule": "Cite each fact to the page whose text states it (the release note that contains it, the per-item page, the specific doc), and search that page for the claim before citing; a page merely about the subject, the newest release or an index page is not support.",
+      "signature": "A cited page loads and is about the right subject, but searching it for the claim finds nothing; the statement lives on a sibling page such as an older release note or a per-item page.",
+      "root_cause": "The citation was chosen by topic (the page about this product, the latest release, the list that includes the item) instead of by content (the page whose text states the fact). Nobody searched the cited page for the claim before citing it.",
+      "what": "Three rows from one research effort. An availability claim was cited to a provider's general product page instead of the page that states it. A reviewer attributed a changelog fact (a settings screen moved into the app) to the newest release; that release's page had no such note, and a search of the full feed showed it shipped several releases earlier. A first draft cited a paginated index page for facts that each live on a per-item page, so the support would move as the index paged on.",
+      "file": "incidents/INC-0658-facts-were-cited-to-a-neighbouring-page-that-does-not-state.md",
+      "node": "catalog/false-green/proxy-artifact-cited-as-evidence.md",
+      "related": [
+        "INC-0062",
+        "INC-0194"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0659",
+      "title": "A reviewer called a correct release count wrong because the feed had moved on since the document's date, and the real defect was a missing as-of date",
+      "date": "2026-11-25",
+      "classes": [
+        "spec-and-scope",
+        "detector-fail-closed"
+      ],
+      "topic": "spec-and-scope/records-drift-or-lose-provenance",
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Write every time-varying fact with an as-of date; when reviewing one, check the document's date before calling it wrong, and report currency (stale since) separately from accuracy (wrong on its date).",
+      "signature": "A review marks a number or a state as wrong after checking the live source, the document's date shows it was right when written, and the sentence carries no as-of date.",
+      "root_cause": "Accuracy (true on the date written) and currency (still true today) were conflated. The sentence gave no as-of date, so the reviewer compared it with today's source by default.",
+      "what": "A reviewer checked a release count in a research document against the live release feed, found more releases, and flagged the count as wrong. Re-reading the document's date showed the count was correct on that date; the feed had simply moved on. The real defect was that the sentence stated a time-varying fact without an as-of date. Another document's first draft had the same author-side gap: currency claims with no date.",
+      "file": "incidents/INC-0659-a-reviewer-called-a-correct-release-count-wrong-because-the.md",
+      "node": "catalog/spec-and-scope/records-drift-or-lose-provenance.md",
+      "related": [
+        "INC-0648",
+        "INC-0055"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0660",
+      "title": "Two servers' licences were presumed from their projects' permissive SDKs, and both packaged servers shipped under source-available licences",
+      "date": "2026-11-25",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "topic": "spec-and-scope/claims-outrun-available-evidence",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Before any architecture or white-label recommendation, read and cite the LICENSE of the exact packaged artifact and version you would deploy; a project's SDK or client licence says nothing about its server.",
+      "signature": "A licence statement about a server or engine rests on the project's SDK, client library or overview page, and no LICENSE file of the packaged server artifact is cited.",
+      "root_cause": "A project's licence narrative was treated as covering every artifact it ships. Open-core projects commonly license the client SDK permissively and the server under a different, restrictive licence, so the SDK's licence carries no information about the server.",
+      "what": "An author presumed the licences of two self-hostable servers from their projects' permissive SDK messaging. Reading the LICENSE files of the packaged servers showed two different source-available licences with use restrictions a permissive licence does not have, which bear directly on an architecture or white-label recommendation.",
+      "file": "incidents/INC-0660-two-servers-licences-were-presumed-from-their-projects-permi.md",
+      "node": "catalog/spec-and-scope/claims-outrun-available-evidence.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0661",
+      "title": "An early review checkpoint held headings but no findings",
+      "date": "2026-11-25",
+      "classes": [
+        "checkpoint"
+      ],
+      "topic": null,
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Checkpoint completed checks and findings on disk every few checks or after a finding; do not count an outline with no results as a progress checkpoint.",
+      "signature": "A review file exists early, but it still contains only headings after several checks have been completed.",
+      "root_cause": "The checkpoint was treated as a one-time file creation rather than a recurring save of completed work.",
+      "what": "In one review, the reviewer noticed after a context compaction that no checked items or findings had been added to the outline. In a second review, the reviewer ran roughly ten checks before saving any results despite an instruction to save every few checks. The two reviews exposed the same gap: the presence of a file did not mean the work was recoverable from it.",
+      "file": "incidents/INC-0661-an-early-review-checkpoint-held-headings-but-no-findings.md",
+      "node": "catalog/checkpoint/README.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0662",
+      "title": "Two derived summaries repeated a pricing unit error and nearly corroborated each other",
+      "date": "2026-11-26",
+      "classes": [
+        "spec-and-scope",
+        "false-green"
+      ],
+      "topic": "spec-and-scope/claims-outrun-available-evidence",
+      "severity": "medium",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Check each price and its charging unit against the canonical fact section before writing or grading it; agreement between derived summaries is not independent corroboration.",
+      "signature": "Two derived documents agree on a price unit, while their canonical fact section describes a different charging basis.",
+      "root_cause": "Repeated summaries were treated as independent evidence, and the price unit was not carried and checked alongside the amount at its authoritative source.",
+      "what": "An author summarized a pricing range as per person even though the cited fact section described one provider as charging a flat fee for a team. A recommendation elsewhere repeated the same unit error. During review, agreement with that second summary nearly counted as confirmation until the reviewer returned to the fact section. The author error and reviewer near-miss are two observations of the same unverified transfer of a quantity and its unit through derived documents.",
+      "file": "incidents/INC-0662-two-derived-summaries-repeated-a-pricing-unit-error-and-near.md",
+      "node": "catalog/spec-and-scope/claims-outrun-available-evidence.md",
+      "related": [
+        "INC-0639",
+        "INC-0643"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0663",
+      "title": "An untested command route rejected every call in a fetch batch",
+      "date": "2026-11-25",
+      "classes": [
+        "tooling-paths"
+      ],
+      "topic": "tooling-paths/tool-defaults-not-target",
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Before batching a new CLI invocation, run one representative request through the exact dispatch path and verify the intended result; do not multiply an untested command route.",
+      "signature": "Every item in a bulk fetch fails at command dispatch before any source can be retrieved.",
+      "root_cause": "The script multiplied an assumed command interface without a representative end-to-end invocation through that same dispatch path.",
+      "what": "An author ran a bulk-fetch script whose invocation used the wrong CLI route for the fetch tool. Every call was rejected. The shared route was corrected after the batch failed, rather than being tested with one real request before repetition.",
+      "file": "incidents/INC-0663-an-untested-command-route-rejected-every-call-in-a-fetch-bat.md",
+      "node": "catalog/tooling-paths/tool-defaults-not-target.md",
+      "related": [
+        "INC-0603",
+        "INC-0060"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0664",
+      "title": "A text edit wrote literal escape sequences instead of the intended characters",
+      "date": "2026-11-26",
+      "classes": [
+        "tooling-paths"
+      ],
+      "topic": "tooling-paths/edit-or-match-hit-wrong-bytes",
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Treat edit arguments as literal text unless decoding is documented; supply the actual intended characters and read the changed file on disk after every edit.",
+      "signature": "An edited document displays backslash escape spellings where line breaks or punctuation were intended.",
+      "root_cause": "The caller assumed that the edit argument would undergo another escape-decoding pass, although it was treated as literal text.",
+      "what": "An author supplied replacement text containing escaped newline and hexadecimal apostrophe spellings to a text-edit tool. The tool stored those sequences literally rather than decoding them, so the file contained visible escape text instead of the intended line breaks and apostrophes. Viewing the file after the edit exposed the mismatch.",
+      "file": "incidents/INC-0664-a-text-edit-wrote-literal-escape-sequences-instead-of-the-in.md",
+      "node": "catalog/tooling-paths/edit-or-match-hit-wrong-bytes.md",
+      "related": [
+        "INC-0024",
+        "INC-0464"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0665",
+      "title": "A process spec required a check to pass before the event that triggers the check",
+      "date": "2026-11-26",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/instructions-tools-cannot-follow",
+      "severity": "low",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "When specifying approval phases, name the event that triggers each check and walk the sequence to confirm it can run in that order; a gate must never wait on a result that exists only after the step it gates.",
+      "signature": "A phase list places a gate before an event, and the check behind that gate only starts when the event happens.",
+      "root_cause": "The phases were ordered by intent (quality before exposure) without writing down which event starts each check, so a dependency on a later event went unnoticed.",
+      "what": "The first draft of a requirements document for a delivery workflow listed its approval phases in order and required the continuous-integration run to be green before a pull request could be opened. In the same draft that run was triggered by opening the pull request, so the gate waited on a result that could not exist until the gated step had happened. The author found the cycle in a consistency pass before review and split the checks: local checks and the human approval come before the pull request, and the checks the pull request triggers come before the merge.",
+      "file": "incidents/INC-0665-a-process-spec-required-a-check-to-pass-before-the-event-tha.md",
+      "node": "catalog/spec-and-scope/instructions-tools-cannot-follow.md",
+      "related": [
+        "INC-0621",
+        "INC-0615",
+        "INC-0353"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0666",
+      "title": "A reviewer began grading from partial reads: a file view clipped in the middle and a criterion read only up to its waiver clause",
+      "date": "2026-11-26",
+      "classes": [
+        "observability",
+        "false-green"
+      ],
+      "topic": "observability/missing-or-unverifiable-receipts",
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Never grade from a partial read: if a view shows an omission marker or fewer bytes than the file holds, re-read in ranges until it is whole; read each criterion to its last clause, and open every requirement a section claims to satisfy, before writing a verdict on it.",
+      "signature": "A file view shows an omission marker in the middle, or a grade is written for a criterion or section before its last clause and the requirement it cites have been read.",
+      "root_cause": "A grade was formed from the part of the text already in view, and nothing forced a check that the view was complete: the tool clips with only a marker, and a criterion or section looks finished before its qualifier or its cited requirement is read.",
+      "what": "Two document reviews on the same day each began from an incomplete read; this record covers both. In the first, the reviewer's file-view tool returned a file with about 15 KB elided from the middle, shown only by a characters-omitted marker, and the reviewer also classified an acceptance criterion before reading its trailing clause, which carried a waiver. In the second, a design reviewer marked a section clean before opening the requirement that the section claimed to satisfy. In all three cases the reviewer noticed before issuing findings, read the missing text and regraded.",
+      "file": "incidents/INC-0666-a-reviewer-began-grading-from-partial-reads-a-file-view-clip.md",
+      "node": "catalog/observability/missing-or-unverifiable-receipts.md",
+      "related": [
+        "INC-0515"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0667",
+      "title": "A requirements document's option set settled a question the governing plan assigns to the design document",
+      "date": "2026-11-26",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/wrong-owner-path-or-scope",
+      "severity": "low",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Before a stage document decides a question, check which stage the governing plan assigns it to; a requirements document states the need and the constraints and leaves a design-assigned question open for the design document.",
+      "signature": "A document for one stage lists options and picks one for a question that the project's governing plan names as belonging to a later stage's document.",
+      "root_cause": "The author had the whole project context in view and answered an open question it could see, without checking which stage the governing plan names as the owner of that decision.",
+      "what": "A project's governing plan assigned each open question to a stage: requirements first, design after. The first version of the requirements document included an option set that weighed alternatives for one of the questions assigned to the design stage and chose among them. A second-model reviewer, reading the document against the plan's assignments, reported that the decision was not this document's to make. The rule adopted from the finding is that the requirements document states the need and leaves the choice to the design stage.",
+      "file": "incidents/INC-0667-a-requirements-document-s-option-set-settled-a-question-the.md",
+      "node": "catalog/spec-and-scope/wrong-owner-path-or-scope.md",
+      "related": [],
+      "evidence": []
+    },
+    {
+      "id": "INC-0668",
+      "title": "An options analysis eliminated alternatives on blocking cons that the cited sources did not support",
+      "date": "2026-11-26",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/claims-outrun-available-evidence",
+      "severity": "medium",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Tag a con blocking only if you can quote the source line or name the exact invariant that makes the option infeasible; if the source says only harder or needs more parts, tag it advisory; and list every option the upstream document kept viable so none is eliminated by omission.",
+      "signature": "A con tagged blocking carries a citation, and the cited passage says only that the option is harder or needs more parts, or names a different constraint from the one the option breaks.",
+      "root_cause": "The cons were written from the author's impression of each alternative, and the citation was attached as a pointer to the topic without re-opening the passage to confirm it states infeasibility. Harder was rounded up to impossible, and the nearest-sounding invariant stood in for the one at stake.",
+      "what": "The first version of a design document compared implementation options and eliminated several on cons tagged blocking, each with a citation. A second-model reviewer opened the source behind every blocking con, 58 checks, and found several did not hold: a hosted free tier said to be absent existed, a database role said to be unrestrictable could be scoped, two workflow engines said to lack a self-hosted container path documented one, and a protocol said to forbid a behaviour did not forbid it. One option the upstream research had kept viable was missing from the comparison altogether. In the next version one elimination cited a self-approval invariant although the option kept a separate human gate; its real defect was a different one. A stage earlier the same pattern had appeared in the requirements document, where a requirement cited a section that in fact sequenced the feature last.",
+      "file": "incidents/INC-0668-an-options-analysis-eliminated-alternatives-on-blocking-cons.md",
+      "node": "catalog/spec-and-scope/claims-outrun-available-evidence.md",
+      "related": [
+        "INC-0650"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0669",
+      "title": "Sections of one design document contradicted each other on a terminal state, a durability promise and a component's access",
+      "date": "2026-11-26",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/requirements-and-limits-collide",
+      "severity": "medium",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Before submitting a design document, search every state name and every durability, deletion or restore claim across all sections and reconcile them to one terminal state per cause; re-read each sentence copied from research against the decisions already made.",
+      "signature": "One cause maps to different terminal states in a diagram and a table, or one section promises a property that a procedure in another section can break.",
+      "root_cause": "Each section was checked against its own sources and template when written, and no pass compared the names and promises that several sections share. An imported sentence carried the assumptions of the document it came from.",
+      "what": "A long design document was written section by section; this record covers two sets of findings from it. While the first version was being drafted, a sentence imported from the research notes said workers claim jobs with row locks, while another section had decided that workers never touch the database; the author caught it during a trim pass. In the second version a reviewer found that a timeout led to one terminal state in the state diagram and a different one in the step table, and that one section promised the audit trail is never deleted while the backup-restore procedure in another could delete it. After the fixes, a dedicated search for each state name across the document found no further conflict.",
+      "file": "incidents/INC-0669-sections-of-one-design-document-contradicted-each-other-on-a.md",
+      "node": "catalog/spec-and-scope/requirements-and-limits-collide.md",
+      "related": [
+        "INC-0302"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0670",
+      "title": "A blocking tag was attached to a sub-variant that was not a listed option, so a viable option read as blocked and an unlisted variant read as eliminated",
+      "date": "2026-11-26",
+      "classes": [
+        "spec-and-scope"
+      ],
+      "topic": "spec-and-scope/requirements-and-limits-collide",
+      "severity": "low",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Attach a blocking or advisory tag only to an option in the document's own option list; describe a bad sub-variant inside its option and say it is not this option, and before promoting a variant to an option check whether an equivalent one is already listed.",
+      "signature": "A comparison table or con list carries a blocking tag whose subject is one way of building an option, not one of the options the document lists.",
+      "root_cause": "The tag vocabulary was defined for options, but the prose discussed variants of options alongside them, and nothing required the subject of a tag to be an entry in the option list.",
+      "what": "A design document compared listed options and tagged each con blocking or advisory; this record covers three versions of it. While the first was being drafted, a blocking tag sat on a sub-variant described inside an option that stayed viable, so the option read as viable with a blocking con; the author's automated tag check caught it. In the second, the comparison table recorded a sub-variant's defect as an elimination although that variant was not a listed option; a second-model reviewer caught it. In the third, before narrowing an eliminated option into a viable variant, the author first checked whether that variant already existed as a listed option. It did, which settled the question without a new entry.",
+      "file": "incidents/INC-0670-a-blocking-tag-was-attached-to-a-sub-variant-that-was-not-a.md",
+      "node": "catalog/spec-and-scope/requirements-and-limits-collide.md",
+      "related": [
+        "INC-0650"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0671",
+      "title": "An incident id from a private log was read as an id in a public corpus that numbers its records separately",
+      "date": "2026-11-25",
+      "classes": [
+        "identity-and-keying",
+        "delegation"
+      ],
+      "topic": "identity-and-keying/new-id-already-taken",
+      "severity": "low",
+      "status": "mitigated",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Resolve every cross-reference into a corpus with that corpus's own lookup (check, search or show) and read the record before using the id; never carry an id from one repository's numbering into another unresolved.",
+      "signature": "A note or brief says a failure is already recorded under an id, and the id has the target corpus's format but comes from a different log.",
+      "root_cause": "Two registries use one id format with independent numbering, and an id was carried from one into the other as if it were global.",
+      "what": "A private learning log stated that a mechanism was already recorded under a given incident id, and a delegation brief for curating a public incident corpus repeated the pointer. The private log numbers its incidents on its own scale but writes ids in the same format as the public corpus. A curator about to file a recurrence against that id first ran the corpus's own show command and found that the id named an unrelated record. The pointer was dropped and the duplicate check was redone with the corpus's search.",
+      "file": "incidents/INC-0671-an-incident-id-from-a-private-log-was-read-as-an-id-in-a-pub.md",
+      "node": "catalog/identity-and-keying/new-id-already-taken.md",
+      "related": [
+        "INC-0080"
       ],
       "evidence": []
     }

@@ -6,16 +6,17 @@
 
 **Rule:** Pin tools by absolute path and verify each wrapper, launch form and config exists and behaves as assumed in THIS shell before relying on it; close gates only through the canonical entry; read the tool's error stream and name the failure class before attributing a failure to the target.
 
-9 incidents, 10 occurrences. Ordered by occurrences, then severity, then id.
+10 incidents, 12 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
 ### [INC-0640](../../incidents/INC-0640-a-fact-was-recorded-as-unverified-because-the-web-search-too.md) - A fact was recorded as unverified because the web-search tool errored, while the page-fetch tool and other retrieval routes still worked
-- occurrences 2, severity medium, status mitigated
+- occurrences 3, severity medium, status mitigated
 - **Signature:** A research note writes unverified or unchecked beside a fact right after one retrieval tool errored, and no other route is listed as tried.
 - **Rule:** Write unverified only after every retrieval route has failed, not one endpoint: when a search tool errors, run the documented fallbacks (news feeds through the page fetcher, a direct fetch of the likely source, reference and filing searches) and list the routes tried beside the gap word.
 - **Recurrences:**
   - 2026-11-16 - A triage written ten days earlier marked a company's funding stage unchecked after the search tool errored; the fallback chain already in the research procedure (news feeds, metasearch, forum and filing searches, a job-board API, direct fetches) settled it in about ten calls and moved a score.
+  - 2026-11-25 - A research author marked two vendors' pricing unverified because their pricing route returned a single-page-app shell with no text; the homepage and the site's llms.txt carried the prices. Caught by a reviewer, then by the author's re-fetch.
 
 ### [INC-0072](../../incidents/INC-0072-four-different-fetch-failures-were-all-reported-as-the-site.md) - Four different fetch failures were all reported as 'the site blocks automated access'
 - occurrences 1, severity medium, status mitigated
@@ -56,3 +57,8 @@
 - occurrences 1, severity low, status mitigated
 - **Signature:** A bounded run exits before any child process starts.
 - **Rule:** When a bounded run fails before any child runs, void it openly as a wrapper defect and report the corrected invocation; do not retry silently.
+
+### [INC-0663](../../incidents/INC-0663-an-untested-command-route-rejected-every-call-in-a-fetch-bat.md) - An untested command route rejected every call in a fetch batch
+- occurrences 1, severity low, status mitigated
+- **Signature:** Every item in a bulk fetch fails at command dispatch before any source can be retrieved.
+- **Rule:** Before batching a new CLI invocation, run one representative request through the exact dispatch path and verify the intended result; do not multiply an untested command route.

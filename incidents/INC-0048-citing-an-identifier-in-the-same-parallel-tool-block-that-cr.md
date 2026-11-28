@@ -6,7 +6,7 @@ classes: [concurrency, observability]
 severity: low
 status: fixed
 topic: null
-occurrences: 2
+occurrences: 4
 ---
 
 # INC-0048 - Citing an identifier in the same parallel tool block that creates it makes the citation a guess
@@ -45,9 +45,11 @@ The corrected citation was read from the commit's own output.
 
 ## Recurrences
 
-Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+Occurrences: 4. Repeats of this failure are recorded here instead of as new incidents.
 
 - 2026-11-19 - A lead issued a teammate spawn and the write of a tracking file in one parallel batch, so the file recorded a thread id the spawn had not yet returned; a later retain call on that id failed with thread not found.
+- 2026-11-26 - A tracking log and a durable note recorded a guessed commit hash in the parallel batch that created the commit. The lead found the mismatch after reading the commit output.
+- 2026-11-26 - Second time in one evening: a lead wrote a spawned thread's id into a retain call, a roster and a memory note in the batch after the spawn, from an id it had composed, not read; the retain failed with thread not found. The roster write must now quote the spawn output line.
 
 ## Related
 

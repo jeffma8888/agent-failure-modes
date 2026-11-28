@@ -6,7 +6,7 @@ classes: [spec-and-scope]
 severity: low
 status: fixed
 topic: spec-and-scope/claims-outrun-available-evidence
-occurrences: 1
+occurrences: 2
 ---
 
 # INC-0089 - A QA question claimed a credential or fact was undefined when the cut already defined it, and a restore through a gated write needed a satisfying seed
@@ -42,3 +42,9 @@ Checked by the reviewer or engineer who reported it. Not checked: whether the ne
 ## Transferable rule
 
 > Search the oracle before recording a question, and design seeds for the gates that tests pass through.
+
+## Recurrences
+
+Occurrences: 2. Repeats of this failure are recorded here instead of as new incidents.
+
+- 2026-11-26 - A design reviewer first classified an unresolved tier as a contradiction; the upstream handoff note already recorded it as a hold owned by an external approver. Caught on re-reading the handoff before the finding was issued; a gap is now classified by its stated owner first.

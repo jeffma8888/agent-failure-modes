@@ -8,7 +8,7 @@ A monitor or safety check silently never fires: a wrong regex flavor, the wrong 
 
 **You are probably here if:** A check stays silent on known-bad input, matches the wrong evidence, skips part of its scope or treats missing data as permission.
 
-31 incidents filed here (31 occurrences); 20 more filed elsewhere are also tagged detector-fail-open.
+31 incidents filed here (33 occurrences); 20 more filed elsewhere are also tagged detector-fail-open.
 
 ## Topics
 
@@ -17,8 +17,8 @@ n = occurrences: incidents filed in the topic plus their repeats.
 | Topic | Go here if | n | Link |
 |---|---|---|---|
 | The checker ran but its target coverage is unproven | A successful checker or recorder misses its target, scans the wrong baseline, includes excluded files or ignores required history. | 9 | [coverage-and-controls-not-proven](coverage-and-controls-not-proven.md) |
+| A parser or pattern reads the wrong evidence | A detector sees nothing, matches injected text or classifies the wrong substring despite visible evidence. | 9 | [wrong-parser-or-pattern](wrong-parser-or-pattern.md) |
 | Syntax matching accepts decoys or rejects valid forms | A static rule recognizes one syntax shape, misses aliases or accepts a benign substring beside an invalid target. | 7 | [syntax-shapes-and-benign-decoys](syntax-shapes-and-benign-decoys.md) |
-| A parser or pattern reads the wrong evidence | A detector sees nothing, matches injected text or classifies the wrong substring despite visible evidence. | 7 | [wrong-parser-or-pattern](wrong-parser-or-pattern.md) |
 | A broken guard implementation still appears valid | The guard appears to satisfy its contract even though a faulty implementation can produce the same passing result. | 6 | [guard-defaults-and-negative-controls](guard-defaults-and-negative-controls.md) |
 
 ## Class-level incidents
