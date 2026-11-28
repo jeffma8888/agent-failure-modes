@@ -3,13 +3,13 @@
  "root": "catalog/README.md",
  "core": "catalog/CORE.md",
  "counts": {
-  "incidents": 671,
+  "incidents": 672,
   "classes": 18,
   "topics": 54,
   "practices": 5,
   "recurrence_records": 42,
-  "recorded_repeats": 24,
-  "occurrences": 695
+  "recorded_repeats": 25,
+  "occurrences": 697
  },
  "most_recurrent": [
   [
@@ -21,15 +21,15 @@
    5
   ],
   [
+   "INC-0611",
+   5
+  ],
+  [
    "INC-0650",
    4
   ],
   [
    "INC-0048",
-   4
-  ],
-  [
-   "INC-0611",
    4
   ],
   [
@@ -560,9 +560,9 @@
   },
   "detector-fail-open": {
    "node": "catalog/detector-fail-open/README.md",
-   "home": 31,
+   "home": 32,
    "also_tagged": 20,
-   "occurrences": 33,
+   "occurrences": 34,
    "topics": [
     "detector-fail-open/coverage-and-controls-not-proven",
     "detector-fail-open/guard-defaults-and-negative-controls",
@@ -802,7 +802,7 @@
    "node": "catalog/observability/README.md",
    "home": 44,
    "also_tagged": 58,
-   "occurrences": 47,
+   "occurrences": 48,
    "topics": [
     "observability/clock-labels-without-clock-evidence",
     "observability/misleading-metrics-and-status",
@@ -1128,7 +1128,7 @@
   "detector-fail-open/wrong-parser-or-pattern": {
    "title": "A parser or pattern reads the wrong evidence",
    "node": "catalog/detector-fail-open/wrong-parser-or-pattern.md",
-   "occurrences": 9,
+   "occurrences": 10,
    "incidents": [
     "INC-0018",
     "INC-0019",
@@ -1136,7 +1136,8 @@
     "INC-0077",
     "INC-0078",
     "INC-0118",
-    "INC-0224"
+    "INC-0224",
+    "INC-0672"
    ]
   },
   "false-green/check-satisfied-by-unrelated-cause": {
@@ -1411,7 +1412,7 @@
   "observability/clock-labels-without-clock-evidence": {
    "title": "Timestamp labels disagree with the actual clock",
    "node": "catalog/observability/clock-labels-without-clock-evidence.md",
-   "occurrences": 15,
+   "occurrences": 16,
    "incidents": [
     "INC-0274",
     "INC-0350",

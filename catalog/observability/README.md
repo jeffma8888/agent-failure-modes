@@ -8,7 +8,7 @@ The signal you trust hides the truth: an outcome flag masks a chronically over-b
 
 **You are probably here if:** Logs, timing, counts or status look reassuring, but the underlying run, evidence or reported chronology cannot be verified.
 
-44 incidents filed here (47 occurrences); 58 more filed elsewhere are also tagged observability.
+44 incidents filed here (48 occurrences); 58 more filed elsewhere are also tagged observability.
 
 ## Topics
 
@@ -16,7 +16,7 @@ n = occurrences: incidents filed in the topic plus their repeats.
 
 | Topic | Go here if | n | Link |
 |---|---|---|---|
-| Timestamp labels disagree with the actual clock | A ruling, brief or receipt has a time ahead of the clock, a guessed label or a quoted clock value no call returned. | 15 | [clock-labels-without-clock-evidence](clock-labels-without-clock-evidence.md) |
+| Timestamp labels disagree with the actual clock | A ruling, brief or receipt has a time ahead of the clock, a guessed label or a quoted clock value no call returned. | 16 | [clock-labels-without-clock-evidence](clock-labels-without-clock-evidence.md) |
 | A reassuring signal contradicts the underlying evidence | The reported result looks settled, but inspecting the actual target does not support what the signal or summary claims. | 14 | [misleading-metrics-and-status](misleading-metrics-and-status.md) |
 | Missing evidence keeps findings unverified | You cannot verify a finding from inspectable evidence of the actual run, and repeated inspection still leaves the same questions open. | 13 | [missing-or-unverifiable-receipts](missing-or-unverifiable-receipts.md) |
 

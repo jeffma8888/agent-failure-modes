@@ -89,9 +89,9 @@ A monitor or safety check silently never fires: a wrong regex flavor, the wrong 
 
 **Ask:** Have you fed this detector a known-bad sample and watched it fire, AND a known-good sample and watched it stay silent?
 
-**Incidents:** 31 filed here, 20 more from other classes tagged with it. **Catalog node:** [catalog/detector-fail-open/](catalog/detector-fail-open/README.md)
+**Incidents:** 32 filed here, 20 more from other classes tagged with it. **Catalog node:** [catalog/detector-fail-open/](catalog/detector-fail-open/README.md)
 
-**Topics:** [The checker ran but its target coverage is unproven](catalog/detector-fail-open/coverage-and-controls-not-proven.md) (9), [A broken guard implementation still appears valid](catalog/detector-fail-open/guard-defaults-and-negative-controls.md) (6), [Syntax matching accepts decoys or rejects valid forms](catalog/detector-fail-open/syntax-shapes-and-benign-decoys.md) (7), [A parser or pattern reads the wrong evidence](catalog/detector-fail-open/wrong-parser-or-pattern.md) (9)
+**Topics:** [The checker ran but its target coverage is unproven](catalog/detector-fail-open/coverage-and-controls-not-proven.md) (9), [A broken guard implementation still appears valid](catalog/detector-fail-open/guard-defaults-and-negative-controls.md) (6), [Syntax matching accepts decoys or rejects valid forms](catalog/detector-fail-open/syntax-shapes-and-benign-decoys.md) (7), [A parser or pattern reads the wrong evidence](catalog/detector-fail-open/wrong-parser-or-pattern.md) (10)
 
 ## detector-fail-closed
 
@@ -145,7 +145,7 @@ The signal you trust hides the truth: an outcome flag masks a chronically over-b
 
 **Incidents:** 44 filed here, 58 more from other classes tagged with it. **Catalog node:** [catalog/observability/](catalog/observability/README.md)
 
-**Topics:** [Timestamp labels disagree with the actual clock](catalog/observability/clock-labels-without-clock-evidence.md) (15), [A reassuring signal contradicts the underlying evidence](catalog/observability/misleading-metrics-and-status.md) (14), [Missing evidence keeps findings unverified](catalog/observability/missing-or-unverifiable-receipts.md) (13)
+**Topics:** [Timestamp labels disagree with the actual clock](catalog/observability/clock-labels-without-clock-evidence.md) (16), [A reassuring signal contradicts the underlying evidence](catalog/observability/misleading-metrics-and-status.md) (14), [Missing evidence keeps findings unverified](catalog/observability/missing-or-unverifiable-receipts.md) (13)
 
 ## spec-and-scope
 

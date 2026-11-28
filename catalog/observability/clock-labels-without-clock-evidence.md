@@ -6,7 +6,7 @@
 
 **Rule:** Generate each timestamp directly from a completed clock read and mechanically compare the written label with that returned value; never estimate it, type it from memory or schedule its write alongside the read.
 
-15 incidents, 15 occurrences. Ordered by occurrences, then severity, then id.
+15 incidents, 16 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -26,13 +26,14 @@
   - [INC-0606](../../incidents/INC-0606-ruling-labels-written-from-an-estimated-clock-ran-up-to-six.md) - 2026-11-04 - Ruling labels written from an estimated clock ran up to six minutes ahead of the real clock
 
 ### [INC-0611](../../incidents/INC-0611-a-time-label-was-written-in-the-same-script-that-read-the-cl.md) - A time label was written in the same script that read the clock afterwards, minutes after a rule to read the clock first was recorded
-- occurrences 4, severity low, status mitigated
+- occurrences 5, severity low, status mitigated
 - **Signature:** A time label is later than the clock read in the same script.
 - **Rule:** Read the clock in its own call and copy that value into the label; a rule that exists is not a check.
 - **Recurrences:**
   - [INC-0613](../../incidents/INC-0613-a-time-label-was-typed-in-the-same-parallel-batch-of-calls-t.md) - 2026-11-04 - A time label was typed in the same parallel batch of calls that read the clock, so it was written before the clock was seen; the third recurrence
   - [INC-0617](../../incidents/INC-0617-a-ruling-quoted-a-clock-value-that-was-never-read-because-th.md) - 2026-11-04 - A ruling quoted a clock value that was never read, because the write ran in the same parallel batch as the clock call; the fourth recurrence
   - [INC-0619](../../incidents/INC-0619-a-clock-label-slip-recurred-a-fifth-time-and-the-clock-call.md) - 2026-11-04 - A clock label slip recurred a fifth time, and the clock call became the only call in its batch
+  - 2026-11-27 - Again: the clock read and the label append went out as two calls in one parallel batch, so the append ran first and carried an invented time two minutes off. Corrected in place with a note; the append now runs only in the turn after the read has printed.
 
 ### [INC-0624](../../incidents/INC-0624-the-clock-call-ran-alone-in-its-own-message-yet-the-ruling-l.md) - The clock call ran alone in its own message, yet the ruling label was typed from expectation instead of copied from the returned value; the seventh recurrence
 - occurrences 1, severity low, status mitigated

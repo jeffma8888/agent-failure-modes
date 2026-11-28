@@ -6,7 +6,7 @@ classes: [observability]
 severity: low
 status: mitigated
 topic: observability/clock-labels-without-clock-evidence
-occurrences: 4
+occurrences: 5
 ---
 
 # INC-0611 - A time label was written in the same script that read the clock afterwards, minutes after a rule to read the clock first was recorded
@@ -45,11 +45,12 @@ Checked by the person who reported it. Not checked: whether the new rule prevent
 
 ## Recurrences
 
-Occurrences: 4. Repeats of this failure are recorded here instead of as new incidents.
+Occurrences: 5. Repeats of this failure are recorded here instead of as new incidents.
 
 - [INC-0613](./INC-0613-a-time-label-was-typed-in-the-same-parallel-batch-of-calls-t.md) - 2026-11-04 - A time label was typed in the same parallel batch of calls that read the clock, so it was written before the clock was seen; the third recurrence
 - [INC-0617](./INC-0617-a-ruling-quoted-a-clock-value-that-was-never-read-because-th.md) - 2026-11-04 - A ruling quoted a clock value that was never read, because the write ran in the same parallel batch as the clock call; the fourth recurrence
 - [INC-0619](./INC-0619-a-clock-label-slip-recurred-a-fifth-time-and-the-clock-call.md) - 2026-11-04 - A clock label slip recurred a fifth time, and the clock call became the only call in its batch
+- 2026-11-27 - Again: the clock read and the label append went out as two calls in one parallel batch, so the append ran first and carried an invented time two minutes off. Corrected in place with a note; the append now runs only in the turn after the read has printed.
 
 ## Related
 

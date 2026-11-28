@@ -6,7 +6,7 @@
 
 **Rule:** Prove extraction and classification against actual-format records, malformed input and adversarial decoys inside the full failure boundary; require plausible parsed values and the exact intended output evidence before trusting silence or a match.
 
-7 incidents, 9 occurrences. Ordered by occurrences, then severity, then id.
+8 incidents, 10 occurrences. Ordered by occurrences, then severity, then id.
 
 ## Incidents
 
@@ -48,3 +48,8 @@
 - occurrences 1, severity medium, status fixed
 - **Signature:** The legacy list still matched lookalikes.
 - **Rule:** Probe a classifier extension with lookalike negatives
+
+### [INC-0672](../../incidents/INC-0672-a-pre-commit-scrub-kept-its-own-short-pattern-list-so-a-file.md) - A pre-commit scrub kept its own short pattern list, so a file naming a model by its raw identifier was committed and only the post-commit leak guard caught it
+- occurrences 1, severity low, status fixed
+- **Signature:** A file passes the pre-commit scrub and then fails the leak guard on a term the scrub does not list.
+- **Rule:** Make every pre-commit scrub load the leak guard's own pattern source, run it before staging and fail closed when it cannot load; fix a leak found in an unpushed head by amending that head alone, never by a later commit.

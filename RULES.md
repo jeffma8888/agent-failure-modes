@@ -678,6 +678,7 @@ One rule per incident, ordered by severity then id.
 - **[INC-0667 / low]** Before a stage document decides a question, check which stage the governing plan assigns it to; a requirements document states the need and the constraints and leaves a design-assigned question open for the design document.
 - **[INC-0670 / low]** Attach a blocking or advisory tag only to an option in the document's own option list; describe a bad sub-variant inside its option and say it is not this option, and before promoting a variant to an option check whether an equivalent one is already listed.
 - **[INC-0671 / low]** Resolve every cross-reference into a corpus with that corpus's own lookup (check, search or show) and read the record before using the id; never carry an id from one repository's numbering into another unresolved.
+- **[INC-0672 / low]** Make every pre-commit scrub load the leak guard's own pattern source, run it before staging and fail closed when it cannot load; fix a leak found in an unpushed head by amending that head alone, never by a later commit.
 
 ## Practices
 

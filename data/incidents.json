@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "count": 671,
+  "count": 672,
   "classes": {
     "reward-hacking": {
       "what": "The loop optimizes the letter of its reward instead of the goal - Goodhart's law in production. It games its own success signal (ships busywork, self-reports success, satisfies a metric that no longer measures value).",
@@ -16185,9 +16185,14 @@
       "topic": "observability/clock-labels-without-clock-evidence",
       "severity": "low",
       "status": "mitigated",
-      "occurrences": 4,
+      "occurrences": 5,
       "recurrence_of": null,
-      "recurrences": [],
+      "recurrences": [
+        {
+          "date": "2026-11-27",
+          "note": "Again: the clock read and the label append went out as two calls in one parallel batch, so the append ran first and carried an invented time two minutes off. Corrected in place with a note; the append now runs only in the turn after the read has printed."
+        }
+      ],
       "rule": "Read the clock in its own call and copy that value into the label; a rule that exists is not a check.",
       "signature": "A time label is later than the clock read in the same script.",
       "root_cause": "The rule existed but the clock read and the label were in one call, so the label was typed first.",
@@ -17727,6 +17732,33 @@
       "node": "catalog/identity-and-keying/new-id-already-taken.md",
       "related": [
         "INC-0080"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "INC-0672",
+      "title": "A pre-commit scrub kept its own short pattern list, so a file naming a model by its raw identifier was committed and only the post-commit leak guard caught it",
+      "date": "2026-11-27",
+      "classes": [
+        "detector-fail-open"
+      ],
+      "topic": "detector-fail-open/wrong-parser-or-pattern",
+      "severity": "low",
+      "status": "fixed",
+      "occurrences": 1,
+      "recurrence_of": null,
+      "recurrences": [],
+      "rule": "Make every pre-commit scrub load the leak guard's own pattern source, run it before staging and fail closed when it cannot load; fix a leak found in an unpushed head by amending that head alone, never by a later commit.",
+      "signature": "A file passes the pre-commit scrub and then fails the leak guard on a term the scrub does not list.",
+      "root_cause": "Two pattern lists guarded the same boundary: the guard's, kept in the repository, and a shorter hand copy in the lead's scrub, which had drifted from it.",
+      "what": "A reviewer disclosed a model fallback, as asked, but wrote the raw model identifier with its provider prefix twice. The lead's pre-landing scrub checked home paths, user names and dashes from a hand-kept list, not every term the repository's leak guard forbids, so the landing helper copied and committed the file. The post-commit leak guard over the unpushed range then failed with two hits. The commit was still the unpushed head, so the two identifiers were removed (the display name beside each stayed), the commit was amended, and the guard and both checkers re-ran clean.",
+      "file": "incidents/INC-0672-a-pre-commit-scrub-kept-its-own-short-pattern-list-so-a-file.md",
+      "node": "catalog/detector-fail-open/wrong-parser-or-pattern.md",
+      "related": [
+        "INC-0081",
+        "INC-0504",
+        "INC-0364",
+        "INC-0224"
       ],
       "evidence": []
     }
